@@ -27,24 +27,24 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Summary information about dataset contents.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDatasetContentSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679253735"><span id="local-6989586621679253736"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatasetContentSummary"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-var">DatasetContentSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatasetContentSummary%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-var">DatasetContentSummary'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the dataset contents.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Astatus%3ADatasetContentSummary%27"><span class="annot"><span class="annottext">DatasetContentSummary -&gt; Maybe DatasetContentStatus
-</span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3Astatus%3ADatasetContentSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentStatus.html#DatasetContentStatus"><span class="hs-identifier hs-type">DatasetContentStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The actual time the creation of the dataset contents was started.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcreationTime%3ADatasetContentSummary%27"><span class="annot"><span class="annottext">DatasetContentSummary -&gt; Maybe POSIX
+</span><span id="line-30"></span><span id="local-6989586621679253937"><span id="local-6989586621679253938"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatasetContentSummary"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-var">DatasetContentSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatasetContentSummary%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-var">DatasetContentSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The actual time the creation of the dataset contents was started.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcreationTime%3ADatasetContentSummary%27"><span class="annot"><span class="annottext">DatasetContentSummary -&gt; Maybe POSIX
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3AcreationTime%3ADatasetContentSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time the dataset content status was updated to SUCCEEDED or FAILED.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcompletionTime%3ADatasetContentSummary%27"><span class="annot"><span class="annottext">DatasetContentSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3AcompletionTime%3ADatasetContentSummary%27"><span class="hs-identifier hs-var hs-var">completionTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The time the creation of the dataset contents was scheduled to start.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AscheduleTime%3ADatasetContentSummary%27"><span class="annot"><span class="annottext">DatasetContentSummary -&gt; Maybe POSIX
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The status of the dataset contents.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3ADatasetContentSummary%27"><span class="annot"><span class="annottext">DatasetContentSummary -&gt; Maybe DatasetContentStatus
+</span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3Astatus%3ADatasetContentSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentStatus.html#DatasetContentStatus"><span class="hs-identifier hs-type">DatasetContentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time the creation of the dataset contents was scheduled to start.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AscheduleTime%3ADatasetContentSummary%27"><span class="annot"><span class="annottext">DatasetContentSummary -&gt; Maybe POSIX
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3AscheduleTime%3ADatasetContentSummary%27"><span class="hs-identifier hs-var hs-var">scheduleTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The time the dataset content status was updated to SUCCEEDED or FAILED.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcompletionTime%3ADatasetContentSummary%27"><span class="annot"><span class="annottext">DatasetContentSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3AcompletionTime%3ADatasetContentSummary%27"><span class="hs-identifier hs-var hs-var">completionTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The version of the dataset contents.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Aversion%3ADatasetContentSummary%27"><span class="annot"><span class="annottext">DatasetContentSummary -&gt; Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3Aversion%3ADatasetContentSummary%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253725"><span id="local-6989586621679253727"><span class="annot"><span class="annottext">DatasetContentSummary -&gt; DatasetContentSummary -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253927"><span id="local-6989586621679253929"><span class="annot"><span class="annottext">DatasetContentSummary -&gt; DatasetContentSummary -&gt; Bool
 (DatasetContentSummary -&gt; DatasetContentSummary -&gt; Bool)
 -&gt; (DatasetContentSummary -&gt; DatasetContentSummary -&gt; Bool)
 -&gt; Eq DatasetContentSummary
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DatasetContentSummary -&gt; DatasetContentSummary -&gt; Bool
 == :: DatasetContentSummary -&gt; DatasetContentSummary -&gt; Bool
 $c== :: DatasetContentSummary -&gt; DatasetContentSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253716"><span id="local-6989586621679253718"><span id="local-6989586621679253720"><span id="local-6989586621679253722"><span class="annot"><span class="annottext">ReadPrec [DatasetContentSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253918"><span id="local-6989586621679253920"><span id="local-6989586621679253922"><span id="local-6989586621679253924"><span class="annot"><span class="annottext">ReadPrec [DatasetContentSummary]
 ReadPrec DatasetContentSummary
 Int -&gt; ReadS DatasetContentSummary
 ReadS [DatasetContentSummary]
@@ -73,7 +73,7 @@ readList :: ReadS [DatasetContentSummary]
 $creadList :: ReadS [DatasetContentSummary]
 readsPrec :: Int -&gt; ReadS DatasetContentSummary
 $creadsPrec :: Int -&gt; ReadS DatasetContentSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253709"><span id="local-6989586621679253711"><span id="local-6989586621679253713"><span class="annot"><span class="annottext">Int -&gt; DatasetContentSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253911"><span id="local-6989586621679253913"><span id="local-6989586621679253915"><span class="annot"><span class="annottext">Int -&gt; DatasetContentSummary -&gt; ShowS
 [DatasetContentSummary] -&gt; ShowS
 DatasetContentSummary -&gt; String
 (Int -&gt; DatasetContentSummary -&gt; ShowS)
@@ -107,51 +107,90 @@ $cfrom :: forall x. DatasetContentSummary -&gt; Rep DatasetContentSummary x
 </span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'status', 'datasetContentSummary_status' - The status of the dataset contents.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'creationTime', 'datasetContentSummary_creationTime' - The actual time the creation of the dataset contents was started.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'creationTime', 'datasetContentSummary_creationTime' - The actual time the creation of the dataset contents was started.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'status', 'datasetContentSummary_status' - The status of the dataset contents.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'completionTime', 'datasetContentSummary_completionTime' - The time the dataset content status was updated to SUCCEEDED or FAILED.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'scheduleTime', 'datasetContentSummary_scheduleTime' - The time the creation of the dataset contents was scheduled to start.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'scheduleTime', 'datasetContentSummary_scheduleTime' - The time the creation of the dataset contents was scheduled to start.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'completionTime', 'datasetContentSummary_completionTime' - The time the dataset content status was updated to SUCCEEDED or FAILED.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- 'version', 'datasetContentSummary_version' - The version of the dataset contents.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#newDatasetContentSummary"><span class="hs-identifier hs-type">newDatasetContentSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span>
 </span><span id="line-63"></span><span id="newDatasetContentSummary"><span class="annot"><span class="annottext">newDatasetContentSummary :: DatasetContentSummary
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#newDatasetContentSummary"><span class="hs-identifier hs-var hs-var">newDatasetContentSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">DatasetContentSummary' :: Maybe DatasetContentStatus
--&gt; Maybe POSIX
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">DatasetContentSummary' :: Maybe POSIX
+-&gt; Maybe DatasetContentStatus
 -&gt; Maybe POSIX
 -&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; DatasetContentSummary
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:DatasetContentSummary' :: Maybe DatasetContentStatus
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:DatasetContentSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3AcreationTime%3ADatasetContentSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DatasetContentSummary' :: Maybe DatasetContentStatus
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3Astatus%3ADatasetContentSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetContentStatus
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTime:DatasetContentSummary' :: Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3AcreationTime%3ADatasetContentSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:completionTime:DatasetContentSummary' :: Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3AcompletionTime%3ADatasetContentSummary%27"><span class="hs-identifier hs-var">completionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduleTime:DatasetContentSummary' :: Maybe POSIX
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3AscheduleTime%3ADatasetContentSummary%27"><span class="hs-identifier hs-var">scheduleTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:DatasetContentSummary' :: Maybe Text
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:completionTime:DatasetContentSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3AcompletionTime%3ADatasetContentSummary%27"><span class="hs-identifier hs-var">completionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:DatasetContentSummary' :: Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3Aversion%3ADatasetContentSummary%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The status of the dataset contents.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_status"><span class="hs-identifier hs-type">datasetContentSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentStatus.html#DatasetContentStatus"><span class="hs-identifier hs-type">DatasetContentStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="datasetContentSummary_status"><span class="annot"><span class="annottext">datasetContentSummary_status :: (Maybe DatasetContentStatus -&gt; f (Maybe DatasetContentStatus))
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The actual time the creation of the dataset contents was started.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_creationTime"><span class="hs-identifier hs-type">datasetContentSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="datasetContentSummary_creationTime"><span class="annot"><span class="annottext">datasetContentSummary_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatasetContentSummary -&gt; f DatasetContentSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_creationTime"><span class="hs-identifier hs-var hs-var">datasetContentSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetContentSummary -&gt; Maybe POSIX)
+-&gt; (DatasetContentSummary -&gt; Maybe POSIX -&gt; DatasetContentSummary)
+-&gt; Lens
+     DatasetContentSummary
+     DatasetContentSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253902"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:DatasetContentSummary' :: DatasetContentSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679253902"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679253902"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253901"><span class="annot"><span class="annottext">s :: DatasetContentSummary
+</span><a href="#local-6989586621679253901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253900"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679253900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetContentSummary
+</span><a href="#local-6989586621679253901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DatasetContentSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3AcreationTime%3ADatasetContentSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679253900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DatasetContentSummary -&gt; f DatasetContentSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatasetContentSummary
+-&gt; f DatasetContentSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The status of the dataset contents.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_status"><span class="hs-identifier hs-type">datasetContentSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentStatus.html#DatasetContentStatus"><span class="hs-identifier hs-type">DatasetContentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="datasetContentSummary_status"><span class="annot"><span class="annottext">datasetContentSummary_status :: (Maybe DatasetContentStatus -&gt; f (Maybe DatasetContentStatus))
 -&gt; DatasetContentSummary -&gt; f DatasetContentSummary
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_status"><span class="hs-identifier hs-var hs-var">datasetContentSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetContentSummary -&gt; Maybe DatasetContentStatus)
 -&gt; (DatasetContentSummary
@@ -162,96 +201,20 @@ forall a. Maybe a
      (Maybe DatasetContentStatus)
      (Maybe DatasetContentStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253700"><span class="annot"><span class="annottext">Maybe DatasetContentStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253895"><span class="annot"><span class="annottext">Maybe DatasetContentStatus
 status :: Maybe DatasetContentStatus
 $sel:status:DatasetContentSummary' :: DatasetContentSummary -&gt; Maybe DatasetContentStatus
-</span><a href="#local-6989586621679253700"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetContentStatus
-</span><a href="#local-6989586621679253700"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253699"><span class="annot"><span class="annottext">s :: DatasetContentSummary
-</span><a href="#local-6989586621679253699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253698"><span class="annot"><span class="annottext">Maybe DatasetContentStatus
-</span><a href="#local-6989586621679253698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetContentSummary
-</span><a href="#local-6989586621679253699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DatasetContentSummary' :: Maybe DatasetContentStatus
+</span><a href="#local-6989586621679253895"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetContentStatus
+</span><a href="#local-6989586621679253895"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253894"><span class="annot"><span class="annottext">s :: DatasetContentSummary
+</span><a href="#local-6989586621679253894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253893"><span class="annot"><span class="annottext">Maybe DatasetContentStatus
+</span><a href="#local-6989586621679253893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetContentSummary
+</span><a href="#local-6989586621679253894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DatasetContentSummary' :: Maybe DatasetContentStatus
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3Astatus%3ADatasetContentSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetContentStatus
-</span><a href="#local-6989586621679253698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The actual time the creation of the dataset contents was started.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_creationTime"><span class="hs-identifier hs-type">datasetContentSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="datasetContentSummary_creationTime"><span class="annot"><span class="annottext">datasetContentSummary_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; DatasetContentSummary -&gt; f DatasetContentSummary
-</span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_creationTime"><span class="hs-identifier hs-var hs-var">datasetContentSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetContentSummary -&gt; Maybe POSIX)
--&gt; (DatasetContentSummary -&gt; Maybe POSIX -&gt; DatasetContentSummary)
--&gt; Lens
-     DatasetContentSummary
-     DatasetContentSummary
-     (Maybe POSIX)
-     (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253696"><span class="annot"><span class="annottext">Maybe POSIX
-creationTime :: Maybe POSIX
-$sel:creationTime:DatasetContentSummary' :: DatasetContentSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679253696"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679253696"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253695"><span class="annot"><span class="annottext">s :: DatasetContentSummary
-</span><a href="#local-6989586621679253695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253694"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679253694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetContentSummary
-</span><a href="#local-6989586621679253695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DatasetContentSummary' :: Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3AcreationTime%3ADatasetContentSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679253694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; DatasetContentSummary -&gt; f DatasetContentSummary)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; DatasetContentSummary
--&gt; f DatasetContentSummary
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The time the dataset content status was updated to SUCCEEDED or FAILED.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_completionTime"><span class="hs-identifier hs-type">datasetContentSummary_completionTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="datasetContentSummary_completionTime"><span class="annot"><span class="annottext">datasetContentSummary_completionTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; DatasetContentSummary -&gt; f DatasetContentSummary
-</span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_completionTime"><span class="hs-identifier hs-var hs-var">datasetContentSummary_completionTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetContentSummary -&gt; Maybe POSIX)
--&gt; (DatasetContentSummary -&gt; Maybe POSIX -&gt; DatasetContentSummary)
--&gt; Lens
-     DatasetContentSummary
-     DatasetContentSummary
-     (Maybe POSIX)
-     (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253689"><span class="annot"><span class="annottext">Maybe POSIX
-completionTime :: Maybe POSIX
-$sel:completionTime:DatasetContentSummary' :: DatasetContentSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679253689"><span class="hs-identifier hs-var hs-var">completionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679253689"><span class="hs-identifier hs-var">completionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253688"><span class="annot"><span class="annottext">s :: DatasetContentSummary
-</span><a href="#local-6989586621679253688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253687"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679253687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetContentSummary
-</span><a href="#local-6989586621679253688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completionTime:DatasetContentSummary' :: Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3AcompletionTime%3ADatasetContentSummary%27"><span class="hs-identifier hs-var">completionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679253687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; DatasetContentSummary -&gt; f DatasetContentSummary)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; DatasetContentSummary
--&gt; f DatasetContentSummary
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The time the creation of the dataset contents was scheduled to start.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_scheduleTime"><span class="hs-identifier hs-type">datasetContentSummary_scheduleTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="datasetContentSummary_scheduleTime"><span class="annot"><span class="annottext">datasetContentSummary_scheduleTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679253893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The time the creation of the dataset contents was scheduled to start.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_scheduleTime"><span class="hs-identifier hs-type">datasetContentSummary_scheduleTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="datasetContentSummary_scheduleTime"><span class="annot"><span class="annottext">datasetContentSummary_scheduleTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; DatasetContentSummary -&gt; f DatasetContentSummary
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_scheduleTime"><span class="hs-identifier hs-var hs-var">datasetContentSummary_scheduleTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetContentSummary -&gt; Maybe POSIX)
 -&gt; (DatasetContentSummary -&gt; Maybe POSIX -&gt; DatasetContentSummary)
@@ -261,16 +224,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253685"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253891"><span class="annot"><span class="annottext">Maybe POSIX
 scheduleTime :: Maybe POSIX
 $sel:scheduleTime:DatasetContentSummary' :: DatasetContentSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679253685"><span class="hs-identifier hs-var hs-var">scheduleTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679253685"><span class="hs-identifier hs-var">scheduleTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253684"><span class="annot"><span class="annottext">s :: DatasetContentSummary
-</span><a href="#local-6989586621679253684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253683"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679253683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetContentSummary
-</span><a href="#local-6989586621679253684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleTime:DatasetContentSummary' :: Maybe POSIX
+</span><a href="#local-6989586621679253891"><span class="hs-identifier hs-var hs-var">scheduleTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679253891"><span class="hs-identifier hs-var">scheduleTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253890"><span class="annot"><span class="annottext">s :: DatasetContentSummary
+</span><a href="#local-6989586621679253890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253889"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679253889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetContentSummary
+</span><a href="#local-6989586621679253890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleTime:DatasetContentSummary' :: Maybe POSIX
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3AscheduleTime%3ADatasetContentSummary%27"><span class="hs-identifier hs-var">scheduleTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679253683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679253889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DatasetContentSummary -&gt; f DatasetContentSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -286,10 +249,48 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The version of the dataset contents.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_version"><span class="hs-identifier hs-type">datasetContentSummary_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="datasetContentSummary_version"><span class="annot"><span class="annottext">datasetContentSummary_version :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The time the dataset content status was updated to SUCCEEDED or FAILED.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_completionTime"><span class="hs-identifier hs-type">datasetContentSummary_completionTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="datasetContentSummary_completionTime"><span class="annot"><span class="annottext">datasetContentSummary_completionTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatasetContentSummary -&gt; f DatasetContentSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_completionTime"><span class="hs-identifier hs-var hs-var">datasetContentSummary_completionTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetContentSummary -&gt; Maybe POSIX)
+-&gt; (DatasetContentSummary -&gt; Maybe POSIX -&gt; DatasetContentSummary)
+-&gt; Lens
+     DatasetContentSummary
+     DatasetContentSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253887"><span class="annot"><span class="annottext">Maybe POSIX
+completionTime :: Maybe POSIX
+$sel:completionTime:DatasetContentSummary' :: DatasetContentSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679253887"><span class="hs-identifier hs-var hs-var">completionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679253887"><span class="hs-identifier hs-var">completionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253886"><span class="annot"><span class="annottext">s :: DatasetContentSummary
+</span><a href="#local-6989586621679253886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253885"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679253885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetContentSummary
+</span><a href="#local-6989586621679253886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completionTime:DatasetContentSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3AcompletionTime%3ADatasetContentSummary%27"><span class="hs-identifier hs-var">completionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679253885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DatasetContentSummary -&gt; f DatasetContentSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatasetContentSummary
+-&gt; f DatasetContentSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The version of the dataset contents.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_version"><span class="hs-identifier hs-type">datasetContentSummary_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="datasetContentSummary_version"><span class="annot"><span class="annottext">datasetContentSummary_version :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DatasetContentSummary -&gt; f DatasetContentSummary
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_version"><span class="hs-identifier hs-var hs-var">datasetContentSummary_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetContentSummary -&gt; Maybe Text)
 -&gt; (DatasetContentSummary -&gt; Maybe Text -&gt; DatasetContentSummary)
@@ -299,101 +300,101 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253681"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253883"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 $sel:version:DatasetContentSummary' :: DatasetContentSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679253681"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253681"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253680"><span class="annot"><span class="annottext">s :: DatasetContentSummary
-</span><a href="#local-6989586621679253680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253679"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetContentSummary
-</span><a href="#local-6989586621679253680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:DatasetContentSummary' :: Maybe Text
+</span><a href="#local-6989586621679253883"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253883"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253882"><span class="annot"><span class="annottext">s :: DatasetContentSummary
+</span><a href="#local-6989586621679253882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-type">DatasetContentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253881"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetContentSummary
+</span><a href="#local-6989586621679253882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:DatasetContentSummary' :: Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#%24sel%3Aversion%3ADatasetContentSummary%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253676"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679253674"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatasetContentSummary
+</span><a href="#local-6989586621679253881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253878"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679253876"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatasetContentSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DatasetContentSummary)
 -&gt; Value
 -&gt; Parser DatasetContentSummary
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DatasetContentSummary&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253671"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253671"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe DatasetContentStatus
--&gt; Maybe POSIX
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253873"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253873"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe DatasetContentStatus
 -&gt; Maybe POSIX
 -&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; DatasetContentSummary
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary%27"><span class="hs-identifier hs-var">DatasetContentSummary'</span></a></span><span>
-</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DatasetContentStatus
- -&gt; Maybe POSIX
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe DatasetContentStatus
  -&gt; Maybe POSIX
  -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; DatasetContentSummary)
--&gt; Parser (Maybe DatasetContentStatus)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe POSIX
+     (Maybe DatasetContentStatus
       -&gt; Maybe POSIX
       -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; DatasetContentSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253671"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DatasetContentStatus)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; DatasetContentSummary)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe Text -&gt; DatasetContentSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253671"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679253873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DatasetContentStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; DatasetContentSummary)
+-&gt; Parser (Maybe DatasetContentStatus)
+-&gt; Parser
+     (Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe Text -&gt; DatasetContentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DatasetContentStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe Text -&gt; DatasetContentSummary)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; DatasetContentSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253671"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679253873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;completionTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; DatasetContentSummary)
+</span><span class="hs-string">&quot;scheduleTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; DatasetContentSummary)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser (Maybe Text -&gt; DatasetContentSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253671"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679253873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;scheduleTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DatasetContentSummary)
+</span><span class="hs-string">&quot;completionTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DatasetContentSummary)
 -&gt; Parser (Maybe Text) -&gt; Parser DatasetContentSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253671"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679253873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253665"><span id="local-6989586621679253667"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span></span></span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253662"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span></span><span>
-</span><span id="line-108"></span></pre></body></html>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253867"><span id="local-6989586621679253869"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253864"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier hs-type">DatasetContentSummary</span></a></span></span><span>
+</span><span id="line-109"></span></pre></body></html>

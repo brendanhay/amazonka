@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Represents the request to get the device, as an administrator.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newAdminGetDevice' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679457525"><span id="local-6989586621679457526"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminGetDevice"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-var">AdminGetDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminGetDevice%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice%27"><span class="hs-identifier hs-var">AdminGetDevice'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679458057"><span id="local-6989586621679458058"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminGetDevice"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-var">AdminGetDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminGetDevice%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice%27"><span class="hs-identifier hs-var">AdminGetDevice'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The device key.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdeviceKey%3AAdminGetDevice%27"><span class="annot"><span class="annottext">AdminGetDevice -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#%24sel%3AdeviceKey%3AAdminGetDevice%27"><span class="hs-identifier hs-var hs-var">deviceKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3Ausername%3AAdminGetDevice%27"><span class="annot"><span class="annottext">AdminGetDevice -&gt; Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#%24sel%3Ausername%3AAdminGetDevice%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679457517"><span id="local-6989586621679457519"><span class="annot"><span class="annottext">AdminGetDevice -&gt; AdminGetDevice -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679458049"><span id="local-6989586621679458051"><span class="annot"><span class="annottext">AdminGetDevice -&gt; AdminGetDevice -&gt; Bool
 (AdminGetDevice -&gt; AdminGetDevice -&gt; Bool)
 -&gt; (AdminGetDevice -&gt; AdminGetDevice -&gt; Bool) -&gt; Eq AdminGetDevice
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AdminGetDevice -&gt; AdminGetDevice -&gt; Bool
 == :: AdminGetDevice -&gt; AdminGetDevice -&gt; Bool
 $c== :: AdminGetDevice -&gt; AdminGetDevice -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679457510"><span id="local-6989586621679457512"><span id="local-6989586621679457514"><span class="annot"><span class="annottext">Int -&gt; AdminGetDevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458042"><span id="local-6989586621679458044"><span id="local-6989586621679458046"><span class="annot"><span class="annottext">Int -&gt; AdminGetDevice -&gt; ShowS
 [AdminGetDevice] -&gt; ShowS
 AdminGetDevice -&gt; String
 (Int -&gt; AdminGetDevice -&gt; ShowS)
@@ -120,18 +120,18 @@ $cfrom :: forall x. AdminGetDevice -&gt; Rep AdminGetDevice x
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span><span>
 </span><span id="line-87"></span><span id="newAdminGetDevice"><span class="annot"><span class="annottext">newAdminGetDevice :: Text -&gt; Text -&gt; Text -&gt; AdminGetDevice
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#newAdminGetDevice"><span class="hs-identifier hs-var hs-var">newAdminGetDevice</span></a></span></span><span> </span><span id="local-6989586621679457505"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457505"><span class="hs-identifier hs-var">pDeviceKey_</span></a></span></span><span> </span><span id="local-6989586621679457504"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457504"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679457503"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457503"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#newAdminGetDevice"><span class="hs-identifier hs-var hs-var">newAdminGetDevice</span></a></span></span><span> </span><span id="local-6989586621679458037"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458037"><span class="hs-identifier hs-var">pDeviceKey_</span></a></span></span><span> </span><span id="local-6989586621679458036"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458036"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679458035"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458035"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">AdminGetDevice' :: Text -&gt; Text -&gt; Sensitive Text -&gt; AdminGetDevice
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice%27"><span class="hs-identifier hs-type">AdminGetDevice'</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceKey:AdminGetDevice' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#%24sel%3AdeviceKey%3AAdminGetDevice%27"><span class="hs-identifier hs-var">deviceKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457505"><span class="hs-identifier hs-var">pDeviceKey_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679458037"><span class="hs-identifier hs-var">pDeviceKey_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPoolId:AdminGetDevice' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#%24sel%3AuserPoolId%3AAdminGetDevice%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457504"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679458036"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:AdminGetDevice' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#%24sel%3Ausername%3AAdminGetDevice%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -141,7 +141,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457503"><span class="hs-identifier hs-var">pUsername_</span></a></span><span>
+</span><a href="#local-6989586621679458035"><span class="hs-identifier hs-var">pUsername_</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The device key.</span><span>
@@ -151,16 +151,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (AdminGetDevice -&gt; Text -&gt; AdminGetDevice)
 -&gt; Lens AdminGetDevice AdminGetDevice Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice%27"><span class="hs-identifier hs-type">AdminGetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457498"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice%27"><span class="hs-identifier hs-type">AdminGetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458030"><span class="annot"><span class="annottext">Text
 deviceKey :: Text
 $sel:deviceKey:AdminGetDevice' :: AdminGetDevice -&gt; Text
-</span><a href="#local-6989586621679457498"><span class="hs-identifier hs-var hs-var">deviceKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457498"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679457497"><span class="annot"><span class="annottext">s :: AdminGetDevice
-</span><a href="#local-6989586621679457497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice%27"><span class="hs-identifier hs-type">AdminGetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679457496"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminGetDevice
-</span><a href="#local-6989586621679457497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceKey:AdminGetDevice' :: Text
+</span><a href="#local-6989586621679458030"><span class="hs-identifier hs-var hs-var">deviceKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458030"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458029"><span class="annot"><span class="annottext">s :: AdminGetDevice
+</span><a href="#local-6989586621679458029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice%27"><span class="hs-identifier hs-type">AdminGetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458028"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminGetDevice
+</span><a href="#local-6989586621679458029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceKey:AdminGetDevice' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#%24sel%3AdeviceKey%3AAdminGetDevice%27"><span class="hs-identifier hs-var">deviceKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The user pool ID.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#adminGetDevice_userPoolId"><span class="hs-identifier hs-type">adminGetDevice_userPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -169,16 +169,16 @@ $sel:deviceKey:AdminGetDevice' :: AdminGetDevice -&gt; Text
 -&gt; (AdminGetDevice -&gt; Text -&gt; AdminGetDevice)
 -&gt; Lens AdminGetDevice AdminGetDevice Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice%27"><span class="hs-identifier hs-type">AdminGetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457495"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice%27"><span class="hs-identifier hs-type">AdminGetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458027"><span class="annot"><span class="annottext">Text
 userPoolId :: Text
 $sel:userPoolId:AdminGetDevice' :: AdminGetDevice -&gt; Text
-</span><a href="#local-6989586621679457495"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457495"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679457494"><span class="annot"><span class="annottext">s :: AdminGetDevice
-</span><a href="#local-6989586621679457494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice%27"><span class="hs-identifier hs-type">AdminGetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679457493"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminGetDevice
-</span><a href="#local-6989586621679457494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:AdminGetDevice' :: Text
+</span><a href="#local-6989586621679458027"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458027"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458026"><span class="annot"><span class="annottext">s :: AdminGetDevice
+</span><a href="#local-6989586621679458026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice%27"><span class="hs-identifier hs-type">AdminGetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458025"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminGetDevice
+</span><a href="#local-6989586621679458026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:AdminGetDevice' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#%24sel%3AuserPoolId%3AAdminGetDevice%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The user name.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#adminGetDevice_username"><span class="hs-identifier hs-type">adminGetDevice_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -188,16 +188,16 @@ $sel:userPoolId:AdminGetDevice' :: AdminGetDevice -&gt; Text
 -&gt; Lens
      AdminGetDevice AdminGetDevice (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice%27"><span class="hs-identifier hs-type">AdminGetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457492"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice%27"><span class="hs-identifier hs-type">AdminGetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458024"><span class="annot"><span class="annottext">Sensitive Text
 username :: Sensitive Text
 $sel:username:AdminGetDevice' :: AdminGetDevice -&gt; Sensitive Text
-</span><a href="#local-6989586621679457492"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679457492"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679457491"><span class="annot"><span class="annottext">s :: AdminGetDevice
-</span><a href="#local-6989586621679457491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice%27"><span class="hs-identifier hs-type">AdminGetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679457490"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679457490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminGetDevice
-</span><a href="#local-6989586621679457491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:AdminGetDevice' :: Sensitive Text
+</span><a href="#local-6989586621679458024"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679458024"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458023"><span class="annot"><span class="annottext">s :: AdminGetDevice
+</span><a href="#local-6989586621679458023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice%27"><span class="hs-identifier hs-type">AdminGetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458022"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679458022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminGetDevice
+</span><a href="#local-6989586621679458023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:AdminGetDevice' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#%24sel%3Ausername%3AAdminGetDevice%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679457490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679458022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; AdminGetDevice -&gt; f AdminGetDevice)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -212,12 +212,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse"><span class="hs-identifier hs-type">AdminGetDeviceResponse</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679457485"><span class="annot"><span class="annottext">request :: AdminGetDevice -&gt; Request AdminGetDevice
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679458017"><span class="annot"><span class="annottext">request :: AdminGetDevice -&gt; Request AdminGetDevice
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AdminGetDevice -&gt; Request AdminGetDevice
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679457481"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679458013"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AdminGetDevice
 -&gt; ClientResponse ClientBody
@@ -241,10 +241,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679457478"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679457478"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679457477"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679457477"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679457476"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679457476"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679458010"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679458010"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679458009"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679458009"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679458008"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679458008"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeviceType -&gt; AdminGetDeviceResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse%27"><span class="hs-identifier hs-var">AdminGetDeviceResponse'</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeviceType -&gt; AdminGetDeviceResponse)
@@ -256,23 +256,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679457478"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458010"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either String (DeviceType -&gt; AdminGetDeviceResponse)
 -&gt; Either String DeviceType -&gt; Either String AdminGetDeviceResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679457476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String DeviceType
+</span><a href="#local-6989586621679458008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String DeviceType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Device&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457468"><span id="local-6989586621679457470"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458000"><span id="local-6989586621679458002"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679457461"><span class="annot"><span class="annottext">toHeaders :: AdminGetDevice -&gt; ResponseHeaders
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679457993"><span class="annot"><span class="annottext">toHeaders :: AdminGetDevice -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AdminGetDevice -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -299,9 +299,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457451"><span id="local-6989586621679457453"><span id="local-6989586621679457455"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679457449"><span class="annot"><span class="annottext">toJSON :: AdminGetDevice -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice%27"><span class="hs-identifier hs-type">AdminGetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457445"><span id="local-6989586621679457446"><span id="local-6989586621679457447"><span class="annot"><span class="annottext">Text
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457983"><span id="local-6989586621679457985"><span id="local-6989586621679457987"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679457981"><span class="annot"><span class="annottext">toJSON :: AdminGetDevice -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice%27"><span class="hs-identifier hs-type">AdminGetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457977"><span id="local-6989586621679457978"><span id="local-6989586621679457979"><span class="annot"><span class="annottext">Text
 Sensitive Text
 username :: Sensitive Text
 userPoolId :: Text
@@ -309,7 +309,7 @@ deviceKey :: Text
 $sel:username:AdminGetDevice' :: AdminGetDevice -&gt; Sensitive Text
 $sel:userPoolId:AdminGetDevice' :: AdminGetDevice -&gt; Text
 $sel:deviceKey:AdminGetDevice' :: AdminGetDevice -&gt; Text
-</span><a href="#local-6989586621679457445"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679457977"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -321,33 +321,33 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DeviceKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457447"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679457979"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457446"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679457978"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679457445"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679457977"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679457439"><span class="annot"><span class="annottext">toPath :: AdminGetDevice -&gt; ByteString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679457971"><span class="annot"><span class="annottext">toPath :: AdminGetDevice -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AdminGetDevice -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDevice"><span class="hs-identifier hs-type">AdminGetDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679457435"><span class="annot"><span class="annottext">toQuery :: AdminGetDevice -&gt; QueryString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679457967"><span class="annot"><span class="annottext">toQuery :: AdminGetDevice -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AdminGetDevice -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -357,7 +357,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-154"></span><span class="hs-comment">-- | Gets the device response, as an administrator.</span><span>
 </span><span id="line-155"></span><span class="hs-comment">--</span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- /See:/ 'newAdminGetDeviceResponse' smart constructor.</span><span>
-</span><span id="line-157"></span><span id="local-6989586621679457432"><span id="local-6989586621679457433"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminGetDeviceResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse"><span class="hs-identifier hs-var">AdminGetDeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminGetDeviceResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse%27"><span class="hs-identifier hs-var">AdminGetDeviceResponse'</span></a></span></span><span>
+</span><span id="line-157"></span><span id="local-6989586621679457964"><span id="local-6989586621679457965"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminGetDeviceResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse"><span class="hs-identifier hs-var">AdminGetDeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminGetDeviceResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse%27"><span class="hs-identifier hs-var">AdminGetDeviceResponse'</span></a></span></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-159"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAdminGetDeviceResponse%27"><span class="annot"><span class="annottext">AdminGetDeviceResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#%24sel%3AhttpStatus%3AAdminGetDeviceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -365,7 +365,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-161"></span><span>    </span><span id="%24sel%3Adevice%3AAdminGetDeviceResponse%27"><span class="annot"><span class="annottext">AdminGetDeviceResponse -&gt; DeviceType
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#%24sel%3Adevice%3AAdminGetDeviceResponse%27"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679457426"><span id="local-6989586621679457428"><span class="annot"><span class="annottext">AdminGetDeviceResponse -&gt; AdminGetDeviceResponse -&gt; Bool
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679457958"><span id="local-6989586621679457960"><span class="annot"><span class="annottext">AdminGetDeviceResponse -&gt; AdminGetDeviceResponse -&gt; Bool
 (AdminGetDeviceResponse -&gt; AdminGetDeviceResponse -&gt; Bool)
 -&gt; (AdminGetDeviceResponse -&gt; AdminGetDeviceResponse -&gt; Bool)
 -&gt; Eq AdminGetDeviceResponse
@@ -374,7 +374,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AdminGetDeviceResponse -&gt; AdminGetDeviceResponse -&gt; Bool
 == :: AdminGetDeviceResponse -&gt; AdminGetDeviceResponse -&gt; Bool
 $c== :: AdminGetDeviceResponse -&gt; AdminGetDeviceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679457420"><span id="local-6989586621679457422"><span id="local-6989586621679457424"><span class="annot"><span class="annottext">Int -&gt; AdminGetDeviceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679457952"><span id="local-6989586621679457954"><span id="local-6989586621679457956"><span class="annot"><span class="annottext">Int -&gt; AdminGetDeviceResponse -&gt; ShowS
 [AdminGetDeviceResponse] -&gt; ShowS
 AdminGetDeviceResponse -&gt; String
 (Int -&gt; AdminGetDeviceResponse -&gt; ShowS)
@@ -419,17 +419,17 @@ $cfrom :: forall x. AdminGetDeviceResponse -&gt; Rep AdminGetDeviceResponse x
 </span><span id="line-180"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse"><span class="hs-identifier hs-type">AdminGetDeviceResponse</span></a></span><span>
 </span><span id="line-182"></span><span id="newAdminGetDeviceResponse"><span class="annot"><span class="annottext">newAdminGetDeviceResponse :: Int -&gt; DeviceType -&gt; AdminGetDeviceResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#newAdminGetDeviceResponse"><span class="hs-identifier hs-var hs-var">newAdminGetDeviceResponse</span></a></span></span><span> </span><span id="local-6989586621679457417"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679457417"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679457416"><span class="annot"><span class="annottext">DeviceType
-</span><a href="#local-6989586621679457416"><span class="hs-identifier hs-var">pDevice_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#newAdminGetDeviceResponse"><span class="hs-identifier hs-var hs-var">newAdminGetDeviceResponse</span></a></span></span><span> </span><span id="local-6989586621679457949"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679457949"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679457948"><span class="annot"><span class="annottext">DeviceType
+</span><a href="#local-6989586621679457948"><span class="hs-identifier hs-var">pDevice_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">AdminGetDeviceResponse' :: Int -&gt; DeviceType -&gt; AdminGetDeviceResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse%27"><span class="hs-identifier hs-type">AdminGetDeviceResponse'</span></a></span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AdminGetDeviceResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#%24sel%3AhttpStatus%3AAdminGetDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679457417"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679457949"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:device:AdminGetDeviceResponse' :: DeviceType
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#%24sel%3Adevice%3AAdminGetDeviceResponse%27"><span class="hs-identifier hs-var">device</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeviceType
-</span><a href="#local-6989586621679457416"><span class="hs-identifier hs-var">pDevice_</span></a></span><span>
+</span><a href="#local-6989586621679457948"><span class="hs-identifier hs-var">pDevice_</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -440,16 +440,16 @@ $cfrom :: forall x. AdminGetDeviceResponse -&gt; Rep AdminGetDeviceResponse x
 -&gt; (AdminGetDeviceResponse -&gt; Int -&gt; AdminGetDeviceResponse)
 -&gt; Lens AdminGetDeviceResponse AdminGetDeviceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse%27"><span class="hs-identifier hs-type">AdminGetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457415"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse%27"><span class="hs-identifier hs-type">AdminGetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457947"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AdminGetDeviceResponse' :: AdminGetDeviceResponse -&gt; Int
-</span><a href="#local-6989586621679457415"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679457415"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679457414"><span class="annot"><span class="annottext">s :: AdminGetDeviceResponse
-</span><a href="#local-6989586621679457414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse%27"><span class="hs-identifier hs-type">AdminGetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679457413"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679457413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminGetDeviceResponse
-</span><a href="#local-6989586621679457414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AdminGetDeviceResponse' :: Int
+</span><a href="#local-6989586621679457947"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679457947"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679457946"><span class="annot"><span class="annottext">s :: AdminGetDeviceResponse
+</span><a href="#local-6989586621679457946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse%27"><span class="hs-identifier hs-type">AdminGetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679457945"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679457945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminGetDeviceResponse
+</span><a href="#local-6989586621679457946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AdminGetDeviceResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#%24sel%3AhttpStatus%3AAdminGetDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679457413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse"><span class="hs-identifier hs-type">AdminGetDeviceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679457945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse"><span class="hs-identifier hs-type">AdminGetDeviceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | The device.</span><span>
 </span><span id="line-193"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#adminGetDeviceResponse_device"><span class="hs-identifier hs-type">adminGetDeviceResponse_device</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse"><span class="hs-identifier hs-type">AdminGetDeviceResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span>
@@ -460,16 +460,16 @@ $sel:httpStatus:AdminGetDeviceResponse' :: AdminGetDeviceResponse -&gt; Int
 -&gt; Lens
      AdminGetDeviceResponse AdminGetDeviceResponse DeviceType DeviceType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse%27"><span class="hs-identifier hs-type">AdminGetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457412"><span class="annot"><span class="annottext">DeviceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse%27"><span class="hs-identifier hs-type">AdminGetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457944"><span class="annot"><span class="annottext">DeviceType
 device :: DeviceType
 $sel:device:AdminGetDeviceResponse' :: AdminGetDeviceResponse -&gt; DeviceType
-</span><a href="#local-6989586621679457412"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceType
-</span><a href="#local-6989586621679457412"><span class="hs-identifier hs-var">device</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679457411"><span class="annot"><span class="annottext">s :: AdminGetDeviceResponse
-</span><a href="#local-6989586621679457411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse%27"><span class="hs-identifier hs-type">AdminGetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679457410"><span class="annot"><span class="annottext">DeviceType
-</span><a href="#local-6989586621679457410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminGetDeviceResponse
-</span><a href="#local-6989586621679457411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:device:AdminGetDeviceResponse' :: DeviceType
+</span><a href="#local-6989586621679457944"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceType
+</span><a href="#local-6989586621679457944"><span class="hs-identifier hs-var">device</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679457943"><span class="annot"><span class="annottext">s :: AdminGetDeviceResponse
+</span><a href="#local-6989586621679457943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse%27"><span class="hs-identifier hs-type">AdminGetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679457942"><span class="annot"><span class="annottext">DeviceType
+</span><a href="#local-6989586621679457942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminGetDeviceResponse
+</span><a href="#local-6989586621679457943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:device:AdminGetDeviceResponse' :: DeviceType
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#%24sel%3Adevice%3AAdminGetDeviceResponse%27"><span class="hs-identifier hs-var">device</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeviceType
-</span><a href="#local-6989586621679457410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse"><span class="hs-identifier hs-type">AdminGetDeviceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679457942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse"><span class="hs-identifier hs-type">AdminGetDeviceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457408"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse"><span class="hs-identifier hs-type">AdminGetDeviceResponse</span></a></span></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457940"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminGetDevice.html#AdminGetDeviceResponse"><span class="hs-identifier hs-type">AdminGetDeviceResponse</span></a></span></span><span>
 </span><span id="line-197"></span></pre></body></html>

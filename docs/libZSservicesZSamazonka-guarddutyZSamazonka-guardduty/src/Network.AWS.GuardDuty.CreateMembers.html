@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newCreateMembers' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679313639"><span id="local-6989586621679313640"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateMembers"><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-var">CreateMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateMembers%27"><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers%27"><span class="hs-identifier hs-var">CreateMembers'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679313980"><span id="local-6989586621679313981"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateMembers"><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-var">CreateMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateMembers%27"><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers%27"><span class="hs-identifier hs-var">CreateMembers'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the detector of the GuardDuty account that you want to</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- associate member accounts with.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AdetectorId%3ACreateMembers%27"><span class="annot"><span class="annottext">CreateMembers -&gt; Text
@@ -71,7 +71,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AaccountDetails%3ACreateMembers%27"><span class="annot"><span class="annottext">CreateMembers -&gt; NonEmpty AccountDetail
 </span><a href="Network.AWS.GuardDuty.CreateMembers.html#%24sel%3AaccountDetails%3ACreateMembers%27"><span class="hs-identifier hs-var hs-var">accountDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail"><span class="hs-identifier hs-type">AccountDetail</span></a></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313632"><span id="local-6989586621679313634"><span class="annot"><span class="annottext">CreateMembers -&gt; CreateMembers -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313973"><span id="local-6989586621679313975"><span class="annot"><span class="annottext">CreateMembers -&gt; CreateMembers -&gt; Bool
 (CreateMembers -&gt; CreateMembers -&gt; Bool)
 -&gt; (CreateMembers -&gt; CreateMembers -&gt; Bool) -&gt; Eq CreateMembers
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateMembers -&gt; CreateMembers -&gt; Bool
 == :: CreateMembers -&gt; CreateMembers -&gt; Bool
 $c== :: CreateMembers -&gt; CreateMembers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313623"><span id="local-6989586621679313625"><span id="local-6989586621679313627"><span id="local-6989586621679313629"><span class="annot"><span class="annottext">ReadPrec [CreateMembers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313964"><span id="local-6989586621679313966"><span id="local-6989586621679313968"><span id="local-6989586621679313970"><span class="annot"><span class="annottext">ReadPrec [CreateMembers]
 ReadPrec CreateMembers
 Int -&gt; ReadS CreateMembers
 ReadS [CreateMembers]
@@ -99,7 +99,7 @@ readList :: ReadS [CreateMembers]
 $creadList :: ReadS [CreateMembers]
 readsPrec :: Int -&gt; ReadS CreateMembers
 $creadsPrec :: Int -&gt; ReadS CreateMembers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313616"><span id="local-6989586621679313618"><span id="local-6989586621679313620"><span class="annot"><span class="annottext">Int -&gt; CreateMembers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313957"><span id="local-6989586621679313959"><span id="local-6989586621679313961"><span class="annot"><span class="annottext">Int -&gt; CreateMembers -&gt; ShowS
 [CreateMembers] -&gt; ShowS
 CreateMembers -&gt; String
 (Int -&gt; CreateMembers -&gt; ShowS)
@@ -145,28 +145,28 @@ $cfrom :: forall x. CreateMembers -&gt; Rep CreateMembers x
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail"><span class="hs-identifier hs-type">AccountDetail</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-type">CreateMembers</span></a></span><span>
 </span><span id="line-93"></span><span id="newCreateMembers"><span class="annot"><span class="annottext">newCreateMembers :: Text -&gt; NonEmpty AccountDetail -&gt; CreateMembers
-</span><a href="Network.AWS.GuardDuty.CreateMembers.html#newCreateMembers"><span class="hs-identifier hs-var hs-var">newCreateMembers</span></a></span></span><span> </span><span id="local-6989586621679313611"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313611"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span id="local-6989586621679313610"><span class="annot"><span class="annottext">NonEmpty AccountDetail
-</span><a href="#local-6989586621679313610"><span class="hs-identifier hs-var">pAccountDetails_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.CreateMembers.html#newCreateMembers"><span class="hs-identifier hs-var hs-var">newCreateMembers</span></a></span></span><span> </span><span id="local-6989586621679313952"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313952"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span id="local-6989586621679313951"><span class="annot"><span class="annottext">NonEmpty AccountDetail
+</span><a href="#local-6989586621679313951"><span class="hs-identifier hs-var">pAccountDetails_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">CreateMembers' :: Text -&gt; NonEmpty AccountDetail -&gt; CreateMembers
 </span><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers%27"><span class="hs-identifier hs-type">CreateMembers'</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detectorId:CreateMembers' :: Text
 </span><a href="Network.AWS.GuardDuty.CreateMembers.html#%24sel%3AdetectorId%3ACreateMembers%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313611"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313952"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountDetails:CreateMembers' :: NonEmpty AccountDetail
 </span><a href="Network.AWS.GuardDuty.CreateMembers.html#%24sel%3AaccountDetails%3ACreateMembers%27"><span class="hs-identifier hs-var">accountDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty AccountDetail) (Identity (NonEmpty AccountDetail))
 -&gt; Tagged
      (NonEmpty AccountDetail) (Identity (NonEmpty AccountDetail))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
    (NonEmpty AccountDetail) (Identity (NonEmpty AccountDetail))
  -&gt; Tagged
       (NonEmpty AccountDetail) (Identity (NonEmpty AccountDetail)))
 -&gt; NonEmpty AccountDetail -&gt; NonEmpty AccountDetail
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty AccountDetail
-</span><a href="#local-6989586621679313610"><span class="hs-identifier hs-var">pAccountDetails_</span></a></span><span>
+</span><a href="#local-6989586621679313951"><span class="hs-identifier hs-var">pAccountDetails_</span></a></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The unique ID of the detector of the GuardDuty account that you want to</span><span>
@@ -177,16 +177,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (CreateMembers -&gt; Text -&gt; CreateMembers)
 -&gt; Lens CreateMembers CreateMembers Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers%27"><span class="hs-identifier hs-type">CreateMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313605"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers%27"><span class="hs-identifier hs-type">CreateMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313946"><span class="annot"><span class="annottext">Text
 detectorId :: Text
 $sel:detectorId:CreateMembers' :: CreateMembers -&gt; Text
-</span><a href="#local-6989586621679313605"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313605"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313604"><span class="annot"><span class="annottext">s :: CreateMembers
-</span><a href="#local-6989586621679313604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers%27"><span class="hs-identifier hs-type">CreateMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313603"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMembers
-</span><a href="#local-6989586621679313604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:CreateMembers' :: Text
+</span><a href="#local-6989586621679313946"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313946"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313945"><span class="annot"><span class="annottext">s :: CreateMembers
+</span><a href="#local-6989586621679313945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers%27"><span class="hs-identifier hs-type">CreateMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313944"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMembers
+</span><a href="#local-6989586621679313945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:CreateMembers' :: Text
 </span><a href="Network.AWS.GuardDuty.CreateMembers.html#%24sel%3AdetectorId%3ACreateMembers%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-type">CreateMembers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-type">CreateMembers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | A list of account ID and email address pairs of the accounts that you</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- want to associate with the GuardDuty administrator account.</span><span>
@@ -201,16 +201,16 @@ $sel:detectorId:CreateMembers' :: CreateMembers -&gt; Text
      (NonEmpty AccountDetail)
      (NonEmpty AccountDetail)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers%27"><span class="hs-identifier hs-type">CreateMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313602"><span class="annot"><span class="annottext">NonEmpty AccountDetail
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers%27"><span class="hs-identifier hs-type">CreateMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313943"><span class="annot"><span class="annottext">NonEmpty AccountDetail
 accountDetails :: NonEmpty AccountDetail
 $sel:accountDetails:CreateMembers' :: CreateMembers -&gt; NonEmpty AccountDetail
-</span><a href="#local-6989586621679313602"><span class="hs-identifier hs-var hs-var">accountDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty AccountDetail
-</span><a href="#local-6989586621679313602"><span class="hs-identifier hs-var">accountDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313601"><span class="annot"><span class="annottext">s :: CreateMembers
-</span><a href="#local-6989586621679313601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers%27"><span class="hs-identifier hs-type">CreateMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313600"><span class="annot"><span class="annottext">NonEmpty AccountDetail
-</span><a href="#local-6989586621679313600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMembers
-</span><a href="#local-6989586621679313601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountDetails:CreateMembers' :: NonEmpty AccountDetail
+</span><a href="#local-6989586621679313943"><span class="hs-identifier hs-var hs-var">accountDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty AccountDetail
+</span><a href="#local-6989586621679313943"><span class="hs-identifier hs-var">accountDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313942"><span class="annot"><span class="annottext">s :: CreateMembers
+</span><a href="#local-6989586621679313942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers%27"><span class="hs-identifier hs-type">CreateMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313941"><span class="annot"><span class="annottext">NonEmpty AccountDetail
+</span><a href="#local-6989586621679313941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMembers
+</span><a href="#local-6989586621679313942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountDetails:CreateMembers' :: NonEmpty AccountDetail
 </span><a href="Network.AWS.GuardDuty.CreateMembers.html#%24sel%3AaccountDetails%3ACreateMembers%27"><span class="hs-identifier hs-var">accountDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty AccountDetail
-</span><a href="#local-6989586621679313600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-type">CreateMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty AccountDetail -&gt; f (NonEmpty AccountDetail))
+</span><a href="#local-6989586621679313941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-type">CreateMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty AccountDetail -&gt; f (NonEmpty AccountDetail))
  -&gt; CreateMembers -&gt; f CreateMembers)
 -&gt; ((NonEmpty AccountDetail -&gt; f (NonEmpty AccountDetail))
     -&gt; NonEmpty AccountDetail -&gt; f (NonEmpty AccountDetail))
@@ -220,19 +220,19 @@ $sel:accountDetails:CreateMembers' :: CreateMembers -&gt; NonEmpty AccountDetail
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty AccountDetail -&gt; f (NonEmpty AccountDetail))
 -&gt; NonEmpty AccountDetail -&gt; f (NonEmpty AccountDetail)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-type">CreateMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-type">CreateMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse"><span class="hs-identifier hs-type">CreateMembersResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679313595"><span class="annot"><span class="annottext">request :: CreateMembers -&gt; Request CreateMembers
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679313936"><span class="annot"><span class="annottext">request :: CreateMembers -&gt; Request CreateMembers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateMembers -&gt; Request CreateMembers
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679313591"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679313932"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateMembers
 -&gt; ClientResponse ClientBody
@@ -256,10 +256,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313588"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313588"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313587"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679313587"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313586"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313586"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313929"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313929"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313928"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679313928"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313927"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313927"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; [UnprocessedAccount] -&gt; CreateMembersResponse
 </span><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse%27"><span class="hs-identifier hs-var">CreateMembersResponse'</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; [UnprocessedAccount] -&gt; CreateMembersResponse)
@@ -271,13 +271,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313588"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313929"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either String ([UnprocessedAccount] -&gt; CreateMembersResponse)
 -&gt; Either String [UnprocessedAccount]
 -&gt; Either String CreateMembersResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [UnprocessedAccount])
+</span><a href="#local-6989586621679313927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [UnprocessedAccount])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;unprocessedAccounts&quot;</span></span><span>
@@ -290,12 +290,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-122"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313577"><span id="local-6989586621679313579"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-type">CreateMembers</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313918"><span id="local-6989586621679313920"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-type">CreateMembers</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313574"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-type">CreateMembers</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313915"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-type">CreateMembers</span></a></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-type">CreateMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679313570"><span class="annot"><span class="annottext">toHeaders :: CreateMembers -&gt; ResponseHeaders
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679313911"><span class="annot"><span class="annottext">toHeaders :: CreateMembers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateMembers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -314,15 +314,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313560"><span id="local-6989586621679313562"><span id="local-6989586621679313564"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-type">CreateMembers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679313558"><span class="annot"><span class="annottext">toJSON :: CreateMembers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers%27"><span class="hs-identifier hs-type">CreateMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313555"><span id="local-6989586621679313556"><span class="annot"><span class="annottext">NonEmpty AccountDetail
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313901"><span id="local-6989586621679313903"><span id="local-6989586621679313905"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-type">CreateMembers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679313899"><span class="annot"><span class="annottext">toJSON :: CreateMembers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers%27"><span class="hs-identifier hs-type">CreateMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313896"><span id="local-6989586621679313897"><span class="annot"><span class="annottext">NonEmpty AccountDetail
 Text
 accountDetails :: NonEmpty AccountDetail
 detectorId :: Text
 $sel:accountDetails:CreateMembers' :: CreateMembers -&gt; NonEmpty AccountDetail
 $sel:detectorId:CreateMembers' :: CreateMembers -&gt; Text
-</span><a href="#local-6989586621679313555"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679313896"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -335,19 +335,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;accountDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty AccountDetail -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty AccountDetail
-</span><a href="#local-6989586621679313555"><span class="hs-identifier hs-var">accountDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313896"><span class="hs-identifier hs-var">accountDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-type">CreateMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679313549"><span class="annot"><span class="annottext">toPath :: CreateMembers -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers%27"><span class="hs-identifier hs-type">CreateMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313546"><span id="local-6989586621679313547"><span class="annot"><span class="annottext">NonEmpty AccountDetail
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679313890"><span class="annot"><span class="annottext">toPath :: CreateMembers -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers%27"><span class="hs-identifier hs-type">CreateMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313887"><span id="local-6989586621679313888"><span class="annot"><span class="annottext">NonEmpty AccountDetail
 Text
 accountDetails :: NonEmpty AccountDetail
 detectorId :: Text
 $sel:accountDetails:CreateMembers' :: CreateMembers -&gt; NonEmpty AccountDetail
 $sel:detectorId:CreateMembers' :: CreateMembers -&gt; Text
-</span><a href="#local-6989586621679313546"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679313887"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -355,11 +355,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/detector/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313547"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679313888"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/member&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembers"><span class="hs-identifier hs-type">CreateMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679313542"><span class="annot"><span class="annottext">toQuery :: CreateMembers -&gt; QueryString
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679313883"><span class="annot"><span class="annottext">toQuery :: CreateMembers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateMembers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -367,7 +367,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newCreateMembersResponse' smart constructor.</span><span>
-</span><span id="line-158"></span><span id="local-6989586621679313539"><span id="local-6989586621679313540"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateMembersResponse"><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse"><span class="hs-identifier hs-var">CreateMembersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateMembersResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse%27"><span class="hs-identifier hs-var">CreateMembersResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span id="local-6989586621679313880"><span id="local-6989586621679313881"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateMembersResponse"><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse"><span class="hs-identifier hs-var">CreateMembersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateMembersResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse%27"><span class="hs-identifier hs-var">CreateMembersResponse'</span></a></span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateMembersResponse%27"><span class="annot"><span class="annottext">CreateMembersResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.CreateMembers.html#%24sel%3AhttpStatus%3ACreateMembersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -376,7 +376,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-163"></span><span>    </span><span id="%24sel%3AunprocessedAccounts%3ACreateMembersResponse%27"><span class="annot"><span class="annottext">CreateMembersResponse -&gt; [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.CreateMembers.html#%24sel%3AunprocessedAccounts%3ACreateMembersResponse%27"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313533"><span id="local-6989586621679313535"><span class="annot"><span class="annottext">CreateMembersResponse -&gt; CreateMembersResponse -&gt; Bool
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313874"><span id="local-6989586621679313876"><span class="annot"><span class="annottext">CreateMembersResponse -&gt; CreateMembersResponse -&gt; Bool
 (CreateMembersResponse -&gt; CreateMembersResponse -&gt; Bool)
 -&gt; (CreateMembersResponse -&gt; CreateMembersResponse -&gt; Bool)
 -&gt; Eq CreateMembersResponse
@@ -385,7 +385,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateMembersResponse -&gt; CreateMembersResponse -&gt; Bool
 == :: CreateMembersResponse -&gt; CreateMembersResponse -&gt; Bool
 $c== :: CreateMembersResponse -&gt; CreateMembersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313525"><span id="local-6989586621679313527"><span id="local-6989586621679313529"><span id="local-6989586621679313531"><span class="annot"><span class="annottext">ReadPrec [CreateMembersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313866"><span id="local-6989586621679313868"><span id="local-6989586621679313870"><span id="local-6989586621679313872"><span class="annot"><span class="annottext">ReadPrec [CreateMembersResponse]
 ReadPrec CreateMembersResponse
 Int -&gt; ReadS CreateMembersResponse
 ReadS [CreateMembersResponse]
@@ -405,7 +405,7 @@ readList :: ReadS [CreateMembersResponse]
 $creadList :: ReadS [CreateMembersResponse]
 readsPrec :: Int -&gt; ReadS CreateMembersResponse
 $creadsPrec :: Int -&gt; ReadS CreateMembersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313519"><span id="local-6989586621679313521"><span id="local-6989586621679313523"><span class="annot"><span class="annottext">Int -&gt; CreateMembersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313860"><span id="local-6989586621679313862"><span id="local-6989586621679313864"><span class="annot"><span class="annottext">Int -&gt; CreateMembersResponse -&gt; ShowS
 [CreateMembersResponse] -&gt; ShowS
 CreateMembersResponse -&gt; String
 (Int -&gt; CreateMembersResponse -&gt; ShowS)
@@ -448,13 +448,13 @@ $cfrom :: forall x. CreateMembersResponse -&gt; Rep CreateMembersResponse x
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse"><span class="hs-identifier hs-type">CreateMembersResponse</span></a></span><span>
 </span><span id="line-183"></span><span id="newCreateMembersResponse"><span class="annot"><span class="annottext">newCreateMembersResponse :: Int -&gt; CreateMembersResponse
-</span><a href="Network.AWS.GuardDuty.CreateMembers.html#newCreateMembersResponse"><span class="hs-identifier hs-var hs-var">newCreateMembersResponse</span></a></span></span><span> </span><span id="local-6989586621679313516"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313516"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.CreateMembers.html#newCreateMembersResponse"><span class="hs-identifier hs-var hs-var">newCreateMembersResponse</span></a></span></span><span> </span><span id="local-6989586621679313857"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313857"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><span class="annottext">CreateMembersResponse' :: Int -&gt; [UnprocessedAccount] -&gt; CreateMembersResponse
 </span><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse%27"><span class="hs-identifier hs-type">CreateMembersResponse'</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateMembersResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.CreateMembers.html#%24sel%3AhttpStatus%3ACreateMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313516"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313857"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:CreateMembersResponse' :: [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.CreateMembers.html#%24sel%3AunprocessedAccounts%3ACreateMembersResponse%27"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
 forall a. Monoid a =&gt; a
@@ -468,16 +468,16 @@ forall a. Monoid a =&gt; a
 -&gt; (CreateMembersResponse -&gt; Int -&gt; CreateMembersResponse)
 -&gt; Lens CreateMembersResponse CreateMembersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse%27"><span class="hs-identifier hs-type">CreateMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313515"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse%27"><span class="hs-identifier hs-type">CreateMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313856"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateMembersResponse' :: CreateMembersResponse -&gt; Int
-</span><a href="#local-6989586621679313515"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313515"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313514"><span class="annot"><span class="annottext">s :: CreateMembersResponse
-</span><a href="#local-6989586621679313514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse%27"><span class="hs-identifier hs-type">CreateMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313513"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMembersResponse
-</span><a href="#local-6989586621679313514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateMembersResponse' :: Int
+</span><a href="#local-6989586621679313856"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313856"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313855"><span class="annot"><span class="annottext">s :: CreateMembersResponse
+</span><a href="#local-6989586621679313855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse%27"><span class="hs-identifier hs-type">CreateMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313854"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMembersResponse
+</span><a href="#local-6989586621679313855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateMembersResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.CreateMembers.html#%24sel%3AhttpStatus%3ACreateMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse"><span class="hs-identifier hs-type">CreateMembersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse"><span class="hs-identifier hs-type">CreateMembersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | A list of objects that include the @accountIds@ of the unprocessed</span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- accounts and a result string that explains why each was unprocessed.</span><span>
@@ -493,16 +493,16 @@ $sel:httpStatus:CreateMembersResponse' :: CreateMembersResponse -&gt; Int
      [UnprocessedAccount]
      [UnprocessedAccount]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse%27"><span class="hs-identifier hs-type">CreateMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313512"><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse%27"><span class="hs-identifier hs-type">CreateMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313853"><span class="annot"><span class="annottext">[UnprocessedAccount]
 unprocessedAccounts :: [UnprocessedAccount]
 $sel:unprocessedAccounts:CreateMembersResponse' :: CreateMembersResponse -&gt; [UnprocessedAccount]
-</span><a href="#local-6989586621679313512"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679313512"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313511"><span class="annot"><span class="annottext">s :: CreateMembersResponse
-</span><a href="#local-6989586621679313511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse%27"><span class="hs-identifier hs-type">CreateMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313510"><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679313510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMembersResponse
-</span><a href="#local-6989586621679313511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:CreateMembersResponse' :: [UnprocessedAccount]
+</span><a href="#local-6989586621679313853"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><a href="#local-6989586621679313853"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313852"><span class="annot"><span class="annottext">s :: CreateMembersResponse
+</span><a href="#local-6989586621679313852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse%27"><span class="hs-identifier hs-type">CreateMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313851"><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><a href="#local-6989586621679313851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMembersResponse
+</span><a href="#local-6989586621679313852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:CreateMembersResponse' :: [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.CreateMembers.html#%24sel%3AunprocessedAccounts%3ACreateMembersResponse%27"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679313510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse"><span class="hs-identifier hs-type">CreateMembersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([UnprocessedAccount] -&gt; f [UnprocessedAccount])
+</span><a href="#local-6989586621679313851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse"><span class="hs-identifier hs-type">CreateMembersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([UnprocessedAccount] -&gt; f [UnprocessedAccount])
  -&gt; CreateMembersResponse -&gt; f CreateMembersResponse)
 -&gt; (([UnprocessedAccount] -&gt; f [UnprocessedAccount])
     -&gt; [UnprocessedAccount] -&gt; f [UnprocessedAccount])
@@ -512,8 +512,8 @@ $sel:unprocessedAccounts:CreateMembersResponse' :: CreateMembersResponse -&gt; [
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([UnprocessedAccount] -&gt; f [UnprocessedAccount])
 -&gt; [UnprocessedAccount] -&gt; f [UnprocessedAccount]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313508"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse"><span class="hs-identifier hs-type">CreateMembersResponse</span></a></span></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313849"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreateMembers.html#CreateMembersResponse"><span class="hs-identifier hs-type">CreateMembersResponse</span></a></span></span><span>
 </span><span id="line-199"></span></pre></body></html>

@@ -28,43 +28,43 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Returns information about comments on a pull request.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCommentsForPullRequest' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679353184"><span id="local-6989586621679353185"></span></span><span class="hs-keyword">data</span><span> </span><span id="CommentsForPullRequest"><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-var">CommentsForPullRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommentsForPullRequest%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-var">CommentsForPullRequest'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679353459"><span id="local-6989586621679353460"></span></span><span class="hs-keyword">data</span><span> </span><span id="CommentsForPullRequest"><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-var">CommentsForPullRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommentsForPullRequest%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-var">CommentsForPullRequest'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The full blob ID of the file on which you want to comment on the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- destination commit.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AbeforeBlobId%3ACommentsForPullRequest%27"><span class="annot"><span class="annottext">CommentsForPullRequest -&gt; Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3AbeforeBlobId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var hs-var">beforeBlobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the repository that contains the pull request.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3ArepositoryName%3ACommentsForPullRequest%27"><span class="annot"><span class="annottext">CommentsForPullRequest -&gt; Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3ArepositoryName%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The full commit ID of the commit that was the tip of the destination</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- branch when the pull request was created. This commit is superceded by</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the after commit in the source branch when and if you merge the source</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- branch into the destination branch.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AbeforeCommitId%3ACommentsForPullRequest%27"><span class="annot"><span class="annottext">CommentsForPullRequest -&gt; Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3AbeforeCommitId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var hs-var">beforeCommitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The full blob ID of the file on which you want to comment on the source</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- commit.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AafterBlobId%3ACommentsForPullRequest%27"><span class="annot"><span class="annottext">CommentsForPullRequest -&gt; Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3AafterBlobId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var hs-var">afterBlobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The system-generated ID of the pull request.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3ApullRequestId%3ACommentsForPullRequest%27"><span class="annot"><span class="annottext">CommentsForPullRequest -&gt; Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3ApullRequestId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The full commit ID of the commit that was the tip of the source branch</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- at the time the comment was made.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AafterCommitId%3ACommentsForPullRequest%27"><span class="annot"><span class="annottext">CommentsForPullRequest -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Location information about the comment on the pull request, including</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the file name, line number, and whether the version of the file where</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the comment was made is BEFORE (destination branch) or AFTER (source</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- branch).</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Alocation%3ACommentsForPullRequest%27"><span class="annot"><span class="annottext">CommentsForPullRequest -&gt; Maybe Location
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3Alocation%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The full commit ID of the commit that was the tip of the source branch</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- at the time the comment was made.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AafterCommitId%3ACommentsForPullRequest%27"><span class="annot"><span class="annottext">CommentsForPullRequest -&gt; Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3AafterCommitId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var hs-var">afterCommitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | An array of comment objects. Each comment object contains information</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- about a comment on the pull request.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3Acomments%3ACommentsForPullRequest%27"><span class="annot"><span class="annottext">CommentsForPullRequest -&gt; Maybe [Comment]
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3Acomments%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var hs-var">comments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Comment.html#Comment"><span class="hs-identifier hs-type">Comment</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Location information about the comment on the pull request, including</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- the file name, line number, and whether the version of the file where</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- the comment was made is BEFORE (destination branch) or AFTER (source</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- branch).</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3Alocation%3ACommentsForPullRequest%27"><span class="annot"><span class="annottext">CommentsForPullRequest -&gt; Maybe Location
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3Alocation%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The system-generated ID of the pull request.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3ApullRequestId%3ACommentsForPullRequest%27"><span class="annot"><span class="annottext">CommentsForPullRequest -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3ApullRequestId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The full blob ID of the file on which you want to comment on the source</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- commit.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AafterBlobId%3ACommentsForPullRequest%27"><span class="annot"><span class="annottext">CommentsForPullRequest -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3AafterBlobId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var hs-var">afterBlobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The full commit ID of the commit that was the tip of the destination</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- branch when the pull request was created. This commit is superceded by</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- the after commit in the source branch when and if you merge the source</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- branch into the destination branch.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AbeforeCommitId%3ACommentsForPullRequest%27"><span class="annot"><span class="annottext">CommentsForPullRequest -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3AbeforeCommitId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var hs-var">beforeCommitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The name of the repository that contains the pull request.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3ArepositoryName%3ACommentsForPullRequest%27"><span class="annot"><span class="annottext">CommentsForPullRequest -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3ArepositoryName%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | An array of comment objects. Each comment object contains information</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- about a comment on the pull request.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Acomments%3ACommentsForPullRequest%27"><span class="annot"><span class="annottext">CommentsForPullRequest -&gt; Maybe [Comment]
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3Acomments%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var hs-var">comments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Comment.html#Comment"><span class="hs-identifier hs-type">Comment</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353171"><span id="local-6989586621679353173"><span class="annot"><span class="annottext">CommentsForPullRequest -&gt; CommentsForPullRequest -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353446"><span id="local-6989586621679353448"><span class="annot"><span class="annottext">CommentsForPullRequest -&gt; CommentsForPullRequest -&gt; Bool
 (CommentsForPullRequest -&gt; CommentsForPullRequest -&gt; Bool)
 -&gt; (CommentsForPullRequest -&gt; CommentsForPullRequest -&gt; Bool)
 -&gt; Eq CommentsForPullRequest
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CommentsForPullRequest -&gt; CommentsForPullRequest -&gt; Bool
 == :: CommentsForPullRequest -&gt; CommentsForPullRequest -&gt; Bool
 $c== :: CommentsForPullRequest -&gt; CommentsForPullRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353162"><span id="local-6989586621679353164"><span id="local-6989586621679353166"><span id="local-6989586621679353168"><span class="annot"><span class="annottext">ReadPrec [CommentsForPullRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353437"><span id="local-6989586621679353439"><span id="local-6989586621679353441"><span id="local-6989586621679353443"><span class="annot"><span class="annottext">ReadPrec [CommentsForPullRequest]
 ReadPrec CommentsForPullRequest
 Int -&gt; ReadS CommentsForPullRequest
 ReadS [CommentsForPullRequest]
@@ -93,7 +93,7 @@ readList :: ReadS [CommentsForPullRequest]
 $creadList :: ReadS [CommentsForPullRequest]
 readsPrec :: Int -&gt; ReadS CommentsForPullRequest
 $creadsPrec :: Int -&gt; ReadS CommentsForPullRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353155"><span id="local-6989586621679353157"><span id="local-6989586621679353159"><span class="annot"><span class="annottext">Int -&gt; CommentsForPullRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353430"><span id="local-6989586621679353432"><span id="local-6989586621679353434"><span class="annot"><span class="annottext">Int -&gt; CommentsForPullRequest -&gt; ShowS
 [CommentsForPullRequest] -&gt; ShowS
 CommentsForPullRequest -&gt; String
 (Int -&gt; CommentsForPullRequest -&gt; ShowS)
@@ -131,40 +131,40 @@ $cfrom :: forall x. CommentsForPullRequest -&gt; Rep CommentsForPullRequest x
 </span><span id="line-69"></span><span class="hs-comment">-- 'beforeBlobId', 'commentsForPullRequest_beforeBlobId' - The full blob ID of the file on which you want to comment on the</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- destination commit.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'repositoryName', 'commentsForPullRequest_repositoryName' - The name of the repository that contains the pull request.</span><span>
-</span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'beforeCommitId', 'commentsForPullRequest_beforeCommitId' - The full commit ID of the commit that was the tip of the destination</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- branch when the pull request was created. This commit is superceded by</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- the after commit in the source branch when and if you merge the source</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- branch into the destination branch.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'afterBlobId', 'commentsForPullRequest_afterBlobId' - The full blob ID of the file on which you want to comment on the source</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- commit.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'location', 'commentsForPullRequest_location' - Location information about the comment on the pull request, including</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- the file name, line number, and whether the version of the file where</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- the comment was made is BEFORE (destination branch) or AFTER (source</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- branch).</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'afterCommitId', 'commentsForPullRequest_afterCommitId' - The full commit ID of the commit that was the tip of the source branch</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- at the time the comment was made.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'pullRequestId', 'commentsForPullRequest_pullRequestId' - The system-generated ID of the pull request.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'pullRequestId', 'commentsForPullRequest_pullRequestId' - The system-generated ID of the pull request.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'afterCommitId', 'commentsForPullRequest_afterCommitId' - The full commit ID of the commit that was the tip of the source branch</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- at the time the comment was made.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'comments', 'commentsForPullRequest_comments' - An array of comment objects. Each comment object contains information</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- about a comment on the pull request.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'afterBlobId', 'commentsForPullRequest_afterBlobId' - The full blob ID of the file on which you want to comment on the source</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- commit.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'beforeCommitId', 'commentsForPullRequest_beforeCommitId' - The full commit ID of the commit that was the tip of the destination</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- branch when the pull request was created. This commit is superceded by</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- the after commit in the source branch when and if you merge the source</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- branch into the destination branch.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'location', 'commentsForPullRequest_location' - Location information about the comment on the pull request, including</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- the file name, line number, and whether the version of the file where</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- the comment was made is BEFORE (destination branch) or AFTER (source</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- branch).</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'repositoryName', 'commentsForPullRequest_repositoryName' - The name of the repository that contains the pull request.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'comments', 'commentsForPullRequest_comments' - An array of comment objects. Each comment object contains information</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- about a comment on the pull request.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#newCommentsForPullRequest"><span class="hs-identifier hs-type">newCommentsForPullRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span>
 </span><span id="line-96"></span><span id="newCommentsForPullRequest"><span class="annot"><span class="annottext">newCommentsForPullRequest :: CommentsForPullRequest
 </span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#newCommentsForPullRequest"><span class="hs-identifier hs-var hs-var">newCommentsForPullRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">CommentsForPullRequest' :: Maybe Text
+-&gt; Maybe Location
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [Comment]
--&gt; Maybe Location
 -&gt; CommentsForPullRequest
 </span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:beforeBlobId:CommentsForPullRequest' :: Maybe Text
@@ -172,32 +172,32 @@ $cfrom :: forall x. CommentsForPullRequest -&gt; Rep CommentsForPullRequest x
 </span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:CommentsForPullRequest' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3ArepositoryName%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:CommentsForPullRequest' :: Maybe Location
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3Alocation%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Location
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:beforeCommitId:CommentsForPullRequest' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3AbeforeCommitId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">beforeCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:afterBlobId:CommentsForPullRequest' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3AafterBlobId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">afterBlobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:pullRequestId:CommentsForPullRequest' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3ApullRequestId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:afterCommitId:CommentsForPullRequest' :: Maybe Text
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:afterCommitId:CommentsForPullRequest' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3AafterCommitId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">afterCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:comments:CommentsForPullRequest' :: Maybe [Comment]
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3Acomments%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">comments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Comment]
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:pullRequestId:CommentsForPullRequest' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3ApullRequestId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:CommentsForPullRequest' :: Maybe Location
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3Alocation%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Location
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:afterBlobId:CommentsForPullRequest' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3AafterBlobId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">afterBlobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:beforeCommitId:CommentsForPullRequest' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3AbeforeCommitId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">beforeCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:CommentsForPullRequest' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3ArepositoryName%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:comments:CommentsForPullRequest' :: Maybe [Comment]
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3Acomments%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">comments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Comment]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
@@ -215,117 +215,48 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353146"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353421"><span class="annot"><span class="annottext">Maybe Text
 beforeBlobId :: Maybe Text
 $sel:beforeBlobId:CommentsForPullRequest' :: CommentsForPullRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679353146"><span class="hs-identifier hs-var hs-var">beforeBlobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353146"><span class="hs-identifier hs-var">beforeBlobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353145"><span class="annot"><span class="annottext">s :: CommentsForPullRequest
-</span><a href="#local-6989586621679353145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353144"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForPullRequest
-</span><a href="#local-6989586621679353145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beforeBlobId:CommentsForPullRequest' :: Maybe Text
+</span><a href="#local-6989586621679353421"><span class="hs-identifier hs-var hs-var">beforeBlobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353421"><span class="hs-identifier hs-var">beforeBlobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353420"><span class="annot"><span class="annottext">s :: CommentsForPullRequest
+</span><a href="#local-6989586621679353420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353419"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForPullRequest
+</span><a href="#local-6989586621679353420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beforeBlobId:CommentsForPullRequest' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3AbeforeBlobId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">beforeBlobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The name of the repository that contains the pull request.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_repositoryName"><span class="hs-identifier hs-type">commentsForPullRequest_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="commentsForPullRequest_repositoryName"><span class="annot"><span class="annottext">commentsForPullRequest_repositoryName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-114"></span><span class="hs-comment">-- | Location information about the comment on the pull request, including</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- the file name, line number, and whether the version of the file where</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- the comment was made is BEFORE (destination branch) or AFTER (source</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- branch).</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_location"><span class="hs-identifier hs-type">commentsForPullRequest_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="commentsForPullRequest_location"><span class="annot"><span class="annottext">commentsForPullRequest_location :: (Maybe Location -&gt; f (Maybe Location))
 -&gt; CommentsForPullRequest -&gt; f CommentsForPullRequest
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_repositoryName"><span class="hs-identifier hs-var hs-var">commentsForPullRequest_repositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForPullRequest -&gt; Maybe Text)
--&gt; (CommentsForPullRequest -&gt; Maybe Text -&gt; CommentsForPullRequest)
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_location"><span class="hs-identifier hs-var hs-var">commentsForPullRequest_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForPullRequest -&gt; Maybe Location)
+-&gt; (CommentsForPullRequest
+    -&gt; Maybe Location -&gt; CommentsForPullRequest)
 -&gt; Lens
      CommentsForPullRequest
      CommentsForPullRequest
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe Location)
+     (Maybe Location)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353142"><span class="annot"><span class="annottext">Maybe Text
-repositoryName :: Maybe Text
-$sel:repositoryName:CommentsForPullRequest' :: CommentsForPullRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679353142"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353142"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353141"><span class="annot"><span class="annottext">s :: CommentsForPullRequest
-</span><a href="#local-6989586621679353141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353140"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForPullRequest
-</span><a href="#local-6989586621679353141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:CommentsForPullRequest' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3ArepositoryName%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The full commit ID of the commit that was the tip of the destination</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- branch when the pull request was created. This commit is superceded by</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- the after commit in the source branch when and if you merge the source</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- branch into the destination branch.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_beforeCommitId"><span class="hs-identifier hs-type">commentsForPullRequest_beforeCommitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="commentsForPullRequest_beforeCommitId"><span class="annot"><span class="annottext">commentsForPullRequest_beforeCommitId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CommentsForPullRequest -&gt; f CommentsForPullRequest
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_beforeCommitId"><span class="hs-identifier hs-var hs-var">commentsForPullRequest_beforeCommitId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForPullRequest -&gt; Maybe Text)
--&gt; (CommentsForPullRequest -&gt; Maybe Text -&gt; CommentsForPullRequest)
--&gt; Lens
-     CommentsForPullRequest
-     CommentsForPullRequest
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353138"><span class="annot"><span class="annottext">Maybe Text
-beforeCommitId :: Maybe Text
-$sel:beforeCommitId:CommentsForPullRequest' :: CommentsForPullRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679353138"><span class="hs-identifier hs-var hs-var">beforeCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353138"><span class="hs-identifier hs-var">beforeCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353137"><span class="annot"><span class="annottext">s :: CommentsForPullRequest
-</span><a href="#local-6989586621679353137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353136"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForPullRequest
-</span><a href="#local-6989586621679353137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beforeCommitId:CommentsForPullRequest' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3AbeforeCommitId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">beforeCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | The full blob ID of the file on which you want to comment on the source</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- commit.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_afterBlobId"><span class="hs-identifier hs-type">commentsForPullRequest_afterBlobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="commentsForPullRequest_afterBlobId"><span class="annot"><span class="annottext">commentsForPullRequest_afterBlobId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CommentsForPullRequest -&gt; f CommentsForPullRequest
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_afterBlobId"><span class="hs-identifier hs-var hs-var">commentsForPullRequest_afterBlobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForPullRequest -&gt; Maybe Text)
--&gt; (CommentsForPullRequest -&gt; Maybe Text -&gt; CommentsForPullRequest)
--&gt; Lens
-     CommentsForPullRequest
-     CommentsForPullRequest
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353134"><span class="annot"><span class="annottext">Maybe Text
-afterBlobId :: Maybe Text
-$sel:afterBlobId:CommentsForPullRequest' :: CommentsForPullRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679353134"><span class="hs-identifier hs-var hs-var">afterBlobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353134"><span class="hs-identifier hs-var">afterBlobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353133"><span class="annot"><span class="annottext">s :: CommentsForPullRequest
-</span><a href="#local-6989586621679353133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353132"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForPullRequest
-</span><a href="#local-6989586621679353133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afterBlobId:CommentsForPullRequest' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3AafterBlobId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">afterBlobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The system-generated ID of the pull request.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_pullRequestId"><span class="hs-identifier hs-type">commentsForPullRequest_pullRequestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="commentsForPullRequest_pullRequestId"><span class="annot"><span class="annottext">commentsForPullRequest_pullRequestId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CommentsForPullRequest -&gt; f CommentsForPullRequest
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_pullRequestId"><span class="hs-identifier hs-var hs-var">commentsForPullRequest_pullRequestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForPullRequest -&gt; Maybe Text)
--&gt; (CommentsForPullRequest -&gt; Maybe Text -&gt; CommentsForPullRequest)
--&gt; Lens
-     CommentsForPullRequest
-     CommentsForPullRequest
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353130"><span class="annot"><span class="annottext">Maybe Text
-pullRequestId :: Maybe Text
-$sel:pullRequestId:CommentsForPullRequest' :: CommentsForPullRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679353130"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353130"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353129"><span class="annot"><span class="annottext">s :: CommentsForPullRequest
-</span><a href="#local-6989586621679353129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353128"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForPullRequest
-</span><a href="#local-6989586621679353129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestId:CommentsForPullRequest' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3ApullRequestId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The full commit ID of the commit that was the tip of the source branch</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- at the time the comment was made.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_afterCommitId"><span class="hs-identifier hs-type">commentsForPullRequest_afterCommitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="commentsForPullRequest_afterCommitId"><span class="annot"><span class="annottext">commentsForPullRequest_afterCommitId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353417"><span class="annot"><span class="annottext">Maybe Location
+location :: Maybe Location
+$sel:location:CommentsForPullRequest' :: CommentsForPullRequest -&gt; Maybe Location
+</span><a href="#local-6989586621679353417"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Location
+</span><a href="#local-6989586621679353417"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353416"><span class="annot"><span class="annottext">s :: CommentsForPullRequest
+</span><a href="#local-6989586621679353416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353415"><span class="annot"><span class="annottext">Maybe Location
+</span><a href="#local-6989586621679353415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForPullRequest
+</span><a href="#local-6989586621679353416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CommentsForPullRequest' :: Maybe Location
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3Alocation%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Location
+</span><a href="#local-6989586621679353415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The full commit ID of the commit that was the tip of the source branch</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- at the time the comment was made.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_afterCommitId"><span class="hs-identifier hs-type">commentsForPullRequest_afterCommitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="commentsForPullRequest_afterCommitId"><span class="annot"><span class="annottext">commentsForPullRequest_afterCommitId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CommentsForPullRequest -&gt; f CommentsForPullRequest
 </span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_afterCommitId"><span class="hs-identifier hs-var hs-var">commentsForPullRequest_afterCommitId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForPullRequest -&gt; Maybe Text)
 -&gt; (CommentsForPullRequest -&gt; Maybe Text -&gt; CommentsForPullRequest)
@@ -335,21 +266,117 @@ $sel:pullRequestId:CommentsForPullRequest' :: CommentsForPullRequest -&gt; Maybe
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353126"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353413"><span class="annot"><span class="annottext">Maybe Text
 afterCommitId :: Maybe Text
 $sel:afterCommitId:CommentsForPullRequest' :: CommentsForPullRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679353126"><span class="hs-identifier hs-var hs-var">afterCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353126"><span class="hs-identifier hs-var">afterCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353125"><span class="annot"><span class="annottext">s :: CommentsForPullRequest
-</span><a href="#local-6989586621679353125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353124"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForPullRequest
-</span><a href="#local-6989586621679353125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afterCommitId:CommentsForPullRequest' :: Maybe Text
+</span><a href="#local-6989586621679353413"><span class="hs-identifier hs-var hs-var">afterCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353413"><span class="hs-identifier hs-var">afterCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353412"><span class="annot"><span class="annottext">s :: CommentsForPullRequest
+</span><a href="#local-6989586621679353412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353411"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForPullRequest
+</span><a href="#local-6989586621679353412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afterCommitId:CommentsForPullRequest' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3AafterCommitId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">afterCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | An array of comment objects. Each comment object contains information</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- about a comment on the pull request.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_comments"><span class="hs-identifier hs-type">commentsForPullRequest_comments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Comment.html#Comment"><span class="hs-identifier hs-type">Comment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="commentsForPullRequest_comments"><span class="annot"><span class="annottext">commentsForPullRequest_comments :: (Maybe [Comment] -&gt; f (Maybe [Comment]))
+</span><a href="#local-6989586621679353411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The system-generated ID of the pull request.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_pullRequestId"><span class="hs-identifier hs-type">commentsForPullRequest_pullRequestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="commentsForPullRequest_pullRequestId"><span class="annot"><span class="annottext">commentsForPullRequest_pullRequestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommentsForPullRequest -&gt; f CommentsForPullRequest
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_pullRequestId"><span class="hs-identifier hs-var hs-var">commentsForPullRequest_pullRequestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForPullRequest -&gt; Maybe Text)
+-&gt; (CommentsForPullRequest -&gt; Maybe Text -&gt; CommentsForPullRequest)
+-&gt; Lens
+     CommentsForPullRequest
+     CommentsForPullRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353409"><span class="annot"><span class="annottext">Maybe Text
+pullRequestId :: Maybe Text
+$sel:pullRequestId:CommentsForPullRequest' :: CommentsForPullRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679353409"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353409"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353408"><span class="annot"><span class="annottext">s :: CommentsForPullRequest
+</span><a href="#local-6989586621679353408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353407"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForPullRequest
+</span><a href="#local-6989586621679353408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestId:CommentsForPullRequest' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3ApullRequestId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The full blob ID of the file on which you want to comment on the source</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- commit.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_afterBlobId"><span class="hs-identifier hs-type">commentsForPullRequest_afterBlobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="commentsForPullRequest_afterBlobId"><span class="annot"><span class="annottext">commentsForPullRequest_afterBlobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommentsForPullRequest -&gt; f CommentsForPullRequest
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_afterBlobId"><span class="hs-identifier hs-var hs-var">commentsForPullRequest_afterBlobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForPullRequest -&gt; Maybe Text)
+-&gt; (CommentsForPullRequest -&gt; Maybe Text -&gt; CommentsForPullRequest)
+-&gt; Lens
+     CommentsForPullRequest
+     CommentsForPullRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353405"><span class="annot"><span class="annottext">Maybe Text
+afterBlobId :: Maybe Text
+$sel:afterBlobId:CommentsForPullRequest' :: CommentsForPullRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679353405"><span class="hs-identifier hs-var hs-var">afterBlobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353405"><span class="hs-identifier hs-var">afterBlobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353404"><span class="annot"><span class="annottext">s :: CommentsForPullRequest
+</span><a href="#local-6989586621679353404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353403"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForPullRequest
+</span><a href="#local-6989586621679353404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afterBlobId:CommentsForPullRequest' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3AafterBlobId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">afterBlobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The full commit ID of the commit that was the tip of the destination</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- branch when the pull request was created. This commit is superceded by</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- the after commit in the source branch when and if you merge the source</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- branch into the destination branch.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_beforeCommitId"><span class="hs-identifier hs-type">commentsForPullRequest_beforeCommitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="commentsForPullRequest_beforeCommitId"><span class="annot"><span class="annottext">commentsForPullRequest_beforeCommitId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommentsForPullRequest -&gt; f CommentsForPullRequest
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_beforeCommitId"><span class="hs-identifier hs-var hs-var">commentsForPullRequest_beforeCommitId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForPullRequest -&gt; Maybe Text)
+-&gt; (CommentsForPullRequest -&gt; Maybe Text -&gt; CommentsForPullRequest)
+-&gt; Lens
+     CommentsForPullRequest
+     CommentsForPullRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353401"><span class="annot"><span class="annottext">Maybe Text
+beforeCommitId :: Maybe Text
+$sel:beforeCommitId:CommentsForPullRequest' :: CommentsForPullRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679353401"><span class="hs-identifier hs-var hs-var">beforeCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353401"><span class="hs-identifier hs-var">beforeCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353400"><span class="annot"><span class="annottext">s :: CommentsForPullRequest
+</span><a href="#local-6989586621679353400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353399"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForPullRequest
+</span><a href="#local-6989586621679353400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beforeCommitId:CommentsForPullRequest' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3AbeforeCommitId%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">beforeCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The name of the repository that contains the pull request.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_repositoryName"><span class="hs-identifier hs-type">commentsForPullRequest_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="commentsForPullRequest_repositoryName"><span class="annot"><span class="annottext">commentsForPullRequest_repositoryName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommentsForPullRequest -&gt; f CommentsForPullRequest
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_repositoryName"><span class="hs-identifier hs-var hs-var">commentsForPullRequest_repositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForPullRequest -&gt; Maybe Text)
+-&gt; (CommentsForPullRequest -&gt; Maybe Text -&gt; CommentsForPullRequest)
+-&gt; Lens
+     CommentsForPullRequest
+     CommentsForPullRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353397"><span class="annot"><span class="annottext">Maybe Text
+repositoryName :: Maybe Text
+$sel:repositoryName:CommentsForPullRequest' :: CommentsForPullRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679353397"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353397"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353396"><span class="annot"><span class="annottext">s :: CommentsForPullRequest
+</span><a href="#local-6989586621679353396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353395"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForPullRequest
+</span><a href="#local-6989586621679353396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:CommentsForPullRequest' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3ArepositoryName%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | An array of comment objects. Each comment object contains information</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- about a comment on the pull request.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_comments"><span class="hs-identifier hs-type">commentsForPullRequest_comments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Comment.html#Comment"><span class="hs-identifier hs-type">Comment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="commentsForPullRequest_comments"><span class="annot"><span class="annottext">commentsForPullRequest_comments :: (Maybe [Comment] -&gt; f (Maybe [Comment]))
 -&gt; CommentsForPullRequest -&gt; f CommentsForPullRequest
 </span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_comments"><span class="hs-identifier hs-var hs-var">commentsForPullRequest_comments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForPullRequest -&gt; Maybe [Comment])
 -&gt; (CommentsForPullRequest
@@ -360,16 +387,16 @@ $sel:afterCommitId:CommentsForPullRequest' :: CommentsForPullRequest -&gt; Maybe
      (Maybe [Comment])
      (Maybe [Comment])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353122"><span class="annot"><span class="annottext">Maybe [Comment]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353393"><span class="annot"><span class="annottext">Maybe [Comment]
 comments :: Maybe [Comment]
 $sel:comments:CommentsForPullRequest' :: CommentsForPullRequest -&gt; Maybe [Comment]
-</span><a href="#local-6989586621679353122"><span class="hs-identifier hs-var hs-var">comments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Comment]
-</span><a href="#local-6989586621679353122"><span class="hs-identifier hs-var">comments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353121"><span class="annot"><span class="annottext">s :: CommentsForPullRequest
-</span><a href="#local-6989586621679353121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353120"><span class="annot"><span class="annottext">Maybe [Comment]
-</span><a href="#local-6989586621679353120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForPullRequest
-</span><a href="#local-6989586621679353121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comments:CommentsForPullRequest' :: Maybe [Comment]
+</span><a href="#local-6989586621679353393"><span class="hs-identifier hs-var hs-var">comments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Comment]
+</span><a href="#local-6989586621679353393"><span class="hs-identifier hs-var">comments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353392"><span class="annot"><span class="annottext">s :: CommentsForPullRequest
+</span><a href="#local-6989586621679353392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353391"><span class="annot"><span class="annottext">Maybe [Comment]
+</span><a href="#local-6989586621679353391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForPullRequest
+</span><a href="#local-6989586621679353392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comments:CommentsForPullRequest' :: Maybe [Comment]
 </span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3Acomments%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">comments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Comment]
-</span><a href="#local-6989586621679353120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Comment] -&gt; f (Maybe [Comment]))
+</span><a href="#local-6989586621679353391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Comment] -&gt; f (Maybe [Comment]))
  -&gt; CommentsForPullRequest -&gt; f CommentsForPullRequest)
 -&gt; ((Maybe [Comment] -&gt; f (Maybe [Comment]))
     -&gt; Maybe [Comment] -&gt; f (Maybe [Comment]))
@@ -387,38 +414,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Comment] [Comment] [Comment] [Comment]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | Location information about the comment on the pull request, including</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- the file name, line number, and whether the version of the file where</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- the comment was made is BEFORE (destination branch) or AFTER (source</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- branch).</span><span>
-</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_location"><span class="hs-identifier hs-type">commentsForPullRequest_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span id="commentsForPullRequest_location"><span class="annot"><span class="annottext">commentsForPullRequest_location :: (Maybe Location -&gt; f (Maybe Location))
--&gt; CommentsForPullRequest -&gt; f CommentsForPullRequest
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#commentsForPullRequest_location"><span class="hs-identifier hs-var hs-var">commentsForPullRequest_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommentsForPullRequest -&gt; Maybe Location)
--&gt; (CommentsForPullRequest
-    -&gt; Maybe Location -&gt; CommentsForPullRequest)
--&gt; Lens
-     CommentsForPullRequest
-     CommentsForPullRequest
-     (Maybe Location)
-     (Maybe Location)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353115"><span class="annot"><span class="annottext">Maybe Location
-location :: Maybe Location
-$sel:location:CommentsForPullRequest' :: CommentsForPullRequest -&gt; Maybe Location
-</span><a href="#local-6989586621679353115"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Location
-</span><a href="#local-6989586621679353115"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353114"><span class="annot"><span class="annottext">s :: CommentsForPullRequest
-</span><a href="#local-6989586621679353114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-type">CommentsForPullRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353113"><span class="annot"><span class="annottext">Maybe Location
-</span><a href="#local-6989586621679353113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommentsForPullRequest
-</span><a href="#local-6989586621679353114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CommentsForPullRequest' :: Maybe Location
-</span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#%24sel%3Alocation%3ACommentsForPullRequest%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Location
-</span><a href="#local-6989586621679353113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353110"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679353108"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CommentsForPullRequest
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353385"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679353383"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CommentsForPullRequest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CommentsForPullRequest)
@@ -428,144 +428,150 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CommentsForPullRequest&quot;</span></span><span>
-</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679353105"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353105"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679353380"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679353380"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Location
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [Comment]
--&gt; Maybe Location
 -&gt; CommentsForPullRequest
 </span><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest%27"><span class="hs-identifier hs-var">CommentsForPullRequest'</span></a></span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Location
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe [Comment]
- -&gt; Maybe Location
  -&gt; CommentsForPullRequest)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
+     (Maybe Location
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe [Comment]
-      -&gt; Maybe Location
       -&gt; CommentsForPullRequest)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679353380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;beforeBlobId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+  (Maybe Location
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe [Comment]
-   -&gt; Maybe Location
    -&gt; CommentsForPullRequest)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Location)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe [Comment]
-      -&gt; Maybe Location
       -&gt; CommentsForPullRequest)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679353380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Location)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;repositoryName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe [Comment]
-   -&gt; Maybe Location
    -&gt; CommentsForPullRequest)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe [Comment]
-      -&gt; Maybe Location
       -&gt; CommentsForPullRequest)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679353380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;beforeCommitId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;afterCommitId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe [Comment]
-   -&gt; Maybe Location
    -&gt; CommentsForPullRequest)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe [Comment]
-      -&gt; Maybe Location
       -&gt; CommentsForPullRequest)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679353380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;afterBlobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;pullRequestId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe [Comment]
-   -&gt; Maybe Location
    -&gt; CommentsForPullRequest)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe [Comment] -&gt; Maybe Location -&gt; CommentsForPullRequest)
+      -&gt; Maybe Text -&gt; Maybe [Comment] -&gt; CommentsForPullRequest)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679353380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;pullRequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;afterBlobId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe [Comment] -&gt; Maybe Location -&gt; CommentsForPullRequest)
+   -&gt; Maybe Text -&gt; Maybe [Comment] -&gt; CommentsForPullRequest)
 -&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe [Comment] -&gt; Maybe Location -&gt; CommentsForPullRequest)
+-&gt; Parser (Maybe Text -&gt; Maybe [Comment] -&gt; CommentsForPullRequest)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679353380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;afterCommitId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Comment] -&gt; Maybe Location -&gt; CommentsForPullRequest)
--&gt; Parser (Maybe [Comment])
--&gt; Parser (Maybe Location -&gt; CommentsForPullRequest)
+</span><span class="hs-string">&quot;beforeCommitId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Comment] -&gt; CommentsForPullRequest)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Comment] -&gt; CommentsForPullRequest)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Comment]))
+</span><a href="#local-6989586621679353380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;repositoryName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Comment] -&gt; CommentsForPullRequest)
+-&gt; Parser (Maybe [Comment]) -&gt; Parser CommentsForPullRequest
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679353380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Comment]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;comments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Comment]))
@@ -574,17 +580,9 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Comment]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Location -&gt; CommentsForPullRequest)
--&gt; Parser (Maybe Location) -&gt; Parser CommentsForPullRequest
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Location)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353098"><span id="local-6989586621679353100"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353373"><span id="local-6989586621679353375"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span></span></span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.CommentsForPullRequest.html#CommentsForPullRequest"><span class="hs-identifier hs-type">CommentsForPullRequest</span></a></span></span><span>
 </span><span id="line-170"></span></pre></body></html>

@@ -49,8 +49,8 @@
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#newListAccountsResponse"><span class="hs-identifier">newListAccountsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#listAccountsResponse_nextToken"><span class="hs-identifier">listAccountsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#listAccountsResponse_accounts"><span class="hs-identifier">listAccountsResponse_accounts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#listAccountsResponse_accounts"><span class="hs-identifier">listAccountsResponse_accounts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#listAccountsResponse_nextToken"><span class="hs-identifier">listAccountsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#listAccountsResponse_httpStatus"><span class="hs-identifier">listAccountsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span class="hs-keyword">where</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newListAccounts' smart constructor.</span><span>
-</span><span id="line-66"></span><span id="local-6989586621679245348"><span id="local-6989586621679245349"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAccounts"><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-var">ListAccounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAccounts%27"><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts%27"><span class="hs-identifier hs-var">ListAccounts'</span></a></span></span><span>
+</span><span id="line-66"></span><span id="local-6989586621679245490"><span id="local-6989586621679245491"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAccounts"><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-var">ListAccounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAccounts%27"><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts%27"><span class="hs-identifier hs-var">ListAccounts'</span></a></span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The parameter for receiving additional results if you receive a</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @NextToken@ response in a previous request. A @NextToken@ response</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- indicates that more output is available. Set this parameter to the value</span><span>
@@ -84,7 +84,7 @@
 </span><span id="line-83"></span><span>    </span><span id="%24sel%3AmaxResults%3AListAccounts%27"><span class="annot"><span class="annottext">ListAccounts -&gt; Maybe Natural
 </span><a href="Network.AWS.Organizations.ListAccounts.html#%24sel%3AmaxResults%3AListAccounts%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245341"><span id="local-6989586621679245343"><span class="annot"><span class="annottext">ListAccounts -&gt; ListAccounts -&gt; Bool
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245483"><span id="local-6989586621679245485"><span class="annot"><span class="annottext">ListAccounts -&gt; ListAccounts -&gt; Bool
 (ListAccounts -&gt; ListAccounts -&gt; Bool)
 -&gt; (ListAccounts -&gt; ListAccounts -&gt; Bool) -&gt; Eq ListAccounts
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListAccounts -&gt; ListAccounts -&gt; Bool
 == :: ListAccounts -&gt; ListAccounts -&gt; Bool
 $c== :: ListAccounts -&gt; ListAccounts -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245332"><span id="local-6989586621679245334"><span id="local-6989586621679245336"><span id="local-6989586621679245338"><span class="annot"><span class="annottext">ReadPrec [ListAccounts]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245474"><span id="local-6989586621679245476"><span id="local-6989586621679245478"><span id="local-6989586621679245480"><span class="annot"><span class="annottext">ReadPrec [ListAccounts]
 ReadPrec ListAccounts
 Int -&gt; ReadS ListAccounts
 ReadS [ListAccounts]
@@ -112,7 +112,7 @@ readList :: ReadS [ListAccounts]
 $creadList :: ReadS [ListAccounts]
 readsPrec :: Int -&gt; ReadS ListAccounts
 $creadsPrec :: Int -&gt; ReadS ListAccounts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245325"><span id="local-6989586621679245327"><span id="local-6989586621679245329"><span class="annot"><span class="annottext">Int -&gt; ListAccounts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245467"><span id="local-6989586621679245469"><span id="local-6989586621679245471"><span class="annot"><span class="annottext">Int -&gt; ListAccounts -&gt; ShowS
 [ListAccounts] -&gt; ShowS
 ListAccounts -&gt; String
 (Int -&gt; ListAccounts -&gt; ShowS)
@@ -189,16 +189,16 @@ forall a. Maybe a
 -&gt; (ListAccounts -&gt; Maybe Text -&gt; ListAccounts)
 -&gt; Lens ListAccounts ListAccounts (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts%27"><span class="hs-identifier hs-type">ListAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245319"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts%27"><span class="hs-identifier hs-type">ListAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245461"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListAccounts' :: ListAccounts -&gt; Maybe Text
-</span><a href="#local-6989586621679245319"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245319"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245318"><span class="annot"><span class="annottext">s :: ListAccounts
-</span><a href="#local-6989586621679245318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts%27"><span class="hs-identifier hs-type">ListAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245317"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccounts
-</span><a href="#local-6989586621679245318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAccounts' :: Maybe Text
+</span><a href="#local-6989586621679245461"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245461"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245460"><span class="annot"><span class="annottext">s :: ListAccounts
+</span><a href="#local-6989586621679245460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts%27"><span class="hs-identifier hs-type">ListAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245459"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccounts
+</span><a href="#local-6989586621679245460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAccounts' :: Maybe Text
 </span><a href="Network.AWS.Organizations.ListAccounts.html#%24sel%3AnextToken%3AListAccounts%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-type">ListAccounts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-type">ListAccounts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The total number of results that you want included on each page of the</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- response. If you do not include this parameter, it defaults to a value</span><span>
@@ -217,28 +217,28 @@ $sel:nextToken:ListAccounts' :: ListAccounts -&gt; Maybe Text
 -&gt; (ListAccounts -&gt; Maybe Natural -&gt; ListAccounts)
 -&gt; Lens ListAccounts ListAccounts (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts%27"><span class="hs-identifier hs-type">ListAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245316"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts%27"><span class="hs-identifier hs-type">ListAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245458"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListAccounts' :: ListAccounts -&gt; Maybe Natural
-</span><a href="#local-6989586621679245316"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679245316"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245315"><span class="annot"><span class="annottext">s :: ListAccounts
-</span><a href="#local-6989586621679245315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts%27"><span class="hs-identifier hs-type">ListAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245314"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679245314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccounts
-</span><a href="#local-6989586621679245315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAccounts' :: Maybe Natural
+</span><a href="#local-6989586621679245458"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679245458"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245457"><span class="annot"><span class="annottext">s :: ListAccounts
+</span><a href="#local-6989586621679245457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts%27"><span class="hs-identifier hs-type">ListAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245456"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679245456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccounts
+</span><a href="#local-6989586621679245457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAccounts' :: Maybe Natural
 </span><a href="Network.AWS.Organizations.ListAccounts.html#%24sel%3AmaxResults%3AListAccounts%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679245314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-type">ListAccounts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-type">ListAccounts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-type">ListAccounts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679245310"><span class="annot"><span class="annottext">page :: ListAccounts -&gt; AWSResponse ListAccounts -&gt; Maybe ListAccounts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679245308"><span class="annot"><span class="annottext">ListAccounts
-</span><a href="#local-6989586621679245308"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679245307"><span class="annot"><span class="annottext">AWSResponse ListAccounts
-</span><a href="#local-6989586621679245307"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679245452"><span class="annot"><span class="annottext">page :: ListAccounts -&gt; AWSResponse ListAccounts -&gt; Maybe ListAccounts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679245450"><span class="annot"><span class="annottext">ListAccounts
+</span><a href="#local-6989586621679245450"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679245449"><span class="annot"><span class="annottext">AWSResponse ListAccounts
+</span><a href="#local-6989586621679245449"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-142"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-143"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccounts
 ListAccountsResponse
-</span><a href="#local-6989586621679245307"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679245449"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">ListAccountsResponse
 -&gt; Getting (First Text) ListAccountsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -264,7 +264,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-148"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccounts
 ListAccountsResponse
-</span><a href="#local-6989586621679245307"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679245449"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">ListAccountsResponse
 -&gt; Getting (First [Account]) ListAccountsResponse [Account]
 -&gt; Maybe [Account]
@@ -297,7 +297,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">ListAccounts
-</span><a href="#local-6989586621679245308"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679245450"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">ListAccounts -&gt; (ListAccounts -&gt; ListAccounts) -&gt; ListAccounts
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -310,7 +310,7 @@ Lens ListAccounts ListAccounts (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccounts
 ListAccountsResponse
-</span><a href="#local-6989586621679245307"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679245449"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">ListAccountsResponse
 -&gt; Getting (First Text) ListAccountsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -330,12 +330,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-type">ListAccounts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-type">ListAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse"><span class="hs-identifier hs-type">ListAccountsResponse</span></a></span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679245297"><span class="annot"><span class="annottext">request :: ListAccounts -&gt; Request ListAccounts
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679245439"><span class="annot"><span class="annottext">request :: ListAccounts -&gt; Request ListAccounts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAccounts -&gt; Request ListAccounts
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Organizations.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679245293"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679245435"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListAccounts
 -&gt; ClientResponse ClientBody
@@ -359,27 +359,18 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245290"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679245290"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679245289"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679245289"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679245288"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245288"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Account] -&gt; Int -&gt; ListAccountsResponse
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245432"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245432"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679245431"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679245431"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679245430"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245430"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Account] -&gt; Maybe Text -&gt; Int -&gt; ListAccountsResponse
 </span><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse%27"><span class="hs-identifier hs-var">ListAccountsResponse'</span></a></span><span>
-</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Account] -&gt; Int -&gt; ListAccountsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe [Account] -&gt; Int -&gt; ListAccountsResponse)
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Account] -&gt; Maybe Text -&gt; Int -&gt; ListAccountsResponse)
+-&gt; Either String (Maybe [Account])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListAccountsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Account] -&gt; Int -&gt; ListAccountsResponse)
--&gt; Either String (Maybe [Account])
--&gt; Either String (Int -&gt; ListAccountsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Account]))
+</span><a href="#local-6989586621679245430"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Account]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Accounts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Account]))
@@ -388,6 +379,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Account]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListAccountsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListAccountsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245430"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListAccountsResponse)
 -&gt; Either String Int -&gt; Either String ListAccountsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -396,15 +396,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679245290"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245432"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245279"><span id="local-6989586621679245281"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-type">ListAccounts</span></a></span></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245421"><span id="local-6989586621679245423"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-type">ListAccounts</span></a></span></span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245276"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-type">ListAccounts</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245418"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-type">ListAccounts</span></a></span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-type">ListAccounts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679245272"><span class="annot"><span class="annottext">toHeaders :: ListAccounts -&gt; ResponseHeaders
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679245414"><span class="annot"><span class="annottext">toHeaders :: ListAccounts -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAccounts -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -431,15 +431,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-187"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245262"><span id="local-6989586621679245264"><span id="local-6989586621679245266"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-type">ListAccounts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679245260"><span class="annot"><span class="annottext">toJSON :: ListAccounts -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts%27"><span class="hs-identifier hs-type">ListAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245257"><span id="local-6989586621679245258"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245404"><span id="local-6989586621679245406"><span id="local-6989586621679245408"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-type">ListAccounts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679245402"><span class="annot"><span class="annottext">toJSON :: ListAccounts -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts%27"><span class="hs-identifier hs-type">ListAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245399"><span id="local-6989586621679245400"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListAccounts' :: ListAccounts -&gt; Maybe Natural
 $sel:nextToken:ListAccounts' :: ListAccounts -&gt; Maybe Text
-</span><a href="#local-6989586621679245257"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679245399"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -451,26 +451,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245258"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679245400"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679245257"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679245399"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-type">ListAccounts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679245251"><span class="annot"><span class="annottext">toPath :: ListAccounts -&gt; ByteString
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679245393"><span class="annot"><span class="annottext">toPath :: ListAccounts -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAccounts -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccounts"><span class="hs-identifier hs-type">ListAccounts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679245247"><span class="annot"><span class="annottext">toQuery :: ListAccounts -&gt; QueryString
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679245389"><span class="annot"><span class="annottext">toQuery :: ListAccounts -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListAccounts -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -478,22 +478,22 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | /See:/ 'newListAccountsResponse' smart constructor.</span><span>
-</span><span id="line-206"></span><span id="local-6989586621679245244"><span id="local-6989586621679245245"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAccountsResponse"><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse"><span class="hs-identifier hs-var">ListAccountsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAccountsResponse%27"><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse%27"><span class="hs-identifier hs-var">ListAccountsResponse'</span></a></span></span><span>
-</span><span id="line-207"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If present, indicates that more output is available than is included in</span><span>
-</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
-</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
-</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
-</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- element comes back as @null@.</span><span>
-</span><span id="line-212"></span><span>    </span><span id="%24sel%3AnextToken%3AListAccountsResponse%27"><span class="annot"><span class="annottext">ListAccountsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Organizations.ListAccounts.html#%24sel%3AnextToken%3AListAccountsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | A list of objects in the organization.</span><span>
-</span><span id="line-214"></span><span>    </span><span id="%24sel%3Aaccounts%3AListAccountsResponse%27"><span class="annot"><span class="annottext">ListAccountsResponse -&gt; Maybe [Account]
+</span><span id="line-206"></span><span id="local-6989586621679245386"><span id="local-6989586621679245387"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAccountsResponse"><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse"><span class="hs-identifier hs-var">ListAccountsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAccountsResponse%27"><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse%27"><span class="hs-identifier hs-var">ListAccountsResponse'</span></a></span></span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of objects in the organization.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3Aaccounts%3AListAccountsResponse%27"><span class="annot"><span class="annottext">ListAccountsResponse -&gt; Maybe [Account]
 </span><a href="Network.AWS.Organizations.ListAccounts.html#%24sel%3Aaccounts%3AListAccountsResponse%27"><span class="hs-identifier hs-var hs-var">accounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Organizations.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- | If present, indicates that more output is available than is included in</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- element comes back as @null@.</span><span>
+</span><span id="line-214"></span><span>    </span><span id="%24sel%3AnextToken%3AListAccountsResponse%27"><span class="annot"><span class="annottext">ListAccountsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Organizations.ListAccounts.html#%24sel%3AnextToken%3AListAccountsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-216"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAccountsResponse%27"><span class="annot"><span class="annottext">ListAccountsResponse -&gt; Int
 </span><a href="Network.AWS.Organizations.ListAccounts.html#%24sel%3AhttpStatus%3AListAccountsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-217"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-218"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245237"><span id="local-6989586621679245239"><span class="annot"><span class="annottext">ListAccountsResponse -&gt; ListAccountsResponse -&gt; Bool
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245379"><span id="local-6989586621679245381"><span class="annot"><span class="annottext">ListAccountsResponse -&gt; ListAccountsResponse -&gt; Bool
 (ListAccountsResponse -&gt; ListAccountsResponse -&gt; Bool)
 -&gt; (ListAccountsResponse -&gt; ListAccountsResponse -&gt; Bool)
 -&gt; Eq ListAccountsResponse
@@ -502,7 +502,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListAccountsResponse -&gt; ListAccountsResponse -&gt; Bool
 == :: ListAccountsResponse -&gt; ListAccountsResponse -&gt; Bool
 $c== :: ListAccountsResponse -&gt; ListAccountsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245231"><span id="local-6989586621679245233"><span id="local-6989586621679245235"><span class="annot"><span class="annottext">Int -&gt; ListAccountsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245373"><span id="local-6989586621679245375"><span id="local-6989586621679245377"><span class="annot"><span class="annottext">Int -&gt; ListAccountsResponse -&gt; ShowS
 [ListAccountsResponse] -&gt; ShowS
 ListAccountsResponse -&gt; String
 (Int -&gt; ListAccountsResponse -&gt; ShowS)
@@ -536,13 +536,13 @@ $cfrom :: forall x. ListAccountsResponse -&gt; Rep ListAccountsResponse x
 </span><span id="line-225"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-227"></span><span class="hs-comment">--</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- 'nextToken', 'listAccountsResponse_nextToken' - If present, indicates that more output is available than is included in</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
-</span><span id="line-230"></span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- element comes back as @null@.</span><span>
-</span><span id="line-233"></span><span class="hs-comment">--</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- 'accounts', 'listAccountsResponse_accounts' - A list of objects in the organization.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'accounts', 'listAccountsResponse_accounts' - A list of objects in the organization.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'nextToken', 'listAccountsResponse_nextToken' - If present, indicates that more output is available than is included in</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- element comes back as @null@.</span><span>
 </span><span id="line-235"></span><span class="hs-comment">--</span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- 'httpStatus', 'listAccountsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-237"></span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#newListAccountsResponse"><span class="hs-identifier hs-type">newListAccountsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -550,65 +550,42 @@ $cfrom :: forall x. ListAccountsResponse -&gt; Rep ListAccountsResponse x
 </span><span id="line-239"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-240"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse"><span class="hs-identifier hs-type">ListAccountsResponse</span></a></span><span>
 </span><span id="line-241"></span><span id="newListAccountsResponse"><span class="annot"><span class="annottext">newListAccountsResponse :: Int -&gt; ListAccountsResponse
-</span><a href="Network.AWS.Organizations.ListAccounts.html#newListAccountsResponse"><span class="hs-identifier hs-var hs-var">newListAccountsResponse</span></a></span></span><span> </span><span id="local-6989586621679245228"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679245228"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-242"></span><span>  </span><span class="annot"><span class="annottext">ListAccountsResponse' :: Maybe Text -&gt; Maybe [Account] -&gt; Int -&gt; ListAccountsResponse
+</span><a href="Network.AWS.Organizations.ListAccounts.html#newListAccountsResponse"><span class="hs-identifier hs-var hs-var">newListAccountsResponse</span></a></span></span><span> </span><span id="local-6989586621679245370"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245370"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>  </span><span class="annot"><span class="annottext">ListAccountsResponse' :: Maybe [Account] -&gt; Maybe Text -&gt; Int -&gt; ListAccountsResponse
 </span><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse%27"><span class="hs-identifier hs-type">ListAccountsResponse'</span></a></span><span>
-</span><span id="line-243"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAccountsResponse' :: Maybe Text
-</span><a href="Network.AWS.Organizations.ListAccounts.html#%24sel%3AnextToken%3AListAccountsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-243"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accounts:ListAccountsResponse' :: Maybe [Account]
+</span><a href="Network.AWS.Organizations.ListAccounts.html#%24sel%3Aaccounts%3AListAccountsResponse%27"><span class="hs-identifier hs-var">accounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Account]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:accounts:ListAccountsResponse' :: Maybe [Account]
-</span><a href="Network.AWS.Organizations.ListAccounts.html#%24sel%3Aaccounts%3AListAccountsResponse%27"><span class="hs-identifier hs-var">accounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Account]
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListAccountsResponse' :: Maybe Text
+</span><a href="Network.AWS.Organizations.ListAccounts.html#%24sel%3AnextToken%3AListAccountsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAccountsResponse' :: Int
 </span><a href="Network.AWS.Organizations.ListAccounts.html#%24sel%3AhttpStatus%3AListAccountsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679245228"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679245370"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-246"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-247"></span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- | If present, indicates that more output is available than is included in</span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
-</span><span id="line-250"></span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
-</span><span id="line-251"></span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- element comes back as @null@.</span><span>
-</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#listAccountsResponse_nextToken"><span class="hs-identifier hs-type">listAccountsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse"><span class="hs-identifier hs-type">ListAccountsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-254"></span><span id="listAccountsResponse_nextToken"><span class="annot"><span class="annottext">listAccountsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListAccountsResponse -&gt; f ListAccountsResponse
-</span><a href="Network.AWS.Organizations.ListAccounts.html#listAccountsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAccountsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountsResponse -&gt; Maybe Text)
--&gt; (ListAccountsResponse -&gt; Maybe Text -&gt; ListAccountsResponse)
--&gt; Lens' ListAccountsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse%27"><span class="hs-identifier hs-type">ListAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245227"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListAccountsResponse' :: ListAccountsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679245227"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245227"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245226"><span class="annot"><span class="annottext">s :: ListAccountsResponse
-</span><a href="#local-6989586621679245226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse%27"><span class="hs-identifier hs-type">ListAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245225"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountsResponse
-</span><a href="#local-6989586621679245226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAccountsResponse' :: Maybe Text
-</span><a href="Network.AWS.Organizations.ListAccounts.html#%24sel%3AnextToken%3AListAccountsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse"><span class="hs-identifier hs-type">ListAccountsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-255"></span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- | A list of objects in the organization.</span><span>
-</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#listAccountsResponse_accounts"><span class="hs-identifier hs-type">listAccountsResponse_accounts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse"><span class="hs-identifier hs-type">ListAccountsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Organizations.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-258"></span><span id="listAccountsResponse_accounts"><span class="annot"><span class="annottext">listAccountsResponse_accounts :: (Maybe [Account] -&gt; f (Maybe [Account]))
+</span><span id="line-248"></span><span class="hs-comment">-- | A list of objects in the organization.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#listAccountsResponse_accounts"><span class="hs-identifier hs-type">listAccountsResponse_accounts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse"><span class="hs-identifier hs-type">ListAccountsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Organizations.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="listAccountsResponse_accounts"><span class="annot"><span class="annottext">listAccountsResponse_accounts :: (Maybe [Account] -&gt; f (Maybe [Account]))
 -&gt; ListAccountsResponse -&gt; f ListAccountsResponse
 </span><a href="Network.AWS.Organizations.ListAccounts.html#listAccountsResponse_accounts"><span class="hs-identifier hs-var hs-var">listAccountsResponse_accounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountsResponse -&gt; Maybe [Account])
 -&gt; (ListAccountsResponse
     -&gt; Maybe [Account] -&gt; ListAccountsResponse)
 -&gt; Lens' ListAccountsResponse (Maybe [Account])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse%27"><span class="hs-identifier hs-type">ListAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245224"><span class="annot"><span class="annottext">Maybe [Account]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse%27"><span class="hs-identifier hs-type">ListAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245369"><span class="annot"><span class="annottext">Maybe [Account]
 accounts :: Maybe [Account]
 $sel:accounts:ListAccountsResponse' :: ListAccountsResponse -&gt; Maybe [Account]
-</span><a href="#local-6989586621679245224"><span class="hs-identifier hs-var hs-var">accounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Account]
-</span><a href="#local-6989586621679245224"><span class="hs-identifier hs-var">accounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245223"><span class="annot"><span class="annottext">s :: ListAccountsResponse
-</span><a href="#local-6989586621679245223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse%27"><span class="hs-identifier hs-type">ListAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245222"><span class="annot"><span class="annottext">Maybe [Account]
-</span><a href="#local-6989586621679245222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountsResponse
-</span><a href="#local-6989586621679245223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accounts:ListAccountsResponse' :: Maybe [Account]
+</span><a href="#local-6989586621679245369"><span class="hs-identifier hs-var hs-var">accounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Account]
+</span><a href="#local-6989586621679245369"><span class="hs-identifier hs-var">accounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245368"><span class="annot"><span class="annottext">s :: ListAccountsResponse
+</span><a href="#local-6989586621679245368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse%27"><span class="hs-identifier hs-type">ListAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245367"><span class="annot"><span class="annottext">Maybe [Account]
+</span><a href="#local-6989586621679245367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountsResponse
+</span><a href="#local-6989586621679245368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accounts:ListAccountsResponse' :: Maybe [Account]
 </span><a href="Network.AWS.Organizations.ListAccounts.html#%24sel%3Aaccounts%3AListAccountsResponse%27"><span class="hs-identifier hs-var">accounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Account]
-</span><a href="#local-6989586621679245222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse"><span class="hs-identifier hs-type">ListAccountsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Account] -&gt; f (Maybe [Account]))
+</span><a href="#local-6989586621679245367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse"><span class="hs-identifier hs-type">ListAccountsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Account] -&gt; f (Maybe [Account]))
  -&gt; ListAccountsResponse -&gt; f ListAccountsResponse)
 -&gt; ((Maybe [Account] -&gt; f (Maybe [Account]))
     -&gt; Maybe [Account] -&gt; f (Maybe [Account]))
@@ -626,8 +603,31 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Account] [Account] [Account] [Account]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | If present, indicates that more output is available than is included in</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- element comes back as @null@.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#listAccountsResponse_nextToken"><span class="hs-identifier hs-type">listAccountsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse"><span class="hs-identifier hs-type">ListAccountsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="listAccountsResponse_nextToken"><span class="annot"><span class="annottext">listAccountsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAccountsResponse -&gt; f ListAccountsResponse
+</span><a href="Network.AWS.Organizations.ListAccounts.html#listAccountsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAccountsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountsResponse -&gt; Maybe Text)
+-&gt; (ListAccountsResponse -&gt; Maybe Text -&gt; ListAccountsResponse)
+-&gt; Lens' ListAccountsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse%27"><span class="hs-identifier hs-type">ListAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245364"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAccountsResponse' :: ListAccountsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679245364"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245364"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245363"><span class="annot"><span class="annottext">s :: ListAccountsResponse
+</span><a href="#local-6989586621679245363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse%27"><span class="hs-identifier hs-type">ListAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245362"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountsResponse
+</span><a href="#local-6989586621679245363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAccountsResponse' :: Maybe Text
+</span><a href="Network.AWS.Organizations.ListAccounts.html#%24sel%3AnextToken%3AListAccountsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse"><span class="hs-identifier hs-type">ListAccountsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-261"></span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#listAccountsResponse_httpStatus"><span class="hs-identifier hs-type">listAccountsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse"><span class="hs-identifier hs-type">ListAccountsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -636,16 +636,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListAccountsResponse -&gt; Int -&gt; ListAccountsResponse)
 -&gt; Lens ListAccountsResponse ListAccountsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse%27"><span class="hs-identifier hs-type">ListAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245219"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse%27"><span class="hs-identifier hs-type">ListAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245361"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListAccountsResponse' :: ListAccountsResponse -&gt; Int
-</span><a href="#local-6989586621679245219"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679245219"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245218"><span class="annot"><span class="annottext">s :: ListAccountsResponse
-</span><a href="#local-6989586621679245218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse%27"><span class="hs-identifier hs-type">ListAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245217"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679245217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountsResponse
-</span><a href="#local-6989586621679245218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAccountsResponse' :: Int
+</span><a href="#local-6989586621679245361"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245361"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245360"><span class="annot"><span class="annottext">s :: ListAccountsResponse
+</span><a href="#local-6989586621679245360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse%27"><span class="hs-identifier hs-type">ListAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245359"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountsResponse
+</span><a href="#local-6989586621679245360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAccountsResponse' :: Int
 </span><a href="Network.AWS.Organizations.ListAccounts.html#%24sel%3AhttpStatus%3AListAccountsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679245217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse"><span class="hs-identifier hs-type">ListAccountsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse"><span class="hs-identifier hs-type">ListAccountsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-263"></span><span>
-</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse"><span class="hs-identifier hs-type">ListAccountsResponse</span></a></span></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245357"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListAccounts.html#ListAccountsResponse"><span class="hs-identifier hs-type">ListAccountsResponse</span></a></span></span><span>
 </span><span id="line-265"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679182857"><span id="local-6989586621679182858"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="S3ObjectEncryptionType"><span class="annot"><a href="Network.AWS.QLDB.Types.S3ObjectEncryptionType.html#S3ObjectEncryptionType"><span class="hs-identifier hs-var">S3ObjectEncryptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ObjectEncryptionType%27"><span class="annot"><a href="Network.AWS.QLDB.Types.S3ObjectEncryptionType.html#S3ObjectEncryptionType%27"><span class="hs-identifier hs-var">S3ObjectEncryptionType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679182894"><span id="local-6989586621679182895"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="S3ObjectEncryptionType"><span class="annot"><a href="Network.AWS.QLDB.Types.S3ObjectEncryptionType.html#S3ObjectEncryptionType"><span class="hs-identifier hs-var">S3ObjectEncryptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ObjectEncryptionType%27"><span class="annot"><a href="Network.AWS.QLDB.Types.S3ObjectEncryptionType.html#S3ObjectEncryptionType%27"><span class="hs-identifier hs-var">S3ObjectEncryptionType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromS3ObjectEncryptionType"><span class="annot"><span class="annottext">S3ObjectEncryptionType -&gt; Text
 </span><a href="Network.AWS.QLDB.Types.S3ObjectEncryptionType.html#fromS3ObjectEncryptionType"><span class="hs-identifier hs-var hs-var">fromS3ObjectEncryptionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182849"><span id="local-6989586621679182851"><span id="local-6989586621679182853"><span class="annot"><span class="annottext">Int -&gt; S3ObjectEncryptionType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182886"><span id="local-6989586621679182888"><span id="local-6989586621679182890"><span class="annot"><span class="annottext">Int -&gt; S3ObjectEncryptionType -&gt; ShowS
 [S3ObjectEncryptionType] -&gt; ShowS
 S3ObjectEncryptionType -&gt; String
 (Int -&gt; S3ObjectEncryptionType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: S3ObjectEncryptionType -&gt; String
 showsPrec :: Int -&gt; S3ObjectEncryptionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; S3ObjectEncryptionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679182840"><span id="local-6989586621679182842"><span id="local-6989586621679182844"><span id="local-6989586621679182846"><span class="annot"><span class="annottext">ReadPrec [S3ObjectEncryptionType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679182877"><span id="local-6989586621679182879"><span id="local-6989586621679182881"><span id="local-6989586621679182883"><span class="annot"><span class="annottext">ReadPrec [S3ObjectEncryptionType]
 ReadPrec S3ObjectEncryptionType
 Int -&gt; ReadS S3ObjectEncryptionType
 ReadS [S3ObjectEncryptionType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [S3ObjectEncryptionType]
 readsPrec :: Int -&gt; ReadS S3ObjectEncryptionType
 $creadsPrec :: Int -&gt; ReadS S3ObjectEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679182835"><span id="local-6989586621679182837"><span class="annot"><span class="annottext">S3ObjectEncryptionType -&gt; S3ObjectEncryptionType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679182872"><span id="local-6989586621679182874"><span class="annot"><span class="annottext">S3ObjectEncryptionType -&gt; S3ObjectEncryptionType -&gt; Bool
 (S3ObjectEncryptionType -&gt; S3ObjectEncryptionType -&gt; Bool)
 -&gt; (S3ObjectEncryptionType -&gt; S3ObjectEncryptionType -&gt; Bool)
 -&gt; Eq S3ObjectEncryptionType
@@ -83,7 +83,7 @@ $c/= :: S3ObjectEncryptionType -&gt; S3ObjectEncryptionType -&gt; Bool
 == :: S3ObjectEncryptionType -&gt; S3ObjectEncryptionType -&gt; Bool
 $c== :: S3ObjectEncryptionType -&gt; S3ObjectEncryptionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679182819"><span id="local-6989586621679182821"><span id="local-6989586621679182823"><span id="local-6989586621679182825"><span id="local-6989586621679182827"><span id="local-6989586621679182829"><span id="local-6989586621679182831"><span class="annot"><span class="annottext">Eq S3ObjectEncryptionType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679182856"><span id="local-6989586621679182858"><span id="local-6989586621679182860"><span id="local-6989586621679182862"><span id="local-6989586621679182864"><span id="local-6989586621679182866"><span id="local-6989586621679182868"><span class="annot"><span class="annottext">Eq S3ObjectEncryptionType
 Eq S3ObjectEncryptionType
 -&gt; (S3ObjectEncryptionType -&gt; S3ObjectEncryptionType -&gt; Ordering)
 -&gt; (S3ObjectEncryptionType -&gt; S3ObjectEncryptionType -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. S3ObjectEncryptionType -&gt; Rep S3ObjectEncryptionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182811"><span id="local-6989586621679182813"><span class="annot"><span class="annottext">Int -&gt; S3ObjectEncryptionType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182848"><span id="local-6989586621679182850"><span class="annot"><span class="annottext">Int -&gt; S3ObjectEncryptionType -&gt; Int
 S3ObjectEncryptionType -&gt; Int
 (Int -&gt; S3ObjectEncryptionType -&gt; Int)
 -&gt; (S3ObjectEncryptionType -&gt; Int)
@@ -153,54 +153,54 @@ $chash :: S3ObjectEncryptionType -&gt; Int
 hashWithSalt :: Int -&gt; S3ObjectEncryptionType -&gt; Int
 $chashWithSalt :: Int -&gt; S3ObjectEncryptionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679182808"><span class="annot"><span class="annottext">S3ObjectEncryptionType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679182845"><span class="annot"><span class="annottext">S3ObjectEncryptionType -&gt; ()
 (S3ObjectEncryptionType -&gt; ()) -&gt; NFData S3ObjectEncryptionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: S3ObjectEncryptionType -&gt; ()
 $crnf :: S3ObjectEncryptionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679182805"><span class="annot"><span class="annottext">Text -&gt; Either String S3ObjectEncryptionType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679182842"><span class="annot"><span class="annottext">Text -&gt; Either String S3ObjectEncryptionType
 (Text -&gt; Either String S3ObjectEncryptionType)
 -&gt; FromText S3ObjectEncryptionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String S3ObjectEncryptionType
 $cfromText :: Text -&gt; Either String S3ObjectEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679182802"><span class="annot"><span class="annottext">S3ObjectEncryptionType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679182839"><span class="annot"><span class="annottext">S3ObjectEncryptionType -&gt; Text
 (S3ObjectEncryptionType -&gt; Text) -&gt; ToText S3ObjectEncryptionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: S3ObjectEncryptionType -&gt; Text
 $ctoText :: S3ObjectEncryptionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679182799"><span class="annot"><span class="annottext">S3ObjectEncryptionType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679182836"><span class="annot"><span class="annottext">S3ObjectEncryptionType -&gt; ByteString
 (S3ObjectEncryptionType -&gt; ByteString)
 -&gt; ToByteString S3ObjectEncryptionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: S3ObjectEncryptionType -&gt; ByteString
 $ctoBS :: S3ObjectEncryptionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679182796"><span class="annot"><span class="annottext">S3ObjectEncryptionType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679182833"><span class="annot"><span class="annottext">S3ObjectEncryptionType -&gt; ByteStringBuilder
 (S3ObjectEncryptionType -&gt; ByteStringBuilder)
 -&gt; ToLog S3ObjectEncryptionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: S3ObjectEncryptionType -&gt; ByteStringBuilder
 $cbuild :: S3ObjectEncryptionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679182793"><span class="annot"><span class="annottext">HeaderName -&gt; S3ObjectEncryptionType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679182830"><span class="annot"><span class="annottext">HeaderName -&gt; S3ObjectEncryptionType -&gt; [Header]
 (HeaderName -&gt; S3ObjectEncryptionType -&gt; [Header])
 -&gt; ToHeader S3ObjectEncryptionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; S3ObjectEncryptionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; S3ObjectEncryptionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679182790"><span class="annot"><span class="annottext">S3ObjectEncryptionType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679182827"><span class="annot"><span class="annottext">S3ObjectEncryptionType -&gt; QueryString
 (S3ObjectEncryptionType -&gt; QueryString)
 -&gt; ToQuery S3ObjectEncryptionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: S3ObjectEncryptionType -&gt; QueryString
 $ctoQuery :: S3ObjectEncryptionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679182785"><span id="local-6989586621679182787"><span class="annot"><span class="annottext">Value -&gt; Parser [S3ObjectEncryptionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679182822"><span id="local-6989586621679182824"><span class="annot"><span class="annottext">Value -&gt; Parser [S3ObjectEncryptionType]
 Value -&gt; Parser S3ObjectEncryptionType
 (Value -&gt; Parser S3ObjectEncryptionType)
 -&gt; (Value -&gt; Parser [S3ObjectEncryptionType])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [S3ObjectEncryptionType]
 parseJSON :: Value -&gt; Parser S3ObjectEncryptionType
 $cparseJSON :: Value -&gt; Parser S3ObjectEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679182780"><span id="local-6989586621679182782"><span class="annot"><span class="annottext">FromJSONKeyFunction [S3ObjectEncryptionType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679182817"><span id="local-6989586621679182819"><span class="annot"><span class="annottext">FromJSONKeyFunction [S3ObjectEncryptionType]
 FromJSONKeyFunction S3ObjectEncryptionType
 FromJSONKeyFunction S3ObjectEncryptionType
 -&gt; FromJSONKeyFunction [S3ObjectEncryptionType]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [S3ObjectEncryptionType]
 fromJSONKey :: FromJSONKeyFunction S3ObjectEncryptionType
 $cfromJSONKey :: FromJSONKeyFunction S3ObjectEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679182771"><span id="local-6989586621679182773"><span id="local-6989586621679182775"><span id="local-6989586621679182777"><span class="annot"><span class="annottext">[S3ObjectEncryptionType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679182808"><span id="local-6989586621679182810"><span id="local-6989586621679182812"><span id="local-6989586621679182814"><span class="annot"><span class="annottext">[S3ObjectEncryptionType] -&gt; Encoding
 [S3ObjectEncryptionType] -&gt; Value
 S3ObjectEncryptionType -&gt; Encoding
 S3ObjectEncryptionType -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: S3ObjectEncryptionType -&gt; Encoding
 toJSON :: S3ObjectEncryptionType -&gt; Value
 $ctoJSON :: S3ObjectEncryptionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679182766"><span id="local-6989586621679182768"><span class="annot"><span class="annottext">ToJSONKeyFunction [S3ObjectEncryptionType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679182803"><span id="local-6989586621679182805"><span class="annot"><span class="annottext">ToJSONKeyFunction [S3ObjectEncryptionType]
 ToJSONKeyFunction S3ObjectEncryptionType
 ToJSONKeyFunction S3ObjectEncryptionType
 -&gt; ToJSONKeyFunction [S3ObjectEncryptionType]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [S3ObjectEncryptionType]
 toJSONKey :: ToJSONKeyFunction S3ObjectEncryptionType
 $ctoJSONKey :: ToJSONKeyFunction S3ObjectEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679182763"><span class="annot"><span class="annottext">[Node] -&gt; Either String S3ObjectEncryptionType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679182800"><span class="annot"><span class="annottext">[Node] -&gt; Either String S3ObjectEncryptionType
 ([Node] -&gt; Either String S3ObjectEncryptionType)
 -&gt; FromXML S3ObjectEncryptionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String S3ObjectEncryptionType
 $cparseXML :: [Node] -&gt; Either String S3ObjectEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679182760"><span class="annot"><span class="annottext">S3ObjectEncryptionType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679182797"><span class="annot"><span class="annottext">S3ObjectEncryptionType -&gt; XML
 (S3ObjectEncryptionType -&gt; XML) -&gt; ToXML S3ObjectEncryptionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: S3ObjectEncryptionType -&gt; XML

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679271491"><span id="local-6989586621679271492"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DimensionValueSource"><span class="annot"><a href="Network.AWS.SES.Types.DimensionValueSource.html#DimensionValueSource"><span class="hs-identifier hs-var">DimensionValueSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DimensionValueSource%27"><span class="annot"><a href="Network.AWS.SES.Types.DimensionValueSource.html#DimensionValueSource%27"><span class="hs-identifier hs-var">DimensionValueSource'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679271681"><span id="local-6989586621679271682"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DimensionValueSource"><span class="annot"><a href="Network.AWS.SES.Types.DimensionValueSource.html#DimensionValueSource"><span class="hs-identifier hs-var">DimensionValueSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DimensionValueSource%27"><span class="annot"><a href="Network.AWS.SES.Types.DimensionValueSource.html#DimensionValueSource%27"><span class="hs-identifier hs-var">DimensionValueSource'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDimensionValueSource"><span class="annot"><span class="annottext">DimensionValueSource -&gt; Text
 </span><a href="Network.AWS.SES.Types.DimensionValueSource.html#fromDimensionValueSource"><span class="hs-identifier hs-var hs-var">fromDimensionValueSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271483"><span id="local-6989586621679271485"><span id="local-6989586621679271487"><span class="annot"><span class="annottext">Int -&gt; DimensionValueSource -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271673"><span id="local-6989586621679271675"><span id="local-6989586621679271677"><span class="annot"><span class="annottext">Int -&gt; DimensionValueSource -&gt; ShowS
 [DimensionValueSource] -&gt; ShowS
 DimensionValueSource -&gt; String
 (Int -&gt; DimensionValueSource -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: DimensionValueSource -&gt; String
 showsPrec :: Int -&gt; DimensionValueSource -&gt; ShowS
 $cshowsPrec :: Int -&gt; DimensionValueSource -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679271474"><span id="local-6989586621679271476"><span id="local-6989586621679271478"><span id="local-6989586621679271480"><span class="annot"><span class="annottext">ReadPrec [DimensionValueSource]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679271664"><span id="local-6989586621679271666"><span id="local-6989586621679271668"><span id="local-6989586621679271670"><span class="annot"><span class="annottext">ReadPrec [DimensionValueSource]
 ReadPrec DimensionValueSource
 Int -&gt; ReadS DimensionValueSource
 ReadS [DimensionValueSource]
@@ -73,7 +73,7 @@ $creadList :: ReadS [DimensionValueSource]
 readsPrec :: Int -&gt; ReadS DimensionValueSource
 $creadsPrec :: Int -&gt; ReadS DimensionValueSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679271469"><span id="local-6989586621679271471"><span class="annot"><span class="annottext">DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679271659"><span id="local-6989586621679271661"><span class="annot"><span class="annottext">DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
 (DimensionValueSource -&gt; DimensionValueSource -&gt; Bool)
 -&gt; (DimensionValueSource -&gt; DimensionValueSource -&gt; Bool)
 -&gt; Eq DimensionValueSource
@@ -83,7 +83,7 @@ $c/= :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
 == :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
 $c== :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679271453"><span id="local-6989586621679271455"><span id="local-6989586621679271457"><span id="local-6989586621679271459"><span id="local-6989586621679271461"><span id="local-6989586621679271463"><span id="local-6989586621679271465"><span class="annot"><span class="annottext">Eq DimensionValueSource
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679271643"><span id="local-6989586621679271645"><span id="local-6989586621679271647"><span id="local-6989586621679271649"><span id="local-6989586621679271651"><span id="local-6989586621679271653"><span id="local-6989586621679271655"><span class="annot"><span class="annottext">Eq DimensionValueSource
 Eq DimensionValueSource
 -&gt; (DimensionValueSource -&gt; DimensionValueSource -&gt; Ordering)
 -&gt; (DimensionValueSource -&gt; DimensionValueSource -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. DimensionValueSource -&gt; Rep DimensionValueSource x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271445"><span id="local-6989586621679271447"><span class="annot"><span class="annottext">Int -&gt; DimensionValueSource -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271635"><span id="local-6989586621679271637"><span class="annot"><span class="annottext">Int -&gt; DimensionValueSource -&gt; Int
 DimensionValueSource -&gt; Int
 (Int -&gt; DimensionValueSource -&gt; Int)
 -&gt; (DimensionValueSource -&gt; Int) -&gt; Hashable DimensionValueSource
@@ -151,54 +151,54 @@ $chash :: DimensionValueSource -&gt; Int
 hashWithSalt :: Int -&gt; DimensionValueSource -&gt; Int
 $chashWithSalt :: Int -&gt; DimensionValueSource -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679271442"><span class="annot"><span class="annottext">DimensionValueSource -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679271632"><span class="annot"><span class="annottext">DimensionValueSource -&gt; ()
 (DimensionValueSource -&gt; ()) -&gt; NFData DimensionValueSource
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DimensionValueSource -&gt; ()
 $crnf :: DimensionValueSource -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679271439"><span class="annot"><span class="annottext">Text -&gt; Either String DimensionValueSource
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679271629"><span class="annot"><span class="annottext">Text -&gt; Either String DimensionValueSource
 (Text -&gt; Either String DimensionValueSource)
 -&gt; FromText DimensionValueSource
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DimensionValueSource
 $cfromText :: Text -&gt; Either String DimensionValueSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679271436"><span class="annot"><span class="annottext">DimensionValueSource -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679271626"><span class="annot"><span class="annottext">DimensionValueSource -&gt; Text
 (DimensionValueSource -&gt; Text) -&gt; ToText DimensionValueSource
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DimensionValueSource -&gt; Text
 $ctoText :: DimensionValueSource -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679271433"><span class="annot"><span class="annottext">DimensionValueSource -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679271623"><span class="annot"><span class="annottext">DimensionValueSource -&gt; ByteString
 (DimensionValueSource -&gt; ByteString)
 -&gt; ToByteString DimensionValueSource
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DimensionValueSource -&gt; ByteString
 $ctoBS :: DimensionValueSource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679271430"><span class="annot"><span class="annottext">DimensionValueSource -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679271620"><span class="annot"><span class="annottext">DimensionValueSource -&gt; ByteStringBuilder
 (DimensionValueSource -&gt; ByteStringBuilder)
 -&gt; ToLog DimensionValueSource
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DimensionValueSource -&gt; ByteStringBuilder
 $cbuild :: DimensionValueSource -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679271427"><span class="annot"><span class="annottext">HeaderName -&gt; DimensionValueSource -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679271617"><span class="annot"><span class="annottext">HeaderName -&gt; DimensionValueSource -&gt; [Header]
 (HeaderName -&gt; DimensionValueSource -&gt; [Header])
 -&gt; ToHeader DimensionValueSource
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DimensionValueSource -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DimensionValueSource -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679271424"><span class="annot"><span class="annottext">DimensionValueSource -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679271614"><span class="annot"><span class="annottext">DimensionValueSource -&gt; QueryString
 (DimensionValueSource -&gt; QueryString)
 -&gt; ToQuery DimensionValueSource
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DimensionValueSource -&gt; QueryString
 $ctoQuery :: DimensionValueSource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679271419"><span id="local-6989586621679271421"><span class="annot"><span class="annottext">Value -&gt; Parser [DimensionValueSource]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679271609"><span id="local-6989586621679271611"><span class="annot"><span class="annottext">Value -&gt; Parser [DimensionValueSource]
 Value -&gt; Parser DimensionValueSource
 (Value -&gt; Parser DimensionValueSource)
 -&gt; (Value -&gt; Parser [DimensionValueSource])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [DimensionValueSource]
 parseJSON :: Value -&gt; Parser DimensionValueSource
 $cparseJSON :: Value -&gt; Parser DimensionValueSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679271414"><span id="local-6989586621679271416"><span class="annot"><span class="annottext">FromJSONKeyFunction [DimensionValueSource]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679271604"><span id="local-6989586621679271606"><span class="annot"><span class="annottext">FromJSONKeyFunction [DimensionValueSource]
 FromJSONKeyFunction DimensionValueSource
 FromJSONKeyFunction DimensionValueSource
 -&gt; FromJSONKeyFunction [DimensionValueSource]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DimensionValueSource]
 fromJSONKey :: FromJSONKeyFunction DimensionValueSource
 $cfromJSONKey :: FromJSONKeyFunction DimensionValueSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679271405"><span id="local-6989586621679271407"><span id="local-6989586621679271409"><span id="local-6989586621679271411"><span class="annot"><span class="annottext">[DimensionValueSource] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679271595"><span id="local-6989586621679271597"><span id="local-6989586621679271599"><span id="local-6989586621679271601"><span class="annot"><span class="annottext">[DimensionValueSource] -&gt; Encoding
 [DimensionValueSource] -&gt; Value
 DimensionValueSource -&gt; Encoding
 DimensionValueSource -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: DimensionValueSource -&gt; Encoding
 toJSON :: DimensionValueSource -&gt; Value
 $ctoJSON :: DimensionValueSource -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679271400"><span id="local-6989586621679271402"><span class="annot"><span class="annottext">ToJSONKeyFunction [DimensionValueSource]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679271590"><span id="local-6989586621679271592"><span class="annot"><span class="annottext">ToJSONKeyFunction [DimensionValueSource]
 ToJSONKeyFunction DimensionValueSource
 ToJSONKeyFunction DimensionValueSource
 -&gt; ToJSONKeyFunction [DimensionValueSource]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DimensionValueSource]
 toJSONKey :: ToJSONKeyFunction DimensionValueSource
 $ctoJSONKey :: ToJSONKeyFunction DimensionValueSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679271397"><span class="annot"><span class="annottext">[Node] -&gt; Either String DimensionValueSource
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679271587"><span class="annot"><span class="annottext">[Node] -&gt; Either String DimensionValueSource
 ([Node] -&gt; Either String DimensionValueSource)
 -&gt; FromXML DimensionValueSource
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DimensionValueSource
 $cparseXML :: [Node] -&gt; Either String DimensionValueSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679271394"><span class="annot"><span class="annottext">DimensionValueSource -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679271584"><span class="annot"><span class="annottext">DimensionValueSource -&gt; XML
 (DimensionValueSource -&gt; XML) -&gt; ToXML DimensionValueSource
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DimensionValueSource -&gt; XML

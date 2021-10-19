@@ -28,18 +28,18 @@
 </span><span id="line-28"></span><span class="hs-comment">-- it returns back this object with failure details.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newNotifyWorkersFailureStatus' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679243931"><span id="local-6989586621679243932"></span></span><span class="hs-keyword">data</span><span> </span><span id="NotifyWorkersFailureStatus"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-var">NotifyWorkersFailureStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotifyWorkersFailureStatus%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus%27"><span class="hs-identifier hs-var">NotifyWorkersFailureStatus'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Encoded value for the failure type.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AnotifyWorkersFailureCode%3ANotifyWorkersFailureStatus%27"><span class="annot"><span class="annottext">NotifyWorkersFailureStatus -&gt; Maybe NotifyWorkersFailureCode
+</span><span id="line-31"></span><span id="local-6989586621679244046"><span id="local-6989586621679244047"></span></span><span class="hs-keyword">data</span><span> </span><span id="NotifyWorkersFailureStatus"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-var">NotifyWorkersFailureStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotifyWorkersFailureStatus%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus%27"><span class="hs-identifier hs-var">NotifyWorkersFailureStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A message detailing the reason the Worker could not be notified.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AnotifyWorkersFailureMessage%3ANotifyWorkersFailureStatus%27"><span class="annot"><span class="annottext">NotifyWorkersFailureStatus -&gt; Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#%24sel%3AnotifyWorkersFailureMessage%3ANotifyWorkersFailureStatus%27"><span class="hs-identifier hs-var hs-var">notifyWorkersFailureMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Encoded value for the failure type.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AnotifyWorkersFailureCode%3ANotifyWorkersFailureStatus%27"><span class="annot"><span class="annottext">NotifyWorkersFailureStatus -&gt; Maybe NotifyWorkersFailureCode
 </span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#%24sel%3AnotifyWorkersFailureCode%3ANotifyWorkersFailureStatus%27"><span class="hs-identifier hs-var hs-var">notifyWorkersFailureCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureCode.html#NotifyWorkersFailureCode"><span class="hs-identifier hs-type">NotifyWorkersFailureCode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the Worker.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AworkerId%3ANotifyWorkersFailureStatus%27"><span class="annot"><span class="annottext">NotifyWorkersFailureStatus -&gt; Maybe Text
-</span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#%24sel%3AworkerId%3ANotifyWorkersFailureStatus%27"><span class="hs-identifier hs-var hs-var">workerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A message detailing the reason the Worker could not be notified.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AnotifyWorkersFailureMessage%3ANotifyWorkersFailureStatus%27"><span class="annot"><span class="annottext">NotifyWorkersFailureStatus -&gt; Maybe Text
-</span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#%24sel%3AnotifyWorkersFailureMessage%3ANotifyWorkersFailureStatus%27"><span class="hs-identifier hs-var hs-var">notifyWorkersFailureMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ID of the Worker.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AworkerId%3ANotifyWorkersFailureStatus%27"><span class="annot"><span class="annottext">NotifyWorkersFailureStatus -&gt; Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#%24sel%3AworkerId%3ANotifyWorkersFailureStatus%27"><span class="hs-identifier hs-var hs-var">workerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243923"><span id="local-6989586621679243925"><span class="annot"><span class="annottext">NotifyWorkersFailureStatus -&gt; NotifyWorkersFailureStatus -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244038"><span id="local-6989586621679244040"><span class="annot"><span class="annottext">NotifyWorkersFailureStatus -&gt; NotifyWorkersFailureStatus -&gt; Bool
 (NotifyWorkersFailureStatus -&gt; NotifyWorkersFailureStatus -&gt; Bool)
 -&gt; (NotifyWorkersFailureStatus
     -&gt; NotifyWorkersFailureStatus -&gt; Bool)
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NotifyWorkersFailureStatus -&gt; NotifyWorkersFailureStatus -&gt; Bool
 == :: NotifyWorkersFailureStatus -&gt; NotifyWorkersFailureStatus -&gt; Bool
 $c== :: NotifyWorkersFailureStatus -&gt; NotifyWorkersFailureStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243914"><span id="local-6989586621679243916"><span id="local-6989586621679243918"><span id="local-6989586621679243920"><span class="annot"><span class="annottext">ReadPrec [NotifyWorkersFailureStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244029"><span id="local-6989586621679244031"><span id="local-6989586621679244033"><span id="local-6989586621679244035"><span class="annot"><span class="annottext">ReadPrec [NotifyWorkersFailureStatus]
 ReadPrec NotifyWorkersFailureStatus
 Int -&gt; ReadS NotifyWorkersFailureStatus
 ReadS [NotifyWorkersFailureStatus]
@@ -69,7 +69,7 @@ readList :: ReadS [NotifyWorkersFailureStatus]
 $creadList :: ReadS [NotifyWorkersFailureStatus]
 readsPrec :: Int -&gt; ReadS NotifyWorkersFailureStatus
 $creadsPrec :: Int -&gt; ReadS NotifyWorkersFailureStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243907"><span id="local-6989586621679243909"><span id="local-6989586621679243911"><span class="annot"><span class="annottext">Int -&gt; NotifyWorkersFailureStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244022"><span id="local-6989586621679244024"><span id="local-6989586621679244026"><span class="annot"><span class="annottext">Int -&gt; NotifyWorkersFailureStatus -&gt; ShowS
 [NotifyWorkersFailureStatus] -&gt; ShowS
 NotifyWorkersFailureStatus -&gt; String
 (Int -&gt; NotifyWorkersFailureStatus -&gt; ShowS)
@@ -109,36 +109,62 @@ NotifyWorkersFailureStatus -&gt; Rep NotifyWorkersFailureStatus x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'notifyWorkersFailureCode', 'notifyWorkersFailureStatus_notifyWorkersFailureCode' - Encoded value for the failure type.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'notifyWorkersFailureMessage', 'notifyWorkersFailureStatus_notifyWorkersFailureMessage' - A message detailing the reason the Worker could not be notified.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'workerId', 'notifyWorkersFailureStatus_workerId' - The ID of the Worker.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'notifyWorkersFailureCode', 'notifyWorkersFailureStatus_notifyWorkersFailureCode' - Encoded value for the failure type.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'notifyWorkersFailureMessage', 'notifyWorkersFailureStatus_notifyWorkersFailureMessage' - A message detailing the reason the Worker could not be notified.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'workerId', 'notifyWorkersFailureStatus_workerId' - The ID of the Worker.</span><span>
 </span><span id="line-54"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#newNotifyWorkersFailureStatus"><span class="hs-identifier hs-type">newNotifyWorkersFailureStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span><span>
 </span><span id="line-56"></span><span id="newNotifyWorkersFailureStatus"><span class="annot"><span class="annottext">newNotifyWorkersFailureStatus :: NotifyWorkersFailureStatus
 </span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#newNotifyWorkersFailureStatus"><span class="hs-identifier hs-var hs-var">newNotifyWorkersFailureStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">NotifyWorkersFailureStatus' :: Maybe NotifyWorkersFailureCode
--&gt; Maybe Text -&gt; Maybe Text -&gt; NotifyWorkersFailureStatus
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">NotifyWorkersFailureStatus' :: Maybe Text
+-&gt; Maybe NotifyWorkersFailureCode
+-&gt; Maybe Text
+-&gt; NotifyWorkersFailureStatus
 </span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus%27"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus'</span></a></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:notifyWorkersFailureCode:NotifyWorkersFailureStatus' :: Maybe NotifyWorkersFailureCode
-</span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#%24sel%3AnotifyWorkersFailureCode%3ANotifyWorkersFailureStatus%27"><span class="hs-identifier hs-var">notifyWorkersFailureCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">Maybe NotifyWorkersFailureCode
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:notifyWorkersFailureMessage:NotifyWorkersFailureStatus' :: Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#%24sel%3AnotifyWorkersFailureMessage%3ANotifyWorkersFailureStatus%27"><span class="hs-identifier hs-var">notifyWorkersFailureMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:workerId:NotifyWorkersFailureStatus' :: Maybe Text
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:notifyWorkersFailureCode:NotifyWorkersFailureStatus' :: Maybe NotifyWorkersFailureCode
+</span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#%24sel%3AnotifyWorkersFailureCode%3ANotifyWorkersFailureStatus%27"><span class="hs-identifier hs-var">notifyWorkersFailureCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotifyWorkersFailureCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:workerId:NotifyWorkersFailureStatus' :: Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#%24sel%3AworkerId%3ANotifyWorkersFailureStatus%27"><span class="hs-identifier hs-var">workerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:notifyWorkersFailureMessage:NotifyWorkersFailureStatus' :: Maybe Text
-</span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#%24sel%3AnotifyWorkersFailureMessage%3ANotifyWorkersFailureStatus%27"><span class="hs-identifier hs-var">notifyWorkersFailureMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | Encoded value for the failure type.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#notifyWorkersFailureStatus_notifyWorkersFailureCode"><span class="hs-identifier hs-type">notifyWorkersFailureStatus_notifyWorkersFailureCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureCode.html#NotifyWorkersFailureCode"><span class="hs-identifier hs-type">NotifyWorkersFailureCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="notifyWorkersFailureStatus_notifyWorkersFailureCode"><span class="annot"><span class="annottext">notifyWorkersFailureStatus_notifyWorkersFailureCode :: (Maybe NotifyWorkersFailureCode
+</span><span id="line-64"></span><span class="hs-comment">-- | A message detailing the reason the Worker could not be notified.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#notifyWorkersFailureStatus_notifyWorkersFailureMessage"><span class="hs-identifier hs-type">notifyWorkersFailureStatus_notifyWorkersFailureMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="notifyWorkersFailureStatus_notifyWorkersFailureMessage"><span class="annot"><span class="annottext">notifyWorkersFailureStatus_notifyWorkersFailureMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NotifyWorkersFailureStatus -&gt; f NotifyWorkersFailureStatus
+</span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#notifyWorkersFailureStatus_notifyWorkersFailureMessage"><span class="hs-identifier hs-var hs-var">notifyWorkersFailureStatus_notifyWorkersFailureMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotifyWorkersFailureStatus -&gt; Maybe Text)
+-&gt; (NotifyWorkersFailureStatus
+    -&gt; Maybe Text -&gt; NotifyWorkersFailureStatus)
+-&gt; Lens
+     NotifyWorkersFailureStatus
+     NotifyWorkersFailureStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus%27"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244013"><span class="annot"><span class="annottext">Maybe Text
+notifyWorkersFailureMessage :: Maybe Text
+$sel:notifyWorkersFailureMessage:NotifyWorkersFailureStatus' :: NotifyWorkersFailureStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679244013"><span class="hs-identifier hs-var hs-var">notifyWorkersFailureMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244013"><span class="hs-identifier hs-var">notifyWorkersFailureMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244012"><span class="annot"><span class="annottext">s :: NotifyWorkersFailureStatus
+</span><a href="#local-6989586621679244012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus%27"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244011"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotifyWorkersFailureStatus
+</span><a href="#local-6989586621679244012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notifyWorkersFailureMessage:NotifyWorkersFailureStatus' :: Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#%24sel%3AnotifyWorkersFailureMessage%3ANotifyWorkersFailureStatus%27"><span class="hs-identifier hs-var">notifyWorkersFailureMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | Encoded value for the failure type.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#notifyWorkersFailureStatus_notifyWorkersFailureCode"><span class="hs-identifier hs-type">notifyWorkersFailureStatus_notifyWorkersFailureCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureCode.html#NotifyWorkersFailureCode"><span class="hs-identifier hs-type">NotifyWorkersFailureCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="notifyWorkersFailureStatus_notifyWorkersFailureCode"><span class="annot"><span class="annottext">notifyWorkersFailureStatus_notifyWorkersFailureCode :: (Maybe NotifyWorkersFailureCode
  -&gt; f (Maybe NotifyWorkersFailureCode))
 -&gt; NotifyWorkersFailureStatus -&gt; f NotifyWorkersFailureStatus
 </span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#notifyWorkersFailureStatus_notifyWorkersFailureCode"><span class="hs-identifier hs-var hs-var">notifyWorkersFailureStatus_notifyWorkersFailureCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotifyWorkersFailureStatus -&gt; Maybe NotifyWorkersFailureCode)
@@ -150,20 +176,20 @@ forall a. Maybe a
      (Maybe NotifyWorkersFailureCode)
      (Maybe NotifyWorkersFailureCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus%27"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243898"><span class="annot"><span class="annottext">Maybe NotifyWorkersFailureCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus%27"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244009"><span class="annot"><span class="annottext">Maybe NotifyWorkersFailureCode
 notifyWorkersFailureCode :: Maybe NotifyWorkersFailureCode
 $sel:notifyWorkersFailureCode:NotifyWorkersFailureStatus' :: NotifyWorkersFailureStatus -&gt; Maybe NotifyWorkersFailureCode
-</span><a href="#local-6989586621679243898"><span class="hs-identifier hs-var hs-var">notifyWorkersFailureCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotifyWorkersFailureCode
-</span><a href="#local-6989586621679243898"><span class="hs-identifier hs-var">notifyWorkersFailureCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243897"><span class="annot"><span class="annottext">s :: NotifyWorkersFailureStatus
-</span><a href="#local-6989586621679243897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus%27"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243896"><span class="annot"><span class="annottext">Maybe NotifyWorkersFailureCode
-</span><a href="#local-6989586621679243896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotifyWorkersFailureStatus
-</span><a href="#local-6989586621679243897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notifyWorkersFailureCode:NotifyWorkersFailureStatus' :: Maybe NotifyWorkersFailureCode
+</span><a href="#local-6989586621679244009"><span class="hs-identifier hs-var hs-var">notifyWorkersFailureCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotifyWorkersFailureCode
+</span><a href="#local-6989586621679244009"><span class="hs-identifier hs-var">notifyWorkersFailureCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244008"><span class="annot"><span class="annottext">s :: NotifyWorkersFailureStatus
+</span><a href="#local-6989586621679244008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus%27"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244007"><span class="annot"><span class="annottext">Maybe NotifyWorkersFailureCode
+</span><a href="#local-6989586621679244007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotifyWorkersFailureStatus
+</span><a href="#local-6989586621679244008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notifyWorkersFailureCode:NotifyWorkersFailureStatus' :: Maybe NotifyWorkersFailureCode
 </span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#%24sel%3AnotifyWorkersFailureCode%3ANotifyWorkersFailureStatus%27"><span class="hs-identifier hs-var">notifyWorkersFailureCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotifyWorkersFailureCode
-</span><a href="#local-6989586621679243896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | The ID of the Worker.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#notifyWorkersFailureStatus_workerId"><span class="hs-identifier hs-type">notifyWorkersFailureStatus_workerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="notifyWorkersFailureStatus_workerId"><span class="annot"><span class="annottext">notifyWorkersFailureStatus_workerId :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679244007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The ID of the Worker.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#notifyWorkersFailureStatus_workerId"><span class="hs-identifier hs-type">notifyWorkersFailureStatus_workerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="notifyWorkersFailureStatus_workerId"><span class="annot"><span class="annottext">notifyWorkersFailureStatus_workerId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; NotifyWorkersFailureStatus -&gt; f NotifyWorkersFailureStatus
 </span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#notifyWorkersFailureStatus_workerId"><span class="hs-identifier hs-var hs-var">notifyWorkersFailureStatus_workerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotifyWorkersFailureStatus -&gt; Maybe Text)
 -&gt; (NotifyWorkersFailureStatus
@@ -174,43 +200,19 @@ $sel:notifyWorkersFailureCode:NotifyWorkersFailureStatus' :: NotifyWorkersFailur
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus%27"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243894"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus%27"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244005"><span class="annot"><span class="annottext">Maybe Text
 workerId :: Maybe Text
 $sel:workerId:NotifyWorkersFailureStatus' :: NotifyWorkersFailureStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679243894"><span class="hs-identifier hs-var hs-var">workerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679243894"><span class="hs-identifier hs-var">workerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243893"><span class="annot"><span class="annottext">s :: NotifyWorkersFailureStatus
-</span><a href="#local-6989586621679243893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus%27"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243892"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679243892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotifyWorkersFailureStatus
-</span><a href="#local-6989586621679243893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workerId:NotifyWorkersFailureStatus' :: Maybe Text
+</span><a href="#local-6989586621679244005"><span class="hs-identifier hs-var hs-var">workerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244005"><span class="hs-identifier hs-var">workerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244004"><span class="annot"><span class="annottext">s :: NotifyWorkersFailureStatus
+</span><a href="#local-6989586621679244004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus%27"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244003"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotifyWorkersFailureStatus
+</span><a href="#local-6989586621679244004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workerId:NotifyWorkersFailureStatus' :: Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#%24sel%3AworkerId%3ANotifyWorkersFailureStatus%27"><span class="hs-identifier hs-var">workerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679243892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | A message detailing the reason the Worker could not be notified.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#notifyWorkersFailureStatus_notifyWorkersFailureMessage"><span class="hs-identifier hs-type">notifyWorkersFailureStatus_notifyWorkersFailureMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="notifyWorkersFailureStatus_notifyWorkersFailureMessage"><span class="annot"><span class="annottext">notifyWorkersFailureStatus_notifyWorkersFailureMessage :: (Maybe Text -&gt; f (Maybe Text))
--&gt; NotifyWorkersFailureStatus -&gt; f NotifyWorkersFailureStatus
-</span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#notifyWorkersFailureStatus_notifyWorkersFailureMessage"><span class="hs-identifier hs-var hs-var">notifyWorkersFailureStatus_notifyWorkersFailureMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotifyWorkersFailureStatus -&gt; Maybe Text)
--&gt; (NotifyWorkersFailureStatus
-    -&gt; Maybe Text -&gt; NotifyWorkersFailureStatus)
--&gt; Lens
-     NotifyWorkersFailureStatus
-     NotifyWorkersFailureStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus%27"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243890"><span class="annot"><span class="annottext">Maybe Text
-notifyWorkersFailureMessage :: Maybe Text
-$sel:notifyWorkersFailureMessage:NotifyWorkersFailureStatus' :: NotifyWorkersFailureStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679243890"><span class="hs-identifier hs-var hs-var">notifyWorkersFailureMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679243890"><span class="hs-identifier hs-var">notifyWorkersFailureMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243889"><span class="annot"><span class="annottext">s :: NotifyWorkersFailureStatus
-</span><a href="#local-6989586621679243889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus%27"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243888"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679243888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotifyWorkersFailureStatus
-</span><a href="#local-6989586621679243889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notifyWorkersFailureMessage:NotifyWorkersFailureStatus' :: Maybe Text
-</span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#%24sel%3AnotifyWorkersFailureMessage%3ANotifyWorkersFailureStatus%27"><span class="hs-identifier hs-var">notifyWorkersFailureMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679243888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679244003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243885"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679243883"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NotifyWorkersFailureStatus
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244000"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679243998"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NotifyWorkersFailureStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser NotifyWorkersFailureStatus)
@@ -220,41 +222,49 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;NotifyWorkersFailureStatus&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243880"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679243880"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe NotifyWorkersFailureCode
--&gt; Maybe Text -&gt; Maybe Text -&gt; NotifyWorkersFailureStatus
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243995"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243995"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe NotifyWorkersFailureCode
+-&gt; Maybe Text
+-&gt; NotifyWorkersFailureStatus
 </span><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus%27"><span class="hs-identifier hs-var">NotifyWorkersFailureStatus'</span></a></span><span>
-</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe NotifyWorkersFailureCode
- -&gt; Maybe Text -&gt; Maybe Text -&gt; NotifyWorkersFailureStatus)
--&gt; Parser (Maybe NotifyWorkersFailureCode)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; NotifyWorkersFailureStatus)
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe NotifyWorkersFailureCode
+ -&gt; Maybe Text
+ -&gt; NotifyWorkersFailureStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe NotifyWorkersFailureCode
+      -&gt; Maybe Text -&gt; NotifyWorkersFailureStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679243880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NotifyWorkersFailureCode)
+</span><a href="#local-6989586621679243995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NotifyWorkersFailureCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; NotifyWorkersFailureStatus)
--&gt; Parser (Maybe Text)
+</span><span class="hs-string">&quot;NotifyWorkersFailureMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NotifyWorkersFailureCode
+   -&gt; Maybe Text -&gt; NotifyWorkersFailureStatus)
+-&gt; Parser (Maybe NotifyWorkersFailureCode)
 -&gt; Parser (Maybe Text -&gt; NotifyWorkersFailureStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679243880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679243995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NotifyWorkersFailureCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;WorkerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;NotifyWorkersFailureCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; NotifyWorkersFailureStatus)
 -&gt; Parser (Maybe Text) -&gt; Parser NotifyWorkersFailureStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679243880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679243995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NotifyWorkersFailureMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;WorkerId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243874"><span id="local-6989586621679243876"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243989"><span id="local-6989586621679243991"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243871"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243986"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus.html#NotifyWorkersFailureStatus"><span class="hs-identifier hs-type">NotifyWorkersFailureStatus</span></a></span></span><span>
 </span><span id="line-90"></span></pre></body></html>

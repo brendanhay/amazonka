@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679430284"><span id="local-6989586621679430285"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataFormatValue"><span class="annot"><a href="Network.AWS.DMS.Types.DataFormatValue.html#DataFormatValue"><span class="hs-identifier hs-var">DataFormatValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataFormatValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.DataFormatValue.html#DataFormatValue%27"><span class="hs-identifier hs-var">DataFormatValue'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679430555"><span id="local-6989586621679430556"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataFormatValue"><span class="annot"><a href="Network.AWS.DMS.Types.DataFormatValue.html#DataFormatValue"><span class="hs-identifier hs-var">DataFormatValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataFormatValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.DataFormatValue.html#DataFormatValue%27"><span class="hs-identifier hs-var">DataFormatValue'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDataFormatValue"><span class="annot"><span class="annottext">DataFormatValue -&gt; Text
 </span><a href="Network.AWS.DMS.Types.DataFormatValue.html#fromDataFormatValue"><span class="hs-identifier hs-var hs-var">fromDataFormatValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679430276"><span id="local-6989586621679430278"><span id="local-6989586621679430280"><span class="annot"><span class="annottext">Int -&gt; DataFormatValue -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679430547"><span id="local-6989586621679430549"><span id="local-6989586621679430551"><span class="annot"><span class="annottext">Int -&gt; DataFormatValue -&gt; ShowS
 [DataFormatValue] -&gt; ShowS
 DataFormatValue -&gt; String
 (Int -&gt; DataFormatValue -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DataFormatValue -&gt; String
 showsPrec :: Int -&gt; DataFormatValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; DataFormatValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679430267"><span id="local-6989586621679430269"><span id="local-6989586621679430271"><span id="local-6989586621679430273"><span class="annot"><span class="annottext">ReadPrec [DataFormatValue]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679430538"><span id="local-6989586621679430540"><span id="local-6989586621679430542"><span id="local-6989586621679430544"><span class="annot"><span class="annottext">ReadPrec [DataFormatValue]
 ReadPrec DataFormatValue
 Int -&gt; ReadS DataFormatValue
 ReadS [DataFormatValue]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DataFormatValue]
 readsPrec :: Int -&gt; ReadS DataFormatValue
 $creadsPrec :: Int -&gt; ReadS DataFormatValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679430262"><span id="local-6989586621679430264"><span class="annot"><span class="annottext">DataFormatValue -&gt; DataFormatValue -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679430533"><span id="local-6989586621679430535"><span class="annot"><span class="annottext">DataFormatValue -&gt; DataFormatValue -&gt; Bool
 (DataFormatValue -&gt; DataFormatValue -&gt; Bool)
 -&gt; (DataFormatValue -&gt; DataFormatValue -&gt; Bool)
 -&gt; Eq DataFormatValue
@@ -82,7 +82,7 @@ $c/= :: DataFormatValue -&gt; DataFormatValue -&gt; Bool
 == :: DataFormatValue -&gt; DataFormatValue -&gt; Bool
 $c== :: DataFormatValue -&gt; DataFormatValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679430246"><span id="local-6989586621679430248"><span id="local-6989586621679430250"><span id="local-6989586621679430252"><span id="local-6989586621679430254"><span id="local-6989586621679430256"><span id="local-6989586621679430258"><span class="annot"><span class="annottext">Eq DataFormatValue
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679430517"><span id="local-6989586621679430519"><span id="local-6989586621679430521"><span id="local-6989586621679430523"><span id="local-6989586621679430525"><span id="local-6989586621679430527"><span id="local-6989586621679430529"><span class="annot"><span class="annottext">Eq DataFormatValue
 Eq DataFormatValue
 -&gt; (DataFormatValue -&gt; DataFormatValue -&gt; Ordering)
 -&gt; (DataFormatValue -&gt; DataFormatValue -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. DataFormatValue -&gt; Rep DataFormatValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679430238"><span id="local-6989586621679430240"><span class="annot"><span class="annottext">Int -&gt; DataFormatValue -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679430509"><span id="local-6989586621679430511"><span class="annot"><span class="annottext">Int -&gt; DataFormatValue -&gt; Int
 DataFormatValue -&gt; Int
 (Int -&gt; DataFormatValue -&gt; Int)
 -&gt; (DataFormatValue -&gt; Int) -&gt; Hashable DataFormatValue
@@ -143,50 +143,50 @@ $chash :: DataFormatValue -&gt; Int
 hashWithSalt :: Int -&gt; DataFormatValue -&gt; Int
 $chashWithSalt :: Int -&gt; DataFormatValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679430235"><span class="annot"><span class="annottext">DataFormatValue -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679430506"><span class="annot"><span class="annottext">DataFormatValue -&gt; ()
 (DataFormatValue -&gt; ()) -&gt; NFData DataFormatValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DataFormatValue -&gt; ()
 $crnf :: DataFormatValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679430232"><span class="annot"><span class="annottext">Text -&gt; Either String DataFormatValue
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679430503"><span class="annot"><span class="annottext">Text -&gt; Either String DataFormatValue
 (Text -&gt; Either String DataFormatValue) -&gt; FromText DataFormatValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DataFormatValue
 $cfromText :: Text -&gt; Either String DataFormatValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679430229"><span class="annot"><span class="annottext">DataFormatValue -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679430500"><span class="annot"><span class="annottext">DataFormatValue -&gt; Text
 (DataFormatValue -&gt; Text) -&gt; ToText DataFormatValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DataFormatValue -&gt; Text
 $ctoText :: DataFormatValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679430226"><span class="annot"><span class="annottext">DataFormatValue -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679430497"><span class="annot"><span class="annottext">DataFormatValue -&gt; ByteString
 (DataFormatValue -&gt; ByteString) -&gt; ToByteString DataFormatValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DataFormatValue -&gt; ByteString
 $ctoBS :: DataFormatValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679430223"><span class="annot"><span class="annottext">DataFormatValue -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679430494"><span class="annot"><span class="annottext">DataFormatValue -&gt; ByteStringBuilder
 (DataFormatValue -&gt; ByteStringBuilder) -&gt; ToLog DataFormatValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DataFormatValue -&gt; ByteStringBuilder
 $cbuild :: DataFormatValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679430220"><span class="annot"><span class="annottext">HeaderName -&gt; DataFormatValue -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679430491"><span class="annot"><span class="annottext">HeaderName -&gt; DataFormatValue -&gt; [Header]
 (HeaderName -&gt; DataFormatValue -&gt; [Header])
 -&gt; ToHeader DataFormatValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DataFormatValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DataFormatValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679430217"><span class="annot"><span class="annottext">DataFormatValue -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679430488"><span class="annot"><span class="annottext">DataFormatValue -&gt; QueryString
 (DataFormatValue -&gt; QueryString) -&gt; ToQuery DataFormatValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DataFormatValue -&gt; QueryString
 $ctoQuery :: DataFormatValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679430212"><span id="local-6989586621679430214"><span class="annot"><span class="annottext">Value -&gt; Parser [DataFormatValue]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679430483"><span id="local-6989586621679430485"><span class="annot"><span class="annottext">Value -&gt; Parser [DataFormatValue]
 Value -&gt; Parser DataFormatValue
 (Value -&gt; Parser DataFormatValue)
 -&gt; (Value -&gt; Parser [DataFormatValue]) -&gt; FromJSON DataFormatValue
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [DataFormatValue]
 parseJSON :: Value -&gt; Parser DataFormatValue
 $cparseJSON :: Value -&gt; Parser DataFormatValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679430207"><span id="local-6989586621679430209"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataFormatValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679430478"><span id="local-6989586621679430480"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataFormatValue]
 FromJSONKeyFunction DataFormatValue
 FromJSONKeyFunction DataFormatValue
 -&gt; FromJSONKeyFunction [DataFormatValue]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DataFormatValue]
 fromJSONKey :: FromJSONKeyFunction DataFormatValue
 $cfromJSONKey :: FromJSONKeyFunction DataFormatValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679430198"><span id="local-6989586621679430200"><span id="local-6989586621679430202"><span id="local-6989586621679430204"><span class="annot"><span class="annottext">[DataFormatValue] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679430469"><span id="local-6989586621679430471"><span id="local-6989586621679430473"><span id="local-6989586621679430475"><span class="annot"><span class="annottext">[DataFormatValue] -&gt; Encoding
 [DataFormatValue] -&gt; Value
 DataFormatValue -&gt; Encoding
 DataFormatValue -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: DataFormatValue -&gt; Encoding
 toJSON :: DataFormatValue -&gt; Value
 $ctoJSON :: DataFormatValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679430193"><span id="local-6989586621679430195"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataFormatValue]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679430464"><span id="local-6989586621679430466"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataFormatValue]
 ToJSONKeyFunction DataFormatValue
 ToJSONKeyFunction DataFormatValue
 -&gt; ToJSONKeyFunction [DataFormatValue] -&gt; ToJSONKey DataFormatValue
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DataFormatValue]
 toJSONKey :: ToJSONKeyFunction DataFormatValue
 $ctoJSONKey :: ToJSONKeyFunction DataFormatValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679430190"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataFormatValue
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679430461"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataFormatValue
 ([Node] -&gt; Either String DataFormatValue)
 -&gt; FromXML DataFormatValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DataFormatValue
 $cparseXML :: [Node] -&gt; Either String DataFormatValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679430187"><span class="annot"><span class="annottext">DataFormatValue -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679430458"><span class="annot"><span class="annottext">DataFormatValue -&gt; XML
 (DataFormatValue -&gt; XML) -&gt; ToXML DataFormatValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DataFormatValue -&gt; XML

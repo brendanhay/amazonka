@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679254109"><span id="local-6989586621679254110"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DatasetStatus"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetStatus.html#DatasetStatus"><span class="hs-identifier hs-var">DatasetStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatasetStatus%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetStatus.html#DatasetStatus%27"><span class="hs-identifier hs-var">DatasetStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679254311"><span id="local-6989586621679254312"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DatasetStatus"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetStatus.html#DatasetStatus"><span class="hs-identifier hs-var">DatasetStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatasetStatus%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetStatus.html#DatasetStatus%27"><span class="hs-identifier hs-var">DatasetStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDatasetStatus"><span class="annot"><span class="annottext">DatasetStatus -&gt; Text
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetStatus.html#fromDatasetStatus"><span class="hs-identifier hs-var hs-var">fromDatasetStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679254101"><span id="local-6989586621679254103"><span id="local-6989586621679254105"><span class="annot"><span class="annottext">Int -&gt; DatasetStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679254303"><span id="local-6989586621679254305"><span id="local-6989586621679254307"><span class="annot"><span class="annottext">Int -&gt; DatasetStatus -&gt; ShowS
 [DatasetStatus] -&gt; ShowS
 DatasetStatus -&gt; String
 (Int -&gt; DatasetStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: DatasetStatus -&gt; String
 showsPrec :: Int -&gt; DatasetStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; DatasetStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679254092"><span id="local-6989586621679254094"><span id="local-6989586621679254096"><span id="local-6989586621679254098"><span class="annot"><span class="annottext">ReadPrec [DatasetStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679254294"><span id="local-6989586621679254296"><span id="local-6989586621679254298"><span id="local-6989586621679254300"><span class="annot"><span class="annottext">ReadPrec [DatasetStatus]
 ReadPrec DatasetStatus
 Int -&gt; ReadS DatasetStatus
 ReadS [DatasetStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [DatasetStatus]
 readsPrec :: Int -&gt; ReadS DatasetStatus
 $creadsPrec :: Int -&gt; ReadS DatasetStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679254087"><span id="local-6989586621679254089"><span class="annot"><span class="annottext">DatasetStatus -&gt; DatasetStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679254289"><span id="local-6989586621679254291"><span class="annot"><span class="annottext">DatasetStatus -&gt; DatasetStatus -&gt; Bool
 (DatasetStatus -&gt; DatasetStatus -&gt; Bool)
 -&gt; (DatasetStatus -&gt; DatasetStatus -&gt; Bool) -&gt; Eq DatasetStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: DatasetStatus -&gt; DatasetStatus -&gt; Bool
 == :: DatasetStatus -&gt; DatasetStatus -&gt; Bool
 $c== :: DatasetStatus -&gt; DatasetStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679254071"><span id="local-6989586621679254073"><span id="local-6989586621679254075"><span id="local-6989586621679254077"><span id="local-6989586621679254079"><span id="local-6989586621679254081"><span id="local-6989586621679254083"><span class="annot"><span class="annottext">Eq DatasetStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679254273"><span id="local-6989586621679254275"><span id="local-6989586621679254277"><span id="local-6989586621679254279"><span id="local-6989586621679254281"><span id="local-6989586621679254283"><span id="local-6989586621679254285"><span class="annot"><span class="annottext">Eq DatasetStatus
 Eq DatasetStatus
 -&gt; (DatasetStatus -&gt; DatasetStatus -&gt; Ordering)
 -&gt; (DatasetStatus -&gt; DatasetStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. DatasetStatus -&gt; Rep DatasetStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679254063"><span id="local-6989586621679254065"><span class="annot"><span class="annottext">Int -&gt; DatasetStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679254265"><span id="local-6989586621679254267"><span class="annot"><span class="annottext">Int -&gt; DatasetStatus -&gt; Int
 DatasetStatus -&gt; Int
 (Int -&gt; DatasetStatus -&gt; Int)
 -&gt; (DatasetStatus -&gt; Int) -&gt; Hashable DatasetStatus
@@ -143,49 +143,49 @@ $chash :: DatasetStatus -&gt; Int
 hashWithSalt :: Int -&gt; DatasetStatus -&gt; Int
 $chashWithSalt :: Int -&gt; DatasetStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679254060"><span class="annot"><span class="annottext">DatasetStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679254262"><span class="annot"><span class="annottext">DatasetStatus -&gt; ()
 (DatasetStatus -&gt; ()) -&gt; NFData DatasetStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DatasetStatus -&gt; ()
 $crnf :: DatasetStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679254057"><span class="annot"><span class="annottext">Text -&gt; Either String DatasetStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679254259"><span class="annot"><span class="annottext">Text -&gt; Either String DatasetStatus
 (Text -&gt; Either String DatasetStatus) -&gt; FromText DatasetStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DatasetStatus
 $cfromText :: Text -&gt; Either String DatasetStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679254054"><span class="annot"><span class="annottext">DatasetStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679254256"><span class="annot"><span class="annottext">DatasetStatus -&gt; Text
 (DatasetStatus -&gt; Text) -&gt; ToText DatasetStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DatasetStatus -&gt; Text
 $ctoText :: DatasetStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679254051"><span class="annot"><span class="annottext">DatasetStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679254253"><span class="annot"><span class="annottext">DatasetStatus -&gt; ByteString
 (DatasetStatus -&gt; ByteString) -&gt; ToByteString DatasetStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DatasetStatus -&gt; ByteString
 $ctoBS :: DatasetStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679254048"><span class="annot"><span class="annottext">DatasetStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679254250"><span class="annot"><span class="annottext">DatasetStatus -&gt; ByteStringBuilder
 (DatasetStatus -&gt; ByteStringBuilder) -&gt; ToLog DatasetStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DatasetStatus -&gt; ByteStringBuilder
 $cbuild :: DatasetStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679254045"><span class="annot"><span class="annottext">HeaderName -&gt; DatasetStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679254247"><span class="annot"><span class="annottext">HeaderName -&gt; DatasetStatus -&gt; [Header]
 (HeaderName -&gt; DatasetStatus -&gt; [Header]) -&gt; ToHeader DatasetStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DatasetStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DatasetStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679254042"><span class="annot"><span class="annottext">DatasetStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679254244"><span class="annot"><span class="annottext">DatasetStatus -&gt; QueryString
 (DatasetStatus -&gt; QueryString) -&gt; ToQuery DatasetStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DatasetStatus -&gt; QueryString
 $ctoQuery :: DatasetStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679254037"><span id="local-6989586621679254039"><span class="annot"><span class="annottext">Value -&gt; Parser [DatasetStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679254239"><span id="local-6989586621679254241"><span class="annot"><span class="annottext">Value -&gt; Parser [DatasetStatus]
 Value -&gt; Parser DatasetStatus
 (Value -&gt; Parser DatasetStatus)
 -&gt; (Value -&gt; Parser [DatasetStatus]) -&gt; FromJSON DatasetStatus
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [DatasetStatus]
 parseJSON :: Value -&gt; Parser DatasetStatus
 $cparseJSON :: Value -&gt; Parser DatasetStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679254032"><span id="local-6989586621679254034"><span class="annot"><span class="annottext">FromJSONKeyFunction [DatasetStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679254234"><span id="local-6989586621679254236"><span class="annot"><span class="annottext">FromJSONKeyFunction [DatasetStatus]
 FromJSONKeyFunction DatasetStatus
 FromJSONKeyFunction DatasetStatus
 -&gt; FromJSONKeyFunction [DatasetStatus] -&gt; FromJSONKey DatasetStatus
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DatasetStatus]
 fromJSONKey :: FromJSONKeyFunction DatasetStatus
 $cfromJSONKey :: FromJSONKeyFunction DatasetStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679254023"><span id="local-6989586621679254025"><span id="local-6989586621679254027"><span id="local-6989586621679254029"><span class="annot"><span class="annottext">[DatasetStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679254225"><span id="local-6989586621679254227"><span id="local-6989586621679254229"><span id="local-6989586621679254231"><span class="annot"><span class="annottext">[DatasetStatus] -&gt; Encoding
 [DatasetStatus] -&gt; Value
 DatasetStatus -&gt; Encoding
 DatasetStatus -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: DatasetStatus -&gt; Encoding
 toJSON :: DatasetStatus -&gt; Value
 $ctoJSON :: DatasetStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679254018"><span id="local-6989586621679254020"><span class="annot"><span class="annottext">ToJSONKeyFunction [DatasetStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679254220"><span id="local-6989586621679254222"><span class="annot"><span class="annottext">ToJSONKeyFunction [DatasetStatus]
 ToJSONKeyFunction DatasetStatus
 ToJSONKeyFunction DatasetStatus
 -&gt; ToJSONKeyFunction [DatasetStatus] -&gt; ToJSONKey DatasetStatus
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DatasetStatus]
 toJSONKey :: ToJSONKeyFunction DatasetStatus
 $ctoJSONKey :: ToJSONKeyFunction DatasetStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679254015"><span class="annot"><span class="annottext">[Node] -&gt; Either String DatasetStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679254217"><span class="annot"><span class="annottext">[Node] -&gt; Either String DatasetStatus
 ([Node] -&gt; Either String DatasetStatus) -&gt; FromXML DatasetStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DatasetStatus
 $cparseXML :: [Node] -&gt; Either String DatasetStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679254012"><span class="annot"><span class="annottext">DatasetStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679254214"><span class="annot"><span class="annottext">DatasetStatus -&gt; XML
 (DatasetStatus -&gt; XML) -&gt; ToXML DatasetStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DatasetStatus -&gt; XML

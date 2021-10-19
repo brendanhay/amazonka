@@ -115,18 +115,18 @@
 </span><span id="line-115"></span><span class="hs-comment">-- in the /Amazon Aurora User Guide/.</span><span>
 </span><span id="line-116"></span><span class="hs-comment">--</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- /See:/ 'newAccountQuota' smart constructor.</span><span>
-</span><span id="line-118"></span><span id="local-6989586621679754964"><span id="local-6989586621679754965"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountQuota"><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-var">AccountQuota</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountQuota%27"><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota%27"><span class="hs-identifier hs-var">AccountQuota'</span></a></span></span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount currently used toward the quota maximum.</span><span>
-</span><span id="line-120"></span><span>    </span><span id="%24sel%3Aused%3AAccountQuota%27"><span class="annot"><span class="annottext">AccountQuota -&gt; Maybe Integer
+</span><span id="line-118"></span><span id="local-6989586621679755997"><span id="local-6989586621679755998"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountQuota"><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-var">AccountQuota</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountQuota%27"><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota%27"><span class="hs-identifier hs-var">AccountQuota'</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum allowed value for the quota.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3Amax%3AAccountQuota%27"><span class="annot"><span class="annottext">AccountQuota -&gt; Maybe Integer
+</span><a href="Network.AWS.RDS.Types.AccountQuota.html#%24sel%3Amax%3AAccountQuota%27"><span class="hs-identifier hs-var hs-var">max</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The amount currently used toward the quota maximum.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3Aused%3AAccountQuota%27"><span class="annot"><span class="annottext">AccountQuota -&gt; Maybe Integer
 </span><a href="Network.AWS.RDS.Types.AccountQuota.html#%24sel%3Aused%3AAccountQuota%27"><span class="hs-identifier hs-var hs-var">used</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon RDS quota for this Amazon Web Services account.</span><span>
-</span><span id="line-122"></span><span>    </span><span id="%24sel%3AaccountQuotaName%3AAccountQuota%27"><span class="annot"><span class="annottext">AccountQuota -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.AccountQuota.html#%24sel%3AaccountQuotaName%3AAccountQuota%27"><span class="hs-identifier hs-var hs-var">accountQuotaName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | The maximum allowed value for the quota.</span><span>
-</span><span id="line-124"></span><span>    </span><span id="%24sel%3Amax%3AAccountQuota%27"><span class="annot"><span class="annottext">AccountQuota -&gt; Maybe Integer
-</span><a href="Network.AWS.RDS.Types.AccountQuota.html#%24sel%3Amax%3AAccountQuota%27"><span class="hs-identifier hs-var hs-var">max</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon RDS quota for this Amazon Web Services account.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AaccountQuotaName%3AAccountQuota%27"><span class="annot"><span class="annottext">AccountQuota -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.AccountQuota.html#%24sel%3AaccountQuotaName%3AAccountQuota%27"><span class="hs-identifier hs-var hs-var">accountQuotaName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679754956"><span id="local-6989586621679754958"><span class="annot"><span class="annottext">AccountQuota -&gt; AccountQuota -&gt; Bool
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679755989"><span id="local-6989586621679755991"><span class="annot"><span class="annottext">AccountQuota -&gt; AccountQuota -&gt; Bool
 (AccountQuota -&gt; AccountQuota -&gt; Bool)
 -&gt; (AccountQuota -&gt; AccountQuota -&gt; Bool) -&gt; Eq AccountQuota
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -134,7 +134,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccountQuota -&gt; AccountQuota -&gt; Bool
 == :: AccountQuota -&gt; AccountQuota -&gt; Bool
 $c== :: AccountQuota -&gt; AccountQuota -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679754947"><span id="local-6989586621679754949"><span id="local-6989586621679754951"><span id="local-6989586621679754953"><span class="annot"><span class="annottext">ReadPrec [AccountQuota]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679755980"><span id="local-6989586621679755982"><span id="local-6989586621679755984"><span id="local-6989586621679755986"><span class="annot"><span class="annottext">ReadPrec [AccountQuota]
 ReadPrec AccountQuota
 Int -&gt; ReadS AccountQuota
 ReadS [AccountQuota]
@@ -154,7 +154,7 @@ readList :: ReadS [AccountQuota]
 $creadList :: ReadS [AccountQuota]
 readsPrec :: Int -&gt; ReadS AccountQuota
 $creadsPrec :: Int -&gt; ReadS AccountQuota
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679754940"><span id="local-6989586621679754942"><span id="local-6989586621679754944"><span class="annot"><span class="annottext">Int -&gt; AccountQuota -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679755973"><span id="local-6989586621679755975"><span id="local-6989586621679755977"><span class="annot"><span class="annottext">Int -&gt; AccountQuota -&gt; ShowS
 [AccountQuota] -&gt; ShowS
 AccountQuota -&gt; String
 (Int -&gt; AccountQuota -&gt; ShowS)
@@ -188,121 +188,121 @@ $cfrom :: forall x. AccountQuota -&gt; Rep AccountQuota x
 </span><span id="line-133"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-135"></span><span class="hs-comment">--</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- 'used', 'accountQuota_used' - The amount currently used toward the quota maximum.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'max', 'accountQuota_max' - The maximum allowed value for the quota.</span><span>
 </span><span id="line-137"></span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- 'accountQuotaName', 'accountQuota_accountQuotaName' - The name of the Amazon RDS quota for this Amazon Web Services account.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'used', 'accountQuota_used' - The amount currently used toward the quota maximum.</span><span>
 </span><span id="line-139"></span><span class="hs-comment">--</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- 'max', 'accountQuota_max' - The maximum allowed value for the quota.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'accountQuotaName', 'accountQuota_accountQuotaName' - The name of the Amazon RDS quota for this Amazon Web Services account.</span><span>
 </span><span id="line-141"></span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#newAccountQuota"><span class="hs-identifier hs-type">newAccountQuota</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-142"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span><span>
 </span><span id="line-143"></span><span id="newAccountQuota"><span class="annot"><span class="annottext">newAccountQuota :: AccountQuota
 </span><a href="Network.AWS.RDS.Types.AccountQuota.html#newAccountQuota"><span class="hs-identifier hs-var hs-var">newAccountQuota</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">AccountQuota' :: Maybe Integer -&gt; Maybe Text -&gt; Maybe Integer -&gt; AccountQuota
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">AccountQuota' :: Maybe Integer -&gt; Maybe Integer -&gt; Maybe Text -&gt; AccountQuota
 </span><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota%27"><span class="hs-identifier hs-type">AccountQuota'</span></a></span><span>
-</span><span id="line-145"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:used:AccountQuota' :: Maybe Integer
+</span><span id="line-145"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:max:AccountQuota' :: Maybe Integer
+</span><a href="Network.AWS.RDS.Types.AccountQuota.html#%24sel%3Amax%3AAccountQuota%27"><span class="hs-identifier hs-var">max</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:used:AccountQuota' :: Maybe Integer
 </span><a href="Network.AWS.RDS.Types.AccountQuota.html#%24sel%3Aused%3AAccountQuota%27"><span class="hs-identifier hs-var">used</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountQuotaName:AccountQuota' :: Maybe Text
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountQuotaName:AccountQuota' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.AccountQuota.html#%24sel%3AaccountQuotaName%3AAccountQuota%27"><span class="hs-identifier hs-var">accountQuotaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:max:AccountQuota' :: Maybe Integer
-</span><a href="Network.AWS.RDS.Types.AccountQuota.html#%24sel%3Amax%3AAccountQuota%27"><span class="hs-identifier hs-var">max</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- | The amount currently used toward the quota maximum.</span><span>
-</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#accountQuota_used"><span class="hs-identifier hs-type">accountQuota_used</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span id="accountQuota_used"><span class="annot"><span class="annottext">accountQuota_used :: (Maybe Integer -&gt; f (Maybe Integer))
--&gt; AccountQuota -&gt; f AccountQuota
-</span><a href="Network.AWS.RDS.Types.AccountQuota.html#accountQuota_used"><span class="hs-identifier hs-var hs-var">accountQuota_used</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountQuota -&gt; Maybe Integer)
--&gt; (AccountQuota -&gt; Maybe Integer -&gt; AccountQuota)
--&gt; Lens AccountQuota AccountQuota (Maybe Integer) (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota%27"><span class="hs-identifier hs-type">AccountQuota'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679754931"><span class="annot"><span class="annottext">Maybe Integer
-used :: Maybe Integer
-$sel:used:AccountQuota' :: AccountQuota -&gt; Maybe Integer
-</span><a href="#local-6989586621679754931"><span class="hs-identifier hs-var hs-var">used</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679754931"><span class="hs-identifier hs-var">used</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679754930"><span class="annot"><span class="annottext">s :: AccountQuota
-</span><a href="#local-6989586621679754930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota%27"><span class="hs-identifier hs-type">AccountQuota'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679754929"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679754929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountQuota
-</span><a href="#local-6989586621679754930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:used:AccountQuota' :: Maybe Integer
-</span><a href="Network.AWS.RDS.Types.AccountQuota.html#%24sel%3Aused%3AAccountQuota%27"><span class="hs-identifier hs-var">used</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679754929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- | The name of the Amazon RDS quota for this Amazon Web Services account.</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#accountQuota_accountQuotaName"><span class="hs-identifier hs-type">accountQuota_accountQuotaName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="accountQuota_accountQuotaName"><span class="annot"><span class="annottext">accountQuota_accountQuotaName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AccountQuota -&gt; f AccountQuota
-</span><a href="Network.AWS.RDS.Types.AccountQuota.html#accountQuota_accountQuotaName"><span class="hs-identifier hs-var hs-var">accountQuota_accountQuotaName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountQuota -&gt; Maybe Text)
--&gt; (AccountQuota -&gt; Maybe Text -&gt; AccountQuota)
--&gt; Lens AccountQuota AccountQuota (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota%27"><span class="hs-identifier hs-type">AccountQuota'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679754927"><span class="annot"><span class="annottext">Maybe Text
-accountQuotaName :: Maybe Text
-$sel:accountQuotaName:AccountQuota' :: AccountQuota -&gt; Maybe Text
-</span><a href="#local-6989586621679754927"><span class="hs-identifier hs-var hs-var">accountQuotaName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679754927"><span class="hs-identifier hs-var">accountQuotaName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679754926"><span class="annot"><span class="annottext">s :: AccountQuota
-</span><a href="#local-6989586621679754926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota%27"><span class="hs-identifier hs-type">AccountQuota'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679754925"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679754925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountQuota
-</span><a href="#local-6989586621679754926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountQuotaName:AccountQuota' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.AccountQuota.html#%24sel%3AaccountQuotaName%3AAccountQuota%27"><span class="hs-identifier hs-var">accountQuotaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679754925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- | The maximum allowed value for the quota.</span><span>
-</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#accountQuota_max"><span class="hs-identifier hs-type">accountQuota_max</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span id="accountQuota_max"><span class="annot"><span class="annottext">accountQuota_max :: (Maybe Integer -&gt; f (Maybe Integer))
+</span><span id="line-150"></span><span class="hs-comment">-- | The maximum allowed value for the quota.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#accountQuota_max"><span class="hs-identifier hs-type">accountQuota_max</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="accountQuota_max"><span class="annot"><span class="annottext">accountQuota_max :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; AccountQuota -&gt; f AccountQuota
 </span><a href="Network.AWS.RDS.Types.AccountQuota.html#accountQuota_max"><span class="hs-identifier hs-var hs-var">accountQuota_max</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountQuota -&gt; Maybe Integer)
 -&gt; (AccountQuota -&gt; Maybe Integer -&gt; AccountQuota)
 -&gt; Lens AccountQuota AccountQuota (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota%27"><span class="hs-identifier hs-type">AccountQuota'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679754923"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota%27"><span class="hs-identifier hs-type">AccountQuota'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679755964"><span class="annot"><span class="annottext">Maybe Integer
 max :: Maybe Integer
 $sel:max:AccountQuota' :: AccountQuota -&gt; Maybe Integer
-</span><a href="#local-6989586621679754923"><span class="hs-identifier hs-var hs-var">max</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679754923"><span class="hs-identifier hs-var">max</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679754922"><span class="annot"><span class="annottext">s :: AccountQuota
-</span><a href="#local-6989586621679754922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota%27"><span class="hs-identifier hs-type">AccountQuota'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679754921"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679754921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountQuota
-</span><a href="#local-6989586621679754922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:max:AccountQuota' :: Maybe Integer
+</span><a href="#local-6989586621679755964"><span class="hs-identifier hs-var hs-var">max</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679755964"><span class="hs-identifier hs-var">max</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679755963"><span class="annot"><span class="annottext">s :: AccountQuota
+</span><a href="#local-6989586621679755963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota%27"><span class="hs-identifier hs-type">AccountQuota'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679755962"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679755962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountQuota
+</span><a href="#local-6989586621679755963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:max:AccountQuota' :: Maybe Integer
 </span><a href="Network.AWS.RDS.Types.AccountQuota.html#%24sel%3Amax%3AAccountQuota%27"><span class="hs-identifier hs-var">max</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679754921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679755962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The amount currently used toward the quota maximum.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#accountQuota_used"><span class="hs-identifier hs-type">accountQuota_used</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="accountQuota_used"><span class="annot"><span class="annottext">accountQuota_used :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; AccountQuota -&gt; f AccountQuota
+</span><a href="Network.AWS.RDS.Types.AccountQuota.html#accountQuota_used"><span class="hs-identifier hs-var hs-var">accountQuota_used</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountQuota -&gt; Maybe Integer)
+-&gt; (AccountQuota -&gt; Maybe Integer -&gt; AccountQuota)
+-&gt; Lens AccountQuota AccountQuota (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota%27"><span class="hs-identifier hs-type">AccountQuota'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679755960"><span class="annot"><span class="annottext">Maybe Integer
+used :: Maybe Integer
+$sel:used:AccountQuota' :: AccountQuota -&gt; Maybe Integer
+</span><a href="#local-6989586621679755960"><span class="hs-identifier hs-var hs-var">used</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679755960"><span class="hs-identifier hs-var">used</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679755959"><span class="annot"><span class="annottext">s :: AccountQuota
+</span><a href="#local-6989586621679755959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota%27"><span class="hs-identifier hs-type">AccountQuota'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679755958"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679755958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountQuota
+</span><a href="#local-6989586621679755959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:used:AccountQuota' :: Maybe Integer
+</span><a href="Network.AWS.RDS.Types.AccountQuota.html#%24sel%3Aused%3AAccountQuota%27"><span class="hs-identifier hs-var">used</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679755958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The name of the Amazon RDS quota for this Amazon Web Services account.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#accountQuota_accountQuotaName"><span class="hs-identifier hs-type">accountQuota_accountQuotaName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="accountQuota_accountQuotaName"><span class="annot"><span class="annottext">accountQuota_accountQuotaName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AccountQuota -&gt; f AccountQuota
+</span><a href="Network.AWS.RDS.Types.AccountQuota.html#accountQuota_accountQuotaName"><span class="hs-identifier hs-var hs-var">accountQuota_accountQuotaName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountQuota -&gt; Maybe Text)
+-&gt; (AccountQuota -&gt; Maybe Text -&gt; AccountQuota)
+-&gt; Lens AccountQuota AccountQuota (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota%27"><span class="hs-identifier hs-type">AccountQuota'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679755956"><span class="annot"><span class="annottext">Maybe Text
+accountQuotaName :: Maybe Text
+$sel:accountQuotaName:AccountQuota' :: AccountQuota -&gt; Maybe Text
+</span><a href="#local-6989586621679755956"><span class="hs-identifier hs-var hs-var">accountQuotaName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679755956"><span class="hs-identifier hs-var">accountQuotaName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679755955"><span class="annot"><span class="annottext">s :: AccountQuota
+</span><a href="#local-6989586621679755955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota%27"><span class="hs-identifier hs-type">AccountQuota'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679755954"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679755954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountQuota
+</span><a href="#local-6989586621679755955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountQuotaName:AccountQuota' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.AccountQuota.html#%24sel%3AaccountQuotaName%3AAccountQuota%27"><span class="hs-identifier hs-var">accountQuotaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679755954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679754918"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AccountQuota
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679754916"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679754916"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">Maybe Integer -&gt; Maybe Text -&gt; Maybe Integer -&gt; AccountQuota
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679755951"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AccountQuota
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679755949"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679755949"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">Maybe Integer -&gt; Maybe Integer -&gt; Maybe Text -&gt; AccountQuota
 </span><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota%27"><span class="hs-identifier hs-var">AccountQuota'</span></a></span><span>
-</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Integer -&gt; Maybe Text -&gt; Maybe Integer -&gt; AccountQuota)
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Integer -&gt; Maybe Integer -&gt; Maybe Text -&gt; AccountQuota)
 -&gt; Either String (Maybe Integer)
--&gt; Either String (Maybe Text -&gt; Maybe Integer -&gt; AccountQuota)
+-&gt; Either String (Maybe Integer -&gt; Maybe Text -&gt; AccountQuota)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679754916"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Used&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Integer -&gt; AccountQuota)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Integer -&gt; AccountQuota)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679754916"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AccountQuotaName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Integer -&gt; AccountQuota)
--&gt; Either String (Maybe Integer) -&gt; Either String AccountQuota
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679754916"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679755949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Max&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Integer -&gt; Maybe Text -&gt; AccountQuota)
+-&gt; Either String (Maybe Integer)
+-&gt; Either String (Maybe Text -&gt; AccountQuota)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679755949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Used&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; AccountQuota)
+-&gt; Either String (Maybe Text) -&gt; Either String AccountQuota
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679755949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountQuotaName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679754910"><span id="local-6989586621679754912"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679755943"><span id="local-6989586621679755945"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span></span></span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679754907"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679755940"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AccountQuota.html#AccountQuota"><span class="hs-identifier hs-type">AccountQuota</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

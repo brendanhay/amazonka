@@ -77,7 +77,7 @@
 </span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.html"><span class="hs-identifier">Network.AWS.SWF.Types</span></a></span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | /See:/ 'newRequestCancelWorkflowExecution' smart constructor.</span><span>
-</span><span id="line-80"></span><span id="local-6989586621679360548"><span id="local-6989586621679360549"></span></span><span class="hs-keyword">data</span><span> </span><span id="RequestCancelWorkflowExecution"><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-var">RequestCancelWorkflowExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequestCancelWorkflowExecution%27"><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution%27"><span class="hs-identifier hs-var">RequestCancelWorkflowExecution'</span></a></span></span><span>
+</span><span id="line-80"></span><span id="local-6989586621679360638"><span id="local-6989586621679360639"></span></span><span class="hs-keyword">data</span><span> </span><span id="RequestCancelWorkflowExecution"><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-var">RequestCancelWorkflowExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequestCancelWorkflowExecution%27"><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution%27"><span class="hs-identifier hs-var">RequestCancelWorkflowExecution'</span></a></span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The runId of the workflow execution to cancel.</span><span>
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3ArunId%3ARequestCancelWorkflowExecution%27"><span class="annot"><span class="annottext">RequestCancelWorkflowExecution -&gt; Maybe Text
 </span><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#%24sel%3ArunId%3ARequestCancelWorkflowExecution%27"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -88,7 +88,7 @@
 </span><span id="line-86"></span><span>    </span><span id="%24sel%3AworkflowId%3ARequestCancelWorkflowExecution%27"><span class="annot"><span class="annottext">RequestCancelWorkflowExecution -&gt; Text
 </span><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#%24sel%3AworkflowId%3ARequestCancelWorkflowExecution%27"><span class="hs-identifier hs-var hs-var">workflowId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360540"><span id="local-6989586621679360542"><span class="annot"><span class="annottext">RequestCancelWorkflowExecution
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360630"><span id="local-6989586621679360632"><span class="annot"><span class="annottext">RequestCancelWorkflowExecution
 -&gt; RequestCancelWorkflowExecution -&gt; Bool
 (RequestCancelWorkflowExecution
  -&gt; RequestCancelWorkflowExecution -&gt; Bool)
@@ -104,7 +104,7 @@ $c/= :: RequestCancelWorkflowExecution
 -&gt; RequestCancelWorkflowExecution -&gt; Bool
 $c== :: RequestCancelWorkflowExecution
 -&gt; RequestCancelWorkflowExecution -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360531"><span id="local-6989586621679360533"><span id="local-6989586621679360535"><span id="local-6989586621679360537"><span class="annot"><span class="annottext">ReadPrec [RequestCancelWorkflowExecution]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360621"><span id="local-6989586621679360623"><span id="local-6989586621679360625"><span id="local-6989586621679360627"><span class="annot"><span class="annottext">ReadPrec [RequestCancelWorkflowExecution]
 ReadPrec RequestCancelWorkflowExecution
 Int -&gt; ReadS RequestCancelWorkflowExecution
 ReadS [RequestCancelWorkflowExecution]
@@ -124,7 +124,7 @@ readList :: ReadS [RequestCancelWorkflowExecution]
 $creadList :: ReadS [RequestCancelWorkflowExecution]
 readsPrec :: Int -&gt; ReadS RequestCancelWorkflowExecution
 $creadsPrec :: Int -&gt; ReadS RequestCancelWorkflowExecution
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360524"><span id="local-6989586621679360526"><span id="local-6989586621679360528"><span class="annot"><span class="annottext">Int -&gt; RequestCancelWorkflowExecution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360614"><span id="local-6989586621679360616"><span id="local-6989586621679360618"><span class="annot"><span class="annottext">Int -&gt; RequestCancelWorkflowExecution -&gt; ShowS
 [RequestCancelWorkflowExecution] -&gt; ShowS
 RequestCancelWorkflowExecution -&gt; String
 (Int -&gt; RequestCancelWorkflowExecution -&gt; ShowS)
@@ -183,10 +183,10 @@ RequestCancelWorkflowExecution
 </span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution</span></a></span><span>
 </span><span id="line-109"></span><span id="newRequestCancelWorkflowExecution"><span class="annot"><span class="annottext">newRequestCancelWorkflowExecution :: Text -&gt; Text -&gt; RequestCancelWorkflowExecution
 </span><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#newRequestCancelWorkflowExecution"><span class="hs-identifier hs-var hs-var">newRequestCancelWorkflowExecution</span></a></span></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679360519"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679360519"><span class="hs-identifier hs-var">pDomain_</span></a></span></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679360518"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679360518"><span class="hs-identifier hs-var">pWorkflowId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679360609"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360609"><span class="hs-identifier hs-var">pDomain_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679360608"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360608"><span class="hs-identifier hs-var">pWorkflowId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">RequestCancelWorkflowExecution' :: Maybe Text -&gt; Text -&gt; Text -&gt; RequestCancelWorkflowExecution
 </span><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution%27"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution'</span></a></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:runId:RequestCancelWorkflowExecution' :: Maybe Text
@@ -196,10 +196,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:domain:RequestCancelWorkflowExecution' :: Text
 </span><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#%24sel%3Adomain%3ARequestCancelWorkflowExecution%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679360519"><span class="hs-identifier hs-var">pDomain_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679360609"><span class="hs-identifier hs-var">pDomain_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:workflowId:RequestCancelWorkflowExecution' :: Text
 </span><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#%24sel%3AworkflowId%3ARequestCancelWorkflowExecution%27"><span class="hs-identifier hs-var">workflowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679360518"><span class="hs-identifier hs-var">pWorkflowId_</span></a></span><span>
+</span><a href="#local-6989586621679360608"><span class="hs-identifier hs-var">pWorkflowId_</span></a></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The runId of the workflow execution to cancel.</span><span>
@@ -216,16 +216,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution%27"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360515"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution%27"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360605"><span class="annot"><span class="annottext">Maybe Text
 runId :: Maybe Text
 $sel:runId:RequestCancelWorkflowExecution' :: RequestCancelWorkflowExecution -&gt; Maybe Text
-</span><a href="#local-6989586621679360515"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360515"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360514"><span class="annot"><span class="annottext">s :: RequestCancelWorkflowExecution
-</span><a href="#local-6989586621679360514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution%27"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360513"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RequestCancelWorkflowExecution
-</span><a href="#local-6989586621679360514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:RequestCancelWorkflowExecution' :: Maybe Text
+</span><a href="#local-6989586621679360605"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360605"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360604"><span class="annot"><span class="annottext">s :: RequestCancelWorkflowExecution
+</span><a href="#local-6989586621679360604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution%27"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360603"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RequestCancelWorkflowExecution
+</span><a href="#local-6989586621679360604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:RequestCancelWorkflowExecution' :: Maybe Text
 </span><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#%24sel%3ArunId%3ARequestCancelWorkflowExecution%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679360603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The name of the domain containing the workflow execution to cancel.</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#requestCancelWorkflowExecution_domain"><span class="hs-identifier hs-type">requestCancelWorkflowExecution_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -241,16 +241,16 @@ $sel:runId:RequestCancelWorkflowExecution' :: RequestCancelWorkflowExecution -&g
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution%27"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360512"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution%27"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360602"><span class="annot"><span class="annottext">Text
 domain :: Text
 $sel:domain:RequestCancelWorkflowExecution' :: RequestCancelWorkflowExecution -&gt; Text
-</span><a href="#local-6989586621679360512"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679360512"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360511"><span class="annot"><span class="annottext">s :: RequestCancelWorkflowExecution
-</span><a href="#local-6989586621679360511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution%27"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360510"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679360510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RequestCancelWorkflowExecution
-</span><a href="#local-6989586621679360511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:RequestCancelWorkflowExecution' :: Text
+</span><a href="#local-6989586621679360602"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360602"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360601"><span class="annot"><span class="annottext">s :: RequestCancelWorkflowExecution
+</span><a href="#local-6989586621679360601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution%27"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360600"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RequestCancelWorkflowExecution
+</span><a href="#local-6989586621679360601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:RequestCancelWorkflowExecution' :: Text
 </span><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#%24sel%3Adomain%3ARequestCancelWorkflowExecution%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679360510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679360600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The workflowId of the workflow execution to cancel.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#requestCancelWorkflowExecution_workflowId"><span class="hs-identifier hs-type">requestCancelWorkflowExecution_workflowId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -266,16 +266,16 @@ $sel:domain:RequestCancelWorkflowExecution' :: RequestCancelWorkflowExecution -&
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution%27"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360509"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution%27"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360599"><span class="annot"><span class="annottext">Text
 workflowId :: Text
 $sel:workflowId:RequestCancelWorkflowExecution' :: RequestCancelWorkflowExecution -&gt; Text
-</span><a href="#local-6989586621679360509"><span class="hs-identifier hs-var hs-var">workflowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679360509"><span class="hs-identifier hs-var">workflowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360508"><span class="annot"><span class="annottext">s :: RequestCancelWorkflowExecution
-</span><a href="#local-6989586621679360508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution%27"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360507"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679360507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RequestCancelWorkflowExecution
-</span><a href="#local-6989586621679360508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowId:RequestCancelWorkflowExecution' :: Text
+</span><a href="#local-6989586621679360599"><span class="hs-identifier hs-var hs-var">workflowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360599"><span class="hs-identifier hs-var">workflowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360598"><span class="annot"><span class="annottext">s :: RequestCancelWorkflowExecution
+</span><a href="#local-6989586621679360598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution%27"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360597"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RequestCancelWorkflowExecution
+</span><a href="#local-6989586621679360598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowId:RequestCancelWorkflowExecution' :: Text
 </span><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#%24sel%3AworkflowId%3ARequestCancelWorkflowExecution%27"><span class="hs-identifier hs-var">workflowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679360507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679360597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -284,7 +284,7 @@ $sel:workflowId:RequestCancelWorkflowExecution' :: RequestCancelWorkflowExecutio
 </span><span id="line-135"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-136"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecutionResponse"><span class="hs-identifier hs-type">RequestCancelWorkflowExecutionResponse</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679360503"><span class="annot"><span class="annottext">request :: RequestCancelWorkflowExecution
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679360593"><span class="annot"><span class="annottext">request :: RequestCancelWorkflowExecution
 -&gt; Request RequestCancelWorkflowExecution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; RequestCancelWorkflowExecution
@@ -292,7 +292,7 @@ $sel:workflowId:RequestCancelWorkflowExecution' :: RequestCancelWorkflowExecutio
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SWF.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679360499"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679360589"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RequestCancelWorkflowExecution
 -&gt; ClientResponse ClientBody
@@ -322,18 +322,18 @@ RequestCancelWorkflowExecutionResponse
 </span><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecutionResponse%27"><span class="hs-identifier hs-var">RequestCancelWorkflowExecutionResponse'</span></a></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679360492"><span id="local-6989586621679360494"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679360582"><span id="local-6989586621679360584"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679360489"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679360579"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution</span></a></span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution</span></a></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679360485"><span class="annot"><span class="annottext">toHeaders :: RequestCancelWorkflowExecution -&gt; [Header]
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679360575"><span class="annot"><span class="annottext">toHeaders :: RequestCancelWorkflowExecution -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; RequestCancelWorkflowExecution -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -360,9 +360,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360475"><span id="local-6989586621679360477"><span id="local-6989586621679360479"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679360473"><span class="annot"><span class="annottext">toJSON :: RequestCancelWorkflowExecution -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution%27"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360469"><span id="local-6989586621679360470"><span id="local-6989586621679360471"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360565"><span id="local-6989586621679360567"><span id="local-6989586621679360569"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679360563"><span class="annot"><span class="annottext">toJSON :: RequestCancelWorkflowExecution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution%27"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360559"><span id="local-6989586621679360560"><span id="local-6989586621679360561"><span class="annot"><span class="annottext">Maybe Text
 Text
 workflowId :: Text
 domain :: Text
@@ -370,7 +370,7 @@ runId :: Maybe Text
 $sel:workflowId:RequestCancelWorkflowExecution' :: RequestCancelWorkflowExecution -&gt; Text
 $sel:domain:RequestCancelWorkflowExecution' :: RequestCancelWorkflowExecution -&gt; Text
 $sel:runId:RequestCancelWorkflowExecution' :: RequestCancelWorkflowExecution -&gt; Maybe Text
-</span><a href="#local-6989586621679360469"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679360559"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -382,33 +382,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679360471"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679360561"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;domain&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679360470"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679360560"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;workflowId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679360469"><span class="hs-identifier hs-var">workflowId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679360559"><span class="hs-identifier hs-var">workflowId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679360462"><span class="annot"><span class="annottext">toPath :: RequestCancelWorkflowExecution -&gt; ByteString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679360552"><span class="annot"><span class="annottext">toPath :: RequestCancelWorkflowExecution -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RequestCancelWorkflowExecution -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecution"><span class="hs-identifier hs-type">RequestCancelWorkflowExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679360458"><span class="annot"><span class="annottext">toQuery :: RequestCancelWorkflowExecution -&gt; QueryString
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679360548"><span class="annot"><span class="annottext">toQuery :: RequestCancelWorkflowExecution -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RequestCancelWorkflowExecution -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -416,10 +416,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | /See:/ 'newRequestCancelWorkflowExecutionResponse' smart constructor.</span><span>
-</span><span id="line-186"></span><span id="local-6989586621679360455"><span id="local-6989586621679360456"></span></span><span class="hs-keyword">data</span><span> </span><span id="RequestCancelWorkflowExecutionResponse"><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecutionResponse"><span class="hs-identifier hs-var">RequestCancelWorkflowExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequestCancelWorkflowExecutionResponse%27"><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecutionResponse%27"><span class="hs-identifier hs-var">RequestCancelWorkflowExecutionResponse'</span></a></span></span><span>
+</span><span id="line-186"></span><span id="local-6989586621679360545"><span id="local-6989586621679360546"></span></span><span class="hs-keyword">data</span><span> </span><span id="RequestCancelWorkflowExecutionResponse"><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecutionResponse"><span class="hs-identifier hs-var">RequestCancelWorkflowExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequestCancelWorkflowExecutionResponse%27"><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecutionResponse%27"><span class="hs-identifier hs-var">RequestCancelWorkflowExecutionResponse'</span></a></span></span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360451"><span id="local-6989586621679360453"><span class="annot"><span class="annottext">RequestCancelWorkflowExecutionResponse
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360541"><span id="local-6989586621679360543"><span class="annot"><span class="annottext">RequestCancelWorkflowExecutionResponse
 -&gt; RequestCancelWorkflowExecutionResponse -&gt; Bool
 (RequestCancelWorkflowExecutionResponse
  -&gt; RequestCancelWorkflowExecutionResponse -&gt; Bool)
@@ -435,7 +435,7 @@ $c/= :: RequestCancelWorkflowExecutionResponse
 -&gt; RequestCancelWorkflowExecutionResponse -&gt; Bool
 $c== :: RequestCancelWorkflowExecutionResponse
 -&gt; RequestCancelWorkflowExecutionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360443"><span id="local-6989586621679360445"><span id="local-6989586621679360447"><span id="local-6989586621679360449"><span class="annot"><span class="annottext">ReadPrec [RequestCancelWorkflowExecutionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360533"><span id="local-6989586621679360535"><span id="local-6989586621679360537"><span id="local-6989586621679360539"><span class="annot"><span class="annottext">ReadPrec [RequestCancelWorkflowExecutionResponse]
 ReadPrec RequestCancelWorkflowExecutionResponse
 Int -&gt; ReadS RequestCancelWorkflowExecutionResponse
 ReadS [RequestCancelWorkflowExecutionResponse]
@@ -455,7 +455,7 @@ readList :: ReadS [RequestCancelWorkflowExecutionResponse]
 $creadList :: ReadS [RequestCancelWorkflowExecutionResponse]
 readsPrec :: Int -&gt; ReadS RequestCancelWorkflowExecutionResponse
 $creadsPrec :: Int -&gt; ReadS RequestCancelWorkflowExecutionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360437"><span id="local-6989586621679360439"><span id="local-6989586621679360441"><span class="annot"><span class="annottext">Int -&gt; RequestCancelWorkflowExecutionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360527"><span id="local-6989586621679360529"><span id="local-6989586621679360531"><span class="annot"><span class="annottext">Int -&gt; RequestCancelWorkflowExecutionResponse -&gt; ShowS
 [RequestCancelWorkflowExecutionResponse] -&gt; ShowS
 RequestCancelWorkflowExecutionResponse -&gt; String
 (Int -&gt; RequestCancelWorkflowExecutionResponse -&gt; ShowS)
@@ -505,6 +505,6 @@ RequestCancelWorkflowExecutionResponse
 </span><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecutionResponse%27"><span class="hs-identifier hs-var">RequestCancelWorkflowExecutionResponse'</span></a></span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621679360433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679360523"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-202"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RequestCancelWorkflowExecution.html#RequestCancelWorkflowExecutionResponse"><span class="hs-identifier hs-type">RequestCancelWorkflowExecutionResponse</span></a></span></span><span>
 </span><span id="line-203"></span></pre></body></html>

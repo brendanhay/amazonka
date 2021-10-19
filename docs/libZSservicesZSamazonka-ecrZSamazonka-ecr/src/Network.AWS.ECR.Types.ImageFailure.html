@@ -28,18 +28,18 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | An object representing an Amazon ECR image failure.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newImageFailure' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679232132"><span id="local-6989586621679232133"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImageFailure"><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-var">ImageFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageFailure%27"><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure%27"><span class="hs-identifier hs-var">ImageFailure'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The code associated with the failure.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AfailureCode%3AImageFailure%27"><span class="annot"><span class="annottext">ImageFailure -&gt; Maybe ImageFailureCode
+</span><span id="line-31"></span><span id="local-6989586621679232273"><span id="local-6989586621679232274"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImageFailure"><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-var">ImageFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageFailure%27"><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure%27"><span class="hs-identifier hs-var">ImageFailure'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The reason for the failure.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AfailureReason%3AImageFailure%27"><span class="annot"><span class="annottext">ImageFailure -&gt; Maybe Text
+</span><a href="Network.AWS.ECR.Types.ImageFailure.html#%24sel%3AfailureReason%3AImageFailure%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The code associated with the failure.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AfailureCode%3AImageFailure%27"><span class="annot"><span class="annottext">ImageFailure -&gt; Maybe ImageFailureCode
 </span><a href="Network.AWS.ECR.Types.ImageFailure.html#%24sel%3AfailureCode%3AImageFailure%27"><span class="hs-identifier hs-var hs-var">failureCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailureCode.html#ImageFailureCode"><span class="hs-identifier hs-type">ImageFailureCode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The image ID associated with the failure.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AimageId%3AImageFailure%27"><span class="annot"><span class="annottext">ImageFailure -&gt; Maybe ImageIdentifier
-</span><a href="Network.AWS.ECR.Types.ImageFailure.html#%24sel%3AimageId%3AImageFailure%27"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The reason for the failure.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AfailureReason%3AImageFailure%27"><span class="annot"><span class="annottext">ImageFailure -&gt; Maybe Text
-</span><a href="Network.AWS.ECR.Types.ImageFailure.html#%24sel%3AfailureReason%3AImageFailure%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The image ID associated with the failure.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AimageId%3AImageFailure%27"><span class="annot"><span class="annottext">ImageFailure -&gt; Maybe ImageIdentifier
+</span><a href="Network.AWS.ECR.Types.ImageFailure.html#%24sel%3AimageId%3AImageFailure%27"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232124"><span id="local-6989586621679232126"><span class="annot"><span class="annottext">ImageFailure -&gt; ImageFailure -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232265"><span id="local-6989586621679232267"><span class="annot"><span class="annottext">ImageFailure -&gt; ImageFailure -&gt; Bool
 (ImageFailure -&gt; ImageFailure -&gt; Bool)
 -&gt; (ImageFailure -&gt; ImageFailure -&gt; Bool) -&gt; Eq ImageFailure
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImageFailure -&gt; ImageFailure -&gt; Bool
 == :: ImageFailure -&gt; ImageFailure -&gt; Bool
 $c== :: ImageFailure -&gt; ImageFailure -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232115"><span id="local-6989586621679232117"><span id="local-6989586621679232119"><span id="local-6989586621679232121"><span class="annot"><span class="annottext">ReadPrec [ImageFailure]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232256"><span id="local-6989586621679232258"><span id="local-6989586621679232260"><span id="local-6989586621679232262"><span class="annot"><span class="annottext">ReadPrec [ImageFailure]
 ReadPrec ImageFailure
 Int -&gt; ReadS ImageFailure
 ReadS [ImageFailure]
@@ -67,7 +67,7 @@ readList :: ReadS [ImageFailure]
 $creadList :: ReadS [ImageFailure]
 readsPrec :: Int -&gt; ReadS ImageFailure
 $creadsPrec :: Int -&gt; ReadS ImageFailure
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232108"><span id="local-6989586621679232110"><span id="local-6989586621679232112"><span class="annot"><span class="annottext">Int -&gt; ImageFailure -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232249"><span id="local-6989586621679232251"><span id="local-6989586621679232253"><span class="annot"><span class="annottext">Int -&gt; ImageFailure -&gt; ShowS
 [ImageFailure] -&gt; ShowS
 ImageFailure -&gt; String
 (Int -&gt; ImageFailure -&gt; ShowS)
@@ -101,35 +101,53 @@ $cfrom :: forall x. ImageFailure -&gt; Rep ImageFailure x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'failureCode', 'imageFailure_failureCode' - The code associated with the failure.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'failureReason', 'imageFailure_failureReason' - The reason for the failure.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'imageId', 'imageFailure_imageId' - The image ID associated with the failure.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'failureCode', 'imageFailure_failureCode' - The code associated with the failure.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'failureReason', 'imageFailure_failureReason' - The reason for the failure.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'imageId', 'imageFailure_imageId' - The image ID associated with the failure.</span><span>
 </span><span id="line-54"></span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#newImageFailure"><span class="hs-identifier hs-type">newImageFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span><span>
 </span><span id="line-56"></span><span id="newImageFailure"><span class="annot"><span class="annottext">newImageFailure :: ImageFailure
 </span><a href="Network.AWS.ECR.Types.ImageFailure.html#newImageFailure"><span class="hs-identifier hs-var hs-var">newImageFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">ImageFailure' :: Maybe ImageFailureCode
--&gt; Maybe ImageIdentifier -&gt; Maybe Text -&gt; ImageFailure
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">ImageFailure' :: Maybe Text
+-&gt; Maybe ImageFailureCode -&gt; Maybe ImageIdentifier -&gt; ImageFailure
 </span><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure%27"><span class="hs-identifier hs-type">ImageFailure'</span></a></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failureCode:ImageFailure' :: Maybe ImageFailureCode
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failureReason:ImageFailure' :: Maybe Text
+</span><a href="Network.AWS.ECR.Types.ImageFailure.html#%24sel%3AfailureReason%3AImageFailure%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureCode:ImageFailure' :: Maybe ImageFailureCode
 </span><a href="Network.AWS.ECR.Types.ImageFailure.html#%24sel%3AfailureCode%3AImageFailure%27"><span class="hs-identifier hs-var">failureCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageFailureCode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageId:ImageFailure' :: Maybe ImageIdentifier
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageId:ImageFailure' :: Maybe ImageIdentifier
 </span><a href="Network.AWS.ECR.Types.ImageFailure.html#%24sel%3AimageId%3AImageFailure%27"><span class="hs-identifier hs-var">imageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageIdentifier
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureReason:ImageFailure' :: Maybe Text
-</span><a href="Network.AWS.ECR.Types.ImageFailure.html#%24sel%3AfailureReason%3AImageFailure%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The code associated with the failure.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#imageFailure_failureCode"><span class="hs-identifier hs-type">imageFailure_failureCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailureCode.html#ImageFailureCode"><span class="hs-identifier hs-type">ImageFailureCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="imageFailure_failureCode"><span class="annot"><span class="annottext">imageFailure_failureCode :: (Maybe ImageFailureCode -&gt; f (Maybe ImageFailureCode))
+</span><span id="line-63"></span><span class="hs-comment">-- | The reason for the failure.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#imageFailure_failureReason"><span class="hs-identifier hs-type">imageFailure_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="imageFailure_failureReason"><span class="annot"><span class="annottext">imageFailure_failureReason :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImageFailure -&gt; f ImageFailure
+</span><a href="Network.AWS.ECR.Types.ImageFailure.html#imageFailure_failureReason"><span class="hs-identifier hs-var hs-var">imageFailure_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageFailure -&gt; Maybe Text)
+-&gt; (ImageFailure -&gt; Maybe Text -&gt; ImageFailure)
+-&gt; Lens ImageFailure ImageFailure (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure%27"><span class="hs-identifier hs-type">ImageFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232240"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:ImageFailure' :: ImageFailure -&gt; Maybe Text
+</span><a href="#local-6989586621679232240"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232240"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232239"><span class="annot"><span class="annottext">s :: ImageFailure
+</span><a href="#local-6989586621679232239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure%27"><span class="hs-identifier hs-type">ImageFailure'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232238"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageFailure
+</span><a href="#local-6989586621679232239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:ImageFailure' :: Maybe Text
+</span><a href="Network.AWS.ECR.Types.ImageFailure.html#%24sel%3AfailureReason%3AImageFailure%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The code associated with the failure.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#imageFailure_failureCode"><span class="hs-identifier hs-type">imageFailure_failureCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailureCode.html#ImageFailureCode"><span class="hs-identifier hs-type">ImageFailureCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="imageFailure_failureCode"><span class="annot"><span class="annottext">imageFailure_failureCode :: (Maybe ImageFailureCode -&gt; f (Maybe ImageFailureCode))
 -&gt; ImageFailure -&gt; f ImageFailure
 </span><a href="Network.AWS.ECR.Types.ImageFailure.html#imageFailure_failureCode"><span class="hs-identifier hs-var hs-var">imageFailure_failureCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageFailure -&gt; Maybe ImageFailureCode)
 -&gt; (ImageFailure -&gt; Maybe ImageFailureCode -&gt; ImageFailure)
@@ -139,20 +157,20 @@ forall a. Maybe a
      (Maybe ImageFailureCode)
      (Maybe ImageFailureCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure%27"><span class="hs-identifier hs-type">ImageFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232099"><span class="annot"><span class="annottext">Maybe ImageFailureCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure%27"><span class="hs-identifier hs-type">ImageFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232236"><span class="annot"><span class="annottext">Maybe ImageFailureCode
 failureCode :: Maybe ImageFailureCode
 $sel:failureCode:ImageFailure' :: ImageFailure -&gt; Maybe ImageFailureCode
-</span><a href="#local-6989586621679232099"><span class="hs-identifier hs-var hs-var">failureCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageFailureCode
-</span><a href="#local-6989586621679232099"><span class="hs-identifier hs-var">failureCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232098"><span class="annot"><span class="annottext">s :: ImageFailure
-</span><a href="#local-6989586621679232098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure%27"><span class="hs-identifier hs-type">ImageFailure'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232097"><span class="annot"><span class="annottext">Maybe ImageFailureCode
-</span><a href="#local-6989586621679232097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageFailure
-</span><a href="#local-6989586621679232098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureCode:ImageFailure' :: Maybe ImageFailureCode
+</span><a href="#local-6989586621679232236"><span class="hs-identifier hs-var hs-var">failureCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageFailureCode
+</span><a href="#local-6989586621679232236"><span class="hs-identifier hs-var">failureCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232235"><span class="annot"><span class="annottext">s :: ImageFailure
+</span><a href="#local-6989586621679232235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure%27"><span class="hs-identifier hs-type">ImageFailure'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232234"><span class="annot"><span class="annottext">Maybe ImageFailureCode
+</span><a href="#local-6989586621679232234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageFailure
+</span><a href="#local-6989586621679232235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureCode:ImageFailure' :: Maybe ImageFailureCode
 </span><a href="Network.AWS.ECR.Types.ImageFailure.html#%24sel%3AfailureCode%3AImageFailure%27"><span class="hs-identifier hs-var">failureCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageFailureCode
-</span><a href="#local-6989586621679232097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The image ID associated with the failure.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#imageFailure_imageId"><span class="hs-identifier hs-type">imageFailure_imageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="imageFailure_imageId"><span class="annot"><span class="annottext">imageFailure_imageId :: (Maybe ImageIdentifier -&gt; f (Maybe ImageIdentifier))
+</span><a href="#local-6989586621679232234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The image ID associated with the failure.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#imageFailure_imageId"><span class="hs-identifier hs-type">imageFailure_imageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="imageFailure_imageId"><span class="annot"><span class="annottext">imageFailure_imageId :: (Maybe ImageIdentifier -&gt; f (Maybe ImageIdentifier))
 -&gt; ImageFailure -&gt; f ImageFailure
 </span><a href="Network.AWS.ECR.Types.ImageFailure.html#imageFailure_imageId"><span class="hs-identifier hs-var hs-var">imageFailure_imageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageFailure -&gt; Maybe ImageIdentifier)
 -&gt; (ImageFailure -&gt; Maybe ImageIdentifier -&gt; ImageFailure)
@@ -162,37 +180,19 @@ $sel:failureCode:ImageFailure' :: ImageFailure -&gt; Maybe ImageFailureCode
      (Maybe ImageIdentifier)
      (Maybe ImageIdentifier)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure%27"><span class="hs-identifier hs-type">ImageFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232095"><span class="annot"><span class="annottext">Maybe ImageIdentifier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure%27"><span class="hs-identifier hs-type">ImageFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232232"><span class="annot"><span class="annottext">Maybe ImageIdentifier
 imageId :: Maybe ImageIdentifier
 $sel:imageId:ImageFailure' :: ImageFailure -&gt; Maybe ImageIdentifier
-</span><a href="#local-6989586621679232095"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageIdentifier
-</span><a href="#local-6989586621679232095"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232094"><span class="annot"><span class="annottext">s :: ImageFailure
-</span><a href="#local-6989586621679232094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure%27"><span class="hs-identifier hs-type">ImageFailure'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232093"><span class="annot"><span class="annottext">Maybe ImageIdentifier
-</span><a href="#local-6989586621679232093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageFailure
-</span><a href="#local-6989586621679232094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageId:ImageFailure' :: Maybe ImageIdentifier
+</span><a href="#local-6989586621679232232"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageIdentifier
+</span><a href="#local-6989586621679232232"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232231"><span class="annot"><span class="annottext">s :: ImageFailure
+</span><a href="#local-6989586621679232231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure%27"><span class="hs-identifier hs-type">ImageFailure'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232230"><span class="annot"><span class="annottext">Maybe ImageIdentifier
+</span><a href="#local-6989586621679232230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageFailure
+</span><a href="#local-6989586621679232231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageId:ImageFailure' :: Maybe ImageIdentifier
 </span><a href="Network.AWS.ECR.Types.ImageFailure.html#%24sel%3AimageId%3AImageFailure%27"><span class="hs-identifier hs-var">imageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageIdentifier
-</span><a href="#local-6989586621679232093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | The reason for the failure.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#imageFailure_failureReason"><span class="hs-identifier hs-type">imageFailure_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="imageFailure_failureReason"><span class="annot"><span class="annottext">imageFailure_failureReason :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImageFailure -&gt; f ImageFailure
-</span><a href="Network.AWS.ECR.Types.ImageFailure.html#imageFailure_failureReason"><span class="hs-identifier hs-var hs-var">imageFailure_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageFailure -&gt; Maybe Text)
--&gt; (ImageFailure -&gt; Maybe Text -&gt; ImageFailure)
--&gt; Lens ImageFailure ImageFailure (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure%27"><span class="hs-identifier hs-type">ImageFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232091"><span class="annot"><span class="annottext">Maybe Text
-failureReason :: Maybe Text
-$sel:failureReason:ImageFailure' :: ImageFailure -&gt; Maybe Text
-</span><a href="#local-6989586621679232091"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232091"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232090"><span class="annot"><span class="annottext">s :: ImageFailure
-</span><a href="#local-6989586621679232090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure%27"><span class="hs-identifier hs-type">ImageFailure'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232089"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageFailure
-</span><a href="#local-6989586621679232090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:ImageFailure' :: Maybe Text
-</span><a href="Network.AWS.ECR.Types.ImageFailure.html#%24sel%3AfailureReason%3AImageFailure%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232086"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679232084"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImageFailure
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232227"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679232225"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImageFailure
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ImageFailure) -&gt; Value -&gt; Parser ImageFailure
@@ -200,41 +200,43 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ImageFailure&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679232081"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232081"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe ImageFailureCode
--&gt; Maybe ImageIdentifier -&gt; Maybe Text -&gt; ImageFailure
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679232222"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232222"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ImageFailureCode -&gt; Maybe ImageIdentifier -&gt; ImageFailure
 </span><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure%27"><span class="hs-identifier hs-var">ImageFailure'</span></a></span><span>
-</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ImageFailureCode
- -&gt; Maybe ImageIdentifier -&gt; Maybe Text -&gt; ImageFailure)
--&gt; Parser (Maybe ImageFailureCode)
--&gt; Parser (Maybe ImageIdentifier -&gt; Maybe Text -&gt; ImageFailure)
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ImageFailureCode -&gt; Maybe ImageIdentifier -&gt; ImageFailure)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ImageFailureCode -&gt; Maybe ImageIdentifier -&gt; ImageFailure)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImageFailureCode)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;failureCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ImageIdentifier -&gt; Maybe Text -&gt; ImageFailure)
--&gt; Parser (Maybe ImageIdentifier)
--&gt; Parser (Maybe Text -&gt; ImageFailure)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImageIdentifier)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;imageId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ImageFailure)
--&gt; Parser (Maybe Text) -&gt; Parser ImageFailure
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679232222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;failureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ImageFailureCode -&gt; Maybe ImageIdentifier -&gt; ImageFailure)
+-&gt; Parser (Maybe ImageFailureCode)
+-&gt; Parser (Maybe ImageIdentifier -&gt; ImageFailure)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImageFailureCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failureCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ImageIdentifier -&gt; ImageFailure)
+-&gt; Parser (Maybe ImageIdentifier) -&gt; Parser ImageFailure
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImageIdentifier)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;imageId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232075"><span id="local-6989586621679232077"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232216"><span id="local-6989586621679232218"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232072"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232213"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span></span><span>
 </span><span id="line-89"></span></pre></body></html>

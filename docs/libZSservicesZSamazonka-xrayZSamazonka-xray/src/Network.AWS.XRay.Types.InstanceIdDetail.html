@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A list of EC2 instance IDs corresponding to the segments in a trace.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newInstanceIdDetail' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679252532"><span id="local-6989586621679252533"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceIdDetail"><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail"><span class="hs-identifier hs-var">InstanceIdDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceIdDetail%27"><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail%27"><span class="hs-identifier hs-var">InstanceIdDetail'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679252804"><span id="local-6989586621679252805"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceIdDetail"><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail"><span class="hs-identifier hs-var">InstanceIdDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceIdDetail%27"><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail%27"><span class="hs-identifier hs-var">InstanceIdDetail'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of a corresponding EC2 instance.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aid%3AInstanceIdDetail%27"><span class="annot"><span class="annottext">InstanceIdDetail -&gt; Maybe Text
 </span><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#%24sel%3Aid%3AInstanceIdDetail%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252526"><span id="local-6989586621679252528"><span class="annot"><span class="annottext">InstanceIdDetail -&gt; InstanceIdDetail -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252798"><span id="local-6989586621679252800"><span class="annot"><span class="annottext">InstanceIdDetail -&gt; InstanceIdDetail -&gt; Bool
 (InstanceIdDetail -&gt; InstanceIdDetail -&gt; Bool)
 -&gt; (InstanceIdDetail -&gt; InstanceIdDetail -&gt; Bool)
 -&gt; Eq InstanceIdDetail
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceIdDetail -&gt; InstanceIdDetail -&gt; Bool
 == :: InstanceIdDetail -&gt; InstanceIdDetail -&gt; Bool
 $c== :: InstanceIdDetail -&gt; InstanceIdDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252517"><span id="local-6989586621679252519"><span id="local-6989586621679252521"><span id="local-6989586621679252523"><span class="annot"><span class="annottext">ReadPrec [InstanceIdDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252789"><span id="local-6989586621679252791"><span id="local-6989586621679252793"><span id="local-6989586621679252795"><span class="annot"><span class="annottext">ReadPrec [InstanceIdDetail]
 ReadPrec InstanceIdDetail
 Int -&gt; ReadS InstanceIdDetail
 ReadS [InstanceIdDetail]
@@ -60,7 +60,7 @@ readList :: ReadS [InstanceIdDetail]
 $creadList :: ReadS [InstanceIdDetail]
 readsPrec :: Int -&gt; ReadS InstanceIdDetail
 $creadsPrec :: Int -&gt; ReadS InstanceIdDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252510"><span id="local-6989586621679252512"><span id="local-6989586621679252514"><span class="annot"><span class="annottext">Int -&gt; InstanceIdDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252782"><span id="local-6989586621679252784"><span id="local-6989586621679252786"><span class="annot"><span class="annottext">Int -&gt; InstanceIdDetail -&gt; ShowS
 [InstanceIdDetail] -&gt; ShowS
 InstanceIdDetail -&gt; String
 (Int -&gt; InstanceIdDetail -&gt; ShowS)
@@ -113,19 +113,19 @@ forall a. Maybe a
 -&gt; (InstanceIdDetail -&gt; Maybe Text -&gt; InstanceIdDetail)
 -&gt; Lens InstanceIdDetail InstanceIdDetail (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail%27"><span class="hs-identifier hs-type">InstanceIdDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252501"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail%27"><span class="hs-identifier hs-type">InstanceIdDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252773"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:InstanceIdDetail' :: InstanceIdDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679252501"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252501"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252500"><span class="annot"><span class="annottext">s :: InstanceIdDetail
-</span><a href="#local-6989586621679252500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail%27"><span class="hs-identifier hs-type">InstanceIdDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252499"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceIdDetail
-</span><a href="#local-6989586621679252500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:InstanceIdDetail' :: Maybe Text
+</span><a href="#local-6989586621679252773"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252773"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252772"><span class="annot"><span class="annottext">s :: InstanceIdDetail
+</span><a href="#local-6989586621679252772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail%27"><span class="hs-identifier hs-type">InstanceIdDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252771"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceIdDetail
+</span><a href="#local-6989586621679252772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:InstanceIdDetail' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#%24sel%3Aid%3AInstanceIdDetail%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail"><span class="hs-identifier hs-type">InstanceIdDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail"><span class="hs-identifier hs-type">InstanceIdDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252496"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail"><span class="hs-identifier hs-type">InstanceIdDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679252494"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceIdDetail
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252768"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail"><span class="hs-identifier hs-type">InstanceIdDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679252766"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceIdDetail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InstanceIdDetail)
@@ -135,20 +135,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InstanceIdDetail&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252491"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252491"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252763"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252763"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; InstanceIdDetail
 </span><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail%27"><span class="hs-identifier hs-var">InstanceIdDetail'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; InstanceIdDetail)
 -&gt; Parser (Maybe Text) -&gt; Parser InstanceIdDetail
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252491"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679252763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252485"><span id="local-6989586621679252487"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail"><span class="hs-identifier hs-type">InstanceIdDetail</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252757"><span id="local-6989586621679252759"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail"><span class="hs-identifier hs-type">InstanceIdDetail</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252482"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail"><span class="hs-identifier hs-type">InstanceIdDetail</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252754"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InstanceIdDetail.html#InstanceIdDetail"><span class="hs-identifier hs-type">InstanceIdDetail</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>

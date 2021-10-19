@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetRegions' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679637131"><span id="local-6989586621679637132"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRegions"><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions"><span class="hs-identifier hs-var">GetRegions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRegions%27"><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions%27"><span class="hs-identifier hs-var">GetRegions'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679638101"><span id="local-6989586621679638102"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRegions"><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions"><span class="hs-identifier hs-var">GetRegions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRegions%27"><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions%27"><span class="hs-identifier hs-var">GetRegions'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A Boolean value indicating whether to also include Availability Zones</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- for databases in your get regions request. Availability Zones are</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- indicated with a letter (e.g., @us-east-2a@).</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AincludeAvailabilityZones%3AGetRegions%27"><span class="annot"><span class="annottext">GetRegions -&gt; Maybe Bool
 </span><a href="Network.AWS.Lightsail.GetRegions.html#%24sel%3AincludeAvailabilityZones%3AGetRegions%27"><span class="hs-identifier hs-var hs-var">includeAvailabilityZones</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679637124"><span id="local-6989586621679637126"><span class="annot"><span class="annottext">GetRegions -&gt; GetRegions -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679638094"><span id="local-6989586621679638096"><span class="annot"><span class="annottext">GetRegions -&gt; GetRegions -&gt; Bool
 (GetRegions -&gt; GetRegions -&gt; Bool)
 -&gt; (GetRegions -&gt; GetRegions -&gt; Bool) -&gt; Eq GetRegions
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetRegions -&gt; GetRegions -&gt; Bool
 == :: GetRegions -&gt; GetRegions -&gt; Bool
 $c== :: GetRegions -&gt; GetRegions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637115"><span id="local-6989586621679637117"><span id="local-6989586621679637119"><span id="local-6989586621679637121"><span class="annot"><span class="annottext">ReadPrec [GetRegions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679638085"><span id="local-6989586621679638087"><span id="local-6989586621679638089"><span id="local-6989586621679638091"><span class="annot"><span class="annottext">ReadPrec [GetRegions]
 ReadPrec GetRegions
 Int -&gt; ReadS GetRegions
 ReadS [GetRegions]
@@ -90,7 +90,7 @@ readList :: ReadS [GetRegions]
 $creadList :: ReadS [GetRegions]
 readsPrec :: Int -&gt; ReadS GetRegions
 $creadsPrec :: Int -&gt; ReadS GetRegions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637108"><span id="local-6989586621679637110"><span id="local-6989586621679637112"><span class="annot"><span class="annottext">Int -&gt; GetRegions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679638078"><span id="local-6989586621679638080"><span id="local-6989586621679638082"><span class="annot"><span class="annottext">Int -&gt; GetRegions -&gt; ShowS
 [GetRegions] -&gt; ShowS
 GetRegions -&gt; String
 (Int -&gt; GetRegions -&gt; ShowS)
@@ -156,16 +156,16 @@ forall a. Maybe a
 -&gt; (GetRegions -&gt; Maybe Bool -&gt; GetRegions)
 -&gt; Lens GetRegions GetRegions (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions%27"><span class="hs-identifier hs-type">GetRegions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637101"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions%27"><span class="hs-identifier hs-type">GetRegions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638071"><span class="annot"><span class="annottext">Maybe Bool
 includeRelationalDatabaseAvailabilityZones :: Maybe Bool
 $sel:includeRelationalDatabaseAvailabilityZones:GetRegions' :: GetRegions -&gt; Maybe Bool
-</span><a href="#local-6989586621679637101"><span class="hs-identifier hs-var hs-var">includeRelationalDatabaseAvailabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679637101"><span class="hs-identifier hs-var">includeRelationalDatabaseAvailabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637100"><span class="annot"><span class="annottext">s :: GetRegions
-</span><a href="#local-6989586621679637100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions%27"><span class="hs-identifier hs-type">GetRegions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637099"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679637099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRegions
-</span><a href="#local-6989586621679637100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeRelationalDatabaseAvailabilityZones:GetRegions' :: Maybe Bool
+</span><a href="#local-6989586621679638071"><span class="hs-identifier hs-var hs-var">includeRelationalDatabaseAvailabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679638071"><span class="hs-identifier hs-var">includeRelationalDatabaseAvailabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679638070"><span class="annot"><span class="annottext">s :: GetRegions
+</span><a href="#local-6989586621679638070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions%27"><span class="hs-identifier hs-type">GetRegions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679638069"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679638069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRegions
+</span><a href="#local-6989586621679638070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeRelationalDatabaseAvailabilityZones:GetRegions' :: Maybe Bool
 </span><a href="Network.AWS.Lightsail.GetRegions.html#%24sel%3AincludeRelationalDatabaseAvailabilityZones%3AGetRegions%27"><span class="hs-identifier hs-var">includeRelationalDatabaseAvailabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679637099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions"><span class="hs-identifier hs-type">GetRegions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679638069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions"><span class="hs-identifier hs-type">GetRegions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | A Boolean value indicating whether to also include Availability Zones in</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- your get regions request. Availability Zones are indicated with a</span><span>
@@ -176,25 +176,25 @@ $sel:includeRelationalDatabaseAvailabilityZones:GetRegions' :: GetRegions -&gt; 
 -&gt; (GetRegions -&gt; Maybe Bool -&gt; GetRegions)
 -&gt; Lens GetRegions GetRegions (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions%27"><span class="hs-identifier hs-type">GetRegions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637098"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions%27"><span class="hs-identifier hs-type">GetRegions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638068"><span class="annot"><span class="annottext">Maybe Bool
 includeAvailabilityZones :: Maybe Bool
 $sel:includeAvailabilityZones:GetRegions' :: GetRegions -&gt; Maybe Bool
-</span><a href="#local-6989586621679637098"><span class="hs-identifier hs-var hs-var">includeAvailabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679637098"><span class="hs-identifier hs-var">includeAvailabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637097"><span class="annot"><span class="annottext">s :: GetRegions
-</span><a href="#local-6989586621679637097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions%27"><span class="hs-identifier hs-type">GetRegions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637096"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679637096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRegions
-</span><a href="#local-6989586621679637097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeAvailabilityZones:GetRegions' :: Maybe Bool
+</span><a href="#local-6989586621679638068"><span class="hs-identifier hs-var hs-var">includeAvailabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679638068"><span class="hs-identifier hs-var">includeAvailabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679638067"><span class="annot"><span class="annottext">s :: GetRegions
+</span><a href="#local-6989586621679638067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions%27"><span class="hs-identifier hs-type">GetRegions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679638066"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679638066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRegions
+</span><a href="#local-6989586621679638067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeAvailabilityZones:GetRegions' :: Maybe Bool
 </span><a href="Network.AWS.Lightsail.GetRegions.html#%24sel%3AincludeAvailabilityZones%3AGetRegions%27"><span class="hs-identifier hs-var">includeAvailabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679637096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions"><span class="hs-identifier hs-type">GetRegions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679638066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions"><span class="hs-identifier hs-type">GetRegions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions"><span class="hs-identifier hs-type">GetRegions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions"><span class="hs-identifier hs-type">GetRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse"><span class="hs-identifier hs-type">GetRegionsResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679637092"><span class="annot"><span class="annottext">request :: GetRegions -&gt; Request GetRegions
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679638062"><span class="annot"><span class="annottext">request :: GetRegions -&gt; Request GetRegions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetRegions -&gt; Request GetRegions
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679637088"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679638058"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetRegions
 -&gt; ClientResponse ClientBody
@@ -218,10 +218,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679637085"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679637085"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679637084"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679637084"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679637083"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679637083"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679638055"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679638055"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679638054"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679638054"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679638053"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679638053"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RegionInfo] -&gt; Int -&gt; GetRegionsResponse
 </span><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse%27"><span class="hs-identifier hs-var">GetRegionsResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [RegionInfo] -&gt; Int -&gt; GetRegionsResponse)
@@ -229,7 +229,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetRegionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679637083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [RegionInfo]))
+</span><a href="#local-6989586621679638053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [RegionInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;regions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [RegionInfo]))
@@ -246,15 +246,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679637085"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679638055"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637074"><span id="local-6989586621679637076"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions"><span class="hs-identifier hs-type">GetRegions</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679638044"><span id="local-6989586621679638046"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions"><span class="hs-identifier hs-type">GetRegions</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637071"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions"><span class="hs-identifier hs-type">GetRegions</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679638041"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions"><span class="hs-identifier hs-type">GetRegions</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions"><span class="hs-identifier hs-type">GetRegions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679637067"><span class="annot"><span class="annottext">toHeaders :: GetRegions -&gt; ResponseHeaders
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679638037"><span class="annot"><span class="annottext">toHeaders :: GetRegions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetRegions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -281,14 +281,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637057"><span id="local-6989586621679637059"><span id="local-6989586621679637061"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions"><span class="hs-identifier hs-type">GetRegions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679637055"><span class="annot"><span class="annottext">toJSON :: GetRegions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions%27"><span class="hs-identifier hs-type">GetRegions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637052"><span id="local-6989586621679637053"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679638027"><span id="local-6989586621679638029"><span id="local-6989586621679638031"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions"><span class="hs-identifier hs-type">GetRegions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679638025"><span class="annot"><span class="annottext">toJSON :: GetRegions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions%27"><span class="hs-identifier hs-type">GetRegions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638022"><span id="local-6989586621679638023"><span class="annot"><span class="annottext">Maybe Bool
 includeAvailabilityZones :: Maybe Bool
 includeRelationalDatabaseAvailabilityZones :: Maybe Bool
 $sel:includeAvailabilityZones:GetRegions' :: GetRegions -&gt; Maybe Bool
 $sel:includeRelationalDatabaseAvailabilityZones:GetRegions' :: GetRegions -&gt; Maybe Bool
-</span><a href="#local-6989586621679637052"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679638022"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -303,7 +303,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679637053"><span class="hs-identifier hs-var">includeRelationalDatabaseAvailabilityZones</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679638023"><span class="hs-identifier hs-var">includeRelationalDatabaseAvailabilityZones</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;includeAvailabilityZones&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -311,19 +311,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679637052"><span class="hs-identifier hs-var">includeAvailabilityZones</span></a></span><span>
+</span><a href="#local-6989586621679638022"><span class="hs-identifier hs-var">includeAvailabilityZones</span></a></span><span>
 </span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions"><span class="hs-identifier hs-type">GetRegions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679637046"><span class="annot"><span class="annottext">toPath :: GetRegions -&gt; ByteString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679638016"><span class="annot"><span class="annottext">toPath :: GetRegions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetRegions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegions"><span class="hs-identifier hs-type">GetRegions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679637042"><span class="annot"><span class="annottext">toQuery :: GetRegions -&gt; QueryString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679638012"><span class="annot"><span class="annottext">toQuery :: GetRegions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetRegions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -331,7 +331,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newGetRegionsResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679637039"><span id="local-6989586621679637040"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRegionsResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse"><span class="hs-identifier hs-var">GetRegionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRegionsResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse%27"><span class="hs-identifier hs-var">GetRegionsResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679638009"><span id="local-6989586621679638010"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRegionsResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse"><span class="hs-identifier hs-var">GetRegionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRegionsResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse%27"><span class="hs-identifier hs-var">GetRegionsResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of key-value pairs containing information about your get</span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-comment">-- regions request.</span><span>
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3Aregions%3AGetRegionsResponse%27"><span class="annot"><span class="annottext">GetRegionsResponse -&gt; Maybe [RegionInfo]
@@ -340,7 +340,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetRegionsResponse%27"><span class="annot"><span class="annottext">GetRegionsResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetRegions.html#%24sel%3AhttpStatus%3AGetRegionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679637033"><span id="local-6989586621679637035"><span class="annot"><span class="annottext">GetRegionsResponse -&gt; GetRegionsResponse -&gt; Bool
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679638003"><span id="local-6989586621679638005"><span class="annot"><span class="annottext">GetRegionsResponse -&gt; GetRegionsResponse -&gt; Bool
 (GetRegionsResponse -&gt; GetRegionsResponse -&gt; Bool)
 -&gt; (GetRegionsResponse -&gt; GetRegionsResponse -&gt; Bool)
 -&gt; Eq GetRegionsResponse
@@ -349,7 +349,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetRegionsResponse -&gt; GetRegionsResponse -&gt; Bool
 == :: GetRegionsResponse -&gt; GetRegionsResponse -&gt; Bool
 $c== :: GetRegionsResponse -&gt; GetRegionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637025"><span id="local-6989586621679637027"><span id="local-6989586621679637029"><span id="local-6989586621679637031"><span class="annot"><span class="annottext">ReadPrec [GetRegionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637995"><span id="local-6989586621679637997"><span id="local-6989586621679637999"><span id="local-6989586621679638001"><span class="annot"><span class="annottext">ReadPrec [GetRegionsResponse]
 ReadPrec GetRegionsResponse
 Int -&gt; ReadS GetRegionsResponse
 ReadS [GetRegionsResponse]
@@ -369,7 +369,7 @@ readList :: ReadS [GetRegionsResponse]
 $creadList :: ReadS [GetRegionsResponse]
 readsPrec :: Int -&gt; ReadS GetRegionsResponse
 $creadsPrec :: Int -&gt; ReadS GetRegionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637019"><span id="local-6989586621679637021"><span id="local-6989586621679637023"><span class="annot"><span class="annottext">Int -&gt; GetRegionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637989"><span id="local-6989586621679637991"><span id="local-6989586621679637993"><span class="annot"><span class="annottext">Int -&gt; GetRegionsResponse -&gt; ShowS
 [GetRegionsResponse] -&gt; ShowS
 GetRegionsResponse -&gt; String
 (Int -&gt; GetRegionsResponse -&gt; ShowS)
@@ -412,8 +412,8 @@ $cfrom :: forall x. GetRegionsResponse -&gt; Rep GetRegionsResponse x
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse"><span class="hs-identifier hs-type">GetRegionsResponse</span></a></span><span>
 </span><span id="line-176"></span><span id="newGetRegionsResponse"><span class="annot"><span class="annottext">newGetRegionsResponse :: Int -&gt; GetRegionsResponse
-</span><a href="Network.AWS.Lightsail.GetRegions.html#newGetRegionsResponse"><span class="hs-identifier hs-var hs-var">newGetRegionsResponse</span></a></span></span><span> </span><span id="local-6989586621679637016"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679637016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetRegions.html#newGetRegionsResponse"><span class="hs-identifier hs-var hs-var">newGetRegionsResponse</span></a></span></span><span> </span><span id="local-6989586621679637986"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637986"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">GetRegionsResponse' :: Maybe [RegionInfo] -&gt; Int -&gt; GetRegionsResponse
 </span><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse%27"><span class="hs-identifier hs-type">GetRegionsResponse'</span></a></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:regions:GetRegionsResponse' :: Maybe [RegionInfo]
@@ -422,7 +422,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetRegionsResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetRegions.html#%24sel%3AhttpStatus%3AGetRegionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679637016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679637986"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | An array of key-value pairs containing information about your get</span><span>
@@ -438,16 +438,16 @@ forall a. Maybe a
      (Maybe [RegionInfo])
      (Maybe [RegionInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse%27"><span class="hs-identifier hs-type">GetRegionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637015"><span class="annot"><span class="annottext">Maybe [RegionInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse%27"><span class="hs-identifier hs-type">GetRegionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637985"><span class="annot"><span class="annottext">Maybe [RegionInfo]
 regions :: Maybe [RegionInfo]
 $sel:regions:GetRegionsResponse' :: GetRegionsResponse -&gt; Maybe [RegionInfo]
-</span><a href="#local-6989586621679637015"><span class="hs-identifier hs-var hs-var">regions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RegionInfo]
-</span><a href="#local-6989586621679637015"><span class="hs-identifier hs-var">regions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637014"><span class="annot"><span class="annottext">s :: GetRegionsResponse
-</span><a href="#local-6989586621679637014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse%27"><span class="hs-identifier hs-type">GetRegionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637013"><span class="annot"><span class="annottext">Maybe [RegionInfo]
-</span><a href="#local-6989586621679637013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRegionsResponse
-</span><a href="#local-6989586621679637014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regions:GetRegionsResponse' :: Maybe [RegionInfo]
+</span><a href="#local-6989586621679637985"><span class="hs-identifier hs-var hs-var">regions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RegionInfo]
+</span><a href="#local-6989586621679637985"><span class="hs-identifier hs-var">regions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637984"><span class="annot"><span class="annottext">s :: GetRegionsResponse
+</span><a href="#local-6989586621679637984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse%27"><span class="hs-identifier hs-type">GetRegionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637983"><span class="annot"><span class="annottext">Maybe [RegionInfo]
+</span><a href="#local-6989586621679637983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRegionsResponse
+</span><a href="#local-6989586621679637984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regions:GetRegionsResponse' :: Maybe [RegionInfo]
 </span><a href="Network.AWS.Lightsail.GetRegions.html#%24sel%3Aregions%3AGetRegionsResponse%27"><span class="hs-identifier hs-var">regions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RegionInfo]
-</span><a href="#local-6989586621679637013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse"><span class="hs-identifier hs-type">GetRegionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RegionInfo] -&gt; f (Maybe [RegionInfo]))
+</span><a href="#local-6989586621679637983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse"><span class="hs-identifier hs-type">GetRegionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RegionInfo] -&gt; f (Maybe [RegionInfo]))
  -&gt; GetRegionsResponse -&gt; f GetRegionsResponse)
 -&gt; ((Maybe [RegionInfo] -&gt; f (Maybe [RegionInfo]))
     -&gt; Maybe [RegionInfo] -&gt; f (Maybe [RegionInfo]))
@@ -465,8 +465,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RegionInfo] [RegionInfo] [RegionInfo] [RegionInfo]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-188"></span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#getRegionsResponse_httpStatus"><span class="hs-identifier hs-type">getRegionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse"><span class="hs-identifier hs-type">GetRegionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -475,16 +475,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetRegionsResponse -&gt; Int -&gt; GetRegionsResponse)
 -&gt; Lens GetRegionsResponse GetRegionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse%27"><span class="hs-identifier hs-type">GetRegionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637009"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse%27"><span class="hs-identifier hs-type">GetRegionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637979"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetRegionsResponse' :: GetRegionsResponse -&gt; Int
-</span><a href="#local-6989586621679637009"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679637009"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637008"><span class="annot"><span class="annottext">s :: GetRegionsResponse
-</span><a href="#local-6989586621679637008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse%27"><span class="hs-identifier hs-type">GetRegionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637007"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679637007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRegionsResponse
-</span><a href="#local-6989586621679637008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRegionsResponse' :: Int
+</span><a href="#local-6989586621679637979"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637979"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637978"><span class="annot"><span class="annottext">s :: GetRegionsResponse
+</span><a href="#local-6989586621679637978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse%27"><span class="hs-identifier hs-type">GetRegionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637977"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRegionsResponse
+</span><a href="#local-6989586621679637978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRegionsResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetRegions.html#%24sel%3AhttpStatus%3AGetRegionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679637007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse"><span class="hs-identifier hs-type">GetRegionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679637977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse"><span class="hs-identifier hs-type">GetRegionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse"><span class="hs-identifier hs-type">GetRegionsResponse</span></a></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637975"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRegions.html#GetRegionsResponse"><span class="hs-identifier hs-type">GetRegionsResponse</span></a></span></span><span>
 </span><span id="line-192"></span></pre></body></html>

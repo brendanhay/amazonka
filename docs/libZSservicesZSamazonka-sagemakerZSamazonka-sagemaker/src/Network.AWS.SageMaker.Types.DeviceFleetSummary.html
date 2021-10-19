@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Summary of the device fleet.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDeviceFleetSummary' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680300348"><span id="local-6989586621680300349"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceFleetSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-var">DeviceFleetSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceFleetSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-var">DeviceFleetSummary'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680301721"><span id="local-6989586621680301722"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceFleetSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-var">DeviceFleetSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceFleetSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-var">DeviceFleetSummary'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Timestamp of when the device fleet was created.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AcreationTime%3ADeviceFleetSummary%27"><span class="annot"><span class="annottext">DeviceFleetSummary -&gt; Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#%24sel%3AcreationTime%3ADeviceFleetSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AdeviceFleetName%3ADeviceFleetSummary%27"><span class="annot"><span class="annottext">DeviceFleetSummary -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#%24sel%3AdeviceFleetName%3ADeviceFleetSummary%27"><span class="hs-identifier hs-var hs-var">deviceFleetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680300339"><span id="local-6989586621680300341"><span class="annot"><span class="annottext">DeviceFleetSummary -&gt; DeviceFleetSummary -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680301712"><span id="local-6989586621680301714"><span class="annot"><span class="annottext">DeviceFleetSummary -&gt; DeviceFleetSummary -&gt; Bool
 (DeviceFleetSummary -&gt; DeviceFleetSummary -&gt; Bool)
 -&gt; (DeviceFleetSummary -&gt; DeviceFleetSummary -&gt; Bool)
 -&gt; Eq DeviceFleetSummary
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeviceFleetSummary -&gt; DeviceFleetSummary -&gt; Bool
 == :: DeviceFleetSummary -&gt; DeviceFleetSummary -&gt; Bool
 $c== :: DeviceFleetSummary -&gt; DeviceFleetSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680300330"><span id="local-6989586621680300332"><span id="local-6989586621680300334"><span id="local-6989586621680300336"><span class="annot"><span class="annottext">ReadPrec [DeviceFleetSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680301703"><span id="local-6989586621680301705"><span id="local-6989586621680301707"><span id="local-6989586621680301709"><span class="annot"><span class="annottext">ReadPrec [DeviceFleetSummary]
 ReadPrec DeviceFleetSummary
 Int -&gt; ReadS DeviceFleetSummary
 ReadS [DeviceFleetSummary]
@@ -69,7 +69,7 @@ readList :: ReadS [DeviceFleetSummary]
 $creadList :: ReadS [DeviceFleetSummary]
 readsPrec :: Int -&gt; ReadS DeviceFleetSummary
 $creadsPrec :: Int -&gt; ReadS DeviceFleetSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680300323"><span id="local-6989586621680300325"><span id="local-6989586621680300327"><span class="annot"><span class="annottext">Int -&gt; DeviceFleetSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680301696"><span id="local-6989586621680301698"><span id="local-6989586621680301700"><span class="annot"><span class="annottext">Int -&gt; DeviceFleetSummary -&gt; ShowS
 [DeviceFleetSummary] -&gt; ShowS
 DeviceFleetSummary -&gt; String
 (Int -&gt; DeviceFleetSummary -&gt; ShowS)
@@ -118,10 +118,10 @@ $cfrom :: forall x. DeviceFleetSummary -&gt; Rep DeviceFleetSummary x
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-type">DeviceFleetSummary</span></a></span><span>
 </span><span id="line-62"></span><span id="newDeviceFleetSummary"><span class="annot"><span class="annottext">newDeviceFleetSummary :: Text -&gt; Text -&gt; DeviceFleetSummary
 </span><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#newDeviceFleetSummary"><span class="hs-identifier hs-var hs-var">newDeviceFleetSummary</span></a></span></span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621680300317"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300317"><span class="hs-identifier hs-var">pDeviceFleetArn_</span></a></span></span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621680300316"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300316"><span class="hs-identifier hs-var">pDeviceFleetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621680301690"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680301690"><span class="hs-identifier hs-var">pDeviceFleetArn_</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621680301689"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680301689"><span class="hs-identifier hs-var">pDeviceFleetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">DeviceFleetSummary' :: Maybe POSIX -&gt; Maybe POSIX -&gt; Text -&gt; Text -&gt; DeviceFleetSummary
 </span><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-type">DeviceFleetSummary'</span></a></span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:DeviceFleetSummary' :: Maybe POSIX
@@ -134,10 +134,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">$sel:deviceFleetArn:DeviceFleetSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#%24sel%3AdeviceFleetArn%3ADeviceFleetSummary%27"><span class="hs-identifier hs-var">deviceFleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300317"><span class="hs-identifier hs-var">pDeviceFleetArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680301690"><span class="hs-identifier hs-var">pDeviceFleetArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">$sel:deviceFleetName:DeviceFleetSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#%24sel%3AdeviceFleetName%3ADeviceFleetSummary%27"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300316"><span class="hs-identifier hs-var">pDeviceFleetName_</span></a></span><span>
+</span><a href="#local-6989586621680301689"><span class="hs-identifier hs-var">pDeviceFleetName_</span></a></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | Timestamp of when the device fleet was created.</span><span>
@@ -149,16 +149,16 @@ forall a. Maybe a
 -&gt; Lens
      DeviceFleetSummary DeviceFleetSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-type">DeviceFleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300312"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-type">DeviceFleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301685"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:DeviceFleetSummary' :: DeviceFleetSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621680300312"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680300312"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300311"><span class="annot"><span class="annottext">s :: DeviceFleetSummary
-</span><a href="#local-6989586621680300311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-type">DeviceFleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300310"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680300310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFleetSummary
-</span><a href="#local-6989586621680300311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DeviceFleetSummary' :: Maybe POSIX
+</span><a href="#local-6989586621680301685"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680301685"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680301684"><span class="annot"><span class="annottext">s :: DeviceFleetSummary
+</span><a href="#local-6989586621680301684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-type">DeviceFleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680301683"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680301683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFleetSummary
+</span><a href="#local-6989586621680301684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DeviceFleetSummary' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#%24sel%3AcreationTime%3ADeviceFleetSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680300310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-type">DeviceFleetSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680301683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-type">DeviceFleetSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DeviceFleetSummary -&gt; f DeviceFleetSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -184,16 +184,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      DeviceFleetSummary DeviceFleetSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-type">DeviceFleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300305"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-type">DeviceFleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301678"><span class="annot"><span class="annottext">Maybe POSIX
 lastModifiedTime :: Maybe POSIX
 $sel:lastModifiedTime:DeviceFleetSummary' :: DeviceFleetSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621680300305"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680300305"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300304"><span class="annot"><span class="annottext">s :: DeviceFleetSummary
-</span><a href="#local-6989586621680300304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-type">DeviceFleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300303"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680300303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFleetSummary
-</span><a href="#local-6989586621680300304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DeviceFleetSummary' :: Maybe POSIX
+</span><a href="#local-6989586621680301678"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680301678"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680301677"><span class="annot"><span class="annottext">s :: DeviceFleetSummary
+</span><a href="#local-6989586621680301677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-type">DeviceFleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680301676"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680301676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFleetSummary
+</span><a href="#local-6989586621680301677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DeviceFleetSummary' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#%24sel%3AlastModifiedTime%3ADeviceFleetSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680300303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-type">DeviceFleetSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680301676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-type">DeviceFleetSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DeviceFleetSummary -&gt; f DeviceFleetSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -217,16 +217,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (DeviceFleetSummary -&gt; Text -&gt; DeviceFleetSummary)
 -&gt; Lens DeviceFleetSummary DeviceFleetSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-type">DeviceFleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300301"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-type">DeviceFleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301674"><span class="annot"><span class="annottext">Text
 deviceFleetArn :: Text
 $sel:deviceFleetArn:DeviceFleetSummary' :: DeviceFleetSummary -&gt; Text
-</span><a href="#local-6989586621680300301"><span class="hs-identifier hs-var hs-var">deviceFleetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300301"><span class="hs-identifier hs-var">deviceFleetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300300"><span class="annot"><span class="annottext">s :: DeviceFleetSummary
-</span><a href="#local-6989586621680300300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-type">DeviceFleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300299"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFleetSummary
-</span><a href="#local-6989586621680300300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceFleetArn:DeviceFleetSummary' :: Text
+</span><a href="#local-6989586621680301674"><span class="hs-identifier hs-var hs-var">deviceFleetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680301674"><span class="hs-identifier hs-var">deviceFleetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680301673"><span class="annot"><span class="annottext">s :: DeviceFleetSummary
+</span><a href="#local-6989586621680301673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-type">DeviceFleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680301672"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680301672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFleetSummary
+</span><a href="#local-6989586621680301673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceFleetArn:DeviceFleetSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#%24sel%3AdeviceFleetArn%3ADeviceFleetSummary%27"><span class="hs-identifier hs-var">deviceFleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-type">DeviceFleetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680301672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-type">DeviceFleetSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | Name of the device fleet.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#deviceFleetSummary_deviceFleetName"><span class="hs-identifier hs-type">deviceFleetSummary_deviceFleetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-type">DeviceFleetSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -235,19 +235,19 @@ $sel:deviceFleetArn:DeviceFleetSummary' :: DeviceFleetSummary -&gt; Text
 -&gt; (DeviceFleetSummary -&gt; Text -&gt; DeviceFleetSummary)
 -&gt; Lens DeviceFleetSummary DeviceFleetSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-type">DeviceFleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300297"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-type">DeviceFleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301670"><span class="annot"><span class="annottext">Text
 deviceFleetName :: Text
 $sel:deviceFleetName:DeviceFleetSummary' :: DeviceFleetSummary -&gt; Text
-</span><a href="#local-6989586621680300297"><span class="hs-identifier hs-var hs-var">deviceFleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300297"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300296"><span class="annot"><span class="annottext">s :: DeviceFleetSummary
-</span><a href="#local-6989586621680300296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-type">DeviceFleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300295"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFleetSummary
-</span><a href="#local-6989586621680300296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceFleetName:DeviceFleetSummary' :: Text
+</span><a href="#local-6989586621680301670"><span class="hs-identifier hs-var hs-var">deviceFleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680301670"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680301669"><span class="annot"><span class="annottext">s :: DeviceFleetSummary
+</span><a href="#local-6989586621680301669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-type">DeviceFleetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680301668"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680301668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFleetSummary
+</span><a href="#local-6989586621680301669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceFleetName:DeviceFleetSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#%24sel%3AdeviceFleetName%3ADeviceFleetSummary%27"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-type">DeviceFleetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680301668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-type">DeviceFleetSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300292"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-type">DeviceFleetSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621680300290"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceFleetSummary
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680301665"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-type">DeviceFleetSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621680301663"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceFleetSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DeviceFleetSummary)
@@ -257,8 +257,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeviceFleetSummary&quot;</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680300287"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680300287"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680301660"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680301660"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe POSIX -&gt; Text -&gt; Text -&gt; DeviceFleetSummary
 </span><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary%27"><span class="hs-identifier hs-var">DeviceFleetSummary'</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe POSIX -&gt; Text -&gt; Text -&gt; DeviceFleetSummary)
@@ -266,7 +266,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe POSIX -&gt; Text -&gt; Text -&gt; DeviceFleetSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680300287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680301660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -275,7 +275,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; Text -&gt; DeviceFleetSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680300287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680301660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -283,7 +283,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; DeviceFleetSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680300287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680301660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceFleetArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -291,13 +291,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser DeviceFleetSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680300287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680301660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceFleetName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300280"><span id="local-6989586621680300282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-type">DeviceFleetSummary</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680301653"><span id="local-6989586621680301655"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-type">DeviceFleetSummary</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-type">DeviceFleetSummary</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680301650"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceFleetSummary.html#DeviceFleetSummary"><span class="hs-identifier hs-type">DeviceFleetSummary</span></a></span></span><span>
 </span><span id="line-103"></span></pre></body></html>

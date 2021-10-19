@@ -34,34 +34,34 @@
 </span><span id="line-34"></span><span class="hs-comment">-- violation.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newRemediationAction' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679247506"><span id="local-6989586621679247507"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemediationAction"><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-var">RemediationAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemediationAction%27"><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-var">RemediationAction'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679247745"><span id="local-6989586621679247746"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemediationAction"><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-var">RemediationAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemediationAction%27"><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-var">RemediationAction'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the CreateRoute action in the Amazon EC2 API.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AeC2CreateRouteAction%3ARemediationAction%27"><span class="annot"><span class="annottext">RemediationAction -&gt; Maybe EC2CreateRouteAction
 </span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2CreateRouteAction%3ARemediationAction%27"><span class="hs-identifier hs-var hs-var">eC2CreateRouteAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2CreateRouteAction.html#EC2CreateRouteAction"><span class="hs-identifier hs-type">EC2CreateRouteAction</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Information about the ReplaceRoute action in the Amazon EC2 API.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AeC2ReplaceRouteAction%3ARemediationAction%27"><span class="annot"><span class="annottext">RemediationAction -&gt; Maybe EC2ReplaceRouteAction
-</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2ReplaceRouteAction%3ARemediationAction%27"><span class="hs-identifier hs-var hs-var">eC2ReplaceRouteAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2ReplaceRouteAction.html#EC2ReplaceRouteAction"><span class="hs-identifier hs-type">EC2ReplaceRouteAction</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Information about the AssociateRouteTable action in the Amazon EC2 API.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AeC2AssociateRouteTableAction%3ARemediationAction%27"><span class="annot"><span class="annottext">RemediationAction -&gt; Maybe EC2AssociateRouteTableAction
-</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2AssociateRouteTableAction%3ARemediationAction%27"><span class="hs-identifier hs-var hs-var">eC2AssociateRouteTableAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2AssociateRouteTableAction.html#EC2AssociateRouteTableAction"><span class="hs-identifier hs-type">EC2AssociateRouteTableAction</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Information about the CreateRouteTable action in the Amazon EC2 API.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AeC2CreateRouteTableAction%3ARemediationAction%27"><span class="annot"><span class="annottext">RemediationAction -&gt; Maybe EC2CreateRouteTableAction
-</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2CreateRouteTableAction%3ARemediationAction%27"><span class="hs-identifier hs-var hs-var">eC2CreateRouteTableAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2CreateRouteTableAction.html#EC2CreateRouteTableAction"><span class="hs-identifier hs-type">EC2CreateRouteTableAction</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A description of a remediation action.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Adescription%3ARemediationAction%27"><span class="annot"><span class="annottext">RemediationAction -&gt; Maybe Text
-</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3Adescription%3ARemediationAction%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Information about the CopyRouteTable action in the Amazon EC2 API.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AeC2CopyRouteTableAction%3ARemediationAction%27"><span class="annot"><span class="annottext">RemediationAction -&gt; Maybe EC2CopyRouteTableAction
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Information about the CopyRouteTable action in the Amazon EC2 API.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AeC2CopyRouteTableAction%3ARemediationAction%27"><span class="annot"><span class="annottext">RemediationAction -&gt; Maybe EC2CopyRouteTableAction
 </span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2CopyRouteTableAction%3ARemediationAction%27"><span class="hs-identifier hs-var hs-var">eC2CopyRouteTableAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2CopyRouteTableAction.html#EC2CopyRouteTableAction"><span class="hs-identifier hs-type">EC2CopyRouteTableAction</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Information about the ReplaceRouteTableAssociation action in the Amazon</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- EC2 API.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AeC2ReplaceRouteTableAssociationAction%3ARemediationAction%27"><span class="annot"><span class="annottext">RemediationAction -&gt; Maybe EC2ReplaceRouteTableAssociationAction
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Information about the ReplaceRouteTableAssociation action in the Amazon</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- EC2 API.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AeC2ReplaceRouteTableAssociationAction%3ARemediationAction%27"><span class="annot"><span class="annottext">RemediationAction -&gt; Maybe EC2ReplaceRouteTableAssociationAction
 </span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2ReplaceRouteTableAssociationAction%3ARemediationAction%27"><span class="hs-identifier hs-var hs-var">eC2ReplaceRouteTableAssociationAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2ReplaceRouteTableAssociationAction.html#EC2ReplaceRouteTableAssociationAction"><span class="hs-identifier hs-type">EC2ReplaceRouteTableAssociationAction</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Information about the DeleteRoute action in the Amazon EC2 API.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AeC2DeleteRouteAction%3ARemediationAction%27"><span class="annot"><span class="annottext">RemediationAction -&gt; Maybe EC2DeleteRouteAction
-</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2DeleteRouteAction%3ARemediationAction%27"><span class="hs-identifier hs-var hs-var">eC2DeleteRouteAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2DeleteRouteAction.html#EC2DeleteRouteAction"><span class="hs-identifier hs-type">EC2DeleteRouteAction</span></a></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Information about the AssociateRouteTable action in the Amazon EC2 API.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AeC2AssociateRouteTableAction%3ARemediationAction%27"><span class="annot"><span class="annottext">RemediationAction -&gt; Maybe EC2AssociateRouteTableAction
+</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2AssociateRouteTableAction%3ARemediationAction%27"><span class="hs-identifier hs-var hs-var">eC2AssociateRouteTableAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2AssociateRouteTableAction.html#EC2AssociateRouteTableAction"><span class="hs-identifier hs-type">EC2AssociateRouteTableAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Information about the ReplaceRoute action in the Amazon EC2 API.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AeC2ReplaceRouteAction%3ARemediationAction%27"><span class="annot"><span class="annottext">RemediationAction -&gt; Maybe EC2ReplaceRouteAction
+</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2ReplaceRouteAction%3ARemediationAction%27"><span class="hs-identifier hs-var hs-var">eC2ReplaceRouteAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2ReplaceRouteAction.html#EC2ReplaceRouteAction"><span class="hs-identifier hs-type">EC2ReplaceRouteAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Information about the DeleteRoute action in the Amazon EC2 API.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AeC2DeleteRouteAction%3ARemediationAction%27"><span class="annot"><span class="annottext">RemediationAction -&gt; Maybe EC2DeleteRouteAction
+</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2DeleteRouteAction%3ARemediationAction%27"><span class="hs-identifier hs-var hs-var">eC2DeleteRouteAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2DeleteRouteAction.html#EC2DeleteRouteAction"><span class="hs-identifier hs-type">EC2DeleteRouteAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | A description of a remediation action.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Adescription%3ARemediationAction%27"><span class="annot"><span class="annottext">RemediationAction -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3Adescription%3ARemediationAction%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Information about the CreateRouteTable action in the Amazon EC2 API.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AeC2CreateRouteTableAction%3ARemediationAction%27"><span class="annot"><span class="annottext">RemediationAction -&gt; Maybe EC2CreateRouteTableAction
+</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2CreateRouteTableAction%3ARemediationAction%27"><span class="hs-identifier hs-var hs-var">eC2CreateRouteTableAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2CreateRouteTableAction.html#EC2CreateRouteTableAction"><span class="hs-identifier hs-type">EC2CreateRouteTableAction</span></a></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247493"><span id="local-6989586621679247495"><span class="annot"><span class="annottext">RemediationAction -&gt; RemediationAction -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247732"><span id="local-6989586621679247734"><span class="annot"><span class="annottext">RemediationAction -&gt; RemediationAction -&gt; Bool
 (RemediationAction -&gt; RemediationAction -&gt; Bool)
 -&gt; (RemediationAction -&gt; RemediationAction -&gt; Bool)
 -&gt; Eq RemediationAction
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemediationAction -&gt; RemediationAction -&gt; Bool
 == :: RemediationAction -&gt; RemediationAction -&gt; Bool
 $c== :: RemediationAction -&gt; RemediationAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247484"><span id="local-6989586621679247486"><span id="local-6989586621679247488"><span id="local-6989586621679247490"><span class="annot"><span class="annottext">ReadPrec [RemediationAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247723"><span id="local-6989586621679247725"><span id="local-6989586621679247727"><span id="local-6989586621679247729"><span class="annot"><span class="annottext">ReadPrec [RemediationAction]
 ReadPrec RemediationAction
 Int -&gt; ReadS RemediationAction
 ReadS [RemediationAction]
@@ -90,7 +90,7 @@ readList :: ReadS [RemediationAction]
 $creadList :: ReadS [RemediationAction]
 readsPrec :: Int -&gt; ReadS RemediationAction
 $creadsPrec :: Int -&gt; ReadS RemediationAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247477"><span id="local-6989586621679247479"><span id="local-6989586621679247481"><span class="annot"><span class="annottext">Int -&gt; RemediationAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247716"><span id="local-6989586621679247718"><span id="local-6989586621679247720"><span class="annot"><span class="annottext">Int -&gt; RemediationAction -&gt; ShowS
 [RemediationAction] -&gt; ShowS
 RemediationAction -&gt; String
 (Int -&gt; RemediationAction -&gt; ShowS)
@@ -126,32 +126,32 @@ $cfrom :: forall x. RemediationAction -&gt; Rep RemediationAction x
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- 'eC2CreateRouteAction', 'remediationAction_eC2CreateRouteAction' - Information about the CreateRoute action in the Amazon EC2 API.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'eC2ReplaceRouteAction', 'remediationAction_eC2ReplaceRouteAction' - Information about the ReplaceRoute action in the Amazon EC2 API.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'eC2CopyRouteTableAction', 'remediationAction_eC2CopyRouteTableAction' - Information about the CopyRouteTable action in the Amazon EC2 API.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'eC2AssociateRouteTableAction', 'remediationAction_eC2AssociateRouteTableAction' - Information about the AssociateRouteTable action in the Amazon EC2 API.</span><span>
-</span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'eC2CreateRouteTableAction', 'remediationAction_eC2CreateRouteTableAction' - Information about the CreateRouteTable action in the Amazon EC2 API.</span><span>
-</span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'description', 'remediationAction_description' - A description of a remediation action.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'eC2CopyRouteTableAction', 'remediationAction_eC2CopyRouteTableAction' - Information about the CopyRouteTable action in the Amazon EC2 API.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'eC2ReplaceRouteTableAssociationAction', 'remediationAction_eC2ReplaceRouteTableAssociationAction' - Information about the ReplaceRouteTableAssociation action in the Amazon</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- EC2 API.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'eC2ReplaceRouteTableAssociationAction', 'remediationAction_eC2ReplaceRouteTableAssociationAction' - Information about the ReplaceRouteTableAssociation action in the Amazon</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- EC2 API.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'eC2AssociateRouteTableAction', 'remediationAction_eC2AssociateRouteTableAction' - Information about the AssociateRouteTable action in the Amazon EC2 API.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'eC2ReplaceRouteAction', 'remediationAction_eC2ReplaceRouteAction' - Information about the ReplaceRoute action in the Amazon EC2 API.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'eC2DeleteRouteAction', 'remediationAction_eC2DeleteRouteAction' - Information about the DeleteRoute action in the Amazon EC2 API.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'description', 'remediationAction_description' - A description of a remediation action.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'eC2DeleteRouteAction', 'remediationAction_eC2DeleteRouteAction' - Information about the DeleteRoute action in the Amazon EC2 API.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'eC2CreateRouteTableAction', 'remediationAction_eC2CreateRouteTableAction' - Information about the CreateRouteTable action in the Amazon EC2 API.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#newRemediationAction"><span class="hs-identifier hs-type">newRemediationAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span>
 </span><span id="line-84"></span><span id="newRemediationAction"><span class="annot"><span class="annottext">newRemediationAction :: RemediationAction
 </span><a href="Network.AWS.FMS.Types.RemediationAction.html#newRemediationAction"><span class="hs-identifier hs-var hs-var">newRemediationAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">RemediationAction' :: Maybe EC2CreateRouteAction
--&gt; Maybe EC2ReplaceRouteAction
--&gt; Maybe EC2AssociateRouteTableAction
--&gt; Maybe EC2CreateRouteTableAction
--&gt; Maybe Text
 -&gt; Maybe EC2CopyRouteTableAction
 -&gt; Maybe EC2ReplaceRouteTableAssociationAction
+-&gt; Maybe EC2AssociateRouteTableAction
+-&gt; Maybe EC2ReplaceRouteAction
 -&gt; Maybe EC2DeleteRouteAction
+-&gt; Maybe Text
+-&gt; Maybe EC2CreateRouteTableAction
 -&gt; RemediationAction
 </span><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eC2CreateRouteAction:RemediationAction' :: Maybe EC2CreateRouteAction
@@ -159,33 +159,33 @@ $cfrom :: forall x. RemediationAction -&gt; Rep RemediationAction x
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe EC2CreateRouteAction
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:eC2ReplaceRouteAction:RemediationAction' :: Maybe EC2ReplaceRouteAction
-</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2ReplaceRouteAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2ReplaceRouteAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteAction
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:eC2AssociateRouteTableAction:RemediationAction' :: Maybe EC2AssociateRouteTableAction
-</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2AssociateRouteTableAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2AssociateRouteTableAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2AssociateRouteTableAction
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:eC2CreateRouteTableAction:RemediationAction' :: Maybe EC2CreateRouteTableAction
-</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2CreateRouteTableAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2CreateRouteTableAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2CreateRouteTableAction
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:RemediationAction' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3Adescription%3ARemediationAction%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:eC2CopyRouteTableAction:RemediationAction' :: Maybe EC2CopyRouteTableAction
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:eC2CopyRouteTableAction:RemediationAction' :: Maybe EC2CopyRouteTableAction
 </span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2CopyRouteTableAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2CopyRouteTableAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2CopyRouteTableAction
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:eC2ReplaceRouteTableAssociationAction:RemediationAction' :: Maybe EC2ReplaceRouteTableAssociationAction
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:eC2ReplaceRouteTableAssociationAction:RemediationAction' :: Maybe EC2ReplaceRouteTableAssociationAction
 </span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2ReplaceRouteTableAssociationAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2ReplaceRouteTableAssociationAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteTableAssociationAction
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteTableAssociationAction
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:eC2DeleteRouteAction:RemediationAction' :: Maybe EC2DeleteRouteAction
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:eC2AssociateRouteTableAction:RemediationAction' :: Maybe EC2AssociateRouteTableAction
+</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2AssociateRouteTableAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2AssociateRouteTableAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2AssociateRouteTableAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:eC2ReplaceRouteAction:RemediationAction' :: Maybe EC2ReplaceRouteAction
+</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2ReplaceRouteAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2ReplaceRouteAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:eC2DeleteRouteAction:RemediationAction' :: Maybe EC2DeleteRouteAction
 </span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2DeleteRouteAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2DeleteRouteAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2DeleteRouteAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:RemediationAction' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3Adescription%3ARemediationAction%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:eC2CreateRouteTableAction:RemediationAction' :: Maybe EC2CreateRouteTableAction
+</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2CreateRouteTableAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2CreateRouteTableAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2CreateRouteTableAction
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
@@ -203,114 +203,20 @@ forall a. Maybe a
      (Maybe EC2CreateRouteAction)
      (Maybe EC2CreateRouteAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247468"><span class="annot"><span class="annottext">Maybe EC2CreateRouteAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247707"><span class="annot"><span class="annottext">Maybe EC2CreateRouteAction
 eC2CreateRouteAction :: Maybe EC2CreateRouteAction
 $sel:eC2CreateRouteAction:RemediationAction' :: RemediationAction -&gt; Maybe EC2CreateRouteAction
-</span><a href="#local-6989586621679247468"><span class="hs-identifier hs-var hs-var">eC2CreateRouteAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2CreateRouteAction
-</span><a href="#local-6989586621679247468"><span class="hs-identifier hs-var">eC2CreateRouteAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247467"><span class="annot"><span class="annottext">s :: RemediationAction
-</span><a href="#local-6989586621679247467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247466"><span class="annot"><span class="annottext">Maybe EC2CreateRouteAction
-</span><a href="#local-6989586621679247466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationAction
-</span><a href="#local-6989586621679247467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2CreateRouteAction:RemediationAction' :: Maybe EC2CreateRouteAction
+</span><a href="#local-6989586621679247707"><span class="hs-identifier hs-var hs-var">eC2CreateRouteAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2CreateRouteAction
+</span><a href="#local-6989586621679247707"><span class="hs-identifier hs-var">eC2CreateRouteAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247706"><span class="annot"><span class="annottext">s :: RemediationAction
+</span><a href="#local-6989586621679247706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247705"><span class="annot"><span class="annottext">Maybe EC2CreateRouteAction
+</span><a href="#local-6989586621679247705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationAction
+</span><a href="#local-6989586621679247706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2CreateRouteAction:RemediationAction' :: Maybe EC2CreateRouteAction
 </span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2CreateRouteAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2CreateRouteAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2CreateRouteAction
-</span><a href="#local-6989586621679247466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | Information about the ReplaceRoute action in the Amazon EC2 API.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2ReplaceRouteAction"><span class="hs-identifier hs-type">remediationAction_eC2ReplaceRouteAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2ReplaceRouteAction.html#EC2ReplaceRouteAction"><span class="hs-identifier hs-type">EC2ReplaceRouteAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="remediationAction_eC2ReplaceRouteAction"><span class="annot"><span class="annottext">remediationAction_eC2ReplaceRouteAction :: (Maybe EC2ReplaceRouteAction -&gt; f (Maybe EC2ReplaceRouteAction))
--&gt; RemediationAction -&gt; f RemediationAction
-</span><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2ReplaceRouteAction"><span class="hs-identifier hs-var hs-var">remediationAction_eC2ReplaceRouteAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationAction -&gt; Maybe EC2ReplaceRouteAction)
--&gt; (RemediationAction
-    -&gt; Maybe EC2ReplaceRouteAction -&gt; RemediationAction)
--&gt; Lens
-     RemediationAction
-     RemediationAction
-     (Maybe EC2ReplaceRouteAction)
-     (Maybe EC2ReplaceRouteAction)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247464"><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteAction
-eC2ReplaceRouteAction :: Maybe EC2ReplaceRouteAction
-$sel:eC2ReplaceRouteAction:RemediationAction' :: RemediationAction -&gt; Maybe EC2ReplaceRouteAction
-</span><a href="#local-6989586621679247464"><span class="hs-identifier hs-var hs-var">eC2ReplaceRouteAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteAction
-</span><a href="#local-6989586621679247464"><span class="hs-identifier hs-var">eC2ReplaceRouteAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247463"><span class="annot"><span class="annottext">s :: RemediationAction
-</span><a href="#local-6989586621679247463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247462"><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteAction
-</span><a href="#local-6989586621679247462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationAction
-</span><a href="#local-6989586621679247463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2ReplaceRouteAction:RemediationAction' :: Maybe EC2ReplaceRouteAction
-</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2ReplaceRouteAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2ReplaceRouteAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteAction
-</span><a href="#local-6989586621679247462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | Information about the AssociateRouteTable action in the Amazon EC2 API.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2AssociateRouteTableAction"><span class="hs-identifier hs-type">remediationAction_eC2AssociateRouteTableAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2AssociateRouteTableAction.html#EC2AssociateRouteTableAction"><span class="hs-identifier hs-type">EC2AssociateRouteTableAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="remediationAction_eC2AssociateRouteTableAction"><span class="annot"><span class="annottext">remediationAction_eC2AssociateRouteTableAction :: (Maybe EC2AssociateRouteTableAction
- -&gt; f (Maybe EC2AssociateRouteTableAction))
--&gt; RemediationAction -&gt; f RemediationAction
-</span><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2AssociateRouteTableAction"><span class="hs-identifier hs-var hs-var">remediationAction_eC2AssociateRouteTableAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationAction -&gt; Maybe EC2AssociateRouteTableAction)
--&gt; (RemediationAction
-    -&gt; Maybe EC2AssociateRouteTableAction -&gt; RemediationAction)
--&gt; Lens
-     RemediationAction
-     RemediationAction
-     (Maybe EC2AssociateRouteTableAction)
-     (Maybe EC2AssociateRouteTableAction)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247460"><span class="annot"><span class="annottext">Maybe EC2AssociateRouteTableAction
-eC2AssociateRouteTableAction :: Maybe EC2AssociateRouteTableAction
-$sel:eC2AssociateRouteTableAction:RemediationAction' :: RemediationAction -&gt; Maybe EC2AssociateRouteTableAction
-</span><a href="#local-6989586621679247460"><span class="hs-identifier hs-var hs-var">eC2AssociateRouteTableAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2AssociateRouteTableAction
-</span><a href="#local-6989586621679247460"><span class="hs-identifier hs-var">eC2AssociateRouteTableAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247459"><span class="annot"><span class="annottext">s :: RemediationAction
-</span><a href="#local-6989586621679247459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247458"><span class="annot"><span class="annottext">Maybe EC2AssociateRouteTableAction
-</span><a href="#local-6989586621679247458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationAction
-</span><a href="#local-6989586621679247459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2AssociateRouteTableAction:RemediationAction' :: Maybe EC2AssociateRouteTableAction
-</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2AssociateRouteTableAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2AssociateRouteTableAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2AssociateRouteTableAction
-</span><a href="#local-6989586621679247458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | Information about the CreateRouteTable action in the Amazon EC2 API.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2CreateRouteTableAction"><span class="hs-identifier hs-type">remediationAction_eC2CreateRouteTableAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2CreateRouteTableAction.html#EC2CreateRouteTableAction"><span class="hs-identifier hs-type">EC2CreateRouteTableAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="remediationAction_eC2CreateRouteTableAction"><span class="annot"><span class="annottext">remediationAction_eC2CreateRouteTableAction :: (Maybe EC2CreateRouteTableAction
- -&gt; f (Maybe EC2CreateRouteTableAction))
--&gt; RemediationAction -&gt; f RemediationAction
-</span><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2CreateRouteTableAction"><span class="hs-identifier hs-var hs-var">remediationAction_eC2CreateRouteTableAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationAction -&gt; Maybe EC2CreateRouteTableAction)
--&gt; (RemediationAction
-    -&gt; Maybe EC2CreateRouteTableAction -&gt; RemediationAction)
--&gt; Lens
-     RemediationAction
-     RemediationAction
-     (Maybe EC2CreateRouteTableAction)
-     (Maybe EC2CreateRouteTableAction)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247456"><span class="annot"><span class="annottext">Maybe EC2CreateRouteTableAction
-eC2CreateRouteTableAction :: Maybe EC2CreateRouteTableAction
-$sel:eC2CreateRouteTableAction:RemediationAction' :: RemediationAction -&gt; Maybe EC2CreateRouteTableAction
-</span><a href="#local-6989586621679247456"><span class="hs-identifier hs-var hs-var">eC2CreateRouteTableAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2CreateRouteTableAction
-</span><a href="#local-6989586621679247456"><span class="hs-identifier hs-var">eC2CreateRouteTableAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247455"><span class="annot"><span class="annottext">s :: RemediationAction
-</span><a href="#local-6989586621679247455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247454"><span class="annot"><span class="annottext">Maybe EC2CreateRouteTableAction
-</span><a href="#local-6989586621679247454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationAction
-</span><a href="#local-6989586621679247455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2CreateRouteTableAction:RemediationAction' :: Maybe EC2CreateRouteTableAction
-</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2CreateRouteTableAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2CreateRouteTableAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2CreateRouteTableAction
-</span><a href="#local-6989586621679247454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | A description of a remediation action.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_description"><span class="hs-identifier hs-type">remediationAction_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="remediationAction_description"><span class="annot"><span class="annottext">remediationAction_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RemediationAction -&gt; f RemediationAction
-</span><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_description"><span class="hs-identifier hs-var hs-var">remediationAction_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationAction -&gt; Maybe Text)
--&gt; (RemediationAction -&gt; Maybe Text -&gt; RemediationAction)
--&gt; Lens
-     RemediationAction RemediationAction (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247452"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:RemediationAction' :: RemediationAction -&gt; Maybe Text
-</span><a href="#local-6989586621679247452"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247452"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247451"><span class="annot"><span class="annottext">s :: RemediationAction
-</span><a href="#local-6989586621679247451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247450"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationAction
-</span><a href="#local-6989586621679247451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:RemediationAction' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3Adescription%3ARemediationAction%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | Information about the CopyRouteTable action in the Amazon EC2 API.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2CopyRouteTableAction"><span class="hs-identifier hs-type">remediationAction_eC2CopyRouteTableAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2CopyRouteTableAction.html#EC2CopyRouteTableAction"><span class="hs-identifier hs-type">EC2CopyRouteTableAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="remediationAction_eC2CopyRouteTableAction"><span class="annot"><span class="annottext">remediationAction_eC2CopyRouteTableAction :: (Maybe EC2CopyRouteTableAction
+</span><span id="line-102"></span><span class="hs-comment">-- | Information about the CopyRouteTable action in the Amazon EC2 API.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2CopyRouteTableAction"><span class="hs-identifier hs-type">remediationAction_eC2CopyRouteTableAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2CopyRouteTableAction.html#EC2CopyRouteTableAction"><span class="hs-identifier hs-type">EC2CopyRouteTableAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="remediationAction_eC2CopyRouteTableAction"><span class="annot"><span class="annottext">remediationAction_eC2CopyRouteTableAction :: (Maybe EC2CopyRouteTableAction
  -&gt; f (Maybe EC2CopyRouteTableAction))
 -&gt; RemediationAction -&gt; f RemediationAction
 </span><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2CopyRouteTableAction"><span class="hs-identifier hs-var hs-var">remediationAction_eC2CopyRouteTableAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationAction -&gt; Maybe EC2CopyRouteTableAction)
@@ -322,21 +228,21 @@ $sel:description:RemediationAction' :: RemediationAction -&gt; Maybe Text
      (Maybe EC2CopyRouteTableAction)
      (Maybe EC2CopyRouteTableAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247448"><span class="annot"><span class="annottext">Maybe EC2CopyRouteTableAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247703"><span class="annot"><span class="annottext">Maybe EC2CopyRouteTableAction
 eC2CopyRouteTableAction :: Maybe EC2CopyRouteTableAction
 $sel:eC2CopyRouteTableAction:RemediationAction' :: RemediationAction -&gt; Maybe EC2CopyRouteTableAction
-</span><a href="#local-6989586621679247448"><span class="hs-identifier hs-var hs-var">eC2CopyRouteTableAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2CopyRouteTableAction
-</span><a href="#local-6989586621679247448"><span class="hs-identifier hs-var">eC2CopyRouteTableAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247447"><span class="annot"><span class="annottext">s :: RemediationAction
-</span><a href="#local-6989586621679247447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247446"><span class="annot"><span class="annottext">Maybe EC2CopyRouteTableAction
-</span><a href="#local-6989586621679247446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationAction
-</span><a href="#local-6989586621679247447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2CopyRouteTableAction:RemediationAction' :: Maybe EC2CopyRouteTableAction
+</span><a href="#local-6989586621679247703"><span class="hs-identifier hs-var hs-var">eC2CopyRouteTableAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2CopyRouteTableAction
+</span><a href="#local-6989586621679247703"><span class="hs-identifier hs-var">eC2CopyRouteTableAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247702"><span class="annot"><span class="annottext">s :: RemediationAction
+</span><a href="#local-6989586621679247702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247701"><span class="annot"><span class="annottext">Maybe EC2CopyRouteTableAction
+</span><a href="#local-6989586621679247701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationAction
+</span><a href="#local-6989586621679247702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2CopyRouteTableAction:RemediationAction' :: Maybe EC2CopyRouteTableAction
 </span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2CopyRouteTableAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2CopyRouteTableAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2CopyRouteTableAction
-</span><a href="#local-6989586621679247446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | Information about the ReplaceRouteTableAssociation action in the Amazon</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- EC2 API.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2ReplaceRouteTableAssociationAction"><span class="hs-identifier hs-type">remediationAction_eC2ReplaceRouteTableAssociationAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2ReplaceRouteTableAssociationAction.html#EC2ReplaceRouteTableAssociationAction"><span class="hs-identifier hs-type">EC2ReplaceRouteTableAssociationAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="remediationAction_eC2ReplaceRouteTableAssociationAction"><span class="annot"><span class="annottext">remediationAction_eC2ReplaceRouteTableAssociationAction :: (Maybe EC2ReplaceRouteTableAssociationAction
+</span><a href="#local-6989586621679247701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | Information about the ReplaceRouteTableAssociation action in the Amazon</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- EC2 API.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2ReplaceRouteTableAssociationAction"><span class="hs-identifier hs-type">remediationAction_eC2ReplaceRouteTableAssociationAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2ReplaceRouteTableAssociationAction.html#EC2ReplaceRouteTableAssociationAction"><span class="hs-identifier hs-type">EC2ReplaceRouteTableAssociationAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="remediationAction_eC2ReplaceRouteTableAssociationAction"><span class="annot"><span class="annottext">remediationAction_eC2ReplaceRouteTableAssociationAction :: (Maybe EC2ReplaceRouteTableAssociationAction
  -&gt; f (Maybe EC2ReplaceRouteTableAssociationAction))
 -&gt; RemediationAction -&gt; f RemediationAction
 </span><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2ReplaceRouteTableAssociationAction"><span class="hs-identifier hs-var hs-var">remediationAction_eC2ReplaceRouteTableAssociationAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationAction -&gt; Maybe EC2ReplaceRouteTableAssociationAction)
@@ -349,20 +255,69 @@ $sel:eC2CopyRouteTableAction:RemediationAction' :: RemediationAction -&gt; Maybe
      (Maybe EC2ReplaceRouteTableAssociationAction)
      (Maybe EC2ReplaceRouteTableAssociationAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247444"><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteTableAssociationAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247699"><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteTableAssociationAction
 eC2ReplaceRouteTableAssociationAction :: Maybe EC2ReplaceRouteTableAssociationAction
 $sel:eC2ReplaceRouteTableAssociationAction:RemediationAction' :: RemediationAction -&gt; Maybe EC2ReplaceRouteTableAssociationAction
-</span><a href="#local-6989586621679247444"><span class="hs-identifier hs-var hs-var">eC2ReplaceRouteTableAssociationAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteTableAssociationAction
-</span><a href="#local-6989586621679247444"><span class="hs-identifier hs-var">eC2ReplaceRouteTableAssociationAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247443"><span class="annot"><span class="annottext">s :: RemediationAction
-</span><a href="#local-6989586621679247443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247442"><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteTableAssociationAction
-</span><a href="#local-6989586621679247442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationAction
-</span><a href="#local-6989586621679247443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2ReplaceRouteTableAssociationAction:RemediationAction' :: Maybe EC2ReplaceRouteTableAssociationAction
+</span><a href="#local-6989586621679247699"><span class="hs-identifier hs-var hs-var">eC2ReplaceRouteTableAssociationAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteTableAssociationAction
+</span><a href="#local-6989586621679247699"><span class="hs-identifier hs-var">eC2ReplaceRouteTableAssociationAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247698"><span class="annot"><span class="annottext">s :: RemediationAction
+</span><a href="#local-6989586621679247698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247697"><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteTableAssociationAction
+</span><a href="#local-6989586621679247697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationAction
+</span><a href="#local-6989586621679247698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2ReplaceRouteTableAssociationAction:RemediationAction' :: Maybe EC2ReplaceRouteTableAssociationAction
 </span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2ReplaceRouteTableAssociationAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2ReplaceRouteTableAssociationAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteTableAssociationAction
-</span><a href="#local-6989586621679247442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | Information about the DeleteRoute action in the Amazon EC2 API.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2DeleteRouteAction"><span class="hs-identifier hs-type">remediationAction_eC2DeleteRouteAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2DeleteRouteAction.html#EC2DeleteRouteAction"><span class="hs-identifier hs-type">EC2DeleteRouteAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="remediationAction_eC2DeleteRouteAction"><span class="annot"><span class="annottext">remediationAction_eC2DeleteRouteAction :: (Maybe EC2DeleteRouteAction -&gt; f (Maybe EC2DeleteRouteAction))
+</span><a href="#local-6989586621679247697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Information about the AssociateRouteTable action in the Amazon EC2 API.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2AssociateRouteTableAction"><span class="hs-identifier hs-type">remediationAction_eC2AssociateRouteTableAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2AssociateRouteTableAction.html#EC2AssociateRouteTableAction"><span class="hs-identifier hs-type">EC2AssociateRouteTableAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="remediationAction_eC2AssociateRouteTableAction"><span class="annot"><span class="annottext">remediationAction_eC2AssociateRouteTableAction :: (Maybe EC2AssociateRouteTableAction
+ -&gt; f (Maybe EC2AssociateRouteTableAction))
+-&gt; RemediationAction -&gt; f RemediationAction
+</span><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2AssociateRouteTableAction"><span class="hs-identifier hs-var hs-var">remediationAction_eC2AssociateRouteTableAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationAction -&gt; Maybe EC2AssociateRouteTableAction)
+-&gt; (RemediationAction
+    -&gt; Maybe EC2AssociateRouteTableAction -&gt; RemediationAction)
+-&gt; Lens
+     RemediationAction
+     RemediationAction
+     (Maybe EC2AssociateRouteTableAction)
+     (Maybe EC2AssociateRouteTableAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247695"><span class="annot"><span class="annottext">Maybe EC2AssociateRouteTableAction
+eC2AssociateRouteTableAction :: Maybe EC2AssociateRouteTableAction
+$sel:eC2AssociateRouteTableAction:RemediationAction' :: RemediationAction -&gt; Maybe EC2AssociateRouteTableAction
+</span><a href="#local-6989586621679247695"><span class="hs-identifier hs-var hs-var">eC2AssociateRouteTableAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2AssociateRouteTableAction
+</span><a href="#local-6989586621679247695"><span class="hs-identifier hs-var">eC2AssociateRouteTableAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247694"><span class="annot"><span class="annottext">s :: RemediationAction
+</span><a href="#local-6989586621679247694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247693"><span class="annot"><span class="annottext">Maybe EC2AssociateRouteTableAction
+</span><a href="#local-6989586621679247693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationAction
+</span><a href="#local-6989586621679247694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2AssociateRouteTableAction:RemediationAction' :: Maybe EC2AssociateRouteTableAction
+</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2AssociateRouteTableAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2AssociateRouteTableAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2AssociateRouteTableAction
+</span><a href="#local-6989586621679247693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Information about the ReplaceRoute action in the Amazon EC2 API.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2ReplaceRouteAction"><span class="hs-identifier hs-type">remediationAction_eC2ReplaceRouteAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2ReplaceRouteAction.html#EC2ReplaceRouteAction"><span class="hs-identifier hs-type">EC2ReplaceRouteAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="remediationAction_eC2ReplaceRouteAction"><span class="annot"><span class="annottext">remediationAction_eC2ReplaceRouteAction :: (Maybe EC2ReplaceRouteAction -&gt; f (Maybe EC2ReplaceRouteAction))
+-&gt; RemediationAction -&gt; f RemediationAction
+</span><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2ReplaceRouteAction"><span class="hs-identifier hs-var hs-var">remediationAction_eC2ReplaceRouteAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationAction -&gt; Maybe EC2ReplaceRouteAction)
+-&gt; (RemediationAction
+    -&gt; Maybe EC2ReplaceRouteAction -&gt; RemediationAction)
+-&gt; Lens
+     RemediationAction
+     RemediationAction
+     (Maybe EC2ReplaceRouteAction)
+     (Maybe EC2ReplaceRouteAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247691"><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteAction
+eC2ReplaceRouteAction :: Maybe EC2ReplaceRouteAction
+$sel:eC2ReplaceRouteAction:RemediationAction' :: RemediationAction -&gt; Maybe EC2ReplaceRouteAction
+</span><a href="#local-6989586621679247691"><span class="hs-identifier hs-var hs-var">eC2ReplaceRouteAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteAction
+</span><a href="#local-6989586621679247691"><span class="hs-identifier hs-var">eC2ReplaceRouteAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247690"><span class="annot"><span class="annottext">s :: RemediationAction
+</span><a href="#local-6989586621679247690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247689"><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteAction
+</span><a href="#local-6989586621679247689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationAction
+</span><a href="#local-6989586621679247690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2ReplaceRouteAction:RemediationAction' :: Maybe EC2ReplaceRouteAction
+</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2ReplaceRouteAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2ReplaceRouteAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2ReplaceRouteAction
+</span><a href="#local-6989586621679247689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | Information about the DeleteRoute action in the Amazon EC2 API.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2DeleteRouteAction"><span class="hs-identifier hs-type">remediationAction_eC2DeleteRouteAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2DeleteRouteAction.html#EC2DeleteRouteAction"><span class="hs-identifier hs-type">EC2DeleteRouteAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="remediationAction_eC2DeleteRouteAction"><span class="annot"><span class="annottext">remediationAction_eC2DeleteRouteAction :: (Maybe EC2DeleteRouteAction -&gt; f (Maybe EC2DeleteRouteAction))
 -&gt; RemediationAction -&gt; f RemediationAction
 </span><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2DeleteRouteAction"><span class="hs-identifier hs-var hs-var">remediationAction_eC2DeleteRouteAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationAction -&gt; Maybe EC2DeleteRouteAction)
 -&gt; (RemediationAction
@@ -373,19 +328,64 @@ $sel:eC2ReplaceRouteTableAssociationAction:RemediationAction' :: RemediationActi
      (Maybe EC2DeleteRouteAction)
      (Maybe EC2DeleteRouteAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247440"><span class="annot"><span class="annottext">Maybe EC2DeleteRouteAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247687"><span class="annot"><span class="annottext">Maybe EC2DeleteRouteAction
 eC2DeleteRouteAction :: Maybe EC2DeleteRouteAction
 $sel:eC2DeleteRouteAction:RemediationAction' :: RemediationAction -&gt; Maybe EC2DeleteRouteAction
-</span><a href="#local-6989586621679247440"><span class="hs-identifier hs-var hs-var">eC2DeleteRouteAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2DeleteRouteAction
-</span><a href="#local-6989586621679247440"><span class="hs-identifier hs-var">eC2DeleteRouteAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247439"><span class="annot"><span class="annottext">s :: RemediationAction
-</span><a href="#local-6989586621679247439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247438"><span class="annot"><span class="annottext">Maybe EC2DeleteRouteAction
-</span><a href="#local-6989586621679247438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationAction
-</span><a href="#local-6989586621679247439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2DeleteRouteAction:RemediationAction' :: Maybe EC2DeleteRouteAction
+</span><a href="#local-6989586621679247687"><span class="hs-identifier hs-var hs-var">eC2DeleteRouteAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2DeleteRouteAction
+</span><a href="#local-6989586621679247687"><span class="hs-identifier hs-var">eC2DeleteRouteAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247686"><span class="annot"><span class="annottext">s :: RemediationAction
+</span><a href="#local-6989586621679247686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247685"><span class="annot"><span class="annottext">Maybe EC2DeleteRouteAction
+</span><a href="#local-6989586621679247685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationAction
+</span><a href="#local-6989586621679247686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2DeleteRouteAction:RemediationAction' :: Maybe EC2DeleteRouteAction
 </span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2DeleteRouteAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2DeleteRouteAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2DeleteRouteAction
-</span><a href="#local-6989586621679247438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | A description of a remediation action.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_description"><span class="hs-identifier hs-type">remediationAction_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="remediationAction_description"><span class="annot"><span class="annottext">remediationAction_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RemediationAction -&gt; f RemediationAction
+</span><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_description"><span class="hs-identifier hs-var hs-var">remediationAction_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationAction -&gt; Maybe Text)
+-&gt; (RemediationAction -&gt; Maybe Text -&gt; RemediationAction)
+-&gt; Lens
+     RemediationAction RemediationAction (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247683"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:RemediationAction' :: RemediationAction -&gt; Maybe Text
+</span><a href="#local-6989586621679247683"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247683"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247682"><span class="annot"><span class="annottext">s :: RemediationAction
+</span><a href="#local-6989586621679247682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247681"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationAction
+</span><a href="#local-6989586621679247682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:RemediationAction' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3Adescription%3ARemediationAction%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Information about the CreateRouteTable action in the Amazon EC2 API.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2CreateRouteTableAction"><span class="hs-identifier hs-type">remediationAction_eC2CreateRouteTableAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EC2CreateRouteTableAction.html#EC2CreateRouteTableAction"><span class="hs-identifier hs-type">EC2CreateRouteTableAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="remediationAction_eC2CreateRouteTableAction"><span class="annot"><span class="annottext">remediationAction_eC2CreateRouteTableAction :: (Maybe EC2CreateRouteTableAction
+ -&gt; f (Maybe EC2CreateRouteTableAction))
+-&gt; RemediationAction -&gt; f RemediationAction
+</span><a href="Network.AWS.FMS.Types.RemediationAction.html#remediationAction_eC2CreateRouteTableAction"><span class="hs-identifier hs-var hs-var">remediationAction_eC2CreateRouteTableAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationAction -&gt; Maybe EC2CreateRouteTableAction)
+-&gt; (RemediationAction
+    -&gt; Maybe EC2CreateRouteTableAction -&gt; RemediationAction)
+-&gt; Lens
+     RemediationAction
+     RemediationAction
+     (Maybe EC2CreateRouteTableAction)
+     (Maybe EC2CreateRouteTableAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247679"><span class="annot"><span class="annottext">Maybe EC2CreateRouteTableAction
+eC2CreateRouteTableAction :: Maybe EC2CreateRouteTableAction
+$sel:eC2CreateRouteTableAction:RemediationAction' :: RemediationAction -&gt; Maybe EC2CreateRouteTableAction
+</span><a href="#local-6989586621679247679"><span class="hs-identifier hs-var hs-var">eC2CreateRouteTableAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2CreateRouteTableAction
+</span><a href="#local-6989586621679247679"><span class="hs-identifier hs-var">eC2CreateRouteTableAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247678"><span class="annot"><span class="annottext">s :: RemediationAction
+</span><a href="#local-6989586621679247678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-type">RemediationAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247677"><span class="annot"><span class="annottext">Maybe EC2CreateRouteTableAction
+</span><a href="#local-6989586621679247677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationAction
+</span><a href="#local-6989586621679247678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2CreateRouteTableAction:RemediationAction' :: Maybe EC2CreateRouteTableAction
+</span><a href="Network.AWS.FMS.Types.RemediationAction.html#%24sel%3AeC2CreateRouteTableAction%3ARemediationAction%27"><span class="hs-identifier hs-var">eC2CreateRouteTableAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2CreateRouteTableAction
+</span><a href="#local-6989586621679247677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247435"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679247433"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RemediationAction
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247674"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679247672"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RemediationAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RemediationAction)
@@ -395,165 +395,166 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RemediationAction&quot;</span></span><span>
-</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247430"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247430"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247669"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247669"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe EC2CreateRouteAction
--&gt; Maybe EC2ReplaceRouteAction
--&gt; Maybe EC2AssociateRouteTableAction
--&gt; Maybe EC2CreateRouteTableAction
--&gt; Maybe Text
 -&gt; Maybe EC2CopyRouteTableAction
 -&gt; Maybe EC2ReplaceRouteTableAssociationAction
+-&gt; Maybe EC2AssociateRouteTableAction
+-&gt; Maybe EC2ReplaceRouteAction
 -&gt; Maybe EC2DeleteRouteAction
+-&gt; Maybe Text
+-&gt; Maybe EC2CreateRouteTableAction
 -&gt; RemediationAction
 </span><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction%27"><span class="hs-identifier hs-var">RemediationAction'</span></a></span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EC2CreateRouteAction
- -&gt; Maybe EC2ReplaceRouteAction
- -&gt; Maybe EC2AssociateRouteTableAction
- -&gt; Maybe EC2CreateRouteTableAction
- -&gt; Maybe Text
  -&gt; Maybe EC2CopyRouteTableAction
  -&gt; Maybe EC2ReplaceRouteTableAssociationAction
+ -&gt; Maybe EC2AssociateRouteTableAction
+ -&gt; Maybe EC2ReplaceRouteAction
  -&gt; Maybe EC2DeleteRouteAction
+ -&gt; Maybe Text
+ -&gt; Maybe EC2CreateRouteTableAction
  -&gt; RemediationAction)
 -&gt; Parser (Maybe EC2CreateRouteAction)
 -&gt; Parser
-     (Maybe EC2ReplaceRouteAction
-      -&gt; Maybe EC2AssociateRouteTableAction
-      -&gt; Maybe EC2CreateRouteTableAction
-      -&gt; Maybe Text
-      -&gt; Maybe EC2CopyRouteTableAction
+     (Maybe EC2CopyRouteTableAction
       -&gt; Maybe EC2ReplaceRouteTableAssociationAction
+      -&gt; Maybe EC2AssociateRouteTableAction
+      -&gt; Maybe EC2ReplaceRouteAction
       -&gt; Maybe EC2DeleteRouteAction
+      -&gt; Maybe Text
+      -&gt; Maybe EC2CreateRouteTableAction
       -&gt; RemediationAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247430"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2CreateRouteAction)
+</span><a href="#local-6989586621679247669"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2CreateRouteAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EC2CreateRouteAction&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe EC2ReplaceRouteAction
-   -&gt; Maybe EC2AssociateRouteTableAction
-   -&gt; Maybe EC2CreateRouteTableAction
-   -&gt; Maybe Text
-   -&gt; Maybe EC2CopyRouteTableAction
-   -&gt; Maybe EC2ReplaceRouteTableAssociationAction
-   -&gt; Maybe EC2DeleteRouteAction
-   -&gt; RemediationAction)
--&gt; Parser (Maybe EC2ReplaceRouteAction)
--&gt; Parser
-     (Maybe EC2AssociateRouteTableAction
-      -&gt; Maybe EC2CreateRouteTableAction
-      -&gt; Maybe Text
-      -&gt; Maybe EC2CopyRouteTableAction
-      -&gt; Maybe EC2ReplaceRouteTableAssociationAction
-      -&gt; Maybe EC2DeleteRouteAction
-      -&gt; RemediationAction)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247430"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2ReplaceRouteAction)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EC2ReplaceRouteAction&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe EC2AssociateRouteTableAction
-   -&gt; Maybe EC2CreateRouteTableAction
-   -&gt; Maybe Text
-   -&gt; Maybe EC2CopyRouteTableAction
-   -&gt; Maybe EC2ReplaceRouteTableAssociationAction
-   -&gt; Maybe EC2DeleteRouteAction
-   -&gt; RemediationAction)
--&gt; Parser (Maybe EC2AssociateRouteTableAction)
--&gt; Parser
-     (Maybe EC2CreateRouteTableAction
-      -&gt; Maybe Text
-      -&gt; Maybe EC2CopyRouteTableAction
-      -&gt; Maybe EC2ReplaceRouteTableAssociationAction
-      -&gt; Maybe EC2DeleteRouteAction
-      -&gt; RemediationAction)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247430"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2AssociateRouteTableAction)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EC2AssociateRouteTableAction&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe EC2CreateRouteTableAction
-   -&gt; Maybe Text
-   -&gt; Maybe EC2CopyRouteTableAction
-   -&gt; Maybe EC2ReplaceRouteTableAssociationAction
-   -&gt; Maybe EC2DeleteRouteAction
-   -&gt; RemediationAction)
--&gt; Parser (Maybe EC2CreateRouteTableAction)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe EC2CopyRouteTableAction
-      -&gt; Maybe EC2ReplaceRouteTableAssociationAction
-      -&gt; Maybe EC2DeleteRouteAction
-      -&gt; RemediationAction)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247430"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2CreateRouteTableAction)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EC2CreateRouteTableAction&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe EC2CopyRouteTableAction
-   -&gt; Maybe EC2ReplaceRouteTableAssociationAction
-   -&gt; Maybe EC2DeleteRouteAction
-   -&gt; RemediationAction)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe EC2CopyRouteTableAction
-      -&gt; Maybe EC2ReplaceRouteTableAssociationAction
-      -&gt; Maybe EC2DeleteRouteAction
-      -&gt; RemediationAction)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247430"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe EC2CopyRouteTableAction
    -&gt; Maybe EC2ReplaceRouteTableAssociationAction
+   -&gt; Maybe EC2AssociateRouteTableAction
+   -&gt; Maybe EC2ReplaceRouteAction
    -&gt; Maybe EC2DeleteRouteAction
+   -&gt; Maybe Text
+   -&gt; Maybe EC2CreateRouteTableAction
    -&gt; RemediationAction)
 -&gt; Parser (Maybe EC2CopyRouteTableAction)
 -&gt; Parser
      (Maybe EC2ReplaceRouteTableAssociationAction
-      -&gt; Maybe EC2DeleteRouteAction -&gt; RemediationAction)
+      -&gt; Maybe EC2AssociateRouteTableAction
+      -&gt; Maybe EC2ReplaceRouteAction
+      -&gt; Maybe EC2DeleteRouteAction
+      -&gt; Maybe Text
+      -&gt; Maybe EC2CreateRouteTableAction
+      -&gt; RemediationAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247430"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2CopyRouteTableAction)
+</span><a href="#local-6989586621679247669"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2CopyRouteTableAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EC2CopyRouteTableAction&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe EC2ReplaceRouteTableAssociationAction
-   -&gt; Maybe EC2DeleteRouteAction -&gt; RemediationAction)
+   -&gt; Maybe EC2AssociateRouteTableAction
+   -&gt; Maybe EC2ReplaceRouteAction
+   -&gt; Maybe EC2DeleteRouteAction
+   -&gt; Maybe Text
+   -&gt; Maybe EC2CreateRouteTableAction
+   -&gt; RemediationAction)
 -&gt; Parser (Maybe EC2ReplaceRouteTableAssociationAction)
--&gt; Parser (Maybe EC2DeleteRouteAction -&gt; RemediationAction)
+-&gt; Parser
+     (Maybe EC2AssociateRouteTableAction
+      -&gt; Maybe EC2ReplaceRouteAction
+      -&gt; Maybe EC2DeleteRouteAction
+      -&gt; Maybe Text
+      -&gt; Maybe EC2CreateRouteTableAction
+      -&gt; RemediationAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247430"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247669"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe EC2ReplaceRouteTableAssociationAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EC2ReplaceRouteTableAssociationAction&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EC2DeleteRouteAction -&gt; RemediationAction)
--&gt; Parser (Maybe EC2DeleteRouteAction) -&gt; Parser RemediationAction
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EC2AssociateRouteTableAction
+   -&gt; Maybe EC2ReplaceRouteAction
+   -&gt; Maybe EC2DeleteRouteAction
+   -&gt; Maybe Text
+   -&gt; Maybe EC2CreateRouteTableAction
+   -&gt; RemediationAction)
+-&gt; Parser (Maybe EC2AssociateRouteTableAction)
+-&gt; Parser
+     (Maybe EC2ReplaceRouteAction
+      -&gt; Maybe EC2DeleteRouteAction
+      -&gt; Maybe Text
+      -&gt; Maybe EC2CreateRouteTableAction
+      -&gt; RemediationAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247430"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2DeleteRouteAction)
+</span><a href="#local-6989586621679247669"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2AssociateRouteTableAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EC2AssociateRouteTableAction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EC2ReplaceRouteAction
+   -&gt; Maybe EC2DeleteRouteAction
+   -&gt; Maybe Text
+   -&gt; Maybe EC2CreateRouteTableAction
+   -&gt; RemediationAction)
+-&gt; Parser (Maybe EC2ReplaceRouteAction)
+-&gt; Parser
+     (Maybe EC2DeleteRouteAction
+      -&gt; Maybe Text
+      -&gt; Maybe EC2CreateRouteTableAction
+      -&gt; RemediationAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247669"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2ReplaceRouteAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EC2ReplaceRouteAction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EC2DeleteRouteAction
+   -&gt; Maybe Text
+   -&gt; Maybe EC2CreateRouteTableAction
+   -&gt; RemediationAction)
+-&gt; Parser (Maybe EC2DeleteRouteAction)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe EC2CreateRouteTableAction -&gt; RemediationAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247669"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2DeleteRouteAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EC2DeleteRouteAction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe EC2CreateRouteTableAction -&gt; RemediationAction)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe EC2CreateRouteTableAction -&gt; RemediationAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247669"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EC2CreateRouteTableAction -&gt; RemediationAction)
+-&gt; Parser (Maybe EC2CreateRouteTableAction)
+-&gt; Parser RemediationAction
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247669"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2CreateRouteTableAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EC2CreateRouteTableAction&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247424"><span id="local-6989586621679247426"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247663"><span id="local-6989586621679247665"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span></span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247421"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247660"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.RemediationAction.html#RemediationAction"><span class="hs-identifier hs-type">RemediationAction</span></a></span></span><span>
 </span><span id="line-150"></span></pre></body></html>

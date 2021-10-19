@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newAssociateIamInstanceProfile' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621681270048"><span id="local-6989586621681270049"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateIamInstanceProfile"><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile"><span class="hs-identifier hs-var">AssociateIamInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateIamInstanceProfile%27"><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile%27"><span class="hs-identifier hs-var">AssociateIamInstanceProfile'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621681306778"><span id="local-6989586621681306779"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateIamInstanceProfile"><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile"><span class="hs-identifier hs-var">AssociateIamInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateIamInstanceProfile%27"><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile%27"><span class="hs-identifier hs-var">AssociateIamInstanceProfile'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IAM instance profile.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AiamInstanceProfile%3AAssociateIamInstanceProfile%27"><span class="annot"><span class="annottext">AssociateIamInstanceProfile -&gt; IamInstanceProfileSpecification
 </span><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#%24sel%3AiamInstanceProfile%3AAssociateIamInstanceProfile%27"><span class="hs-identifier hs-var hs-var">iamInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification"><span class="hs-identifier hs-type">IamInstanceProfileSpecification</span></a></span><span class="hs-special">,</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AinstanceId%3AAssociateIamInstanceProfile%27"><span class="annot"><span class="annottext">AssociateIamInstanceProfile -&gt; Text
 </span><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#%24sel%3AinstanceId%3AAssociateIamInstanceProfile%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681270041"><span id="local-6989586621681270043"><span class="annot"><span class="annottext">AssociateIamInstanceProfile -&gt; AssociateIamInstanceProfile -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681306771"><span id="local-6989586621681306773"><span class="annot"><span class="annottext">AssociateIamInstanceProfile -&gt; AssociateIamInstanceProfile -&gt; Bool
 (AssociateIamInstanceProfile
  -&gt; AssociateIamInstanceProfile -&gt; Bool)
 -&gt; (AssociateIamInstanceProfile
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateIamInstanceProfile -&gt; AssociateIamInstanceProfile -&gt; Bool
 == :: AssociateIamInstanceProfile -&gt; AssociateIamInstanceProfile -&gt; Bool
 $c== :: AssociateIamInstanceProfile -&gt; AssociateIamInstanceProfile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681270032"><span id="local-6989586621681270034"><span id="local-6989586621681270036"><span id="local-6989586621681270038"><span class="annot"><span class="annottext">ReadPrec [AssociateIamInstanceProfile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681306762"><span id="local-6989586621681306764"><span id="local-6989586621681306766"><span id="local-6989586621681306768"><span class="annot"><span class="annottext">ReadPrec [AssociateIamInstanceProfile]
 ReadPrec AssociateIamInstanceProfile
 Int -&gt; ReadS AssociateIamInstanceProfile
 ReadS [AssociateIamInstanceProfile]
@@ -89,7 +89,7 @@ readList :: ReadS [AssociateIamInstanceProfile]
 $creadList :: ReadS [AssociateIamInstanceProfile]
 readsPrec :: Int -&gt; ReadS AssociateIamInstanceProfile
 $creadsPrec :: Int -&gt; ReadS AssociateIamInstanceProfile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681270025"><span id="local-6989586621681270027"><span id="local-6989586621681270029"><span class="annot"><span class="annottext">Int -&gt; AssociateIamInstanceProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681306755"><span id="local-6989586621681306757"><span id="local-6989586621681306759"><span class="annot"><span class="annottext">Int -&gt; AssociateIamInstanceProfile -&gt; ShowS
 [AssociateIamInstanceProfile] -&gt; ShowS
 AssociateIamInstanceProfile -&gt; String
 (Int -&gt; AssociateIamInstanceProfile -&gt; ShowS)
@@ -141,20 +141,20 @@ AssociateIamInstanceProfile -&gt; Rep AssociateIamInstanceProfile x
 </span><span id="line-78"></span><span id="newAssociateIamInstanceProfile"><span class="annot"><span class="annottext">newAssociateIamInstanceProfile :: IamInstanceProfileSpecification
 -&gt; Text -&gt; AssociateIamInstanceProfile
 </span><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#newAssociateIamInstanceProfile"><span class="hs-identifier hs-var hs-var">newAssociateIamInstanceProfile</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621681270020"><span class="annot"><span class="annottext">IamInstanceProfileSpecification
-</span><a href="#local-6989586621681270020"><span class="hs-identifier hs-var">pIamInstanceProfile_</span></a></span></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621681270019"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681270019"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621681306750"><span class="annot"><span class="annottext">IamInstanceProfileSpecification
+</span><a href="#local-6989586621681306750"><span class="hs-identifier hs-var">pIamInstanceProfile_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621681306749"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681306749"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">AssociateIamInstanceProfile' :: IamInstanceProfileSpecification
 -&gt; Text -&gt; AssociateIamInstanceProfile
 </span><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfile'</span></a></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:iamInstanceProfile:AssociateIamInstanceProfile' :: IamInstanceProfileSpecification
 </span><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#%24sel%3AiamInstanceProfile%3AAssociateIamInstanceProfile%27"><span class="hs-identifier hs-var">iamInstanceProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">IamInstanceProfileSpecification
-</span><a href="#local-6989586621681270020"><span class="hs-identifier hs-var">pIamInstanceProfile_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681306750"><span class="hs-identifier hs-var">pIamInstanceProfile_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceId:AssociateIamInstanceProfile' :: Text
 </span><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#%24sel%3AinstanceId%3AAssociateIamInstanceProfile%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681270019"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><a href="#local-6989586621681306749"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The IAM instance profile.</span><span>
@@ -171,16 +171,16 @@ AssociateIamInstanceProfile -&gt; Rep AssociateIamInstanceProfile x
      IamInstanceProfileSpecification
      IamInstanceProfileSpecification
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681270016"><span class="annot"><span class="annottext">IamInstanceProfileSpecification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681306746"><span class="annot"><span class="annottext">IamInstanceProfileSpecification
 iamInstanceProfile :: IamInstanceProfileSpecification
 $sel:iamInstanceProfile:AssociateIamInstanceProfile' :: AssociateIamInstanceProfile -&gt; IamInstanceProfileSpecification
-</span><a href="#local-6989586621681270016"><span class="hs-identifier hs-var hs-var">iamInstanceProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamInstanceProfileSpecification
-</span><a href="#local-6989586621681270016"><span class="hs-identifier hs-var">iamInstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681270015"><span class="annot"><span class="annottext">s :: AssociateIamInstanceProfile
-</span><a href="#local-6989586621681270015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681270014"><span class="annot"><span class="annottext">IamInstanceProfileSpecification
-</span><a href="#local-6989586621681270014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateIamInstanceProfile
-</span><a href="#local-6989586621681270015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamInstanceProfile:AssociateIamInstanceProfile' :: IamInstanceProfileSpecification
+</span><a href="#local-6989586621681306746"><span class="hs-identifier hs-var hs-var">iamInstanceProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamInstanceProfileSpecification
+</span><a href="#local-6989586621681306746"><span class="hs-identifier hs-var">iamInstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681306745"><span class="annot"><span class="annottext">s :: AssociateIamInstanceProfile
+</span><a href="#local-6989586621681306745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681306744"><span class="annot"><span class="annottext">IamInstanceProfileSpecification
+</span><a href="#local-6989586621681306744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateIamInstanceProfile
+</span><a href="#local-6989586621681306745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamInstanceProfile:AssociateIamInstanceProfile' :: IamInstanceProfileSpecification
 </span><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#%24sel%3AiamInstanceProfile%3AAssociateIamInstanceProfile%27"><span class="hs-identifier hs-var">iamInstanceProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IamInstanceProfileSpecification
-</span><a href="#local-6989586621681270014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile"><span class="hs-identifier hs-type">AssociateIamInstanceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681306744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile"><span class="hs-identifier hs-type">AssociateIamInstanceProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The ID of the instance.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#associateIamInstanceProfile_instanceId"><span class="hs-identifier hs-type">associateIamInstanceProfile_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile"><span class="hs-identifier hs-type">AssociateIamInstanceProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -192,29 +192,29 @@ $sel:iamInstanceProfile:AssociateIamInstanceProfile' :: AssociateIamInstanceProf
 -&gt; Lens
      AssociateIamInstanceProfile AssociateIamInstanceProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681270013"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681306743"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:AssociateIamInstanceProfile' :: AssociateIamInstanceProfile -&gt; Text
-</span><a href="#local-6989586621681270013"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681270013"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681270012"><span class="annot"><span class="annottext">s :: AssociateIamInstanceProfile
-</span><a href="#local-6989586621681270012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681270011"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681270011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateIamInstanceProfile
-</span><a href="#local-6989586621681270012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:AssociateIamInstanceProfile' :: Text
+</span><a href="#local-6989586621681306743"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681306743"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681306742"><span class="annot"><span class="annottext">s :: AssociateIamInstanceProfile
+</span><a href="#local-6989586621681306742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681306741"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681306741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateIamInstanceProfile
+</span><a href="#local-6989586621681306742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:AssociateIamInstanceProfile' :: Text
 </span><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#%24sel%3AinstanceId%3AAssociateIamInstanceProfile%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681270011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile"><span class="hs-identifier hs-type">AssociateIamInstanceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681306741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile"><span class="hs-identifier hs-type">AssociateIamInstanceProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile"><span class="hs-identifier hs-type">AssociateIamInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile"><span class="hs-identifier hs-type">AssociateIamInstanceProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse"><span class="hs-identifier hs-type">AssociateIamInstanceProfileResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621681270007"><span class="annot"><span class="annottext">request :: AssociateIamInstanceProfile -&gt; Request AssociateIamInstanceProfile
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621681306737"><span class="annot"><span class="annottext">request :: AssociateIamInstanceProfile -&gt; Request AssociateIamInstanceProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; AssociateIamInstanceProfile
 -&gt; Request AssociateIamInstanceProfile
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621681270003"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621681306733"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssociateIamInstanceProfile
 -&gt; ClientResponse ClientBody
@@ -240,10 +240,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681270000"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681270000"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681269999"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681269999"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681269998"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681269998"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681306730"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681306730"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681306729"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681306729"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681306728"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681306728"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociation
 -&gt; Int -&gt; AssociateIamInstanceProfileResponse
 </span><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse%27"><span class="hs-identifier hs-var">AssociateIamInstanceProfileResponse'</span></a></span><span>
@@ -253,7 +253,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; AssociateIamInstanceProfileResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681269998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681306728"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe IamInstanceProfileAssociation)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -267,15 +267,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681270000"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681306730"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681269990"><span id="local-6989586621681269992"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile"><span class="hs-identifier hs-type">AssociateIamInstanceProfile</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681306720"><span id="local-6989586621681306722"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile"><span class="hs-identifier hs-type">AssociateIamInstanceProfile</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681269987"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile"><span class="hs-identifier hs-type">AssociateIamInstanceProfile</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681306717"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile"><span class="hs-identifier hs-type">AssociateIamInstanceProfile</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile"><span class="hs-identifier hs-type">AssociateIamInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621681269983"><span class="annot"><span class="annottext">toHeaders :: AssociateIamInstanceProfile -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621681306713"><span class="annot"><span class="annottext">toHeaders :: AssociateIamInstanceProfile -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateIamInstanceProfile -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -283,21 +283,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile"><span class="hs-identifier hs-type">AssociateIamInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621681269978"><span class="annot"><span class="annottext">toPath :: AssociateIamInstanceProfile -&gt; ByteString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621681306708"><span class="annot"><span class="annottext">toPath :: AssociateIamInstanceProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateIamInstanceProfile -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile"><span class="hs-identifier hs-type">AssociateIamInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621681269974"><span class="annot"><span class="annottext">toQuery :: AssociateIamInstanceProfile -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269971"><span id="local-6989586621681269972"><span class="annot"><span class="annottext">Text
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621681306704"><span class="annot"><span class="annottext">toQuery :: AssociateIamInstanceProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfile%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681306701"><span id="local-6989586621681306702"><span class="annot"><span class="annottext">Text
 IamInstanceProfileSpecification
 instanceId :: Text
 iamInstanceProfile :: IamInstanceProfileSpecification
 $sel:instanceId:AssociateIamInstanceProfile' :: AssociateIamInstanceProfile -&gt; Text
 $sel:iamInstanceProfile:AssociateIamInstanceProfile' :: AssociateIamInstanceProfile -&gt; IamInstanceProfileSpecification
-</span><a href="#local-6989586621681269971"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681306701"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -319,16 +319,16 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;IamInstanceProfile&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; IamInstanceProfileSpecification -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">IamInstanceProfileSpecification
-</span><a href="#local-6989586621681269972"><span class="hs-identifier hs-var">iamInstanceProfile</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681306702"><span class="hs-identifier hs-var">iamInstanceProfile</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681269971"><span class="hs-identifier hs-var">instanceId</span></a></span><span>
+</span><a href="#local-6989586621681306701"><span class="hs-identifier hs-var">instanceId</span></a></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newAssociateIamInstanceProfileResponse' smart constructor.</span><span>
-</span><span id="line-132"></span><span id="local-6989586621681269968"><span id="local-6989586621681269969"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateIamInstanceProfileResponse"><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse"><span class="hs-identifier hs-var">AssociateIamInstanceProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateIamInstanceProfileResponse%27"><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse%27"><span class="hs-identifier hs-var">AssociateIamInstanceProfileResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span id="local-6989586621681306698"><span id="local-6989586621681306699"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateIamInstanceProfileResponse"><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse"><span class="hs-identifier hs-var">AssociateIamInstanceProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateIamInstanceProfileResponse%27"><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse%27"><span class="hs-identifier hs-var">AssociateIamInstanceProfileResponse'</span></a></span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the IAM instance profile association.</span><span>
 </span><span id="line-134"></span><span>    </span><span id="%24sel%3AiamInstanceProfileAssociation%3AAssociateIamInstanceProfileResponse%27"><span class="annot"><span class="annottext">AssociateIamInstanceProfileResponse
 -&gt; Maybe IamInstanceProfileAssociation
@@ -337,7 +337,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateIamInstanceProfileResponse%27"><span class="annot"><span class="annottext">AssociateIamInstanceProfileResponse -&gt; Int
 </span><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#%24sel%3AhttpStatus%3AAssociateIamInstanceProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681269962"><span id="local-6989586621681269964"><span class="annot"><span class="annottext">AssociateIamInstanceProfileResponse
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681306692"><span id="local-6989586621681306694"><span class="annot"><span class="annottext">AssociateIamInstanceProfileResponse
 -&gt; AssociateIamInstanceProfileResponse -&gt; Bool
 (AssociateIamInstanceProfileResponse
  -&gt; AssociateIamInstanceProfileResponse -&gt; Bool)
@@ -353,7 +353,7 @@ $c/= :: AssociateIamInstanceProfileResponse
 -&gt; AssociateIamInstanceProfileResponse -&gt; Bool
 $c== :: AssociateIamInstanceProfileResponse
 -&gt; AssociateIamInstanceProfileResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681269954"><span id="local-6989586621681269956"><span id="local-6989586621681269958"><span id="local-6989586621681269960"><span class="annot"><span class="annottext">ReadPrec [AssociateIamInstanceProfileResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681306684"><span id="local-6989586621681306686"><span id="local-6989586621681306688"><span id="local-6989586621681306690"><span class="annot"><span class="annottext">ReadPrec [AssociateIamInstanceProfileResponse]
 ReadPrec AssociateIamInstanceProfileResponse
 Int -&gt; ReadS AssociateIamInstanceProfileResponse
 ReadS [AssociateIamInstanceProfileResponse]
@@ -373,7 +373,7 @@ readList :: ReadS [AssociateIamInstanceProfileResponse]
 $creadList :: ReadS [AssociateIamInstanceProfileResponse]
 readsPrec :: Int -&gt; ReadS AssociateIamInstanceProfileResponse
 $creadsPrec :: Int -&gt; ReadS AssociateIamInstanceProfileResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681269948"><span id="local-6989586621681269950"><span id="local-6989586621681269952"><span class="annot"><span class="annottext">Int -&gt; AssociateIamInstanceProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681306678"><span id="local-6989586621681306680"><span id="local-6989586621681306682"><span class="annot"><span class="annottext">Int -&gt; AssociateIamInstanceProfileResponse -&gt; ShowS
 [AssociateIamInstanceProfileResponse] -&gt; ShowS
 AssociateIamInstanceProfileResponse -&gt; String
 (Int -&gt; AssociateIamInstanceProfileResponse -&gt; ShowS)
@@ -427,8 +427,8 @@ AssociateIamInstanceProfileResponse
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse"><span class="hs-identifier hs-type">AssociateIamInstanceProfileResponse</span></a></span><span>
 </span><span id="line-155"></span><span id="newAssociateIamInstanceProfileResponse"><span class="annot"><span class="annottext">newAssociateIamInstanceProfileResponse :: Int -&gt; AssociateIamInstanceProfileResponse
-</span><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#newAssociateIamInstanceProfileResponse"><span class="hs-identifier hs-var hs-var">newAssociateIamInstanceProfileResponse</span></a></span></span><span> </span><span id="local-6989586621681269945"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681269945"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#newAssociateIamInstanceProfileResponse"><span class="hs-identifier hs-var hs-var">newAssociateIamInstanceProfileResponse</span></a></span></span><span> </span><span id="local-6989586621681306675"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681306675"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">AssociateIamInstanceProfileResponse' :: Maybe IamInstanceProfileAssociation
 -&gt; Int -&gt; AssociateIamInstanceProfileResponse
 </span><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfileResponse'</span></a></span><span>
@@ -439,7 +439,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateIamInstanceProfileResponse' :: Int
 </span><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#%24sel%3AhttpStatus%3AAssociateIamInstanceProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681269945"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681306675"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | Information about the IAM instance profile association.</span><span>
@@ -459,17 +459,17 @@ forall a. Maybe a
      (Maybe IamInstanceProfileAssociation)
      (Maybe IamInstanceProfileAssociation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269944"><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681306674"><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociation
 iamInstanceProfileAssociation :: Maybe IamInstanceProfileAssociation
 $sel:iamInstanceProfileAssociation:AssociateIamInstanceProfileResponse' :: AssociateIamInstanceProfileResponse
 -&gt; Maybe IamInstanceProfileAssociation
-</span><a href="#local-6989586621681269944"><span class="hs-identifier hs-var hs-var">iamInstanceProfileAssociation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociation
-</span><a href="#local-6989586621681269944"><span class="hs-identifier hs-var">iamInstanceProfileAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269943"><span class="annot"><span class="annottext">s :: AssociateIamInstanceProfileResponse
-</span><a href="#local-6989586621681269943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269942"><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociation
-</span><a href="#local-6989586621681269942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateIamInstanceProfileResponse
-</span><a href="#local-6989586621681269943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamInstanceProfileAssociation:AssociateIamInstanceProfileResponse' :: Maybe IamInstanceProfileAssociation
+</span><a href="#local-6989586621681306674"><span class="hs-identifier hs-var hs-var">iamInstanceProfileAssociation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociation
+</span><a href="#local-6989586621681306674"><span class="hs-identifier hs-var">iamInstanceProfileAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681306673"><span class="annot"><span class="annottext">s :: AssociateIamInstanceProfileResponse
+</span><a href="#local-6989586621681306673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681306672"><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociation
+</span><a href="#local-6989586621681306672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateIamInstanceProfileResponse
+</span><a href="#local-6989586621681306673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamInstanceProfileAssociation:AssociateIamInstanceProfileResponse' :: Maybe IamInstanceProfileAssociation
 </span><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#%24sel%3AiamInstanceProfileAssociation%3AAssociateIamInstanceProfileResponse%27"><span class="hs-identifier hs-var">iamInstanceProfileAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociation
-</span><a href="#local-6989586621681269942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse"><span class="hs-identifier hs-type">AssociateIamInstanceProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681306672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse"><span class="hs-identifier hs-type">AssociateIamInstanceProfileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-167"></span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#associateIamInstanceProfileResponse_httpStatus"><span class="hs-identifier hs-type">associateIamInstanceProfileResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse"><span class="hs-identifier hs-type">AssociateIamInstanceProfileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -485,18 +485,18 @@ $sel:iamInstanceProfileAssociation:AssociateIamInstanceProfileResponse' :: Assoc
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269941"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681306671"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AssociateIamInstanceProfileResponse' :: AssociateIamInstanceProfileResponse -&gt; Int
-</span><a href="#local-6989586621681269941"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681269941"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269940"><span class="annot"><span class="annottext">s :: AssociateIamInstanceProfileResponse
-</span><a href="#local-6989586621681269940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269939"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681269939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateIamInstanceProfileResponse
-</span><a href="#local-6989586621681269940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateIamInstanceProfileResponse' :: Int
+</span><a href="#local-6989586621681306671"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681306671"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681306670"><span class="annot"><span class="annottext">s :: AssociateIamInstanceProfileResponse
+</span><a href="#local-6989586621681306670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse%27"><span class="hs-identifier hs-type">AssociateIamInstanceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681306669"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681306669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateIamInstanceProfileResponse
+</span><a href="#local-6989586621681306670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateIamInstanceProfileResponse' :: Int
 </span><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#%24sel%3AhttpStatus%3AAssociateIamInstanceProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681269939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse"><span class="hs-identifier hs-type">AssociateIamInstanceProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681306669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse"><span class="hs-identifier hs-type">AssociateIamInstanceProfileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621681269937"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621681306667"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateIamInstanceProfile.html#AssociateIamInstanceProfileResponse"><span class="hs-identifier hs-type">AssociateIamInstanceProfileResponse</span></a></span></span><span>
 </span><span id="line-173"></span></pre></body></html>

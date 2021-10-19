@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents the properties of a replica.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newReplica' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679376272"><span id="local-6989586621679376273"></span></span><span class="hs-keyword">data</span><span> </span><span id="Replica"><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica"><span class="hs-identifier hs-var">Replica</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Replica%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica%27"><span class="hs-identifier hs-var">Replica'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679376956"><span id="local-6989586621679376957"></span></span><span class="hs-keyword">data</span><span> </span><span id="Replica"><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica"><span class="hs-identifier hs-var">Replica</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Replica%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica%27"><span class="hs-identifier hs-var">Replica'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Region where the replica needs to be created.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AregionName%3AReplica%27"><span class="annot"><span class="annottext">Replica -&gt; Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.Replica.html#%24sel%3AregionName%3AReplica%27"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376266"><span id="local-6989586621679376268"><span class="annot"><span class="annottext">Replica -&gt; Replica -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376950"><span id="local-6989586621679376952"><span class="annot"><span class="annottext">Replica -&gt; Replica -&gt; Bool
 (Replica -&gt; Replica -&gt; Bool)
 -&gt; (Replica -&gt; Replica -&gt; Bool) -&gt; Eq Replica
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Replica -&gt; Replica -&gt; Bool
 == :: Replica -&gt; Replica -&gt; Bool
 $c== :: Replica -&gt; Replica -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376257"><span id="local-6989586621679376259"><span id="local-6989586621679376261"><span id="local-6989586621679376263"><span class="annot"><span class="annottext">ReadPrec [Replica]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376941"><span id="local-6989586621679376943"><span id="local-6989586621679376945"><span id="local-6989586621679376947"><span class="annot"><span class="annottext">ReadPrec [Replica]
 ReadPrec Replica
 Int -&gt; ReadS Replica
 ReadS [Replica]
@@ -59,7 +59,7 @@ readList :: ReadS [Replica]
 $creadList :: ReadS [Replica]
 readsPrec :: Int -&gt; ReadS Replica
 $creadsPrec :: Int -&gt; ReadS Replica
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376250"><span id="local-6989586621679376252"><span id="local-6989586621679376254"><span class="annot"><span class="annottext">Int -&gt; Replica -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376934"><span id="local-6989586621679376936"><span id="local-6989586621679376938"><span class="annot"><span class="annottext">Int -&gt; Replica -&gt; ShowS
 [Replica] -&gt; ShowS
 Replica -&gt; String
 (Int -&gt; Replica -&gt; ShowS)
@@ -107,47 +107,47 @@ forall a. Maybe a
 -&gt; (Replica -&gt; Maybe Text -&gt; Replica)
 -&gt; Lens Replica Replica (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica%27"><span class="hs-identifier hs-type">Replica'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376241"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica%27"><span class="hs-identifier hs-type">Replica'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376925"><span class="annot"><span class="annottext">Maybe Text
 regionName :: Maybe Text
 $sel:regionName:Replica' :: Replica -&gt; Maybe Text
-</span><a href="#local-6989586621679376241"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376241"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376240"><span class="annot"><span class="annottext">s :: Replica
-</span><a href="#local-6989586621679376240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica%27"><span class="hs-identifier hs-type">Replica'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376239"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Replica
-</span><a href="#local-6989586621679376240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionName:Replica' :: Maybe Text
+</span><a href="#local-6989586621679376925"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376925"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376924"><span class="annot"><span class="annottext">s :: Replica
+</span><a href="#local-6989586621679376924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica%27"><span class="hs-identifier hs-type">Replica'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376923"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Replica
+</span><a href="#local-6989586621679376924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionName:Replica' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.Replica.html#%24sel%3AregionName%3AReplica%27"><span class="hs-identifier hs-var">regionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica"><span class="hs-identifier hs-type">Replica</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica"><span class="hs-identifier hs-type">Replica</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>
-</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376236"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica"><span class="hs-identifier hs-type">Replica</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-53"></span><span>  </span><span id="local-6989586621679376234"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Replica
+</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376920"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica"><span class="hs-identifier hs-type">Replica</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>  </span><span id="local-6989586621679376918"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Replica
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Replica) -&gt; Value -&gt; Parser Replica
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Replica&quot;</span></span><span>
-</span><span id="line-56"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376231"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376231"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376915"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376915"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Replica
 </span><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica%27"><span class="hs-identifier hs-var">Replica'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Replica) -&gt; Parser (Maybe Text) -&gt; Parser Replica
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679376915"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegionName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376225"><span id="local-6989586621679376227"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica"><span class="hs-identifier hs-type">Replica</span></a></span></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376909"><span id="local-6989586621679376911"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica"><span class="hs-identifier hs-type">Replica</span></a></span></span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376222"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica"><span class="hs-identifier hs-type">Replica</span></a></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376906"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica"><span class="hs-identifier hs-type">Replica</span></a></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376214"><span id="local-6989586621679376216"><span id="local-6989586621679376218"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica"><span class="hs-identifier hs-type">Replica</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679376212"><span class="annot"><span class="annottext">toJSON :: Replica -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica%27"><span class="hs-identifier hs-type">Replica'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376210"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376898"><span id="local-6989586621679376900"><span id="local-6989586621679376902"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica"><span class="hs-identifier hs-type">Replica</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679376896"><span class="annot"><span class="annottext">toJSON :: Replica -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica%27"><span class="hs-identifier hs-type">Replica'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376894"><span class="annot"><span class="annottext">Maybe Text
 regionName :: Maybe Text
 $sel:regionName:Replica' :: Replica -&gt; Maybe Text
-</span><a href="#local-6989586621679376210"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679376894"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -159,6 +159,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376210"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679376894"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span></pre></body></html>

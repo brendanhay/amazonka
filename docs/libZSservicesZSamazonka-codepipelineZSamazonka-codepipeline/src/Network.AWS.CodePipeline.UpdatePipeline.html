@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | Represents the input of an @UpdatePipeline@ action.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newUpdatePipeline' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679294243"><span id="local-6989586621679294244"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePipeline"><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-var">UpdatePipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePipeline%27"><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-var">UpdatePipeline'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679294481"><span id="local-6989586621679294482"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePipeline"><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-var">UpdatePipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePipeline%27"><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-var">UpdatePipeline'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the pipeline to be updated.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3Apipeline%3AUpdatePipeline%27"><span class="annot"><span class="annottext">UpdatePipeline -&gt; PipelineDeclaration
 </span><a href="Network.AWS.CodePipeline.UpdatePipeline.html#%24sel%3Apipeline%3AUpdatePipeline%27"><span class="hs-identifier hs-var hs-var">pipeline</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294237"><span id="local-6989586621679294239"><span class="annot"><span class="annottext">UpdatePipeline -&gt; UpdatePipeline -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294475"><span id="local-6989586621679294477"><span class="annot"><span class="annottext">UpdatePipeline -&gt; UpdatePipeline -&gt; Bool
 (UpdatePipeline -&gt; UpdatePipeline -&gt; Bool)
 -&gt; (UpdatePipeline -&gt; UpdatePipeline -&gt; Bool) -&gt; Eq UpdatePipeline
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdatePipeline -&gt; UpdatePipeline -&gt; Bool
 == :: UpdatePipeline -&gt; UpdatePipeline -&gt; Bool
 $c== :: UpdatePipeline -&gt; UpdatePipeline -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294228"><span id="local-6989586621679294230"><span id="local-6989586621679294232"><span id="local-6989586621679294234"><span class="annot"><span class="annottext">ReadPrec [UpdatePipeline]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294466"><span id="local-6989586621679294468"><span id="local-6989586621679294470"><span id="local-6989586621679294472"><span class="annot"><span class="annottext">ReadPrec [UpdatePipeline]
 ReadPrec UpdatePipeline
 Int -&gt; ReadS UpdatePipeline
 ReadS [UpdatePipeline]
@@ -85,7 +85,7 @@ readList :: ReadS [UpdatePipeline]
 $creadList :: ReadS [UpdatePipeline]
 readsPrec :: Int -&gt; ReadS UpdatePipeline
 $creadsPrec :: Int -&gt; ReadS UpdatePipeline
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294221"><span id="local-6989586621679294223"><span id="local-6989586621679294225"><span class="annot"><span class="annottext">Int -&gt; UpdatePipeline -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294459"><span id="local-6989586621679294461"><span id="local-6989586621679294463"><span class="annot"><span class="annottext">Int -&gt; UpdatePipeline -&gt; ShowS
 [UpdatePipeline] -&gt; ShowS
 UpdatePipeline -&gt; String
 (Int -&gt; UpdatePipeline -&gt; ShowS)
@@ -125,12 +125,12 @@ $cfrom :: forall x. UpdatePipeline -&gt; Rep UpdatePipeline x
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span>
 </span><span id="line-74"></span><span id="newUpdatePipeline"><span class="annot"><span class="annottext">newUpdatePipeline :: PipelineDeclaration -&gt; UpdatePipeline
-</span><a href="Network.AWS.CodePipeline.UpdatePipeline.html#newUpdatePipeline"><span class="hs-identifier hs-var hs-var">newUpdatePipeline</span></a></span></span><span> </span><span id="local-6989586621679294216"><span class="annot"><span class="annottext">PipelineDeclaration
-</span><a href="#local-6989586621679294216"><span class="hs-identifier hs-var">pPipeline_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.UpdatePipeline.html#newUpdatePipeline"><span class="hs-identifier hs-var hs-var">newUpdatePipeline</span></a></span></span><span> </span><span id="local-6989586621679294454"><span class="annot"><span class="annottext">PipelineDeclaration
+</span><a href="#local-6989586621679294454"><span class="hs-identifier hs-var">pPipeline_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">UpdatePipeline' :: PipelineDeclaration -&gt; UpdatePipeline
 </span><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipeline:UpdatePipeline' :: PipelineDeclaration
 </span><a href="Network.AWS.CodePipeline.UpdatePipeline.html#%24sel%3Apipeline%3AUpdatePipeline%27"><span class="hs-identifier hs-var">pipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PipelineDeclaration
-</span><a href="#local-6989586621679294216"><span class="hs-identifier hs-var">pPipeline_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679294454"><span class="hs-identifier hs-var">pPipeline_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The name of the pipeline to be updated.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#updatePipeline_pipeline"><span class="hs-identifier hs-type">updatePipeline_pipeline</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span><span>
@@ -144,27 +144,27 @@ $cfrom :: forall x. UpdatePipeline -&gt; Rep UpdatePipeline x
      PipelineDeclaration
      PipelineDeclaration
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294213"><span class="annot"><span class="annottext">PipelineDeclaration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294451"><span class="annot"><span class="annottext">PipelineDeclaration
 pipeline :: PipelineDeclaration
 $sel:pipeline:UpdatePipeline' :: UpdatePipeline -&gt; PipelineDeclaration
-</span><a href="#local-6989586621679294213"><span class="hs-identifier hs-var hs-var">pipeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineDeclaration
-</span><a href="#local-6989586621679294213"><span class="hs-identifier hs-var">pipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294212"><span class="annot"><span class="annottext">s :: UpdatePipeline
-</span><a href="#local-6989586621679294212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294211"><span class="annot"><span class="annottext">PipelineDeclaration
-</span><a href="#local-6989586621679294211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipeline
-</span><a href="#local-6989586621679294212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipeline:UpdatePipeline' :: PipelineDeclaration
+</span><a href="#local-6989586621679294451"><span class="hs-identifier hs-var hs-var">pipeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineDeclaration
+</span><a href="#local-6989586621679294451"><span class="hs-identifier hs-var">pipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294450"><span class="annot"><span class="annottext">s :: UpdatePipeline
+</span><a href="#local-6989586621679294450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294449"><span class="annot"><span class="annottext">PipelineDeclaration
+</span><a href="#local-6989586621679294449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipeline
+</span><a href="#local-6989586621679294450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipeline:UpdatePipeline' :: PipelineDeclaration
 </span><a href="Network.AWS.CodePipeline.UpdatePipeline.html#%24sel%3Apipeline%3AUpdatePipeline%27"><span class="hs-identifier hs-var">pipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PipelineDeclaration
-</span><a href="#local-6989586621679294211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679294207"><span class="annot"><span class="annottext">request :: UpdatePipeline -&gt; Request UpdatePipeline
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679294445"><span class="annot"><span class="annottext">request :: UpdatePipeline -&gt; Request UpdatePipeline
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdatePipeline -&gt; Request UpdatePipeline
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodePipeline.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679294203"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679294441"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdatePipeline
 -&gt; ClientResponse ClientBody
@@ -188,10 +188,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294200"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294200"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679294199"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679294199"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679294198"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294198"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294438"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294438"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679294437"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679294437"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679294436"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294436"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe PipelineDeclaration -&gt; Int -&gt; UpdatePipelineResponse
 </span><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-var">UpdatePipelineResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PipelineDeclaration -&gt; Int -&gt; UpdatePipelineResponse)
@@ -199,7 +199,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdatePipelineResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe PipelineDeclaration)
+</span><a href="#local-6989586621679294436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe PipelineDeclaration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pipeline&quot;</span></span><span class="hs-special">)</span><span>
@@ -211,15 +211,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294200"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294438"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294190"><span id="local-6989586621679294192"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294428"><span id="local-6989586621679294430"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294187"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294425"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679294183"><span class="annot"><span class="annottext">toHeaders :: UpdatePipeline -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679294421"><span class="annot"><span class="annottext">toHeaders :: UpdatePipeline -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdatePipeline -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -246,12 +246,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294173"><span id="local-6989586621679294175"><span id="local-6989586621679294177"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679294171"><span class="annot"><span class="annottext">toJSON :: UpdatePipeline -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294169"><span class="annot"><span class="annottext">PipelineDeclaration
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294411"><span id="local-6989586621679294413"><span id="local-6989586621679294415"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679294409"><span class="annot"><span class="annottext">toJSON :: UpdatePipeline -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294407"><span class="annot"><span class="annottext">PipelineDeclaration
 pipeline :: PipelineDeclaration
 $sel:pipeline:UpdatePipeline' :: UpdatePipeline -&gt; PipelineDeclaration
-</span><a href="#local-6989586621679294169"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679294407"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -263,18 +263,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;pipeline&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PipelineDeclaration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PipelineDeclaration
-</span><a href="#local-6989586621679294169"><span class="hs-identifier hs-var">pipeline</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679294407"><span class="hs-identifier hs-var">pipeline</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679294163"><span class="annot"><span class="annottext">toPath :: UpdatePipeline -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679294401"><span class="annot"><span class="annottext">toPath :: UpdatePipeline -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdatePipeline -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679294159"><span class="annot"><span class="annottext">toQuery :: UpdatePipeline -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679294397"><span class="annot"><span class="annottext">toQuery :: UpdatePipeline -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdatePipeline -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -284,7 +284,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-126"></span><span class="hs-comment">-- | Represents the output of an @UpdatePipeline@ action.</span><span>
 </span><span id="line-127"></span><span class="hs-comment">--</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- /See:/ 'newUpdatePipelineResponse' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679294156"><span id="local-6989586621679294157"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePipelineResponse"><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-var">UpdatePipelineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePipelineResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-var">UpdatePipelineResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span id="local-6989586621679294394"><span id="local-6989586621679294395"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePipelineResponse"><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-var">UpdatePipelineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePipelineResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-var">UpdatePipelineResponse'</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The structure of the updated pipeline.</span><span>
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3Apipeline%3AUpdatePipelineResponse%27"><span class="annot"><span class="annottext">UpdatePipelineResponse -&gt; Maybe PipelineDeclaration
 </span><a href="Network.AWS.CodePipeline.UpdatePipeline.html#%24sel%3Apipeline%3AUpdatePipelineResponse%27"><span class="hs-identifier hs-var hs-var">pipeline</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineDeclaration.html#PipelineDeclaration"><span class="hs-identifier hs-type">PipelineDeclaration</span></a></span><span class="hs-special">,</span><span>
@@ -292,7 +292,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdatePipelineResponse%27"><span class="annot"><span class="annottext">UpdatePipelineResponse -&gt; Int
 </span><a href="Network.AWS.CodePipeline.UpdatePipeline.html#%24sel%3AhttpStatus%3AUpdatePipelineResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294150"><span id="local-6989586621679294152"><span class="annot"><span class="annottext">UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294388"><span id="local-6989586621679294390"><span class="annot"><span class="annottext">UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool
 (UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool)
 -&gt; (UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool)
 -&gt; Eq UpdatePipelineResponse
@@ -301,7 +301,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool
 == :: UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool
 $c== :: UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294142"><span id="local-6989586621679294144"><span id="local-6989586621679294146"><span id="local-6989586621679294148"><span class="annot"><span class="annottext">ReadPrec [UpdatePipelineResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294380"><span id="local-6989586621679294382"><span id="local-6989586621679294384"><span id="local-6989586621679294386"><span class="annot"><span class="annottext">ReadPrec [UpdatePipelineResponse]
 ReadPrec UpdatePipelineResponse
 Int -&gt; ReadS UpdatePipelineResponse
 ReadS [UpdatePipelineResponse]
@@ -321,7 +321,7 @@ readList :: ReadS [UpdatePipelineResponse]
 $creadList :: ReadS [UpdatePipelineResponse]
 readsPrec :: Int -&gt; ReadS UpdatePipelineResponse
 $creadsPrec :: Int -&gt; ReadS UpdatePipelineResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294136"><span id="local-6989586621679294138"><span id="local-6989586621679294140"><span class="annot"><span class="annottext">Int -&gt; UpdatePipelineResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294374"><span id="local-6989586621679294376"><span id="local-6989586621679294378"><span class="annot"><span class="annottext">Int -&gt; UpdatePipelineResponse -&gt; ShowS
 [UpdatePipelineResponse] -&gt; ShowS
 UpdatePipelineResponse -&gt; String
 (Int -&gt; UpdatePipelineResponse -&gt; ShowS)
@@ -364,8 +364,8 @@ $cfrom :: forall x. UpdatePipelineResponse -&gt; Rep UpdatePipelineResponse x
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span><span>
 </span><span id="line-152"></span><span id="newUpdatePipelineResponse"><span class="annot"><span class="annottext">newUpdatePipelineResponse :: Int -&gt; UpdatePipelineResponse
-</span><a href="Network.AWS.CodePipeline.UpdatePipeline.html#newUpdatePipelineResponse"><span class="hs-identifier hs-var hs-var">newUpdatePipelineResponse</span></a></span></span><span> </span><span id="local-6989586621679294133"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294133"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.UpdatePipeline.html#newUpdatePipelineResponse"><span class="hs-identifier hs-var hs-var">newUpdatePipelineResponse</span></a></span></span><span> </span><span id="local-6989586621679294371"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294371"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">UpdatePipelineResponse' :: Maybe PipelineDeclaration -&gt; Int -&gt; UpdatePipelineResponse
 </span><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-type">UpdatePipelineResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pipeline:UpdatePipelineResponse' :: Maybe PipelineDeclaration
@@ -374,7 +374,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePipelineResponse' :: Int
 </span><a href="Network.AWS.CodePipeline.UpdatePipeline.html#%24sel%3AhttpStatus%3AUpdatePipelineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294133"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679294371"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | The structure of the updated pipeline.</span><span>
@@ -390,16 +390,16 @@ forall a. Maybe a
      (Maybe PipelineDeclaration)
      (Maybe PipelineDeclaration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-type">UpdatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294132"><span class="annot"><span class="annottext">Maybe PipelineDeclaration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-type">UpdatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294370"><span class="annot"><span class="annottext">Maybe PipelineDeclaration
 pipeline :: Maybe PipelineDeclaration
 $sel:pipeline:UpdatePipelineResponse' :: UpdatePipelineResponse -&gt; Maybe PipelineDeclaration
-</span><a href="#local-6989586621679294132"><span class="hs-identifier hs-var hs-var">pipeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineDeclaration
-</span><a href="#local-6989586621679294132"><span class="hs-identifier hs-var">pipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294131"><span class="annot"><span class="annottext">s :: UpdatePipelineResponse
-</span><a href="#local-6989586621679294131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-type">UpdatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294130"><span class="annot"><span class="annottext">Maybe PipelineDeclaration
-</span><a href="#local-6989586621679294130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipelineResponse
-</span><a href="#local-6989586621679294131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipeline:UpdatePipelineResponse' :: Maybe PipelineDeclaration
+</span><a href="#local-6989586621679294370"><span class="hs-identifier hs-var hs-var">pipeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineDeclaration
+</span><a href="#local-6989586621679294370"><span class="hs-identifier hs-var">pipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294369"><span class="annot"><span class="annottext">s :: UpdatePipelineResponse
+</span><a href="#local-6989586621679294369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-type">UpdatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294368"><span class="annot"><span class="annottext">Maybe PipelineDeclaration
+</span><a href="#local-6989586621679294368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipelineResponse
+</span><a href="#local-6989586621679294369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipeline:UpdatePipelineResponse' :: Maybe PipelineDeclaration
 </span><a href="Network.AWS.CodePipeline.UpdatePipeline.html#%24sel%3Apipeline%3AUpdatePipelineResponse%27"><span class="hs-identifier hs-var">pipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineDeclaration
-</span><a href="#local-6989586621679294130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-163"></span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#updatePipelineResponse_httpStatus"><span class="hs-identifier hs-type">updatePipelineResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -409,16 +409,16 @@ $sel:pipeline:UpdatePipelineResponse' :: UpdatePipelineResponse -&gt; Maybe Pipe
 -&gt; (UpdatePipelineResponse -&gt; Int -&gt; UpdatePipelineResponse)
 -&gt; Lens UpdatePipelineResponse UpdatePipelineResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-type">UpdatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294129"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-type">UpdatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294367"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdatePipelineResponse' :: UpdatePipelineResponse -&gt; Int
-</span><a href="#local-6989586621679294129"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294129"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294128"><span class="annot"><span class="annottext">s :: UpdatePipelineResponse
-</span><a href="#local-6989586621679294128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-type">UpdatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294127"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipelineResponse
-</span><a href="#local-6989586621679294128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePipelineResponse' :: Int
+</span><a href="#local-6989586621679294367"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294367"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294366"><span class="annot"><span class="annottext">s :: UpdatePipelineResponse
+</span><a href="#local-6989586621679294366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-type">UpdatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294365"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipelineResponse
+</span><a href="#local-6989586621679294366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePipelineResponse' :: Int
 </span><a href="Network.AWS.CodePipeline.UpdatePipeline.html#%24sel%3AhttpStatus%3AUpdatePipelineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294125"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294363"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span></span><span>
 </span><span id="line-167"></span></pre></body></html>

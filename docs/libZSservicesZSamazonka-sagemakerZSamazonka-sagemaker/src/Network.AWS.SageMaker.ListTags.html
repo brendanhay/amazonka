@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListTags' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621680372542"><span id="local-6989586621680372543"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTags"><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-var">ListTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTags%27"><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags%27"><span class="hs-identifier hs-var">ListTags'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621680374035"><span id="local-6989586621680374036"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTags"><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-var">ListTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTags%27"><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags%27"><span class="hs-identifier hs-var">ListTags'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the response to the previous @ListTags@ request is truncated, Amazon</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- SageMaker returns this token. To retrieve the next set of tags, use it</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- in the subsequent request.</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AresourceArn%3AListTags%27"><span class="annot"><span class="annottext">ListTags -&gt; Text
 </span><a href="Network.AWS.SageMaker.ListTags.html#%24sel%3AresourceArn%3AListTags%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680372534"><span id="local-6989586621680372536"><span class="annot"><span class="annottext">ListTags -&gt; ListTags -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680374027"><span id="local-6989586621680374029"><span class="annot"><span class="annottext">ListTags -&gt; ListTags -&gt; Bool
 (ListTags -&gt; ListTags -&gt; Bool)
 -&gt; (ListTags -&gt; ListTags -&gt; Bool) -&gt; Eq ListTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTags -&gt; ListTags -&gt; Bool
 == :: ListTags -&gt; ListTags -&gt; Bool
 $c== :: ListTags -&gt; ListTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680372525"><span id="local-6989586621680372527"><span id="local-6989586621680372529"><span id="local-6989586621680372531"><span class="annot"><span class="annottext">ReadPrec [ListTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680374018"><span id="local-6989586621680374020"><span id="local-6989586621680374022"><span id="local-6989586621680374024"><span class="annot"><span class="annottext">ReadPrec [ListTags]
 ReadPrec ListTags
 Int -&gt; ReadS ListTags
 ReadS [ListTags]
@@ -94,7 +94,7 @@ readList :: ReadS [ListTags]
 $creadList :: ReadS [ListTags]
 readsPrec :: Int -&gt; ReadS ListTags
 $creadsPrec :: Int -&gt; ReadS ListTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680372518"><span id="local-6989586621680372520"><span id="local-6989586621680372522"><span class="annot"><span class="annottext">Int -&gt; ListTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680374011"><span id="local-6989586621680374013"><span id="local-6989586621680374015"><span class="annot"><span class="annottext">Int -&gt; ListTags -&gt; ShowS
 [ListTags] -&gt; ShowS
 ListTags -&gt; String
 (Int -&gt; ListTags -&gt; ShowS)
@@ -138,8 +138,8 @@ $cfrom :: forall x. ListTags -&gt; Rep ListTags x
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span>
 </span><span id="line-88"></span><span id="newListTags"><span class="annot"><span class="annottext">newListTags :: Text -&gt; ListTags
-</span><a href="Network.AWS.SageMaker.ListTags.html#newListTags"><span class="hs-identifier hs-var hs-var">newListTags</span></a></span></span><span> </span><span id="local-6989586621680372513"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680372513"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.ListTags.html#newListTags"><span class="hs-identifier hs-var hs-var">newListTags</span></a></span></span><span> </span><span id="local-6989586621680374006"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680374006"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">ListTags' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListTags
 </span><a href="Network.AWS.SageMaker.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListTags' :: Maybe Text
@@ -152,7 +152,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceArn:ListTags' :: Text
 </span><a href="Network.AWS.SageMaker.ListTags.html#%24sel%3AresourceArn%3AListTags%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680372513"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span>
+</span><a href="#local-6989586621680374006"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | If the response to the previous @ListTags@ request is truncated, Amazon</span><span>
@@ -164,16 +164,16 @@ forall a. Maybe a
 -&gt; (ListTags -&gt; Maybe Text -&gt; ListTags)
 -&gt; Lens ListTags ListTags (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680372511"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374004"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListTags' :: ListTags -&gt; Maybe Text
-</span><a href="#local-6989586621680372511"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680372511"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680372510"><span class="annot"><span class="annottext">s :: ListTags
-</span><a href="#local-6989586621680372510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680372509"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680372509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTags
-</span><a href="#local-6989586621680372510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTags' :: Maybe Text
+</span><a href="#local-6989586621680374004"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680374004"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374003"><span class="annot"><span class="annottext">s :: ListTags
+</span><a href="#local-6989586621680374003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374002"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680374002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTags
+</span><a href="#local-6989586621680374003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTags' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListTags.html#%24sel%3AnextToken%3AListTags%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680372509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680374002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | Maximum number of tags to return.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#listTags_maxResults"><span class="hs-identifier hs-type">listTags_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -182,16 +182,16 @@ $sel:nextToken:ListTags' :: ListTags -&gt; Maybe Text
 -&gt; (ListTags -&gt; Maybe Natural -&gt; ListTags)
 -&gt; Lens ListTags ListTags (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680372508"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374001"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListTags' :: ListTags -&gt; Maybe Natural
-</span><a href="#local-6989586621680372508"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680372508"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680372507"><span class="annot"><span class="annottext">s :: ListTags
-</span><a href="#local-6989586621680372507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680372506"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680372506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTags
-</span><a href="#local-6989586621680372507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTags' :: Maybe Natural
+</span><a href="#local-6989586621680374001"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680374001"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374000"><span class="annot"><span class="annottext">s :: ListTags
+</span><a href="#local-6989586621680374000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680373999"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680373999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTags
+</span><a href="#local-6989586621680374000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTags' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.ListTags.html#%24sel%3AmaxResults%3AListTags%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680372506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680373999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource whose tags you want to</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- retrieve.</span><span>
@@ -201,28 +201,28 @@ $sel:maxResults:ListTags' :: ListTags -&gt; Maybe Natural
 -&gt; (ListTags -&gt; Text -&gt; ListTags)
 -&gt; Lens ListTags ListTags Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680372505"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680373998"><span class="annot"><span class="annottext">Text
 resourceArn :: Text
 $sel:resourceArn:ListTags' :: ListTags -&gt; Text
-</span><a href="#local-6989586621680372505"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680372505"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680372504"><span class="annot"><span class="annottext">s :: ListTags
-</span><a href="#local-6989586621680372504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680372503"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680372503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTags
-</span><a href="#local-6989586621680372504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:ListTags' :: Text
+</span><a href="#local-6989586621680373998"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680373998"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680373997"><span class="annot"><span class="annottext">s :: ListTags
+</span><a href="#local-6989586621680373997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680373996"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680373996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTags
+</span><a href="#local-6989586621680373997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:ListTags' :: Text
 </span><a href="Network.AWS.SageMaker.ListTags.html#%24sel%3AresourceArn%3AListTags%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680372503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680373996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621680372499"><span class="annot"><span class="annottext">page :: ListTags -&gt; AWSResponse ListTags -&gt; Maybe ListTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680372497"><span class="annot"><span class="annottext">ListTags
-</span><a href="#local-6989586621680372497"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680372496"><span class="annot"><span class="annottext">AWSResponse ListTags
-</span><a href="#local-6989586621680372496"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621680373992"><span class="annot"><span class="annottext">page :: ListTags -&gt; AWSResponse ListTags -&gt; Maybe ListTags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680373990"><span class="annot"><span class="annottext">ListTags
+</span><a href="#local-6989586621680373990"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680373989"><span class="annot"><span class="annottext">AWSResponse ListTags
+</span><a href="#local-6989586621680373989"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTags
 ListTagsResponse
-</span><a href="#local-6989586621680372496"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680373989"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">ListTagsResponse
 -&gt; Getting (First Text) ListTagsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -248,7 +248,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTags
 ListTagsResponse
-</span><a href="#local-6989586621680372496"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680373989"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">ListTagsResponse
 -&gt; Getting (First [Tag]) ListTagsResponse [Tag] -&gt; Maybe [Tag]
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -277,7 +277,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">ListTags
-</span><a href="#local-6989586621680372497"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621680373990"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">ListTags -&gt; (ListTags -&gt; ListTags) -&gt; ListTags
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -290,7 +290,7 @@ Lens ListTags ListTags (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTags
 ListTagsResponse
-</span><a href="#local-6989586621680372496"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680373989"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ListTagsResponse
 -&gt; Getting (First Text) ListTagsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -310,12 +310,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621680372486"><span class="annot"><span class="annottext">request :: ListTags -&gt; Request ListTags
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621680373979"><span class="annot"><span class="annottext">request :: ListTags -&gt; Request ListTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTags -&gt; Request ListTags
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621680372482"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621680373975"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListTags
 -&gt; ClientResponse ClientBody
@@ -339,10 +339,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680372479"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680372479"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680372478"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680372478"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680372477"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680372477"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680373972"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680373972"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680373971"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680373971"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680373970"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680373970"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Tag] -&gt; Int -&gt; ListTagsResponse
 </span><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-var">ListTagsResponse'</span></a></span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Tag] -&gt; Int -&gt; ListTagsResponse)
@@ -350,7 +350,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Tag] -&gt; Int -&gt; ListTagsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680372477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680373970"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -359,7 +359,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListTagsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680372477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Tag]))
+</span><a href="#local-6989586621680373970"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Tag]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Tag]))
@@ -376,15 +376,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680372479"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680373972"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680372468"><span id="local-6989586621680372470"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680373961"><span id="local-6989586621680373963"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680372465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680373958"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621680372461"><span class="annot"><span class="annottext">toHeaders :: ListTags -&gt; ResponseHeaders
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621680373954"><span class="annot"><span class="annottext">toHeaders :: ListTags -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTags -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -409,9 +409,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680372451"><span id="local-6989586621680372453"><span id="local-6989586621680372455"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621680372449"><span class="annot"><span class="annottext">toJSON :: ListTags -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680372445"><span id="local-6989586621680372446"><span id="local-6989586621680372447"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680373944"><span id="local-6989586621680373946"><span id="local-6989586621680373948"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621680373942"><span class="annot"><span class="annottext">toJSON :: ListTags -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680373938"><span id="local-6989586621680373939"><span id="local-6989586621680373940"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 resourceArn :: Text
@@ -420,7 +420,7 @@ nextToken :: Maybe Text
 $sel:resourceArn:ListTags' :: ListTags -&gt; Text
 $sel:maxResults:ListTags' :: ListTags -&gt; Maybe Natural
 $sel:nextToken:ListTags' :: ListTags -&gt; Maybe Text
-</span><a href="#local-6989586621680372445"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680373938"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -432,33 +432,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680372447"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680373940"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680372446"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680373939"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680372445"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680373938"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621680372439"><span class="annot"><span class="annottext">toPath :: ListTags -&gt; ByteString
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621680373932"><span class="annot"><span class="annottext">toPath :: ListTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListTags -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621680372435"><span class="annot"><span class="annottext">toQuery :: ListTags -&gt; QueryString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621680373928"><span class="annot"><span class="annottext">toQuery :: ListTags -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTags -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -466,7 +466,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | /See:/ 'newListTagsResponse' smart constructor.</span><span>
-</span><span id="line-175"></span><span id="local-6989586621680372432"><span id="local-6989586621680372433"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-var">ListTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-var">ListTagsResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span id="local-6989586621680373925"><span id="local-6989586621680373926"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-var">ListTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-var">ListTagsResponse'</span></a></span></span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If response is truncated, Amazon SageMaker includes a token in the</span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-comment">-- response. You can use this token in your subsequent request to fetch</span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-comment">-- next set of tokens.</span><span>
@@ -479,7 +479,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-183"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTagsResponse%27"><span class="annot"><span class="annottext">ListTagsResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.ListTags.html#%24sel%3AhttpStatus%3AListTagsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680372425"><span id="local-6989586621680372427"><span class="annot"><span class="annottext">ListTagsResponse -&gt; ListTagsResponse -&gt; Bool
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680373918"><span id="local-6989586621680373920"><span class="annot"><span class="annottext">ListTagsResponse -&gt; ListTagsResponse -&gt; Bool
 (ListTagsResponse -&gt; ListTagsResponse -&gt; Bool)
 -&gt; (ListTagsResponse -&gt; ListTagsResponse -&gt; Bool)
 -&gt; Eq ListTagsResponse
@@ -488,7 +488,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTagsResponse -&gt; ListTagsResponse -&gt; Bool
 == :: ListTagsResponse -&gt; ListTagsResponse -&gt; Bool
 $c== :: ListTagsResponse -&gt; ListTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680372417"><span id="local-6989586621680372419"><span id="local-6989586621680372421"><span id="local-6989586621680372423"><span class="annot"><span class="annottext">ReadPrec [ListTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680373910"><span id="local-6989586621680373912"><span id="local-6989586621680373914"><span id="local-6989586621680373916"><span class="annot"><span class="annottext">ReadPrec [ListTagsResponse]
 ReadPrec ListTagsResponse
 Int -&gt; ReadS ListTagsResponse
 ReadS [ListTagsResponse]
@@ -508,7 +508,7 @@ readList :: ReadS [ListTagsResponse]
 $creadList :: ReadS [ListTagsResponse]
 readsPrec :: Int -&gt; ReadS ListTagsResponse
 $creadsPrec :: Int -&gt; ReadS ListTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680372411"><span id="local-6989586621680372413"><span id="local-6989586621680372415"><span class="annot"><span class="annottext">Int -&gt; ListTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680373904"><span id="local-6989586621680373906"><span id="local-6989586621680373908"><span class="annot"><span class="annottext">Int -&gt; ListTagsResponse -&gt; ShowS
 [ListTagsResponse] -&gt; ShowS
 ListTagsResponse -&gt; String
 (Int -&gt; ListTagsResponse -&gt; ShowS)
@@ -554,8 +554,8 @@ $cfrom :: forall x. ListTagsResponse -&gt; Rep ListTagsResponse x
 </span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-205"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span>
 </span><span id="line-206"></span><span id="newListTagsResponse"><span class="annot"><span class="annottext">newListTagsResponse :: Int -&gt; ListTagsResponse
-</span><a href="Network.AWS.SageMaker.ListTags.html#newListTagsResponse"><span class="hs-identifier hs-var hs-var">newListTagsResponse</span></a></span></span><span> </span><span id="local-6989586621680372408"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680372408"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.ListTags.html#newListTagsResponse"><span class="hs-identifier hs-var hs-var">newListTagsResponse</span></a></span></span><span> </span><span id="local-6989586621680373901"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680373901"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-207"></span><span>  </span><span class="annot"><span class="annottext">ListTagsResponse' :: Maybe Text -&gt; Maybe [Tag] -&gt; Int -&gt; ListTagsResponse
 </span><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span>
 </span><span id="line-208"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListTagsResponse' :: Maybe Text
@@ -568,7 +568,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsResponse' :: Int
 </span><a href="Network.AWS.SageMaker.ListTags.html#%24sel%3AhttpStatus%3AListTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680372408"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621680373901"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-211"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | If response is truncated, Amazon SageMaker includes a token in the</span><span>
@@ -581,16 +581,16 @@ forall a. Maybe a
 -&gt; (ListTagsResponse -&gt; Maybe Text -&gt; ListTagsResponse)
 -&gt; Lens' ListTagsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680372407"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680373900"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListTagsResponse' :: ListTagsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680372407"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680372407"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680372406"><span class="annot"><span class="annottext">s :: ListTagsResponse
-</span><a href="#local-6989586621680372406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680372405"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680372405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsResponse
-</span><a href="#local-6989586621680372406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTagsResponse' :: Maybe Text
+</span><a href="#local-6989586621680373900"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680373900"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680373899"><span class="annot"><span class="annottext">s :: ListTagsResponse
+</span><a href="#local-6989586621680373899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680373898"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680373898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsResponse
+</span><a href="#local-6989586621680373899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTagsResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListTags.html#%24sel%3AnextToken%3AListTagsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680372405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680373898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | An array of @Tag@ objects, each with a tag key and a value.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#listTagsResponse_tags"><span class="hs-identifier hs-type">listTagsResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -600,16 +600,16 @@ $sel:nextToken:ListTagsResponse' :: ListTagsResponse -&gt; Maybe Text
 -&gt; (ListTagsResponse -&gt; Maybe [Tag] -&gt; ListTagsResponse)
 -&gt; Lens' ListTagsResponse (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680372404"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680373897"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:ListTagsResponse' :: ListTagsResponse -&gt; Maybe [Tag]
-</span><a href="#local-6989586621680372404"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680372404"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680372403"><span class="annot"><span class="annottext">s :: ListTagsResponse
-</span><a href="#local-6989586621680372403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680372402"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680372402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsResponse
-</span><a href="#local-6989586621680372403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListTagsResponse' :: Maybe [Tag]
+</span><a href="#local-6989586621680373897"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680373897"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680373896"><span class="annot"><span class="annottext">s :: ListTagsResponse
+</span><a href="#local-6989586621680373896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680373895"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680373895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsResponse
+</span><a href="#local-6989586621680373896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListTagsResponse' :: Maybe [Tag]
 </span><a href="Network.AWS.SageMaker.ListTags.html#%24sel%3Atags%3AListTagsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680372402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621680373895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; ListTagsResponse -&gt; f ListTagsResponse)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -623,8 +623,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-224"></span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#listTagsResponse_httpStatus"><span class="hs-identifier hs-type">listTagsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -633,16 +633,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListTagsResponse -&gt; Int -&gt; ListTagsResponse)
 -&gt; Lens ListTagsResponse ListTagsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680372399"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680373892"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListTagsResponse' :: ListTagsResponse -&gt; Int
-</span><a href="#local-6989586621680372399"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680372399"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680372398"><span class="annot"><span class="annottext">s :: ListTagsResponse
-</span><a href="#local-6989586621680372398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680372397"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680372397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsResponse
-</span><a href="#local-6989586621680372398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsResponse' :: Int
+</span><a href="#local-6989586621680373892"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680373892"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680373891"><span class="annot"><span class="annottext">s :: ListTagsResponse
+</span><a href="#local-6989586621680373891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680373890"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680373890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsResponse
+</span><a href="#local-6989586621680373891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsResponse' :: Int
 </span><a href="Network.AWS.SageMaker.ListTags.html#%24sel%3AhttpStatus%3AListTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680372397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680373890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680372395"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680373888"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span></span><span>
 </span><span id="line-228"></span></pre></body></html>

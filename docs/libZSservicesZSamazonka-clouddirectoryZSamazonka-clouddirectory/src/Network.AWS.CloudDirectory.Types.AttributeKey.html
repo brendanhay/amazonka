@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A unique identifier for an attribute.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAttributeKey' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679321536"><span id="local-6989586621679321537"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttributeKey"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-var">AttributeKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributeKey%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-var">AttributeKey'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679321880"><span id="local-6989586621679321881"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttributeKey"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-var">AttributeKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributeKey%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-var">AttributeKey'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the schema that contains the facet and</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- attribute.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AschemaArn%3AAttributeKey%27"><span class="annot"><span class="annottext">AttributeKey -&gt; Text
@@ -38,7 +38,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aname%3AAttributeKey%27"><span class="annot"><span class="annottext">AttributeKey -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#%24sel%3Aname%3AAttributeKey%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321528"><span id="local-6989586621679321530"><span class="annot"><span class="annottext">AttributeKey -&gt; AttributeKey -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321872"><span id="local-6989586621679321874"><span class="annot"><span class="annottext">AttributeKey -&gt; AttributeKey -&gt; Bool
 (AttributeKey -&gt; AttributeKey -&gt; Bool)
 -&gt; (AttributeKey -&gt; AttributeKey -&gt; Bool) -&gt; Eq AttributeKey
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttributeKey -&gt; AttributeKey -&gt; Bool
 == :: AttributeKey -&gt; AttributeKey -&gt; Bool
 $c== :: AttributeKey -&gt; AttributeKey -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321519"><span id="local-6989586621679321521"><span id="local-6989586621679321523"><span id="local-6989586621679321525"><span class="annot"><span class="annottext">ReadPrec [AttributeKey]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321863"><span id="local-6989586621679321865"><span id="local-6989586621679321867"><span id="local-6989586621679321869"><span class="annot"><span class="annottext">ReadPrec [AttributeKey]
 ReadPrec AttributeKey
 Int -&gt; ReadS AttributeKey
 ReadS [AttributeKey]
@@ -66,7 +66,7 @@ readList :: ReadS [AttributeKey]
 $creadList :: ReadS [AttributeKey]
 readsPrec :: Int -&gt; ReadS AttributeKey
 $creadsPrec :: Int -&gt; ReadS AttributeKey
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321512"><span id="local-6989586621679321514"><span id="local-6989586621679321516"><span class="annot"><span class="annottext">Int -&gt; AttributeKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321856"><span id="local-6989586621679321858"><span id="local-6989586621679321860"><span class="annot"><span class="annottext">Int -&gt; AttributeKey -&gt; ShowS
 [AttributeKey] -&gt; ShowS
 AttributeKey -&gt; String
 (Int -&gt; AttributeKey -&gt; ShowS)
@@ -115,21 +115,21 @@ $cfrom :: forall x. AttributeKey -&gt; Rep AttributeKey x
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span><span>
 </span><span id="line-62"></span><span id="newAttributeKey"><span class="annot"><span class="annottext">newAttributeKey :: Text -&gt; Text -&gt; Text -&gt; AttributeKey
-</span><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#newAttributeKey"><span class="hs-identifier hs-var hs-var">newAttributeKey</span></a></span></span><span> </span><span id="local-6989586621679321506"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321506"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span></span><span> </span><span id="local-6989586621679321505"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321505"><span class="hs-identifier hs-var">pFacetName_</span></a></span></span><span> </span><span id="local-6989586621679321504"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321504"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#newAttributeKey"><span class="hs-identifier hs-var hs-var">newAttributeKey</span></a></span></span><span> </span><span id="local-6989586621679321850"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321850"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span></span><span> </span><span id="local-6989586621679321849"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321849"><span class="hs-identifier hs-var">pFacetName_</span></a></span></span><span> </span><span id="local-6989586621679321848"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321848"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">AttributeKey' :: Text -&gt; Text -&gt; Text -&gt; AttributeKey
 </span><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-type">AttributeKey'</span></a></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:schemaArn:AttributeKey' :: Text
 </span><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#%24sel%3AschemaArn%3AAttributeKey%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321506"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679321850"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:facetName:AttributeKey' :: Text
 </span><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#%24sel%3AfacetName%3AAttributeKey%27"><span class="hs-identifier hs-var">facetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321505"><span class="hs-identifier hs-var">pFacetName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679321849"><span class="hs-identifier hs-var">pFacetName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:AttributeKey' :: Text
 </span><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#%24sel%3Aname%3AAttributeKey%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321504"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679321848"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the schema that contains the facet and</span><span>
@@ -140,16 +140,16 @@ $cfrom :: forall x. AttributeKey -&gt; Rep AttributeKey x
 -&gt; (AttributeKey -&gt; Text -&gt; AttributeKey)
 -&gt; Lens AttributeKey AttributeKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-type">AttributeKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321500"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-type">AttributeKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321844"><span class="annot"><span class="annottext">Text
 schemaArn :: Text
 $sel:schemaArn:AttributeKey' :: AttributeKey -&gt; Text
-</span><a href="#local-6989586621679321500"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321500"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321499"><span class="annot"><span class="annottext">s :: AttributeKey
-</span><a href="#local-6989586621679321499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-type">AttributeKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321498"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeKey
-</span><a href="#local-6989586621679321499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:AttributeKey' :: Text
+</span><a href="#local-6989586621679321844"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321844"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321843"><span class="annot"><span class="annottext">s :: AttributeKey
+</span><a href="#local-6989586621679321843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-type">AttributeKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321842"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeKey
+</span><a href="#local-6989586621679321843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:AttributeKey' :: Text
 </span><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#%24sel%3AschemaArn%3AAttributeKey%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The name of the facet that the attribute exists within.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#attributeKey_facetName"><span class="hs-identifier hs-type">attributeKey_facetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -158,16 +158,16 @@ $sel:schemaArn:AttributeKey' :: AttributeKey -&gt; Text
 -&gt; (AttributeKey -&gt; Text -&gt; AttributeKey)
 -&gt; Lens AttributeKey AttributeKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-type">AttributeKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321496"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-type">AttributeKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321840"><span class="annot"><span class="annottext">Text
 facetName :: Text
 $sel:facetName:AttributeKey' :: AttributeKey -&gt; Text
-</span><a href="#local-6989586621679321496"><span class="hs-identifier hs-var hs-var">facetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321496"><span class="hs-identifier hs-var">facetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321495"><span class="annot"><span class="annottext">s :: AttributeKey
-</span><a href="#local-6989586621679321495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-type">AttributeKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321494"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeKey
-</span><a href="#local-6989586621679321495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:facetName:AttributeKey' :: Text
+</span><a href="#local-6989586621679321840"><span class="hs-identifier hs-var hs-var">facetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321840"><span class="hs-identifier hs-var">facetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321839"><span class="annot"><span class="annottext">s :: AttributeKey
+</span><a href="#local-6989586621679321839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-type">AttributeKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321838"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeKey
+</span><a href="#local-6989586621679321839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:facetName:AttributeKey' :: Text
 </span><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#%24sel%3AfacetName%3AAttributeKey%27"><span class="hs-identifier hs-var">facetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The name of the attribute.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#attributeKey_name"><span class="hs-identifier hs-type">attributeKey_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -176,19 +176,19 @@ $sel:facetName:AttributeKey' :: AttributeKey -&gt; Text
 -&gt; (AttributeKey -&gt; Text -&gt; AttributeKey)
 -&gt; Lens AttributeKey AttributeKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-type">AttributeKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321492"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-type">AttributeKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321836"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:AttributeKey' :: AttributeKey -&gt; Text
-</span><a href="#local-6989586621679321492"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321492"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321491"><span class="annot"><span class="annottext">s :: AttributeKey
-</span><a href="#local-6989586621679321491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-type">AttributeKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321490"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeKey
-</span><a href="#local-6989586621679321491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AttributeKey' :: Text
+</span><a href="#local-6989586621679321836"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321836"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321835"><span class="annot"><span class="annottext">s :: AttributeKey
+</span><a href="#local-6989586621679321835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-type">AttributeKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321834"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeKey
+</span><a href="#local-6989586621679321835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AttributeKey' :: Text
 </span><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#%24sel%3Aname%3AAttributeKey%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321487"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679321485"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttributeKey
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321831"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679321829"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttributeKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AttributeKey) -&gt; Value -&gt; Parser AttributeKey
@@ -196,15 +196,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AttributeKey&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679321482"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679321482"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679321826"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321826"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text -&gt; AttributeKey
 </span><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-var">AttributeKey'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Text -&gt; AttributeKey)
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; AttributeKey)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679321482"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679321826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -212,33 +212,33 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; AttributeKey)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679321482"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679321826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FacetName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; AttributeKey) -&gt; Parser Text -&gt; Parser AttributeKey
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679321482"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679321826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321476"><span id="local-6989586621679321478"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321820"><span id="local-6989586621679321822"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321473"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321817"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321465"><span id="local-6989586621679321467"><span id="local-6989586621679321469"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679321463"><span class="annot"><span class="annottext">toJSON :: AttributeKey -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-type">AttributeKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321459"><span id="local-6989586621679321460"><span id="local-6989586621679321461"><span class="annot"><span class="annottext">Text
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321809"><span id="local-6989586621679321811"><span id="local-6989586621679321813"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey"><span class="hs-identifier hs-type">AttributeKey</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679321807"><span class="annot"><span class="annottext">toJSON :: AttributeKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKey.html#AttributeKey%27"><span class="hs-identifier hs-type">AttributeKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321803"><span id="local-6989586621679321804"><span id="local-6989586621679321805"><span class="annot"><span class="annottext">Text
 name :: Text
 facetName :: Text
 schemaArn :: Text
 $sel:name:AttributeKey' :: AttributeKey -&gt; Text
 $sel:facetName:AttributeKey' :: AttributeKey -&gt; Text
 $sel:schemaArn:AttributeKey' :: AttributeKey -&gt; Text
-</span><a href="#local-6989586621679321459"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679321803"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -250,21 +250,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SchemaArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321461"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679321805"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FacetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321460"><span class="hs-identifier hs-var">facetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679321804"><span class="hs-identifier hs-var">facetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321459"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321803"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span></pre></body></html>

@@ -98,8 +98,8 @@
 </span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#newDetectLabels"><span class="hs-identifier">newDetectLabels</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabels_maxLabels"><span class="hs-identifier">detectLabels_maxLabels</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabels_minConfidence"><span class="hs-identifier">detectLabels_minConfidence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabels_minConfidence"><span class="hs-identifier">detectLabels_minConfidence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabels_maxLabels"><span class="hs-identifier">detectLabels_maxLabels</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabels_image"><span class="hs-identifier">detectLabels_image</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -107,9 +107,9 @@
 </span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#newDetectLabelsResponse"><span class="hs-identifier">newDetectLabelsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_labelModelVersion"><span class="hs-identifier">detectLabelsResponse_labelModelVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_labels"><span class="hs-identifier">detectLabelsResponse_labels</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_orientationCorrection"><span class="hs-identifier">detectLabelsResponse_orientationCorrection</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_labels"><span class="hs-identifier">detectLabelsResponse_labels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_labelModelVersion"><span class="hs-identifier">detectLabelsResponse_labelModelVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_httpStatus"><span class="hs-identifier">detectLabelsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span class="hs-keyword">where</span><span>
@@ -122,19 +122,19 @@
 </span><span id="line-122"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | /See:/ 'newDetectLabels' smart constructor.</span><span>
-</span><span id="line-125"></span><span id="local-6989586621679344655"><span id="local-6989586621679344656"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectLabels"><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-var">DetectLabels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectLabels%27"><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels%27"><span class="hs-identifier hs-var">DetectLabels'</span></a></span></span><span>
-</span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Maximum number of labels you want the service to return in the response.</span><span>
-</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- The service returns the specified number of highest confidence labels.</span><span>
-</span><span id="line-128"></span><span>    </span><span id="%24sel%3AmaxLabels%3ADetectLabels%27"><span class="annot"><span class="annottext">DetectLabels -&gt; Maybe Natural
-</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AmaxLabels%3ADetectLabels%27"><span class="hs-identifier hs-var hs-var">maxLabels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | Specifies the minimum confidence level for the labels to return. Amazon</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- Rekognition doesn\'t return any labels with confidence lower than this</span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- specified value.</span><span>
-</span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- If @MinConfidence@ is not specified, the operation returns labels with a</span><span>
-</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- confidence values greater than or equal to 55 percent.</span><span>
-</span><span id="line-135"></span><span>    </span><span id="%24sel%3AminConfidence%3ADetectLabels%27"><span class="annot"><span class="annottext">DetectLabels -&gt; Maybe Double
+</span><span id="line-125"></span><span id="local-6989586621679344976"><span id="local-6989586621679344977"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectLabels"><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-var">DetectLabels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectLabels%27"><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels%27"><span class="hs-identifier hs-var">DetectLabels'</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the minimum confidence level for the labels to return. Amazon</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- Rekognition doesn\'t return any labels with confidence lower than this</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- specified value.</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- If @MinConfidence@ is not specified, the operation returns labels with a</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- confidence values greater than or equal to 55 percent.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3AminConfidence%3ADetectLabels%27"><span class="annot"><span class="annottext">DetectLabels -&gt; Maybe Double
 </span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AminConfidence%3ADetectLabels%27"><span class="hs-identifier hs-var hs-var">minConfidence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | Maximum number of labels you want the service to return in the response.</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- The service returns the specified number of highest confidence labels.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AmaxLabels%3ADetectLabels%27"><span class="annot"><span class="annottext">DetectLabels -&gt; Maybe Natural
+</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AmaxLabels%3ADetectLabels%27"><span class="hs-identifier hs-var hs-var">maxLabels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The input image as base64-encoded bytes or an S3 object. If you use the</span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-comment">-- AWS CLI to call Amazon Rekognition operations, passing image bytes is</span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-comment">-- not supported. Images stored in an S3 Bucket do not need to be</span><span>
@@ -146,7 +146,7 @@
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3Aimage%3ADetectLabels%27"><span class="annot"><span class="annottext">DetectLabels -&gt; Image
 </span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3Aimage%3ADetectLabels%27"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344647"><span id="local-6989586621679344649"><span class="annot"><span class="annottext">DetectLabels -&gt; DetectLabels -&gt; Bool
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344968"><span id="local-6989586621679344970"><span class="annot"><span class="annottext">DetectLabels -&gt; DetectLabels -&gt; Bool
 (DetectLabels -&gt; DetectLabels -&gt; Bool)
 -&gt; (DetectLabels -&gt; DetectLabels -&gt; Bool) -&gt; Eq DetectLabels
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -154,7 +154,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetectLabels -&gt; DetectLabels -&gt; Bool
 == :: DetectLabels -&gt; DetectLabels -&gt; Bool
 $c== :: DetectLabels -&gt; DetectLabels -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344638"><span id="local-6989586621679344640"><span id="local-6989586621679344642"><span id="local-6989586621679344644"><span class="annot"><span class="annottext">ReadPrec [DetectLabels]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344959"><span id="local-6989586621679344961"><span id="local-6989586621679344963"><span id="local-6989586621679344965"><span class="annot"><span class="annottext">ReadPrec [DetectLabels]
 ReadPrec DetectLabels
 Int -&gt; ReadS DetectLabels
 ReadS [DetectLabels]
@@ -174,7 +174,7 @@ readList :: ReadS [DetectLabels]
 $creadList :: ReadS [DetectLabels]
 readsPrec :: Int -&gt; ReadS DetectLabels
 $creadsPrec :: Int -&gt; ReadS DetectLabels
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344631"><span id="local-6989586621679344633"><span id="local-6989586621679344635"><span class="annot"><span class="annottext">Int -&gt; DetectLabels -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344952"><span id="local-6989586621679344954"><span id="local-6989586621679344956"><span class="annot"><span class="annottext">Int -&gt; DetectLabels -&gt; ShowS
 [DetectLabels] -&gt; ShowS
 DetectLabels -&gt; String
 (Int -&gt; DetectLabels -&gt; ShowS)
@@ -208,15 +208,15 @@ $cfrom :: forall x. DetectLabels -&gt; Rep DetectLabels x
 </span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-155"></span><span class="hs-comment">--</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- 'maxLabels', 'detectLabels_maxLabels' - Maximum number of labels you want the service to return in the response.</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- The service returns the specified number of highest confidence labels.</span><span>
-</span><span id="line-158"></span><span class="hs-comment">--</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- 'minConfidence', 'detectLabels_minConfidence' - Specifies the minimum confidence level for the labels to return. Amazon</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- Rekognition doesn\'t return any labels with confidence lower than this</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- specified value.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'minConfidence', 'detectLabels_minConfidence' - Specifies the minimum confidence level for the labels to return. Amazon</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Rekognition doesn\'t return any labels with confidence lower than this</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- specified value.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- If @MinConfidence@ is not specified, the operation returns labels with a</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- confidence values greater than or equal to 55 percent.</span><span>
 </span><span id="line-162"></span><span class="hs-comment">--</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- If @MinConfidence@ is not specified, the operation returns labels with a</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- confidence values greater than or equal to 55 percent.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'maxLabels', 'detectLabels_maxLabels' - Maximum number of labels you want the service to return in the response.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- The service returns the specified number of highest confidence labels.</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- 'image', 'detectLabels_image' - The input image as base64-encoded bytes or an S3 object. If you use the</span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- AWS CLI to call Amazon Rekognition operations, passing image bytes is</span><span>
@@ -231,66 +231,66 @@ $cfrom :: forall x. DetectLabels -&gt; Rep DetectLabels x
 </span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span><span>
 </span><span id="line-178"></span><span id="newDetectLabels"><span class="annot"><span class="annottext">newDetectLabels :: Image -&gt; DetectLabels
-</span><a href="Network.AWS.Rekognition.DetectLabels.html#newDetectLabels"><span class="hs-identifier hs-var hs-var">newDetectLabels</span></a></span></span><span> </span><span id="local-6989586621679344626"><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679344626"><span class="hs-identifier hs-var">pImage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-179"></span><span>  </span><span class="annot"><span class="annottext">DetectLabels' :: Maybe Natural -&gt; Maybe Double -&gt; Image -&gt; DetectLabels
+</span><a href="Network.AWS.Rekognition.DetectLabels.html#newDetectLabels"><span class="hs-identifier hs-var hs-var">newDetectLabels</span></a></span></span><span> </span><span id="local-6989586621679344947"><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679344947"><span class="hs-identifier hs-var">pImage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="annottext">DetectLabels' :: Maybe Double -&gt; Maybe Natural -&gt; Image -&gt; DetectLabels
 </span><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels%27"><span class="hs-identifier hs-type">DetectLabels'</span></a></span><span>
-</span><span id="line-180"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxLabels:DetectLabels' :: Maybe Natural
-</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AmaxLabels%3ADetectLabels%27"><span class="hs-identifier hs-var">maxLabels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-180"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:minConfidence:DetectLabels' :: Maybe Double
+</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AminConfidence%3ADetectLabels%27"><span class="hs-identifier hs-var">minConfidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:minConfidence:DetectLabels' :: Maybe Double
-</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AminConfidence%3ADetectLabels%27"><span class="hs-identifier hs-var">minConfidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxLabels:DetectLabels' :: Maybe Natural
+</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AmaxLabels%3ADetectLabels%27"><span class="hs-identifier hs-var">maxLabels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:image:DetectLabels' :: Image
 </span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3Aimage%3ADetectLabels%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679344626"><span class="hs-identifier hs-var">pImage_</span></a></span><span>
+</span><a href="#local-6989586621679344947"><span class="hs-identifier hs-var">pImage_</span></a></span><span>
 </span><span id="line-183"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- | Maximum number of labels you want the service to return in the response.</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- The service returns the specified number of highest confidence labels.</span><span>
-</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabels_maxLabels"><span class="hs-identifier hs-type">detectLabels_maxLabels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span id="detectLabels_maxLabels"><span class="annot"><span class="annottext">detectLabels_maxLabels :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; DetectLabels -&gt; f DetectLabels
-</span><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabels_maxLabels"><span class="hs-identifier hs-var hs-var">detectLabels_maxLabels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectLabels -&gt; Maybe Natural)
--&gt; (DetectLabels -&gt; Maybe Natural -&gt; DetectLabels)
--&gt; Lens DetectLabels DetectLabels (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels%27"><span class="hs-identifier hs-type">DetectLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344623"><span class="annot"><span class="annottext">Maybe Natural
-maxLabels :: Maybe Natural
-$sel:maxLabels:DetectLabels' :: DetectLabels -&gt; Maybe Natural
-</span><a href="#local-6989586621679344623"><span class="hs-identifier hs-var hs-var">maxLabels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679344623"><span class="hs-identifier hs-var">maxLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344622"><span class="annot"><span class="annottext">s :: DetectLabels
-</span><a href="#local-6989586621679344622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels%27"><span class="hs-identifier hs-type">DetectLabels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344621"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679344621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectLabels
-</span><a href="#local-6989586621679344622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxLabels:DetectLabels' :: Maybe Natural
-</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AmaxLabels%3ADetectLabels%27"><span class="hs-identifier hs-var">maxLabels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679344621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- | Specifies the minimum confidence level for the labels to return. Amazon</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- Rekognition doesn\'t return any labels with confidence lower than this</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- specified value.</span><span>
-</span><span id="line-193"></span><span class="hs-comment">--</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- If @MinConfidence@ is not specified, the operation returns labels with a</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- confidence values greater than or equal to 55 percent.</span><span>
-</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabels_minConfidence"><span class="hs-identifier hs-type">detectLabels_minConfidence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span><span id="detectLabels_minConfidence"><span class="annot"><span class="annottext">detectLabels_minConfidence :: (Maybe Double -&gt; f (Maybe Double))
+</span><span id="line-185"></span><span class="hs-comment">-- | Specifies the minimum confidence level for the labels to return. Amazon</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Rekognition doesn\'t return any labels with confidence lower than this</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- specified value.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- If @MinConfidence@ is not specified, the operation returns labels with a</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- confidence values greater than or equal to 55 percent.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabels_minConfidence"><span class="hs-identifier hs-type">detectLabels_minConfidence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="detectLabels_minConfidence"><span class="annot"><span class="annottext">detectLabels_minConfidence :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; DetectLabels -&gt; f DetectLabels
 </span><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabels_minConfidence"><span class="hs-identifier hs-var hs-var">detectLabels_minConfidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectLabels -&gt; Maybe Double)
 -&gt; (DetectLabels -&gt; Maybe Double -&gt; DetectLabels)
 -&gt; Lens DetectLabels DetectLabels (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels%27"><span class="hs-identifier hs-type">DetectLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344620"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels%27"><span class="hs-identifier hs-type">DetectLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344944"><span class="annot"><span class="annottext">Maybe Double
 minConfidence :: Maybe Double
 $sel:minConfidence:DetectLabels' :: DetectLabels -&gt; Maybe Double
-</span><a href="#local-6989586621679344620"><span class="hs-identifier hs-var hs-var">minConfidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679344620"><span class="hs-identifier hs-var">minConfidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344619"><span class="annot"><span class="annottext">s :: DetectLabels
-</span><a href="#local-6989586621679344619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels%27"><span class="hs-identifier hs-type">DetectLabels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344618"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679344618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectLabels
-</span><a href="#local-6989586621679344619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minConfidence:DetectLabels' :: Maybe Double
+</span><a href="#local-6989586621679344944"><span class="hs-identifier hs-var hs-var">minConfidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679344944"><span class="hs-identifier hs-var">minConfidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344943"><span class="annot"><span class="annottext">s :: DetectLabels
+</span><a href="#local-6989586621679344943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels%27"><span class="hs-identifier hs-type">DetectLabels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344942"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679344942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectLabels
+</span><a href="#local-6989586621679344943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minConfidence:DetectLabels' :: Maybe Double
 </span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AminConfidence%3ADetectLabels%27"><span class="hs-identifier hs-var">minConfidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679344618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | Maximum number of labels you want the service to return in the response.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- The service returns the specified number of highest confidence labels.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabels_maxLabels"><span class="hs-identifier hs-type">detectLabels_maxLabels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="detectLabels_maxLabels"><span class="annot"><span class="annottext">detectLabels_maxLabels :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DetectLabels -&gt; f DetectLabels
+</span><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabels_maxLabels"><span class="hs-identifier hs-var hs-var">detectLabels_maxLabels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectLabels -&gt; Maybe Natural)
+-&gt; (DetectLabels -&gt; Maybe Natural -&gt; DetectLabels)
+-&gt; Lens DetectLabels DetectLabels (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels%27"><span class="hs-identifier hs-type">DetectLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344941"><span class="annot"><span class="annottext">Maybe Natural
+maxLabels :: Maybe Natural
+$sel:maxLabels:DetectLabels' :: DetectLabels -&gt; Maybe Natural
+</span><a href="#local-6989586621679344941"><span class="hs-identifier hs-var hs-var">maxLabels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679344941"><span class="hs-identifier hs-var">maxLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344940"><span class="annot"><span class="annottext">s :: DetectLabels
+</span><a href="#local-6989586621679344940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels%27"><span class="hs-identifier hs-type">DetectLabels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344939"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679344939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectLabels
+</span><a href="#local-6989586621679344940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxLabels:DetectLabels' :: Maybe Natural
+</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AmaxLabels%3ADetectLabels%27"><span class="hs-identifier hs-var">maxLabels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679344939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | The input image as base64-encoded bytes or an S3 object. If you use the</span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- AWS CLI to call Amazon Rekognition operations, passing image bytes is</span><span>
@@ -306,25 +306,25 @@ $sel:minConfidence:DetectLabels' :: DetectLabels -&gt; Maybe Double
 -&gt; (DetectLabels -&gt; Image -&gt; DetectLabels)
 -&gt; Lens DetectLabels DetectLabels Image Image
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels%27"><span class="hs-identifier hs-type">DetectLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344617"><span class="annot"><span class="annottext">Image
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels%27"><span class="hs-identifier hs-type">DetectLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344938"><span class="annot"><span class="annottext">Image
 image :: Image
 $sel:image:DetectLabels' :: DetectLabels -&gt; Image
-</span><a href="#local-6989586621679344617"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679344617"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344616"><span class="annot"><span class="annottext">s :: DetectLabels
-</span><a href="#local-6989586621679344616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels%27"><span class="hs-identifier hs-type">DetectLabels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344615"><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679344615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectLabels
-</span><a href="#local-6989586621679344616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:DetectLabels' :: Image
+</span><a href="#local-6989586621679344938"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679344938"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344937"><span class="annot"><span class="annottext">s :: DetectLabels
+</span><a href="#local-6989586621679344937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels%27"><span class="hs-identifier hs-type">DetectLabels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344936"><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679344936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectLabels
+</span><a href="#local-6989586621679344937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:DetectLabels' :: Image
 </span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3Aimage%3ADetectLabels%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679344615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-211"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621679344611"><span class="annot"><span class="annottext">request :: DetectLabels -&gt; Request DetectLabels
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679344932"><span class="annot"><span class="annottext">request :: DetectLabels -&gt; Request DetectLabels
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DetectLabels -&gt; Request DetectLabels
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Rekognition.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679344607"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679344928"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DetectLabels
 -&gt; ClientResponse ClientBody
@@ -348,50 +348,29 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344604"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344604"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679344603"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679344603"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679344602"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344602"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344925"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344925"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679344924"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679344924"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679344923"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344923"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Label]
 -&gt; Maybe OrientationCorrection
--&gt; Maybe [Label]
+-&gt; Maybe Text
 -&gt; Int
 -&gt; DetectLabelsResponse
 </span><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-var">DetectLabelsResponse'</span></a></span><span>
-</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Label]
  -&gt; Maybe OrientationCorrection
- -&gt; Maybe [Label]
+ -&gt; Maybe Text
  -&gt; Int
  -&gt; DetectLabelsResponse)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Label])
 -&gt; Either
      String
      (Maybe OrientationCorrection
-      -&gt; Maybe [Label] -&gt; Int -&gt; DetectLabelsResponse)
+      -&gt; Maybe Text -&gt; Int -&gt; DetectLabelsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LabelModelVersion&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe OrientationCorrection
-   -&gt; Maybe [Label] -&gt; Int -&gt; DetectLabelsResponse)
--&gt; Either String (Maybe OrientationCorrection)
--&gt; Either String (Maybe [Label] -&gt; Int -&gt; DetectLabelsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OrientationCorrection)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OrientationCorrection&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Label] -&gt; Int -&gt; DetectLabelsResponse)
--&gt; Either String (Maybe [Label])
--&gt; Either String (Int -&gt; DetectLabelsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Label]))
+</span><a href="#local-6989586621679344923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Label]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Labels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Label]))
@@ -400,6 +379,27 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Label]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe OrientationCorrection
+   -&gt; Maybe Text -&gt; Int -&gt; DetectLabelsResponse)
+-&gt; Either String (Maybe OrientationCorrection)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; DetectLabelsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OrientationCorrection)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrientationCorrection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DetectLabelsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DetectLabelsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LabelModelVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DetectLabelsResponse)
 -&gt; Either String Int -&gt; Either String DetectLabelsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -408,15 +408,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344604"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344925"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344593"><span id="local-6989586621679344595"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span></span></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344914"><span id="local-6989586621679344916"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span></span></span><span>
 </span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344590"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344911"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span></span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621679344586"><span class="annot"><span class="annottext">toHeaders :: DetectLabels -&gt; ResponseHeaders
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679344907"><span class="annot"><span class="annottext">toHeaders :: DetectLabels -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-229"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DetectLabels -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -443,56 +443,56 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-239"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-240"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344576"><span id="local-6989586621679344578"><span id="local-6989586621679344580"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-243"></span><span>  </span><span id="local-6989586621679344574"><span class="annot"><span class="annottext">toJSON :: DetectLabels -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels%27"><span class="hs-identifier hs-type">DetectLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344570"><span id="local-6989586621679344571"><span id="local-6989586621679344572"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344897"><span id="local-6989586621679344899"><span id="local-6989586621679344901"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679344895"><span class="annot"><span class="annottext">toJSON :: DetectLabels -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels%27"><span class="hs-identifier hs-type">DetectLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344891"><span id="local-6989586621679344892"><span id="local-6989586621679344893"><span class="annot"><span class="annottext">Maybe Double
 Maybe Natural
 Image
 image :: Image
-minConfidence :: Maybe Double
 maxLabels :: Maybe Natural
+minConfidence :: Maybe Double
 $sel:image:DetectLabels' :: DetectLabels -&gt; Image
-$sel:minConfidence:DetectLabels' :: DetectLabels -&gt; Maybe Double
 $sel:maxLabels:DetectLabels' :: DetectLabels -&gt; Maybe Natural
-</span><a href="#local-6989586621679344570"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:minConfidence:DetectLabels' :: DetectLabels -&gt; Maybe Double
+</span><a href="#local-6989586621679344891"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-244"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-245"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-246"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxLabels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679344572"><span class="hs-identifier hs-var">maxLabels</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-247"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinConfidence&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679344571"><span class="hs-identifier hs-var">minConfidence</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679344893"><span class="hs-identifier hs-var">minConfidence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxLabels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679344892"><span class="hs-identifier hs-var">maxLabels</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Image&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Image -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679344570"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344891"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-250"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-253"></span><span>  </span><span id="local-6989586621679344564"><span class="annot"><span class="annottext">toPath :: DetectLabels -&gt; ByteString
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679344885"><span class="annot"><span class="annottext">toPath :: DetectLabels -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DetectLabels -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-254"></span><span>
 </span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabels"><span class="hs-identifier hs-type">DetectLabels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-256"></span><span>  </span><span id="local-6989586621679344560"><span class="annot"><span class="annottext">toQuery :: DetectLabels -&gt; QueryString
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679344881"><span class="annot"><span class="annottext">toQuery :: DetectLabels -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DetectLabels -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -500,35 +500,35 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-257"></span><span>
 </span><span id="line-258"></span><span class="hs-comment">-- | /See:/ 'newDetectLabelsResponse' smart constructor.</span><span>
-</span><span id="line-259"></span><span id="local-6989586621679344557"><span id="local-6989586621679344558"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectLabelsResponse"><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-var">DetectLabelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectLabelsResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-var">DetectLabelsResponse'</span></a></span></span><span>
-</span><span id="line-260"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Version number of the label detection model that was used to detect</span><span>
-</span><span id="line-261"></span><span>    </span><span class="hs-comment">-- labels.</span><span>
-</span><span id="line-262"></span><span>    </span><span id="%24sel%3AlabelModelVersion%3ADetectLabelsResponse%27"><span class="annot"><span class="annottext">DetectLabelsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AlabelModelVersion%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var hs-var">labelModelVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-263"></span><span>    </span><span class="hs-comment">-- | The value of @OrientationCorrection@ is always null.</span><span>
-</span><span id="line-264"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-265"></span><span>    </span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
-</span><span id="line-266"></span><span>    </span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
-</span><span id="line-267"></span><span>    </span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
-</span><span id="line-268"></span><span>    </span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
-</span><span id="line-269"></span><span>    </span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
-</span><span id="line-270"></span><span>    </span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
-</span><span id="line-271"></span><span>    </span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
-</span><span id="line-272"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-273"></span><span>    </span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
-</span><span id="line-274"></span><span>    </span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
-</span><span id="line-275"></span><span>    </span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
-</span><span id="line-276"></span><span>    </span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
-</span><span id="line-277"></span><span>    </span><span id="%24sel%3AorientationCorrection%3ADetectLabelsResponse%27"><span class="annot"><span class="annottext">DetectLabelsResponse -&gt; Maybe OrientationCorrection
-</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AorientationCorrection%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var hs-var">orientationCorrection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-278"></span><span>    </span><span class="hs-comment">-- | An array of labels for the real-world objects detected.</span><span>
-</span><span id="line-279"></span><span>    </span><span id="%24sel%3Alabels%3ADetectLabelsResponse%27"><span class="annot"><span class="annottext">DetectLabelsResponse -&gt; Maybe [Label]
+</span><span id="line-259"></span><span id="local-6989586621679344878"><span id="local-6989586621679344879"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectLabelsResponse"><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-var">DetectLabelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectLabelsResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-var">DetectLabelsResponse'</span></a></span></span><span>
+</span><span id="line-260"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of labels for the real-world objects detected.</span><span>
+</span><span id="line-261"></span><span>    </span><span id="%24sel%3Alabels%3ADetectLabelsResponse%27"><span class="annot"><span class="annottext">DetectLabelsResponse -&gt; Maybe [Label]
 </span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3Alabels%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="hs-comment">-- | The value of @OrientationCorrection@ is always null.</span><span>
+</span><span id="line-263"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-265"></span><span>    </span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-267"></span><span>    </span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
+</span><span id="line-269"></span><span>    </span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span>    </span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
+</span><span id="line-273"></span><span>    </span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
+</span><span id="line-274"></span><span>    </span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
+</span><span id="line-275"></span><span>    </span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
+</span><span id="line-276"></span><span>    </span><span id="%24sel%3AorientationCorrection%3ADetectLabelsResponse%27"><span class="annot"><span class="annottext">DetectLabelsResponse -&gt; Maybe OrientationCorrection
+</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AorientationCorrection%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var hs-var">orientationCorrection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>    </span><span class="hs-comment">-- | Version number of the label detection model that was used to detect</span><span>
+</span><span id="line-278"></span><span>    </span><span class="hs-comment">-- labels.</span><span>
+</span><span id="line-279"></span><span>    </span><span id="%24sel%3AlabelModelVersion%3ADetectLabelsResponse%27"><span class="annot"><span class="annottext">DetectLabelsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AlabelModelVersion%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var hs-var">labelModelVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-280"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-281"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADetectLabelsResponse%27"><span class="annot"><span class="annottext">DetectLabelsResponse -&gt; Int
 </span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AhttpStatus%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-282"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-283"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344549"><span id="local-6989586621679344551"><span class="annot"><span class="annottext">DetectLabelsResponse -&gt; DetectLabelsResponse -&gt; Bool
+</span><span id="line-283"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344870"><span id="local-6989586621679344872"><span class="annot"><span class="annottext">DetectLabelsResponse -&gt; DetectLabelsResponse -&gt; Bool
 (DetectLabelsResponse -&gt; DetectLabelsResponse -&gt; Bool)
 -&gt; (DetectLabelsResponse -&gt; DetectLabelsResponse -&gt; Bool)
 -&gt; Eq DetectLabelsResponse
@@ -537,7 +537,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetectLabelsResponse -&gt; DetectLabelsResponse -&gt; Bool
 == :: DetectLabelsResponse -&gt; DetectLabelsResponse -&gt; Bool
 $c== :: DetectLabelsResponse -&gt; DetectLabelsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344541"><span id="local-6989586621679344543"><span id="local-6989586621679344545"><span id="local-6989586621679344547"><span class="annot"><span class="annottext">ReadPrec [DetectLabelsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344862"><span id="local-6989586621679344864"><span id="local-6989586621679344866"><span id="local-6989586621679344868"><span class="annot"><span class="annottext">ReadPrec [DetectLabelsResponse]
 ReadPrec DetectLabelsResponse
 Int -&gt; ReadS DetectLabelsResponse
 ReadS [DetectLabelsResponse]
@@ -557,7 +557,7 @@ readList :: ReadS [DetectLabelsResponse]
 $creadList :: ReadS [DetectLabelsResponse]
 readsPrec :: Int -&gt; ReadS DetectLabelsResponse
 $creadsPrec :: Int -&gt; ReadS DetectLabelsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344535"><span id="local-6989586621679344537"><span id="local-6989586621679344539"><span class="annot"><span class="annottext">Int -&gt; DetectLabelsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344856"><span id="local-6989586621679344858"><span id="local-6989586621679344860"><span class="annot"><span class="annottext">Int -&gt; DetectLabelsResponse -&gt; ShowS
 [DetectLabelsResponse] -&gt; ShowS
 DetectLabelsResponse -&gt; String
 (Int -&gt; DetectLabelsResponse -&gt; ShowS)
@@ -591,25 +591,25 @@ $cfrom :: forall x. DetectLabelsResponse -&gt; Rep DetectLabelsResponse x
 </span><span id="line-290"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-292"></span><span class="hs-comment">--</span><span>
-</span><span id="line-293"></span><span class="hs-comment">-- 'labelModelVersion', 'detectLabelsResponse_labelModelVersion' - Version number of the label detection model that was used to detect</span><span>
-</span><span id="line-294"></span><span class="hs-comment">-- labels.</span><span>
-</span><span id="line-295"></span><span class="hs-comment">--</span><span>
-</span><span id="line-296"></span><span class="hs-comment">-- 'orientationCorrection', 'detectLabelsResponse_orientationCorrection' - The value of @OrientationCorrection@ is always null.</span><span>
-</span><span id="line-297"></span><span class="hs-comment">--</span><span>
-</span><span id="line-298"></span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
-</span><span id="line-299"></span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
-</span><span id="line-300"></span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
-</span><span id="line-301"></span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
-</span><span id="line-302"></span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
-</span><span id="line-303"></span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
-</span><span id="line-304"></span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
-</span><span id="line-305"></span><span class="hs-comment">--</span><span>
-</span><span id="line-306"></span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
-</span><span id="line-307"></span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
-</span><span id="line-308"></span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
-</span><span id="line-309"></span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
-</span><span id="line-310"></span><span class="hs-comment">--</span><span>
-</span><span id="line-311"></span><span class="hs-comment">-- 'labels', 'detectLabelsResponse_labels' - An array of labels for the real-world objects detected.</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- 'labels', 'detectLabelsResponse_labels' - An array of labels for the real-world objects detected.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- 'orientationCorrection', 'detectLabelsResponse_orientationCorrection' - The value of @OrientationCorrection@ is always null.</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- 'labelModelVersion', 'detectLabelsResponse_labelModelVersion' - Version number of the label detection model that was used to detect</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- labels.</span><span>
 </span><span id="line-312"></span><span class="hs-comment">--</span><span>
 </span><span id="line-313"></span><span class="hs-comment">-- 'httpStatus', 'detectLabelsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-314"></span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#newDetectLabelsResponse"><span class="hs-identifier hs-type">newDetectLabelsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -617,93 +617,34 @@ $cfrom :: forall x. DetectLabelsResponse -&gt; Rep DetectLabelsResponse x
 </span><span id="line-316"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-317"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span>
 </span><span id="line-318"></span><span id="newDetectLabelsResponse"><span class="annot"><span class="annottext">newDetectLabelsResponse :: Int -&gt; DetectLabelsResponse
-</span><a href="Network.AWS.Rekognition.DetectLabels.html#newDetectLabelsResponse"><span class="hs-identifier hs-var hs-var">newDetectLabelsResponse</span></a></span></span><span> </span><span id="local-6989586621679344532"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344532"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-319"></span><span>  </span><span class="annot"><span class="annottext">DetectLabelsResponse' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.DetectLabels.html#newDetectLabelsResponse"><span class="hs-identifier hs-var hs-var">newDetectLabelsResponse</span></a></span></span><span> </span><span id="local-6989586621679344853"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344853"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-319"></span><span>  </span><span class="annot"><span class="annottext">DetectLabelsResponse' :: Maybe [Label]
 -&gt; Maybe OrientationCorrection
--&gt; Maybe [Label]
+-&gt; Maybe Text
 -&gt; Int
 -&gt; DetectLabelsResponse
 </span><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-type">DetectLabelsResponse'</span></a></span><span>
-</span><span id="line-320"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:labelModelVersion:DetectLabelsResponse' :: Maybe Text
-</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AlabelModelVersion%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var">labelModelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-321"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-322"></span><span>      </span><span class="annot"><span class="annottext">$sel:orientationCorrection:DetectLabelsResponse' :: Maybe OrientationCorrection
-</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AorientationCorrection%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var">orientationCorrection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-323"></span><span>      </span><span class="annot"><span class="annottext">$sel:labels:DetectLabelsResponse' :: Maybe [Label]
+</span><span id="line-320"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:labels:DetectLabelsResponse' :: Maybe [Label]
 </span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3Alabels%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var">labels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Label]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-324"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DetectLabelsResponse' :: Int
-</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AhttpStatus%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344532"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-325"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-326"></span><span>
-</span><span id="line-327"></span><span class="hs-comment">-- | Version number of the label detection model that was used to detect</span><span>
-</span><span id="line-328"></span><span class="hs-comment">-- labels.</span><span>
-</span><span id="line-329"></span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_labelModelVersion"><span class="hs-identifier hs-type">detectLabelsResponse_labelModelVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-330"></span><span id="detectLabelsResponse_labelModelVersion"><span class="annot"><span class="annottext">detectLabelsResponse_labelModelVersion :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DetectLabelsResponse -&gt; f DetectLabelsResponse
-</span><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_labelModelVersion"><span class="hs-identifier hs-var hs-var">detectLabelsResponse_labelModelVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectLabelsResponse -&gt; Maybe Text)
--&gt; (DetectLabelsResponse -&gt; Maybe Text -&gt; DetectLabelsResponse)
--&gt; Lens
-     DetectLabelsResponse DetectLabelsResponse (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-type">DetectLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344531"><span class="annot"><span class="annottext">Maybe Text
-labelModelVersion :: Maybe Text
-$sel:labelModelVersion:DetectLabelsResponse' :: DetectLabelsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679344531"><span class="hs-identifier hs-var hs-var">labelModelVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344531"><span class="hs-identifier hs-var">labelModelVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344530"><span class="annot"><span class="annottext">s :: DetectLabelsResponse
-</span><a href="#local-6989586621679344530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-type">DetectLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344529"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectLabelsResponse
-</span><a href="#local-6989586621679344530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labelModelVersion:DetectLabelsResponse' :: Maybe Text
-</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AlabelModelVersion%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var">labelModelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-331"></span><span>
-</span><span id="line-332"></span><span class="hs-comment">-- | The value of @OrientationCorrection@ is always null.</span><span>
-</span><span id="line-333"></span><span class="hs-comment">--</span><span>
-</span><span id="line-334"></span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
-</span><span id="line-335"></span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
-</span><span id="line-336"></span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
-</span><span id="line-337"></span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
-</span><span id="line-338"></span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
-</span><span id="line-339"></span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
-</span><span id="line-340"></span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
-</span><span id="line-341"></span><span class="hs-comment">--</span><span>
-</span><span id="line-342"></span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
-</span><span id="line-343"></span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
-</span><span id="line-344"></span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
-</span><span id="line-345"></span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
-</span><span id="line-346"></span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_orientationCorrection"><span class="hs-identifier hs-type">detectLabelsResponse_orientationCorrection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-347"></span><span id="detectLabelsResponse_orientationCorrection"><span class="annot"><span class="annottext">detectLabelsResponse_orientationCorrection :: (Maybe OrientationCorrection -&gt; f (Maybe OrientationCorrection))
--&gt; DetectLabelsResponse -&gt; f DetectLabelsResponse
-</span><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_orientationCorrection"><span class="hs-identifier hs-var hs-var">detectLabelsResponse_orientationCorrection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectLabelsResponse -&gt; Maybe OrientationCorrection)
--&gt; (DetectLabelsResponse
-    -&gt; Maybe OrientationCorrection -&gt; DetectLabelsResponse)
--&gt; Lens
-     DetectLabelsResponse
-     DetectLabelsResponse
-     (Maybe OrientationCorrection)
-     (Maybe OrientationCorrection)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-type">DetectLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344528"><span class="annot"><span class="annottext">Maybe OrientationCorrection
-orientationCorrection :: Maybe OrientationCorrection
-$sel:orientationCorrection:DetectLabelsResponse' :: DetectLabelsResponse -&gt; Maybe OrientationCorrection
-</span><a href="#local-6989586621679344528"><span class="hs-identifier hs-var hs-var">orientationCorrection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
-</span><a href="#local-6989586621679344528"><span class="hs-identifier hs-var">orientationCorrection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344527"><span class="annot"><span class="annottext">s :: DetectLabelsResponse
-</span><a href="#local-6989586621679344527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-type">DetectLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344526"><span class="annot"><span class="annottext">Maybe OrientationCorrection
-</span><a href="#local-6989586621679344526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectLabelsResponse
-</span><a href="#local-6989586621679344527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orientationCorrection:DetectLabelsResponse' :: Maybe OrientationCorrection
+</span><span id="line-321"></span><span>      </span><span class="annot"><span class="annottext">$sel:orientationCorrection:DetectLabelsResponse' :: Maybe OrientationCorrection
 </span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AorientationCorrection%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var">orientationCorrection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
-</span><a href="#local-6989586621679344526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-348"></span><span>
-</span><span id="line-349"></span><span class="hs-comment">-- | An array of labels for the real-world objects detected.</span><span>
-</span><span id="line-350"></span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_labels"><span class="hs-identifier hs-type">detectLabelsResponse_labels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-351"></span><span id="detectLabelsResponse_labels"><span class="annot"><span class="annottext">detectLabelsResponse_labels :: (Maybe [Label] -&gt; f (Maybe [Label]))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>      </span><span class="annot"><span class="annottext">$sel:labelModelVersion:DetectLabelsResponse' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AlabelModelVersion%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var">labelModelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DetectLabelsResponse' :: Int
+</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AhttpStatus%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344853"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-324"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- | An array of labels for the real-world objects detected.</span><span>
+</span><span id="line-327"></span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_labels"><span class="hs-identifier hs-type">detectLabelsResponse_labels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span id="detectLabelsResponse_labels"><span class="annot"><span class="annottext">detectLabelsResponse_labels :: (Maybe [Label] -&gt; f (Maybe [Label]))
 -&gt; DetectLabelsResponse -&gt; f DetectLabelsResponse
 </span><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_labels"><span class="hs-identifier hs-var hs-var">detectLabelsResponse_labels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectLabelsResponse -&gt; Maybe [Label])
 -&gt; (DetectLabelsResponse -&gt; Maybe [Label] -&gt; DetectLabelsResponse)
@@ -713,16 +654,16 @@ $sel:orientationCorrection:DetectLabelsResponse' :: DetectLabelsResponse -&gt; M
      (Maybe [Label])
      (Maybe [Label])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-type">DetectLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344525"><span class="annot"><span class="annottext">Maybe [Label]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-type">DetectLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344852"><span class="annot"><span class="annottext">Maybe [Label]
 labels :: Maybe [Label]
 $sel:labels:DetectLabelsResponse' :: DetectLabelsResponse -&gt; Maybe [Label]
-</span><a href="#local-6989586621679344525"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Label]
-</span><a href="#local-6989586621679344525"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344524"><span class="annot"><span class="annottext">s :: DetectLabelsResponse
-</span><a href="#local-6989586621679344524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-type">DetectLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344523"><span class="annot"><span class="annottext">Maybe [Label]
-</span><a href="#local-6989586621679344523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectLabelsResponse
-</span><a href="#local-6989586621679344524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labels:DetectLabelsResponse' :: Maybe [Label]
+</span><a href="#local-6989586621679344852"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Label]
+</span><a href="#local-6989586621679344852"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344851"><span class="annot"><span class="annottext">s :: DetectLabelsResponse
+</span><a href="#local-6989586621679344851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-type">DetectLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344850"><span class="annot"><span class="annottext">Maybe [Label]
+</span><a href="#local-6989586621679344850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectLabelsResponse
+</span><a href="#local-6989586621679344851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labels:DetectLabelsResponse' :: Maybe [Label]
 </span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3Alabels%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var">labels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Label]
-</span><a href="#local-6989586621679344523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Label] -&gt; f (Maybe [Label]))
+</span><a href="#local-6989586621679344850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Label] -&gt; f (Maybe [Label]))
  -&gt; DetectLabelsResponse -&gt; f DetectLabelsResponse)
 -&gt; ((Maybe [Label] -&gt; f (Maybe [Label]))
     -&gt; Maybe [Label] -&gt; f (Maybe [Label]))
@@ -737,26 +678,84 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Label] [Label] [Label] [Label]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-352"></span><span>
-</span><span id="line-353"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-354"></span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_httpStatus"><span class="hs-identifier hs-type">detectLabelsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-355"></span><span id="detectLabelsResponse_httpStatus"><span class="annot"><span class="annottext">detectLabelsResponse_httpStatus :: (Int -&gt; f Int) -&gt; DetectLabelsResponse -&gt; f DetectLabelsResponse
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-329"></span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- | The value of @OrientationCorrection@ is always null.</span><span>
+</span><span id="line-331"></span><span class="hs-comment">--</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
+</span><span id="line-344"></span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_orientationCorrection"><span class="hs-identifier hs-type">detectLabelsResponse_orientationCorrection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span id="detectLabelsResponse_orientationCorrection"><span class="annot"><span class="annottext">detectLabelsResponse_orientationCorrection :: (Maybe OrientationCorrection -&gt; f (Maybe OrientationCorrection))
+-&gt; DetectLabelsResponse -&gt; f DetectLabelsResponse
+</span><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_orientationCorrection"><span class="hs-identifier hs-var hs-var">detectLabelsResponse_orientationCorrection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectLabelsResponse -&gt; Maybe OrientationCorrection)
+-&gt; (DetectLabelsResponse
+    -&gt; Maybe OrientationCorrection -&gt; DetectLabelsResponse)
+-&gt; Lens
+     DetectLabelsResponse
+     DetectLabelsResponse
+     (Maybe OrientationCorrection)
+     (Maybe OrientationCorrection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-type">DetectLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344846"><span class="annot"><span class="annottext">Maybe OrientationCorrection
+orientationCorrection :: Maybe OrientationCorrection
+$sel:orientationCorrection:DetectLabelsResponse' :: DetectLabelsResponse -&gt; Maybe OrientationCorrection
+</span><a href="#local-6989586621679344846"><span class="hs-identifier hs-var hs-var">orientationCorrection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679344846"><span class="hs-identifier hs-var">orientationCorrection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344845"><span class="annot"><span class="annottext">s :: DetectLabelsResponse
+</span><a href="#local-6989586621679344845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-type">DetectLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344844"><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679344844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectLabelsResponse
+</span><a href="#local-6989586621679344845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orientationCorrection:DetectLabelsResponse' :: Maybe OrientationCorrection
+</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AorientationCorrection%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var">orientationCorrection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679344844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-346"></span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- | Version number of the label detection model that was used to detect</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- labels.</span><span>
+</span><span id="line-349"></span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_labelModelVersion"><span class="hs-identifier hs-type">detectLabelsResponse_labelModelVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span id="detectLabelsResponse_labelModelVersion"><span class="annot"><span class="annottext">detectLabelsResponse_labelModelVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DetectLabelsResponse -&gt; f DetectLabelsResponse
+</span><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_labelModelVersion"><span class="hs-identifier hs-var hs-var">detectLabelsResponse_labelModelVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectLabelsResponse -&gt; Maybe Text)
+-&gt; (DetectLabelsResponse -&gt; Maybe Text -&gt; DetectLabelsResponse)
+-&gt; Lens
+     DetectLabelsResponse DetectLabelsResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-type">DetectLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344843"><span class="annot"><span class="annottext">Maybe Text
+labelModelVersion :: Maybe Text
+$sel:labelModelVersion:DetectLabelsResponse' :: DetectLabelsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679344843"><span class="hs-identifier hs-var hs-var">labelModelVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344843"><span class="hs-identifier hs-var">labelModelVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344842"><span class="annot"><span class="annottext">s :: DetectLabelsResponse
+</span><a href="#local-6989586621679344842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-type">DetectLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344841"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectLabelsResponse
+</span><a href="#local-6989586621679344842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labelModelVersion:DetectLabelsResponse' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AlabelModelVersion%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var">labelModelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-353"></span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_httpStatus"><span class="hs-identifier hs-type">detectLabelsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-354"></span><span id="detectLabelsResponse_httpStatus"><span class="annot"><span class="annottext">detectLabelsResponse_httpStatus :: (Int -&gt; f Int) -&gt; DetectLabelsResponse -&gt; f DetectLabelsResponse
 </span><a href="Network.AWS.Rekognition.DetectLabels.html#detectLabelsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">detectLabelsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectLabelsResponse -&gt; Int)
 -&gt; (DetectLabelsResponse -&gt; Int -&gt; DetectLabelsResponse)
 -&gt; Lens DetectLabelsResponse DetectLabelsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-type">DetectLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344519"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-type">DetectLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344840"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DetectLabelsResponse' :: DetectLabelsResponse -&gt; Int
-</span><a href="#local-6989586621679344519"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344519"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344518"><span class="annot"><span class="annottext">s :: DetectLabelsResponse
-</span><a href="#local-6989586621679344518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-type">DetectLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344517"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectLabelsResponse
-</span><a href="#local-6989586621679344518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DetectLabelsResponse' :: Int
+</span><a href="#local-6989586621679344840"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344840"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344839"><span class="annot"><span class="annottext">s :: DetectLabelsResponse
+</span><a href="#local-6989586621679344839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse%27"><span class="hs-identifier hs-type">DetectLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344838"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectLabelsResponse
+</span><a href="#local-6989586621679344839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DetectLabelsResponse' :: Int
 </span><a href="Network.AWS.Rekognition.DetectLabels.html#%24sel%3AhttpStatus%3ADetectLabelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-356"></span><span>
-</span><span id="line-357"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344515"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span></span><span>
-</span><span id="line-358"></span></pre></body></html>
+</span><a href="#local-6989586621679344838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-355"></span><span>
+</span><span id="line-356"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DetectLabels.html#DetectLabelsResponse"><span class="hs-identifier hs-type">DetectLabelsResponse</span></a></span></span><span>
+</span><span id="line-357"></span></pre></body></html>

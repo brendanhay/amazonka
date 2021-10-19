@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- (EFS) volume.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRetentionPolicy' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680337554"><span id="local-6989586621680337555"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetentionPolicy"><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy"><span class="hs-identifier hs-var">RetentionPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetentionPolicy%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy%27"><span class="hs-identifier hs-var">RetentionPolicy'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680338966"><span id="local-6989586621680338967"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetentionPolicy"><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy"><span class="hs-identifier hs-var">RetentionPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetentionPolicy%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy%27"><span class="hs-identifier hs-var">RetentionPolicy'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The default is @Retain@, which specifies to keep the data stored on the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- EFS volume.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AhomeEfsFileSystem%3ARetentionPolicy%27"><span class="annot"><span class="annottext">RetentionPolicy -&gt; Maybe RetentionType
 </span><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#%24sel%3AhomeEfsFileSystem%3ARetentionPolicy%27"><span class="hs-identifier hs-var hs-var">homeEfsFileSystem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionType.html#RetentionType"><span class="hs-identifier hs-type">RetentionType</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680337548"><span id="local-6989586621680337550"><span class="annot"><span class="annottext">RetentionPolicy -&gt; RetentionPolicy -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680338960"><span id="local-6989586621680338962"><span class="annot"><span class="annottext">RetentionPolicy -&gt; RetentionPolicy -&gt; Bool
 (RetentionPolicy -&gt; RetentionPolicy -&gt; Bool)
 -&gt; (RetentionPolicy -&gt; RetentionPolicy -&gt; Bool)
 -&gt; Eq RetentionPolicy
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RetentionPolicy -&gt; RetentionPolicy -&gt; Bool
 == :: RetentionPolicy -&gt; RetentionPolicy -&gt; Bool
 $c== :: RetentionPolicy -&gt; RetentionPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680337539"><span id="local-6989586621680337541"><span id="local-6989586621680337543"><span id="local-6989586621680337545"><span class="annot"><span class="annottext">ReadPrec [RetentionPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680338951"><span id="local-6989586621680338953"><span id="local-6989586621680338955"><span id="local-6989586621680338957"><span class="annot"><span class="annottext">ReadPrec [RetentionPolicy]
 ReadPrec RetentionPolicy
 Int -&gt; ReadS RetentionPolicy
 ReadS [RetentionPolicy]
@@ -65,7 +65,7 @@ readList :: ReadS [RetentionPolicy]
 $creadList :: ReadS [RetentionPolicy]
 readsPrec :: Int -&gt; ReadS RetentionPolicy
 $creadsPrec :: Int -&gt; ReadS RetentionPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680337532"><span id="local-6989586621680337534"><span id="local-6989586621680337536"><span class="annot"><span class="annottext">Int -&gt; RetentionPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680338944"><span id="local-6989586621680338946"><span id="local-6989586621680338948"><span class="annot"><span class="annottext">Int -&gt; RetentionPolicy -&gt; ShowS
 [RetentionPolicy] -&gt; ShowS
 RetentionPolicy -&gt; String
 (Int -&gt; RetentionPolicy -&gt; ShowS)
@@ -131,27 +131,27 @@ forall a. Maybe a
      (Maybe RetentionType)
      (Maybe RetentionType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy%27"><span class="hs-identifier hs-type">RetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337523"><span class="annot"><span class="annottext">Maybe RetentionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy%27"><span class="hs-identifier hs-type">RetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338935"><span class="annot"><span class="annottext">Maybe RetentionType
 homeEfsFileSystem :: Maybe RetentionType
 $sel:homeEfsFileSystem:RetentionPolicy' :: RetentionPolicy -&gt; Maybe RetentionType
-</span><a href="#local-6989586621680337523"><span class="hs-identifier hs-var hs-var">homeEfsFileSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionType
-</span><a href="#local-6989586621680337523"><span class="hs-identifier hs-var">homeEfsFileSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337522"><span class="annot"><span class="annottext">s :: RetentionPolicy
-</span><a href="#local-6989586621680337522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy%27"><span class="hs-identifier hs-type">RetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337521"><span class="annot"><span class="annottext">Maybe RetentionType
-</span><a href="#local-6989586621680337521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetentionPolicy
-</span><a href="#local-6989586621680337522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:homeEfsFileSystem:RetentionPolicy' :: Maybe RetentionType
+</span><a href="#local-6989586621680338935"><span class="hs-identifier hs-var hs-var">homeEfsFileSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionType
+</span><a href="#local-6989586621680338935"><span class="hs-identifier hs-var">homeEfsFileSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680338934"><span class="annot"><span class="annottext">s :: RetentionPolicy
+</span><a href="#local-6989586621680338934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy%27"><span class="hs-identifier hs-type">RetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680338933"><span class="annot"><span class="annottext">Maybe RetentionType
+</span><a href="#local-6989586621680338933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetentionPolicy
+</span><a href="#local-6989586621680338934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:homeEfsFileSystem:RetentionPolicy' :: Maybe RetentionType
 </span><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#%24sel%3AhomeEfsFileSystem%3ARetentionPolicy%27"><span class="hs-identifier hs-var">homeEfsFileSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionType
-</span><a href="#local-6989586621680337521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy"><span class="hs-identifier hs-type">RetentionPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680338933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy"><span class="hs-identifier hs-type">RetentionPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680337517"><span id="local-6989586621680337519"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy"><span class="hs-identifier hs-type">RetentionPolicy</span></a></span></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338929"><span id="local-6989586621680338931"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy"><span class="hs-identifier hs-type">RetentionPolicy</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680337514"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy"><span class="hs-identifier hs-type">RetentionPolicy</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338926"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy"><span class="hs-identifier hs-type">RetentionPolicy</span></a></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680337506"><span id="local-6989586621680337508"><span id="local-6989586621680337510"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy"><span class="hs-identifier hs-type">RetentionPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621680337504"><span class="annot"><span class="annottext">toJSON :: RetentionPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy%27"><span class="hs-identifier hs-type">RetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337502"><span class="annot"><span class="annottext">Maybe RetentionType
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338918"><span id="local-6989586621680338920"><span id="local-6989586621680338922"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy"><span class="hs-identifier hs-type">RetentionPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621680338916"><span class="annot"><span class="annottext">toJSON :: RetentionPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionPolicy.html#RetentionPolicy%27"><span class="hs-identifier hs-type">RetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338914"><span class="annot"><span class="annottext">Maybe RetentionType
 homeEfsFileSystem :: Maybe RetentionType
 $sel:homeEfsFileSystem:RetentionPolicy' :: RetentionPolicy -&gt; Maybe RetentionType
-</span><a href="#local-6989586621680337502"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680338914"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -164,7 +164,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-76"></span><span>              </span><span class="annot"><span class="annottext">(RetentionType -&gt; Pair) -&gt; Maybe RetentionType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RetentionType
-</span><a href="#local-6989586621680337502"><span class="hs-identifier hs-var">homeEfsFileSystem</span></a></span><span>
+</span><a href="#local-6989586621680338914"><span class="hs-identifier hs-var">homeEfsFileSystem</span></a></span><span>
 </span><span id="line-77"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span></pre></body></html>

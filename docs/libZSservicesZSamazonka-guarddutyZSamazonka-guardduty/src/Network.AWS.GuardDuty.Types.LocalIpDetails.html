@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains information about the local IP address of the connection.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLocalIpDetails' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679297144"><span id="local-6989586621679297145"></span></span><span class="hs-keyword">data</span><span> </span><span id="LocalIpDetails"><span class="annot"><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#LocalIpDetails"><span class="hs-identifier hs-var">LocalIpDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocalIpDetails%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#LocalIpDetails%27"><span class="hs-identifier hs-var">LocalIpDetails'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679297429"><span id="local-6989586621679297430"></span></span><span class="hs-keyword">data</span><span> </span><span id="LocalIpDetails"><span class="annot"><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#LocalIpDetails"><span class="hs-identifier hs-var">LocalIpDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocalIpDetails%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#LocalIpDetails%27"><span class="hs-identifier hs-var">LocalIpDetails'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IPv4 local address of the connection.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AipAddressV4%3ALocalIpDetails%27"><span class="annot"><span class="annottext">LocalIpDetails -&gt; Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#%24sel%3AipAddressV4%3ALocalIpDetails%27"><span class="hs-identifier hs-var hs-var">ipAddressV4</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297138"><span id="local-6989586621679297140"><span class="annot"><span class="annottext">LocalIpDetails -&gt; LocalIpDetails -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297423"><span id="local-6989586621679297425"><span class="annot"><span class="annottext">LocalIpDetails -&gt; LocalIpDetails -&gt; Bool
 (LocalIpDetails -&gt; LocalIpDetails -&gt; Bool)
 -&gt; (LocalIpDetails -&gt; LocalIpDetails -&gt; Bool) -&gt; Eq LocalIpDetails
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LocalIpDetails -&gt; LocalIpDetails -&gt; Bool
 == :: LocalIpDetails -&gt; LocalIpDetails -&gt; Bool
 $c== :: LocalIpDetails -&gt; LocalIpDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297129"><span id="local-6989586621679297131"><span id="local-6989586621679297133"><span id="local-6989586621679297135"><span class="annot"><span class="annottext">ReadPrec [LocalIpDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297414"><span id="local-6989586621679297416"><span id="local-6989586621679297418"><span id="local-6989586621679297420"><span class="annot"><span class="annottext">ReadPrec [LocalIpDetails]
 ReadPrec LocalIpDetails
 Int -&gt; ReadS LocalIpDetails
 ReadS [LocalIpDetails]
@@ -59,7 +59,7 @@ readList :: ReadS [LocalIpDetails]
 $creadList :: ReadS [LocalIpDetails]
 readsPrec :: Int -&gt; ReadS LocalIpDetails
 $creadsPrec :: Int -&gt; ReadS LocalIpDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297122"><span id="local-6989586621679297124"><span id="local-6989586621679297126"><span class="annot"><span class="annottext">Int -&gt; LocalIpDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297407"><span id="local-6989586621679297409"><span id="local-6989586621679297411"><span class="annot"><span class="annottext">Int -&gt; LocalIpDetails -&gt; ShowS
 [LocalIpDetails] -&gt; ShowS
 LocalIpDetails -&gt; String
 (Int -&gt; LocalIpDetails -&gt; ShowS)
@@ -112,19 +112,19 @@ forall a. Maybe a
 -&gt; (LocalIpDetails -&gt; Maybe Text -&gt; LocalIpDetails)
 -&gt; Lens LocalIpDetails LocalIpDetails (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#LocalIpDetails%27"><span class="hs-identifier hs-type">LocalIpDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297113"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#LocalIpDetails%27"><span class="hs-identifier hs-type">LocalIpDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297398"><span class="annot"><span class="annottext">Maybe Text
 ipAddressV4 :: Maybe Text
 $sel:ipAddressV4:LocalIpDetails' :: LocalIpDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679297113"><span class="hs-identifier hs-var hs-var">ipAddressV4</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297113"><span class="hs-identifier hs-var">ipAddressV4</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297112"><span class="annot"><span class="annottext">s :: LocalIpDetails
-</span><a href="#local-6989586621679297112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#LocalIpDetails%27"><span class="hs-identifier hs-type">LocalIpDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297111"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalIpDetails
-</span><a href="#local-6989586621679297112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddressV4:LocalIpDetails' :: Maybe Text
+</span><a href="#local-6989586621679297398"><span class="hs-identifier hs-var hs-var">ipAddressV4</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297398"><span class="hs-identifier hs-var">ipAddressV4</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297397"><span class="annot"><span class="annottext">s :: LocalIpDetails
+</span><a href="#local-6989586621679297397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#LocalIpDetails%27"><span class="hs-identifier hs-type">LocalIpDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297396"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalIpDetails
+</span><a href="#local-6989586621679297397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddressV4:LocalIpDetails' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#%24sel%3AipAddressV4%3ALocalIpDetails%27"><span class="hs-identifier hs-var">ipAddressV4</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#LocalIpDetails"><span class="hs-identifier hs-type">LocalIpDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#LocalIpDetails"><span class="hs-identifier hs-type">LocalIpDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297108"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#LocalIpDetails"><span class="hs-identifier hs-type">LocalIpDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679297106"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LocalIpDetails
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297393"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#LocalIpDetails"><span class="hs-identifier hs-type">LocalIpDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679297391"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LocalIpDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LocalIpDetails)
@@ -134,21 +134,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LocalIpDetails&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297103"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297103"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297388"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297388"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; LocalIpDetails
 </span><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#LocalIpDetails%27"><span class="hs-identifier hs-var">LocalIpDetails'</span></a></span><span>
 </span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; LocalIpDetails)
 -&gt; Parser (Maybe Text) -&gt; Parser LocalIpDetails
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679297388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ipAddressV4&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297097"><span id="local-6989586621679297099"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#LocalIpDetails"><span class="hs-identifier hs-type">LocalIpDetails</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297382"><span id="local-6989586621679297384"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#LocalIpDetails"><span class="hs-identifier hs-type">LocalIpDetails</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297094"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#LocalIpDetails"><span class="hs-identifier hs-type">LocalIpDetails</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297379"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.LocalIpDetails.html#LocalIpDetails"><span class="hs-identifier hs-type">LocalIpDetails</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

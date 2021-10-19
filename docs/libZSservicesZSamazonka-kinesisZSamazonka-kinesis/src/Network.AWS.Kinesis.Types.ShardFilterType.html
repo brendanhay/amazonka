@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679198235"><span id="local-6989586621679198236"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ShardFilterType"><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilterType.html#ShardFilterType"><span class="hs-identifier hs-var">ShardFilterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShardFilterType%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilterType.html#ShardFilterType%27"><span class="hs-identifier hs-var">ShardFilterType'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679198330"><span id="local-6989586621679198331"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ShardFilterType"><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilterType.html#ShardFilterType"><span class="hs-identifier hs-var">ShardFilterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShardFilterType%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilterType.html#ShardFilterType%27"><span class="hs-identifier hs-var">ShardFilterType'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromShardFilterType"><span class="annot"><span class="annottext">ShardFilterType -&gt; Text
 </span><a href="Network.AWS.Kinesis.Types.ShardFilterType.html#fromShardFilterType"><span class="hs-identifier hs-var hs-var">fromShardFilterType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679198227"><span id="local-6989586621679198229"><span id="local-6989586621679198231"><span class="annot"><span class="annottext">Int -&gt; ShardFilterType -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679198322"><span id="local-6989586621679198324"><span id="local-6989586621679198326"><span class="annot"><span class="annottext">Int -&gt; ShardFilterType -&gt; ShowS
 [ShardFilterType] -&gt; ShowS
 ShardFilterType -&gt; String
 (Int -&gt; ShardFilterType -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: ShardFilterType -&gt; String
 showsPrec :: Int -&gt; ShardFilterType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ShardFilterType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679198218"><span id="local-6989586621679198220"><span id="local-6989586621679198222"><span id="local-6989586621679198224"><span class="annot"><span class="annottext">ReadPrec [ShardFilterType]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679198313"><span id="local-6989586621679198315"><span id="local-6989586621679198317"><span id="local-6989586621679198319"><span class="annot"><span class="annottext">ReadPrec [ShardFilterType]
 ReadPrec ShardFilterType
 Int -&gt; ReadS ShardFilterType
 ReadS [ShardFilterType]
@@ -76,7 +76,7 @@ $creadList :: ReadS [ShardFilterType]
 readsPrec :: Int -&gt; ReadS ShardFilterType
 $creadsPrec :: Int -&gt; ReadS ShardFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679198213"><span id="local-6989586621679198215"><span class="annot"><span class="annottext">ShardFilterType -&gt; ShardFilterType -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679198308"><span id="local-6989586621679198310"><span class="annot"><span class="annottext">ShardFilterType -&gt; ShardFilterType -&gt; Bool
 (ShardFilterType -&gt; ShardFilterType -&gt; Bool)
 -&gt; (ShardFilterType -&gt; ShardFilterType -&gt; Bool)
 -&gt; Eq ShardFilterType
@@ -86,7 +86,7 @@ $c/= :: ShardFilterType -&gt; ShardFilterType -&gt; Bool
 == :: ShardFilterType -&gt; ShardFilterType -&gt; Bool
 $c== :: ShardFilterType -&gt; ShardFilterType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679198197"><span id="local-6989586621679198199"><span id="local-6989586621679198201"><span id="local-6989586621679198203"><span id="local-6989586621679198205"><span id="local-6989586621679198207"><span id="local-6989586621679198209"><span class="annot"><span class="annottext">Eq ShardFilterType
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679198292"><span id="local-6989586621679198294"><span id="local-6989586621679198296"><span id="local-6989586621679198298"><span id="local-6989586621679198300"><span id="local-6989586621679198302"><span id="local-6989586621679198304"><span class="annot"><span class="annottext">Eq ShardFilterType
 Eq ShardFilterType
 -&gt; (ShardFilterType -&gt; ShardFilterType -&gt; Ordering)
 -&gt; (ShardFilterType -&gt; ShardFilterType -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. ShardFilterType -&gt; Rep ShardFilterType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679198189"><span id="local-6989586621679198191"><span class="annot"><span class="annottext">Int -&gt; ShardFilterType -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679198284"><span id="local-6989586621679198286"><span class="annot"><span class="annottext">Int -&gt; ShardFilterType -&gt; Int
 ShardFilterType -&gt; Int
 (Int -&gt; ShardFilterType -&gt; Int)
 -&gt; (ShardFilterType -&gt; Int) -&gt; Hashable ShardFilterType
@@ -147,50 +147,50 @@ $chash :: ShardFilterType -&gt; Int
 hashWithSalt :: Int -&gt; ShardFilterType -&gt; Int
 $chashWithSalt :: Int -&gt; ShardFilterType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679198186"><span class="annot"><span class="annottext">ShardFilterType -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679198281"><span class="annot"><span class="annottext">ShardFilterType -&gt; ()
 (ShardFilterType -&gt; ()) -&gt; NFData ShardFilterType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ShardFilterType -&gt; ()
 $crnf :: ShardFilterType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679198183"><span class="annot"><span class="annottext">Text -&gt; Either String ShardFilterType
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679198278"><span class="annot"><span class="annottext">Text -&gt; Either String ShardFilterType
 (Text -&gt; Either String ShardFilterType) -&gt; FromText ShardFilterType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ShardFilterType
 $cfromText :: Text -&gt; Either String ShardFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679198180"><span class="annot"><span class="annottext">ShardFilterType -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679198275"><span class="annot"><span class="annottext">ShardFilterType -&gt; Text
 (ShardFilterType -&gt; Text) -&gt; ToText ShardFilterType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ShardFilterType -&gt; Text
 $ctoText :: ShardFilterType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679198177"><span class="annot"><span class="annottext">ShardFilterType -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679198272"><span class="annot"><span class="annottext">ShardFilterType -&gt; ByteString
 (ShardFilterType -&gt; ByteString) -&gt; ToByteString ShardFilterType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ShardFilterType -&gt; ByteString
 $ctoBS :: ShardFilterType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679198174"><span class="annot"><span class="annottext">ShardFilterType -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679198269"><span class="annot"><span class="annottext">ShardFilterType -&gt; ByteStringBuilder
 (ShardFilterType -&gt; ByteStringBuilder) -&gt; ToLog ShardFilterType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ShardFilterType -&gt; ByteStringBuilder
 $cbuild :: ShardFilterType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679198171"><span class="annot"><span class="annottext">HeaderName -&gt; ShardFilterType -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679198266"><span class="annot"><span class="annottext">HeaderName -&gt; ShardFilterType -&gt; [Header]
 (HeaderName -&gt; ShardFilterType -&gt; [Header])
 -&gt; ToHeader ShardFilterType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ShardFilterType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ShardFilterType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679198168"><span class="annot"><span class="annottext">ShardFilterType -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679198263"><span class="annot"><span class="annottext">ShardFilterType -&gt; QueryString
 (ShardFilterType -&gt; QueryString) -&gt; ToQuery ShardFilterType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ShardFilterType -&gt; QueryString
 $ctoQuery :: ShardFilterType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679198163"><span id="local-6989586621679198165"><span class="annot"><span class="annottext">Value -&gt; Parser [ShardFilterType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679198258"><span id="local-6989586621679198260"><span class="annot"><span class="annottext">Value -&gt; Parser [ShardFilterType]
 Value -&gt; Parser ShardFilterType
 (Value -&gt; Parser ShardFilterType)
 -&gt; (Value -&gt; Parser [ShardFilterType]) -&gt; FromJSON ShardFilterType
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [ShardFilterType]
 parseJSON :: Value -&gt; Parser ShardFilterType
 $cparseJSON :: Value -&gt; Parser ShardFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679198158"><span id="local-6989586621679198160"><span class="annot"><span class="annottext">FromJSONKeyFunction [ShardFilterType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679198253"><span id="local-6989586621679198255"><span class="annot"><span class="annottext">FromJSONKeyFunction [ShardFilterType]
 FromJSONKeyFunction ShardFilterType
 FromJSONKeyFunction ShardFilterType
 -&gt; FromJSONKeyFunction [ShardFilterType]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ShardFilterType]
 fromJSONKey :: FromJSONKeyFunction ShardFilterType
 $cfromJSONKey :: FromJSONKeyFunction ShardFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679198149"><span id="local-6989586621679198151"><span id="local-6989586621679198153"><span id="local-6989586621679198155"><span class="annot"><span class="annottext">[ShardFilterType] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679198244"><span id="local-6989586621679198246"><span id="local-6989586621679198248"><span id="local-6989586621679198250"><span class="annot"><span class="annottext">[ShardFilterType] -&gt; Encoding
 [ShardFilterType] -&gt; Value
 ShardFilterType -&gt; Encoding
 ShardFilterType -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: ShardFilterType -&gt; Encoding
 toJSON :: ShardFilterType -&gt; Value
 $ctoJSON :: ShardFilterType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679198144"><span id="local-6989586621679198146"><span class="annot"><span class="annottext">ToJSONKeyFunction [ShardFilterType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679198239"><span id="local-6989586621679198241"><span class="annot"><span class="annottext">ToJSONKeyFunction [ShardFilterType]
 ToJSONKeyFunction ShardFilterType
 ToJSONKeyFunction ShardFilterType
 -&gt; ToJSONKeyFunction [ShardFilterType] -&gt; ToJSONKey ShardFilterType
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ShardFilterType]
 toJSONKey :: ToJSONKeyFunction ShardFilterType
 $ctoJSONKey :: ToJSONKeyFunction ShardFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679198141"><span class="annot"><span class="annottext">[Node] -&gt; Either String ShardFilterType
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679198236"><span class="annot"><span class="annottext">[Node] -&gt; Either String ShardFilterType
 ([Node] -&gt; Either String ShardFilterType)
 -&gt; FromXML ShardFilterType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ShardFilterType
 $cparseXML :: [Node] -&gt; Either String ShardFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679198138"><span class="annot"><span class="annottext">ShardFilterType -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679198233"><span class="annot"><span class="annottext">ShardFilterType -&gt; XML
 (ShardFilterType -&gt; XML) -&gt; ToXML ShardFilterType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ShardFilterType -&gt; XML

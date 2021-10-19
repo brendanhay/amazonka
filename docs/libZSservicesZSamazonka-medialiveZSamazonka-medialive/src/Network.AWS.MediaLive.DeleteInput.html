@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-comment">-- | Placeholder documentation for DeleteInputRequest</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- /See:/ 'newDeleteInput' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679938882"><span id="local-6989586621679938883"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInput"><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput"><span class="hs-identifier hs-var">DeleteInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInput%27"><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput%27"><span class="hs-identifier hs-var">DeleteInput'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679946481"><span id="local-6989586621679946482"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInput"><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput"><span class="hs-identifier hs-var">DeleteInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInput%27"><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput%27"><span class="hs-identifier hs-var">DeleteInput'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique ID of the input</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AinputId%3ADeleteInput%27"><span class="annot"><span class="annottext">DeleteInput -&gt; Text
 </span><a href="Network.AWS.MediaLive.DeleteInput.html#%24sel%3AinputId%3ADeleteInput%27"><span class="hs-identifier hs-var hs-var">inputId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679938876"><span id="local-6989586621679938878"><span class="annot"><span class="annottext">DeleteInput -&gt; DeleteInput -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679946475"><span id="local-6989586621679946477"><span class="annot"><span class="annottext">DeleteInput -&gt; DeleteInput -&gt; Bool
 (DeleteInput -&gt; DeleteInput -&gt; Bool)
 -&gt; (DeleteInput -&gt; DeleteInput -&gt; Bool) -&gt; Eq DeleteInput
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteInput -&gt; DeleteInput -&gt; Bool
 == :: DeleteInput -&gt; DeleteInput -&gt; Bool
 $c== :: DeleteInput -&gt; DeleteInput -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679938867"><span id="local-6989586621679938869"><span id="local-6989586621679938871"><span id="local-6989586621679938873"><span class="annot"><span class="annottext">ReadPrec [DeleteInput]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679946466"><span id="local-6989586621679946468"><span id="local-6989586621679946470"><span id="local-6989586621679946472"><span class="annot"><span class="annottext">ReadPrec [DeleteInput]
 ReadPrec DeleteInput
 Int -&gt; ReadS DeleteInput
 ReadS [DeleteInput]
@@ -81,7 +81,7 @@ readList :: ReadS [DeleteInput]
 $creadList :: ReadS [DeleteInput]
 readsPrec :: Int -&gt; ReadS DeleteInput
 $creadsPrec :: Int -&gt; ReadS DeleteInput
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679938860"><span id="local-6989586621679938862"><span id="local-6989586621679938864"><span class="annot"><span class="annottext">Int -&gt; DeleteInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679946459"><span id="local-6989586621679946461"><span id="local-6989586621679946463"><span class="annot"><span class="annottext">Int -&gt; DeleteInput -&gt; ShowS
 [DeleteInput] -&gt; ShowS
 DeleteInput -&gt; String
 (Int -&gt; DeleteInput -&gt; ShowS)
@@ -121,12 +121,12 @@ $cfrom :: forall x. DeleteInput -&gt; Rep DeleteInput x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput"><span class="hs-identifier hs-type">DeleteInput</span></a></span><span>
 </span><span id="line-70"></span><span id="newDeleteInput"><span class="annot"><span class="annottext">newDeleteInput :: Text -&gt; DeleteInput
-</span><a href="Network.AWS.MediaLive.DeleteInput.html#newDeleteInput"><span class="hs-identifier hs-var hs-var">newDeleteInput</span></a></span></span><span> </span><span id="local-6989586621679938855"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679938855"><span class="hs-identifier hs-var">pInputId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.DeleteInput.html#newDeleteInput"><span class="hs-identifier hs-var hs-var">newDeleteInput</span></a></span></span><span> </span><span id="local-6989586621679946454"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679946454"><span class="hs-identifier hs-var">pInputId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DeleteInput' :: Text -&gt; DeleteInput
 </span><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput%27"><span class="hs-identifier hs-type">DeleteInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputId:DeleteInput' :: Text
 </span><a href="Network.AWS.MediaLive.DeleteInput.html#%24sel%3AinputId%3ADeleteInput%27"><span class="hs-identifier hs-var">inputId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679938855"><span class="hs-identifier hs-var">pInputId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679946454"><span class="hs-identifier hs-var">pInputId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | Unique ID of the input</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#deleteInput_inputId"><span class="hs-identifier hs-type">deleteInput_inputId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput"><span class="hs-identifier hs-type">DeleteInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,25 +135,25 @@ $cfrom :: forall x. DeleteInput -&gt; Rep DeleteInput x
 -&gt; (DeleteInput -&gt; Text -&gt; DeleteInput)
 -&gt; Lens DeleteInput DeleteInput Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput%27"><span class="hs-identifier hs-type">DeleteInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679938852"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput%27"><span class="hs-identifier hs-type">DeleteInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679946451"><span class="annot"><span class="annottext">Text
 inputId :: Text
 $sel:inputId:DeleteInput' :: DeleteInput -&gt; Text
-</span><a href="#local-6989586621679938852"><span class="hs-identifier hs-var hs-var">inputId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679938852"><span class="hs-identifier hs-var">inputId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679938851"><span class="annot"><span class="annottext">s :: DeleteInput
-</span><a href="#local-6989586621679938851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput%27"><span class="hs-identifier hs-type">DeleteInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679938850"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679938850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInput
-</span><a href="#local-6989586621679938851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputId:DeleteInput' :: Text
+</span><a href="#local-6989586621679946451"><span class="hs-identifier hs-var hs-var">inputId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679946451"><span class="hs-identifier hs-var">inputId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679946450"><span class="annot"><span class="annottext">s :: DeleteInput
+</span><a href="#local-6989586621679946450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput%27"><span class="hs-identifier hs-type">DeleteInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679946449"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679946449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInput
+</span><a href="#local-6989586621679946450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputId:DeleteInput' :: Text
 </span><a href="Network.AWS.MediaLive.DeleteInput.html#%24sel%3AinputId%3ADeleteInput%27"><span class="hs-identifier hs-var">inputId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679938850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput"><span class="hs-identifier hs-type">DeleteInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679946449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput"><span class="hs-identifier hs-type">DeleteInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput"><span class="hs-identifier hs-type">DeleteInput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput"><span class="hs-identifier hs-type">DeleteInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInputResponse"><span class="hs-identifier hs-type">DeleteInputResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679938846"><span class="annot"><span class="annottext">request :: DeleteInput -&gt; Request DeleteInput
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679946445"><span class="annot"><span class="annottext">request :: DeleteInput -&gt; Request DeleteInput
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteInput -&gt; Request DeleteInput
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaLive.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679938842"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679946441"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteInput
 -&gt; ClientResponse ClientBody
@@ -177,10 +177,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679938839"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679938839"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679938838"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679938838"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679938837"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679938837"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679946438"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679946438"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679946437"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679946437"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679946436"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679946436"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteInputResponse
 </span><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInputResponse%27"><span class="hs-identifier hs-var">DeleteInputResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteInputResponse)
@@ -191,15 +191,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679938839"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679946438"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679938830"><span id="local-6989586621679938832"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput"><span class="hs-identifier hs-type">DeleteInput</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679946429"><span id="local-6989586621679946431"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput"><span class="hs-identifier hs-type">DeleteInput</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679938827"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput"><span class="hs-identifier hs-type">DeleteInput</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679946426"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput"><span class="hs-identifier hs-type">DeleteInput</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput"><span class="hs-identifier hs-type">DeleteInput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679938823"><span class="annot"><span class="annottext">toHeaders :: DeleteInput -&gt; ResponseHeaders
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679946422"><span class="annot"><span class="annottext">toHeaders :: DeleteInput -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteInput -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -219,11 +219,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput"><span class="hs-identifier hs-type">DeleteInput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679938817"><span class="annot"><span class="annottext">toPath :: DeleteInput -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput%27"><span class="hs-identifier hs-type">DeleteInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679938815"><span class="annot"><span class="annottext">Text
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679946416"><span class="annot"><span class="annottext">toPath :: DeleteInput -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput%27"><span class="hs-identifier hs-type">DeleteInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679946414"><span class="annot"><span class="annottext">Text
 inputId :: Text
 $sel:inputId:DeleteInput' :: DeleteInput -&gt; Text
-</span><a href="#local-6989586621679938815"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679946414"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -231,10 +231,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/prod/inputs/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679938815"><span class="hs-identifier hs-var">inputId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679946414"><span class="hs-identifier hs-var">inputId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInput"><span class="hs-identifier hs-type">DeleteInput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679938811"><span class="annot"><span class="annottext">toQuery :: DeleteInput -&gt; QueryString
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679946410"><span class="annot"><span class="annottext">toQuery :: DeleteInput -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteInput -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -244,12 +244,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-110"></span><span class="hs-comment">-- | Placeholder documentation for DeleteInputResponse</span><span>
 </span><span id="line-111"></span><span class="hs-comment">--</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- /See:/ 'newDeleteInputResponse' smart constructor.</span><span>
-</span><span id="line-113"></span><span id="local-6989586621679938808"><span id="local-6989586621679938809"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInputResponse"><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInputResponse"><span class="hs-identifier hs-var">DeleteInputResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInputResponse%27"><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInputResponse%27"><span class="hs-identifier hs-var">DeleteInputResponse'</span></a></span></span><span>
+</span><span id="line-113"></span><span id="local-6989586621679946407"><span id="local-6989586621679946408"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInputResponse"><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInputResponse"><span class="hs-identifier hs-var">DeleteInputResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInputResponse%27"><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInputResponse%27"><span class="hs-identifier hs-var">DeleteInputResponse'</span></a></span></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-115"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteInputResponse%27"><span class="annot"><span class="annottext">DeleteInputResponse -&gt; Int
 </span><a href="Network.AWS.MediaLive.DeleteInput.html#%24sel%3AhttpStatus%3ADeleteInputResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679938803"><span id="local-6989586621679938805"><span class="annot"><span class="annottext">DeleteInputResponse -&gt; DeleteInputResponse -&gt; Bool
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679946402"><span id="local-6989586621679946404"><span class="annot"><span class="annottext">DeleteInputResponse -&gt; DeleteInputResponse -&gt; Bool
 (DeleteInputResponse -&gt; DeleteInputResponse -&gt; Bool)
 -&gt; (DeleteInputResponse -&gt; DeleteInputResponse -&gt; Bool)
 -&gt; Eq DeleteInputResponse
@@ -258,7 +258,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteInputResponse -&gt; DeleteInputResponse -&gt; Bool
 == :: DeleteInputResponse -&gt; DeleteInputResponse -&gt; Bool
 $c== :: DeleteInputResponse -&gt; DeleteInputResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679938795"><span id="local-6989586621679938797"><span id="local-6989586621679938799"><span id="local-6989586621679938801"><span class="annot"><span class="annottext">ReadPrec [DeleteInputResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679946394"><span id="local-6989586621679946396"><span id="local-6989586621679946398"><span id="local-6989586621679946400"><span class="annot"><span class="annottext">ReadPrec [DeleteInputResponse]
 ReadPrec DeleteInputResponse
 Int -&gt; ReadS DeleteInputResponse
 ReadS [DeleteInputResponse]
@@ -278,7 +278,7 @@ readList :: ReadS [DeleteInputResponse]
 $creadList :: ReadS [DeleteInputResponse]
 readsPrec :: Int -&gt; ReadS DeleteInputResponse
 $creadsPrec :: Int -&gt; ReadS DeleteInputResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679938789"><span id="local-6989586621679938791"><span id="local-6989586621679938793"><span class="annot"><span class="annottext">Int -&gt; DeleteInputResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679946388"><span id="local-6989586621679946390"><span id="local-6989586621679946392"><span class="annot"><span class="annottext">Int -&gt; DeleteInputResponse -&gt; ShowS
 [DeleteInputResponse] -&gt; ShowS
 DeleteInputResponse -&gt; String
 (Int -&gt; DeleteInputResponse -&gt; ShowS)
@@ -318,12 +318,12 @@ $cfrom :: forall x. DeleteInputResponse -&gt; Rep DeleteInputResponse x
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInputResponse"><span class="hs-identifier hs-type">DeleteInputResponse</span></a></span><span>
 </span><span id="line-132"></span><span id="newDeleteInputResponse"><span class="annot"><span class="annottext">newDeleteInputResponse :: Int -&gt; DeleteInputResponse
-</span><a href="Network.AWS.MediaLive.DeleteInput.html#newDeleteInputResponse"><span class="hs-identifier hs-var hs-var">newDeleteInputResponse</span></a></span></span><span> </span><span id="local-6989586621679938786"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679938786"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.DeleteInput.html#newDeleteInputResponse"><span class="hs-identifier hs-var hs-var">newDeleteInputResponse</span></a></span></span><span> </span><span id="local-6989586621679946385"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679946385"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">DeleteInputResponse' :: Int -&gt; DeleteInputResponse
 </span><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInputResponse%27"><span class="hs-identifier hs-type">DeleteInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInputResponse' :: Int
 </span><a href="Network.AWS.MediaLive.DeleteInput.html#%24sel%3AhttpStatus%3ADeleteInputResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679938786"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679946385"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-136"></span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#deleteInputResponse_httpStatus"><span class="hs-identifier hs-type">deleteInputResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInputResponse"><span class="hs-identifier hs-type">DeleteInputResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -332,16 +332,16 @@ $cfrom :: forall x. DeleteInputResponse -&gt; Rep DeleteInputResponse x
 -&gt; (DeleteInputResponse -&gt; Int -&gt; DeleteInputResponse)
 -&gt; Lens DeleteInputResponse DeleteInputResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInputResponse%27"><span class="hs-identifier hs-type">DeleteInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679938785"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInputResponse%27"><span class="hs-identifier hs-type">DeleteInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679946384"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteInputResponse' :: DeleteInputResponse -&gt; Int
-</span><a href="#local-6989586621679938785"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679938785"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679938784"><span class="annot"><span class="annottext">s :: DeleteInputResponse
-</span><a href="#local-6989586621679938784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInputResponse%27"><span class="hs-identifier hs-type">DeleteInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679938783"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679938783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInputResponse
-</span><a href="#local-6989586621679938784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInputResponse' :: Int
+</span><a href="#local-6989586621679946384"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679946384"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679946383"><span class="annot"><span class="annottext">s :: DeleteInputResponse
+</span><a href="#local-6989586621679946383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInputResponse%27"><span class="hs-identifier hs-type">DeleteInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679946382"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679946382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInputResponse
+</span><a href="#local-6989586621679946383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInputResponse' :: Int
 </span><a href="Network.AWS.MediaLive.DeleteInput.html#%24sel%3AhttpStatus%3ADeleteInputResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679938783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInputResponse"><span class="hs-identifier hs-type">DeleteInputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679946382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInputResponse"><span class="hs-identifier hs-type">DeleteInputResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679938781"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInputResponse"><span class="hs-identifier hs-type">DeleteInputResponse</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679946380"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.DeleteInput.html#DeleteInputResponse"><span class="hs-identifier hs-type">DeleteInputResponse</span></a></span></span><span>
 </span><span id="line-140"></span></pre></body></html>

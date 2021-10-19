@@ -51,12 +51,12 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDescribeStream' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679834448"><span id="local-6989586621679834449"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStream"><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream"><span class="hs-identifier hs-var">DescribeStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStream%27"><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream%27"><span class="hs-identifier hs-var">DescribeStream'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679835422"><span id="local-6989586621679835423"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStream"><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream"><span class="hs-identifier hs-var">DescribeStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStream%27"><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream%27"><span class="hs-identifier hs-var">DescribeStream'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The stream ID.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AstreamId%3ADescribeStream%27"><span class="annot"><span class="annottext">DescribeStream -&gt; Text
 </span><a href="Network.AWS.IoT.DescribeStream.html#%24sel%3AstreamId%3ADescribeStream%27"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679834442"><span id="local-6989586621679834444"><span class="annot"><span class="annottext">DescribeStream -&gt; DescribeStream -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679835416"><span id="local-6989586621679835418"><span class="annot"><span class="annottext">DescribeStream -&gt; DescribeStream -&gt; Bool
 (DescribeStream -&gt; DescribeStream -&gt; Bool)
 -&gt; (DescribeStream -&gt; DescribeStream -&gt; Bool) -&gt; Eq DescribeStream
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeStream -&gt; DescribeStream -&gt; Bool
 == :: DescribeStream -&gt; DescribeStream -&gt; Bool
 $c== :: DescribeStream -&gt; DescribeStream -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679834433"><span id="local-6989586621679834435"><span id="local-6989586621679834437"><span id="local-6989586621679834439"><span class="annot"><span class="annottext">ReadPrec [DescribeStream]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679835407"><span id="local-6989586621679835409"><span id="local-6989586621679835411"><span id="local-6989586621679835413"><span class="annot"><span class="annottext">ReadPrec [DescribeStream]
 ReadPrec DescribeStream
 Int -&gt; ReadS DescribeStream
 ReadS [DescribeStream]
@@ -84,7 +84,7 @@ readList :: ReadS [DescribeStream]
 $creadList :: ReadS [DescribeStream]
 readsPrec :: Int -&gt; ReadS DescribeStream
 $creadsPrec :: Int -&gt; ReadS DescribeStream
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679834426"><span id="local-6989586621679834428"><span id="local-6989586621679834430"><span class="annot"><span class="annottext">Int -&gt; DescribeStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679835400"><span id="local-6989586621679835402"><span id="local-6989586621679835404"><span class="annot"><span class="annottext">Int -&gt; DescribeStream -&gt; ShowS
 [DescribeStream] -&gt; ShowS
 DescribeStream -&gt; String
 (Int -&gt; DescribeStream -&gt; ShowS)
@@ -124,12 +124,12 @@ $cfrom :: forall x. DescribeStream -&gt; Rep DescribeStream x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream"><span class="hs-identifier hs-type">DescribeStream</span></a></span><span>
 </span><span id="line-73"></span><span id="newDescribeStream"><span class="annot"><span class="annottext">newDescribeStream :: Text -&gt; DescribeStream
-</span><a href="Network.AWS.IoT.DescribeStream.html#newDescribeStream"><span class="hs-identifier hs-var hs-var">newDescribeStream</span></a></span></span><span> </span><span id="local-6989586621679834421"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679834421"><span class="hs-identifier hs-var">pStreamId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DescribeStream.html#newDescribeStream"><span class="hs-identifier hs-var hs-var">newDescribeStream</span></a></span></span><span> </span><span id="local-6989586621679835395"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679835395"><span class="hs-identifier hs-var">pStreamId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DescribeStream' :: Text -&gt; DescribeStream
 </span><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream%27"><span class="hs-identifier hs-type">DescribeStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamId:DescribeStream' :: Text
 </span><a href="Network.AWS.IoT.DescribeStream.html#%24sel%3AstreamId%3ADescribeStream%27"><span class="hs-identifier hs-var">streamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679834421"><span class="hs-identifier hs-var">pStreamId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679835395"><span class="hs-identifier hs-var">pStreamId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The stream ID.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#describeStream_streamId"><span class="hs-identifier hs-type">describeStream_streamId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream"><span class="hs-identifier hs-type">DescribeStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -138,27 +138,27 @@ $cfrom :: forall x. DescribeStream -&gt; Rep DescribeStream x
 -&gt; (DescribeStream -&gt; Text -&gt; DescribeStream)
 -&gt; Lens DescribeStream DescribeStream Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream%27"><span class="hs-identifier hs-type">DescribeStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834418"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream%27"><span class="hs-identifier hs-type">DescribeStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835392"><span class="annot"><span class="annottext">Text
 streamId :: Text
 $sel:streamId:DescribeStream' :: DescribeStream -&gt; Text
-</span><a href="#local-6989586621679834418"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679834418"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679834417"><span class="annot"><span class="annottext">s :: DescribeStream
-</span><a href="#local-6989586621679834417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream%27"><span class="hs-identifier hs-type">DescribeStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679834416"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679834416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStream
-</span><a href="#local-6989586621679834417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamId:DescribeStream' :: Text
+</span><a href="#local-6989586621679835392"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679835392"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835391"><span class="annot"><span class="annottext">s :: DescribeStream
+</span><a href="#local-6989586621679835391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream%27"><span class="hs-identifier hs-type">DescribeStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835390"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679835390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStream
+</span><a href="#local-6989586621679835391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamId:DescribeStream' :: Text
 </span><a href="Network.AWS.IoT.DescribeStream.html#%24sel%3AstreamId%3ADescribeStream%27"><span class="hs-identifier hs-var">streamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679834416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream"><span class="hs-identifier hs-type">DescribeStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679835390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream"><span class="hs-identifier hs-type">DescribeStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream"><span class="hs-identifier hs-type">DescribeStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream"><span class="hs-identifier hs-type">DescribeStream</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse"><span class="hs-identifier hs-type">DescribeStreamResponse</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679834412"><span class="annot"><span class="annottext">request :: DescribeStream -&gt; Request DescribeStream
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679835386"><span class="annot"><span class="annottext">request :: DescribeStream -&gt; Request DescribeStream
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeStream -&gt; Request DescribeStream
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679834408"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679835382"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeStream
 -&gt; ClientResponse ClientBody
@@ -182,10 +182,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679834405"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679834405"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679834404"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679834404"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679834403"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679834403"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679835379"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835379"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679835378"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679835378"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679835377"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679835377"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe StreamInfo -&gt; Int -&gt; DescribeStreamResponse
 </span><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse%27"><span class="hs-identifier hs-var">DescribeStreamResponse'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe StreamInfo -&gt; Int -&gt; DescribeStreamResponse)
@@ -193,7 +193,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeStreamResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679834403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe StreamInfo)
+</span><a href="#local-6989586621679835377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe StreamInfo)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;streamInfo&quot;</span></span><span class="hs-special">)</span><span>
@@ -205,15 +205,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679834405"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679835379"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679834395"><span id="local-6989586621679834397"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream"><span class="hs-identifier hs-type">DescribeStream</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679835369"><span id="local-6989586621679835371"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream"><span class="hs-identifier hs-type">DescribeStream</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679834392"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream"><span class="hs-identifier hs-type">DescribeStream</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679835366"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream"><span class="hs-identifier hs-type">DescribeStream</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream"><span class="hs-identifier hs-type">DescribeStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679834388"><span class="annot"><span class="annottext">toHeaders :: DescribeStream -&gt; ResponseHeaders
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679835362"><span class="annot"><span class="annottext">toHeaders :: DescribeStream -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeStream -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -221,21 +221,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream"><span class="hs-identifier hs-type">DescribeStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679834383"><span class="annot"><span class="annottext">toPath :: DescribeStream -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream%27"><span class="hs-identifier hs-type">DescribeStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834381"><span class="annot"><span class="annottext">Text
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679835357"><span class="annot"><span class="annottext">toPath :: DescribeStream -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream%27"><span class="hs-identifier hs-type">DescribeStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835355"><span class="annot"><span class="annottext">Text
 streamId :: Text
 $sel:streamId:DescribeStream' :: DescribeStream -&gt; Text
-</span><a href="#local-6989586621679834381"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679835355"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/streams/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679834381"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679835355"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStream"><span class="hs-identifier hs-type">DescribeStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679834377"><span class="annot"><span class="annottext">toQuery :: DescribeStream -&gt; QueryString
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679835351"><span class="annot"><span class="annottext">toQuery :: DescribeStream -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeStream -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -243,7 +243,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | /See:/ 'newDescribeStreamResponse' smart constructor.</span><span>
-</span><span id="line-108"></span><span id="local-6989586621679834374"><span id="local-6989586621679834375"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStreamResponse"><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse"><span class="hs-identifier hs-var">DescribeStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStreamResponse%27"><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse%27"><span class="hs-identifier hs-var">DescribeStreamResponse'</span></a></span></span><span>
+</span><span id="line-108"></span><span id="local-6989586621679835348"><span id="local-6989586621679835349"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStreamResponse"><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse"><span class="hs-identifier hs-var">DescribeStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStreamResponse%27"><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse%27"><span class="hs-identifier hs-var">DescribeStreamResponse'</span></a></span></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the stream.</span><span>
 </span><span id="line-110"></span><span>    </span><span id="%24sel%3AstreamInfo%3ADescribeStreamResponse%27"><span class="annot"><span class="annottext">DescribeStreamResponse -&gt; Maybe StreamInfo
 </span><a href="Network.AWS.IoT.DescribeStream.html#%24sel%3AstreamInfo%3ADescribeStreamResponse%27"><span class="hs-identifier hs-var hs-var">streamInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StreamInfo.html#StreamInfo"><span class="hs-identifier hs-type">StreamInfo</span></a></span><span class="hs-special">,</span><span>
@@ -251,7 +251,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-112"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeStreamResponse%27"><span class="annot"><span class="annottext">DescribeStreamResponse -&gt; Int
 </span><a href="Network.AWS.IoT.DescribeStream.html#%24sel%3AhttpStatus%3ADescribeStreamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679834368"><span id="local-6989586621679834370"><span class="annot"><span class="annottext">DescribeStreamResponse -&gt; DescribeStreamResponse -&gt; Bool
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679835342"><span id="local-6989586621679835344"><span class="annot"><span class="annottext">DescribeStreamResponse -&gt; DescribeStreamResponse -&gt; Bool
 (DescribeStreamResponse -&gt; DescribeStreamResponse -&gt; Bool)
 -&gt; (DescribeStreamResponse -&gt; DescribeStreamResponse -&gt; Bool)
 -&gt; Eq DescribeStreamResponse
@@ -260,7 +260,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeStreamResponse -&gt; DescribeStreamResponse -&gt; Bool
 == :: DescribeStreamResponse -&gt; DescribeStreamResponse -&gt; Bool
 $c== :: DescribeStreamResponse -&gt; DescribeStreamResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679834360"><span id="local-6989586621679834362"><span id="local-6989586621679834364"><span id="local-6989586621679834366"><span class="annot"><span class="annottext">ReadPrec [DescribeStreamResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679835334"><span id="local-6989586621679835336"><span id="local-6989586621679835338"><span id="local-6989586621679835340"><span class="annot"><span class="annottext">ReadPrec [DescribeStreamResponse]
 ReadPrec DescribeStreamResponse
 Int -&gt; ReadS DescribeStreamResponse
 ReadS [DescribeStreamResponse]
@@ -280,7 +280,7 @@ readList :: ReadS [DescribeStreamResponse]
 $creadList :: ReadS [DescribeStreamResponse]
 readsPrec :: Int -&gt; ReadS DescribeStreamResponse
 $creadsPrec :: Int -&gt; ReadS DescribeStreamResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679834354"><span id="local-6989586621679834356"><span id="local-6989586621679834358"><span class="annot"><span class="annottext">Int -&gt; DescribeStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679835328"><span id="local-6989586621679835330"><span id="local-6989586621679835332"><span class="annot"><span class="annottext">Int -&gt; DescribeStreamResponse -&gt; ShowS
 [DescribeStreamResponse] -&gt; ShowS
 DescribeStreamResponse -&gt; String
 (Int -&gt; DescribeStreamResponse -&gt; ShowS)
@@ -323,8 +323,8 @@ $cfrom :: forall x. DescribeStreamResponse -&gt; Rep DescribeStreamResponse x
 </span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse"><span class="hs-identifier hs-type">DescribeStreamResponse</span></a></span><span>
 </span><span id="line-131"></span><span id="newDescribeStreamResponse"><span class="annot"><span class="annottext">newDescribeStreamResponse :: Int -&gt; DescribeStreamResponse
-</span><a href="Network.AWS.IoT.DescribeStream.html#newDescribeStreamResponse"><span class="hs-identifier hs-var hs-var">newDescribeStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679834351"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679834351"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DescribeStream.html#newDescribeStreamResponse"><span class="hs-identifier hs-var hs-var">newDescribeStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679835325"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">DescribeStreamResponse' :: Maybe StreamInfo -&gt; Int -&gt; DescribeStreamResponse
 </span><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse%27"><span class="hs-identifier hs-type">DescribeStreamResponse'</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamInfo:DescribeStreamResponse' :: Maybe StreamInfo
@@ -334,7 +334,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStreamResponse' :: Int
 </span><a href="Network.AWS.IoT.DescribeStream.html#%24sel%3AhttpStatus%3ADescribeStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679834351"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679835325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | Information about the stream.</span><span>
@@ -350,16 +350,16 @@ forall a. Maybe a
      (Maybe StreamInfo)
      (Maybe StreamInfo)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse%27"><span class="hs-identifier hs-type">DescribeStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834350"><span class="annot"><span class="annottext">Maybe StreamInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse%27"><span class="hs-identifier hs-type">DescribeStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835324"><span class="annot"><span class="annottext">Maybe StreamInfo
 streamInfo :: Maybe StreamInfo
 $sel:streamInfo:DescribeStreamResponse' :: DescribeStreamResponse -&gt; Maybe StreamInfo
-</span><a href="#local-6989586621679834350"><span class="hs-identifier hs-var hs-var">streamInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamInfo
-</span><a href="#local-6989586621679834350"><span class="hs-identifier hs-var">streamInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679834349"><span class="annot"><span class="annottext">s :: DescribeStreamResponse
-</span><a href="#local-6989586621679834349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse%27"><span class="hs-identifier hs-type">DescribeStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679834348"><span class="annot"><span class="annottext">Maybe StreamInfo
-</span><a href="#local-6989586621679834348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamResponse
-</span><a href="#local-6989586621679834349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamInfo:DescribeStreamResponse' :: Maybe StreamInfo
+</span><a href="#local-6989586621679835324"><span class="hs-identifier hs-var hs-var">streamInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamInfo
+</span><a href="#local-6989586621679835324"><span class="hs-identifier hs-var">streamInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835323"><span class="annot"><span class="annottext">s :: DescribeStreamResponse
+</span><a href="#local-6989586621679835323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse%27"><span class="hs-identifier hs-type">DescribeStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835322"><span class="annot"><span class="annottext">Maybe StreamInfo
+</span><a href="#local-6989586621679835322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamResponse
+</span><a href="#local-6989586621679835323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamInfo:DescribeStreamResponse' :: Maybe StreamInfo
 </span><a href="Network.AWS.IoT.DescribeStream.html#%24sel%3AstreamInfo%3ADescribeStreamResponse%27"><span class="hs-identifier hs-var">streamInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamInfo
-</span><a href="#local-6989586621679834348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse"><span class="hs-identifier hs-type">DescribeStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679835322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse"><span class="hs-identifier hs-type">DescribeStreamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#describeStreamResponse_httpStatus"><span class="hs-identifier hs-type">describeStreamResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse"><span class="hs-identifier hs-type">DescribeStreamResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -369,16 +369,16 @@ $sel:streamInfo:DescribeStreamResponse' :: DescribeStreamResponse -&gt; Maybe St
 -&gt; (DescribeStreamResponse -&gt; Int -&gt; DescribeStreamResponse)
 -&gt; Lens DescribeStreamResponse DescribeStreamResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse%27"><span class="hs-identifier hs-type">DescribeStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834347"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse%27"><span class="hs-identifier hs-type">DescribeStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835321"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeStreamResponse' :: DescribeStreamResponse -&gt; Int
-</span><a href="#local-6989586621679834347"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679834347"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679834346"><span class="annot"><span class="annottext">s :: DescribeStreamResponse
-</span><a href="#local-6989586621679834346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse%27"><span class="hs-identifier hs-type">DescribeStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679834345"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679834345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamResponse
-</span><a href="#local-6989586621679834346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStreamResponse' :: Int
+</span><a href="#local-6989586621679835321"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835321"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835320"><span class="annot"><span class="annottext">s :: DescribeStreamResponse
+</span><a href="#local-6989586621679835320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse%27"><span class="hs-identifier hs-type">DescribeStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835319"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamResponse
+</span><a href="#local-6989586621679835320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStreamResponse' :: Int
 </span><a href="Network.AWS.IoT.DescribeStream.html#%24sel%3AhttpStatus%3ADescribeStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679834345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse"><span class="hs-identifier hs-type">DescribeStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679835319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse"><span class="hs-identifier hs-type">DescribeStreamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679834343"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse"><span class="hs-identifier hs-type">DescribeStreamResponse</span></a></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679835317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeStream.html#DescribeStreamResponse"><span class="hs-identifier hs-type">DescribeStreamResponse</span></a></span></span><span>
 </span><span id="line-147"></span></pre></body></html>

@@ -27,33 +27,33 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The current status of the configuration recorder.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newConfigurationRecorderStatus' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679404216"><span id="local-6989586621679404217"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfigurationRecorderStatus"><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-var">ConfigurationRecorderStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigurationRecorderStatus%27"><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">ConfigurationRecorderStatus'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time the recorder was last started.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AlastStartTime%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe POSIX
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStartTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">lastStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679404809"><span id="local-6989586621679404810"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfigurationRecorderStatus"><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-var">ConfigurationRecorderStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigurationRecorderStatus%27"><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">ConfigurationRecorderStatus'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code indicating that the recording failed.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AlastErrorCode%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe Text
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorCode%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">lastErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The time the recorder was last stopped.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AlastStopTime%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe POSIX
 </span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStopTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">lastStopTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The message indicating that the recording failed due to an error.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlastErrorMessage%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe Text
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorMessage%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">lastErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time when the status was last changed.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlastStatusChangeTime%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe POSIX
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStatusChangeTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">lastStatusChangeTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Specifies whether or not the recorder is currently recording.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Arecording%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe Bool
 </span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3Arecording%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">recording</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The error code indicating that the recording failed.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlastErrorCode%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe Text
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorCode%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">lastErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the configuration recorder.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aname%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe Text
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3Aname%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The last (previous) status of the recorder.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AlastStatus%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe RecorderStatus
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The last (previous) status of the recorder.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlastStatus%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe RecorderStatus
 </span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStatus%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">lastStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecorderStatus.html#RecorderStatus"><span class="hs-identifier hs-type">RecorderStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The time when the status was last changed.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AlastStatusChangeTime%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe POSIX
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStatusChangeTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">lastStatusChangeTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The message indicating that the recording failed due to an error.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AlastErrorMessage%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe Text
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorMessage%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">lastErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the configuration recorder.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aname%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe Text
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3Aname%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The time the recorder was last started.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AlastStartTime%3AConfigurationRecorderStatus%27"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; Maybe POSIX
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStartTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var hs-var">lastStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679404203"><span id="local-6989586621679404205"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; ConfigurationRecorderStatus -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679404796"><span id="local-6989586621679404798"><span class="annot"><span class="annottext">ConfigurationRecorderStatus -&gt; ConfigurationRecorderStatus -&gt; Bool
 (ConfigurationRecorderStatus
  -&gt; ConfigurationRecorderStatus -&gt; Bool)
 -&gt; (ConfigurationRecorderStatus
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConfigurationRecorderStatus -&gt; ConfigurationRecorderStatus -&gt; Bool
 == :: ConfigurationRecorderStatus -&gt; ConfigurationRecorderStatus -&gt; Bool
 $c== :: ConfigurationRecorderStatus -&gt; ConfigurationRecorderStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404194"><span id="local-6989586621679404196"><span id="local-6989586621679404198"><span id="local-6989586621679404200"><span class="annot"><span class="annottext">ReadPrec [ConfigurationRecorderStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404787"><span id="local-6989586621679404789"><span id="local-6989586621679404791"><span id="local-6989586621679404793"><span class="annot"><span class="annottext">ReadPrec [ConfigurationRecorderStatus]
 ReadPrec ConfigurationRecorderStatus
 Int -&gt; ReadS ConfigurationRecorderStatus
 ReadS [ConfigurationRecorderStatus]
@@ -84,7 +84,7 @@ readList :: ReadS [ConfigurationRecorderStatus]
 $creadList :: ReadS [ConfigurationRecorderStatus]
 readsPrec :: Int -&gt; ReadS ConfigurationRecorderStatus
 $creadsPrec :: Int -&gt; ReadS ConfigurationRecorderStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404187"><span id="local-6989586621679404189"><span id="local-6989586621679404191"><span class="annot"><span class="annottext">Int -&gt; ConfigurationRecorderStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404780"><span id="local-6989586621679404782"><span id="local-6989586621679404784"><span class="annot"><span class="annottext">Int -&gt; ConfigurationRecorderStatus -&gt; ShowS
 [ConfigurationRecorderStatus] -&gt; ShowS
 ConfigurationRecorderStatus -&gt; String
 (Int -&gt; ConfigurationRecorderStatus -&gt; ShowS)
@@ -124,108 +124,93 @@ ConfigurationRecorderStatus -&gt; Rep ConfigurationRecorderStatus x
 </span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'lastStartTime', 'configurationRecorderStatus_lastStartTime' - The time the recorder was last started.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'lastErrorCode', 'configurationRecorderStatus_lastErrorCode' - The error code indicating that the recording failed.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- 'lastStopTime', 'configurationRecorderStatus_lastStopTime' - The time the recorder was last stopped.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'lastErrorMessage', 'configurationRecorderStatus_lastErrorMessage' - The message indicating that the recording failed due to an error.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'lastStatusChangeTime', 'configurationRecorderStatus_lastStatusChangeTime' - The time when the status was last changed.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- 'recording', 'configurationRecorderStatus_recording' - Specifies whether or not the recorder is currently recording.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'lastErrorCode', 'configurationRecorderStatus_lastErrorCode' - The error code indicating that the recording failed.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'lastStatus', 'configurationRecorderStatus_lastStatus' - The last (previous) status of the recorder.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'name', 'configurationRecorderStatus_name' - The name of the configuration recorder.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'lastErrorMessage', 'configurationRecorderStatus_lastErrorMessage' - The message indicating that the recording failed due to an error.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'lastStatus', 'configurationRecorderStatus_lastStatus' - The last (previous) status of the recorder.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'name', 'configurationRecorderStatus_name' - The name of the configuration recorder.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'lastStatusChangeTime', 'configurationRecorderStatus_lastStatusChangeTime' - The time when the status was last changed.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'lastStartTime', 'configurationRecorderStatus_lastStartTime' - The time the recorder was last started.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#newConfigurationRecorderStatus"><span class="hs-identifier hs-type">newConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span>
 </span><span id="line-75"></span><span id="newConfigurationRecorderStatus"><span class="annot"><span class="annottext">newConfigurationRecorderStatus :: ConfigurationRecorderStatus
 </span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#newConfigurationRecorderStatus"><span class="hs-identifier hs-var hs-var">newConfigurationRecorderStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus' :: Maybe POSIX
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus' :: Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Bool
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe RecorderStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; ConfigurationRecorderStatus
 </span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastStartTime:ConfigurationRecorderStatus' :: Maybe POSIX
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStartTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastErrorCode:ConfigurationRecorderStatus' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorCode%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastStopTime:ConfigurationRecorderStatus' :: Maybe POSIX
 </span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStopTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStopTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastErrorMessage:ConfigurationRecorderStatus' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorMessage%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastStatusChangeTime:ConfigurationRecorderStatus' :: Maybe POSIX
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStatusChangeTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStatusChangeTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:recording:ConfigurationRecorderStatus' :: Maybe Bool
 </span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3Arecording%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">recording</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastErrorCode:ConfigurationRecorderStatus' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorCode%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ConfigurationRecorderStatus' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3Aname%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastStatus:ConfigurationRecorderStatus' :: Maybe RecorderStatus
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastStatus:ConfigurationRecorderStatus' :: Maybe RecorderStatus
 </span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStatus%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecorderStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastStatusChangeTime:ConfigurationRecorderStatus' :: Maybe POSIX
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStatusChangeTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStatusChangeTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastErrorMessage:ConfigurationRecorderStatus' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorMessage%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ConfigurationRecorderStatus' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3Aname%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastStartTime:ConfigurationRecorderStatus' :: Maybe POSIX
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStartTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The time the recorder was last started.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStartTime"><span class="hs-identifier hs-type">configurationRecorderStatus_lastStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="configurationRecorderStatus_lastStartTime"><span class="annot"><span class="annottext">configurationRecorderStatus_lastStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-88"></span><span class="hs-comment">-- | The error code indicating that the recording failed.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastErrorCode"><span class="hs-identifier hs-type">configurationRecorderStatus_lastErrorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="configurationRecorderStatus_lastErrorCode"><span class="annot"><span class="annottext">configurationRecorderStatus_lastErrorCode :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStartTime"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_lastStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe POSIX)
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastErrorCode"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_lastErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe Text)
 -&gt; (ConfigurationRecorderStatus
-    -&gt; Maybe POSIX -&gt; ConfigurationRecorderStatus)
+    -&gt; Maybe Text -&gt; ConfigurationRecorderStatus)
 -&gt; Lens
      ConfigurationRecorderStatus
      ConfigurationRecorderStatus
-     (Maybe POSIX)
-     (Maybe POSIX)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404178"><span class="annot"><span class="annottext">Maybe POSIX
-lastStartTime :: Maybe POSIX
-$sel:lastStartTime:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe POSIX
-</span><a href="#local-6989586621679404178"><span class="hs-identifier hs-var hs-var">lastStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679404178"><span class="hs-identifier hs-var">lastStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404177"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
-</span><a href="#local-6989586621679404177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404176"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679404176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
-</span><a href="#local-6989586621679404177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStartTime:ConfigurationRecorderStatus' :: Maybe POSIX
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStartTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679404176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ConfigurationRecorderStatus
--&gt; f ConfigurationRecorderStatus
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404771"><span class="annot"><span class="annottext">Maybe Text
+lastErrorCode :: Maybe Text
+$sel:lastErrorCode:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679404771"><span class="hs-identifier hs-var hs-var">lastErrorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404771"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404770"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404769"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastErrorCode:ConfigurationRecorderStatus' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorCode%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The time the recorder was last stopped.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStopTime"><span class="hs-identifier hs-type">configurationRecorderStatus_lastStopTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -240,16 +225,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404171"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404767"><span class="annot"><span class="annottext">Maybe POSIX
 lastStopTime :: Maybe POSIX
 $sel:lastStopTime:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe POSIX
-</span><a href="#local-6989586621679404171"><span class="hs-identifier hs-var hs-var">lastStopTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679404171"><span class="hs-identifier hs-var">lastStopTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404170"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
-</span><a href="#local-6989586621679404170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404169"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679404169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
-</span><a href="#local-6989586621679404170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStopTime:ConfigurationRecorderStatus' :: Maybe POSIX
+</span><a href="#local-6989586621679404767"><span class="hs-identifier hs-var hs-var">lastStopTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404767"><span class="hs-identifier hs-var">lastStopTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404766"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404765"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStopTime:ConfigurationRecorderStatus' :: Maybe POSIX
 </span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStopTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStopTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679404169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679404765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -266,29 +251,44 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The message indicating that the recording failed due to an error.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastErrorMessage"><span class="hs-identifier hs-type">configurationRecorderStatus_lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="configurationRecorderStatus_lastErrorMessage"><span class="annot"><span class="annottext">configurationRecorderStatus_lastErrorMessage :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-96"></span><span class="hs-comment">-- | The time when the status was last changed.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStatusChangeTime"><span class="hs-identifier hs-type">configurationRecorderStatus_lastStatusChangeTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="configurationRecorderStatus_lastStatusChangeTime"><span class="annot"><span class="annottext">configurationRecorderStatus_lastStatusChangeTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastErrorMessage"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_lastErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe Text)
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStatusChangeTime"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_lastStatusChangeTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe POSIX)
 -&gt; (ConfigurationRecorderStatus
-    -&gt; Maybe Text -&gt; ConfigurationRecorderStatus)
+    -&gt; Maybe POSIX -&gt; ConfigurationRecorderStatus)
 -&gt; Lens
      ConfigurationRecorderStatus
      ConfigurationRecorderStatus
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe POSIX)
+     (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404167"><span class="annot"><span class="annottext">Maybe Text
-lastErrorMessage :: Maybe Text
-$sel:lastErrorMessage:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679404167"><span class="hs-identifier hs-var hs-var">lastErrorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404167"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404166"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
-</span><a href="#local-6989586621679404166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404165"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
-</span><a href="#local-6989586621679404166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastErrorMessage:ConfigurationRecorderStatus' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorMessage%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404760"><span class="annot"><span class="annottext">Maybe POSIX
+lastStatusChangeTime :: Maybe POSIX
+$sel:lastStatusChangeTime:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe POSIX
+</span><a href="#local-6989586621679404760"><span class="hs-identifier hs-var hs-var">lastStatusChangeTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404760"><span class="hs-identifier hs-var">lastStatusChangeTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404759"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404758"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStatusChangeTime:ConfigurationRecorderStatus' :: Maybe POSIX
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStatusChangeTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStatusChangeTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConfigurationRecorderStatus
+-&gt; f ConfigurationRecorderStatus
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | Specifies whether or not the recorder is currently recording.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_recording"><span class="hs-identifier hs-type">configurationRecorderStatus_recording</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -303,68 +303,20 @@ $sel:lastErrorMessage:ConfigurationRecorderStatus' :: ConfigurationRecorderStatu
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404163"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404756"><span class="annot"><span class="annottext">Maybe Bool
 recording :: Maybe Bool
 $sel:recording:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe Bool
-</span><a href="#local-6989586621679404163"><span class="hs-identifier hs-var hs-var">recording</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679404163"><span class="hs-identifier hs-var">recording</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404162"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
-</span><a href="#local-6989586621679404162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404161"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679404161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
-</span><a href="#local-6989586621679404162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recording:ConfigurationRecorderStatus' :: Maybe Bool
+</span><a href="#local-6989586621679404756"><span class="hs-identifier hs-var hs-var">recording</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679404756"><span class="hs-identifier hs-var">recording</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404755"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404754"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679404754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recording:ConfigurationRecorderStatus' :: Maybe Bool
 </span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3Arecording%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">recording</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679404161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679404754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | The error code indicating that the recording failed.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastErrorCode"><span class="hs-identifier hs-type">configurationRecorderStatus_lastErrorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="configurationRecorderStatus_lastErrorCode"><span class="annot"><span class="annottext">configurationRecorderStatus_lastErrorCode :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastErrorCode"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_lastErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe Text)
--&gt; (ConfigurationRecorderStatus
-    -&gt; Maybe Text -&gt; ConfigurationRecorderStatus)
--&gt; Lens
-     ConfigurationRecorderStatus
-     ConfigurationRecorderStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404159"><span class="annot"><span class="annottext">Maybe Text
-lastErrorCode :: Maybe Text
-$sel:lastErrorCode:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679404159"><span class="hs-identifier hs-var hs-var">lastErrorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404159"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404158"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
-</span><a href="#local-6989586621679404158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404157"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
-</span><a href="#local-6989586621679404158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastErrorCode:ConfigurationRecorderStatus' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorCode%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The name of the configuration recorder.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_name"><span class="hs-identifier hs-type">configurationRecorderStatus_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="configurationRecorderStatus_name"><span class="annot"><span class="annottext">configurationRecorderStatus_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_name"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe Text)
--&gt; (ConfigurationRecorderStatus
-    -&gt; Maybe Text -&gt; ConfigurationRecorderStatus)
--&gt; Lens
-     ConfigurationRecorderStatus
-     ConfigurationRecorderStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404155"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679404155"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404155"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404154"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
-</span><a href="#local-6989586621679404154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404153"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
-</span><a href="#local-6989586621679404154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ConfigurationRecorderStatus' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3Aname%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | The last (previous) status of the recorder.</span><span>
-</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStatus"><span class="hs-identifier hs-type">configurationRecorderStatus_lastStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecorderStatus.html#RecorderStatus"><span class="hs-identifier hs-type">RecorderStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span id="configurationRecorderStatus_lastStatus"><span class="annot"><span class="annottext">configurationRecorderStatus_lastStatus :: (Maybe RecorderStatus -&gt; f (Maybe RecorderStatus))
+</span><span id="line-104"></span><span class="hs-comment">-- | The last (previous) status of the recorder.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStatus"><span class="hs-identifier hs-type">configurationRecorderStatus_lastStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecorderStatus.html#RecorderStatus"><span class="hs-identifier hs-type">RecorderStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="configurationRecorderStatus_lastStatus"><span class="annot"><span class="annottext">configurationRecorderStatus_lastStatus :: (Maybe RecorderStatus -&gt; f (Maybe RecorderStatus))
 -&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus
 </span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStatus"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_lastStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe RecorderStatus)
 -&gt; (ConfigurationRecorderStatus
@@ -375,22 +327,70 @@ $sel:name:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Mayb
      (Maybe RecorderStatus)
      (Maybe RecorderStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404151"><span class="annot"><span class="annottext">Maybe RecorderStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404752"><span class="annot"><span class="annottext">Maybe RecorderStatus
 lastStatus :: Maybe RecorderStatus
 $sel:lastStatus:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe RecorderStatus
-</span><a href="#local-6989586621679404151"><span class="hs-identifier hs-var hs-var">lastStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RecorderStatus
-</span><a href="#local-6989586621679404151"><span class="hs-identifier hs-var">lastStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404150"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
-</span><a href="#local-6989586621679404150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404149"><span class="annot"><span class="annottext">Maybe RecorderStatus
-</span><a href="#local-6989586621679404149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
-</span><a href="#local-6989586621679404150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStatus:ConfigurationRecorderStatus' :: Maybe RecorderStatus
+</span><a href="#local-6989586621679404752"><span class="hs-identifier hs-var hs-var">lastStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RecorderStatus
+</span><a href="#local-6989586621679404752"><span class="hs-identifier hs-var">lastStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404751"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404750"><span class="annot"><span class="annottext">Maybe RecorderStatus
+</span><a href="#local-6989586621679404750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStatus:ConfigurationRecorderStatus' :: Maybe RecorderStatus
 </span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStatus%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecorderStatus
-</span><a href="#local-6989586621679404149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | The time when the status was last changed.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStatusChangeTime"><span class="hs-identifier hs-type">configurationRecorderStatus_lastStatusChangeTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="configurationRecorderStatus_lastStatusChangeTime"><span class="annot"><span class="annottext">configurationRecorderStatus_lastStatusChangeTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679404750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The message indicating that the recording failed due to an error.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastErrorMessage"><span class="hs-identifier hs-type">configurationRecorderStatus_lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="configurationRecorderStatus_lastErrorMessage"><span class="annot"><span class="annottext">configurationRecorderStatus_lastErrorMessage :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStatusChangeTime"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_lastStatusChangeTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe POSIX)
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastErrorMessage"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_lastErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe Text)
+-&gt; (ConfigurationRecorderStatus
+    -&gt; Maybe Text -&gt; ConfigurationRecorderStatus)
+-&gt; Lens
+     ConfigurationRecorderStatus
+     ConfigurationRecorderStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404748"><span class="annot"><span class="annottext">Maybe Text
+lastErrorMessage :: Maybe Text
+$sel:lastErrorMessage:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679404748"><span class="hs-identifier hs-var hs-var">lastErrorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404748"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404747"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404746"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastErrorMessage:ConfigurationRecorderStatus' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastErrorMessage%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The name of the configuration recorder.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_name"><span class="hs-identifier hs-type">configurationRecorderStatus_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="configurationRecorderStatus_name"><span class="annot"><span class="annottext">configurationRecorderStatus_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_name"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe Text)
+-&gt; (ConfigurationRecorderStatus
+    -&gt; Maybe Text -&gt; ConfigurationRecorderStatus)
+-&gt; Lens
+     ConfigurationRecorderStatus
+     ConfigurationRecorderStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404744"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679404744"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404744"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404743"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404742"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ConfigurationRecorderStatus' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3Aname%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The time the recorder was last started.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStartTime"><span class="hs-identifier hs-type">configurationRecorderStatus_lastStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="configurationRecorderStatus_lastStartTime"><span class="annot"><span class="annottext">configurationRecorderStatus_lastStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#configurationRecorderStatus_lastStartTime"><span class="hs-identifier hs-var hs-var">configurationRecorderStatus_lastStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigurationRecorderStatus -&gt; Maybe POSIX)
 -&gt; (ConfigurationRecorderStatus
     -&gt; Maybe POSIX -&gt; ConfigurationRecorderStatus)
 -&gt; Lens
@@ -399,16 +399,16 @@ $sel:lastStatus:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404147"><span class="annot"><span class="annottext">Maybe POSIX
-lastStatusChangeTime :: Maybe POSIX
-$sel:lastStatusChangeTime:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe POSIX
-</span><a href="#local-6989586621679404147"><span class="hs-identifier hs-var hs-var">lastStatusChangeTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679404147"><span class="hs-identifier hs-var">lastStatusChangeTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404146"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
-</span><a href="#local-6989586621679404146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404145"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679404145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
-</span><a href="#local-6989586621679404146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStatusChangeTime:ConfigurationRecorderStatus' :: Maybe POSIX
-</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStatusChangeTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStatusChangeTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679404145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404740"><span class="annot"><span class="annottext">Maybe POSIX
+lastStartTime :: Maybe POSIX
+$sel:lastStartTime:ConfigurationRecorderStatus' :: ConfigurationRecorderStatus -&gt; Maybe POSIX
+</span><a href="#local-6989586621679404740"><span class="hs-identifier hs-var hs-var">lastStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404740"><span class="hs-identifier hs-var">lastStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404739"><span class="annot"><span class="annottext">s :: ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-type">ConfigurationRecorderStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404738"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRecorderStatus
+</span><a href="#local-6989586621679404739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStartTime:ConfigurationRecorderStatus' :: Maybe POSIX
+</span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#%24sel%3AlastStartTime%3AConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">lastStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ConfigurationRecorderStatus -&gt; f ConfigurationRecorderStatus)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -425,8 +425,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404142"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679404140"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConfigurationRecorderStatus
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404735"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679404733"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConfigurationRecorderStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ConfigurationRecorderStatus)
@@ -436,164 +436,157 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ConfigurationRecorderStatus&quot;</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679404137"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404137"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679404730"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404730"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Bool
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe RecorderStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; ConfigurationRecorderStatus
 </span><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus%27"><span class="hs-identifier hs-var">ConfigurationRecorderStatus'</span></a></span><span>
-</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe POSIX
- -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Maybe Bool
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe RecorderStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe POSIX
  -&gt; ConfigurationRecorderStatus)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe POSIX
-      -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Maybe Bool
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe RecorderStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; ConfigurationRecorderStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404137"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679404730"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lastStartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;lastErrorCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
-   -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Maybe Bool
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe RecorderStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; ConfigurationRecorderStatus)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe Text
+     (Maybe POSIX
       -&gt; Maybe Bool
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe RecorderStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; ConfigurationRecorderStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404137"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679404730"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lastStopTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+  (Maybe POSIX
    -&gt; Maybe Bool
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe RecorderStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; ConfigurationRecorderStatus)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Bool
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe RecorderStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; ConfigurationRecorderStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404137"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679404730"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lastErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;lastStatusChangeTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Bool
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe RecorderStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; ConfigurationRecorderStatus)
 -&gt; Parser (Maybe Bool)
 -&gt; Parser
-     (Maybe Text
+     (Maybe RecorderStatus
       -&gt; Maybe Text
-      -&gt; Maybe RecorderStatus
+      -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; ConfigurationRecorderStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404137"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679404730"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;recording&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+  (Maybe RecorderStatus
    -&gt; Maybe Text
-   -&gt; Maybe RecorderStatus
+   -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; ConfigurationRecorderStatus)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe RecorderStatus)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe RecorderStatus
-      -&gt; Maybe POSIX
-      -&gt; ConfigurationRecorderStatus)
+      -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ConfigurationRecorderStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404137"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lastErrorCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe RecorderStatus
-   -&gt; Maybe POSIX
-   -&gt; ConfigurationRecorderStatus)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe RecorderStatus
-      -&gt; Maybe POSIX -&gt; ConfigurationRecorderStatus)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404137"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe RecorderStatus
-   -&gt; Maybe POSIX -&gt; ConfigurationRecorderStatus)
--&gt; Parser (Maybe RecorderStatus)
--&gt; Parser (Maybe POSIX -&gt; ConfigurationRecorderStatus)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404137"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RecorderStatus)
+</span><a href="#local-6989586621679404730"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RecorderStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lastStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ConfigurationRecorderStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe POSIX -&gt; ConfigurationRecorderStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404730"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; ConfigurationRecorderStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; ConfigurationRecorderStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404730"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; ConfigurationRecorderStatus)
 -&gt; Parser (Maybe POSIX) -&gt; Parser ConfigurationRecorderStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404137"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679404730"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lastStatusChangeTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;lastStartTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404131"><span id="local-6989586621679404133"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404724"><span id="local-6989586621679404726"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span></span></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404128"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404721"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationRecorderStatus.html#ConfigurationRecorderStatus"><span class="hs-identifier hs-type">ConfigurationRecorderStatus</span></a></span></span><span>
 </span><span id="line-139"></span></pre></body></html>

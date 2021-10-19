@@ -54,12 +54,12 @@
 </span><span id="line-54"></span><span class="hs-comment">-- subject line, HTML part and text part) for the template you specify.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newGetEmailTemplate' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679342402"><span id="local-6989586621679342403"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEmailTemplate"><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate"><span class="hs-identifier hs-var">GetEmailTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEmailTemplate%27"><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate%27"><span class="hs-identifier hs-var">GetEmailTemplate'</span></a></span></span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the template you want to retrieve.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679344963"><span id="local-6989586621679344964"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEmailTemplate"><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate"><span class="hs-identifier hs-var">GetEmailTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEmailTemplate%27"><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate%27"><span class="hs-identifier hs-var">GetEmailTemplate'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the template.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AtemplateName%3AGetEmailTemplate%27"><span class="annot"><span class="annottext">GetEmailTemplate -&gt; Text
 </span><a href="Network.AWS.SESv2.GetEmailTemplate.html#%24sel%3AtemplateName%3AGetEmailTemplate%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342396"><span id="local-6989586621679342398"><span class="annot"><span class="annottext">GetEmailTemplate -&gt; GetEmailTemplate -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344957"><span id="local-6989586621679344959"><span class="annot"><span class="annottext">GetEmailTemplate -&gt; GetEmailTemplate -&gt; Bool
 (GetEmailTemplate -&gt; GetEmailTemplate -&gt; Bool)
 -&gt; (GetEmailTemplate -&gt; GetEmailTemplate -&gt; Bool)
 -&gt; Eq GetEmailTemplate
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetEmailTemplate -&gt; GetEmailTemplate -&gt; Bool
 == :: GetEmailTemplate -&gt; GetEmailTemplate -&gt; Bool
 $c== :: GetEmailTemplate -&gt; GetEmailTemplate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342387"><span id="local-6989586621679342389"><span id="local-6989586621679342391"><span id="local-6989586621679342393"><span class="annot"><span class="annottext">ReadPrec [GetEmailTemplate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344948"><span id="local-6989586621679344950"><span id="local-6989586621679344952"><span id="local-6989586621679344954"><span class="annot"><span class="annottext">ReadPrec [GetEmailTemplate]
 ReadPrec GetEmailTemplate
 Int -&gt; ReadS GetEmailTemplate
 ReadS [GetEmailTemplate]
@@ -88,7 +88,7 @@ readList :: ReadS [GetEmailTemplate]
 $creadList :: ReadS [GetEmailTemplate]
 readsPrec :: Int -&gt; ReadS GetEmailTemplate
 $creadsPrec :: Int -&gt; ReadS GetEmailTemplate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342380"><span id="local-6989586621679342382"><span id="local-6989586621679342384"><span class="annot"><span class="annottext">Int -&gt; GetEmailTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344941"><span id="local-6989586621679344943"><span id="local-6989586621679344945"><span class="annot"><span class="annottext">Int -&gt; GetEmailTemplate -&gt; ShowS
 [GetEmailTemplate] -&gt; ShowS
 GetEmailTemplate -&gt; String
 (Int -&gt; GetEmailTemplate -&gt; ShowS)
@@ -122,47 +122,47 @@ $cfrom :: forall x. GetEmailTemplate -&gt; Rep GetEmailTemplate x
 </span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'templateName', 'getEmailTemplate_templateName' - The name of the template you want to retrieve.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'templateName', 'getEmailTemplate_templateName' - The name of the template.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#newGetEmailTemplate"><span class="hs-identifier hs-type">newGetEmailTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'templateName'</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate"><span class="hs-identifier hs-type">GetEmailTemplate</span></a></span><span>
 </span><span id="line-76"></span><span id="newGetEmailTemplate"><span class="annot"><span class="annottext">newGetEmailTemplate :: Text -&gt; GetEmailTemplate
-</span><a href="Network.AWS.SESv2.GetEmailTemplate.html#newGetEmailTemplate"><span class="hs-identifier hs-var hs-var">newGetEmailTemplate</span></a></span></span><span> </span><span id="local-6989586621679342375"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342375"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.GetEmailTemplate.html#newGetEmailTemplate"><span class="hs-identifier hs-var hs-var">newGetEmailTemplate</span></a></span></span><span> </span><span id="local-6989586621679344936"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344936"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">GetEmailTemplate' :: Text -&gt; GetEmailTemplate
 </span><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate%27"><span class="hs-identifier hs-type">GetEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:GetEmailTemplate' :: Text
 </span><a href="Network.AWS.SESv2.GetEmailTemplate.html#%24sel%3AtemplateName%3AGetEmailTemplate%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342375"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679344936"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | The name of the template you want to retrieve.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The name of the template.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#getEmailTemplate_templateName"><span class="hs-identifier hs-type">getEmailTemplate_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate"><span class="hs-identifier hs-type">GetEmailTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-81"></span><span id="getEmailTemplate_templateName"><span class="annot"><span class="annottext">getEmailTemplate_templateName :: (Text -&gt; f Text) -&gt; GetEmailTemplate -&gt; f GetEmailTemplate
 </span><a href="Network.AWS.SESv2.GetEmailTemplate.html#getEmailTemplate_templateName"><span class="hs-identifier hs-var hs-var">getEmailTemplate_templateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEmailTemplate -&gt; Text)
 -&gt; (GetEmailTemplate -&gt; Text -&gt; GetEmailTemplate)
 -&gt; Lens GetEmailTemplate GetEmailTemplate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate%27"><span class="hs-identifier hs-type">GetEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342372"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate%27"><span class="hs-identifier hs-type">GetEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344933"><span class="annot"><span class="annottext">Text
 templateName :: Text
 $sel:templateName:GetEmailTemplate' :: GetEmailTemplate -&gt; Text
-</span><a href="#local-6989586621679342372"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342372"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342371"><span class="annot"><span class="annottext">s :: GetEmailTemplate
-</span><a href="#local-6989586621679342371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate%27"><span class="hs-identifier hs-type">GetEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342370"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEmailTemplate
-</span><a href="#local-6989586621679342371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:GetEmailTemplate' :: Text
+</span><a href="#local-6989586621679344933"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344933"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344932"><span class="annot"><span class="annottext">s :: GetEmailTemplate
+</span><a href="#local-6989586621679344932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate%27"><span class="hs-identifier hs-type">GetEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344931"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEmailTemplate
+</span><a href="#local-6989586621679344932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:GetEmailTemplate' :: Text
 </span><a href="Network.AWS.SESv2.GetEmailTemplate.html#%24sel%3AtemplateName%3AGetEmailTemplate%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate"><span class="hs-identifier hs-type">GetEmailTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate"><span class="hs-identifier hs-type">GetEmailTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate"><span class="hs-identifier hs-type">GetEmailTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate"><span class="hs-identifier hs-type">GetEmailTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse"><span class="hs-identifier hs-type">GetEmailTemplateResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679342366"><span class="annot"><span class="annottext">request :: GetEmailTemplate -&gt; Request GetEmailTemplate
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679344927"><span class="annot"><span class="annottext">request :: GetEmailTemplate -&gt; Request GetEmailTemplate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetEmailTemplate -&gt; Request GetEmailTemplate
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679342362"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679344923"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetEmailTemplate
 -&gt; ClientResponse ClientBody
@@ -186,10 +186,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342359"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342359"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679342358"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679342358"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679342357"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342357"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344920"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344920"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679344919"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679344919"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679344918"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344918"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; EmailTemplateContent -&gt; GetEmailTemplateResponse
 </span><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse%27"><span class="hs-identifier hs-var">GetEmailTemplateResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; EmailTemplateContent -&gt; GetEmailTemplateResponse)
@@ -202,14 +202,14 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342359"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344920"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (Text -&gt; EmailTemplateContent -&gt; GetEmailTemplateResponse)
 -&gt; Either String Text
 -&gt; Either String (EmailTemplateContent -&gt; GetEmailTemplateResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342357"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679344918"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TemplateName&quot;</span></span><span class="hs-special">)</span><span>
@@ -218,18 +218,18 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String GetEmailTemplateResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342357"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String EmailTemplateContent
+</span><a href="#local-6989586621679344918"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String EmailTemplateContent
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TemplateContent&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342349"><span id="local-6989586621679342351"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate"><span class="hs-identifier hs-type">GetEmailTemplate</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344910"><span id="local-6989586621679344912"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate"><span class="hs-identifier hs-type">GetEmailTemplate</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342346"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate"><span class="hs-identifier hs-type">GetEmailTemplate</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344907"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate"><span class="hs-identifier hs-type">GetEmailTemplate</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate"><span class="hs-identifier hs-type">GetEmailTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679342342"><span class="annot"><span class="annottext">toHeaders :: GetEmailTemplate -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679344903"><span class="annot"><span class="annottext">toHeaders :: GetEmailTemplate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetEmailTemplate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -249,11 +249,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate"><span class="hs-identifier hs-type">GetEmailTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679342336"><span class="annot"><span class="annottext">toPath :: GetEmailTemplate -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate%27"><span class="hs-identifier hs-type">GetEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342334"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679344897"><span class="annot"><span class="annottext">toPath :: GetEmailTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate%27"><span class="hs-identifier hs-type">GetEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344895"><span class="annot"><span class="annottext">Text
 templateName :: Text
 $sel:templateName:GetEmailTemplate' :: GetEmailTemplate -&gt; Text
-</span><a href="#local-6989586621679342334"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679344895"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -261,10 +261,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/v2/email/templates/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342334"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679344895"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplate"><span class="hs-identifier hs-type">GetEmailTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679342330"><span class="annot"><span class="annottext">toQuery :: GetEmailTemplate -&gt; QueryString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679344891"><span class="annot"><span class="annottext">toQuery :: GetEmailTemplate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetEmailTemplate -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -274,11 +274,11 @@ forall a. Monoid a =&gt; a
 </span><span id="line-120"></span><span class="hs-comment">-- | The following element is returned by the service.</span><span>
 </span><span id="line-121"></span><span class="hs-comment">--</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- /See:/ 'newGetEmailTemplateResponse' smart constructor.</span><span>
-</span><span id="line-123"></span><span id="local-6989586621679342327"><span id="local-6989586621679342328"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEmailTemplateResponse"><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse"><span class="hs-identifier hs-var">GetEmailTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEmailTemplateResponse%27"><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse%27"><span class="hs-identifier hs-var">GetEmailTemplateResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span id="local-6989586621679344888"><span id="local-6989586621679344889"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEmailTemplateResponse"><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse"><span class="hs-identifier hs-var">GetEmailTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEmailTemplateResponse%27"><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse%27"><span class="hs-identifier hs-var">GetEmailTemplateResponse'</span></a></span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetEmailTemplateResponse%27"><span class="annot"><span class="annottext">GetEmailTemplateResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.GetEmailTemplate.html#%24sel%3AhttpStatus%3AGetEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The name of the template you want to retrieve.</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The name of the template.</span><span>
 </span><span id="line-127"></span><span>    </span><span id="%24sel%3AtemplateName%3AGetEmailTemplateResponse%27"><span class="annot"><span class="annottext">GetEmailTemplateResponse -&gt; Text
 </span><a href="Network.AWS.SESv2.GetEmailTemplate.html#%24sel%3AtemplateName%3AGetEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | The content of the email template, composed of a subject line, an HTML</span><span>
@@ -286,7 +286,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3AtemplateContent%3AGetEmailTemplateResponse%27"><span class="annot"><span class="annottext">GetEmailTemplateResponse -&gt; EmailTemplateContent
 </span><a href="Network.AWS.SESv2.GetEmailTemplate.html#%24sel%3AtemplateContent%3AGetEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">templateContent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342320"><span id="local-6989586621679342322"><span class="annot"><span class="annottext">GetEmailTemplateResponse -&gt; GetEmailTemplateResponse -&gt; Bool
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344881"><span id="local-6989586621679344883"><span class="annot"><span class="annottext">GetEmailTemplateResponse -&gt; GetEmailTemplateResponse -&gt; Bool
 (GetEmailTemplateResponse -&gt; GetEmailTemplateResponse -&gt; Bool)
 -&gt; (GetEmailTemplateResponse -&gt; GetEmailTemplateResponse -&gt; Bool)
 -&gt; Eq GetEmailTemplateResponse
@@ -295,7 +295,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetEmailTemplateResponse -&gt; GetEmailTemplateResponse -&gt; Bool
 == :: GetEmailTemplateResponse -&gt; GetEmailTemplateResponse -&gt; Bool
 $c== :: GetEmailTemplateResponse -&gt; GetEmailTemplateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342312"><span id="local-6989586621679342314"><span id="local-6989586621679342316"><span id="local-6989586621679342318"><span class="annot"><span class="annottext">ReadPrec [GetEmailTemplateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344873"><span id="local-6989586621679344875"><span id="local-6989586621679344877"><span id="local-6989586621679344879"><span class="annot"><span class="annottext">ReadPrec [GetEmailTemplateResponse]
 ReadPrec GetEmailTemplateResponse
 Int -&gt; ReadS GetEmailTemplateResponse
 ReadS [GetEmailTemplateResponse]
@@ -315,7 +315,7 @@ readList :: ReadS [GetEmailTemplateResponse]
 $creadList :: ReadS [GetEmailTemplateResponse]
 readsPrec :: Int -&gt; ReadS GetEmailTemplateResponse
 $creadsPrec :: Int -&gt; ReadS GetEmailTemplateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342306"><span id="local-6989586621679342308"><span id="local-6989586621679342310"><span class="annot"><span class="annottext">Int -&gt; GetEmailTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344867"><span id="local-6989586621679344869"><span id="local-6989586621679344871"><span class="annot"><span class="annottext">Int -&gt; GetEmailTemplateResponse -&gt; ShowS
 [GetEmailTemplateResponse] -&gt; ShowS
 GetEmailTemplateResponse -&gt; String
 (Int -&gt; GetEmailTemplateResponse -&gt; ShowS)
@@ -357,7 +357,7 @@ GetEmailTemplateResponse -&gt; Rep GetEmailTemplateResponse x
 </span><span id="line-141"></span><span class="hs-comment">--</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- 'httpStatus', 'getEmailTemplateResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-143"></span><span class="hs-comment">--</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- 'templateName', 'getEmailTemplateResponse_templateName' - The name of the template you want to retrieve.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'templateName', 'getEmailTemplateResponse_templateName' - The name of the template.</span><span>
 </span><span id="line-145"></span><span class="hs-comment">--</span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- 'templateContent', 'getEmailTemplateResponse_templateContent' - The content of the email template, composed of a subject line, an HTML</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- part, and a text-only part.</span><span>
@@ -371,24 +371,24 @@ GetEmailTemplateResponse -&gt; Rep GetEmailTemplateResponse x
 </span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse"><span class="hs-identifier hs-type">GetEmailTemplateResponse</span></a></span><span>
 </span><span id="line-156"></span><span id="newGetEmailTemplateResponse"><span class="annot"><span class="annottext">newGetEmailTemplateResponse :: Int -&gt; Text -&gt; EmailTemplateContent -&gt; GetEmailTemplateResponse
 </span><a href="Network.AWS.SESv2.GetEmailTemplate.html#newGetEmailTemplateResponse"><span class="hs-identifier hs-var hs-var">newGetEmailTemplateResponse</span></a></span></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679342303"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342303"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679342302"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342302"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679342301"><span class="annot"><span class="annottext">EmailTemplateContent
-</span><a href="#local-6989586621679342301"><span class="hs-identifier hs-var">pTemplateContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679344864"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344864"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679344863"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344863"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679344862"><span class="annot"><span class="annottext">EmailTemplateContent
+</span><a href="#local-6989586621679344862"><span class="hs-identifier hs-var">pTemplateContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">GetEmailTemplateResponse' :: Int -&gt; Text -&gt; EmailTemplateContent -&gt; GetEmailTemplateResponse
 </span><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse%27"><span class="hs-identifier hs-type">GetEmailTemplateResponse'</span></a></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetEmailTemplateResponse' :: Int
 </span><a href="Network.AWS.SESv2.GetEmailTemplate.html#%24sel%3AhttpStatus%3AGetEmailTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342303"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679344864"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateName:GetEmailTemplateResponse' :: Text
 </span><a href="Network.AWS.SESv2.GetEmailTemplate.html#%24sel%3AtemplateName%3AGetEmailTemplateResponse%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342302"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679344863"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateContent:GetEmailTemplateResponse' :: EmailTemplateContent
 </span><a href="Network.AWS.SESv2.GetEmailTemplate.html#%24sel%3AtemplateContent%3AGetEmailTemplateResponse%27"><span class="hs-identifier hs-var">templateContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EmailTemplateContent
-</span><a href="#local-6989586621679342301"><span class="hs-identifier hs-var">pTemplateContent_</span></a></span><span>
+</span><a href="#local-6989586621679344862"><span class="hs-identifier hs-var">pTemplateContent_</span></a></span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -399,18 +399,18 @@ GetEmailTemplateResponse -&gt; Rep GetEmailTemplateResponse x
 -&gt; (GetEmailTemplateResponse -&gt; Int -&gt; GetEmailTemplateResponse)
 -&gt; Lens GetEmailTemplateResponse GetEmailTemplateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse%27"><span class="hs-identifier hs-type">GetEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342300"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse%27"><span class="hs-identifier hs-type">GetEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344861"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetEmailTemplateResponse' :: GetEmailTemplateResponse -&gt; Int
-</span><a href="#local-6989586621679342300"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342300"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342299"><span class="annot"><span class="annottext">s :: GetEmailTemplateResponse
-</span><a href="#local-6989586621679342299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse%27"><span class="hs-identifier hs-type">GetEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342298"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEmailTemplateResponse
-</span><a href="#local-6989586621679342299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetEmailTemplateResponse' :: Int
+</span><a href="#local-6989586621679344861"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344861"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344860"><span class="annot"><span class="annottext">s :: GetEmailTemplateResponse
+</span><a href="#local-6989586621679344860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse%27"><span class="hs-identifier hs-type">GetEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344859"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEmailTemplateResponse
+</span><a href="#local-6989586621679344860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetEmailTemplateResponse' :: Int
 </span><a href="Network.AWS.SESv2.GetEmailTemplate.html#%24sel%3AhttpStatus%3AGetEmailTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse"><span class="hs-identifier hs-type">GetEmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse"><span class="hs-identifier hs-type">GetEmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- | The name of the template you want to retrieve.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The name of the template.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#getEmailTemplateResponse_templateName"><span class="hs-identifier hs-type">getEmailTemplateResponse_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse"><span class="hs-identifier hs-type">GetEmailTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-173"></span><span id="getEmailTemplateResponse_templateName"><span class="annot"><span class="annottext">getEmailTemplateResponse_templateName :: (Text -&gt; f Text)
 -&gt; GetEmailTemplateResponse -&gt; f GetEmailTemplateResponse
@@ -418,16 +418,16 @@ $sel:httpStatus:GetEmailTemplateResponse' :: GetEmailTemplateResponse -&gt; Int
 -&gt; (GetEmailTemplateResponse -&gt; Text -&gt; GetEmailTemplateResponse)
 -&gt; Lens GetEmailTemplateResponse GetEmailTemplateResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse%27"><span class="hs-identifier hs-type">GetEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342297"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse%27"><span class="hs-identifier hs-type">GetEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344858"><span class="annot"><span class="annottext">Text
 templateName :: Text
 $sel:templateName:GetEmailTemplateResponse' :: GetEmailTemplateResponse -&gt; Text
-</span><a href="#local-6989586621679342297"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342297"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342296"><span class="annot"><span class="annottext">s :: GetEmailTemplateResponse
-</span><a href="#local-6989586621679342296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse%27"><span class="hs-identifier hs-type">GetEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342295"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEmailTemplateResponse
-</span><a href="#local-6989586621679342296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:GetEmailTemplateResponse' :: Text
+</span><a href="#local-6989586621679344858"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344858"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344857"><span class="annot"><span class="annottext">s :: GetEmailTemplateResponse
+</span><a href="#local-6989586621679344857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse%27"><span class="hs-identifier hs-type">GetEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344856"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEmailTemplateResponse
+</span><a href="#local-6989586621679344857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:GetEmailTemplateResponse' :: Text
 </span><a href="Network.AWS.SESv2.GetEmailTemplate.html#%24sel%3AtemplateName%3AGetEmailTemplateResponse%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse"><span class="hs-identifier hs-type">GetEmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse"><span class="hs-identifier hs-type">GetEmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The content of the email template, composed of a subject line, an HTML</span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- part, and a text-only part.</span><span>
@@ -443,16 +443,16 @@ $sel:templateName:GetEmailTemplateResponse' :: GetEmailTemplateResponse -&gt; Te
      EmailTemplateContent
      EmailTemplateContent
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse%27"><span class="hs-identifier hs-type">GetEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342294"><span class="annot"><span class="annottext">EmailTemplateContent
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse%27"><span class="hs-identifier hs-type">GetEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344855"><span class="annot"><span class="annottext">EmailTemplateContent
 templateContent :: EmailTemplateContent
 $sel:templateContent:GetEmailTemplateResponse' :: GetEmailTemplateResponse -&gt; EmailTemplateContent
-</span><a href="#local-6989586621679342294"><span class="hs-identifier hs-var hs-var">templateContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateContent
-</span><a href="#local-6989586621679342294"><span class="hs-identifier hs-var">templateContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342293"><span class="annot"><span class="annottext">s :: GetEmailTemplateResponse
-</span><a href="#local-6989586621679342293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse%27"><span class="hs-identifier hs-type">GetEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342292"><span class="annot"><span class="annottext">EmailTemplateContent
-</span><a href="#local-6989586621679342292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEmailTemplateResponse
-</span><a href="#local-6989586621679342293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateContent:GetEmailTemplateResponse' :: EmailTemplateContent
+</span><a href="#local-6989586621679344855"><span class="hs-identifier hs-var hs-var">templateContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateContent
+</span><a href="#local-6989586621679344855"><span class="hs-identifier hs-var">templateContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344854"><span class="annot"><span class="annottext">s :: GetEmailTemplateResponse
+</span><a href="#local-6989586621679344854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse%27"><span class="hs-identifier hs-type">GetEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344853"><span class="annot"><span class="annottext">EmailTemplateContent
+</span><a href="#local-6989586621679344853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEmailTemplateResponse
+</span><a href="#local-6989586621679344854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateContent:GetEmailTemplateResponse' :: EmailTemplateContent
 </span><a href="Network.AWS.SESv2.GetEmailTemplate.html#%24sel%3AtemplateContent%3AGetEmailTemplateResponse%27"><span class="hs-identifier hs-var">templateContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EmailTemplateContent
-</span><a href="#local-6989586621679342292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse"><span class="hs-identifier hs-type">GetEmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse"><span class="hs-identifier hs-type">GetEmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342290"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse"><span class="hs-identifier hs-type">GetEmailTemplateResponse</span></a></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344851"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetEmailTemplate.html#GetEmailTemplateResponse"><span class="hs-identifier hs-type">GetEmailTemplateResponse</span></a></span></span><span>
 </span><span id="line-181"></span></pre></body></html>

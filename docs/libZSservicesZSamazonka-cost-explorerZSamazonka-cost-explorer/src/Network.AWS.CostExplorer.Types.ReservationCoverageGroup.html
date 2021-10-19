@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A group of reservations that share a set of attributes.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newReservationCoverageGroup' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679333555"><span id="local-6989586621679333556"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReservationCoverageGroup"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup"><span class="hs-identifier hs-var">ReservationCoverageGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservationCoverageGroup%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup%27"><span class="hs-identifier hs-var">ReservationCoverageGroup'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The attributes for this group of reservations.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aattributes%3AReservationCoverageGroup%27"><span class="annot"><span class="annottext">ReservationCoverageGroup -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#%24sel%3Aattributes%3AReservationCoverageGroup%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | How much instance usage this group of reservations covered.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Acoverage%3AReservationCoverageGroup%27"><span class="annot"><span class="annottext">ReservationCoverageGroup -&gt; Maybe Coverage
-</span><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#%24sel%3Acoverage%3AReservationCoverageGroup%27"><span class="hs-identifier hs-var hs-var">coverage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679333888"><span id="local-6989586621679333889"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReservationCoverageGroup"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup"><span class="hs-identifier hs-var">ReservationCoverageGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservationCoverageGroup%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup%27"><span class="hs-identifier hs-var">ReservationCoverageGroup'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | How much instance usage this group of reservations covered.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Acoverage%3AReservationCoverageGroup%27"><span class="annot"><span class="annottext">ReservationCoverageGroup -&gt; Maybe Coverage
+</span><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#%24sel%3Acoverage%3AReservationCoverageGroup%27"><span class="hs-identifier hs-var hs-var">coverage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The attributes for this group of reservations.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aattributes%3AReservationCoverageGroup%27"><span class="annot"><span class="annottext">ReservationCoverageGroup -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#%24sel%3Aattributes%3AReservationCoverageGroup%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333548"><span id="local-6989586621679333550"><span class="annot"><span class="annottext">ReservationCoverageGroup -&gt; ReservationCoverageGroup -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333881"><span id="local-6989586621679333883"><span class="annot"><span class="annottext">ReservationCoverageGroup -&gt; ReservationCoverageGroup -&gt; Bool
 (ReservationCoverageGroup -&gt; ReservationCoverageGroup -&gt; Bool)
 -&gt; (ReservationCoverageGroup -&gt; ReservationCoverageGroup -&gt; Bool)
 -&gt; Eq ReservationCoverageGroup
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReservationCoverageGroup -&gt; ReservationCoverageGroup -&gt; Bool
 == :: ReservationCoverageGroup -&gt; ReservationCoverageGroup -&gt; Bool
 $c== :: ReservationCoverageGroup -&gt; ReservationCoverageGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333539"><span id="local-6989586621679333541"><span id="local-6989586621679333543"><span id="local-6989586621679333545"><span class="annot"><span class="annottext">ReadPrec [ReservationCoverageGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333872"><span id="local-6989586621679333874"><span id="local-6989586621679333876"><span id="local-6989586621679333878"><span class="annot"><span class="annottext">ReadPrec [ReservationCoverageGroup]
 ReadPrec ReservationCoverageGroup
 Int -&gt; ReadS ReservationCoverageGroup
 ReadS [ReservationCoverageGroup]
@@ -64,7 +64,7 @@ readList :: ReadS [ReservationCoverageGroup]
 $creadList :: ReadS [ReservationCoverageGroup]
 readsPrec :: Int -&gt; ReadS ReservationCoverageGroup
 $creadsPrec :: Int -&gt; ReadS ReservationCoverageGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333532"><span id="local-6989586621679333534"><span id="local-6989586621679333536"><span class="annot"><span class="annottext">Int -&gt; ReservationCoverageGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333865"><span id="local-6989586621679333867"><span id="local-6989586621679333869"><span class="annot"><span class="annottext">Int -&gt; ReservationCoverageGroup -&gt; ShowS
 [ReservationCoverageGroup] -&gt; ShowS
 ReservationCoverageGroup -&gt; String
 (Int -&gt; ReservationCoverageGroup -&gt; ShowS)
@@ -104,30 +104,54 @@ ReservationCoverageGroup -&gt; Rep ReservationCoverageGroup x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'attributes', 'reservationCoverageGroup_attributes' - The attributes for this group of reservations.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'coverage', 'reservationCoverageGroup_coverage' - How much instance usage this group of reservations covered.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'coverage', 'reservationCoverageGroup_coverage' - How much instance usage this group of reservations covered.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'attributes', 'reservationCoverageGroup_attributes' - The attributes for this group of reservations.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#newReservationCoverageGroup"><span class="hs-identifier hs-type">newReservationCoverageGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup"><span class="hs-identifier hs-type">ReservationCoverageGroup</span></a></span><span>
 </span><span id="line-51"></span><span id="newReservationCoverageGroup"><span class="annot"><span class="annottext">newReservationCoverageGroup :: ReservationCoverageGroup
 </span><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#newReservationCoverageGroup"><span class="hs-identifier hs-var hs-var">newReservationCoverageGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">ReservationCoverageGroup' :: Maybe (HashMap Text Text)
--&gt; Maybe Coverage -&gt; ReservationCoverageGroup
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">ReservationCoverageGroup' :: Maybe Coverage
+-&gt; Maybe (HashMap Text Text) -&gt; ReservationCoverageGroup
 </span><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup%27"><span class="hs-identifier hs-type">ReservationCoverageGroup'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributes:ReservationCoverageGroup' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#%24sel%3Aattributes%3AReservationCoverageGroup%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:coverage:ReservationCoverageGroup' :: Maybe Coverage
+</span><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#%24sel%3Acoverage%3AReservationCoverageGroup%27"><span class="hs-identifier hs-var">coverage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe Coverage
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:coverage:ReservationCoverageGroup' :: Maybe Coverage
-</span><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#%24sel%3Acoverage%3AReservationCoverageGroup%27"><span class="hs-identifier hs-var">coverage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Coverage
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:ReservationCoverageGroup' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#%24sel%3Aattributes%3AReservationCoverageGroup%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | The attributes for this group of reservations.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#reservationCoverageGroup_attributes"><span class="hs-identifier hs-type">reservationCoverageGroup_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup"><span class="hs-identifier hs-type">ReservationCoverageGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="reservationCoverageGroup_attributes"><span class="annot"><span class="annottext">reservationCoverageGroup_attributes :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span id="line-58"></span><span class="hs-comment">-- | How much instance usage this group of reservations covered.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#reservationCoverageGroup_coverage"><span class="hs-identifier hs-type">reservationCoverageGroup_coverage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup"><span class="hs-identifier hs-type">ReservationCoverageGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="reservationCoverageGroup_coverage"><span class="annot"><span class="annottext">reservationCoverageGroup_coverage :: (Maybe Coverage -&gt; f (Maybe Coverage))
+-&gt; ReservationCoverageGroup -&gt; f ReservationCoverageGroup
+</span><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#reservationCoverageGroup_coverage"><span class="hs-identifier hs-var hs-var">reservationCoverageGroup_coverage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationCoverageGroup -&gt; Maybe Coverage)
+-&gt; (ReservationCoverageGroup
+    -&gt; Maybe Coverage -&gt; ReservationCoverageGroup)
+-&gt; Lens
+     ReservationCoverageGroup
+     ReservationCoverageGroup
+     (Maybe Coverage)
+     (Maybe Coverage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup%27"><span class="hs-identifier hs-type">ReservationCoverageGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333856"><span class="annot"><span class="annottext">Maybe Coverage
+coverage :: Maybe Coverage
+$sel:coverage:ReservationCoverageGroup' :: ReservationCoverageGroup -&gt; Maybe Coverage
+</span><a href="#local-6989586621679333856"><span class="hs-identifier hs-var hs-var">coverage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Coverage
+</span><a href="#local-6989586621679333856"><span class="hs-identifier hs-var">coverage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333855"><span class="annot"><span class="annottext">s :: ReservationCoverageGroup
+</span><a href="#local-6989586621679333855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup%27"><span class="hs-identifier hs-type">ReservationCoverageGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333854"><span class="annot"><span class="annottext">Maybe Coverage
+</span><a href="#local-6989586621679333854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationCoverageGroup
+</span><a href="#local-6989586621679333855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coverage:ReservationCoverageGroup' :: Maybe Coverage
+</span><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#%24sel%3Acoverage%3AReservationCoverageGroup%27"><span class="hs-identifier hs-var">coverage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Coverage
+</span><a href="#local-6989586621679333854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup"><span class="hs-identifier hs-type">ReservationCoverageGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The attributes for this group of reservations.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#reservationCoverageGroup_attributes"><span class="hs-identifier hs-type">reservationCoverageGroup_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup"><span class="hs-identifier hs-type">ReservationCoverageGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="reservationCoverageGroup_attributes"><span class="annot"><span class="annottext">reservationCoverageGroup_attributes :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; ReservationCoverageGroup -&gt; f ReservationCoverageGroup
 </span><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#reservationCoverageGroup_attributes"><span class="hs-identifier hs-var hs-var">reservationCoverageGroup_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationCoverageGroup -&gt; Maybe (HashMap Text Text))
 -&gt; (ReservationCoverageGroup
@@ -138,16 +162,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup%27"><span class="hs-identifier hs-type">ReservationCoverageGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333523"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup%27"><span class="hs-identifier hs-type">ReservationCoverageGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333852"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 attributes :: Maybe (HashMap Text Text)
 $sel:attributes:ReservationCoverageGroup' :: ReservationCoverageGroup -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679333523"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679333523"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333522"><span class="annot"><span class="annottext">s :: ReservationCoverageGroup
-</span><a href="#local-6989586621679333522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup%27"><span class="hs-identifier hs-type">ReservationCoverageGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333521"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679333521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationCoverageGroup
-</span><a href="#local-6989586621679333522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:ReservationCoverageGroup' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679333852"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679333852"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333851"><span class="annot"><span class="annottext">s :: ReservationCoverageGroup
+</span><a href="#local-6989586621679333851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup%27"><span class="hs-identifier hs-type">ReservationCoverageGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333850"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679333850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationCoverageGroup
+</span><a href="#local-6989586621679333851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:ReservationCoverageGroup' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#%24sel%3Aattributes%3AReservationCoverageGroup%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679333521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup"><span class="hs-identifier hs-type">ReservationCoverageGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679333850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup"><span class="hs-identifier hs-type">ReservationCoverageGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ReservationCoverageGroup -&gt; f ReservationCoverageGroup)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -173,35 +197,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | How much instance usage this group of reservations covered.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#reservationCoverageGroup_coverage"><span class="hs-identifier hs-type">reservationCoverageGroup_coverage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup"><span class="hs-identifier hs-type">ReservationCoverageGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="reservationCoverageGroup_coverage"><span class="annot"><span class="annottext">reservationCoverageGroup_coverage :: (Maybe Coverage -&gt; f (Maybe Coverage))
--&gt; ReservationCoverageGroup -&gt; f ReservationCoverageGroup
-</span><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#reservationCoverageGroup_coverage"><span class="hs-identifier hs-var hs-var">reservationCoverageGroup_coverage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationCoverageGroup -&gt; Maybe Coverage)
--&gt; (ReservationCoverageGroup
-    -&gt; Maybe Coverage -&gt; ReservationCoverageGroup)
--&gt; Lens
-     ReservationCoverageGroup
-     ReservationCoverageGroup
-     (Maybe Coverage)
-     (Maybe Coverage)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup%27"><span class="hs-identifier hs-type">ReservationCoverageGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333516"><span class="annot"><span class="annottext">Maybe Coverage
-coverage :: Maybe Coverage
-$sel:coverage:ReservationCoverageGroup' :: ReservationCoverageGroup -&gt; Maybe Coverage
-</span><a href="#local-6989586621679333516"><span class="hs-identifier hs-var hs-var">coverage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Coverage
-</span><a href="#local-6989586621679333516"><span class="hs-identifier hs-var">coverage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333515"><span class="annot"><span class="annottext">s :: ReservationCoverageGroup
-</span><a href="#local-6989586621679333515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup%27"><span class="hs-identifier hs-type">ReservationCoverageGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333514"><span class="annot"><span class="annottext">Maybe Coverage
-</span><a href="#local-6989586621679333514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationCoverageGroup
-</span><a href="#local-6989586621679333515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coverage:ReservationCoverageGroup' :: Maybe Coverage
-</span><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#%24sel%3Acoverage%3AReservationCoverageGroup%27"><span class="hs-identifier hs-var">coverage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Coverage
-</span><a href="#local-6989586621679333514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup"><span class="hs-identifier hs-type">ReservationCoverageGroup</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333511"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup"><span class="hs-identifier hs-type">ReservationCoverageGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679333509"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReservationCoverageGroup
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333844"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup"><span class="hs-identifier hs-type">ReservationCoverageGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679333842"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReservationCoverageGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReservationCoverageGroup)
@@ -211,18 +211,27 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReservationCoverageGroup&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679333506"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679333506"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
--&gt; Maybe Coverage -&gt; ReservationCoverageGroup
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679333839"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333839"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Coverage
+-&gt; Maybe (HashMap Text Text) -&gt; ReservationCoverageGroup
 </span><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup%27"><span class="hs-identifier hs-var">ReservationCoverageGroup'</span></a></span><span>
-</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text)
- -&gt; Maybe Coverage -&gt; ReservationCoverageGroup)
--&gt; Parser (Maybe (HashMap Text Text))
--&gt; Parser (Maybe Coverage -&gt; ReservationCoverageGroup)
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Coverage
+ -&gt; Maybe (HashMap Text Text) -&gt; ReservationCoverageGroup)
+-&gt; Parser (Maybe Coverage)
+-&gt; Parser (Maybe (HashMap Text Text) -&gt; ReservationCoverageGroup)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679333506"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679333839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Coverage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Coverage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; ReservationCoverageGroup)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser ReservationCoverageGroup
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -231,17 +240,9 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Coverage -&gt; ReservationCoverageGroup)
--&gt; Parser (Maybe Coverage) -&gt; Parser ReservationCoverageGroup
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679333506"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Coverage)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Coverage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333499"><span id="local-6989586621679333501"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup"><span class="hs-identifier hs-type">ReservationCoverageGroup</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333832"><span id="local-6989586621679333834"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup"><span class="hs-identifier hs-type">ReservationCoverageGroup</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333496"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup"><span class="hs-identifier hs-type">ReservationCoverageGroup</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333829"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationCoverageGroup.html#ReservationCoverageGroup"><span class="hs-identifier hs-type">ReservationCoverageGroup</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

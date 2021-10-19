@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetHIT' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679251566"><span id="local-6989586621679251567"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetHIT"><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT"><span class="hs-identifier hs-var">GetHIT</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetHIT%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT%27"><span class="hs-identifier hs-var">GetHIT'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679251699"><span id="local-6989586621679251700"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetHIT"><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT"><span class="hs-identifier hs-var">GetHIT</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetHIT%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT%27"><span class="hs-identifier hs-var">GetHIT'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the HIT to be retrieved.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AhITId%3AGetHIT%27"><span class="annot"><span class="annottext">GetHIT -&gt; Text
 </span><a href="Network.AWS.MechanicalTurk.GetHIT.html#%24sel%3AhITId%3AGetHIT%27"><span class="hs-identifier hs-var hs-var">hITId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251560"><span id="local-6989586621679251562"><span class="annot"><span class="annottext">GetHIT -&gt; GetHIT -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251693"><span id="local-6989586621679251695"><span class="annot"><span class="annottext">GetHIT -&gt; GetHIT -&gt; Bool
 (GetHIT -&gt; GetHIT -&gt; Bool)
 -&gt; (GetHIT -&gt; GetHIT -&gt; Bool) -&gt; Eq GetHIT
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetHIT -&gt; GetHIT -&gt; Bool
 == :: GetHIT -&gt; GetHIT -&gt; Bool
 $c== :: GetHIT -&gt; GetHIT -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251551"><span id="local-6989586621679251553"><span id="local-6989586621679251555"><span id="local-6989586621679251557"><span class="annot"><span class="annottext">ReadPrec [GetHIT]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251684"><span id="local-6989586621679251686"><span id="local-6989586621679251688"><span id="local-6989586621679251690"><span class="annot"><span class="annottext">ReadPrec [GetHIT]
 ReadPrec GetHIT
 Int -&gt; ReadS GetHIT
 ReadS [GetHIT]
@@ -80,7 +80,7 @@ readList :: ReadS [GetHIT]
 $creadList :: ReadS [GetHIT]
 readsPrec :: Int -&gt; ReadS GetHIT
 $creadsPrec :: Int -&gt; ReadS GetHIT
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251544"><span id="local-6989586621679251546"><span id="local-6989586621679251548"><span class="annot"><span class="annottext">Int -&gt; GetHIT -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251677"><span id="local-6989586621679251679"><span id="local-6989586621679251681"><span class="annot"><span class="annottext">Int -&gt; GetHIT -&gt; ShowS
 [GetHIT] -&gt; ShowS
 GetHIT -&gt; String
 (Int -&gt; GetHIT -&gt; ShowS)
@@ -117,11 +117,11 @@ $cfrom :: forall x. GetHIT -&gt; Rep GetHIT x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT"><span class="hs-identifier hs-type">GetHIT</span></a></span><span>
 </span><span id="line-69"></span><span id="newGetHIT"><span class="annot"><span class="annottext">newGetHIT :: Text -&gt; GetHIT
-</span><a href="Network.AWS.MechanicalTurk.GetHIT.html#newGetHIT"><span class="hs-identifier hs-var hs-var">newGetHIT</span></a></span></span><span> </span><span id="local-6989586621679251539"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251539"><span class="hs-identifier hs-var">pHITId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetHIT' :: Text -&gt; GetHIT
+</span><a href="Network.AWS.MechanicalTurk.GetHIT.html#newGetHIT"><span class="hs-identifier hs-var hs-var">newGetHIT</span></a></span></span><span> </span><span id="local-6989586621679251672"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251672"><span class="hs-identifier hs-var">pHITId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetHIT' :: Text -&gt; GetHIT
 </span><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT%27"><span class="hs-identifier hs-type">GetHIT'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hITId:GetHIT' :: Text
 </span><a href="Network.AWS.MechanicalTurk.GetHIT.html#%24sel%3AhITId%3AGetHIT%27"><span class="hs-identifier hs-var">hITId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251539"><span class="hs-identifier hs-var">pHITId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679251672"><span class="hs-identifier hs-var">pHITId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The ID of the HIT to be retrieved.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#getHIT_hITId"><span class="hs-identifier hs-type">getHIT_hITId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT"><span class="hs-identifier hs-type">GetHIT</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -129,25 +129,25 @@ $cfrom :: forall x. GetHIT -&gt; Rep GetHIT x
 </span><a href="Network.AWS.MechanicalTurk.GetHIT.html#getHIT_hITId"><span class="hs-identifier hs-var hs-var">getHIT_hITId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetHIT -&gt; Text)
 -&gt; (GetHIT -&gt; Text -&gt; GetHIT) -&gt; Lens GetHIT GetHIT Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT%27"><span class="hs-identifier hs-type">GetHIT'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251536"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT%27"><span class="hs-identifier hs-type">GetHIT'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251669"><span class="annot"><span class="annottext">Text
 hITId :: Text
 $sel:hITId:GetHIT' :: GetHIT -&gt; Text
-</span><a href="#local-6989586621679251536"><span class="hs-identifier hs-var hs-var">hITId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251536"><span class="hs-identifier hs-var">hITId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251535"><span class="annot"><span class="annottext">s :: GetHIT
-</span><a href="#local-6989586621679251535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT%27"><span class="hs-identifier hs-type">GetHIT'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251534"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHIT
-</span><a href="#local-6989586621679251535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hITId:GetHIT' :: Text
+</span><a href="#local-6989586621679251669"><span class="hs-identifier hs-var hs-var">hITId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251669"><span class="hs-identifier hs-var">hITId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251668"><span class="annot"><span class="annottext">s :: GetHIT
+</span><a href="#local-6989586621679251668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT%27"><span class="hs-identifier hs-type">GetHIT'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251667"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHIT
+</span><a href="#local-6989586621679251668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hITId:GetHIT' :: Text
 </span><a href="Network.AWS.MechanicalTurk.GetHIT.html#%24sel%3AhITId%3AGetHIT%27"><span class="hs-identifier hs-var">hITId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT"><span class="hs-identifier hs-type">GetHIT</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT"><span class="hs-identifier hs-type">GetHIT</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT"><span class="hs-identifier hs-type">GetHIT</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT"><span class="hs-identifier hs-type">GetHIT</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse"><span class="hs-identifier hs-type">GetHITResponse</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679251530"><span class="annot"><span class="annottext">request :: GetHIT -&gt; Request GetHIT
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679251663"><span class="annot"><span class="annottext">request :: GetHIT -&gt; Request GetHIT
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetHIT -&gt; Request GetHIT
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MechanicalTurk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679251526"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679251659"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetHIT
 -&gt; ClientResponse ClientBody
@@ -169,10 +169,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251523"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251523"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679251522"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679251522"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679251521"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251521"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251656"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251656"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679251655"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679251655"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679251654"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251654"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe HIT -&gt; Int -&gt; GetHITResponse
 </span><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse%27"><span class="hs-identifier hs-var">GetHITResponse'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe HIT -&gt; Int -&gt; GetHITResponse)
@@ -180,7 +180,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetHITResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe HIT)
+</span><a href="#local-6989586621679251654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe HIT)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HIT&quot;</span></span><span class="hs-special">)</span><span>
@@ -192,15 +192,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251523"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251656"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251513"><span id="local-6989586621679251515"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT"><span class="hs-identifier hs-type">GetHIT</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251646"><span id="local-6989586621679251648"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT"><span class="hs-identifier hs-type">GetHIT</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT"><span class="hs-identifier hs-type">GetHIT</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251643"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT"><span class="hs-identifier hs-type">GetHIT</span></a></span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT"><span class="hs-identifier hs-type">GetHIT</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679251506"><span class="annot"><span class="annottext">toHeaders :: GetHIT -&gt; ResponseHeaders
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679251639"><span class="annot"><span class="annottext">toHeaders :: GetHIT -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetHIT -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -227,12 +227,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251496"><span id="local-6989586621679251498"><span id="local-6989586621679251500"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT"><span class="hs-identifier hs-type">GetHIT</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679251494"><span class="annot"><span class="annottext">toJSON :: GetHIT -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT%27"><span class="hs-identifier hs-type">GetHIT'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251492"><span class="annot"><span class="annottext">Text
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251629"><span id="local-6989586621679251631"><span id="local-6989586621679251633"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT"><span class="hs-identifier hs-type">GetHIT</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679251627"><span class="annot"><span class="annottext">toJSON :: GetHIT -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT%27"><span class="hs-identifier hs-type">GetHIT'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251625"><span class="annot"><span class="annottext">Text
 hITId :: Text
 $sel:hITId:GetHIT' :: GetHIT -&gt; Text
-</span><a href="#local-6989586621679251492"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679251625"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -244,18 +244,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;HITId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251492"><span class="hs-identifier hs-var">hITId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679251625"><span class="hs-identifier hs-var">hITId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT"><span class="hs-identifier hs-type">GetHIT</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679251486"><span class="annot"><span class="annottext">toPath :: GetHIT -&gt; ByteString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679251619"><span class="annot"><span class="annottext">toPath :: GetHIT -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetHIT -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHIT"><span class="hs-identifier hs-type">GetHIT</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679251482"><span class="annot"><span class="annottext">toQuery :: GetHIT -&gt; QueryString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679251615"><span class="annot"><span class="annottext">toQuery :: GetHIT -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetHIT -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -263,7 +263,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newGetHITResponse' smart constructor.</span><span>
-</span><span id="line-119"></span><span id="local-6989586621679251479"><span id="local-6989586621679251480"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetHITResponse"><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse"><span class="hs-identifier hs-var">GetHITResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetHITResponse%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse%27"><span class="hs-identifier hs-var">GetHITResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span id="local-6989586621679251612"><span id="local-6989586621679251613"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetHITResponse"><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse"><span class="hs-identifier hs-var">GetHITResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetHITResponse%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse%27"><span class="hs-identifier hs-var">GetHITResponse'</span></a></span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the requested HIT data.</span><span>
 </span><span id="line-121"></span><span>    </span><span id="%24sel%3Ahit%3AGetHITResponse%27"><span class="annot"><span class="annottext">GetHITResponse -&gt; Maybe HIT
 </span><a href="Network.AWS.MechanicalTurk.GetHIT.html#%24sel%3Ahit%3AGetHITResponse%27"><span class="hs-identifier hs-var hs-var">hit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.HIT.html#HIT"><span class="hs-identifier hs-type">HIT</span></a></span><span class="hs-special">,</span><span>
@@ -271,7 +271,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetHITResponse%27"><span class="annot"><span class="annottext">GetHITResponse -&gt; Int
 </span><a href="Network.AWS.MechanicalTurk.GetHIT.html#%24sel%3AhttpStatus%3AGetHITResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251473"><span id="local-6989586621679251475"><span class="annot"><span class="annottext">GetHITResponse -&gt; GetHITResponse -&gt; Bool
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251606"><span id="local-6989586621679251608"><span class="annot"><span class="annottext">GetHITResponse -&gt; GetHITResponse -&gt; Bool
 (GetHITResponse -&gt; GetHITResponse -&gt; Bool)
 -&gt; (GetHITResponse -&gt; GetHITResponse -&gt; Bool) -&gt; Eq GetHITResponse
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -279,7 +279,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetHITResponse -&gt; GetHITResponse -&gt; Bool
 == :: GetHITResponse -&gt; GetHITResponse -&gt; Bool
 $c== :: GetHITResponse -&gt; GetHITResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251465"><span id="local-6989586621679251467"><span id="local-6989586621679251469"><span id="local-6989586621679251471"><span class="annot"><span class="annottext">ReadPrec [GetHITResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251598"><span id="local-6989586621679251600"><span id="local-6989586621679251602"><span id="local-6989586621679251604"><span class="annot"><span class="annottext">ReadPrec [GetHITResponse]
 ReadPrec GetHITResponse
 Int -&gt; ReadS GetHITResponse
 ReadS [GetHITResponse]
@@ -299,7 +299,7 @@ readList :: ReadS [GetHITResponse]
 $creadList :: ReadS [GetHITResponse]
 readsPrec :: Int -&gt; ReadS GetHITResponse
 $creadsPrec :: Int -&gt; ReadS GetHITResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251459"><span id="local-6989586621679251461"><span id="local-6989586621679251463"><span class="annot"><span class="annottext">Int -&gt; GetHITResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251592"><span id="local-6989586621679251594"><span id="local-6989586621679251596"><span class="annot"><span class="annottext">Int -&gt; GetHITResponse -&gt; ShowS
 [GetHITResponse] -&gt; ShowS
 GetHITResponse -&gt; String
 (Int -&gt; GetHITResponse -&gt; ShowS)
@@ -341,8 +341,8 @@ $cfrom :: forall x. GetHITResponse -&gt; Rep GetHITResponse x
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse"><span class="hs-identifier hs-type">GetHITResponse</span></a></span><span>
 </span><span id="line-142"></span><span id="newGetHITResponse"><span class="annot"><span class="annottext">newGetHITResponse :: Int -&gt; GetHITResponse
-</span><a href="Network.AWS.MechanicalTurk.GetHIT.html#newGetHITResponse"><span class="hs-identifier hs-var hs-var">newGetHITResponse</span></a></span></span><span> </span><span id="local-6989586621679251456"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251456"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MechanicalTurk.GetHIT.html#newGetHITResponse"><span class="hs-identifier hs-var hs-var">newGetHITResponse</span></a></span></span><span> </span><span id="local-6989586621679251589"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251589"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">GetHITResponse' :: Maybe HIT -&gt; Int -&gt; GetHITResponse
 </span><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse%27"><span class="hs-identifier hs-type">GetHITResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hit:GetHITResponse' :: Maybe HIT
@@ -351,7 +351,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetHITResponse' :: Int
 </span><a href="Network.AWS.MechanicalTurk.GetHIT.html#%24sel%3AhttpStatus%3AGetHITResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251456"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679251589"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | Contains the requested HIT data.</span><span>
@@ -361,16 +361,16 @@ forall a. Maybe a
 -&gt; (GetHITResponse -&gt; Maybe HIT -&gt; GetHITResponse)
 -&gt; Lens GetHITResponse GetHITResponse (Maybe HIT) (Maybe HIT)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse%27"><span class="hs-identifier hs-type">GetHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251455"><span class="annot"><span class="annottext">Maybe HIT
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse%27"><span class="hs-identifier hs-type">GetHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251588"><span class="annot"><span class="annottext">Maybe HIT
 hit :: Maybe HIT
 $sel:hit:GetHITResponse' :: GetHITResponse -&gt; Maybe HIT
-</span><a href="#local-6989586621679251455"><span class="hs-identifier hs-var hs-var">hit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HIT
-</span><a href="#local-6989586621679251455"><span class="hs-identifier hs-var">hit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251454"><span class="annot"><span class="annottext">s :: GetHITResponse
-</span><a href="#local-6989586621679251454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse%27"><span class="hs-identifier hs-type">GetHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251453"><span class="annot"><span class="annottext">Maybe HIT
-</span><a href="#local-6989586621679251453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHITResponse
-</span><a href="#local-6989586621679251454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hit:GetHITResponse' :: Maybe HIT
+</span><a href="#local-6989586621679251588"><span class="hs-identifier hs-var hs-var">hit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HIT
+</span><a href="#local-6989586621679251588"><span class="hs-identifier hs-var">hit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251587"><span class="annot"><span class="annottext">s :: GetHITResponse
+</span><a href="#local-6989586621679251587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse%27"><span class="hs-identifier hs-type">GetHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251586"><span class="annot"><span class="annottext">Maybe HIT
+</span><a href="#local-6989586621679251586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHITResponse
+</span><a href="#local-6989586621679251587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hit:GetHITResponse' :: Maybe HIT
 </span><a href="Network.AWS.MechanicalTurk.GetHIT.html#%24sel%3Ahit%3AGetHITResponse%27"><span class="hs-identifier hs-var">hit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HIT
-</span><a href="#local-6989586621679251453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse"><span class="hs-identifier hs-type">GetHITResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse"><span class="hs-identifier hs-type">GetHITResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#getHITResponse_httpStatus"><span class="hs-identifier hs-type">getHITResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse"><span class="hs-identifier hs-type">GetHITResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -379,16 +379,16 @@ $sel:hit:GetHITResponse' :: GetHITResponse -&gt; Maybe HIT
 -&gt; (GetHITResponse -&gt; Int -&gt; GetHITResponse)
 -&gt; Lens GetHITResponse GetHITResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse%27"><span class="hs-identifier hs-type">GetHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251452"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse%27"><span class="hs-identifier hs-type">GetHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251585"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetHITResponse' :: GetHITResponse -&gt; Int
-</span><a href="#local-6989586621679251452"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251452"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251451"><span class="annot"><span class="annottext">s :: GetHITResponse
-</span><a href="#local-6989586621679251451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse%27"><span class="hs-identifier hs-type">GetHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251450"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHITResponse
-</span><a href="#local-6989586621679251451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetHITResponse' :: Int
+</span><a href="#local-6989586621679251585"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251585"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251584"><span class="annot"><span class="annottext">s :: GetHITResponse
+</span><a href="#local-6989586621679251584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse%27"><span class="hs-identifier hs-type">GetHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251583"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHITResponse
+</span><a href="#local-6989586621679251584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetHITResponse' :: Int
 </span><a href="Network.AWS.MechanicalTurk.GetHIT.html#%24sel%3AhttpStatus%3AGetHITResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse"><span class="hs-identifier hs-type">GetHITResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse"><span class="hs-identifier hs-type">GetHITResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse"><span class="hs-identifier hs-type">GetHITResponse</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251581"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetHIT.html#GetHITResponse"><span class="hs-identifier hs-type">GetHITResponse</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

@@ -46,13 +46,13 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-48"></span><span>
-</span><span id="line-49"></span><span id="local-6989586621679806961"><span id="local-6989586621679806962"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PatchFilterKey"><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterKey.html#PatchFilterKey"><span class="hs-identifier hs-var">PatchFilterKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchFilterKey%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterKey.html#PatchFilterKey%27"><span class="hs-identifier hs-var">PatchFilterKey'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679808640"><span id="local-6989586621679808641"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PatchFilterKey"><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterKey.html#PatchFilterKey"><span class="hs-identifier hs-var">PatchFilterKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchFilterKey%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterKey.html#PatchFilterKey%27"><span class="hs-identifier hs-var">PatchFilterKey'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPatchFilterKey"><span class="annot"><span class="annottext">PatchFilterKey -&gt; Text
 </span><a href="Network.AWS.SSM.Types.PatchFilterKey.html#fromPatchFilterKey"><span class="hs-identifier hs-var hs-var">fromPatchFilterKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679806953"><span id="local-6989586621679806955"><span id="local-6989586621679806957"><span class="annot"><span class="annottext">Int -&gt; PatchFilterKey -&gt; ShowS
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679808632"><span id="local-6989586621679808634"><span id="local-6989586621679808636"><span class="annot"><span class="annottext">Int -&gt; PatchFilterKey -&gt; ShowS
 [PatchFilterKey] -&gt; ShowS
 PatchFilterKey -&gt; String
 (Int -&gt; PatchFilterKey -&gt; ShowS)
@@ -68,7 +68,7 @@ $cshow :: PatchFilterKey -&gt; String
 showsPrec :: Int -&gt; PatchFilterKey -&gt; ShowS
 $cshowsPrec :: Int -&gt; PatchFilterKey -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679806944"><span id="local-6989586621679806946"><span id="local-6989586621679806948"><span id="local-6989586621679806950"><span class="annot"><span class="annottext">ReadPrec [PatchFilterKey]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679808623"><span id="local-6989586621679808625"><span id="local-6989586621679808627"><span id="local-6989586621679808629"><span class="annot"><span class="annottext">ReadPrec [PatchFilterKey]
 ReadPrec PatchFilterKey
 Int -&gt; ReadS PatchFilterKey
 ReadS [PatchFilterKey]
@@ -89,7 +89,7 @@ $creadList :: ReadS [PatchFilterKey]
 readsPrec :: Int -&gt; ReadS PatchFilterKey
 $creadsPrec :: Int -&gt; ReadS PatchFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679806939"><span id="local-6989586621679806941"><span class="annot"><span class="annottext">PatchFilterKey -&gt; PatchFilterKey -&gt; Bool
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679808618"><span id="local-6989586621679808620"><span class="annot"><span class="annottext">PatchFilterKey -&gt; PatchFilterKey -&gt; Bool
 (PatchFilterKey -&gt; PatchFilterKey -&gt; Bool)
 -&gt; (PatchFilterKey -&gt; PatchFilterKey -&gt; Bool) -&gt; Eq PatchFilterKey
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -98,7 +98,7 @@ $c/= :: PatchFilterKey -&gt; PatchFilterKey -&gt; Bool
 == :: PatchFilterKey -&gt; PatchFilterKey -&gt; Bool
 $c== :: PatchFilterKey -&gt; PatchFilterKey -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679806923"><span id="local-6989586621679806925"><span id="local-6989586621679806927"><span id="local-6989586621679806929"><span id="local-6989586621679806931"><span id="local-6989586621679806933"><span id="local-6989586621679806935"><span class="annot"><span class="annottext">Eq PatchFilterKey
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679808602"><span id="local-6989586621679808604"><span id="local-6989586621679808606"><span id="local-6989586621679808608"><span id="local-6989586621679808610"><span id="local-6989586621679808612"><span id="local-6989586621679808614"><span class="annot"><span class="annottext">Eq PatchFilterKey
 Eq PatchFilterKey
 -&gt; (PatchFilterKey -&gt; PatchFilterKey -&gt; Ordering)
 -&gt; (PatchFilterKey -&gt; PatchFilterKey -&gt; Bool)
@@ -149,7 +149,7 @@ $cfrom :: forall x. PatchFilterKey -&gt; Rep PatchFilterKey x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679806915"><span id="local-6989586621679806917"><span class="annot"><span class="annottext">Int -&gt; PatchFilterKey -&gt; Int
+</span><span id="line-61"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679808594"><span id="local-6989586621679808596"><span class="annot"><span class="annottext">Int -&gt; PatchFilterKey -&gt; Int
 PatchFilterKey -&gt; Int
 (Int -&gt; PatchFilterKey -&gt; Int)
 -&gt; (PatchFilterKey -&gt; Int) -&gt; Hashable PatchFilterKey
@@ -159,50 +159,50 @@ $chash :: PatchFilterKey -&gt; Int
 hashWithSalt :: Int -&gt; PatchFilterKey -&gt; Int
 $chashWithSalt :: Int -&gt; PatchFilterKey -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679806912"><span class="annot"><span class="annottext">PatchFilterKey -&gt; ()
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679808591"><span class="annot"><span class="annottext">PatchFilterKey -&gt; ()
 (PatchFilterKey -&gt; ()) -&gt; NFData PatchFilterKey
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PatchFilterKey -&gt; ()
 $crnf :: PatchFilterKey -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679806909"><span class="annot"><span class="annottext">Text -&gt; Either String PatchFilterKey
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679808588"><span class="annot"><span class="annottext">Text -&gt; Either String PatchFilterKey
 (Text -&gt; Either String PatchFilterKey) -&gt; FromText PatchFilterKey
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PatchFilterKey
 $cfromText :: Text -&gt; Either String PatchFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679806906"><span class="annot"><span class="annottext">PatchFilterKey -&gt; Text
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679808585"><span class="annot"><span class="annottext">PatchFilterKey -&gt; Text
 (PatchFilterKey -&gt; Text) -&gt; ToText PatchFilterKey
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PatchFilterKey -&gt; Text
 $ctoText :: PatchFilterKey -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679806903"><span class="annot"><span class="annottext">PatchFilterKey -&gt; ByteString
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679808582"><span class="annot"><span class="annottext">PatchFilterKey -&gt; ByteString
 (PatchFilterKey -&gt; ByteString) -&gt; ToByteString PatchFilterKey
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PatchFilterKey -&gt; ByteString
 $ctoBS :: PatchFilterKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679806900"><span class="annot"><span class="annottext">PatchFilterKey -&gt; ByteStringBuilder
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679808579"><span class="annot"><span class="annottext">PatchFilterKey -&gt; ByteStringBuilder
 (PatchFilterKey -&gt; ByteStringBuilder) -&gt; ToLog PatchFilterKey
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PatchFilterKey -&gt; ByteStringBuilder
 $cbuild :: PatchFilterKey -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679806897"><span class="annot"><span class="annottext">HeaderName -&gt; PatchFilterKey -&gt; [Header]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679808576"><span class="annot"><span class="annottext">HeaderName -&gt; PatchFilterKey -&gt; [Header]
 (HeaderName -&gt; PatchFilterKey -&gt; [Header])
 -&gt; ToHeader PatchFilterKey
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PatchFilterKey -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PatchFilterKey -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679806894"><span class="annot"><span class="annottext">PatchFilterKey -&gt; QueryString
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679808573"><span class="annot"><span class="annottext">PatchFilterKey -&gt; QueryString
 (PatchFilterKey -&gt; QueryString) -&gt; ToQuery PatchFilterKey
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PatchFilterKey -&gt; QueryString
 $ctoQuery :: PatchFilterKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679806889"><span id="local-6989586621679806891"><span class="annot"><span class="annottext">Value -&gt; Parser [PatchFilterKey]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679808568"><span id="local-6989586621679808570"><span class="annot"><span class="annottext">Value -&gt; Parser [PatchFilterKey]
 Value -&gt; Parser PatchFilterKey
 (Value -&gt; Parser PatchFilterKey)
 -&gt; (Value -&gt; Parser [PatchFilterKey]) -&gt; FromJSON PatchFilterKey
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [PatchFilterKey]
 parseJSON :: Value -&gt; Parser PatchFilterKey
 $cparseJSON :: Value -&gt; Parser PatchFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679806884"><span id="local-6989586621679806886"><span class="annot"><span class="annottext">FromJSONKeyFunction [PatchFilterKey]
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679808563"><span id="local-6989586621679808565"><span class="annot"><span class="annottext">FromJSONKeyFunction [PatchFilterKey]
 FromJSONKeyFunction PatchFilterKey
 FromJSONKeyFunction PatchFilterKey
 -&gt; FromJSONKeyFunction [PatchFilterKey]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PatchFilterKey]
 fromJSONKey :: FromJSONKeyFunction PatchFilterKey
 $cfromJSONKey :: FromJSONKeyFunction PatchFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679806875"><span id="local-6989586621679806877"><span id="local-6989586621679806879"><span id="local-6989586621679806881"><span class="annot"><span class="annottext">[PatchFilterKey] -&gt; Encoding
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679808554"><span id="local-6989586621679808556"><span id="local-6989586621679808558"><span id="local-6989586621679808560"><span class="annot"><span class="annottext">[PatchFilterKey] -&gt; Encoding
 [PatchFilterKey] -&gt; Value
 PatchFilterKey -&gt; Encoding
 PatchFilterKey -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: PatchFilterKey -&gt; Encoding
 toJSON :: PatchFilterKey -&gt; Value
 $ctoJSON :: PatchFilterKey -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679806870"><span id="local-6989586621679806872"><span class="annot"><span class="annottext">ToJSONKeyFunction [PatchFilterKey]
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679808549"><span id="local-6989586621679808551"><span class="annot"><span class="annottext">ToJSONKeyFunction [PatchFilterKey]
 ToJSONKeyFunction PatchFilterKey
 ToJSONKeyFunction PatchFilterKey
 -&gt; ToJSONKeyFunction [PatchFilterKey] -&gt; ToJSONKey PatchFilterKey
@@ -260,13 +260,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PatchFilterKey]
 toJSONKey :: ToJSONKeyFunction PatchFilterKey
 $ctoJSONKey :: ToJSONKeyFunction PatchFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679806867"><span class="annot"><span class="annottext">[Node] -&gt; Either String PatchFilterKey
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679808546"><span class="annot"><span class="annottext">[Node] -&gt; Either String PatchFilterKey
 ([Node] -&gt; Either String PatchFilterKey) -&gt; FromXML PatchFilterKey
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PatchFilterKey
 $cparseXML :: [Node] -&gt; Either String PatchFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679806864"><span class="annot"><span class="annottext">PatchFilterKey -&gt; XML
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679808543"><span class="annot"><span class="annottext">PatchFilterKey -&gt; XML
 (PatchFilterKey -&gt; XML) -&gt; ToXML PatchFilterKey
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PatchFilterKey -&gt; XML

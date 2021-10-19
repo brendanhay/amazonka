@@ -27,19 +27,19 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The rows that comprise a query result table.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRow' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679218254"><span id="local-6989586621679218255"></span></span><span class="hs-keyword">data</span><span> </span><span id="Row"><span class="annot"><a href="Network.AWS.Athena.Types.Row.html#Row"><span class="hs-identifier hs-var">Row</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Row%27"><span class="annot"><a href="Network.AWS.Athena.Types.Row.html#Row%27"><span class="hs-identifier hs-var">Row'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679218414"><span id="local-6989586621679218415"></span></span><span class="hs-keyword">data</span><span> </span><span id="Row"><span class="annot"><a href="Network.AWS.Athena.Types.Row.html#Row"><span class="hs-identifier hs-var">Row</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Row%27"><span class="annot"><a href="Network.AWS.Athena.Types.Row.html#Row%27"><span class="hs-identifier hs-var">Row'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The data that populates a row in a query result table.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Adata%27%3ARow%27"><span class="annot"><span class="annottext">Row -&gt; Maybe [Datum]
 </span><a href="Network.AWS.Athena.Types.Row.html#%24sel%3Adata%27%3ARow%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Athena.Types.Datum.html#Datum"><span class="hs-identifier hs-type">Datum</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218248"><span id="local-6989586621679218250"><span class="annot"><span class="annottext">Row -&gt; Row -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218408"><span id="local-6989586621679218410"><span class="annot"><span class="annottext">Row -&gt; Row -&gt; Bool
 (Row -&gt; Row -&gt; Bool) -&gt; (Row -&gt; Row -&gt; Bool) -&gt; Eq Row
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Row -&gt; Row -&gt; Bool
 $c/= :: Row -&gt; Row -&gt; Bool
 == :: Row -&gt; Row -&gt; Bool
 $c== :: Row -&gt; Row -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218239"><span id="local-6989586621679218241"><span id="local-6989586621679218243"><span id="local-6989586621679218245"><span class="annot"><span class="annottext">ReadPrec [Row]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218399"><span id="local-6989586621679218401"><span id="local-6989586621679218403"><span id="local-6989586621679218405"><span class="annot"><span class="annottext">ReadPrec [Row]
 ReadPrec Row
 Int -&gt; ReadS Row
 ReadS [Row]
@@ -56,7 +56,7 @@ readList :: ReadS [Row]
 $creadList :: ReadS [Row]
 readsPrec :: Int -&gt; ReadS Row
 $creadsPrec :: Int -&gt; ReadS Row
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218232"><span id="local-6989586621679218234"><span id="local-6989586621679218236"><span class="annot"><span class="annottext">Int -&gt; Row -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218392"><span id="local-6989586621679218394"><span id="local-6989586621679218396"><span class="annot"><span class="annottext">Int -&gt; Row -&gt; ShowS
 [Row] -&gt; ShowS
 Row -&gt; String
 (Int -&gt; Row -&gt; ShowS)
@@ -104,16 +104,16 @@ forall a. Maybe a
 -&gt; (Row -&gt; Maybe [Datum] -&gt; Row)
 -&gt; Lens Row Row (Maybe [Datum]) (Maybe [Datum])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.Row.html#Row%27"><span class="hs-identifier hs-type">Row'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218223"><span class="annot"><span class="annottext">Maybe [Datum]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.Row.html#Row%27"><span class="hs-identifier hs-type">Row'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218383"><span class="annot"><span class="annottext">Maybe [Datum]
 data' :: Maybe [Datum]
 $sel:data':Row' :: Row -&gt; Maybe [Datum]
-</span><a href="#local-6989586621679218223"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Datum]
-</span><a href="#local-6989586621679218223"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218222"><span class="annot"><span class="annottext">s :: Row
-</span><a href="#local-6989586621679218222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.Row.html#Row%27"><span class="hs-identifier hs-type">Row'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218221"><span class="annot"><span class="annottext">Maybe [Datum]
-</span><a href="#local-6989586621679218221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Row
-</span><a href="#local-6989586621679218222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':Row' :: Maybe [Datum]
+</span><a href="#local-6989586621679218383"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Datum]
+</span><a href="#local-6989586621679218383"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218382"><span class="annot"><span class="annottext">s :: Row
+</span><a href="#local-6989586621679218382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.Row.html#Row%27"><span class="hs-identifier hs-type">Row'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218381"><span class="annot"><span class="annottext">Maybe [Datum]
+</span><a href="#local-6989586621679218381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Row
+</span><a href="#local-6989586621679218382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':Row' :: Maybe [Datum]
 </span><a href="Network.AWS.Athena.Types.Row.html#%24sel%3Adata%27%3ARow%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Datum]
-</span><a href="#local-6989586621679218221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Row.html#Row"><span class="hs-identifier hs-type">Row</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Datum] -&gt; f (Maybe [Datum])) -&gt; Row -&gt; f Row)
+</span><a href="#local-6989586621679218381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Row.html#Row"><span class="hs-identifier hs-type">Row</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Datum] -&gt; f (Maybe [Datum])) -&gt; Row -&gt; f Row)
 -&gt; ((Maybe [Datum] -&gt; f (Maybe [Datum]))
     -&gt; Maybe [Datum] -&gt; f (Maybe [Datum]))
 -&gt; (Maybe [Datum] -&gt; f (Maybe [Datum]))
@@ -127,25 +127,25 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Datum] [Datum] [Datum] [Datum]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218215"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Row.html#Row"><span class="hs-identifier hs-type">Row</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679218213"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Row
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218375"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Row.html#Row"><span class="hs-identifier hs-type">Row</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679218373"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Row
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Row) -&gt; Value -&gt; Parser Row
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Row&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679218210"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218210"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679218370"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218370"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Datum] -&gt; Row
 </span><a href="Network.AWS.Athena.Types.Row.html#Row%27"><span class="hs-identifier hs-var">Row'</span></a></span><span>
 </span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Datum] -&gt; Row) -&gt; Parser (Maybe [Datum]) -&gt; Parser Row
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Datum]))
+</span><a href="#local-6989586621679218370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Datum]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Data&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Datum]))
@@ -156,7 +156,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218203"><span id="local-6989586621679218205"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Row.html#Row"><span class="hs-identifier hs-type">Row</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218363"><span id="local-6989586621679218365"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Row.html#Row"><span class="hs-identifier hs-type">Row</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218200"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Row.html#Row"><span class="hs-identifier hs-type">Row</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218360"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Row.html#Row"><span class="hs-identifier hs-type">Row</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

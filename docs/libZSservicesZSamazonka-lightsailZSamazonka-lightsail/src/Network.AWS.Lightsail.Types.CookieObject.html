@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- requests.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newCookieObject' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679609995"><span id="local-6989586621679609996"></span></span><span class="hs-keyword">data</span><span> </span><span id="CookieObject"><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject"><span class="hs-identifier hs-var">CookieObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CookieObject%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject%27"><span class="hs-identifier hs-var">CookieObject'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679610887"><span id="local-6989586621679610888"></span></span><span class="hs-keyword">data</span><span> </span><span id="CookieObject"><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject"><span class="hs-identifier hs-var">CookieObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CookieObject%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject%27"><span class="hs-identifier hs-var">CookieObject'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The specific cookies to forward to your distribution\'s origin.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AcookiesAllowList%3ACookieObject%27"><span class="annot"><span class="annottext">CookieObject -&gt; Maybe [Text]
 </span><a href="Network.AWS.Lightsail.Types.CookieObject.html#%24sel%3AcookiesAllowList%3ACookieObject%27"><span class="hs-identifier hs-var hs-var">cookiesAllowList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Aoption%3ACookieObject%27"><span class="annot"><span class="annottext">CookieObject -&gt; Maybe ForwardValues
 </span><a href="Network.AWS.Lightsail.Types.CookieObject.html#%24sel%3Aoption%3ACookieObject%27"><span class="hs-identifier hs-var hs-var">option</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ForwardValues.html#ForwardValues"><span class="hs-identifier hs-type">ForwardValues</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679609988"><span id="local-6989586621679609990"><span class="annot"><span class="annottext">CookieObject -&gt; CookieObject -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679610880"><span id="local-6989586621679610882"><span class="annot"><span class="annottext">CookieObject -&gt; CookieObject -&gt; Bool
 (CookieObject -&gt; CookieObject -&gt; Bool)
 -&gt; (CookieObject -&gt; CookieObject -&gt; Bool) -&gt; Eq CookieObject
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CookieObject -&gt; CookieObject -&gt; Bool
 == :: CookieObject -&gt; CookieObject -&gt; Bool
 $c== :: CookieObject -&gt; CookieObject -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609979"><span id="local-6989586621679609981"><span id="local-6989586621679609983"><span id="local-6989586621679609985"><span class="annot"><span class="annottext">ReadPrec [CookieObject]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610871"><span id="local-6989586621679610873"><span id="local-6989586621679610875"><span id="local-6989586621679610877"><span class="annot"><span class="annottext">ReadPrec [CookieObject]
 ReadPrec CookieObject
 Int -&gt; ReadS CookieObject
 ReadS [CookieObject]
@@ -70,7 +70,7 @@ readList :: ReadS [CookieObject]
 $creadList :: ReadS [CookieObject]
 readsPrec :: Int -&gt; ReadS CookieObject
 $creadsPrec :: Int -&gt; ReadS CookieObject
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609972"><span id="local-6989586621679609974"><span id="local-6989586621679609976"><span class="annot"><span class="annottext">Int -&gt; CookieObject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610864"><span id="local-6989586621679610866"><span id="local-6989586621679610868"><span class="annot"><span class="annottext">Int -&gt; CookieObject -&gt; ShowS
 [CookieObject] -&gt; ShowS
 CookieObject -&gt; String
 (Int -&gt; CookieObject -&gt; ShowS)
@@ -133,16 +133,16 @@ forall a. Maybe a
 -&gt; (CookieObject -&gt; Maybe [Text] -&gt; CookieObject)
 -&gt; Lens CookieObject CookieObject (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject%27"><span class="hs-identifier hs-type">CookieObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609963"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject%27"><span class="hs-identifier hs-type">CookieObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610855"><span class="annot"><span class="annottext">Maybe [Text]
 cookiesAllowList :: Maybe [Text]
 $sel:cookiesAllowList:CookieObject' :: CookieObject -&gt; Maybe [Text]
-</span><a href="#local-6989586621679609963"><span class="hs-identifier hs-var hs-var">cookiesAllowList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679609963"><span class="hs-identifier hs-var">cookiesAllowList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609962"><span class="annot"><span class="annottext">s :: CookieObject
-</span><a href="#local-6989586621679609962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject%27"><span class="hs-identifier hs-type">CookieObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609961"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679609961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CookieObject
-</span><a href="#local-6989586621679609962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cookiesAllowList:CookieObject' :: Maybe [Text]
+</span><a href="#local-6989586621679610855"><span class="hs-identifier hs-var hs-var">cookiesAllowList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679610855"><span class="hs-identifier hs-var">cookiesAllowList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610854"><span class="annot"><span class="annottext">s :: CookieObject
+</span><a href="#local-6989586621679610854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject%27"><span class="hs-identifier hs-type">CookieObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610853"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679610853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CookieObject
+</span><a href="#local-6989586621679610854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cookiesAllowList:CookieObject' :: Maybe [Text]
 </span><a href="Network.AWS.Lightsail.Types.CookieObject.html#%24sel%3AcookiesAllowList%3ACookieObject%27"><span class="hs-identifier hs-var">cookiesAllowList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679609961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject"><span class="hs-identifier hs-type">CookieObject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679610853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject"><span class="hs-identifier hs-type">CookieObject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; CookieObject -&gt; f CookieObject)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -156,8 +156,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | Specifies which cookies to forward to the distribution\'s origin for a</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- cache behavior: @all@, @none@, or @allow-list@ to forward only the</span><span>
@@ -173,19 +173,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe ForwardValues)
      (Maybe ForwardValues)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject%27"><span class="hs-identifier hs-type">CookieObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609956"><span class="annot"><span class="annottext">Maybe ForwardValues
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject%27"><span class="hs-identifier hs-type">CookieObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610848"><span class="annot"><span class="annottext">Maybe ForwardValues
 option :: Maybe ForwardValues
 $sel:option:CookieObject' :: CookieObject -&gt; Maybe ForwardValues
-</span><a href="#local-6989586621679609956"><span class="hs-identifier hs-var hs-var">option</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ForwardValues
-</span><a href="#local-6989586621679609956"><span class="hs-identifier hs-var">option</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609955"><span class="annot"><span class="annottext">s :: CookieObject
-</span><a href="#local-6989586621679609955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject%27"><span class="hs-identifier hs-type">CookieObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609954"><span class="annot"><span class="annottext">Maybe ForwardValues
-</span><a href="#local-6989586621679609954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CookieObject
-</span><a href="#local-6989586621679609955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:option:CookieObject' :: Maybe ForwardValues
+</span><a href="#local-6989586621679610848"><span class="hs-identifier hs-var hs-var">option</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ForwardValues
+</span><a href="#local-6989586621679610848"><span class="hs-identifier hs-var">option</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610847"><span class="annot"><span class="annottext">s :: CookieObject
+</span><a href="#local-6989586621679610847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject%27"><span class="hs-identifier hs-type">CookieObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610846"><span class="annot"><span class="annottext">Maybe ForwardValues
+</span><a href="#local-6989586621679610846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CookieObject
+</span><a href="#local-6989586621679610847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:option:CookieObject' :: Maybe ForwardValues
 </span><a href="Network.AWS.Lightsail.Types.CookieObject.html#%24sel%3Aoption%3ACookieObject%27"><span class="hs-identifier hs-var">option</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ForwardValues
-</span><a href="#local-6989586621679609954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject"><span class="hs-identifier hs-type">CookieObject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject"><span class="hs-identifier hs-type">CookieObject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609951"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject"><span class="hs-identifier hs-type">CookieObject</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679609949"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CookieObject
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610843"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject"><span class="hs-identifier hs-type">CookieObject</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679610841"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CookieObject
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CookieObject) -&gt; Value -&gt; Parser CookieObject
@@ -193,8 +193,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CookieObject&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679609946"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679609946"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679610838"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679610838"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe ForwardValues -&gt; CookieObject
 </span><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject%27"><span class="hs-identifier hs-var">CookieObject'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe ForwardValues -&gt; CookieObject)
@@ -202,7 +202,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe ForwardValues -&gt; CookieObject)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679609946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679610838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cookiesAllowList&quot;</span></span><span>
@@ -217,25 +217,25 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe ForwardValues) -&gt; Parser CookieObject
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679609946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ForwardValues)
+</span><a href="#local-6989586621679610838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ForwardValues)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;option&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609939"><span id="local-6989586621679609941"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject"><span class="hs-identifier hs-type">CookieObject</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610831"><span id="local-6989586621679610833"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject"><span class="hs-identifier hs-type">CookieObject</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609936"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject"><span class="hs-identifier hs-type">CookieObject</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject"><span class="hs-identifier hs-type">CookieObject</span></a></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609928"><span id="local-6989586621679609930"><span id="local-6989586621679609932"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject"><span class="hs-identifier hs-type">CookieObject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679609926"><span class="annot"><span class="annottext">toJSON :: CookieObject -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject%27"><span class="hs-identifier hs-type">CookieObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609923"><span id="local-6989586621679609924"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610820"><span id="local-6989586621679610822"><span id="local-6989586621679610824"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject"><span class="hs-identifier hs-type">CookieObject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679610818"><span class="annot"><span class="annottext">toJSON :: CookieObject -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CookieObject.html#CookieObject%27"><span class="hs-identifier hs-type">CookieObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610815"><span id="local-6989586621679610816"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe ForwardValues
 option :: Maybe ForwardValues
 cookiesAllowList :: Maybe [Text]
 $sel:option:CookieObject' :: CookieObject -&gt; Maybe ForwardValues
 $sel:cookiesAllowList:CookieObject' :: CookieObject -&gt; Maybe [Text]
-</span><a href="#local-6989586621679609923"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679610815"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -248,14 +248,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679609924"><span class="hs-identifier hs-var">cookiesAllowList</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610816"><span class="hs-identifier hs-var">cookiesAllowList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;option&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ForwardValues -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ForwardValues -&gt; Pair) -&gt; Maybe ForwardValues -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ForwardValues
-</span><a href="#local-6989586621679609923"><span class="hs-identifier hs-var">option</span></a></span><span>
+</span><a href="#local-6989586621679610815"><span class="hs-identifier hs-var">option</span></a></span><span>
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span></pre></body></html>

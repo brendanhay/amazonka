@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A metadata key-value pair to store with an object.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMetadataEntry' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679543874"><span id="local-6989586621679543875"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetadataEntry"><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry"><span class="hs-identifier hs-var">MetadataEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetadataEntry%27"><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry%27"><span class="hs-identifier hs-var">MetadataEntry'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the Object.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aname%3AMetadataEntry%27"><span class="annot"><span class="annottext">MetadataEntry -&gt; Maybe Text
-</span><a href="Network.AWS.S3.Types.MetadataEntry.html#%24sel%3Aname%3AMetadataEntry%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Value of the Object.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3AMetadataEntry%27"><span class="annot"><span class="annottext">MetadataEntry -&gt; Maybe Text
-</span><a href="Network.AWS.S3.Types.MetadataEntry.html#%24sel%3Avalue%3AMetadataEntry%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679544503"><span id="local-6989586621679544504"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetadataEntry"><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry"><span class="hs-identifier hs-var">MetadataEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetadataEntry%27"><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry%27"><span class="hs-identifier hs-var">MetadataEntry'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Value of the Object.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalue%3AMetadataEntry%27"><span class="annot"><span class="annottext">MetadataEntry -&gt; Maybe Text
+</span><a href="Network.AWS.S3.Types.MetadataEntry.html#%24sel%3Avalue%3AMetadataEntry%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Name of the Object.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3AMetadataEntry%27"><span class="annot"><span class="annottext">MetadataEntry -&gt; Maybe Text
+</span><a href="Network.AWS.S3.Types.MetadataEntry.html#%24sel%3Aname%3AMetadataEntry%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679543867"><span id="local-6989586621679543869"><span class="annot"><span class="annottext">MetadataEntry -&gt; MetadataEntry -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679544496"><span id="local-6989586621679544498"><span class="annot"><span class="annottext">MetadataEntry -&gt; MetadataEntry -&gt; Bool
 (MetadataEntry -&gt; MetadataEntry -&gt; Bool)
 -&gt; (MetadataEntry -&gt; MetadataEntry -&gt; Bool) -&gt; Eq MetadataEntry
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MetadataEntry -&gt; MetadataEntry -&gt; Bool
 == :: MetadataEntry -&gt; MetadataEntry -&gt; Bool
 $c== :: MetadataEntry -&gt; MetadataEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543858"><span id="local-6989586621679543860"><span id="local-6989586621679543862"><span id="local-6989586621679543864"><span class="annot"><span class="annottext">ReadPrec [MetadataEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679544487"><span id="local-6989586621679544489"><span id="local-6989586621679544491"><span id="local-6989586621679544493"><span class="annot"><span class="annottext">ReadPrec [MetadataEntry]
 ReadPrec MetadataEntry
 Int -&gt; ReadS MetadataEntry
 ReadS [MetadataEntry]
@@ -63,7 +63,7 @@ readList :: ReadS [MetadataEntry]
 $creadList :: ReadS [MetadataEntry]
 readsPrec :: Int -&gt; ReadS MetadataEntry
 $creadsPrec :: Int -&gt; ReadS MetadataEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543851"><span id="local-6989586621679543853"><span id="local-6989586621679543855"><span class="annot"><span class="annottext">Int -&gt; MetadataEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679544480"><span id="local-6989586621679544482"><span id="local-6989586621679544484"><span class="annot"><span class="annottext">Int -&gt; MetadataEntry -&gt; ShowS
 [MetadataEntry] -&gt; ShowS
 MetadataEntry -&gt; String
 (Int -&gt; MetadataEntry -&gt; ShowS)
@@ -97,83 +97,83 @@ $cfrom :: forall x. MetadataEntry -&gt; Rep MetadataEntry x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'name', 'metadataEntry_name' - Name of the Object.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'value', 'metadataEntry_value' - Value of the Object.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'value', 'metadataEntry_value' - Value of the Object.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'name', 'metadataEntry_name' - Name of the Object.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#newMetadataEntry"><span class="hs-identifier hs-type">newMetadataEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry"><span class="hs-identifier hs-type">MetadataEntry</span></a></span><span>
 </span><span id="line-51"></span><span id="newMetadataEntry"><span class="annot"><span class="annottext">newMetadataEntry :: MetadataEntry
 </span><a href="Network.AWS.S3.Types.MetadataEntry.html#newMetadataEntry"><span class="hs-identifier hs-var hs-var">newMetadataEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">MetadataEntry' :: Maybe Text -&gt; Maybe Text -&gt; MetadataEntry
 </span><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry%27"><span class="hs-identifier hs-type">MetadataEntry'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:MetadataEntry' :: Maybe Text
-</span><a href="Network.AWS.S3.Types.MetadataEntry.html#%24sel%3Aname%3AMetadataEntry%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:MetadataEntry' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.MetadataEntry.html#%24sel%3Avalue%3AMetadataEntry%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:MetadataEntry' :: Maybe Text
-</span><a href="Network.AWS.S3.Types.MetadataEntry.html#%24sel%3Avalue%3AMetadataEntry%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:MetadataEntry' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.MetadataEntry.html#%24sel%3Aname%3AMetadataEntry%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- | Name of the Object.</span><span>
-</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#metadataEntry_name"><span class="hs-identifier hs-type">metadataEntry_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry"><span class="hs-identifier hs-type">MetadataEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span id="metadataEntry_name"><span class="annot"><span class="annottext">metadataEntry_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MetadataEntry -&gt; f MetadataEntry
-</span><a href="Network.AWS.S3.Types.MetadataEntry.html#metadataEntry_name"><span class="hs-identifier hs-var hs-var">metadataEntry_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetadataEntry -&gt; Maybe Text)
--&gt; (MetadataEntry -&gt; Maybe Text -&gt; MetadataEntry)
--&gt; Lens MetadataEntry MetadataEntry (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry%27"><span class="hs-identifier hs-type">MetadataEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543842"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:MetadataEntry' :: MetadataEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679543842"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679543842"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543841"><span class="annot"><span class="annottext">s :: MetadataEntry
-</span><a href="#local-6989586621679543841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry%27"><span class="hs-identifier hs-type">MetadataEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543840"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679543840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetadataEntry
-</span><a href="#local-6989586621679543841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MetadataEntry' :: Maybe Text
-</span><a href="Network.AWS.S3.Types.MetadataEntry.html#%24sel%3Aname%3AMetadataEntry%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679543840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry"><span class="hs-identifier hs-type">MetadataEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | Value of the Object.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#metadataEntry_value"><span class="hs-identifier hs-type">metadataEntry_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry"><span class="hs-identifier hs-type">MetadataEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="metadataEntry_value"><span class="annot"><span class="annottext">metadataEntry_value :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MetadataEntry -&gt; f MetadataEntry
+</span><span id="line-57"></span><span class="hs-comment">-- | Value of the Object.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#metadataEntry_value"><span class="hs-identifier hs-type">metadataEntry_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry"><span class="hs-identifier hs-type">MetadataEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="metadataEntry_value"><span class="annot"><span class="annottext">metadataEntry_value :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MetadataEntry -&gt; f MetadataEntry
 </span><a href="Network.AWS.S3.Types.MetadataEntry.html#metadataEntry_value"><span class="hs-identifier hs-var hs-var">metadataEntry_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetadataEntry -&gt; Maybe Text)
 -&gt; (MetadataEntry -&gt; Maybe Text -&gt; MetadataEntry)
 -&gt; Lens MetadataEntry MetadataEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry%27"><span class="hs-identifier hs-type">MetadataEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543838"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry%27"><span class="hs-identifier hs-type">MetadataEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679544471"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:MetadataEntry' :: MetadataEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679543838"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679543838"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543837"><span class="annot"><span class="annottext">s :: MetadataEntry
-</span><a href="#local-6989586621679543837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry%27"><span class="hs-identifier hs-type">MetadataEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543836"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679543836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetadataEntry
-</span><a href="#local-6989586621679543837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:MetadataEntry' :: Maybe Text
+</span><a href="#local-6989586621679544471"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679544471"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679544470"><span class="annot"><span class="annottext">s :: MetadataEntry
+</span><a href="#local-6989586621679544470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry%27"><span class="hs-identifier hs-type">MetadataEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679544469"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679544469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetadataEntry
+</span><a href="#local-6989586621679544470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:MetadataEntry' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.MetadataEntry.html#%24sel%3Avalue%3AMetadataEntry%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679543836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry"><span class="hs-identifier hs-type">MetadataEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679544469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry"><span class="hs-identifier hs-type">MetadataEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Name of the Object.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#metadataEntry_name"><span class="hs-identifier hs-type">metadataEntry_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry"><span class="hs-identifier hs-type">MetadataEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="metadataEntry_name"><span class="annot"><span class="annottext">metadataEntry_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MetadataEntry -&gt; f MetadataEntry
+</span><a href="Network.AWS.S3.Types.MetadataEntry.html#metadataEntry_name"><span class="hs-identifier hs-var hs-var">metadataEntry_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetadataEntry -&gt; Maybe Text)
+-&gt; (MetadataEntry -&gt; Maybe Text -&gt; MetadataEntry)
+-&gt; Lens MetadataEntry MetadataEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry%27"><span class="hs-identifier hs-type">MetadataEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679544467"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:MetadataEntry' :: MetadataEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679544467"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679544467"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679544466"><span class="annot"><span class="annottext">s :: MetadataEntry
+</span><a href="#local-6989586621679544466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry%27"><span class="hs-identifier hs-type">MetadataEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679544465"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679544465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetadataEntry
+</span><a href="#local-6989586621679544466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MetadataEntry' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.MetadataEntry.html#%24sel%3Aname%3AMetadataEntry%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679544465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry"><span class="hs-identifier hs-type">MetadataEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679543832"><span id="local-6989586621679543834"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry"><span class="hs-identifier hs-type">MetadataEntry</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679544461"><span id="local-6989586621679544463"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry"><span class="hs-identifier hs-type">MetadataEntry</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679543829"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry"><span class="hs-identifier hs-type">MetadataEntry</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679544458"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry"><span class="hs-identifier hs-type">MetadataEntry</span></a></span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry"><span class="hs-identifier hs-type">MetadataEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679543825"><span class="annot"><span class="annottext">toXML :: MetadataEntry -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry%27"><span class="hs-identifier hs-type">MetadataEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543822"><span id="local-6989586621679543823"><span class="annot"><span class="annottext">Maybe Text
-value :: Maybe Text
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679544454"><span class="annot"><span class="annottext">toXML :: MetadataEntry -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetadataEntry.html#MetadataEntry%27"><span class="hs-identifier hs-type">MetadataEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679544451"><span id="local-6989586621679544452"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
-$sel:value:MetadataEntry' :: MetadataEntry -&gt; Maybe Text
+value :: Maybe Text
 $sel:name:MetadataEntry' :: MetadataEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679543822"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:value:MetadataEntry' :: MetadataEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679544451"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
-forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679543823"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679543822"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679544452"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679544451"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-73"></span></pre></body></html>

@@ -25,31 +25,31 @@
 </span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-26"></span><span>
 </span><span id="line-27"></span><span class="hs-comment">-- | /See:/ 'newUserGroup' smart constructor.</span><span>
-</span><span id="line-28"></span><span id="local-6989586621679407839"><span id="local-6989586621679407840"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserGroup"><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-var">UserGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserGroup%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-var">UserGroup'</span></a></span></span><span>
+</span><span id="line-28"></span><span id="local-6989586621679408383"><span id="local-6989586621679408384"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserGroup"><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-var">UserGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserGroup%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-var">UserGroup'</span></a></span></span><span>
 </span><span id="line-29"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates user group status. Can be \&quot;creating\&quot;, \&quot;active\&quot;,</span><span>
 </span><span id="line-30"></span><span>    </span><span class="hs-comment">-- \&quot;modifying\&quot;, \&quot;deleting\&quot;.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Astatus%3AUserGroup%27"><span class="annot"><span class="annottext">UserGroup -&gt; Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3Astatus%3AUserGroup%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | A list of replication groups that the user group can access.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AreplicationGroups%3AUserGroup%27"><span class="annot"><span class="annottext">UserGroup -&gt; Maybe [Text]
-</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AreplicationGroups%3AUserGroup%27"><span class="hs-identifier hs-var hs-var">replicationGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The list of user IDs that belong to the user group.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AuserIds%3AUserGroup%27"><span class="annot"><span class="annottext">UserGroup -&gt; Maybe [Text]
+</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AuserIds%3AUserGroup%27"><span class="hs-identifier hs-var hs-var">userIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user group.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aarn%3AUserGroup%27"><span class="annot"><span class="annottext">UserGroup -&gt; Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3Aarn%3AUserGroup%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The list of user IDs that belong to the user group.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AuserIds%3AUserGroup%27"><span class="annot"><span class="annottext">UserGroup -&gt; Maybe [Text]
-</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AuserIds%3AUserGroup%27"><span class="hs-identifier hs-var hs-var">userIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ID of the user group.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AuserGroupId%3AUserGroup%27"><span class="annot"><span class="annottext">UserGroup -&gt; Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AuserGroupId%3AUserGroup%27"><span class="hs-identifier hs-var hs-var">userGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The current supported value is Redis.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Aengine%3AUserGroup%27"><span class="annot"><span class="annottext">UserGroup -&gt; Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3Aengine%3AUserGroup%27"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The ID of the user group.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AuserGroupId%3AUserGroup%27"><span class="annot"><span class="annottext">UserGroup -&gt; Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AuserGroupId%3AUserGroup%27"><span class="hs-identifier hs-var hs-var">userGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A list of updates being applied to the user group.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3ApendingChanges%3AUserGroup%27"><span class="annot"><span class="annottext">UserGroup -&gt; Maybe UserGroupPendingChanges
-</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3ApendingChanges%3AUserGroup%27"><span class="hs-identifier hs-var hs-var">pendingChanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroupPendingChanges.html#UserGroupPendingChanges"><span class="hs-identifier hs-type">UserGroupPendingChanges</span></a></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A list of updates being applied to the user group.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3ApendingChanges%3AUserGroup%27"><span class="annot"><span class="annottext">UserGroup -&gt; Maybe UserGroupPendingChanges
+</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3ApendingChanges%3AUserGroup%27"><span class="hs-identifier hs-var hs-var">pendingChanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroupPendingChanges.html#UserGroupPendingChanges"><span class="hs-identifier hs-type">UserGroupPendingChanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A list of replication groups that the user group can access.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AreplicationGroups%3AUserGroup%27"><span class="annot"><span class="annottext">UserGroup -&gt; Maybe [Text]
+</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AreplicationGroups%3AUserGroup%27"><span class="hs-identifier hs-var hs-var">replicationGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679407827"><span id="local-6989586621679407829"><span class="annot"><span class="annottext">UserGroup -&gt; UserGroup -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679408371"><span id="local-6989586621679408373"><span class="annot"><span class="annottext">UserGroup -&gt; UserGroup -&gt; Bool
 (UserGroup -&gt; UserGroup -&gt; Bool)
 -&gt; (UserGroup -&gt; UserGroup -&gt; Bool) -&gt; Eq UserGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UserGroup -&gt; UserGroup -&gt; Bool
 == :: UserGroup -&gt; UserGroup -&gt; Bool
 $c== :: UserGroup -&gt; UserGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407818"><span id="local-6989586621679407820"><span id="local-6989586621679407822"><span id="local-6989586621679407824"><span class="annot"><span class="annottext">ReadPrec [UserGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408362"><span id="local-6989586621679408364"><span id="local-6989586621679408366"><span id="local-6989586621679408368"><span class="annot"><span class="annottext">ReadPrec [UserGroup]
 ReadPrec UserGroup
 Int -&gt; ReadS UserGroup
 ReadS [UserGroup]
@@ -77,7 +77,7 @@ readList :: ReadS [UserGroup]
 $creadList :: ReadS [UserGroup]
 readsPrec :: Int -&gt; ReadS UserGroup
 $creadsPrec :: Int -&gt; ReadS UserGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407811"><span id="local-6989586621679407813"><span id="local-6989586621679407815"><span class="annot"><span class="annottext">Int -&gt; UserGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408355"><span id="local-6989586621679408357"><span id="local-6989586621679408359"><span class="annot"><span class="annottext">Int -&gt; UserGroup -&gt; ShowS
 [UserGroup] -&gt; ShowS
 UserGroup -&gt; String
 (Int -&gt; UserGroup -&gt; ShowS)
@@ -113,17 +113,17 @@ $cfrom :: forall x. UserGroup -&gt; Rep UserGroup x
 </span><span id="line-55"></span><span class="hs-comment">-- 'status', 'userGroup_status' - Indicates user group status. Can be \&quot;creating\&quot;, \&quot;active\&quot;,</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- \&quot;modifying\&quot;, \&quot;deleting\&quot;.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'replicationGroups', 'userGroup_replicationGroups' - A list of replication groups that the user group can access.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'userIds', 'userGroup_userIds' - The list of user IDs that belong to the user group.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- 'arn', 'userGroup_arn' - The Amazon Resource Name (ARN) of the user group.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'userIds', 'userGroup_userIds' - The list of user IDs that belong to the user group.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'userGroupId', 'userGroup_userGroupId' - The ID of the user group.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- 'engine', 'userGroup_engine' - The current supported value is Redis.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'userGroupId', 'userGroup_userGroupId' - The ID of the user group.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'pendingChanges', 'userGroup_pendingChanges' - A list of updates being applied to the user group.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'pendingChanges', 'userGroup_pendingChanges' - A list of updates being applied to the user group.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'replicationGroups', 'userGroup_replicationGroups' - A list of replication groups that the user group can access.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#newUserGroup"><span class="hs-identifier hs-type">newUserGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span>
 </span><span id="line-71"></span><span id="newUserGroup"><span class="annot"><span class="annottext">newUserGroup :: UserGroup
@@ -131,38 +131,38 @@ $cfrom :: forall x. UserGroup -&gt; Rep UserGroup x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">UserGroup' :: Maybe Text
 -&gt; Maybe [Text]
 -&gt; Maybe Text
--&gt; Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe UserGroupPendingChanges
+-&gt; Maybe [Text]
 -&gt; UserGroup
 </span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:UserGroup' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3Astatus%3AUserGroup%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationGroups:UserGroup' :: Maybe [Text]
-</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AreplicationGroups%3AUserGroup%27"><span class="hs-identifier hs-var">replicationGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:userIds:UserGroup' :: Maybe [Text]
+</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AuserIds%3AUserGroup%27"><span class="hs-identifier hs-var">userIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:UserGroup' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3Aarn%3AUserGroup%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:userIds:UserGroup' :: Maybe [Text]
-</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AuserIds%3AUserGroup%27"><span class="hs-identifier hs-var">userIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:userGroupId:UserGroup' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AuserGroupId%3AUserGroup%27"><span class="hs-identifier hs-var">userGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:engine:UserGroup' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3Aengine%3AUserGroup%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:userGroupId:UserGroup' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AuserGroupId%3AUserGroup%27"><span class="hs-identifier hs-var">userGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:pendingChanges:UserGroup' :: Maybe UserGroupPendingChanges
+</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3ApendingChanges%3AUserGroup%27"><span class="hs-identifier hs-var">pendingChanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserGroupPendingChanges
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:pendingChanges:UserGroup' :: Maybe UserGroupPendingChanges
-</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3ApendingChanges%3AUserGroup%27"><span class="hs-identifier hs-var">pendingChanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserGroupPendingChanges
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationGroups:UserGroup' :: Maybe [Text]
+</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AreplicationGroups%3AUserGroup%27"><span class="hs-identifier hs-var">replicationGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
@@ -175,34 +175,34 @@ forall a. Maybe a
 -&gt; (UserGroup -&gt; Maybe Text -&gt; UserGroup)
 -&gt; Lens UserGroup UserGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407802"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408346"><span class="annot"><span class="annottext">Maybe Text
 status :: Maybe Text
 $sel:status:UserGroup' :: UserGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679407802"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679407802"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407801"><span class="annot"><span class="annottext">s :: UserGroup
-</span><a href="#local-6989586621679407801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407800"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679407800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserGroup
-</span><a href="#local-6989586621679407801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UserGroup' :: Maybe Text
+</span><a href="#local-6989586621679408346"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408346"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408345"><span class="annot"><span class="annottext">s :: UserGroup
+</span><a href="#local-6989586621679408345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408344"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserGroup
+</span><a href="#local-6989586621679408345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UserGroup' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3Astatus%3AUserGroup%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679407800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | A list of replication groups that the user group can access.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#userGroup_replicationGroups"><span class="hs-identifier hs-type">userGroup_replicationGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="userGroup_replicationGroups"><span class="annot"><span class="annottext">userGroup_replicationGroups :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; UserGroup -&gt; f UserGroup
-</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#userGroup_replicationGroups"><span class="hs-identifier hs-var hs-var">userGroup_replicationGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserGroup -&gt; Maybe [Text])
+</span><span id="line-87"></span><span class="hs-comment">-- | The list of user IDs that belong to the user group.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#userGroup_userIds"><span class="hs-identifier hs-type">userGroup_userIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="userGroup_userIds"><span class="annot"><span class="annottext">userGroup_userIds :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; UserGroup -&gt; f UserGroup
+</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#userGroup_userIds"><span class="hs-identifier hs-var hs-var">userGroup_userIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserGroup -&gt; Maybe [Text])
 -&gt; (UserGroup -&gt; Maybe [Text] -&gt; UserGroup)
 -&gt; Lens UserGroup UserGroup (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407798"><span class="annot"><span class="annottext">Maybe [Text]
-replicationGroups :: Maybe [Text]
-$sel:replicationGroups:UserGroup' :: UserGroup -&gt; Maybe [Text]
-</span><a href="#local-6989586621679407798"><span class="hs-identifier hs-var hs-var">replicationGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679407798"><span class="hs-identifier hs-var">replicationGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407797"><span class="annot"><span class="annottext">s :: UserGroup
-</span><a href="#local-6989586621679407797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407796"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679407796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserGroup
-</span><a href="#local-6989586621679407797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroups:UserGroup' :: Maybe [Text]
-</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AreplicationGroups%3AUserGroup%27"><span class="hs-identifier hs-var">replicationGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679407796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; UserGroup -&gt; f UserGroup)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408342"><span class="annot"><span class="annottext">Maybe [Text]
+userIds :: Maybe [Text]
+$sel:userIds:UserGroup' :: UserGroup -&gt; Maybe [Text]
+</span><a href="#local-6989586621679408342"><span class="hs-identifier hs-var hs-var">userIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679408342"><span class="hs-identifier hs-var">userIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408341"><span class="annot"><span class="annottext">s :: UserGroup
+</span><a href="#local-6989586621679408341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408340"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679408340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserGroup
+</span><a href="#local-6989586621679408341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userIds:UserGroup' :: Maybe [Text]
+</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AuserIds%3AUserGroup%27"><span class="hs-identifier hs-var">userIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679408340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; UserGroup -&gt; f UserGroup)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -215,8 +215,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user group.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#userGroup_arn"><span class="hs-identifier hs-type">userGroup_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -225,48 +225,34 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (UserGroup -&gt; Maybe Text -&gt; UserGroup)
 -&gt; Lens UserGroup UserGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407791"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408335"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:UserGroup' :: UserGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679407791"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679407791"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407790"><span class="annot"><span class="annottext">s :: UserGroup
-</span><a href="#local-6989586621679407790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407789"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679407789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserGroup
-</span><a href="#local-6989586621679407790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:UserGroup' :: Maybe Text
+</span><a href="#local-6989586621679408335"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408335"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408334"><span class="annot"><span class="annottext">s :: UserGroup
+</span><a href="#local-6989586621679408334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408333"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserGroup
+</span><a href="#local-6989586621679408334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:UserGroup' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3Aarn%3AUserGroup%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679407789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The list of user IDs that belong to the user group.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#userGroup_userIds"><span class="hs-identifier hs-type">userGroup_userIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="userGroup_userIds"><span class="annot"><span class="annottext">userGroup_userIds :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; UserGroup -&gt; f UserGroup
-</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#userGroup_userIds"><span class="hs-identifier hs-var hs-var">userGroup_userIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserGroup -&gt; Maybe [Text])
--&gt; (UserGroup -&gt; Maybe [Text] -&gt; UserGroup)
--&gt; Lens UserGroup UserGroup (Maybe [Text]) (Maybe [Text])
+</span><span id="line-95"></span><span class="hs-comment">-- | The ID of the user group.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#userGroup_userGroupId"><span class="hs-identifier hs-type">userGroup_userGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="userGroup_userGroupId"><span class="annot"><span class="annottext">userGroup_userGroupId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UserGroup -&gt; f UserGroup
+</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#userGroup_userGroupId"><span class="hs-identifier hs-var hs-var">userGroup_userGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserGroup -&gt; Maybe Text)
+-&gt; (UserGroup -&gt; Maybe Text -&gt; UserGroup)
+-&gt; Lens UserGroup UserGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407787"><span class="annot"><span class="annottext">Maybe [Text]
-userIds :: Maybe [Text]
-$sel:userIds:UserGroup' :: UserGroup -&gt; Maybe [Text]
-</span><a href="#local-6989586621679407787"><span class="hs-identifier hs-var hs-var">userIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679407787"><span class="hs-identifier hs-var">userIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407786"><span class="annot"><span class="annottext">s :: UserGroup
-</span><a href="#local-6989586621679407786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407785"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679407785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserGroup
-</span><a href="#local-6989586621679407786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userIds:UserGroup' :: Maybe [Text]
-</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AuserIds%3AUserGroup%27"><span class="hs-identifier hs-var">userIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679407785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; UserGroup -&gt; f UserGroup)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; UserGroup
--&gt; f UserGroup
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408331"><span class="annot"><span class="annottext">Maybe Text
+userGroupId :: Maybe Text
+$sel:userGroupId:UserGroup' :: UserGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679408331"><span class="hs-identifier hs-var hs-var">userGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408331"><span class="hs-identifier hs-var">userGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408330"><span class="annot"><span class="annottext">s :: UserGroup
+</span><a href="#local-6989586621679408330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408329"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserGroup
+</span><a href="#local-6989586621679408330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userGroupId:UserGroup' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AuserGroupId%3AUserGroup%27"><span class="hs-identifier hs-var">userGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The current supported value is Redis.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#userGroup_engine"><span class="hs-identifier hs-type">userGroup_engine</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -275,38 +261,20 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (UserGroup -&gt; Maybe Text -&gt; UserGroup)
 -&gt; Lens UserGroup UserGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407783"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408327"><span class="annot"><span class="annottext">Maybe Text
 engine :: Maybe Text
 $sel:engine:UserGroup' :: UserGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679407783"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679407783"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407782"><span class="annot"><span class="annottext">s :: UserGroup
-</span><a href="#local-6989586621679407782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407781"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679407781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserGroup
-</span><a href="#local-6989586621679407782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engine:UserGroup' :: Maybe Text
+</span><a href="#local-6989586621679408327"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408327"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408326"><span class="annot"><span class="annottext">s :: UserGroup
+</span><a href="#local-6989586621679408326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408325"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserGroup
+</span><a href="#local-6989586621679408326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engine:UserGroup' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3Aengine%3AUserGroup%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679407781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | The ID of the user group.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#userGroup_userGroupId"><span class="hs-identifier hs-type">userGroup_userGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="userGroup_userGroupId"><span class="annot"><span class="annottext">userGroup_userGroupId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UserGroup -&gt; f UserGroup
-</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#userGroup_userGroupId"><span class="hs-identifier hs-var hs-var">userGroup_userGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserGroup -&gt; Maybe Text)
--&gt; (UserGroup -&gt; Maybe Text -&gt; UserGroup)
--&gt; Lens UserGroup UserGroup (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407779"><span class="annot"><span class="annottext">Maybe Text
-userGroupId :: Maybe Text
-$sel:userGroupId:UserGroup' :: UserGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679407779"><span class="hs-identifier hs-var hs-var">userGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679407779"><span class="hs-identifier hs-var">userGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407778"><span class="annot"><span class="annottext">s :: UserGroup
-</span><a href="#local-6989586621679407778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407777"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679407777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserGroup
-</span><a href="#local-6989586621679407778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userGroupId:UserGroup' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AuserGroupId%3AUserGroup%27"><span class="hs-identifier hs-var">userGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679407777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | A list of updates being applied to the user group.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#userGroup_pendingChanges"><span class="hs-identifier hs-type">userGroup_pendingChanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroupPendingChanges.html#UserGroupPendingChanges"><span class="hs-identifier hs-type">UserGroupPendingChanges</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="userGroup_pendingChanges"><span class="annot"><span class="annottext">userGroup_pendingChanges :: (Maybe UserGroupPendingChanges
+</span><span id="line-103"></span><span class="hs-comment">-- | A list of updates being applied to the user group.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#userGroup_pendingChanges"><span class="hs-identifier hs-type">userGroup_pendingChanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroupPendingChanges.html#UserGroupPendingChanges"><span class="hs-identifier hs-type">UserGroupPendingChanges</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="userGroup_pendingChanges"><span class="annot"><span class="annottext">userGroup_pendingChanges :: (Maybe UserGroupPendingChanges
  -&gt; f (Maybe UserGroupPendingChanges))
 -&gt; UserGroup -&gt; f UserGroup
 </span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#userGroup_pendingChanges"><span class="hs-identifier hs-var hs-var">userGroup_pendingChanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserGroup -&gt; Maybe UserGroupPendingChanges)
@@ -317,51 +285,83 @@ $sel:userGroupId:UserGroup' :: UserGroup -&gt; Maybe Text
      (Maybe UserGroupPendingChanges)
      (Maybe UserGroupPendingChanges)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407775"><span class="annot"><span class="annottext">Maybe UserGroupPendingChanges
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408323"><span class="annot"><span class="annottext">Maybe UserGroupPendingChanges
 pendingChanges :: Maybe UserGroupPendingChanges
 $sel:pendingChanges:UserGroup' :: UserGroup -&gt; Maybe UserGroupPendingChanges
-</span><a href="#local-6989586621679407775"><span class="hs-identifier hs-var hs-var">pendingChanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserGroupPendingChanges
-</span><a href="#local-6989586621679407775"><span class="hs-identifier hs-var">pendingChanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407774"><span class="annot"><span class="annottext">s :: UserGroup
-</span><a href="#local-6989586621679407774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407773"><span class="annot"><span class="annottext">Maybe UserGroupPendingChanges
-</span><a href="#local-6989586621679407773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserGroup
-</span><a href="#local-6989586621679407774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingChanges:UserGroup' :: Maybe UserGroupPendingChanges
+</span><a href="#local-6989586621679408323"><span class="hs-identifier hs-var hs-var">pendingChanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserGroupPendingChanges
+</span><a href="#local-6989586621679408323"><span class="hs-identifier hs-var">pendingChanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408322"><span class="annot"><span class="annottext">s :: UserGroup
+</span><a href="#local-6989586621679408322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408321"><span class="annot"><span class="annottext">Maybe UserGroupPendingChanges
+</span><a href="#local-6989586621679408321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserGroup
+</span><a href="#local-6989586621679408322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingChanges:UserGroup' :: Maybe UserGroupPendingChanges
 </span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3ApendingChanges%3AUserGroup%27"><span class="hs-identifier hs-var">pendingChanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserGroupPendingChanges
-</span><a href="#local-6989586621679407773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | A list of replication groups that the user group can access.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#userGroup_replicationGroups"><span class="hs-identifier hs-type">userGroup_replicationGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="userGroup_replicationGroups"><span class="annot"><span class="annottext">userGroup_replicationGroups :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; UserGroup -&gt; f UserGroup
+</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#userGroup_replicationGroups"><span class="hs-identifier hs-var hs-var">userGroup_replicationGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserGroup -&gt; Maybe [Text])
+-&gt; (UserGroup -&gt; Maybe [Text] -&gt; UserGroup)
+-&gt; Lens UserGroup UserGroup (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408319"><span class="annot"><span class="annottext">Maybe [Text]
+replicationGroups :: Maybe [Text]
+$sel:replicationGroups:UserGroup' :: UserGroup -&gt; Maybe [Text]
+</span><a href="#local-6989586621679408319"><span class="hs-identifier hs-var hs-var">replicationGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679408319"><span class="hs-identifier hs-var">replicationGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408318"><span class="annot"><span class="annottext">s :: UserGroup
+</span><a href="#local-6989586621679408318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-type">UserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408317"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679408317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserGroup
+</span><a href="#local-6989586621679408318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroups:UserGroup' :: Maybe [Text]
+</span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#%24sel%3AreplicationGroups%3AUserGroup%27"><span class="hs-identifier hs-var">replicationGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679408317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; UserGroup -&gt; f UserGroup)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UserGroup
+-&gt; f UserGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679407770"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String UserGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679407768"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679407768"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679408314"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String UserGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679408312"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679408312"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [Text]
 -&gt; Maybe Text
--&gt; Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe UserGroupPendingChanges
+-&gt; Maybe [Text]
 -&gt; UserGroup
 </span><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup%27"><span class="hs-identifier hs-var">UserGroup'</span></a></span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe [Text]
  -&gt; Maybe Text
- -&gt; Maybe [Text]
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe UserGroupPendingChanges
+ -&gt; Maybe [Text]
  -&gt; UserGroup)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe [Text]
       -&gt; Maybe Text
-      -&gt; Maybe [Text]
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe UserGroupPendingChanges
+      -&gt; Maybe [Text]
       -&gt; UserGroup)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679407768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679408312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -369,82 +369,23 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
   String
   (Maybe [Text]
    -&gt; Maybe Text
-   -&gt; Maybe [Text]
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe UserGroupPendingChanges
+   -&gt; Maybe [Text]
    -&gt; UserGroup)
 -&gt; Either String (Maybe [Text])
 -&gt; Either
      String
      (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe UserGroupPendingChanges
       -&gt; Maybe [Text]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe UserGroupPendingChanges
       -&gt; UserGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679407768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReplicationGroups&quot;</span></span><span>
-</span><span id="line-116"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
-forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
-</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-117"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
--&gt; ([Node] -&gt; Either String (Maybe [Text]))
--&gt; Either String (Maybe [Text])
-forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
-</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
--&gt; [Node] -&gt; Either String (Maybe [Text])
-forall (f :: * -&gt; *) a b.
-Applicative f =&gt;
-([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
-</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
-forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
-</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe [Text]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe UserGroupPendingChanges
-   -&gt; UserGroup)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [Text]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe UserGroupPendingChanges
-      -&gt; UserGroup)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679407768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ARN&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [Text]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe UserGroupPendingChanges
-   -&gt; UserGroup)
--&gt; Either String (Maybe [Text])
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe UserGroupPendingChanges -&gt; UserGroup)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679407768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679408312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -452,7 +393,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-121"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-116"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Text]))
 -&gt; Either String (Maybe [Text])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -465,41 +406,99 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-117"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe UserGroupPendingChanges -&gt; UserGroup)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe UserGroupPendingChanges
+   -&gt; Maybe [Text]
+   -&gt; UserGroup)
 -&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Maybe UserGroupPendingChanges -&gt; UserGroup)
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe UserGroupPendingChanges
+      -&gt; Maybe [Text]
+      -&gt; UserGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679407768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679408312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Engine&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Maybe UserGroupPendingChanges -&gt; UserGroup)
+</span><span class="hs-string">&quot;ARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe UserGroupPendingChanges
+   -&gt; Maybe [Text]
+   -&gt; UserGroup)
 -&gt; Either String (Maybe Text)
--&gt; Either String (Maybe UserGroupPendingChanges -&gt; UserGroup)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe UserGroupPendingChanges -&gt; Maybe [Text] -&gt; UserGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679407768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679408312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserGroupId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe UserGroupPendingChanges -&gt; UserGroup)
--&gt; Either String (Maybe UserGroupPendingChanges)
--&gt; Either String UserGroup
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe UserGroupPendingChanges -&gt; Maybe [Text] -&gt; UserGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe UserGroupPendingChanges -&gt; Maybe [Text] -&gt; UserGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679407768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe UserGroupPendingChanges)
+</span><a href="#local-6989586621679408312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Engine&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe UserGroupPendingChanges -&gt; Maybe [Text] -&gt; UserGroup)
+-&gt; Either String (Maybe UserGroupPendingChanges)
+-&gt; Either String (Maybe [Text] -&gt; UserGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679408312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe UserGroupPendingChanges)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PendingChanges&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; UserGroup)
+-&gt; Either String (Maybe [Text]) -&gt; Either String UserGroup
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679408312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationGroups&quot;</span></span><span>
+</span><span id="line-123"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407759"><span id="local-6989586621679407761"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408303"><span id="local-6989586621679408305"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407756"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408300"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span></span><span>
 </span><span id="line-130"></span></pre></body></html>

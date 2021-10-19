@@ -27,24 +27,24 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The device type.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDeviceType' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679427181"><span id="local-6989586621679427182"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-var">DeviceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-var">DeviceType'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679427631"><span id="local-6989586621679427632"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-var">DeviceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-var">DeviceType'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The last modified date of the device.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AdeviceLastModifiedDate%3ADeviceType%27"><span class="annot"><span class="annottext">DeviceType -&gt; Maybe POSIX
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceLastModifiedDate%3ADeviceType%27"><span class="hs-identifier hs-var hs-var">deviceLastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The device key.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdeviceKey%3ADeviceType%27"><span class="annot"><span class="annottext">DeviceType -&gt; Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceKey%3ADeviceType%27"><span class="hs-identifier hs-var hs-var">deviceKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The date in which the device was last authenticated.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AdeviceLastAuthenticatedDate%3ADeviceType%27"><span class="annot"><span class="annottext">DeviceType -&gt; Maybe POSIX
-</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceLastAuthenticatedDate%3ADeviceType%27"><span class="hs-identifier hs-var hs-var">deviceLastAuthenticatedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The creation date of the device.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdeviceCreateDate%3ADeviceType%27"><span class="annot"><span class="annottext">DeviceType -&gt; Maybe POSIX
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The creation date of the device.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdeviceCreateDate%3ADeviceType%27"><span class="annot"><span class="annottext">DeviceType -&gt; Maybe POSIX
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceCreateDate%3ADeviceType%27"><span class="hs-identifier hs-var hs-var">deviceCreateDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The device attributes.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdeviceAttributes%3ADeviceType%27"><span class="annot"><span class="annottext">DeviceType -&gt; Maybe [AttributeType]
-</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceAttributes%3ADeviceType%27"><span class="hs-identifier hs-var hs-var">deviceAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AttributeType.html#AttributeType"><span class="hs-identifier hs-type">AttributeType</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The device attributes.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AdeviceAttributes%3ADeviceType%27"><span class="annot"><span class="annottext">DeviceType -&gt; Maybe [AttributeType]
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceAttributes%3ADeviceType%27"><span class="hs-identifier hs-var hs-var">deviceAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AttributeType.html#AttributeType"><span class="hs-identifier hs-type">AttributeType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The device key.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdeviceKey%3ADeviceType%27"><span class="annot"><span class="annottext">DeviceType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceKey%3ADeviceType%27"><span class="hs-identifier hs-var hs-var">deviceKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The date in which the device was last authenticated.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdeviceLastAuthenticatedDate%3ADeviceType%27"><span class="annot"><span class="annottext">DeviceType -&gt; Maybe POSIX
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceLastAuthenticatedDate%3ADeviceType%27"><span class="hs-identifier hs-var hs-var">deviceLastAuthenticatedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679427171"><span id="local-6989586621679427173"><span class="annot"><span class="annottext">DeviceType -&gt; DeviceType -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679427621"><span id="local-6989586621679427623"><span class="annot"><span class="annottext">DeviceType -&gt; DeviceType -&gt; Bool
 (DeviceType -&gt; DeviceType -&gt; Bool)
 -&gt; (DeviceType -&gt; DeviceType -&gt; Bool) -&gt; Eq DeviceType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeviceType -&gt; DeviceType -&gt; Bool
 == :: DeviceType -&gt; DeviceType -&gt; Bool
 $c== :: DeviceType -&gt; DeviceType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427164"><span id="local-6989586621679427166"><span id="local-6989586621679427168"><span class="annot"><span class="annottext">Int -&gt; DeviceType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427614"><span id="local-6989586621679427616"><span id="local-6989586621679427618"><span class="annot"><span class="annottext">Int -&gt; DeviceType -&gt; ShowS
 [DeviceType] -&gt; ShowS
 DeviceType -&gt; String
 (Int -&gt; DeviceType -&gt; ShowS)
@@ -87,22 +87,22 @@ $cfrom :: forall x. DeviceType -&gt; Rep DeviceType x
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- 'deviceLastModifiedDate', 'deviceType_deviceLastModifiedDate' - The last modified date of the device.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'deviceKey', 'deviceType_deviceKey' - The device key.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'deviceCreateDate', 'deviceType_deviceCreateDate' - The creation date of the device.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'deviceLastAuthenticatedDate', 'deviceType_deviceLastAuthenticatedDate' - The date in which the device was last authenticated.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'deviceAttributes', 'deviceType_deviceAttributes' - The device attributes.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'deviceCreateDate', 'deviceType_deviceCreateDate' - The creation date of the device.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'deviceKey', 'deviceType_deviceKey' - The device key.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'deviceAttributes', 'deviceType_deviceAttributes' - The device attributes.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'deviceLastAuthenticatedDate', 'deviceType_deviceLastAuthenticatedDate' - The date in which the device was last authenticated.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#newDeviceType"><span class="hs-identifier hs-type">newDeviceType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span>
 </span><span id="line-63"></span><span id="newDeviceType"><span class="annot"><span class="annottext">newDeviceType :: DeviceType
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#newDeviceType"><span class="hs-identifier hs-var hs-var">newDeviceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">DeviceType' :: Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe POSIX
 -&gt; Maybe POSIX
 -&gt; Maybe [AttributeType]
+-&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; DeviceType
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceLastModifiedDate:DeviceType' :: Maybe POSIX
@@ -110,20 +110,20 @@ $cfrom :: forall x. DeviceType -&gt; Rep DeviceType x
 </span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceKey:DeviceType' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceKey%3ADeviceType%27"><span class="hs-identifier hs-var">deviceKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceLastAuthenticatedDate:DeviceType' :: Maybe POSIX
-</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceLastAuthenticatedDate%3ADeviceType%27"><span class="hs-identifier hs-var">deviceLastAuthenticatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceCreateDate:DeviceType' :: Maybe POSIX
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceCreateDate:DeviceType' :: Maybe POSIX
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceCreateDate%3ADeviceType%27"><span class="hs-identifier hs-var">deviceCreateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceAttributes:DeviceType' :: Maybe [AttributeType]
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceAttributes:DeviceType' :: Maybe [AttributeType]
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceAttributes%3ADeviceType%27"><span class="hs-identifier hs-var">deviceAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceKey:DeviceType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceKey%3ADeviceType%27"><span class="hs-identifier hs-var">deviceKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceLastAuthenticatedDate:DeviceType' :: Maybe POSIX
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceLastAuthenticatedDate%3ADeviceType%27"><span class="hs-identifier hs-var">deviceLastAuthenticatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
@@ -135,16 +135,16 @@ forall a. Maybe a
 -&gt; (DeviceType -&gt; Maybe POSIX -&gt; DeviceType)
 -&gt; Lens DeviceType DeviceType (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427155"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427605"><span class="annot"><span class="annottext">Maybe POSIX
 deviceLastModifiedDate :: Maybe POSIX
 $sel:deviceLastModifiedDate:DeviceType' :: DeviceType -&gt; Maybe POSIX
-</span><a href="#local-6989586621679427155"><span class="hs-identifier hs-var hs-var">deviceLastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679427155"><span class="hs-identifier hs-var">deviceLastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427154"><span class="annot"><span class="annottext">s :: DeviceType
-</span><a href="#local-6989586621679427154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427153"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679427153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceType
-</span><a href="#local-6989586621679427154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceLastModifiedDate:DeviceType' :: Maybe POSIX
+</span><a href="#local-6989586621679427605"><span class="hs-identifier hs-var hs-var">deviceLastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679427605"><span class="hs-identifier hs-var">deviceLastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427604"><span class="annot"><span class="annottext">s :: DeviceType
+</span><a href="#local-6989586621679427604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427603"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679427603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceType
+</span><a href="#local-6989586621679427604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceLastModifiedDate:DeviceType' :: Maybe POSIX
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceLastModifiedDate%3ADeviceType%27"><span class="hs-identifier hs-var">deviceLastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679427153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; DeviceType -&gt; f DeviceType)
+</span><a href="#local-6989586621679427603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; DeviceType -&gt; f DeviceType)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -160,73 +160,23 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | The device key.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#deviceType_deviceKey"><span class="hs-identifier hs-type">deviceType_deviceKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="deviceType_deviceKey"><span class="annot"><span class="annottext">deviceType_deviceKey :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeviceType -&gt; f DeviceType
-</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#deviceType_deviceKey"><span class="hs-identifier hs-var hs-var">deviceType_deviceKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceType -&gt; Maybe Text)
--&gt; (DeviceType -&gt; Maybe Text -&gt; DeviceType)
--&gt; Lens DeviceType DeviceType (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427148"><span class="annot"><span class="annottext">Maybe Text
-deviceKey :: Maybe Text
-$sel:deviceKey:DeviceType' :: DeviceType -&gt; Maybe Text
-</span><a href="#local-6989586621679427148"><span class="hs-identifier hs-var hs-var">deviceKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427148"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427147"><span class="annot"><span class="annottext">s :: DeviceType
-</span><a href="#local-6989586621679427147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427146"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceType
-</span><a href="#local-6989586621679427147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceKey:DeviceType' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceKey%3ADeviceType%27"><span class="hs-identifier hs-var">deviceKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The date in which the device was last authenticated.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#deviceType_deviceLastAuthenticatedDate"><span class="hs-identifier hs-type">deviceType_deviceLastAuthenticatedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="deviceType_deviceLastAuthenticatedDate"><span class="annot"><span class="annottext">deviceType_deviceLastAuthenticatedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; DeviceType -&gt; f DeviceType
-</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#deviceType_deviceLastAuthenticatedDate"><span class="hs-identifier hs-var hs-var">deviceType_deviceLastAuthenticatedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceType -&gt; Maybe POSIX)
--&gt; (DeviceType -&gt; Maybe POSIX -&gt; DeviceType)
--&gt; Lens DeviceType DeviceType (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427144"><span class="annot"><span class="annottext">Maybe POSIX
-deviceLastAuthenticatedDate :: Maybe POSIX
-$sel:deviceLastAuthenticatedDate:DeviceType' :: DeviceType -&gt; Maybe POSIX
-</span><a href="#local-6989586621679427144"><span class="hs-identifier hs-var hs-var">deviceLastAuthenticatedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679427144"><span class="hs-identifier hs-var">deviceLastAuthenticatedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427143"><span class="annot"><span class="annottext">s :: DeviceType
-</span><a href="#local-6989586621679427143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427142"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679427142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceType
-</span><a href="#local-6989586621679427143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceLastAuthenticatedDate:DeviceType' :: Maybe POSIX
-</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceLastAuthenticatedDate%3ADeviceType%27"><span class="hs-identifier hs-var">deviceLastAuthenticatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679427142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; DeviceType -&gt; f DeviceType)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; DeviceType
--&gt; f DeviceType
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The creation date of the device.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#deviceType_deviceCreateDate"><span class="hs-identifier hs-type">deviceType_deviceCreateDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="deviceType_deviceCreateDate"><span class="annot"><span class="annottext">deviceType_deviceCreateDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; DeviceType -&gt; f DeviceType
+</span><span id="line-77"></span><span class="hs-comment">-- | The creation date of the device.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#deviceType_deviceCreateDate"><span class="hs-identifier hs-type">deviceType_deviceCreateDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="deviceType_deviceCreateDate"><span class="annot"><span class="annottext">deviceType_deviceCreateDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; DeviceType -&gt; f DeviceType
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#deviceType_deviceCreateDate"><span class="hs-identifier hs-var hs-var">deviceType_deviceCreateDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceType -&gt; Maybe POSIX)
 -&gt; (DeviceType -&gt; Maybe POSIX -&gt; DeviceType)
 -&gt; Lens DeviceType DeviceType (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427140"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427598"><span class="annot"><span class="annottext">Maybe POSIX
 deviceCreateDate :: Maybe POSIX
 $sel:deviceCreateDate:DeviceType' :: DeviceType -&gt; Maybe POSIX
-</span><a href="#local-6989586621679427140"><span class="hs-identifier hs-var hs-var">deviceCreateDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679427140"><span class="hs-identifier hs-var">deviceCreateDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427139"><span class="annot"><span class="annottext">s :: DeviceType
-</span><a href="#local-6989586621679427139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427138"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679427138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceType
-</span><a href="#local-6989586621679427139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceCreateDate:DeviceType' :: Maybe POSIX
+</span><a href="#local-6989586621679427598"><span class="hs-identifier hs-var hs-var">deviceCreateDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679427598"><span class="hs-identifier hs-var">deviceCreateDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427597"><span class="annot"><span class="annottext">s :: DeviceType
+</span><a href="#local-6989586621679427597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427596"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679427596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceType
+</span><a href="#local-6989586621679427597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceCreateDate:DeviceType' :: Maybe POSIX
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceCreateDate%3ADeviceType%27"><span class="hs-identifier hs-var">deviceCreateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679427138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; DeviceType -&gt; f DeviceType)
+</span><a href="#local-6989586621679427596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; DeviceType -&gt; f DeviceType)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -241,10 +191,10 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The device attributes.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#deviceType_deviceAttributes"><span class="hs-identifier hs-type">deviceType_deviceAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AttributeType.html#AttributeType"><span class="hs-identifier hs-type">AttributeType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="deviceType_deviceAttributes"><span class="annot"><span class="annottext">deviceType_deviceAttributes :: (Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The device attributes.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#deviceType_deviceAttributes"><span class="hs-identifier hs-type">deviceType_deviceAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AttributeType.html#AttributeType"><span class="hs-identifier hs-type">AttributeType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="deviceType_deviceAttributes"><span class="annot"><span class="annottext">deviceType_deviceAttributes :: (Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
 -&gt; DeviceType -&gt; f DeviceType
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#deviceType_deviceAttributes"><span class="hs-identifier hs-var hs-var">deviceType_deviceAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceType -&gt; Maybe [AttributeType])
 -&gt; (DeviceType -&gt; Maybe [AttributeType] -&gt; DeviceType)
@@ -254,16 +204,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe [AttributeType])
      (Maybe [AttributeType])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427136"><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427594"><span class="annot"><span class="annottext">Maybe [AttributeType]
 deviceAttributes :: Maybe [AttributeType]
 $sel:deviceAttributes:DeviceType' :: DeviceType -&gt; Maybe [AttributeType]
-</span><a href="#local-6989586621679427136"><span class="hs-identifier hs-var hs-var">deviceAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679427136"><span class="hs-identifier hs-var">deviceAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427135"><span class="annot"><span class="annottext">s :: DeviceType
-</span><a href="#local-6989586621679427135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427134"><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679427134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceType
-</span><a href="#local-6989586621679427135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceAttributes:DeviceType' :: Maybe [AttributeType]
+</span><a href="#local-6989586621679427594"><span class="hs-identifier hs-var hs-var">deviceAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679427594"><span class="hs-identifier hs-var">deviceAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427593"><span class="annot"><span class="annottext">s :: DeviceType
+</span><a href="#local-6989586621679427593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427592"><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679427592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceType
+</span><a href="#local-6989586621679427593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceAttributes:DeviceType' :: Maybe [AttributeType]
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceAttributes%3ADeviceType%27"><span class="hs-identifier hs-var">deviceAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679427134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+</span><a href="#local-6989586621679427592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
  -&gt; DeviceType -&gt; f DeviceType)
 -&gt; ((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
     -&gt; Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
@@ -283,11 +233,61 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [AttributeType] [AttributeType] [AttributeType] [AttributeType]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The device key.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#deviceType_deviceKey"><span class="hs-identifier hs-type">deviceType_deviceKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="deviceType_deviceKey"><span class="annot"><span class="annottext">deviceType_deviceKey :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeviceType -&gt; f DeviceType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#deviceType_deviceKey"><span class="hs-identifier hs-var hs-var">deviceType_deviceKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceType -&gt; Maybe Text)
+-&gt; (DeviceType -&gt; Maybe Text -&gt; DeviceType)
+-&gt; Lens DeviceType DeviceType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427589"><span class="annot"><span class="annottext">Maybe Text
+deviceKey :: Maybe Text
+$sel:deviceKey:DeviceType' :: DeviceType -&gt; Maybe Text
+</span><a href="#local-6989586621679427589"><span class="hs-identifier hs-var hs-var">deviceKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427589"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427588"><span class="annot"><span class="annottext">s :: DeviceType
+</span><a href="#local-6989586621679427588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427587"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceType
+</span><a href="#local-6989586621679427588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceKey:DeviceType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceKey%3ADeviceType%27"><span class="hs-identifier hs-var">deviceKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The date in which the device was last authenticated.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#deviceType_deviceLastAuthenticatedDate"><span class="hs-identifier hs-type">deviceType_deviceLastAuthenticatedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="deviceType_deviceLastAuthenticatedDate"><span class="annot"><span class="annottext">deviceType_deviceLastAuthenticatedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; DeviceType -&gt; f DeviceType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#deviceType_deviceLastAuthenticatedDate"><span class="hs-identifier hs-var hs-var">deviceType_deviceLastAuthenticatedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceType -&gt; Maybe POSIX)
+-&gt; (DeviceType -&gt; Maybe POSIX -&gt; DeviceType)
+-&gt; Lens DeviceType DeviceType (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427585"><span class="annot"><span class="annottext">Maybe POSIX
+deviceLastAuthenticatedDate :: Maybe POSIX
+$sel:deviceLastAuthenticatedDate:DeviceType' :: DeviceType -&gt; Maybe POSIX
+</span><a href="#local-6989586621679427585"><span class="hs-identifier hs-var hs-var">deviceLastAuthenticatedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679427585"><span class="hs-identifier hs-var">deviceLastAuthenticatedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427584"><span class="annot"><span class="annottext">s :: DeviceType
+</span><a href="#local-6989586621679427584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-type">DeviceType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427583"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679427583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceType
+</span><a href="#local-6989586621679427584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceLastAuthenticatedDate:DeviceType' :: Maybe POSIX
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#%24sel%3AdeviceLastAuthenticatedDate%3ADeviceType%27"><span class="hs-identifier hs-var">deviceLastAuthenticatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679427583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; DeviceType -&gt; f DeviceType)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DeviceType
+-&gt; f DeviceType
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427130"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679427128"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceType
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427580"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679427578"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DeviceType) -&gt; Value -&gt; Parser DeviceType
@@ -295,86 +295,85 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeviceType&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679427125"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679427125"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679427575"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427575"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe POSIX
 -&gt; Maybe POSIX
 -&gt; Maybe [AttributeType]
+-&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; DeviceType
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType%27"><span class="hs-identifier hs-var">DeviceType'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe Text
- -&gt; Maybe POSIX
  -&gt; Maybe POSIX
  -&gt; Maybe [AttributeType]
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; DeviceType)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe POSIX
+     (Maybe POSIX
       -&gt; Maybe [AttributeType]
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; DeviceType)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679427125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679427575"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceLastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
+  (Maybe POSIX
    -&gt; Maybe [AttributeType]
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; DeviceType)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe [AttributeType] -&gt; DeviceType)
+     (Maybe [AttributeType] -&gt; Maybe Text -&gt; Maybe POSIX -&gt; DeviceType)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679427125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeviceKey&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe [AttributeType] -&gt; DeviceType)
--&gt; Parser (Maybe POSIX)
--&gt; Parser (Maybe POSIX -&gt; Maybe [AttributeType] -&gt; DeviceType)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679427125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeviceLastAuthenticatedDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe [AttributeType] -&gt; DeviceType)
--&gt; Parser (Maybe POSIX)
--&gt; Parser (Maybe [AttributeType] -&gt; DeviceType)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679427125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679427575"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceCreateDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [AttributeType] -&gt; DeviceType)
--&gt; Parser (Maybe [AttributeType]) -&gt; Parser DeviceType
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AttributeType] -&gt; Maybe Text -&gt; Maybe POSIX -&gt; DeviceType)
+-&gt; Parser (Maybe [AttributeType])
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; DeviceType)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679427125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AttributeType]))
+</span><a href="#local-6989586621679427575"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AttributeType]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceAttributes&quot;</span></span><span>
-</span><span id="line-104"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AttributeType]))
+</span><span id="line-102"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AttributeType]))
 -&gt; Maybe [AttributeType] -&gt; Parser (Maybe [AttributeType])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-105"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; DeviceType)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; DeviceType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427575"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; DeviceType)
+-&gt; Parser (Maybe POSIX) -&gt; Parser DeviceType
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427575"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceLastAuthenticatedDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427118"><span id="local-6989586621679427120"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427568"><span id="local-6989586621679427570"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427565"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span></span><span>
 </span><span id="line-111"></span></pre></body></html>

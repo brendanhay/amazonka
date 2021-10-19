@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- all of the predicates configured inside the And operator.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newLifecycleRuleAndOperator' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679555409"><span id="local-6989586621679555410"></span></span><span class="hs-keyword">data</span><span> </span><span id="LifecycleRuleAndOperator"><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator"><span class="hs-identifier hs-var">LifecycleRuleAndOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifecycleRuleAndOperator%27"><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator%27"><span class="hs-identifier hs-var">LifecycleRuleAndOperator'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679556054"><span id="local-6989586621679556055"></span></span><span class="hs-keyword">data</span><span> </span><span id="LifecycleRuleAndOperator"><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator"><span class="hs-identifier hs-var">LifecycleRuleAndOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifecycleRuleAndOperator%27"><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator%27"><span class="hs-identifier hs-var">LifecycleRuleAndOperator'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Prefix identifying one or more objects to which the rule applies.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aprefix%3ALifecycleRuleAndOperator%27"><span class="annot"><span class="annottext">LifecycleRuleAndOperator -&gt; Maybe Text
 </span><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#%24sel%3Aprefix%3ALifecycleRuleAndOperator%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Atags%3ALifecycleRuleAndOperator%27"><span class="annot"><span class="annottext">LifecycleRuleAndOperator -&gt; Maybe [Tag]
 </span><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#%24sel%3Atags%3ALifecycleRuleAndOperator%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679555402"><span id="local-6989586621679555404"><span class="annot"><span class="annottext">LifecycleRuleAndOperator -&gt; LifecycleRuleAndOperator -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679556047"><span id="local-6989586621679556049"><span class="annot"><span class="annottext">LifecycleRuleAndOperator -&gt; LifecycleRuleAndOperator -&gt; Bool
 (LifecycleRuleAndOperator -&gt; LifecycleRuleAndOperator -&gt; Bool)
 -&gt; (LifecycleRuleAndOperator -&gt; LifecycleRuleAndOperator -&gt; Bool)
 -&gt; Eq LifecycleRuleAndOperator
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LifecycleRuleAndOperator -&gt; LifecycleRuleAndOperator -&gt; Bool
 == :: LifecycleRuleAndOperator -&gt; LifecycleRuleAndOperator -&gt; Bool
 $c== :: LifecycleRuleAndOperator -&gt; LifecycleRuleAndOperator -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555393"><span id="local-6989586621679555395"><span id="local-6989586621679555397"><span id="local-6989586621679555399"><span class="annot"><span class="annottext">ReadPrec [LifecycleRuleAndOperator]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679556038"><span id="local-6989586621679556040"><span id="local-6989586621679556042"><span id="local-6989586621679556044"><span class="annot"><span class="annottext">ReadPrec [LifecycleRuleAndOperator]
 ReadPrec LifecycleRuleAndOperator
 Int -&gt; ReadS LifecycleRuleAndOperator
 ReadS [LifecycleRuleAndOperator]
@@ -68,7 +68,7 @@ readList :: ReadS [LifecycleRuleAndOperator]
 $creadList :: ReadS [LifecycleRuleAndOperator]
 readsPrec :: Int -&gt; ReadS LifecycleRuleAndOperator
 $creadsPrec :: Int -&gt; ReadS LifecycleRuleAndOperator
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555386"><span id="local-6989586621679555388"><span id="local-6989586621679555390"><span class="annot"><span class="annottext">Int -&gt; LifecycleRuleAndOperator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679556031"><span id="local-6989586621679556033"><span id="local-6989586621679556035"><span class="annot"><span class="annottext">Int -&gt; LifecycleRuleAndOperator -&gt; ShowS
 [LifecycleRuleAndOperator] -&gt; ShowS
 LifecycleRuleAndOperator -&gt; String
 (Int -&gt; LifecycleRuleAndOperator -&gt; ShowS)
@@ -141,16 +141,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator%27"><span class="hs-identifier hs-type">LifecycleRuleAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555377"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator%27"><span class="hs-identifier hs-type">LifecycleRuleAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556022"><span class="annot"><span class="annottext">Maybe Text
 prefix :: Maybe Text
 $sel:prefix:LifecycleRuleAndOperator' :: LifecycleRuleAndOperator -&gt; Maybe Text
-</span><a href="#local-6989586621679555377"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555377"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555376"><span class="annot"><span class="annottext">s :: LifecycleRuleAndOperator
-</span><a href="#local-6989586621679555376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator%27"><span class="hs-identifier hs-type">LifecycleRuleAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555375"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRuleAndOperator
-</span><a href="#local-6989586621679555376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:LifecycleRuleAndOperator' :: Maybe Text
+</span><a href="#local-6989586621679556022"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679556022"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679556021"><span class="annot"><span class="annottext">s :: LifecycleRuleAndOperator
+</span><a href="#local-6989586621679556021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator%27"><span class="hs-identifier hs-type">LifecycleRuleAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679556020"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679556020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRuleAndOperator
+</span><a href="#local-6989586621679556021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:LifecycleRuleAndOperator' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#%24sel%3Aprefix%3ALifecycleRuleAndOperator%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator"><span class="hs-identifier hs-type">LifecycleRuleAndOperator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679556020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator"><span class="hs-identifier hs-type">LifecycleRuleAndOperator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | All of these tags must exist in the object\'s tag set in order for the</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- rule to apply.</span><span>
@@ -166,16 +166,16 @@ $sel:prefix:LifecycleRuleAndOperator' :: LifecycleRuleAndOperator -&gt; Maybe Te
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator%27"><span class="hs-identifier hs-type">LifecycleRuleAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555373"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator%27"><span class="hs-identifier hs-type">LifecycleRuleAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556018"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:LifecycleRuleAndOperator' :: LifecycleRuleAndOperator -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679555373"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679555373"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555372"><span class="annot"><span class="annottext">s :: LifecycleRuleAndOperator
-</span><a href="#local-6989586621679555372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator%27"><span class="hs-identifier hs-type">LifecycleRuleAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555371"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679555371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRuleAndOperator
-</span><a href="#local-6989586621679555372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:LifecycleRuleAndOperator' :: Maybe [Tag]
+</span><a href="#local-6989586621679556018"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679556018"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679556017"><span class="annot"><span class="annottext">s :: LifecycleRuleAndOperator
+</span><a href="#local-6989586621679556017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator%27"><span class="hs-identifier hs-type">LifecycleRuleAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679556016"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679556016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRuleAndOperator
+</span><a href="#local-6989586621679556017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:LifecycleRuleAndOperator' :: Maybe [Tag]
 </span><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#%24sel%3Atags%3ALifecycleRuleAndOperator%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679555371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator"><span class="hs-identifier hs-type">LifecycleRuleAndOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679556016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator"><span class="hs-identifier hs-type">LifecycleRuleAndOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; LifecycleRuleAndOperator -&gt; f LifecycleRuleAndOperator)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -189,13 +189,13 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator"><span class="hs-identifier hs-type">LifecycleRuleAndOperator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679555365"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LifecycleRuleAndOperator
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679555363"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679555363"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679556010"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LifecycleRuleAndOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679556008"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679556008"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Tag] -&gt; LifecycleRuleAndOperator
 </span><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator%27"><span class="hs-identifier hs-var">LifecycleRuleAndOperator'</span></a></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Tag] -&gt; LifecycleRuleAndOperator)
@@ -203,7 +203,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Either String (Maybe [Tag] -&gt; LifecycleRuleAndOperator)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679555363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679556008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Prefix&quot;</span></span><span class="hs-special">)</span><span>
@@ -212,7 +212,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String LifecycleRuleAndOperator
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679555363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679556008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -235,19 +235,19 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555354"><span id="local-6989586621679555356"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator"><span class="hs-identifier hs-type">LifecycleRuleAndOperator</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555999"><span id="local-6989586621679556001"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator"><span class="hs-identifier hs-type">LifecycleRuleAndOperator</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator"><span class="hs-identifier hs-type">LifecycleRuleAndOperator</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555996"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator"><span class="hs-identifier hs-type">LifecycleRuleAndOperator</span></a></span></span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator"><span class="hs-identifier hs-type">LifecycleRuleAndOperator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679555347"><span class="annot"><span class="annottext">toXML :: LifecycleRuleAndOperator -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator%27"><span class="hs-identifier hs-type">LifecycleRuleAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555344"><span id="local-6989586621679555345"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679555992"><span class="annot"><span class="annottext">toXML :: LifecycleRuleAndOperator -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator%27"><span class="hs-identifier hs-type">LifecycleRuleAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555989"><span id="local-6989586621679555990"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe Text
 tags :: Maybe [Tag]
 prefix :: Maybe Text
 $sel:tags:LifecycleRuleAndOperator' :: LifecycleRuleAndOperator -&gt; Maybe [Tag]
 $sel:prefix:LifecycleRuleAndOperator' :: LifecycleRuleAndOperator -&gt; Maybe Text
-</span><a href="#local-6989586621679555344"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679555989"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -255,7 +255,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555345"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679555990"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
@@ -268,6 +268,6 @@ forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; XML) -&gt; Maybe [Tag] -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679555344"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679555989"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span></pre></body></html>

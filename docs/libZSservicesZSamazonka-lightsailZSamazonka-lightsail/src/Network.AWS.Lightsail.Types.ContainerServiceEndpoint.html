@@ -28,20 +28,20 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Lightsail container service.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newContainerServiceEndpoint' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679606483"><span id="local-6989586621679606484"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerServiceEndpoint"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-var">ContainerServiceEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerServiceEndpoint%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint%27"><span class="hs-identifier hs-var">ContainerServiceEndpoint'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The port of the specified container to which traffic is forwarded to.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcontainerPort%3AContainerServiceEndpoint%27"><span class="annot"><span class="annottext">ContainerServiceEndpoint -&gt; Maybe Int
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#%24sel%3AcontainerPort%3AContainerServiceEndpoint%27"><span class="hs-identifier hs-var hs-var">containerPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the container entry of the deployment that the endpoint</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- configuration applies to.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcontainerName%3AContainerServiceEndpoint%27"><span class="annot"><span class="annottext">ContainerServiceEndpoint -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621679607370"><span id="local-6989586621679607371"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerServiceEndpoint"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-var">ContainerServiceEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerServiceEndpoint%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint%27"><span class="hs-identifier hs-var">ContainerServiceEndpoint'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that describes the health check configuration of the</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- container.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AhealthCheck%3AContainerServiceEndpoint%27"><span class="annot"><span class="annottext">ContainerServiceEndpoint -&gt; Maybe ContainerServiceHealthCheckConfig
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#%24sel%3AhealthCheck%3AContainerServiceEndpoint%27"><span class="hs-identifier hs-var hs-var">healthCheck</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceHealthCheckConfig.html#ContainerServiceHealthCheckConfig"><span class="hs-identifier hs-type">ContainerServiceHealthCheckConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the container entry of the deployment that the endpoint</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- configuration applies to.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcontainerName%3AContainerServiceEndpoint%27"><span class="annot"><span class="annottext">ContainerServiceEndpoint -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#%24sel%3AcontainerName%3AContainerServiceEndpoint%27"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | An object that describes the health check configuration of the</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- container.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AhealthCheck%3AContainerServiceEndpoint%27"><span class="annot"><span class="annottext">ContainerServiceEndpoint -&gt; Maybe ContainerServiceHealthCheckConfig
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#%24sel%3AhealthCheck%3AContainerServiceEndpoint%27"><span class="hs-identifier hs-var hs-var">healthCheck</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceHealthCheckConfig.html#ContainerServiceHealthCheckConfig"><span class="hs-identifier hs-type">ContainerServiceHealthCheckConfig</span></a></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The port of the specified container to which traffic is forwarded to.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcontainerPort%3AContainerServiceEndpoint%27"><span class="annot"><span class="annottext">ContainerServiceEndpoint -&gt; Maybe Int
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#%24sel%3AcontainerPort%3AContainerServiceEndpoint%27"><span class="hs-identifier hs-var hs-var">containerPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679606475"><span id="local-6989586621679606477"><span class="annot"><span class="annottext">ContainerServiceEndpoint -&gt; ContainerServiceEndpoint -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679607362"><span id="local-6989586621679607364"><span class="annot"><span class="annottext">ContainerServiceEndpoint -&gt; ContainerServiceEndpoint -&gt; Bool
 (ContainerServiceEndpoint -&gt; ContainerServiceEndpoint -&gt; Bool)
 -&gt; (ContainerServiceEndpoint -&gt; ContainerServiceEndpoint -&gt; Bool)
 -&gt; Eq ContainerServiceEndpoint
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ContainerServiceEndpoint -&gt; ContainerServiceEndpoint -&gt; Bool
 == :: ContainerServiceEndpoint -&gt; ContainerServiceEndpoint -&gt; Bool
 $c== :: ContainerServiceEndpoint -&gt; ContainerServiceEndpoint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679606466"><span id="local-6989586621679606468"><span id="local-6989586621679606470"><span id="local-6989586621679606472"><span class="annot"><span class="annottext">ReadPrec [ContainerServiceEndpoint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679607353"><span id="local-6989586621679607355"><span id="local-6989586621679607357"><span id="local-6989586621679607359"><span class="annot"><span class="annottext">ReadPrec [ContainerServiceEndpoint]
 ReadPrec ContainerServiceEndpoint
 Int -&gt; ReadS ContainerServiceEndpoint
 ReadS [ContainerServiceEndpoint]
@@ -70,7 +70,7 @@ readList :: ReadS [ContainerServiceEndpoint]
 $creadList :: ReadS [ContainerServiceEndpoint]
 readsPrec :: Int -&gt; ReadS ContainerServiceEndpoint
 $creadsPrec :: Int -&gt; ReadS ContainerServiceEndpoint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679606459"><span id="local-6989586621679606461"><span id="local-6989586621679606463"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679607346"><span id="local-6989586621679607348"><span id="local-6989586621679607350"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceEndpoint -&gt; ShowS
 [ContainerServiceEndpoint] -&gt; ShowS
 ContainerServiceEndpoint -&gt; String
 (Int -&gt; ContainerServiceEndpoint -&gt; ShowS)
@@ -110,90 +110,39 @@ ContainerServiceEndpoint -&gt; Rep ContainerServiceEndpoint x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'containerPort', 'containerServiceEndpoint_containerPort' - The port of the specified container to which traffic is forwarded to.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'containerName', 'containerServiceEndpoint_containerName' - The name of the container entry of the deployment that the endpoint</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- configuration applies to.</span><span>
-</span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'healthCheck', 'containerServiceEndpoint_healthCheck' - An object that describes the health check configuration of the</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- container.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'healthCheck', 'containerServiceEndpoint_healthCheck' - An object that describes the health check configuration of the</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- container.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'containerName', 'containerServiceEndpoint_containerName' - The name of the container entry of the deployment that the endpoint</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- configuration applies to.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'containerPort', 'containerServiceEndpoint_containerPort' - The port of the specified container to which traffic is forwarded to.</span><span>
 </span><span id="line-58"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#newContainerServiceEndpoint"><span class="hs-identifier hs-type">newContainerServiceEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span><span>
 </span><span id="line-60"></span><span id="newContainerServiceEndpoint"><span class="annot"><span class="annottext">newContainerServiceEndpoint :: ContainerServiceEndpoint
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#newContainerServiceEndpoint"><span class="hs-identifier hs-var hs-var">newContainerServiceEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">ContainerServiceEndpoint' :: Maybe Int
--&gt; Maybe Text
--&gt; Maybe ContainerServiceHealthCheckConfig
--&gt; ContainerServiceEndpoint
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">ContainerServiceEndpoint' :: Maybe ContainerServiceHealthCheckConfig
+-&gt; Maybe Text -&gt; Maybe Int -&gt; ContainerServiceEndpoint
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint%27"><span class="hs-identifier hs-type">ContainerServiceEndpoint'</span></a></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:containerPort:ContainerServiceEndpoint' :: Maybe Int
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#%24sel%3AcontainerPort%3AContainerServiceEndpoint%27"><span class="hs-identifier hs-var">containerPort</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:healthCheck:ContainerServiceEndpoint' :: Maybe ContainerServiceHealthCheckConfig
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#%24sel%3AhealthCheck%3AContainerServiceEndpoint%27"><span class="hs-identifier hs-var">healthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerName:ContainerServiceEndpoint' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#%24sel%3AcontainerName%3AContainerServiceEndpoint%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:healthCheck:ContainerServiceEndpoint' :: Maybe ContainerServiceHealthCheckConfig
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#%24sel%3AhealthCheck%3AContainerServiceEndpoint%27"><span class="hs-identifier hs-var">healthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerPort:ContainerServiceEndpoint' :: Maybe Int
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#%24sel%3AcontainerPort%3AContainerServiceEndpoint%27"><span class="hs-identifier hs-var">containerPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | The port of the specified container to which traffic is forwarded to.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#containerServiceEndpoint_containerPort"><span class="hs-identifier hs-type">containerServiceEndpoint_containerPort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="containerServiceEndpoint_containerPort"><span class="annot"><span class="annottext">containerServiceEndpoint_containerPort :: (Maybe Int -&gt; f (Maybe Int))
--&gt; ContainerServiceEndpoint -&gt; f ContainerServiceEndpoint
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#containerServiceEndpoint_containerPort"><span class="hs-identifier hs-var hs-var">containerServiceEndpoint_containerPort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServiceEndpoint -&gt; Maybe Int)
--&gt; (ContainerServiceEndpoint
-    -&gt; Maybe Int -&gt; ContainerServiceEndpoint)
--&gt; Lens
-     ContainerServiceEndpoint
-     ContainerServiceEndpoint
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint%27"><span class="hs-identifier hs-type">ContainerServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606450"><span class="annot"><span class="annottext">Maybe Int
-containerPort :: Maybe Int
-$sel:containerPort:ContainerServiceEndpoint' :: ContainerServiceEndpoint -&gt; Maybe Int
-</span><a href="#local-6989586621679606450"><span class="hs-identifier hs-var hs-var">containerPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679606450"><span class="hs-identifier hs-var">containerPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679606449"><span class="annot"><span class="annottext">s :: ContainerServiceEndpoint
-</span><a href="#local-6989586621679606449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint%27"><span class="hs-identifier hs-type">ContainerServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679606448"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679606448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceEndpoint
-</span><a href="#local-6989586621679606449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerPort:ContainerServiceEndpoint' :: Maybe Int
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#%24sel%3AcontainerPort%3AContainerServiceEndpoint%27"><span class="hs-identifier hs-var">containerPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679606448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The name of the container entry of the deployment that the endpoint</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- configuration applies to.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#containerServiceEndpoint_containerName"><span class="hs-identifier hs-type">containerServiceEndpoint_containerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="containerServiceEndpoint_containerName"><span class="annot"><span class="annottext">containerServiceEndpoint_containerName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ContainerServiceEndpoint -&gt; f ContainerServiceEndpoint
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#containerServiceEndpoint_containerName"><span class="hs-identifier hs-var hs-var">containerServiceEndpoint_containerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServiceEndpoint -&gt; Maybe Text)
--&gt; (ContainerServiceEndpoint
-    -&gt; Maybe Text -&gt; ContainerServiceEndpoint)
--&gt; Lens
-     ContainerServiceEndpoint
-     ContainerServiceEndpoint
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint%27"><span class="hs-identifier hs-type">ContainerServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606446"><span class="annot"><span class="annottext">Maybe Text
-containerName :: Maybe Text
-$sel:containerName:ContainerServiceEndpoint' :: ContainerServiceEndpoint -&gt; Maybe Text
-</span><a href="#local-6989586621679606446"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679606446"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679606445"><span class="annot"><span class="annottext">s :: ContainerServiceEndpoint
-</span><a href="#local-6989586621679606445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint%27"><span class="hs-identifier hs-type">ContainerServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679606444"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679606444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceEndpoint
-</span><a href="#local-6989586621679606445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:ContainerServiceEndpoint' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#%24sel%3AcontainerName%3AContainerServiceEndpoint%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679606444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | An object that describes the health check configuration of the</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- container.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#containerServiceEndpoint_healthCheck"><span class="hs-identifier hs-type">containerServiceEndpoint_healthCheck</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceHealthCheckConfig.html#ContainerServiceHealthCheckConfig"><span class="hs-identifier hs-type">ContainerServiceHealthCheckConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="containerServiceEndpoint_healthCheck"><span class="annot"><span class="annottext">containerServiceEndpoint_healthCheck :: (Maybe ContainerServiceHealthCheckConfig
+</span><span id="line-68"></span><span class="hs-comment">-- | An object that describes the health check configuration of the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- container.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#containerServiceEndpoint_healthCheck"><span class="hs-identifier hs-type">containerServiceEndpoint_healthCheck</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceHealthCheckConfig.html#ContainerServiceHealthCheckConfig"><span class="hs-identifier hs-type">ContainerServiceHealthCheckConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="containerServiceEndpoint_healthCheck"><span class="annot"><span class="annottext">containerServiceEndpoint_healthCheck :: (Maybe ContainerServiceHealthCheckConfig
  -&gt; f (Maybe ContainerServiceHealthCheckConfig))
 -&gt; ContainerServiceEndpoint -&gt; f ContainerServiceEndpoint
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#containerServiceEndpoint_healthCheck"><span class="hs-identifier hs-var hs-var">containerServiceEndpoint_healthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServiceEndpoint
@@ -207,19 +156,68 @@ $sel:containerName:ContainerServiceEndpoint' :: ContainerServiceEndpoint -&gt; M
      (Maybe ContainerServiceHealthCheckConfig)
      (Maybe ContainerServiceHealthCheckConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint%27"><span class="hs-identifier hs-type">ContainerServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606442"><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint%27"><span class="hs-identifier hs-type">ContainerServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607337"><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
 healthCheck :: Maybe ContainerServiceHealthCheckConfig
 $sel:healthCheck:ContainerServiceEndpoint' :: ContainerServiceEndpoint -&gt; Maybe ContainerServiceHealthCheckConfig
-</span><a href="#local-6989586621679606442"><span class="hs-identifier hs-var hs-var">healthCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
-</span><a href="#local-6989586621679606442"><span class="hs-identifier hs-var">healthCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679606441"><span class="annot"><span class="annottext">s :: ContainerServiceEndpoint
-</span><a href="#local-6989586621679606441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint%27"><span class="hs-identifier hs-type">ContainerServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679606440"><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
-</span><a href="#local-6989586621679606440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceEndpoint
-</span><a href="#local-6989586621679606441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheck:ContainerServiceEndpoint' :: Maybe ContainerServiceHealthCheckConfig
+</span><a href="#local-6989586621679607337"><span class="hs-identifier hs-var hs-var">healthCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
+</span><a href="#local-6989586621679607337"><span class="hs-identifier hs-var">healthCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607336"><span class="annot"><span class="annottext">s :: ContainerServiceEndpoint
+</span><a href="#local-6989586621679607336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint%27"><span class="hs-identifier hs-type">ContainerServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607335"><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
+</span><a href="#local-6989586621679607335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceEndpoint
+</span><a href="#local-6989586621679607336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheck:ContainerServiceEndpoint' :: Maybe ContainerServiceHealthCheckConfig
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#%24sel%3AhealthCheck%3AContainerServiceEndpoint%27"><span class="hs-identifier hs-var">healthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
-</span><a href="#local-6989586621679606440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679607335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The name of the container entry of the deployment that the endpoint</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- configuration applies to.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#containerServiceEndpoint_containerName"><span class="hs-identifier hs-type">containerServiceEndpoint_containerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="containerServiceEndpoint_containerName"><span class="annot"><span class="annottext">containerServiceEndpoint_containerName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContainerServiceEndpoint -&gt; f ContainerServiceEndpoint
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#containerServiceEndpoint_containerName"><span class="hs-identifier hs-var hs-var">containerServiceEndpoint_containerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServiceEndpoint -&gt; Maybe Text)
+-&gt; (ContainerServiceEndpoint
+    -&gt; Maybe Text -&gt; ContainerServiceEndpoint)
+-&gt; Lens
+     ContainerServiceEndpoint
+     ContainerServiceEndpoint
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint%27"><span class="hs-identifier hs-type">ContainerServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607333"><span class="annot"><span class="annottext">Maybe Text
+containerName :: Maybe Text
+$sel:containerName:ContainerServiceEndpoint' :: ContainerServiceEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679607333"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679607333"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607332"><span class="annot"><span class="annottext">s :: ContainerServiceEndpoint
+</span><a href="#local-6989586621679607332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint%27"><span class="hs-identifier hs-type">ContainerServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607331"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679607331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceEndpoint
+</span><a href="#local-6989586621679607332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:ContainerServiceEndpoint' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#%24sel%3AcontainerName%3AContainerServiceEndpoint%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679607331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The port of the specified container to which traffic is forwarded to.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#containerServiceEndpoint_containerPort"><span class="hs-identifier hs-type">containerServiceEndpoint_containerPort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="containerServiceEndpoint_containerPort"><span class="annot"><span class="annottext">containerServiceEndpoint_containerPort :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ContainerServiceEndpoint -&gt; f ContainerServiceEndpoint
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#containerServiceEndpoint_containerPort"><span class="hs-identifier hs-var hs-var">containerServiceEndpoint_containerPort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServiceEndpoint -&gt; Maybe Int)
+-&gt; (ContainerServiceEndpoint
+    -&gt; Maybe Int -&gt; ContainerServiceEndpoint)
+-&gt; Lens
+     ContainerServiceEndpoint
+     ContainerServiceEndpoint
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint%27"><span class="hs-identifier hs-type">ContainerServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607329"><span class="annot"><span class="annottext">Maybe Int
+containerPort :: Maybe Int
+$sel:containerPort:ContainerServiceEndpoint' :: ContainerServiceEndpoint -&gt; Maybe Int
+</span><a href="#local-6989586621679607329"><span class="hs-identifier hs-var hs-var">containerPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679607329"><span class="hs-identifier hs-var">containerPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607328"><span class="annot"><span class="annottext">s :: ContainerServiceEndpoint
+</span><a href="#local-6989586621679607328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint%27"><span class="hs-identifier hs-type">ContainerServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607327"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679607327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceEndpoint
+</span><a href="#local-6989586621679607328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerPort:ContainerServiceEndpoint' :: Maybe Int
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#%24sel%3AcontainerPort%3AContainerServiceEndpoint%27"><span class="hs-identifier hs-var">containerPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679607327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606437"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679606435"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContainerServiceEndpoint
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607324"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679607322"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContainerServiceEndpoint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ContainerServiceEndpoint)
@@ -229,56 +227,41 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ContainerServiceEndpoint&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679606432"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606432"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
--&gt; Maybe Text
--&gt; Maybe ContainerServiceHealthCheckConfig
--&gt; ContainerServiceEndpoint
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679607319"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607319"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
+-&gt; Maybe Text -&gt; Maybe Int -&gt; ContainerServiceEndpoint
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint%27"><span class="hs-identifier hs-var">ContainerServiceEndpoint'</span></a></span><span>
-</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
- -&gt; Maybe Text
- -&gt; Maybe ContainerServiceHealthCheckConfig
- -&gt; ContainerServiceEndpoint)
--&gt; Parser (Maybe Int)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe ContainerServiceHealthCheckConfig
-      -&gt; ContainerServiceEndpoint)
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ContainerServiceHealthCheckConfig
+ -&gt; Maybe Text -&gt; Maybe Int -&gt; ContainerServiceEndpoint)
+-&gt; Parser (Maybe ContainerServiceHealthCheckConfig)
+-&gt; Parser (Maybe Text -&gt; Maybe Int -&gt; ContainerServiceEndpoint)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;containerPort&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe ContainerServiceHealthCheckConfig
-   -&gt; ContainerServiceEndpoint)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe ContainerServiceHealthCheckConfig
-      -&gt; ContainerServiceEndpoint)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;containerName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ContainerServiceHealthCheckConfig
-   -&gt; ContainerServiceEndpoint)
--&gt; Parser (Maybe ContainerServiceHealthCheckConfig)
--&gt; Parser ContainerServiceEndpoint
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerServiceHealthCheckConfig)
+</span><a href="#local-6989586621679607319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerServiceHealthCheckConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;healthCheck&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Int -&gt; ContainerServiceEndpoint)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Int -&gt; ContainerServiceEndpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; ContainerServiceEndpoint)
+-&gt; Parser (Maybe Int) -&gt; Parser ContainerServiceEndpoint
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerPort&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606426"><span id="local-6989586621679606428"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607313"><span id="local-6989586621679607315"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606423"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607310"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceEndpoint.html#ContainerServiceEndpoint"><span class="hs-identifier hs-type">ContainerServiceEndpoint</span></a></span></span><span>
 </span><span id="line-96"></span></pre></body></html>

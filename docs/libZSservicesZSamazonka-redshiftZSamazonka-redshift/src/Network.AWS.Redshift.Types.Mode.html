@@ -30,10 +30,10 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Internal.html"><span class="hs-identifier">Network.AWS.Redshift.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679492502"><span id="local-6989586621679492503"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mode"><span class="annot"><a href="Network.AWS.Redshift.Types.Mode.html#Mode"><span class="hs-identifier hs-var">Mode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mode%27"><span class="annot"><a href="Network.AWS.Redshift.Types.Mode.html#Mode%27"><span class="hs-identifier hs-var">Mode'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromMode"><span class="annot"><span class="annottext">Mode -&gt; Text
+</span><span id="line-33"></span><span id="local-6989586621679493146"><span id="local-6989586621679493147"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mode"><span class="annot"><a href="Network.AWS.Redshift.Types.Mode.html#Mode"><span class="hs-identifier hs-var">Mode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mode%27"><span class="annot"><a href="Network.AWS.Redshift.Types.Mode.html#Mode%27"><span class="hs-identifier hs-var">Mode'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromMode"><span class="annot"><span class="annottext">Mode -&gt; Text
 </span><a href="Network.AWS.Redshift.Types.Mode.html#fromMode"><span class="hs-identifier hs-var hs-var">fromMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679492494"><span id="local-6989586621679492496"><span id="local-6989586621679492498"><span class="annot"><span class="annottext">Int -&gt; Mode -&gt; ShowS
+</span><span id="line-35"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679493138"><span id="local-6989586621679493140"><span id="local-6989586621679493142"><span class="annot"><span class="annottext">Int -&gt; Mode -&gt; ShowS
 [Mode] -&gt; ShowS
 Mode -&gt; String
 (Int -&gt; Mode -&gt; ShowS)
@@ -47,7 +47,7 @@ $cshow :: Mode -&gt; String
 showsPrec :: Int -&gt; Mode -&gt; ShowS
 $cshowsPrec :: Int -&gt; Mode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>      </span><span id="local-6989586621679492485"><span id="local-6989586621679492487"><span id="local-6989586621679492489"><span id="local-6989586621679492491"><span class="annot"><span class="annottext">ReadPrec [Mode]
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679493129"><span id="local-6989586621679493131"><span id="local-6989586621679493133"><span id="local-6989586621679493135"><span class="annot"><span class="annottext">ReadPrec [Mode]
 ReadPrec Mode
 Int -&gt; ReadS Mode
 ReadS [Mode]
@@ -65,7 +65,7 @@ $creadList :: ReadS [Mode]
 readsPrec :: Int -&gt; ReadS Mode
 $creadsPrec :: Int -&gt; ReadS Mode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679492480"><span id="local-6989586621679492482"><span class="annot"><span class="annottext">Mode -&gt; Mode -&gt; Bool
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679493124"><span id="local-6989586621679493126"><span class="annot"><span class="annottext">Mode -&gt; Mode -&gt; Bool
 (Mode -&gt; Mode -&gt; Bool) -&gt; (Mode -&gt; Mode -&gt; Bool) -&gt; Eq Mode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Mode -&gt; Mode -&gt; Bool
@@ -73,7 +73,7 @@ $c/= :: Mode -&gt; Mode -&gt; Bool
 == :: Mode -&gt; Mode -&gt; Bool
 $c== :: Mode -&gt; Mode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679492464"><span id="local-6989586621679492466"><span id="local-6989586621679492468"><span id="local-6989586621679492470"><span id="local-6989586621679492472"><span id="local-6989586621679492474"><span id="local-6989586621679492476"><span class="annot"><span class="annottext">Eq Mode
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679493108"><span id="local-6989586621679493110"><span id="local-6989586621679493112"><span id="local-6989586621679493114"><span id="local-6989586621679493116"><span id="local-6989586621679493118"><span id="local-6989586621679493120"><span class="annot"><span class="annottext">Eq Mode
 Eq Mode
 -&gt; (Mode -&gt; Mode -&gt; Ordering)
 -&gt; (Mode -&gt; Mode -&gt; Bool)
@@ -123,7 +123,7 @@ $cfrom :: forall x. Mode -&gt; Rep Mode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679492456"><span id="local-6989586621679492458"><span class="annot"><span class="annottext">Int -&gt; Mode -&gt; Int
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679493100"><span id="local-6989586621679493102"><span class="annot"><span class="annottext">Int -&gt; Mode -&gt; Int
 Mode -&gt; Int
 (Int -&gt; Mode -&gt; Int) -&gt; (Mode -&gt; Int) -&gt; Hashable Mode
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -132,49 +132,49 @@ $chash :: Mode -&gt; Int
 hashWithSalt :: Int -&gt; Mode -&gt; Int
 $chashWithSalt :: Int -&gt; Mode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679492453"><span class="annot"><span class="annottext">Mode -&gt; ()
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679493097"><span class="annot"><span class="annottext">Mode -&gt; ()
 (Mode -&gt; ()) -&gt; NFData Mode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Mode -&gt; ()
 $crnf :: Mode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679492450"><span class="annot"><span class="annottext">Text -&gt; Either String Mode
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679493094"><span class="annot"><span class="annottext">Text -&gt; Either String Mode
 (Text -&gt; Either String Mode) -&gt; FromText Mode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Mode
 $cfromText :: Text -&gt; Either String Mode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679492447"><span class="annot"><span class="annottext">Mode -&gt; Text
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679493091"><span class="annot"><span class="annottext">Mode -&gt; Text
 (Mode -&gt; Text) -&gt; ToText Mode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Mode -&gt; Text
 $ctoText :: Mode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679492444"><span class="annot"><span class="annottext">Mode -&gt; ByteString
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679493088"><span class="annot"><span class="annottext">Mode -&gt; ByteString
 (Mode -&gt; ByteString) -&gt; ToByteString Mode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Mode -&gt; ByteString
 $ctoBS :: Mode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679492441"><span class="annot"><span class="annottext">Mode -&gt; ByteStringBuilder
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679493085"><span class="annot"><span class="annottext">Mode -&gt; ByteStringBuilder
 (Mode -&gt; ByteStringBuilder) -&gt; ToLog Mode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Mode -&gt; ByteStringBuilder
 $cbuild :: Mode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679492438"><span class="annot"><span class="annottext">HeaderName -&gt; Mode -&gt; [Header]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679493082"><span class="annot"><span class="annottext">HeaderName -&gt; Mode -&gt; [Header]
 (HeaderName -&gt; Mode -&gt; [Header]) -&gt; ToHeader Mode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Mode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Mode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679492435"><span class="annot"><span class="annottext">Mode -&gt; QueryString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679493079"><span class="annot"><span class="annottext">Mode -&gt; QueryString
 (Mode -&gt; QueryString) -&gt; ToQuery Mode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Mode -&gt; QueryString
 $ctoQuery :: Mode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679492430"><span id="local-6989586621679492432"><span class="annot"><span class="annottext">Value -&gt; Parser [Mode]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679493074"><span id="local-6989586621679493076"><span class="annot"><span class="annottext">Value -&gt; Parser [Mode]
 Value -&gt; Parser Mode
 (Value -&gt; Parser Mode) -&gt; (Value -&gt; Parser [Mode]) -&gt; FromJSON Mode
 forall a.
@@ -184,7 +184,7 @@ $cparseJSONList :: Value -&gt; Parser [Mode]
 parseJSON :: Value -&gt; Parser Mode
 $cparseJSON :: Value -&gt; Parser Mode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679492425"><span id="local-6989586621679492427"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mode]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679493069"><span id="local-6989586621679493071"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mode]
 FromJSONKeyFunction Mode
 FromJSONKeyFunction Mode
 -&gt; FromJSONKeyFunction [Mode] -&gt; FromJSONKey Mode
@@ -195,7 +195,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Mode]
 fromJSONKey :: FromJSONKeyFunction Mode
 $cfromJSONKey :: FromJSONKeyFunction Mode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679492416"><span id="local-6989586621679492418"><span id="local-6989586621679492420"><span id="local-6989586621679492422"><span class="annot"><span class="annottext">[Mode] -&gt; Encoding
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679493060"><span id="local-6989586621679493062"><span id="local-6989586621679493064"><span id="local-6989586621679493066"><span class="annot"><span class="annottext">[Mode] -&gt; Encoding
 [Mode] -&gt; Value
 Mode -&gt; Encoding
 Mode -&gt; Value
@@ -219,7 +219,7 @@ $ctoEncoding :: Mode -&gt; Encoding
 toJSON :: Mode -&gt; Value
 $ctoJSON :: Mode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679492411"><span id="local-6989586621679492413"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679493055"><span id="local-6989586621679493057"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mode]
 ToJSONKeyFunction Mode
 ToJSONKeyFunction Mode
 -&gt; ToJSONKeyFunction [Mode] -&gt; ToJSONKey Mode
@@ -230,13 +230,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Mode]
 toJSONKey :: ToJSONKeyFunction Mode
 $ctoJSONKey :: ToJSONKeyFunction Mode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679492408"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mode
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679493052"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mode
 ([Node] -&gt; Either String Mode) -&gt; FromXML Mode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Mode
 $cparseXML :: [Node] -&gt; Either String Mode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679492405"><span class="annot"><span class="annottext">Mode -&gt; XML
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679493049"><span class="annot"><span class="annottext">Mode -&gt; XML
 (Mode -&gt; XML) -&gt; ToXML Mode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Mode -&gt; XML

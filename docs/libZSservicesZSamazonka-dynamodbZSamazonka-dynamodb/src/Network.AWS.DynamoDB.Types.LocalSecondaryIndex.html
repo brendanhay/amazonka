@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Represents the properties of a local secondary index.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLocalSecondaryIndex' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679375100"><span id="local-6989586621679375101"></span></span><span class="hs-keyword">data</span><span> </span><span id="LocalSecondaryIndex"><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-var">LocalSecondaryIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocalSecondaryIndex%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex%27"><span class="hs-identifier hs-var">LocalSecondaryIndex'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679375774"><span id="local-6989586621679375775"></span></span><span class="hs-keyword">data</span><span> </span><span id="LocalSecondaryIndex"><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-var">LocalSecondaryIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocalSecondaryIndex%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex%27"><span class="hs-identifier hs-var">LocalSecondaryIndex'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the local secondary index. The name must be unique among all</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- other indexes on this table.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AindexName%3ALocalSecondaryIndex%27"><span class="annot"><span class="annottext">LocalSecondaryIndex -&gt; Text
@@ -57,7 +57,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Aprojection%3ALocalSecondaryIndex%27"><span class="annot"><span class="annottext">LocalSecondaryIndex -&gt; Projection
 </span><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#%24sel%3Aprojection%3ALocalSecondaryIndex%27"><span class="hs-identifier hs-var hs-var">projection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-type">Projection</span></a></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679375092"><span id="local-6989586621679375094"><span class="annot"><span class="annottext">LocalSecondaryIndex -&gt; LocalSecondaryIndex -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679375766"><span id="local-6989586621679375768"><span class="annot"><span class="annottext">LocalSecondaryIndex -&gt; LocalSecondaryIndex -&gt; Bool
 (LocalSecondaryIndex -&gt; LocalSecondaryIndex -&gt; Bool)
 -&gt; (LocalSecondaryIndex -&gt; LocalSecondaryIndex -&gt; Bool)
 -&gt; Eq LocalSecondaryIndex
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LocalSecondaryIndex -&gt; LocalSecondaryIndex -&gt; Bool
 == :: LocalSecondaryIndex -&gt; LocalSecondaryIndex -&gt; Bool
 $c== :: LocalSecondaryIndex -&gt; LocalSecondaryIndex -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375083"><span id="local-6989586621679375085"><span id="local-6989586621679375087"><span id="local-6989586621679375089"><span class="annot"><span class="annottext">ReadPrec [LocalSecondaryIndex]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375757"><span id="local-6989586621679375759"><span id="local-6989586621679375761"><span id="local-6989586621679375763"><span class="annot"><span class="annottext">ReadPrec [LocalSecondaryIndex]
 ReadPrec LocalSecondaryIndex
 Int -&gt; ReadS LocalSecondaryIndex
 ReadS [LocalSecondaryIndex]
@@ -86,7 +86,7 @@ readList :: ReadS [LocalSecondaryIndex]
 $creadList :: ReadS [LocalSecondaryIndex]
 readsPrec :: Int -&gt; ReadS LocalSecondaryIndex
 $creadsPrec :: Int -&gt; ReadS LocalSecondaryIndex
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375076"><span id="local-6989586621679375078"><span id="local-6989586621679375080"><span class="annot"><span class="annottext">Int -&gt; LocalSecondaryIndex -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375750"><span id="local-6989586621679375752"><span id="local-6989586621679375754"><span class="annot"><span class="annottext">Int -&gt; LocalSecondaryIndex -&gt; ShowS
 [LocalSecondaryIndex] -&gt; ShowS
 LocalSecondaryIndex -&gt; String
 (Int -&gt; LocalSecondaryIndex -&gt; ShowS)
@@ -154,35 +154,35 @@ $cfrom :: forall x. LocalSecondaryIndex -&gt; Rep LocalSecondaryIndex x
 </span><span id="line-98"></span><span id="newLocalSecondaryIndex"><span class="annot"><span class="annottext">newLocalSecondaryIndex :: Text
 -&gt; NonEmpty KeySchemaElement -&gt; Projection -&gt; LocalSecondaryIndex
 </span><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#newLocalSecondaryIndex"><span class="hs-identifier hs-var hs-var">newLocalSecondaryIndex</span></a></span></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679375070"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375070"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679375069"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679375069"><span class="hs-identifier hs-var">pKeySchema_</span></a></span></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679375068"><span class="annot"><span class="annottext">Projection
-</span><a href="#local-6989586621679375068"><span class="hs-identifier hs-var">pProjection_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679375744"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679375744"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679375743"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679375743"><span class="hs-identifier hs-var">pKeySchema_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679375742"><span class="annot"><span class="annottext">Projection
+</span><a href="#local-6989586621679375742"><span class="hs-identifier hs-var">pProjection_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">LocalSecondaryIndex' :: Text
 -&gt; NonEmpty KeySchemaElement -&gt; Projection -&gt; LocalSecondaryIndex
 </span><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex%27"><span class="hs-identifier hs-type">LocalSecondaryIndex'</span></a></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:indexName:LocalSecondaryIndex' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#%24sel%3AindexName%3ALocalSecondaryIndex%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375070"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679375744"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:keySchema:LocalSecondaryIndex' :: NonEmpty KeySchemaElement
 </span><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#%24sel%3AkeySchema%3ALocalSecondaryIndex%27"><span class="hs-identifier hs-var">keySchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
   (NonEmpty KeySchemaElement) (Identity (NonEmpty KeySchemaElement))
 -&gt; Tagged
      (NonEmpty KeySchemaElement) (Identity (NonEmpty KeySchemaElement))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
    (NonEmpty KeySchemaElement) (Identity (NonEmpty KeySchemaElement))
  -&gt; Tagged
       (NonEmpty KeySchemaElement) (Identity (NonEmpty KeySchemaElement)))
 -&gt; NonEmpty KeySchemaElement -&gt; NonEmpty KeySchemaElement
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679375069"><span class="hs-identifier hs-var">pKeySchema_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679375743"><span class="hs-identifier hs-var">pKeySchema_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:projection:LocalSecondaryIndex' :: Projection
 </span><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#%24sel%3Aprojection%3ALocalSecondaryIndex%27"><span class="hs-identifier hs-var">projection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Projection
-</span><a href="#local-6989586621679375068"><span class="hs-identifier hs-var">pProjection_</span></a></span><span>
+</span><a href="#local-6989586621679375742"><span class="hs-identifier hs-var">pProjection_</span></a></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The name of the local secondary index. The name must be unique among all</span><span>
@@ -193,16 +193,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (LocalSecondaryIndex -&gt; Text -&gt; LocalSecondaryIndex)
 -&gt; Lens LocalSecondaryIndex LocalSecondaryIndex Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex%27"><span class="hs-identifier hs-type">LocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375062"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex%27"><span class="hs-identifier hs-type">LocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375736"><span class="annot"><span class="annottext">Text
 indexName :: Text
 $sel:indexName:LocalSecondaryIndex' :: LocalSecondaryIndex -&gt; Text
-</span><a href="#local-6989586621679375062"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375062"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375061"><span class="annot"><span class="annottext">s :: LocalSecondaryIndex
-</span><a href="#local-6989586621679375061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex%27"><span class="hs-identifier hs-type">LocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375060"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalSecondaryIndex
-</span><a href="#local-6989586621679375061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:LocalSecondaryIndex' :: Text
+</span><a href="#local-6989586621679375736"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679375736"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375735"><span class="annot"><span class="annottext">s :: LocalSecondaryIndex
+</span><a href="#local-6989586621679375735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex%27"><span class="hs-identifier hs-type">LocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375734"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679375734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalSecondaryIndex
+</span><a href="#local-6989586621679375735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:LocalSecondaryIndex' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#%24sel%3AindexName%3ALocalSecondaryIndex%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-type">LocalSecondaryIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679375734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-type">LocalSecondaryIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The complete key schema for the local secondary index, consisting of one</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- or more pairs of attribute names and key types:</span><span>
@@ -232,16 +232,16 @@ $sel:indexName:LocalSecondaryIndex' :: LocalSecondaryIndex -&gt; Text
      (NonEmpty KeySchemaElement)
      (NonEmpty KeySchemaElement)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex%27"><span class="hs-identifier hs-type">LocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375058"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex%27"><span class="hs-identifier hs-type">LocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375732"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
 keySchema :: NonEmpty KeySchemaElement
 $sel:keySchema:LocalSecondaryIndex' :: LocalSecondaryIndex -&gt; NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679375058"><span class="hs-identifier hs-var hs-var">keySchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679375058"><span class="hs-identifier hs-var">keySchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375057"><span class="annot"><span class="annottext">s :: LocalSecondaryIndex
-</span><a href="#local-6989586621679375057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex%27"><span class="hs-identifier hs-type">LocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375056"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679375056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalSecondaryIndex
-</span><a href="#local-6989586621679375057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keySchema:LocalSecondaryIndex' :: NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679375732"><span class="hs-identifier hs-var hs-var">keySchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679375732"><span class="hs-identifier hs-var">keySchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375731"><span class="annot"><span class="annottext">s :: LocalSecondaryIndex
+</span><a href="#local-6989586621679375731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex%27"><span class="hs-identifier hs-type">LocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375730"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679375730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalSecondaryIndex
+</span><a href="#local-6989586621679375731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keySchema:LocalSecondaryIndex' :: NonEmpty KeySchemaElement
 </span><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#%24sel%3AkeySchema%3ALocalSecondaryIndex%27"><span class="hs-identifier hs-var">keySchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679375056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-type">LocalSecondaryIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
+</span><a href="#local-6989586621679375730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-type">LocalSecondaryIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
  -&gt; LocalSecondaryIndex -&gt; f LocalSecondaryIndex)
 -&gt; ((NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
     -&gt; NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
@@ -251,8 +251,8 @@ $sel:keySchema:LocalSecondaryIndex' :: LocalSecondaryIndex -&gt; NonEmpty KeySch
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
 -&gt; NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | Represents attributes that are copied (projected) from the table into</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- the local secondary index. These are in addition to the primary key</span><span>
@@ -265,24 +265,24 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      LocalSecondaryIndex LocalSecondaryIndex Projection Projection
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex%27"><span class="hs-identifier hs-type">LocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375053"><span class="annot"><span class="annottext">Projection
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex%27"><span class="hs-identifier hs-type">LocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375727"><span class="annot"><span class="annottext">Projection
 projection :: Projection
 $sel:projection:LocalSecondaryIndex' :: LocalSecondaryIndex -&gt; Projection
-</span><a href="#local-6989586621679375053"><span class="hs-identifier hs-var hs-var">projection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Projection
-</span><a href="#local-6989586621679375053"><span class="hs-identifier hs-var">projection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375052"><span class="annot"><span class="annottext">s :: LocalSecondaryIndex
-</span><a href="#local-6989586621679375052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex%27"><span class="hs-identifier hs-type">LocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375051"><span class="annot"><span class="annottext">Projection
-</span><a href="#local-6989586621679375051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalSecondaryIndex
-</span><a href="#local-6989586621679375052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projection:LocalSecondaryIndex' :: Projection
+</span><a href="#local-6989586621679375727"><span class="hs-identifier hs-var hs-var">projection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Projection
+</span><a href="#local-6989586621679375727"><span class="hs-identifier hs-var">projection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375726"><span class="annot"><span class="annottext">s :: LocalSecondaryIndex
+</span><a href="#local-6989586621679375726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex%27"><span class="hs-identifier hs-type">LocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375725"><span class="annot"><span class="annottext">Projection
+</span><a href="#local-6989586621679375725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalSecondaryIndex
+</span><a href="#local-6989586621679375726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projection:LocalSecondaryIndex' :: Projection
 </span><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#%24sel%3Aprojection%3ALocalSecondaryIndex%27"><span class="hs-identifier hs-var">projection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Projection
-</span><a href="#local-6989586621679375051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-type">LocalSecondaryIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679375725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-type">LocalSecondaryIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375047"><span id="local-6989586621679375049"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-type">LocalSecondaryIndex</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375721"><span id="local-6989586621679375723"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-type">LocalSecondaryIndex</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-type">LocalSecondaryIndex</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375718"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-type">LocalSecondaryIndex</span></a></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375036"><span id="local-6989586621679375038"><span id="local-6989586621679375040"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-type">LocalSecondaryIndex</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679375034"><span class="annot"><span class="annottext">toJSON :: LocalSecondaryIndex -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex%27"><span class="hs-identifier hs-type">LocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375030"><span id="local-6989586621679375031"><span id="local-6989586621679375032"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375710"><span id="local-6989586621679375712"><span id="local-6989586621679375714"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex"><span class="hs-identifier hs-type">LocalSecondaryIndex</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679375708"><span class="annot"><span class="annottext">toJSON :: LocalSecondaryIndex -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.LocalSecondaryIndex.html#LocalSecondaryIndex%27"><span class="hs-identifier hs-type">LocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375704"><span id="local-6989586621679375705"><span id="local-6989586621679375706"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
 Text
 Projection
 projection :: Projection
@@ -291,7 +291,7 @@ indexName :: Text
 $sel:projection:LocalSecondaryIndex' :: LocalSecondaryIndex -&gt; Projection
 $sel:keySchema:LocalSecondaryIndex' :: LocalSecondaryIndex -&gt; NonEmpty KeySchemaElement
 $sel:indexName:LocalSecondaryIndex' :: LocalSecondaryIndex -&gt; Text
-</span><a href="#local-6989586621679375030"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679375704"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -303,21 +303,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;IndexName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375032"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679375706"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeySchema&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty KeySchemaElement -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679375031"><span class="hs-identifier hs-var">keySchema</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679375705"><span class="hs-identifier hs-var">keySchema</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Projection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Projection -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Projection
-</span><a href="#local-6989586621679375030"><span class="hs-identifier hs-var">projection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679375704"><span class="hs-identifier hs-var">projection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span></pre></body></html>

@@ -38,8 +38,8 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#newListResourcesResponse"><span class="hs-identifier">newListResourcesResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#listResourcesResponse_nextToken"><span class="hs-identifier">listResourcesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#listResourcesResponse_resources"><span class="hs-identifier">listResourcesResponse_resources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#listResourcesResponse_resources"><span class="hs-identifier">listResourcesResponse_resources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#listResourcesResponse_nextToken"><span class="hs-identifier">listResourcesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#listResourcesResponse_httpStatus"><span class="hs-identifier">listResourcesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span class="hs-keyword">where</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListResources' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679175924"><span id="local-6989586621679175925"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResources"><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-var">ListResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResources%27"><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources%27"><span class="hs-identifier hs-var">ListResources'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679175969"><span id="local-6989586621679175970"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResources"><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-var">ListResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResources%27"><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources%27"><span class="hs-identifier hs-var">ListResources'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The continuation token for the next set of results, if the results</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- cannot be returned in one response.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListResources%27"><span class="annot"><span class="annottext">ListResources -&gt; Maybe Text
@@ -65,7 +65,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AprojectId%3AListResources%27"><span class="annot"><span class="annottext">ListResources -&gt; Text
 </span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3AprojectId%3AListResources%27"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175916"><span id="local-6989586621679175918"><span class="annot"><span class="annottext">ListResources -&gt; ListResources -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175961"><span id="local-6989586621679175963"><span class="annot"><span class="annottext">ListResources -&gt; ListResources -&gt; Bool
 (ListResources -&gt; ListResources -&gt; Bool)
 -&gt; (ListResources -&gt; ListResources -&gt; Bool) -&gt; Eq ListResources
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListResources -&gt; ListResources -&gt; Bool
 == :: ListResources -&gt; ListResources -&gt; Bool
 $c== :: ListResources -&gt; ListResources -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175907"><span id="local-6989586621679175909"><span id="local-6989586621679175911"><span id="local-6989586621679175913"><span class="annot"><span class="annottext">ReadPrec [ListResources]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175952"><span id="local-6989586621679175954"><span id="local-6989586621679175956"><span id="local-6989586621679175958"><span class="annot"><span class="annottext">ReadPrec [ListResources]
 ReadPrec ListResources
 Int -&gt; ReadS ListResources
 ReadS [ListResources]
@@ -93,7 +93,7 @@ readList :: ReadS [ListResources]
 $creadList :: ReadS [ListResources]
 readsPrec :: Int -&gt; ReadS ListResources
 $creadsPrec :: Int -&gt; ReadS ListResources
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175900"><span id="local-6989586621679175902"><span id="local-6989586621679175904"><span class="annot"><span class="annottext">Int -&gt; ListResources -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175945"><span id="local-6989586621679175947"><span id="local-6989586621679175949"><span class="annot"><span class="annottext">Int -&gt; ListResources -&gt; ShowS
 [ListResources] -&gt; ShowS
 ListResources -&gt; String
 (Int -&gt; ListResources -&gt; ShowS)
@@ -139,8 +139,8 @@ $cfrom :: forall x. ListResources -&gt; Rep ListResources x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span><span>
 </span><span id="line-86"></span><span id="newListResources"><span class="annot"><span class="annottext">newListResources :: Text -&gt; ListResources
-</span><a href="Network.AWS.CodeStar.ListResources.html#newListResources"><span class="hs-identifier hs-var hs-var">newListResources</span></a></span></span><span> </span><span id="local-6989586621679175895"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175895"><span class="hs-identifier hs-var">pProjectId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeStar.ListResources.html#newListResources"><span class="hs-identifier hs-var hs-var">newListResources</span></a></span></span><span> </span><span id="local-6989586621679175940"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175940"><span class="hs-identifier hs-var">pProjectId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">ListResources' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListResources
 </span><a href="Network.AWS.CodeStar.ListResources.html#ListResources%27"><span class="hs-identifier hs-type">ListResources'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListResources' :: Maybe Text
@@ -153,7 +153,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectId:ListResources' :: Text
 </span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3AprojectId%3AListResources%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175895"><span class="hs-identifier hs-var">pProjectId_</span></a></span><span>
+</span><a href="#local-6989586621679175940"><span class="hs-identifier hs-var">pProjectId_</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The continuation token for the next set of results, if the results</span><span>
@@ -164,16 +164,16 @@ forall a. Maybe a
 -&gt; (ListResources -&gt; Maybe Text -&gt; ListResources)
 -&gt; Lens ListResources ListResources (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources%27"><span class="hs-identifier hs-type">ListResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175893"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources%27"><span class="hs-identifier hs-type">ListResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175938"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListResources' :: ListResources -&gt; Maybe Text
-</span><a href="#local-6989586621679175893"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175893"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175892"><span class="annot"><span class="annottext">s :: ListResources
-</span><a href="#local-6989586621679175892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources%27"><span class="hs-identifier hs-type">ListResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175891"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResources
-</span><a href="#local-6989586621679175892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListResources' :: Maybe Text
+</span><a href="#local-6989586621679175938"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175938"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175937"><span class="annot"><span class="annottext">s :: ListResources
+</span><a href="#local-6989586621679175937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources%27"><span class="hs-identifier hs-type">ListResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175936"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResources
+</span><a href="#local-6989586621679175937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListResources' :: Maybe Text
 </span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3AnextToken%3AListResources%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The maximum amount of data that can be contained in a single set of</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- results.</span><span>
@@ -184,16 +184,16 @@ $sel:nextToken:ListResources' :: ListResources -&gt; Maybe Text
 -&gt; (ListResources -&gt; Maybe Natural -&gt; ListResources)
 -&gt; Lens ListResources ListResources (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources%27"><span class="hs-identifier hs-type">ListResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175890"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources%27"><span class="hs-identifier hs-type">ListResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175935"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListResources' :: ListResources -&gt; Maybe Natural
-</span><a href="#local-6989586621679175890"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679175890"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175889"><span class="annot"><span class="annottext">s :: ListResources
-</span><a href="#local-6989586621679175889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources%27"><span class="hs-identifier hs-type">ListResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175888"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679175888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResources
-</span><a href="#local-6989586621679175889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListResources' :: Maybe Natural
+</span><a href="#local-6989586621679175935"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679175935"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175934"><span class="annot"><span class="annottext">s :: ListResources
+</span><a href="#local-6989586621679175934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources%27"><span class="hs-identifier hs-type">ListResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175933"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679175933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResources
+</span><a href="#local-6989586621679175934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListResources' :: Maybe Natural
 </span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3AmaxResults%3AListResources%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679175888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The ID of the project.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#listResources_projectId"><span class="hs-identifier hs-type">listResources_projectId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -202,28 +202,28 @@ $sel:maxResults:ListResources' :: ListResources -&gt; Maybe Natural
 -&gt; (ListResources -&gt; Text -&gt; ListResources)
 -&gt; Lens ListResources ListResources Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources%27"><span class="hs-identifier hs-type">ListResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175887"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources%27"><span class="hs-identifier hs-type">ListResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175932"><span class="annot"><span class="annottext">Text
 projectId :: Text
 $sel:projectId:ListResources' :: ListResources -&gt; Text
-</span><a href="#local-6989586621679175887"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175887"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175886"><span class="annot"><span class="annottext">s :: ListResources
-</span><a href="#local-6989586621679175886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources%27"><span class="hs-identifier hs-type">ListResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175885"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResources
-</span><a href="#local-6989586621679175886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:ListResources' :: Text
+</span><a href="#local-6989586621679175932"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175932"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175931"><span class="annot"><span class="annottext">s :: ListResources
+</span><a href="#local-6989586621679175931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources%27"><span class="hs-identifier hs-type">ListResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175930"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResources
+</span><a href="#local-6989586621679175931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:ListResources' :: Text
 </span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3AprojectId%3AListResources%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679175881"><span class="annot"><span class="annottext">page :: ListResources -&gt; AWSResponse ListResources -&gt; Maybe ListResources
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679175879"><span class="annot"><span class="annottext">ListResources
-</span><a href="#local-6989586621679175879"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679175878"><span class="annot"><span class="annottext">AWSResponse ListResources
-</span><a href="#local-6989586621679175878"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679175926"><span class="annot"><span class="annottext">page :: ListResources -&gt; AWSResponse ListResources -&gt; Maybe ListResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679175924"><span class="annot"><span class="annottext">ListResources
+</span><a href="#local-6989586621679175924"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679175923"><span class="annot"><span class="annottext">AWSResponse ListResources
+</span><a href="#local-6989586621679175923"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-110"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResources
 ListResourcesResponse
-</span><a href="#local-6989586621679175878"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679175923"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">ListResourcesResponse
 -&gt; Getting (First Text) ListResourcesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -251,7 +251,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-115"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResources
 ListResourcesResponse
-</span><a href="#local-6989586621679175878"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679175923"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">ListResourcesResponse
 -&gt; Getting (First [Resource]) ListResourcesResponse [Resource]
 -&gt; Maybe [Resource]
@@ -284,7 +284,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ListResources
-</span><a href="#local-6989586621679175879"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679175924"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">ListResources -&gt; (ListResources -&gt; ListResources) -&gt; ListResources
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -297,7 +297,7 @@ Lens ListResources ListResources (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResources
 ListResourcesResponse
-</span><a href="#local-6989586621679175878"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679175923"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">ListResourcesResponse
 -&gt; Getting (First Text) ListResourcesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -321,12 +321,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse"><span class="hs-identifier hs-type">ListResourcesResponse</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679175868"><span class="annot"><span class="annottext">request :: ListResources -&gt; Request ListResources
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679175913"><span class="annot"><span class="annottext">request :: ListResources -&gt; Request ListResources
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListResources -&gt; Request ListResources
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeStar.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679175864"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679175909"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListResources
 -&gt; ClientResponse ClientBody
@@ -350,27 +350,18 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175861"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175861"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175860"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679175860"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175859"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175859"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Resource] -&gt; Int -&gt; ListResourcesResponse
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175906"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175906"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175905"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679175905"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175904"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175904"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Resource] -&gt; Maybe Text -&gt; Int -&gt; ListResourcesResponse
 </span><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse%27"><span class="hs-identifier hs-var">ListResourcesResponse'</span></a></span><span>
-</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Resource] -&gt; Int -&gt; ListResourcesResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe [Resource] -&gt; Int -&gt; ListResourcesResponse)
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Resource] -&gt; Maybe Text -&gt; Int -&gt; ListResourcesResponse)
+-&gt; Either String (Maybe [Resource])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListResourcesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Resource] -&gt; Int -&gt; ListResourcesResponse)
--&gt; Either String (Maybe [Resource])
--&gt; Either String (Int -&gt; ListResourcesResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Resource]))
+</span><a href="#local-6989586621679175904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Resource]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Resource]))
@@ -379,6 +370,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListResourcesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListResourcesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListResourcesResponse)
 -&gt; Either String Int -&gt; Either String ListResourcesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -387,15 +387,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175861"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175906"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175850"><span id="local-6989586621679175852"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175895"><span id="local-6989586621679175897"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175847"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175892"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679175843"><span class="annot"><span class="annottext">toHeaders :: ListResources -&gt; ResponseHeaders
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679175888"><span class="annot"><span class="annottext">toHeaders :: ListResources -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListResources -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -422,9 +422,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175833"><span id="local-6989586621679175835"><span id="local-6989586621679175837"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679175831"><span class="annot"><span class="annottext">toJSON :: ListResources -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources%27"><span class="hs-identifier hs-type">ListResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175827"><span id="local-6989586621679175828"><span id="local-6989586621679175829"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175878"><span id="local-6989586621679175880"><span id="local-6989586621679175882"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679175876"><span class="annot"><span class="annottext">toJSON :: ListResources -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources%27"><span class="hs-identifier hs-type">ListResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175872"><span id="local-6989586621679175873"><span id="local-6989586621679175874"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 projectId :: Text
@@ -433,7 +433,7 @@ nextToken :: Maybe Text
 $sel:projectId:ListResources' :: ListResources -&gt; Text
 $sel:maxResults:ListResources' :: ListResources -&gt; Maybe Natural
 $sel:nextToken:ListResources' :: ListResources -&gt; Maybe Text
-</span><a href="#local-6989586621679175827"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679175872"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -445,33 +445,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175829"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175874"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679175828"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175873"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;projectId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175827"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175872"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679175821"><span class="annot"><span class="annottext">toPath :: ListResources -&gt; ByteString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679175866"><span class="annot"><span class="annottext">toPath :: ListResources -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListResources -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResources"><span class="hs-identifier hs-type">ListResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679175817"><span class="annot"><span class="annottext">toQuery :: ListResources -&gt; QueryString
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679175862"><span class="annot"><span class="annottext">toQuery :: ListResources -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListResources -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -479,19 +479,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newListResourcesResponse' smart constructor.</span><span>
-</span><span id="line-176"></span><span id="local-6989586621679175814"><span id="local-6989586621679175815"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResourcesResponse"><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse"><span class="hs-identifier hs-var">ListResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResourcesResponse%27"><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse%27"><span class="hs-identifier hs-var">ListResourcesResponse'</span></a></span></span><span>
-</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The continuation token to use when requesting the next set of results,</span><span>
-</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- if there are more results to be returned.</span><span>
-</span><span id="line-179"></span><span>    </span><span id="%24sel%3AnextToken%3AListResourcesResponse%27"><span class="annot"><span class="annottext">ListResourcesResponse -&gt; Maybe Text
-</span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3AnextToken%3AListResourcesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | An array of resources associated with the project.</span><span>
-</span><span id="line-181"></span><span>    </span><span id="%24sel%3Aresources%3AListResourcesResponse%27"><span class="annot"><span class="annottext">ListResourcesResponse -&gt; Maybe [Resource]
+</span><span id="line-176"></span><span id="local-6989586621679175859"><span id="local-6989586621679175860"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResourcesResponse"><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse"><span class="hs-identifier hs-var">ListResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResourcesResponse%27"><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse%27"><span class="hs-identifier hs-var">ListResourcesResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of resources associated with the project.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3Aresources%3AListResourcesResponse%27"><span class="annot"><span class="annottext">ListResourcesResponse -&gt; Maybe [Resource]
 </span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3Aresources%3AListResourcesResponse%27"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeStar.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | The continuation token to use when requesting the next set of results,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- if there are more results to be returned.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AnextToken%3AListResourcesResponse%27"><span class="annot"><span class="annottext">ListResourcesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3AnextToken%3AListResourcesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-183"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListResourcesResponse%27"><span class="annot"><span class="annottext">ListResourcesResponse -&gt; Int
 </span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3AhttpStatus%3AListResourcesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175807"><span id="local-6989586621679175809"><span class="annot"><span class="annottext">ListResourcesResponse -&gt; ListResourcesResponse -&gt; Bool
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175852"><span id="local-6989586621679175854"><span class="annot"><span class="annottext">ListResourcesResponse -&gt; ListResourcesResponse -&gt; Bool
 (ListResourcesResponse -&gt; ListResourcesResponse -&gt; Bool)
 -&gt; (ListResourcesResponse -&gt; ListResourcesResponse -&gt; Bool)
 -&gt; Eq ListResourcesResponse
@@ -500,7 +500,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListResourcesResponse -&gt; ListResourcesResponse -&gt; Bool
 == :: ListResourcesResponse -&gt; ListResourcesResponse -&gt; Bool
 $c== :: ListResourcesResponse -&gt; ListResourcesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175799"><span id="local-6989586621679175801"><span id="local-6989586621679175803"><span id="local-6989586621679175805"><span class="annot"><span class="annottext">ReadPrec [ListResourcesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175844"><span id="local-6989586621679175846"><span id="local-6989586621679175848"><span id="local-6989586621679175850"><span class="annot"><span class="annottext">ReadPrec [ListResourcesResponse]
 ReadPrec ListResourcesResponse
 Int -&gt; ReadS ListResourcesResponse
 ReadS [ListResourcesResponse]
@@ -520,7 +520,7 @@ readList :: ReadS [ListResourcesResponse]
 $creadList :: ReadS [ListResourcesResponse]
 readsPrec :: Int -&gt; ReadS ListResourcesResponse
 $creadsPrec :: Int -&gt; ReadS ListResourcesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175793"><span id="local-6989586621679175795"><span id="local-6989586621679175797"><span class="annot"><span class="annottext">Int -&gt; ListResourcesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175838"><span id="local-6989586621679175840"><span id="local-6989586621679175842"><span class="annot"><span class="annottext">Int -&gt; ListResourcesResponse -&gt; ShowS
 [ListResourcesResponse] -&gt; ShowS
 ListResourcesResponse -&gt; String
 (Int -&gt; ListResourcesResponse -&gt; ShowS)
@@ -554,10 +554,10 @@ $cfrom :: forall x. ListResourcesResponse -&gt; Rep ListResourcesResponse x
 </span><span id="line-192"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-194"></span><span class="hs-comment">--</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- 'nextToken', 'listResourcesResponse_nextToken' - The continuation token to use when requesting the next set of results,</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- if there are more results to be returned.</span><span>
-</span><span id="line-197"></span><span class="hs-comment">--</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- 'resources', 'listResourcesResponse_resources' - An array of resources associated with the project.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'resources', 'listResourcesResponse_resources' - An array of resources associated with the project.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'nextToken', 'listResourcesResponse_nextToken' - The continuation token to use when requesting the next set of results,</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- if there are more results to be returned.</span><span>
 </span><span id="line-199"></span><span class="hs-comment">--</span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- 'httpStatus', 'listResourcesResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-201"></span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#newListResourcesResponse"><span class="hs-identifier hs-type">newListResourcesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -565,62 +565,42 @@ $cfrom :: forall x. ListResourcesResponse -&gt; Rep ListResourcesResponse x
 </span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-204"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse"><span class="hs-identifier hs-type">ListResourcesResponse</span></a></span><span>
 </span><span id="line-205"></span><span id="newListResourcesResponse"><span class="annot"><span class="annottext">newListResourcesResponse :: Int -&gt; ListResourcesResponse
-</span><a href="Network.AWS.CodeStar.ListResources.html#newListResourcesResponse"><span class="hs-identifier hs-var hs-var">newListResourcesResponse</span></a></span></span><span> </span><span id="local-6989586621679175790"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175790"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">ListResourcesResponse' :: Maybe Text -&gt; Maybe [Resource] -&gt; Int -&gt; ListResourcesResponse
+</span><a href="Network.AWS.CodeStar.ListResources.html#newListResourcesResponse"><span class="hs-identifier hs-var hs-var">newListResourcesResponse</span></a></span></span><span> </span><span id="local-6989586621679175835"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175835"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">ListResourcesResponse' :: Maybe [Resource] -&gt; Maybe Text -&gt; Int -&gt; ListResourcesResponse
 </span><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse%27"><span class="hs-identifier hs-type">ListResourcesResponse'</span></a></span><span>
-</span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListResourcesResponse' :: Maybe Text
-</span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3AnextToken%3AListResourcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resources:ListResourcesResponse' :: Maybe [Resource]
+</span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3Aresources%3AListResourcesResponse%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:resources:ListResourcesResponse' :: Maybe [Resource]
-</span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3Aresources%3AListResourcesResponse%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListResourcesResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3AnextToken%3AListResourcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListResourcesResponse' :: Int
 </span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3AhttpStatus%3AListResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175790"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679175835"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- | The continuation token to use when requesting the next set of results,</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- if there are more results to be returned.</span><span>
-</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#listResourcesResponse_nextToken"><span class="hs-identifier hs-type">listResourcesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse"><span class="hs-identifier hs-type">ListResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-215"></span><span id="listResourcesResponse_nextToken"><span class="annot"><span class="annottext">listResourcesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListResourcesResponse -&gt; f ListResourcesResponse
-</span><a href="Network.AWS.CodeStar.ListResources.html#listResourcesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listResourcesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourcesResponse -&gt; Maybe Text)
--&gt; (ListResourcesResponse -&gt; Maybe Text -&gt; ListResourcesResponse)
--&gt; Lens' ListResourcesResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse%27"><span class="hs-identifier hs-type">ListResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175789"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListResourcesResponse' :: ListResourcesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679175789"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175789"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175788"><span class="annot"><span class="annottext">s :: ListResourcesResponse
-</span><a href="#local-6989586621679175788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse%27"><span class="hs-identifier hs-type">ListResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175787"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourcesResponse
-</span><a href="#local-6989586621679175788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListResourcesResponse' :: Maybe Text
-</span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3AnextToken%3AListResourcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse"><span class="hs-identifier hs-type">ListResourcesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- | An array of resources associated with the project.</span><span>
-</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#listResourcesResponse_resources"><span class="hs-identifier hs-type">listResourcesResponse_resources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse"><span class="hs-identifier hs-type">ListResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeStar.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-219"></span><span id="listResourcesResponse_resources"><span class="annot"><span class="annottext">listResourcesResponse_resources :: (Maybe [Resource] -&gt; f (Maybe [Resource]))
+</span><span id="line-212"></span><span class="hs-comment">-- | An array of resources associated with the project.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#listResourcesResponse_resources"><span class="hs-identifier hs-type">listResourcesResponse_resources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse"><span class="hs-identifier hs-type">ListResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeStar.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="listResourcesResponse_resources"><span class="annot"><span class="annottext">listResourcesResponse_resources :: (Maybe [Resource] -&gt; f (Maybe [Resource]))
 -&gt; ListResourcesResponse -&gt; f ListResourcesResponse
 </span><a href="Network.AWS.CodeStar.ListResources.html#listResourcesResponse_resources"><span class="hs-identifier hs-var hs-var">listResourcesResponse_resources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourcesResponse -&gt; Maybe [Resource])
 -&gt; (ListResourcesResponse
     -&gt; Maybe [Resource] -&gt; ListResourcesResponse)
 -&gt; Lens' ListResourcesResponse (Maybe [Resource])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse%27"><span class="hs-identifier hs-type">ListResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175786"><span class="annot"><span class="annottext">Maybe [Resource]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse%27"><span class="hs-identifier hs-type">ListResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175834"><span class="annot"><span class="annottext">Maybe [Resource]
 resources :: Maybe [Resource]
 $sel:resources:ListResourcesResponse' :: ListResourcesResponse -&gt; Maybe [Resource]
-</span><a href="#local-6989586621679175786"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
-</span><a href="#local-6989586621679175786"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175785"><span class="annot"><span class="annottext">s :: ListResourcesResponse
-</span><a href="#local-6989586621679175785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse%27"><span class="hs-identifier hs-type">ListResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175784"><span class="annot"><span class="annottext">Maybe [Resource]
-</span><a href="#local-6989586621679175784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourcesResponse
-</span><a href="#local-6989586621679175785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:ListResourcesResponse' :: Maybe [Resource]
+</span><a href="#local-6989586621679175834"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
+</span><a href="#local-6989586621679175834"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175833"><span class="annot"><span class="annottext">s :: ListResourcesResponse
+</span><a href="#local-6989586621679175833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse%27"><span class="hs-identifier hs-type">ListResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175832"><span class="annot"><span class="annottext">Maybe [Resource]
+</span><a href="#local-6989586621679175832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourcesResponse
+</span><a href="#local-6989586621679175833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:ListResourcesResponse' :: Maybe [Resource]
 </span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3Aresources%3AListResourcesResponse%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
-</span><a href="#local-6989586621679175784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse"><span class="hs-identifier hs-type">ListResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Resource] -&gt; f (Maybe [Resource]))
+</span><a href="#local-6989586621679175832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse"><span class="hs-identifier hs-type">ListResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Resource] -&gt; f (Maybe [Resource]))
  -&gt; ListResourcesResponse -&gt; f ListResourcesResponse)
 -&gt; ((Maybe [Resource] -&gt; f (Maybe [Resource]))
     -&gt; Maybe [Resource] -&gt; f (Maybe [Resource]))
@@ -638,8 +618,28 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Resource] [Resource] [Resource] [Resource]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The continuation token to use when requesting the next set of results,</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- if there are more results to be returned.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#listResourcesResponse_nextToken"><span class="hs-identifier hs-type">listResourcesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse"><span class="hs-identifier hs-type">ListResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="listResourcesResponse_nextToken"><span class="annot"><span class="annottext">listResourcesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListResourcesResponse -&gt; f ListResourcesResponse
+</span><a href="Network.AWS.CodeStar.ListResources.html#listResourcesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listResourcesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourcesResponse -&gt; Maybe Text)
+-&gt; (ListResourcesResponse -&gt; Maybe Text -&gt; ListResourcesResponse)
+-&gt; Lens' ListResourcesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse%27"><span class="hs-identifier hs-type">ListResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175829"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListResourcesResponse' :: ListResourcesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679175829"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175829"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175828"><span class="annot"><span class="annottext">s :: ListResourcesResponse
+</span><a href="#local-6989586621679175828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse%27"><span class="hs-identifier hs-type">ListResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175827"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourcesResponse
+</span><a href="#local-6989586621679175828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListResourcesResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3AnextToken%3AListResourcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse"><span class="hs-identifier hs-type">ListResourcesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-222"></span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#listResourcesResponse_httpStatus"><span class="hs-identifier hs-type">listResourcesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse"><span class="hs-identifier hs-type">ListResourcesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -648,16 +648,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListResourcesResponse -&gt; Int -&gt; ListResourcesResponse)
 -&gt; Lens ListResourcesResponse ListResourcesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse%27"><span class="hs-identifier hs-type">ListResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175781"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse%27"><span class="hs-identifier hs-type">ListResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175826"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListResourcesResponse' :: ListResourcesResponse -&gt; Int
-</span><a href="#local-6989586621679175781"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175781"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175780"><span class="annot"><span class="annottext">s :: ListResourcesResponse
-</span><a href="#local-6989586621679175780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse%27"><span class="hs-identifier hs-type">ListResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175779"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourcesResponse
-</span><a href="#local-6989586621679175780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListResourcesResponse' :: Int
+</span><a href="#local-6989586621679175826"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175826"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175825"><span class="annot"><span class="annottext">s :: ListResourcesResponse
+</span><a href="#local-6989586621679175825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse%27"><span class="hs-identifier hs-type">ListResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175824"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourcesResponse
+</span><a href="#local-6989586621679175825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListResourcesResponse' :: Int
 </span><a href="Network.AWS.CodeStar.ListResources.html#%24sel%3AhttpStatus%3AListResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse"><span class="hs-identifier hs-type">ListResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse"><span class="hs-identifier hs-type">ListResourcesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse"><span class="hs-identifier hs-type">ListResourcesResponse</span></a></span></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175822"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListResources.html#ListResourcesResponse"><span class="hs-identifier hs-type">ListResourcesResponse</span></a></span></span><span>
 </span><span id="line-226"></span></pre></body></html>

@@ -36,8 +36,8 @@
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#newListUserImportJobsResponse"><span class="hs-identifier">newListUserImportJobsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#listUserImportJobsResponse_userImportJobs"><span class="hs-identifier">listUserImportJobsResponse_userImportJobs</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#listUserImportJobsResponse_paginationToken"><span class="hs-identifier">listUserImportJobsResponse_paginationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#listUserImportJobsResponse_paginationToken"><span class="hs-identifier">listUserImportJobsResponse_paginationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#listUserImportJobsResponse_userImportJobs"><span class="hs-identifier">listUserImportJobsResponse_userImportJobs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#listUserImportJobsResponse_httpStatus"><span class="hs-identifier">listUserImportJobsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span class="hs-keyword">where</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | Represents the request to list the user import jobs.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newListUserImportJobs' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679443007"><span id="local-6989586621679443008"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListUserImportJobs"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-var">ListUserImportJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListUserImportJobs%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs%27"><span class="hs-identifier hs-var">ListUserImportJobs'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679443491"><span id="local-6989586621679443492"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListUserImportJobs"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-var">ListUserImportJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListUserImportJobs%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs%27"><span class="hs-identifier hs-var">ListUserImportJobs'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier that was returned from the previous call to</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @ListUserImportJobs@, which can be used to return the next set of import</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- jobs in the list.</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3AListUserImportJobs%27"><span class="annot"><span class="annottext">ListUserImportJobs -&gt; Natural
 </span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3AmaxResults%3AListUserImportJobs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679442999"><span id="local-6989586621679443001"><span class="annot"><span class="annottext">ListUserImportJobs -&gt; ListUserImportJobs -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443483"><span id="local-6989586621679443485"><span class="annot"><span class="annottext">ListUserImportJobs -&gt; ListUserImportJobs -&gt; Bool
 (ListUserImportJobs -&gt; ListUserImportJobs -&gt; Bool)
 -&gt; (ListUserImportJobs -&gt; ListUserImportJobs -&gt; Bool)
 -&gt; Eq ListUserImportJobs
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListUserImportJobs -&gt; ListUserImportJobs -&gt; Bool
 == :: ListUserImportJobs -&gt; ListUserImportJobs -&gt; Bool
 $c== :: ListUserImportJobs -&gt; ListUserImportJobs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442990"><span id="local-6989586621679442992"><span id="local-6989586621679442994"><span id="local-6989586621679442996"><span class="annot"><span class="annottext">ReadPrec [ListUserImportJobs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443474"><span id="local-6989586621679443476"><span id="local-6989586621679443478"><span id="local-6989586621679443480"><span class="annot"><span class="annottext">ReadPrec [ListUserImportJobs]
 ReadPrec ListUserImportJobs
 Int -&gt; ReadS ListUserImportJobs
 ReadS [ListUserImportJobs]
@@ -95,7 +95,7 @@ readList :: ReadS [ListUserImportJobs]
 $creadList :: ReadS [ListUserImportJobs]
 readsPrec :: Int -&gt; ReadS ListUserImportJobs
 $creadsPrec :: Int -&gt; ReadS ListUserImportJobs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442983"><span id="local-6989586621679442985"><span id="local-6989586621679442987"><span class="annot"><span class="annottext">Int -&gt; ListUserImportJobs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443467"><span id="local-6989586621679443469"><span id="local-6989586621679443471"><span class="annot"><span class="annottext">Int -&gt; ListUserImportJobs -&gt; ShowS
 [ListUserImportJobs] -&gt; ShowS
 ListUserImportJobs -&gt; String
 (Int -&gt; ListUserImportJobs -&gt; ShowS)
@@ -144,9 +144,9 @@ $cfrom :: forall x. ListUserImportJobs -&gt; Rep ListUserImportJobs x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span><span>
 </span><span id="line-90"></span><span id="newListUserImportJobs"><span class="annot"><span class="annottext">newListUserImportJobs :: Text -&gt; Natural -&gt; ListUserImportJobs
-</span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#newListUserImportJobs"><span class="hs-identifier hs-var hs-var">newListUserImportJobs</span></a></span></span><span> </span><span id="local-6989586621679442978"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442978"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679442977"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679442977"><span class="hs-identifier hs-var">pMaxResults_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#newListUserImportJobs"><span class="hs-identifier hs-var hs-var">newListUserImportJobs</span></a></span></span><span> </span><span id="local-6989586621679443462"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443462"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679443461"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679443461"><span class="hs-identifier hs-var">pMaxResults_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">ListUserImportJobs' :: Maybe Text -&gt; Text -&gt; Natural -&gt; ListUserImportJobs
 </span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs%27"><span class="hs-identifier hs-type">ListUserImportJobs'</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:paginationToken:ListUserImportJobs' :: Maybe Text
@@ -156,10 +156,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPoolId:ListUserImportJobs' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3AuserPoolId%3AListUserImportJobs%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442978"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679443462"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListUserImportJobs' :: Natural
 </span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3AmaxResults%3AListUserImportJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679442977"><span class="hs-identifier hs-var">pMaxResults_</span></a></span><span>
+</span><a href="#local-6989586621679443461"><span class="hs-identifier hs-var">pMaxResults_</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | An identifier that was returned from the previous call to</span><span>
@@ -173,16 +173,16 @@ forall a. Maybe a
 -&gt; Lens
      ListUserImportJobs ListUserImportJobs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs%27"><span class="hs-identifier hs-type">ListUserImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442974"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs%27"><span class="hs-identifier hs-type">ListUserImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443458"><span class="annot"><span class="annottext">Maybe Text
 paginationToken :: Maybe Text
 $sel:paginationToken:ListUserImportJobs' :: ListUserImportJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679442974"><span class="hs-identifier hs-var hs-var">paginationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442974"><span class="hs-identifier hs-var">paginationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442973"><span class="annot"><span class="annottext">s :: ListUserImportJobs
-</span><a href="#local-6989586621679442973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs%27"><span class="hs-identifier hs-type">ListUserImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442972"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUserImportJobs
-</span><a href="#local-6989586621679442973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paginationToken:ListUserImportJobs' :: Maybe Text
+</span><a href="#local-6989586621679443458"><span class="hs-identifier hs-var hs-var">paginationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443458"><span class="hs-identifier hs-var">paginationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443457"><span class="annot"><span class="annottext">s :: ListUserImportJobs
+</span><a href="#local-6989586621679443457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs%27"><span class="hs-identifier hs-type">ListUserImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443456"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUserImportJobs
+</span><a href="#local-6989586621679443457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paginationToken:ListUserImportJobs' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3ApaginationToken%3AListUserImportJobs%27"><span class="hs-identifier hs-var">paginationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The user pool ID for the user pool that the users are being imported</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- into.</span><span>
@@ -192,16 +192,16 @@ $sel:paginationToken:ListUserImportJobs' :: ListUserImportJobs -&gt; Maybe Text
 -&gt; (ListUserImportJobs -&gt; Text -&gt; ListUserImportJobs)
 -&gt; Lens ListUserImportJobs ListUserImportJobs Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs%27"><span class="hs-identifier hs-type">ListUserImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442971"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs%27"><span class="hs-identifier hs-type">ListUserImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443455"><span class="annot"><span class="annottext">Text
 userPoolId :: Text
 $sel:userPoolId:ListUserImportJobs' :: ListUserImportJobs -&gt; Text
-</span><a href="#local-6989586621679442971"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442971"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442970"><span class="annot"><span class="annottext">s :: ListUserImportJobs
-</span><a href="#local-6989586621679442970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs%27"><span class="hs-identifier hs-type">ListUserImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442969"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUserImportJobs
-</span><a href="#local-6989586621679442970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:ListUserImportJobs' :: Text
+</span><a href="#local-6989586621679443455"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443455"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443454"><span class="annot"><span class="annottext">s :: ListUserImportJobs
+</span><a href="#local-6989586621679443454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs%27"><span class="hs-identifier hs-type">ListUserImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443453"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUserImportJobs
+</span><a href="#local-6989586621679443454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:ListUserImportJobs' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3AuserPoolId%3AListUserImportJobs%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The maximum number of import jobs you want the request to return.</span><span>
 </span><span id="line-110"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#listUserImportJobs_maxResults"><span class="hs-identifier hs-type">listUserImportJobs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -211,27 +211,27 @@ $sel:userPoolId:ListUserImportJobs' :: ListUserImportJobs -&gt; Text
 -&gt; (ListUserImportJobs -&gt; Natural -&gt; ListUserImportJobs)
 -&gt; Lens ListUserImportJobs ListUserImportJobs Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs%27"><span class="hs-identifier hs-type">ListUserImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442968"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs%27"><span class="hs-identifier hs-type">ListUserImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443452"><span class="annot"><span class="annottext">Natural
 maxResults :: Natural
 $sel:maxResults:ListUserImportJobs' :: ListUserImportJobs -&gt; Natural
-</span><a href="#local-6989586621679442968"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679442968"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442967"><span class="annot"><span class="annottext">s :: ListUserImportJobs
-</span><a href="#local-6989586621679442967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs%27"><span class="hs-identifier hs-type">ListUserImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442966"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679442966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUserImportJobs
-</span><a href="#local-6989586621679442967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListUserImportJobs' :: Natural
+</span><a href="#local-6989586621679443452"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679443452"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443451"><span class="annot"><span class="annottext">s :: ListUserImportJobs
+</span><a href="#local-6989586621679443451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs%27"><span class="hs-identifier hs-type">ListUserImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443450"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679443450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUserImportJobs
+</span><a href="#local-6989586621679443451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListUserImportJobs' :: Natural
 </span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3AmaxResults%3AListUserImportJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679442966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse"><span class="hs-identifier hs-type">ListUserImportJobsResponse</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679442962"><span class="annot"><span class="annottext">request :: ListUserImportJobs -&gt; Request ListUserImportJobs
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679443446"><span class="annot"><span class="annottext">request :: ListUserImportJobs -&gt; Request ListUserImportJobs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListUserImportJobs -&gt; Request ListUserImportJobs
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679442958"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679443442"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListUserImportJobs
 -&gt; ClientResponse ClientBody
@@ -257,33 +257,43 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679442955"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442955"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679442954"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679442954"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679442953"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679442953"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty UserImportJobType)
--&gt; Maybe Text -&gt; Int -&gt; ListUserImportJobsResponse
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679443439"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443439"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679443438"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679443438"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679443437"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679443437"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe (NonEmpty UserImportJobType)
+-&gt; Int
+-&gt; ListUserImportJobsResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse%27"><span class="hs-identifier hs-var">ListUserImportJobsResponse'</span></a></span><span>
-</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty UserImportJobType)
- -&gt; Maybe Text -&gt; Int -&gt; ListUserImportJobsResponse)
--&gt; Either String (Maybe (NonEmpty UserImportJobType))
--&gt; Either String (Maybe Text -&gt; Int -&gt; ListUserImportJobsResponse)
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe (NonEmpty UserImportJobType)
+ -&gt; Int
+ -&gt; ListUserImportJobsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (NonEmpty UserImportJobType)
+      -&gt; Int -&gt; ListUserImportJobsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679442953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679443437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PaginationToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (NonEmpty UserImportJobType)
+   -&gt; Int -&gt; ListUserImportJobsResponse)
+-&gt; Either String (Maybe (NonEmpty UserImportJobType))
+-&gt; Either String (Int -&gt; ListUserImportJobsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679443437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (NonEmpty UserImportJobType))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserImportJobs&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListUserImportJobsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; ListUserImportJobsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679442953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PaginationToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListUserImportJobsResponse)
 -&gt; Either String Int -&gt; Either String ListUserImportJobsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -292,15 +302,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442955"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443439"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679442945"><span id="local-6989586621679442947"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443429"><span id="local-6989586621679443431"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679442942"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443426"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679442938"><span class="annot"><span class="annottext">toHeaders :: ListUserImportJobs -&gt; ResponseHeaders
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679443422"><span class="annot"><span class="annottext">toHeaders :: ListUserImportJobs -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListUserImportJobs -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -327,9 +337,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679442928"><span id="local-6989586621679442930"><span id="local-6989586621679442932"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679442926"><span class="annot"><span class="annottext">toJSON :: ListUserImportJobs -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs%27"><span class="hs-identifier hs-type">ListUserImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442922"><span id="local-6989586621679442923"><span id="local-6989586621679442924"><span class="annot"><span class="annottext">Natural
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443412"><span id="local-6989586621679443414"><span id="local-6989586621679443416"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679443410"><span class="annot"><span class="annottext">toJSON :: ListUserImportJobs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs%27"><span class="hs-identifier hs-type">ListUserImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443406"><span id="local-6989586621679443407"><span id="local-6989586621679443408"><span class="annot"><span class="annottext">Natural
 Maybe Text
 Text
 maxResults :: Natural
@@ -338,7 +348,7 @@ paginationToken :: Maybe Text
 $sel:maxResults:ListUserImportJobs' :: ListUserImportJobs -&gt; Natural
 $sel:userPoolId:ListUserImportJobs' :: ListUserImportJobs -&gt; Text
 $sel:paginationToken:ListUserImportJobs' :: ListUserImportJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679442922"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679443406"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -351,33 +361,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442924"><span class="hs-identifier hs-var">paginationToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679443408"><span class="hs-identifier hs-var">paginationToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442923"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679443407"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679442922"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443406"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679442916"><span class="annot"><span class="annottext">toPath :: ListUserImportJobs -&gt; ByteString
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679443400"><span class="annot"><span class="annottext">toPath :: ListUserImportJobs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListUserImportJobs -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobs"><span class="hs-identifier hs-type">ListUserImportJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679442912"><span class="annot"><span class="annottext">toQuery :: ListUserImportJobs -&gt; QueryString
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679443396"><span class="annot"><span class="annottext">toQuery :: ListUserImportJobs -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListUserImportJobs -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -388,19 +398,19 @@ forall a. Monoid a =&gt; a
 </span><span id="line-164"></span><span class="hs-comment">-- import jobs.</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- /See:/ 'newListUserImportJobsResponse' smart constructor.</span><span>
-</span><span id="line-167"></span><span id="local-6989586621679442909"><span id="local-6989586621679442910"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListUserImportJobsResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse"><span class="hs-identifier hs-var">ListUserImportJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListUserImportJobsResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse%27"><span class="hs-identifier hs-var">ListUserImportJobsResponse'</span></a></span></span><span>
-</span><span id="line-168"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user import jobs.</span><span>
-</span><span id="line-169"></span><span>    </span><span id="%24sel%3AuserImportJobs%3AListUserImportJobsResponse%27"><span class="annot"><span class="annottext">ListUserImportJobsResponse -&gt; Maybe (NonEmpty UserImportJobType)
-</span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3AuserImportJobs%3AListUserImportJobsResponse%27"><span class="hs-identifier hs-var hs-var">userImportJobs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobType.html#UserImportJobType"><span class="hs-identifier hs-type">UserImportJobType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | An identifier that can be used to return the next set of user import</span><span>
-</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- jobs in the list.</span><span>
-</span><span id="line-172"></span><span>    </span><span id="%24sel%3ApaginationToken%3AListUserImportJobsResponse%27"><span class="annot"><span class="annottext">ListUserImportJobsResponse -&gt; Maybe Text
+</span><span id="line-167"></span><span id="local-6989586621679443393"><span id="local-6989586621679443394"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListUserImportJobsResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse"><span class="hs-identifier hs-var">ListUserImportJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListUserImportJobsResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse%27"><span class="hs-identifier hs-var">ListUserImportJobsResponse'</span></a></span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier that can be used to return the next set of user import</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- jobs in the list.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3ApaginationToken%3AListUserImportJobsResponse%27"><span class="annot"><span class="annottext">ListUserImportJobsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3ApaginationToken%3AListUserImportJobsResponse%27"><span class="hs-identifier hs-var hs-var">paginationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The user import jobs.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AuserImportJobs%3AListUserImportJobsResponse%27"><span class="annot"><span class="annottext">ListUserImportJobsResponse -&gt; Maybe (NonEmpty UserImportJobType)
+</span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3AuserImportJobs%3AListUserImportJobsResponse%27"><span class="hs-identifier hs-var hs-var">userImportJobs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobType.html#UserImportJobType"><span class="hs-identifier hs-type">UserImportJobType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListUserImportJobsResponse%27"><span class="annot"><span class="annottext">ListUserImportJobsResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3AhttpStatus%3AListUserImportJobsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679442902"><span id="local-6989586621679442904"><span class="annot"><span class="annottext">ListUserImportJobsResponse -&gt; ListUserImportJobsResponse -&gt; Bool
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443386"><span id="local-6989586621679443388"><span class="annot"><span class="annottext">ListUserImportJobsResponse -&gt; ListUserImportJobsResponse -&gt; Bool
 (ListUserImportJobsResponse -&gt; ListUserImportJobsResponse -&gt; Bool)
 -&gt; (ListUserImportJobsResponse
     -&gt; ListUserImportJobsResponse -&gt; Bool)
@@ -410,7 +420,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListUserImportJobsResponse -&gt; ListUserImportJobsResponse -&gt; Bool
 == :: ListUserImportJobsResponse -&gt; ListUserImportJobsResponse -&gt; Bool
 $c== :: ListUserImportJobsResponse -&gt; ListUserImportJobsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442894"><span id="local-6989586621679442896"><span id="local-6989586621679442898"><span id="local-6989586621679442900"><span class="annot"><span class="annottext">ReadPrec [ListUserImportJobsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443378"><span id="local-6989586621679443380"><span id="local-6989586621679443382"><span id="local-6989586621679443384"><span class="annot"><span class="annottext">ReadPrec [ListUserImportJobsResponse]
 ReadPrec ListUserImportJobsResponse
 Int -&gt; ReadS ListUserImportJobsResponse
 ReadS [ListUserImportJobsResponse]
@@ -430,7 +440,7 @@ readList :: ReadS [ListUserImportJobsResponse]
 $creadList :: ReadS [ListUserImportJobsResponse]
 readsPrec :: Int -&gt; ReadS ListUserImportJobsResponse
 $creadsPrec :: Int -&gt; ReadS ListUserImportJobsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442888"><span id="local-6989586621679442890"><span id="local-6989586621679442892"><span class="annot"><span class="annottext">Int -&gt; ListUserImportJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443372"><span id="local-6989586621679443374"><span id="local-6989586621679443376"><span class="annot"><span class="annottext">Int -&gt; ListUserImportJobsResponse -&gt; ShowS
 [ListUserImportJobsResponse] -&gt; ShowS
 ListUserImportJobsResponse -&gt; String
 (Int -&gt; ListUserImportJobsResponse -&gt; ShowS)
@@ -470,10 +480,10 @@ ListUserImportJobsResponse -&gt; Rep ListUserImportJobsResponse x
 </span><span id="line-183"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-185"></span><span class="hs-comment">--</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- 'userImportJobs', 'listUserImportJobsResponse_userImportJobs' - The user import jobs.</span><span>
-</span><span id="line-187"></span><span class="hs-comment">--</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- 'paginationToken', 'listUserImportJobsResponse_paginationToken' - An identifier that can be used to return the next set of user import</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- jobs in the list.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'paginationToken', 'listUserImportJobsResponse_paginationToken' - An identifier that can be used to return the next set of user import</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- jobs in the list.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'userImportJobs', 'listUserImportJobsResponse_userImportJobs' - The user import jobs.</span><span>
 </span><span id="line-190"></span><span class="hs-comment">--</span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- 'httpStatus', 'listUserImportJobsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-192"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#newListUserImportJobsResponse"><span class="hs-identifier hs-type">newListUserImportJobsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -481,28 +491,55 @@ ListUserImportJobsResponse -&gt; Rep ListUserImportJobsResponse x
 </span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-195"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse"><span class="hs-identifier hs-type">ListUserImportJobsResponse</span></a></span><span>
 </span><span id="line-196"></span><span id="newListUserImportJobsResponse"><span class="annot"><span class="annottext">newListUserImportJobsResponse :: Int -&gt; ListUserImportJobsResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#newListUserImportJobsResponse"><span class="hs-identifier hs-var hs-var">newListUserImportJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679442885"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442885"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-197"></span><span>  </span><span class="annot"><span class="annottext">ListUserImportJobsResponse' :: Maybe (NonEmpty UserImportJobType)
--&gt; Maybe Text -&gt; Int -&gt; ListUserImportJobsResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#newListUserImportJobsResponse"><span class="hs-identifier hs-var hs-var">newListUserImportJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679443369"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443369"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><span class="annottext">ListUserImportJobsResponse' :: Maybe Text
+-&gt; Maybe (NonEmpty UserImportJobType)
+-&gt; Int
+-&gt; ListUserImportJobsResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse%27"><span class="hs-identifier hs-type">ListUserImportJobsResponse'</span></a></span><span>
-</span><span id="line-198"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userImportJobs:ListUserImportJobsResponse' :: Maybe (NonEmpty UserImportJobType)
-</span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3AuserImportJobs%3AListUserImportJobsResponse%27"><span class="hs-identifier hs-var">userImportJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty UserImportJobType)
+</span><span id="line-198"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:paginationToken:ListUserImportJobsResponse' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3ApaginationToken%3AListUserImportJobsResponse%27"><span class="hs-identifier hs-var">paginationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:paginationToken:ListUserImportJobsResponse' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3ApaginationToken%3AListUserImportJobsResponse%27"><span class="hs-identifier hs-var">paginationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:userImportJobs:ListUserImportJobsResponse' :: Maybe (NonEmpty UserImportJobType)
+</span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3AuserImportJobs%3AListUserImportJobsResponse%27"><span class="hs-identifier hs-var">userImportJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty UserImportJobType)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListUserImportJobsResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3AhttpStatus%3AListUserImportJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442885"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679443369"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-202"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- | The user import jobs.</span><span>
-</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#listUserImportJobsResponse_userImportJobs"><span class="hs-identifier hs-type">listUserImportJobsResponse_userImportJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse"><span class="hs-identifier hs-type">ListUserImportJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobType.html#UserImportJobType"><span class="hs-identifier hs-type">UserImportJobType</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-206"></span><span id="listUserImportJobsResponse_userImportJobs"><span class="annot"><span class="annottext">listUserImportJobsResponse_userImportJobs :: (Maybe (NonEmpty UserImportJobType)
+</span><span id="line-204"></span><span class="hs-comment">-- | An identifier that can be used to return the next set of user import</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- jobs in the list.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#listUserImportJobsResponse_paginationToken"><span class="hs-identifier hs-type">listUserImportJobsResponse_paginationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse"><span class="hs-identifier hs-type">ListUserImportJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="listUserImportJobsResponse_paginationToken"><span class="annot"><span class="annottext">listUserImportJobsResponse_paginationToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListUserImportJobsResponse -&gt; f ListUserImportJobsResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#listUserImportJobsResponse_paginationToken"><span class="hs-identifier hs-var hs-var">listUserImportJobsResponse_paginationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListUserImportJobsResponse -&gt; Maybe Text)
+-&gt; (ListUserImportJobsResponse
+    -&gt; Maybe Text -&gt; ListUserImportJobsResponse)
+-&gt; Lens
+     ListUserImportJobsResponse
+     ListUserImportJobsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse%27"><span class="hs-identifier hs-type">ListUserImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443368"><span class="annot"><span class="annottext">Maybe Text
+paginationToken :: Maybe Text
+$sel:paginationToken:ListUserImportJobsResponse' :: ListUserImportJobsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679443368"><span class="hs-identifier hs-var hs-var">paginationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443368"><span class="hs-identifier hs-var">paginationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443367"><span class="annot"><span class="annottext">s :: ListUserImportJobsResponse
+</span><a href="#local-6989586621679443367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse%27"><span class="hs-identifier hs-type">ListUserImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443366"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUserImportJobsResponse
+</span><a href="#local-6989586621679443367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paginationToken:ListUserImportJobsResponse' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3ApaginationToken%3AListUserImportJobsResponse%27"><span class="hs-identifier hs-var">paginationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse"><span class="hs-identifier hs-type">ListUserImportJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The user import jobs.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#listUserImportJobsResponse_userImportJobs"><span class="hs-identifier hs-type">listUserImportJobsResponse_userImportJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse"><span class="hs-identifier hs-type">ListUserImportJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobType.html#UserImportJobType"><span class="hs-identifier hs-type">UserImportJobType</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="listUserImportJobsResponse_userImportJobs"><span class="annot"><span class="annottext">listUserImportJobsResponse_userImportJobs :: (Maybe (NonEmpty UserImportJobType)
  -&gt; f (Maybe (NonEmpty UserImportJobType)))
 -&gt; ListUserImportJobsResponse -&gt; f ListUserImportJobsResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#listUserImportJobsResponse_userImportJobs"><span class="hs-identifier hs-var hs-var">listUserImportJobsResponse_userImportJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListUserImportJobsResponse -&gt; Maybe (NonEmpty UserImportJobType))
@@ -515,16 +552,16 @@ forall a. Maybe a
      (Maybe (NonEmpty UserImportJobType))
      (Maybe (NonEmpty UserImportJobType))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse%27"><span class="hs-identifier hs-type">ListUserImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442884"><span class="annot"><span class="annottext">Maybe (NonEmpty UserImportJobType)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse%27"><span class="hs-identifier hs-type">ListUserImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443365"><span class="annot"><span class="annottext">Maybe (NonEmpty UserImportJobType)
 userImportJobs :: Maybe (NonEmpty UserImportJobType)
 $sel:userImportJobs:ListUserImportJobsResponse' :: ListUserImportJobsResponse -&gt; Maybe (NonEmpty UserImportJobType)
-</span><a href="#local-6989586621679442884"><span class="hs-identifier hs-var hs-var">userImportJobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty UserImportJobType)
-</span><a href="#local-6989586621679442884"><span class="hs-identifier hs-var">userImportJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442883"><span class="annot"><span class="annottext">s :: ListUserImportJobsResponse
-</span><a href="#local-6989586621679442883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse%27"><span class="hs-identifier hs-type">ListUserImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442882"><span class="annot"><span class="annottext">Maybe (NonEmpty UserImportJobType)
-</span><a href="#local-6989586621679442882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUserImportJobsResponse
-</span><a href="#local-6989586621679442883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userImportJobs:ListUserImportJobsResponse' :: Maybe (NonEmpty UserImportJobType)
+</span><a href="#local-6989586621679443365"><span class="hs-identifier hs-var hs-var">userImportJobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty UserImportJobType)
+</span><a href="#local-6989586621679443365"><span class="hs-identifier hs-var">userImportJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443364"><span class="annot"><span class="annottext">s :: ListUserImportJobsResponse
+</span><a href="#local-6989586621679443364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse%27"><span class="hs-identifier hs-type">ListUserImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443363"><span class="annot"><span class="annottext">Maybe (NonEmpty UserImportJobType)
+</span><a href="#local-6989586621679443363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUserImportJobsResponse
+</span><a href="#local-6989586621679443364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userImportJobs:ListUserImportJobsResponse' :: Maybe (NonEmpty UserImportJobType)
 </span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3AuserImportJobs%3AListUserImportJobsResponse%27"><span class="hs-identifier hs-var">userImportJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty UserImportJobType)
-</span><a href="#local-6989586621679442882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse"><span class="hs-identifier hs-type">ListUserImportJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty UserImportJobType)
+</span><a href="#local-6989586621679443363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse"><span class="hs-identifier hs-type">ListUserImportJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty UserImportJobType)
   -&gt; f (Maybe (NonEmpty UserImportJobType)))
  -&gt; ListUserImportJobsResponse -&gt; f ListUserImportJobsResponse)
 -&gt; ((Maybe (NonEmpty UserImportJobType)
@@ -554,33 +591,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty UserImportJobType)
   (NonEmpty UserImportJobType)
   (NonEmpty UserImportJobType)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- | An identifier that can be used to return the next set of user import</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- jobs in the list.</span><span>
-</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#listUserImportJobsResponse_paginationToken"><span class="hs-identifier hs-type">listUserImportJobsResponse_paginationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse"><span class="hs-identifier hs-type">ListUserImportJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-211"></span><span id="listUserImportJobsResponse_paginationToken"><span class="annot"><span class="annottext">listUserImportJobsResponse_paginationToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListUserImportJobsResponse -&gt; f ListUserImportJobsResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#listUserImportJobsResponse_paginationToken"><span class="hs-identifier hs-var hs-var">listUserImportJobsResponse_paginationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListUserImportJobsResponse -&gt; Maybe Text)
--&gt; (ListUserImportJobsResponse
-    -&gt; Maybe Text -&gt; ListUserImportJobsResponse)
--&gt; Lens
-     ListUserImportJobsResponse
-     ListUserImportJobsResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse%27"><span class="hs-identifier hs-type">ListUserImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442878"><span class="annot"><span class="annottext">Maybe Text
-paginationToken :: Maybe Text
-$sel:paginationToken:ListUserImportJobsResponse' :: ListUserImportJobsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679442878"><span class="hs-identifier hs-var hs-var">paginationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442878"><span class="hs-identifier hs-var">paginationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442877"><span class="annot"><span class="annottext">s :: ListUserImportJobsResponse
-</span><a href="#local-6989586621679442877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse%27"><span class="hs-identifier hs-type">ListUserImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442876"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUserImportJobsResponse
-</span><a href="#local-6989586621679442877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paginationToken:ListUserImportJobsResponse' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3ApaginationToken%3AListUserImportJobsResponse%27"><span class="hs-identifier hs-var">paginationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse"><span class="hs-identifier hs-type">ListUserImportJobsResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-214"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#listUserImportJobsResponse_httpStatus"><span class="hs-identifier hs-type">listUserImportJobsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse"><span class="hs-identifier hs-type">ListUserImportJobsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -592,16 +604,16 @@ $sel:paginationToken:ListUserImportJobsResponse' :: ListUserImportJobsResponse -
 -&gt; Lens
      ListUserImportJobsResponse ListUserImportJobsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse%27"><span class="hs-identifier hs-type">ListUserImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442875"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse%27"><span class="hs-identifier hs-type">ListUserImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443359"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListUserImportJobsResponse' :: ListUserImportJobsResponse -&gt; Int
-</span><a href="#local-6989586621679442875"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442875"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442874"><span class="annot"><span class="annottext">s :: ListUserImportJobsResponse
-</span><a href="#local-6989586621679442874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse%27"><span class="hs-identifier hs-type">ListUserImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442873"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUserImportJobsResponse
-</span><a href="#local-6989586621679442874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListUserImportJobsResponse' :: Int
+</span><a href="#local-6989586621679443359"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443359"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443358"><span class="annot"><span class="annottext">s :: ListUserImportJobsResponse
+</span><a href="#local-6989586621679443358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse%27"><span class="hs-identifier hs-type">ListUserImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443357"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUserImportJobsResponse
+</span><a href="#local-6989586621679443358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListUserImportJobsResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#%24sel%3AhttpStatus%3AListUserImportJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse"><span class="hs-identifier hs-type">ListUserImportJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse"><span class="hs-identifier hs-type">ListUserImportJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679442871"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse"><span class="hs-identifier hs-type">ListUserImportJobsResponse</span></a></span></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443355"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListUserImportJobs.html#ListUserImportJobsResponse"><span class="hs-identifier hs-type">ListUserImportJobsResponse</span></a></span></span><span>
 </span><span id="line-218"></span></pre></body></html>

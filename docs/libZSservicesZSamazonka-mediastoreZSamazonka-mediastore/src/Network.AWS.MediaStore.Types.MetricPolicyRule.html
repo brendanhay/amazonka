@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- to allow up to 300 rules per policy.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newMetricPolicyRule' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679163985"><span id="local-6989586621679163986"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricPolicyRule"><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-var">MetricPolicyRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricPolicyRule%27"><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule%27"><span class="hs-identifier hs-var">MetricPolicyRule'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679164043"><span id="local-6989586621679164044"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricPolicyRule"><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-var">MetricPolicyRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricPolicyRule%27"><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule%27"><span class="hs-identifier hs-var">MetricPolicyRule'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A path or file name that defines which objects to include in the group.</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Wildcards (*) are acceptable.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AobjectGroup%3AMetricPolicyRule%27"><span class="annot"><span class="annottext">MetricPolicyRule -&gt; Text
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AobjectGroupName%3AMetricPolicyRule%27"><span class="annot"><span class="annottext">MetricPolicyRule -&gt; Text
 </span><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#%24sel%3AobjectGroupName%3AMetricPolicyRule%27"><span class="hs-identifier hs-var hs-var">objectGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679163978"><span id="local-6989586621679163980"><span class="annot"><span class="annottext">MetricPolicyRule -&gt; MetricPolicyRule -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679164036"><span id="local-6989586621679164038"><span class="annot"><span class="annottext">MetricPolicyRule -&gt; MetricPolicyRule -&gt; Bool
 (MetricPolicyRule -&gt; MetricPolicyRule -&gt; Bool)
 -&gt; (MetricPolicyRule -&gt; MetricPolicyRule -&gt; Bool)
 -&gt; Eq MetricPolicyRule
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MetricPolicyRule -&gt; MetricPolicyRule -&gt; Bool
 == :: MetricPolicyRule -&gt; MetricPolicyRule -&gt; Bool
 $c== :: MetricPolicyRule -&gt; MetricPolicyRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163969"><span id="local-6989586621679163971"><span id="local-6989586621679163973"><span id="local-6989586621679163975"><span class="annot"><span class="annottext">ReadPrec [MetricPolicyRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679164027"><span id="local-6989586621679164029"><span id="local-6989586621679164031"><span id="local-6989586621679164033"><span class="annot"><span class="annottext">ReadPrec [MetricPolicyRule]
 ReadPrec MetricPolicyRule
 Int -&gt; ReadS MetricPolicyRule
 ReadS [MetricPolicyRule]
@@ -69,7 +69,7 @@ readList :: ReadS [MetricPolicyRule]
 $creadList :: ReadS [MetricPolicyRule]
 readsPrec :: Int -&gt; ReadS MetricPolicyRule
 $creadsPrec :: Int -&gt; ReadS MetricPolicyRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163962"><span id="local-6989586621679163964"><span id="local-6989586621679163966"><span class="annot"><span class="annottext">Int -&gt; MetricPolicyRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679164020"><span id="local-6989586621679164022"><span id="local-6989586621679164024"><span class="annot"><span class="annottext">Int -&gt; MetricPolicyRule -&gt; ShowS
 [MetricPolicyRule] -&gt; ShowS
 MetricPolicyRule -&gt; String
 (Int -&gt; MetricPolicyRule -&gt; ShowS)
@@ -114,17 +114,17 @@ $cfrom :: forall x. MetricPolicyRule -&gt; Rep MetricPolicyRule x
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-type">MetricPolicyRule</span></a></span><span>
 </span><span id="line-61"></span><span id="newMetricPolicyRule"><span class="annot"><span class="annottext">newMetricPolicyRule :: Text -&gt; Text -&gt; MetricPolicyRule
-</span><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#newMetricPolicyRule"><span class="hs-identifier hs-var hs-var">newMetricPolicyRule</span></a></span></span><span> </span><span id="local-6989586621679163956"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679163956"><span class="hs-identifier hs-var">pObjectGroup_</span></a></span></span><span> </span><span id="local-6989586621679163955"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679163955"><span class="hs-identifier hs-var">pObjectGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#newMetricPolicyRule"><span class="hs-identifier hs-var hs-var">newMetricPolicyRule</span></a></span></span><span> </span><span id="local-6989586621679164014"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679164014"><span class="hs-identifier hs-var">pObjectGroup_</span></a></span></span><span> </span><span id="local-6989586621679164013"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679164013"><span class="hs-identifier hs-var">pObjectGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">MetricPolicyRule' :: Text -&gt; Text -&gt; MetricPolicyRule
 </span><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule%27"><span class="hs-identifier hs-type">MetricPolicyRule'</span></a></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:objectGroup:MetricPolicyRule' :: Text
 </span><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#%24sel%3AobjectGroup%3AMetricPolicyRule%27"><span class="hs-identifier hs-var">objectGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679163956"><span class="hs-identifier hs-var">pObjectGroup_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679164014"><span class="hs-identifier hs-var">pObjectGroup_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:objectGroupName:MetricPolicyRule' :: Text
 </span><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#%24sel%3AobjectGroupName%3AMetricPolicyRule%27"><span class="hs-identifier hs-var">objectGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679163955"><span class="hs-identifier hs-var">pObjectGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679164013"><span class="hs-identifier hs-var">pObjectGroupName_</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | A path or file name that defines which objects to include in the group.</span><span>
@@ -135,16 +135,16 @@ $cfrom :: forall x. MetricPolicyRule -&gt; Rep MetricPolicyRule x
 -&gt; (MetricPolicyRule -&gt; Text -&gt; MetricPolicyRule)
 -&gt; Lens MetricPolicyRule MetricPolicyRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule%27"><span class="hs-identifier hs-type">MetricPolicyRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163951"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule%27"><span class="hs-identifier hs-type">MetricPolicyRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679164009"><span class="annot"><span class="annottext">Text
 objectGroup :: Text
 $sel:objectGroup:MetricPolicyRule' :: MetricPolicyRule -&gt; Text
-</span><a href="#local-6989586621679163951"><span class="hs-identifier hs-var hs-var">objectGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679163951"><span class="hs-identifier hs-var">objectGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163950"><span class="annot"><span class="annottext">s :: MetricPolicyRule
-</span><a href="#local-6989586621679163950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule%27"><span class="hs-identifier hs-type">MetricPolicyRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163949"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679163949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricPolicyRule
-</span><a href="#local-6989586621679163950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectGroup:MetricPolicyRule' :: Text
+</span><a href="#local-6989586621679164009"><span class="hs-identifier hs-var hs-var">objectGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679164009"><span class="hs-identifier hs-var">objectGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679164008"><span class="annot"><span class="annottext">s :: MetricPolicyRule
+</span><a href="#local-6989586621679164008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule%27"><span class="hs-identifier hs-type">MetricPolicyRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679164007"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679164007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricPolicyRule
+</span><a href="#local-6989586621679164008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectGroup:MetricPolicyRule' :: Text
 </span><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#%24sel%3AobjectGroup%3AMetricPolicyRule%27"><span class="hs-identifier hs-var">objectGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679163949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-type">MetricPolicyRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679164007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-type">MetricPolicyRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | A name that allows you to refer to the object group.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#metricPolicyRule_objectGroupName"><span class="hs-identifier hs-type">metricPolicyRule_objectGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-type">MetricPolicyRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -153,19 +153,19 @@ $sel:objectGroup:MetricPolicyRule' :: MetricPolicyRule -&gt; Text
 -&gt; (MetricPolicyRule -&gt; Text -&gt; MetricPolicyRule)
 -&gt; Lens MetricPolicyRule MetricPolicyRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule%27"><span class="hs-identifier hs-type">MetricPolicyRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163947"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule%27"><span class="hs-identifier hs-type">MetricPolicyRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679164005"><span class="annot"><span class="annottext">Text
 objectGroupName :: Text
 $sel:objectGroupName:MetricPolicyRule' :: MetricPolicyRule -&gt; Text
-</span><a href="#local-6989586621679163947"><span class="hs-identifier hs-var hs-var">objectGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679163947"><span class="hs-identifier hs-var">objectGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163946"><span class="annot"><span class="annottext">s :: MetricPolicyRule
-</span><a href="#local-6989586621679163946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule%27"><span class="hs-identifier hs-type">MetricPolicyRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163945"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679163945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricPolicyRule
-</span><a href="#local-6989586621679163946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectGroupName:MetricPolicyRule' :: Text
+</span><a href="#local-6989586621679164005"><span class="hs-identifier hs-var hs-var">objectGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679164005"><span class="hs-identifier hs-var">objectGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679164004"><span class="annot"><span class="annottext">s :: MetricPolicyRule
+</span><a href="#local-6989586621679164004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule%27"><span class="hs-identifier hs-type">MetricPolicyRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679164003"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679164003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricPolicyRule
+</span><a href="#local-6989586621679164004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectGroupName:MetricPolicyRule' :: Text
 </span><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#%24sel%3AobjectGroupName%3AMetricPolicyRule%27"><span class="hs-identifier hs-var">objectGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679163945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-type">MetricPolicyRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679164003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-type">MetricPolicyRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163942"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-type">MetricPolicyRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679163940"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricPolicyRule
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679164000"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-type">MetricPolicyRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679163998"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricPolicyRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MetricPolicyRule)
@@ -175,15 +175,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MetricPolicyRule&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679163937"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679163937"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679163995"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163995"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; MetricPolicyRule
 </span><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule%27"><span class="hs-identifier hs-var">MetricPolicyRule'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; MetricPolicyRule)
 -&gt; Parser Text -&gt; Parser (Text -&gt; MetricPolicyRule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679163937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679163995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ObjectGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -191,24 +191,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser MetricPolicyRule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679163937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679163995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ObjectGroupName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163931"><span id="local-6989586621679163933"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-type">MetricPolicyRule</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163989"><span id="local-6989586621679163991"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-type">MetricPolicyRule</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163928"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-type">MetricPolicyRule</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163986"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-type">MetricPolicyRule</span></a></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163920"><span id="local-6989586621679163922"><span id="local-6989586621679163924"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-type">MetricPolicyRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679163918"><span class="annot"><span class="annottext">toJSON :: MetricPolicyRule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule%27"><span class="hs-identifier hs-type">MetricPolicyRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163915"><span id="local-6989586621679163916"><span class="annot"><span class="annottext">Text
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163978"><span id="local-6989586621679163980"><span id="local-6989586621679163982"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule"><span class="hs-identifier hs-type">MetricPolicyRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679163976"><span class="annot"><span class="annottext">toJSON :: MetricPolicyRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#MetricPolicyRule%27"><span class="hs-identifier hs-type">MetricPolicyRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163973"><span id="local-6989586621679163974"><span class="annot"><span class="annottext">Text
 objectGroupName :: Text
 objectGroup :: Text
 $sel:objectGroupName:MetricPolicyRule' :: MetricPolicyRule -&gt; Text
 $sel:objectGroup:MetricPolicyRule' :: MetricPolicyRule -&gt; Text
-</span><a href="#local-6989586621679163915"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679163973"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -220,7 +220,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ObjectGroup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679163916"><span class="hs-identifier hs-var">objectGroup</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679163974"><span class="hs-identifier hs-var">objectGroup</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -228,7 +228,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ObjectGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679163915"><span class="hs-identifier hs-var">objectGroupName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679163973"><span class="hs-identifier hs-var">objectGroupName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span></pre></body></html>

@@ -33,8 +33,8 @@
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#newUpdateFacet"><span class="hs-identifier">newUpdateFacet</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#updateFacet_attributeUpdates"><span class="hs-identifier">updateFacet_attributeUpdates</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#updateFacet_objectType"><span class="hs-identifier">updateFacet_objectType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#updateFacet_objectType"><span class="hs-identifier">updateFacet_objectType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#updateFacet_attributeUpdates"><span class="hs-identifier">updateFacet_attributeUpdates</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#updateFacet_schemaArn"><span class="hs-identifier">updateFacet_schemaArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#updateFacet_name"><span class="hs-identifier">updateFacet_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
@@ -55,16 +55,16 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newUpdateFacet' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679349830"><span id="local-6989586621679349831"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFacet"><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-var">UpdateFacet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFacet%27"><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-var">UpdateFacet'</span></a></span></span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of attributes that need to be updated in a given schema Facet. Each</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- attribute is followed by @AttributeAction@, which specifies the type of</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- update operation to perform.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AattributeUpdates%3AUpdateFacet%27"><span class="annot"><span class="annottext">UpdateFacet -&gt; Maybe [FacetAttributeUpdate]
-</span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3AattributeUpdates%3AUpdateFacet%27"><span class="hs-identifier hs-var hs-var">attributeUpdates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeUpdate.html#FacetAttributeUpdate"><span class="hs-identifier hs-type">FacetAttributeUpdate</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The object type that is associated with the facet. See</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- CreateFacetRequest$ObjectType for more details.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AobjectType%3AUpdateFacet%27"><span class="annot"><span class="annottext">UpdateFacet -&gt; Maybe ObjectType
+</span><span id="line-58"></span><span id="local-6989586621679350256"><span id="local-6989586621679350257"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFacet"><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-var">UpdateFacet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFacet%27"><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-var">UpdateFacet'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The object type that is associated with the facet. See</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- CreateFacetRequest$ObjectType for more details.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AobjectType%3AUpdateFacet%27"><span class="annot"><span class="annottext">UpdateFacet -&gt; Maybe ObjectType
 </span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3AobjectType%3AUpdateFacet%27"><span class="hs-identifier hs-var hs-var">objectType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectType.html#ObjectType"><span class="hs-identifier hs-type">ObjectType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | List of attributes that need to be updated in a given schema Facet. Each</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- attribute is followed by @AttributeAction@, which specifies the type of</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- update operation to perform.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AattributeUpdates%3AUpdateFacet%27"><span class="annot"><span class="annottext">UpdateFacet -&gt; Maybe [FacetAttributeUpdate]
+</span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3AattributeUpdates%3AUpdateFacet%27"><span class="hs-identifier hs-var hs-var">attributeUpdates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeUpdate.html#FacetAttributeUpdate"><span class="hs-identifier hs-type">FacetAttributeUpdate</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that is associated with the Facet. For</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- more information, see arns.</span><span>
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AschemaArn%3AUpdateFacet%27"><span class="annot"><span class="annottext">UpdateFacet -&gt; Text
@@ -73,7 +73,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3Aname%3AUpdateFacet%27"><span class="annot"><span class="annottext">UpdateFacet -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3Aname%3AUpdateFacet%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349821"><span id="local-6989586621679349823"><span class="annot"><span class="annottext">UpdateFacet -&gt; UpdateFacet -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350247"><span id="local-6989586621679350249"><span class="annot"><span class="annottext">UpdateFacet -&gt; UpdateFacet -&gt; Bool
 (UpdateFacet -&gt; UpdateFacet -&gt; Bool)
 -&gt; (UpdateFacet -&gt; UpdateFacet -&gt; Bool) -&gt; Eq UpdateFacet
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateFacet -&gt; UpdateFacet -&gt; Bool
 == :: UpdateFacet -&gt; UpdateFacet -&gt; Bool
 $c== :: UpdateFacet -&gt; UpdateFacet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349812"><span id="local-6989586621679349814"><span id="local-6989586621679349816"><span id="local-6989586621679349818"><span class="annot"><span class="annottext">ReadPrec [UpdateFacet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350238"><span id="local-6989586621679350240"><span id="local-6989586621679350242"><span id="local-6989586621679350244"><span class="annot"><span class="annottext">ReadPrec [UpdateFacet]
 ReadPrec UpdateFacet
 Int -&gt; ReadS UpdateFacet
 ReadS [UpdateFacet]
@@ -101,7 +101,7 @@ readList :: ReadS [UpdateFacet]
 $creadList :: ReadS [UpdateFacet]
 readsPrec :: Int -&gt; ReadS UpdateFacet
 $creadsPrec :: Int -&gt; ReadS UpdateFacet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349805"><span id="local-6989586621679349807"><span id="local-6989586621679349809"><span class="annot"><span class="annottext">Int -&gt; UpdateFacet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350231"><span id="local-6989586621679350233"><span id="local-6989586621679350235"><span class="annot"><span class="annottext">Int -&gt; UpdateFacet -&gt; ShowS
 [UpdateFacet] -&gt; ShowS
 UpdateFacet -&gt; String
 (Int -&gt; UpdateFacet -&gt; ShowS)
@@ -135,12 +135,12 @@ $cfrom :: forall x. UpdateFacet -&gt; Rep UpdateFacet x
 </span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'attributeUpdates', 'updateFacet_attributeUpdates' - List of attributes that need to be updated in a given schema Facet. Each</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- attribute is followed by @AttributeAction@, which specifies the type of</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- update operation to perform.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'objectType', 'updateFacet_objectType' - The object type that is associated with the facet. See</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- CreateFacetRequest$ObjectType for more details.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'objectType', 'updateFacet_objectType' - The object type that is associated with the facet. See</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- CreateFacetRequest$ObjectType for more details.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'attributeUpdates', 'updateFacet_attributeUpdates' - List of attributes that need to be updated in a given schema Facet. Each</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- attribute is followed by @AttributeAction@, which specifies the type of</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- update operation to perform.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- 'schemaArn', 'updateFacet_schemaArn' - The Amazon Resource Name (ARN) that is associated with the Facet. For</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- more information, see arns.</span><span>
@@ -153,33 +153,54 @@ $cfrom :: forall x. UpdateFacet -&gt; Rep UpdateFacet x
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span>
 </span><span id="line-99"></span><span id="newUpdateFacet"><span class="annot"><span class="annottext">newUpdateFacet :: Text -&gt; Text -&gt; UpdateFacet
-</span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#newUpdateFacet"><span class="hs-identifier hs-var hs-var">newUpdateFacet</span></a></span></span><span> </span><span id="local-6989586621679349800"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349800"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span></span><span> </span><span id="local-6989586621679349799"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349799"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">UpdateFacet' :: Maybe [FacetAttributeUpdate]
--&gt; Maybe ObjectType -&gt; Text -&gt; Text -&gt; UpdateFacet
+</span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#newUpdateFacet"><span class="hs-identifier hs-var hs-var">newUpdateFacet</span></a></span></span><span> </span><span id="local-6989586621679350226"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350226"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span></span><span> </span><span id="local-6989586621679350225"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350225"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">UpdateFacet' :: Maybe ObjectType
+-&gt; Maybe [FacetAttributeUpdate] -&gt; Text -&gt; Text -&gt; UpdateFacet
 </span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributeUpdates:UpdateFacet' :: Maybe [FacetAttributeUpdate]
-</span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3AattributeUpdates%3AUpdateFacet%27"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FacetAttributeUpdate]
+</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:objectType:UpdateFacet' :: Maybe ObjectType
+</span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3AobjectType%3AUpdateFacet%27"><span class="hs-identifier hs-var">objectType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:objectType:UpdateFacet' :: Maybe ObjectType
-</span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3AobjectType%3AUpdateFacet%27"><span class="hs-identifier hs-var">objectType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectType
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeUpdates:UpdateFacet' :: Maybe [FacetAttributeUpdate]
+</span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3AattributeUpdates%3AUpdateFacet%27"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FacetAttributeUpdate]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaArn:UpdateFacet' :: Text
 </span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3AschemaArn%3AUpdateFacet%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349800"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679350226"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateFacet' :: Text
 </span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3Aname%3AUpdateFacet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349799"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679350225"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | List of attributes that need to be updated in a given schema Facet. Each</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- attribute is followed by @AttributeAction@, which specifies the type of</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- update operation to perform.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#updateFacet_attributeUpdates"><span class="hs-identifier hs-type">updateFacet_attributeUpdates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeUpdate.html#FacetAttributeUpdate"><span class="hs-identifier hs-type">FacetAttributeUpdate</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="updateFacet_attributeUpdates"><span class="annot"><span class="annottext">updateFacet_attributeUpdates :: (Maybe [FacetAttributeUpdate] -&gt; f (Maybe [FacetAttributeUpdate]))
+</span><span id="line-107"></span><span class="hs-comment">-- | The object type that is associated with the facet. See</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- CreateFacetRequest$ObjectType for more details.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#updateFacet_objectType"><span class="hs-identifier hs-type">updateFacet_objectType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectType.html#ObjectType"><span class="hs-identifier hs-type">ObjectType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="updateFacet_objectType"><span class="annot"><span class="annottext">updateFacet_objectType :: (Maybe ObjectType -&gt; f (Maybe ObjectType))
+-&gt; UpdateFacet -&gt; f UpdateFacet
+</span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#updateFacet_objectType"><span class="hs-identifier hs-var hs-var">updateFacet_objectType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFacet -&gt; Maybe ObjectType)
+-&gt; (UpdateFacet -&gt; Maybe ObjectType -&gt; UpdateFacet)
+-&gt; Lens
+     UpdateFacet UpdateFacet (Maybe ObjectType) (Maybe ObjectType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350222"><span class="annot"><span class="annottext">Maybe ObjectType
+objectType :: Maybe ObjectType
+$sel:objectType:UpdateFacet' :: UpdateFacet -&gt; Maybe ObjectType
+</span><a href="#local-6989586621679350222"><span class="hs-identifier hs-var hs-var">objectType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectType
+</span><a href="#local-6989586621679350222"><span class="hs-identifier hs-var">objectType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350221"><span class="annot"><span class="annottext">s :: UpdateFacet
+</span><a href="#local-6989586621679350221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350220"><span class="annot"><span class="annottext">Maybe ObjectType
+</span><a href="#local-6989586621679350220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFacet
+</span><a href="#local-6989586621679350221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectType:UpdateFacet' :: Maybe ObjectType
+</span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3AobjectType%3AUpdateFacet%27"><span class="hs-identifier hs-var">objectType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectType
+</span><a href="#local-6989586621679350220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | List of attributes that need to be updated in a given schema Facet. Each</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- attribute is followed by @AttributeAction@, which specifies the type of</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- update operation to perform.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#updateFacet_attributeUpdates"><span class="hs-identifier hs-type">updateFacet_attributeUpdates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeUpdate.html#FacetAttributeUpdate"><span class="hs-identifier hs-type">FacetAttributeUpdate</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="updateFacet_attributeUpdates"><span class="annot"><span class="annottext">updateFacet_attributeUpdates :: (Maybe [FacetAttributeUpdate] -&gt; f (Maybe [FacetAttributeUpdate]))
 -&gt; UpdateFacet -&gt; f UpdateFacet
 </span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#updateFacet_attributeUpdates"><span class="hs-identifier hs-var hs-var">updateFacet_attributeUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFacet -&gt; Maybe [FacetAttributeUpdate])
 -&gt; (UpdateFacet -&gt; Maybe [FacetAttributeUpdate] -&gt; UpdateFacet)
@@ -189,16 +210,16 @@ forall a. Maybe a
      (Maybe [FacetAttributeUpdate])
      (Maybe [FacetAttributeUpdate])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349796"><span class="annot"><span class="annottext">Maybe [FacetAttributeUpdate]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350219"><span class="annot"><span class="annottext">Maybe [FacetAttributeUpdate]
 attributeUpdates :: Maybe [FacetAttributeUpdate]
 $sel:attributeUpdates:UpdateFacet' :: UpdateFacet -&gt; Maybe [FacetAttributeUpdate]
-</span><a href="#local-6989586621679349796"><span class="hs-identifier hs-var hs-var">attributeUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FacetAttributeUpdate]
-</span><a href="#local-6989586621679349796"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349795"><span class="annot"><span class="annottext">s :: UpdateFacet
-</span><a href="#local-6989586621679349795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349794"><span class="annot"><span class="annottext">Maybe [FacetAttributeUpdate]
-</span><a href="#local-6989586621679349794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFacet
-</span><a href="#local-6989586621679349795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeUpdates:UpdateFacet' :: Maybe [FacetAttributeUpdate]
+</span><a href="#local-6989586621679350219"><span class="hs-identifier hs-var hs-var">attributeUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FacetAttributeUpdate]
+</span><a href="#local-6989586621679350219"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350218"><span class="annot"><span class="annottext">s :: UpdateFacet
+</span><a href="#local-6989586621679350218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350217"><span class="annot"><span class="annottext">Maybe [FacetAttributeUpdate]
+</span><a href="#local-6989586621679350217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFacet
+</span><a href="#local-6989586621679350218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeUpdates:UpdateFacet' :: Maybe [FacetAttributeUpdate]
 </span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3AattributeUpdates%3AUpdateFacet%27"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FacetAttributeUpdate]
-</span><a href="#local-6989586621679349794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FacetAttributeUpdate] -&gt; f (Maybe [FacetAttributeUpdate]))
+</span><a href="#local-6989586621679350217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FacetAttributeUpdate] -&gt; f (Maybe [FacetAttributeUpdate]))
  -&gt; UpdateFacet -&gt; f UpdateFacet)
 -&gt; ((Maybe [FacetAttributeUpdate]
      -&gt; f (Maybe [FacetAttributeUpdate]))
@@ -227,29 +248,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [FacetAttributeUpdate]
   [FacetAttributeUpdate]
   [FacetAttributeUpdate]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The object type that is associated with the facet. See</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- CreateFacetRequest$ObjectType for more details.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#updateFacet_objectType"><span class="hs-identifier hs-type">updateFacet_objectType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectType.html#ObjectType"><span class="hs-identifier hs-type">ObjectType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="updateFacet_objectType"><span class="annot"><span class="annottext">updateFacet_objectType :: (Maybe ObjectType -&gt; f (Maybe ObjectType))
--&gt; UpdateFacet -&gt; f UpdateFacet
-</span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#updateFacet_objectType"><span class="hs-identifier hs-var hs-var">updateFacet_objectType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFacet -&gt; Maybe ObjectType)
--&gt; (UpdateFacet -&gt; Maybe ObjectType -&gt; UpdateFacet)
--&gt; Lens
-     UpdateFacet UpdateFacet (Maybe ObjectType) (Maybe ObjectType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349790"><span class="annot"><span class="annottext">Maybe ObjectType
-objectType :: Maybe ObjectType
-$sel:objectType:UpdateFacet' :: UpdateFacet -&gt; Maybe ObjectType
-</span><a href="#local-6989586621679349790"><span class="hs-identifier hs-var hs-var">objectType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectType
-</span><a href="#local-6989586621679349790"><span class="hs-identifier hs-var">objectType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349789"><span class="annot"><span class="annottext">s :: UpdateFacet
-</span><a href="#local-6989586621679349789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349788"><span class="annot"><span class="annottext">Maybe ObjectType
-</span><a href="#local-6989586621679349788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFacet
-</span><a href="#local-6989586621679349789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectType:UpdateFacet' :: Maybe ObjectType
-</span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3AobjectType%3AUpdateFacet%27"><span class="hs-identifier hs-var">objectType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectType
-</span><a href="#local-6989586621679349788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that is associated with the Facet. For</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- more information, see arns.</span><span>
@@ -259,16 +259,16 @@ $sel:objectType:UpdateFacet' :: UpdateFacet -&gt; Maybe ObjectType
 -&gt; (UpdateFacet -&gt; Text -&gt; UpdateFacet)
 -&gt; Lens UpdateFacet UpdateFacet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349787"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350213"><span class="annot"><span class="annottext">Text
 schemaArn :: Text
 $sel:schemaArn:UpdateFacet' :: UpdateFacet -&gt; Text
-</span><a href="#local-6989586621679349787"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349787"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349786"><span class="annot"><span class="annottext">s :: UpdateFacet
-</span><a href="#local-6989586621679349786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349785"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFacet
-</span><a href="#local-6989586621679349786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:UpdateFacet' :: Text
+</span><a href="#local-6989586621679350213"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350213"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350212"><span class="annot"><span class="annottext">s :: UpdateFacet
+</span><a href="#local-6989586621679350212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350211"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFacet
+</span><a href="#local-6989586621679350212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:UpdateFacet' :: Text
 </span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3AschemaArn%3AUpdateFacet%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The name of the facet.</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#updateFacet_name"><span class="hs-identifier hs-type">updateFacet_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -277,25 +277,25 @@ $sel:schemaArn:UpdateFacet' :: UpdateFacet -&gt; Text
 -&gt; (UpdateFacet -&gt; Text -&gt; UpdateFacet)
 -&gt; Lens UpdateFacet UpdateFacet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349784"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350210"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:UpdateFacet' :: UpdateFacet -&gt; Text
-</span><a href="#local-6989586621679349784"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349784"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349783"><span class="annot"><span class="annottext">s :: UpdateFacet
-</span><a href="#local-6989586621679349783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349782"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFacet
-</span><a href="#local-6989586621679349783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateFacet' :: Text
+</span><a href="#local-6989586621679350210"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350210"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350209"><span class="annot"><span class="annottext">s :: UpdateFacet
+</span><a href="#local-6989586621679350209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350208"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFacet
+</span><a href="#local-6989586621679350209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateFacet' :: Text
 </span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3Aname%3AUpdateFacet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacetResponse"><span class="hs-identifier hs-type">UpdateFacetResponse</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679349778"><span class="annot"><span class="annottext">request :: UpdateFacet -&gt; Request UpdateFacet
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679350204"><span class="annot"><span class="annottext">request :: UpdateFacet -&gt; Request UpdateFacet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateFacet -&gt; Request UpdateFacet
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679349774"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679350200"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateFacet
 -&gt; ClientResponse ClientBody
@@ -319,10 +319,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349771"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349771"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679349770"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679349770"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679349769"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679349769"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350197"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350197"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679350196"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679350196"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679350195"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679350195"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateFacetResponse
 </span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacetResponse%27"><span class="hs-identifier hs-var">UpdateFacetResponse'</span></a></span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateFacetResponse)
@@ -333,27 +333,27 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349771"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350197"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349762"><span id="local-6989586621679349764"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350188"><span id="local-6989586621679350190"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349759"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350185"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679349755"><span class="annot"><span class="annottext">toHeaders :: UpdateFacet -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349750"><span id="local-6989586621679349751"><span id="local-6989586621679349752"><span id="local-6989586621679349753"><span class="annot"><span class="annottext">Maybe [FacetAttributeUpdate]
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679350181"><span class="annot"><span class="annottext">toHeaders :: UpdateFacet -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350176"><span id="local-6989586621679350177"><span id="local-6989586621679350178"><span id="local-6989586621679350179"><span class="annot"><span class="annottext">Maybe [FacetAttributeUpdate]
 Maybe ObjectType
 Text
 name :: Text
 schemaArn :: Text
-objectType :: Maybe ObjectType
 attributeUpdates :: Maybe [FacetAttributeUpdate]
+objectType :: Maybe ObjectType
 $sel:name:UpdateFacet' :: UpdateFacet -&gt; Text
 $sel:schemaArn:UpdateFacet' :: UpdateFacet -&gt; Text
-$sel:objectType:UpdateFacet' :: UpdateFacet -&gt; Maybe ObjectType
 $sel:attributeUpdates:UpdateFacet' :: UpdateFacet -&gt; Maybe [FacetAttributeUpdate]
-</span><a href="#local-6989586621679349750"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:objectType:UpdateFacet' :: UpdateFacet -&gt; Maybe ObjectType
+</span><a href="#local-6989586621679350176"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -361,55 +361,55 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349751"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679350177"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349742"><span id="local-6989586621679349744"><span id="local-6989586621679349746"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679349740"><span class="annot"><span class="annottext">toJSON :: UpdateFacet -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349735"><span id="local-6989586621679349736"><span id="local-6989586621679349737"><span id="local-6989586621679349738"><span class="annot"><span class="annottext">Maybe [FacetAttributeUpdate]
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350168"><span id="local-6989586621679350170"><span id="local-6989586621679350172"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679350166"><span class="annot"><span class="annottext">toJSON :: UpdateFacet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet%27"><span class="hs-identifier hs-type">UpdateFacet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350161"><span id="local-6989586621679350162"><span id="local-6989586621679350163"><span id="local-6989586621679350164"><span class="annot"><span class="annottext">Maybe [FacetAttributeUpdate]
 Maybe ObjectType
 Text
 name :: Text
 schemaArn :: Text
-objectType :: Maybe ObjectType
 attributeUpdates :: Maybe [FacetAttributeUpdate]
+objectType :: Maybe ObjectType
 $sel:name:UpdateFacet' :: UpdateFacet -&gt; Text
 $sel:schemaArn:UpdateFacet' :: UpdateFacet -&gt; Text
-$sel:objectType:UpdateFacet' :: UpdateFacet -&gt; Maybe ObjectType
 $sel:attributeUpdates:UpdateFacet' :: UpdateFacet -&gt; Maybe [FacetAttributeUpdate]
-</span><a href="#local-6989586621679349735"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:objectType:UpdateFacet' :: UpdateFacet -&gt; Maybe ObjectType
+</span><a href="#local-6989586621679350161"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-150"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AttributeUpdates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [FacetAttributeUpdate] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">([FacetAttributeUpdate] -&gt; Pair)
--&gt; Maybe [FacetAttributeUpdate] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FacetAttributeUpdate]
-</span><a href="#local-6989586621679349738"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ObjectType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ObjectType -&gt; Pair) -&gt; Maybe ObjectType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ObjectType
-</span><a href="#local-6989586621679349737"><span class="hs-identifier hs-var">objectType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679350164"><span class="hs-identifier hs-var">objectType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttributeUpdates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [FacetAttributeUpdate] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">([FacetAttributeUpdate] -&gt; Pair)
+-&gt; Maybe [FacetAttributeUpdate] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FacetAttributeUpdate]
+</span><a href="#local-6989586621679350163"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349735"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350161"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679349729"><span class="annot"><span class="annottext">toPath :: UpdateFacet -&gt; ByteString
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679350155"><span class="annot"><span class="annottext">toPath :: UpdateFacet -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateFacet -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -418,7 +418,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/facet&quot;</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacet"><span class="hs-identifier hs-type">UpdateFacet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679349724"><span class="annot"><span class="annottext">toQuery :: UpdateFacet -&gt; QueryString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679350150"><span class="annot"><span class="annottext">toQuery :: UpdateFacet -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateFacet -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -426,12 +426,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newUpdateFacetResponse' smart constructor.</span><span>
-</span><span id="line-166"></span><span id="local-6989586621679349721"><span id="local-6989586621679349722"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFacetResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacetResponse"><span class="hs-identifier hs-var">UpdateFacetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFacetResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacetResponse%27"><span class="hs-identifier hs-var">UpdateFacetResponse'</span></a></span></span><span>
+</span><span id="line-166"></span><span id="local-6989586621679350147"><span id="local-6989586621679350148"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFacetResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacetResponse"><span class="hs-identifier hs-var">UpdateFacetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFacetResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacetResponse%27"><span class="hs-identifier hs-var">UpdateFacetResponse'</span></a></span></span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateFacetResponse%27"><span class="annot"><span class="annottext">UpdateFacetResponse -&gt; Int
 </span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3AhttpStatus%3AUpdateFacetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349716"><span id="local-6989586621679349718"><span class="annot"><span class="annottext">UpdateFacetResponse -&gt; UpdateFacetResponse -&gt; Bool
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350142"><span id="local-6989586621679350144"><span class="annot"><span class="annottext">UpdateFacetResponse -&gt; UpdateFacetResponse -&gt; Bool
 (UpdateFacetResponse -&gt; UpdateFacetResponse -&gt; Bool)
 -&gt; (UpdateFacetResponse -&gt; UpdateFacetResponse -&gt; Bool)
 -&gt; Eq UpdateFacetResponse
@@ -440,7 +440,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateFacetResponse -&gt; UpdateFacetResponse -&gt; Bool
 == :: UpdateFacetResponse -&gt; UpdateFacetResponse -&gt; Bool
 $c== :: UpdateFacetResponse -&gt; UpdateFacetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349708"><span id="local-6989586621679349710"><span id="local-6989586621679349712"><span id="local-6989586621679349714"><span class="annot"><span class="annottext">ReadPrec [UpdateFacetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350134"><span id="local-6989586621679350136"><span id="local-6989586621679350138"><span id="local-6989586621679350140"><span class="annot"><span class="annottext">ReadPrec [UpdateFacetResponse]
 ReadPrec UpdateFacetResponse
 Int -&gt; ReadS UpdateFacetResponse
 ReadS [UpdateFacetResponse]
@@ -460,7 +460,7 @@ readList :: ReadS [UpdateFacetResponse]
 $creadList :: ReadS [UpdateFacetResponse]
 readsPrec :: Int -&gt; ReadS UpdateFacetResponse
 $creadsPrec :: Int -&gt; ReadS UpdateFacetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349702"><span id="local-6989586621679349704"><span id="local-6989586621679349706"><span class="annot"><span class="annottext">Int -&gt; UpdateFacetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350128"><span id="local-6989586621679350130"><span id="local-6989586621679350132"><span class="annot"><span class="annottext">Int -&gt; UpdateFacetResponse -&gt; ShowS
 [UpdateFacetResponse] -&gt; ShowS
 UpdateFacetResponse -&gt; String
 (Int -&gt; UpdateFacetResponse -&gt; ShowS)
@@ -500,12 +500,12 @@ $cfrom :: forall x. UpdateFacetResponse -&gt; Rep UpdateFacetResponse x
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacetResponse"><span class="hs-identifier hs-type">UpdateFacetResponse</span></a></span><span>
 </span><span id="line-185"></span><span id="newUpdateFacetResponse"><span class="annot"><span class="annottext">newUpdateFacetResponse :: Int -&gt; UpdateFacetResponse
-</span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#newUpdateFacetResponse"><span class="hs-identifier hs-var hs-var">newUpdateFacetResponse</span></a></span></span><span> </span><span id="local-6989586621679349699"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349699"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#newUpdateFacetResponse"><span class="hs-identifier hs-var hs-var">newUpdateFacetResponse</span></a></span></span><span> </span><span id="local-6989586621679350125"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350125"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><span class="annottext">UpdateFacetResponse' :: Int -&gt; UpdateFacetResponse
 </span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacetResponse%27"><span class="hs-identifier hs-type">UpdateFacetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFacetResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3AhttpStatus%3AUpdateFacetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349699"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679350125"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-189"></span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#updateFacetResponse_httpStatus"><span class="hs-identifier hs-type">updateFacetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacetResponse"><span class="hs-identifier hs-type">UpdateFacetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -514,16 +514,16 @@ $cfrom :: forall x. UpdateFacetResponse -&gt; Rep UpdateFacetResponse x
 -&gt; (UpdateFacetResponse -&gt; Int -&gt; UpdateFacetResponse)
 -&gt; Lens UpdateFacetResponse UpdateFacetResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacetResponse%27"><span class="hs-identifier hs-type">UpdateFacetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349698"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacetResponse%27"><span class="hs-identifier hs-type">UpdateFacetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350124"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateFacetResponse' :: UpdateFacetResponse -&gt; Int
-</span><a href="#local-6989586621679349698"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349698"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349697"><span class="annot"><span class="annottext">s :: UpdateFacetResponse
-</span><a href="#local-6989586621679349697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacetResponse%27"><span class="hs-identifier hs-type">UpdateFacetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349696"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFacetResponse
-</span><a href="#local-6989586621679349697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFacetResponse' :: Int
+</span><a href="#local-6989586621679350124"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350124"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350123"><span class="annot"><span class="annottext">s :: UpdateFacetResponse
+</span><a href="#local-6989586621679350123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacetResponse%27"><span class="hs-identifier hs-type">UpdateFacetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350122"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFacetResponse
+</span><a href="#local-6989586621679350123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFacetResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.UpdateFacet.html#%24sel%3AhttpStatus%3AUpdateFacetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacetResponse"><span class="hs-identifier hs-type">UpdateFacetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacetResponse"><span class="hs-identifier hs-type">UpdateFacetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349694"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacetResponse"><span class="hs-identifier hs-type">UpdateFacetResponse</span></a></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateFacet.html#UpdateFacetResponse"><span class="hs-identifier hs-type">UpdateFacetResponse</span></a></span></span><span>
 </span><span id="line-193"></span></pre></body></html>

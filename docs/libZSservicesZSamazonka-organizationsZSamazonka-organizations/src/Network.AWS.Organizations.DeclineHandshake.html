@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newDeclineHandshake' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679249513"><span id="local-6989586621679249514"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeclineHandshake"><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake"><span class="hs-identifier hs-var">DeclineHandshake</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeclineHandshake%27"><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake%27"><span class="hs-identifier hs-var">DeclineHandshake'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679249659"><span id="local-6989586621679249660"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeclineHandshake"><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake"><span class="hs-identifier hs-var">DeclineHandshake</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeclineHandshake%27"><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake%27"><span class="hs-identifier hs-var">DeclineHandshake'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier (ID) of the handshake that you want to decline.</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- You can get the ID from the ListHandshakesForAccount operation.</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AhandshakeId%3ADeclineHandshake%27"><span class="annot"><span class="annottext">DeclineHandshake -&gt; Text
 </span><a href="Network.AWS.Organizations.DeclineHandshake.html#%24sel%3AhandshakeId%3ADeclineHandshake%27"><span class="hs-identifier hs-var hs-var">handshakeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249507"><span id="local-6989586621679249509"><span class="annot"><span class="annottext">DeclineHandshake -&gt; DeclineHandshake -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249653"><span id="local-6989586621679249655"><span class="annot"><span class="annottext">DeclineHandshake -&gt; DeclineHandshake -&gt; Bool
 (DeclineHandshake -&gt; DeclineHandshake -&gt; Bool)
 -&gt; (DeclineHandshake -&gt; DeclineHandshake -&gt; Bool)
 -&gt; Eq DeclineHandshake
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeclineHandshake -&gt; DeclineHandshake -&gt; Bool
 == :: DeclineHandshake -&gt; DeclineHandshake -&gt; Bool
 $c== :: DeclineHandshake -&gt; DeclineHandshake -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249498"><span id="local-6989586621679249500"><span id="local-6989586621679249502"><span id="local-6989586621679249504"><span class="annot"><span class="annottext">ReadPrec [DeclineHandshake]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249644"><span id="local-6989586621679249646"><span id="local-6989586621679249648"><span id="local-6989586621679249650"><span class="annot"><span class="annottext">ReadPrec [DeclineHandshake]
 ReadPrec DeclineHandshake
 Int -&gt; ReadS DeclineHandshake
 ReadS [DeclineHandshake]
@@ -95,7 +95,7 @@ readList :: ReadS [DeclineHandshake]
 $creadList :: ReadS [DeclineHandshake]
 readsPrec :: Int -&gt; ReadS DeclineHandshake
 $creadsPrec :: Int -&gt; ReadS DeclineHandshake
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249491"><span id="local-6989586621679249493"><span id="local-6989586621679249495"><span class="annot"><span class="annottext">Int -&gt; DeclineHandshake -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249637"><span id="local-6989586621679249639"><span id="local-6989586621679249641"><span class="annot"><span class="annottext">Int -&gt; DeclineHandshake -&gt; ShowS
 [DeclineHandshake] -&gt; ShowS
 DeclineHandshake -&gt; String
 (Int -&gt; DeclineHandshake -&gt; ShowS)
@@ -140,12 +140,12 @@ $cfrom :: forall x. DeclineHandshake -&gt; Rep DeclineHandshake x
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake"><span class="hs-identifier hs-type">DeclineHandshake</span></a></span><span>
 </span><span id="line-88"></span><span id="newDeclineHandshake"><span class="annot"><span class="annottext">newDeclineHandshake :: Text -&gt; DeclineHandshake
-</span><a href="Network.AWS.Organizations.DeclineHandshake.html#newDeclineHandshake"><span class="hs-identifier hs-var hs-var">newDeclineHandshake</span></a></span></span><span> </span><span id="local-6989586621679249486"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249486"><span class="hs-identifier hs-var">pHandshakeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.DeclineHandshake.html#newDeclineHandshake"><span class="hs-identifier hs-var hs-var">newDeclineHandshake</span></a></span></span><span> </span><span id="local-6989586621679249632"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249632"><span class="hs-identifier hs-var">pHandshakeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">DeclineHandshake' :: Text -&gt; DeclineHandshake
 </span><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake%27"><span class="hs-identifier hs-type">DeclineHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:handshakeId:DeclineHandshake' :: Text
 </span><a href="Network.AWS.Organizations.DeclineHandshake.html#%24sel%3AhandshakeId%3ADeclineHandshake%27"><span class="hs-identifier hs-var">handshakeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249486"><span class="hs-identifier hs-var">pHandshakeId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679249632"><span class="hs-identifier hs-var">pHandshakeId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The unique identifier (ID) of the handshake that you want to decline.</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- You can get the ID from the ListHandshakesForAccount operation.</span><span>
@@ -159,27 +159,27 @@ $cfrom :: forall x. DeclineHandshake -&gt; Rep DeclineHandshake x
 -&gt; (DeclineHandshake -&gt; Text -&gt; DeclineHandshake)
 -&gt; Lens DeclineHandshake DeclineHandshake Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake%27"><span class="hs-identifier hs-type">DeclineHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249483"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake%27"><span class="hs-identifier hs-type">DeclineHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249629"><span class="annot"><span class="annottext">Text
 handshakeId :: Text
 $sel:handshakeId:DeclineHandshake' :: DeclineHandshake -&gt; Text
-</span><a href="#local-6989586621679249483"><span class="hs-identifier hs-var hs-var">handshakeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249483"><span class="hs-identifier hs-var">handshakeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249482"><span class="annot"><span class="annottext">s :: DeclineHandshake
-</span><a href="#local-6989586621679249482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake%27"><span class="hs-identifier hs-type">DeclineHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249481"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeclineHandshake
-</span><a href="#local-6989586621679249482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:handshakeId:DeclineHandshake' :: Text
+</span><a href="#local-6989586621679249629"><span class="hs-identifier hs-var hs-var">handshakeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249629"><span class="hs-identifier hs-var">handshakeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249628"><span class="annot"><span class="annottext">s :: DeclineHandshake
+</span><a href="#local-6989586621679249628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake%27"><span class="hs-identifier hs-type">DeclineHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249627"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeclineHandshake
+</span><a href="#local-6989586621679249628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:handshakeId:DeclineHandshake' :: Text
 </span><a href="Network.AWS.Organizations.DeclineHandshake.html#%24sel%3AhandshakeId%3ADeclineHandshake%27"><span class="hs-identifier hs-var">handshakeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake"><span class="hs-identifier hs-type">DeclineHandshake</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake"><span class="hs-identifier hs-type">DeclineHandshake</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake"><span class="hs-identifier hs-type">DeclineHandshake</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake"><span class="hs-identifier hs-type">DeclineHandshake</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse"><span class="hs-identifier hs-type">DeclineHandshakeResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679249477"><span class="annot"><span class="annottext">request :: DeclineHandshake -&gt; Request DeclineHandshake
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679249623"><span class="annot"><span class="annottext">request :: DeclineHandshake -&gt; Request DeclineHandshake
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeclineHandshake -&gt; Request DeclineHandshake
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Organizations.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679249473"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679249619"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeclineHandshake
 -&gt; ClientResponse ClientBody
@@ -203,10 +203,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249470"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249470"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679249469"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679249469"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679249468"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249468"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249616"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249616"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679249615"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679249615"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679249614"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249614"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Handshake -&gt; Int -&gt; DeclineHandshakeResponse
 </span><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse%27"><span class="hs-identifier hs-var">DeclineHandshakeResponse'</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Handshake -&gt; Int -&gt; DeclineHandshakeResponse)
@@ -214,7 +214,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeclineHandshakeResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Handshake)
+</span><a href="#local-6989586621679249614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Handshake)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Handshake&quot;</span></span><span class="hs-special">)</span><span>
@@ -226,15 +226,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249470"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249616"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249460"><span id="local-6989586621679249462"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake"><span class="hs-identifier hs-type">DeclineHandshake</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249606"><span id="local-6989586621679249608"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake"><span class="hs-identifier hs-type">DeclineHandshake</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249457"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake"><span class="hs-identifier hs-type">DeclineHandshake</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249603"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake"><span class="hs-identifier hs-type">DeclineHandshake</span></a></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake"><span class="hs-identifier hs-type">DeclineHandshake</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679249453"><span class="annot"><span class="annottext">toHeaders :: DeclineHandshake -&gt; ResponseHeaders
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679249599"><span class="annot"><span class="annottext">toHeaders :: DeclineHandshake -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeclineHandshake -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -261,12 +261,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249443"><span id="local-6989586621679249445"><span id="local-6989586621679249447"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake"><span class="hs-identifier hs-type">DeclineHandshake</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679249441"><span class="annot"><span class="annottext">toJSON :: DeclineHandshake -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake%27"><span class="hs-identifier hs-type">DeclineHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249439"><span class="annot"><span class="annottext">Text
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249589"><span id="local-6989586621679249591"><span id="local-6989586621679249593"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake"><span class="hs-identifier hs-type">DeclineHandshake</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679249587"><span class="annot"><span class="annottext">toJSON :: DeclineHandshake -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake%27"><span class="hs-identifier hs-type">DeclineHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249585"><span class="annot"><span class="annottext">Text
 handshakeId :: Text
 $sel:handshakeId:DeclineHandshake' :: DeclineHandshake -&gt; Text
-</span><a href="#local-6989586621679249439"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679249585"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -278,18 +278,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;HandshakeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249439"><span class="hs-identifier hs-var">handshakeId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679249585"><span class="hs-identifier hs-var">handshakeId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake"><span class="hs-identifier hs-type">DeclineHandshake</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679249433"><span class="annot"><span class="annottext">toPath :: DeclineHandshake -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679249579"><span class="annot"><span class="annottext">toPath :: DeclineHandshake -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeclineHandshake -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshake"><span class="hs-identifier hs-type">DeclineHandshake</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679249429"><span class="annot"><span class="annottext">toQuery :: DeclineHandshake -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679249575"><span class="annot"><span class="annottext">toQuery :: DeclineHandshake -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeclineHandshake -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -297,7 +297,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newDeclineHandshakeResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679249426"><span id="local-6989586621679249427"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeclineHandshakeResponse"><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse"><span class="hs-identifier hs-var">DeclineHandshakeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeclineHandshakeResponse%27"><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse%27"><span class="hs-identifier hs-var">DeclineHandshakeResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679249572"><span id="local-6989586621679249573"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeclineHandshakeResponse"><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse"><span class="hs-identifier hs-var">DeclineHandshakeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeclineHandshakeResponse%27"><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse%27"><span class="hs-identifier hs-var">DeclineHandshakeResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A structure that contains details about the declined handshake. The</span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-comment">-- state is updated to show the value @DECLINED@.</span><span>
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3Ahandshake%3ADeclineHandshakeResponse%27"><span class="annot"><span class="annottext">DeclineHandshakeResponse -&gt; Maybe Handshake
@@ -306,7 +306,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeclineHandshakeResponse%27"><span class="annot"><span class="annottext">DeclineHandshakeResponse -&gt; Int
 </span><a href="Network.AWS.Organizations.DeclineHandshake.html#%24sel%3AhttpStatus%3ADeclineHandshakeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249420"><span id="local-6989586621679249422"><span class="annot"><span class="annottext">DeclineHandshakeResponse -&gt; DeclineHandshakeResponse -&gt; Bool
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249566"><span id="local-6989586621679249568"><span class="annot"><span class="annottext">DeclineHandshakeResponse -&gt; DeclineHandshakeResponse -&gt; Bool
 (DeclineHandshakeResponse -&gt; DeclineHandshakeResponse -&gt; Bool)
 -&gt; (DeclineHandshakeResponse -&gt; DeclineHandshakeResponse -&gt; Bool)
 -&gt; Eq DeclineHandshakeResponse
@@ -315,7 +315,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeclineHandshakeResponse -&gt; DeclineHandshakeResponse -&gt; Bool
 == :: DeclineHandshakeResponse -&gt; DeclineHandshakeResponse -&gt; Bool
 $c== :: DeclineHandshakeResponse -&gt; DeclineHandshakeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249414"><span id="local-6989586621679249416"><span id="local-6989586621679249418"><span class="annot"><span class="annottext">Int -&gt; DeclineHandshakeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249560"><span id="local-6989586621679249562"><span id="local-6989586621679249564"><span class="annot"><span class="annottext">Int -&gt; DeclineHandshakeResponse -&gt; ShowS
 [DeclineHandshakeResponse] -&gt; ShowS
 DeclineHandshakeResponse -&gt; String
 (Int -&gt; DeclineHandshakeResponse -&gt; ShowS)
@@ -364,8 +364,8 @@ DeclineHandshakeResponse -&gt; Rep DeclineHandshakeResponse x
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse"><span class="hs-identifier hs-type">DeclineHandshakeResponse</span></a></span><span>
 </span><span id="line-171"></span><span id="newDeclineHandshakeResponse"><span class="annot"><span class="annottext">newDeclineHandshakeResponse :: Int -&gt; DeclineHandshakeResponse
-</span><a href="Network.AWS.Organizations.DeclineHandshake.html#newDeclineHandshakeResponse"><span class="hs-identifier hs-var hs-var">newDeclineHandshakeResponse</span></a></span></span><span> </span><span id="local-6989586621679249411"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249411"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.DeclineHandshake.html#newDeclineHandshakeResponse"><span class="hs-identifier hs-var hs-var">newDeclineHandshakeResponse</span></a></span></span><span> </span><span id="local-6989586621679249557"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249557"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">DeclineHandshakeResponse' :: Maybe Handshake -&gt; Int -&gt; DeclineHandshakeResponse
 </span><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse%27"><span class="hs-identifier hs-type">DeclineHandshakeResponse'</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:handshake:DeclineHandshakeResponse' :: Maybe Handshake
@@ -375,7 +375,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeclineHandshakeResponse' :: Int
 </span><a href="Network.AWS.Organizations.DeclineHandshake.html#%24sel%3AhttpStatus%3ADeclineHandshakeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249411"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679249557"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | A structure that contains details about the declined handshake. The</span><span>
@@ -392,16 +392,16 @@ forall a. Maybe a
      (Maybe Handshake)
      (Maybe Handshake)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse%27"><span class="hs-identifier hs-type">DeclineHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249410"><span class="annot"><span class="annottext">Maybe Handshake
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse%27"><span class="hs-identifier hs-type">DeclineHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249556"><span class="annot"><span class="annottext">Maybe Handshake
 handshake :: Maybe Handshake
 $sel:handshake:DeclineHandshakeResponse' :: DeclineHandshakeResponse -&gt; Maybe Handshake
-</span><a href="#local-6989586621679249410"><span class="hs-identifier hs-var hs-var">handshake</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Handshake
-</span><a href="#local-6989586621679249410"><span class="hs-identifier hs-var">handshake</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249409"><span class="annot"><span class="annottext">s :: DeclineHandshakeResponse
-</span><a href="#local-6989586621679249409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse%27"><span class="hs-identifier hs-type">DeclineHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249408"><span class="annot"><span class="annottext">Maybe Handshake
-</span><a href="#local-6989586621679249408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeclineHandshakeResponse
-</span><a href="#local-6989586621679249409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:handshake:DeclineHandshakeResponse' :: Maybe Handshake
+</span><a href="#local-6989586621679249556"><span class="hs-identifier hs-var hs-var">handshake</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Handshake
+</span><a href="#local-6989586621679249556"><span class="hs-identifier hs-var">handshake</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249555"><span class="annot"><span class="annottext">s :: DeclineHandshakeResponse
+</span><a href="#local-6989586621679249555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse%27"><span class="hs-identifier hs-type">DeclineHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249554"><span class="annot"><span class="annottext">Maybe Handshake
+</span><a href="#local-6989586621679249554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeclineHandshakeResponse
+</span><a href="#local-6989586621679249555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:handshake:DeclineHandshakeResponse' :: Maybe Handshake
 </span><a href="Network.AWS.Organizations.DeclineHandshake.html#%24sel%3Ahandshake%3ADeclineHandshakeResponse%27"><span class="hs-identifier hs-var">handshake</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Handshake
-</span><a href="#local-6989586621679249408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse"><span class="hs-identifier hs-type">DeclineHandshakeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse"><span class="hs-identifier hs-type">DeclineHandshakeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#declineHandshakeResponse_httpStatus"><span class="hs-identifier hs-type">declineHandshakeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse"><span class="hs-identifier hs-type">DeclineHandshakeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -411,16 +411,16 @@ $sel:handshake:DeclineHandshakeResponse' :: DeclineHandshakeResponse -&gt; Maybe
 -&gt; (DeclineHandshakeResponse -&gt; Int -&gt; DeclineHandshakeResponse)
 -&gt; Lens DeclineHandshakeResponse DeclineHandshakeResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse%27"><span class="hs-identifier hs-type">DeclineHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249407"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse%27"><span class="hs-identifier hs-type">DeclineHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249553"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeclineHandshakeResponse' :: DeclineHandshakeResponse -&gt; Int
-</span><a href="#local-6989586621679249407"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249407"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249406"><span class="annot"><span class="annottext">s :: DeclineHandshakeResponse
-</span><a href="#local-6989586621679249406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse%27"><span class="hs-identifier hs-type">DeclineHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249405"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeclineHandshakeResponse
-</span><a href="#local-6989586621679249406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeclineHandshakeResponse' :: Int
+</span><a href="#local-6989586621679249553"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249553"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249552"><span class="annot"><span class="annottext">s :: DeclineHandshakeResponse
+</span><a href="#local-6989586621679249552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse%27"><span class="hs-identifier hs-type">DeclineHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249551"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeclineHandshakeResponse
+</span><a href="#local-6989586621679249552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeclineHandshakeResponse' :: Int
 </span><a href="Network.AWS.Organizations.DeclineHandshake.html#%24sel%3AhttpStatus%3ADeclineHandshakeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse"><span class="hs-identifier hs-type">DeclineHandshakeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse"><span class="hs-identifier hs-type">DeclineHandshakeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249403"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse"><span class="hs-identifier hs-type">DeclineHandshakeResponse</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249549"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DeclineHandshake.html#DeclineHandshakeResponse"><span class="hs-identifier hs-type">DeclineHandshakeResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

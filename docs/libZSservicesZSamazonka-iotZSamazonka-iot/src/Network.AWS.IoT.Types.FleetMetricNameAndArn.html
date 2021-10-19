@@ -26,15 +26,15 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The name and ARN of a fleet metric.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newFleetMetricNameAndArn' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679784694"><span id="local-6989586621679784695"></span></span><span class="hs-keyword">data</span><span> </span><span id="FleetMetricNameAndArn"><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn"><span class="hs-identifier hs-var">FleetMetricNameAndArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetMetricNameAndArn%27"><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn%27"><span class="hs-identifier hs-var">FleetMetricNameAndArn'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The fleet metric ARN.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AmetricArn%3AFleetMetricNameAndArn%27"><span class="annot"><span class="annottext">FleetMetricNameAndArn -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#%24sel%3AmetricArn%3AFleetMetricNameAndArn%27"><span class="hs-identifier hs-var hs-var">metricArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The fleet metric name.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AmetricName%3AFleetMetricNameAndArn%27"><span class="annot"><span class="annottext">FleetMetricNameAndArn -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#%24sel%3AmetricName%3AFleetMetricNameAndArn%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679785545"><span id="local-6989586621679785546"></span></span><span class="hs-keyword">data</span><span> </span><span id="FleetMetricNameAndArn"><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn"><span class="hs-identifier hs-var">FleetMetricNameAndArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetMetricNameAndArn%27"><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn%27"><span class="hs-identifier hs-var">FleetMetricNameAndArn'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The fleet metric name.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AmetricName%3AFleetMetricNameAndArn%27"><span class="annot"><span class="annottext">FleetMetricNameAndArn -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#%24sel%3AmetricName%3AFleetMetricNameAndArn%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The fleet metric ARN.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AmetricArn%3AFleetMetricNameAndArn%27"><span class="annot"><span class="annottext">FleetMetricNameAndArn -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#%24sel%3AmetricArn%3AFleetMetricNameAndArn%27"><span class="hs-identifier hs-var hs-var">metricArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679784687"><span id="local-6989586621679784689"><span class="annot"><span class="annottext">FleetMetricNameAndArn -&gt; FleetMetricNameAndArn -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679785538"><span id="local-6989586621679785540"><span class="annot"><span class="annottext">FleetMetricNameAndArn -&gt; FleetMetricNameAndArn -&gt; Bool
 (FleetMetricNameAndArn -&gt; FleetMetricNameAndArn -&gt; Bool)
 -&gt; (FleetMetricNameAndArn -&gt; FleetMetricNameAndArn -&gt; Bool)
 -&gt; Eq FleetMetricNameAndArn
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FleetMetricNameAndArn -&gt; FleetMetricNameAndArn -&gt; Bool
 == :: FleetMetricNameAndArn -&gt; FleetMetricNameAndArn -&gt; Bool
 $c== :: FleetMetricNameAndArn -&gt; FleetMetricNameAndArn -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784678"><span id="local-6989586621679784680"><span id="local-6989586621679784682"><span id="local-6989586621679784684"><span class="annot"><span class="annottext">ReadPrec [FleetMetricNameAndArn]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785529"><span id="local-6989586621679785531"><span id="local-6989586621679785533"><span id="local-6989586621679785535"><span class="annot"><span class="annottext">ReadPrec [FleetMetricNameAndArn]
 ReadPrec FleetMetricNameAndArn
 Int -&gt; ReadS FleetMetricNameAndArn
 ReadS [FleetMetricNameAndArn]
@@ -63,7 +63,7 @@ readList :: ReadS [FleetMetricNameAndArn]
 $creadList :: ReadS [FleetMetricNameAndArn]
 readsPrec :: Int -&gt; ReadS FleetMetricNameAndArn
 $creadsPrec :: Int -&gt; ReadS FleetMetricNameAndArn
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784671"><span id="local-6989586621679784673"><span id="local-6989586621679784675"><span class="annot"><span class="annottext">Int -&gt; FleetMetricNameAndArn -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785522"><span id="local-6989586621679785524"><span id="local-6989586621679785526"><span class="annot"><span class="annottext">Int -&gt; FleetMetricNameAndArn -&gt; ShowS
 [FleetMetricNameAndArn] -&gt; ShowS
 FleetMetricNameAndArn -&gt; String
 (Int -&gt; FleetMetricNameAndArn -&gt; ShowS)
@@ -97,51 +97,29 @@ $cfrom :: forall x. FleetMetricNameAndArn -&gt; Rep FleetMetricNameAndArn x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'metricArn', 'fleetMetricNameAndArn_metricArn' - The fleet metric ARN.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'metricName', 'fleetMetricNameAndArn_metricName' - The fleet metric name.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'metricName', 'fleetMetricNameAndArn_metricName' - The fleet metric name.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'metricArn', 'fleetMetricNameAndArn_metricArn' - The fleet metric ARN.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#newFleetMetricNameAndArn"><span class="hs-identifier hs-type">newFleetMetricNameAndArn</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn"><span class="hs-identifier hs-type">FleetMetricNameAndArn</span></a></span><span>
 </span><span id="line-50"></span><span id="newFleetMetricNameAndArn"><span class="annot"><span class="annottext">newFleetMetricNameAndArn :: FleetMetricNameAndArn
 </span><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#newFleetMetricNameAndArn"><span class="hs-identifier hs-var hs-var">newFleetMetricNameAndArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">FleetMetricNameAndArn' :: Maybe Text -&gt; Maybe Text -&gt; FleetMetricNameAndArn
 </span><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn%27"><span class="hs-identifier hs-type">FleetMetricNameAndArn'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricArn:FleetMetricNameAndArn' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#%24sel%3AmetricArn%3AFleetMetricNameAndArn%27"><span class="hs-identifier hs-var">metricArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricName:FleetMetricNameAndArn' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#%24sel%3AmetricName%3AFleetMetricNameAndArn%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricName:FleetMetricNameAndArn' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#%24sel%3AmetricName%3AFleetMetricNameAndArn%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricArn:FleetMetricNameAndArn' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#%24sel%3AmetricArn%3AFleetMetricNameAndArn%27"><span class="hs-identifier hs-var">metricArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- | The fleet metric ARN.</span><span>
-</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#fleetMetricNameAndArn_metricArn"><span class="hs-identifier hs-type">fleetMetricNameAndArn_metricArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn"><span class="hs-identifier hs-type">FleetMetricNameAndArn</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-58"></span><span id="fleetMetricNameAndArn_metricArn"><span class="annot"><span class="annottext">fleetMetricNameAndArn_metricArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; FleetMetricNameAndArn -&gt; f FleetMetricNameAndArn
-</span><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#fleetMetricNameAndArn_metricArn"><span class="hs-identifier hs-var hs-var">fleetMetricNameAndArn_metricArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetMetricNameAndArn -&gt; Maybe Text)
--&gt; (FleetMetricNameAndArn -&gt; Maybe Text -&gt; FleetMetricNameAndArn)
--&gt; Lens
-     FleetMetricNameAndArn
-     FleetMetricNameAndArn
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn%27"><span class="hs-identifier hs-type">FleetMetricNameAndArn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784662"><span class="annot"><span class="annottext">Maybe Text
-metricArn :: Maybe Text
-$sel:metricArn:FleetMetricNameAndArn' :: FleetMetricNameAndArn -&gt; Maybe Text
-</span><a href="#local-6989586621679784662"><span class="hs-identifier hs-var hs-var">metricArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784662"><span class="hs-identifier hs-var">metricArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784661"><span class="annot"><span class="annottext">s :: FleetMetricNameAndArn
-</span><a href="#local-6989586621679784661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn%27"><span class="hs-identifier hs-type">FleetMetricNameAndArn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784660"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetMetricNameAndArn
-</span><a href="#local-6989586621679784661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricArn:FleetMetricNameAndArn' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#%24sel%3AmetricArn%3AFleetMetricNameAndArn%27"><span class="hs-identifier hs-var">metricArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn"><span class="hs-identifier hs-type">FleetMetricNameAndArn</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | The fleet metric name.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#fleetMetricNameAndArn_metricName"><span class="hs-identifier hs-type">fleetMetricNameAndArn_metricName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn"><span class="hs-identifier hs-type">FleetMetricNameAndArn</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="fleetMetricNameAndArn_metricName"><span class="annot"><span class="annottext">fleetMetricNameAndArn_metricName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The fleet metric name.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#fleetMetricNameAndArn_metricName"><span class="hs-identifier hs-type">fleetMetricNameAndArn_metricName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn"><span class="hs-identifier hs-type">FleetMetricNameAndArn</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="fleetMetricNameAndArn_metricName"><span class="annot"><span class="annottext">fleetMetricNameAndArn_metricName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; FleetMetricNameAndArn -&gt; f FleetMetricNameAndArn
 </span><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#fleetMetricNameAndArn_metricName"><span class="hs-identifier hs-var hs-var">fleetMetricNameAndArn_metricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetMetricNameAndArn -&gt; Maybe Text)
 -&gt; (FleetMetricNameAndArn -&gt; Maybe Text -&gt; FleetMetricNameAndArn)
@@ -151,52 +129,75 @@ $sel:metricArn:FleetMetricNameAndArn' :: FleetMetricNameAndArn -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn%27"><span class="hs-identifier hs-type">FleetMetricNameAndArn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784658"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn%27"><span class="hs-identifier hs-type">FleetMetricNameAndArn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785513"><span class="annot"><span class="annottext">Maybe Text
 metricName :: Maybe Text
 $sel:metricName:FleetMetricNameAndArn' :: FleetMetricNameAndArn -&gt; Maybe Text
-</span><a href="#local-6989586621679784658"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784658"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784657"><span class="annot"><span class="annottext">s :: FleetMetricNameAndArn
-</span><a href="#local-6989586621679784657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn%27"><span class="hs-identifier hs-type">FleetMetricNameAndArn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784656"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetMetricNameAndArn
-</span><a href="#local-6989586621679784657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:FleetMetricNameAndArn' :: Maybe Text
+</span><a href="#local-6989586621679785513"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785513"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785512"><span class="annot"><span class="annottext">s :: FleetMetricNameAndArn
+</span><a href="#local-6989586621679785512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn%27"><span class="hs-identifier hs-type">FleetMetricNameAndArn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785511"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetMetricNameAndArn
+</span><a href="#local-6989586621679785512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:FleetMetricNameAndArn' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#%24sel%3AmetricName%3AFleetMetricNameAndArn%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn"><span class="hs-identifier hs-type">FleetMetricNameAndArn</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784653"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn"><span class="hs-identifier hs-type">FleetMetricNameAndArn</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679784651"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FleetMetricNameAndArn
+</span><a href="#local-6989586621679785511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn"><span class="hs-identifier hs-type">FleetMetricNameAndArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The fleet metric ARN.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#fleetMetricNameAndArn_metricArn"><span class="hs-identifier hs-type">fleetMetricNameAndArn_metricArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn"><span class="hs-identifier hs-type">FleetMetricNameAndArn</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="fleetMetricNameAndArn_metricArn"><span class="annot"><span class="annottext">fleetMetricNameAndArn_metricArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FleetMetricNameAndArn -&gt; f FleetMetricNameAndArn
+</span><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#fleetMetricNameAndArn_metricArn"><span class="hs-identifier hs-var hs-var">fleetMetricNameAndArn_metricArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetMetricNameAndArn -&gt; Maybe Text)
+-&gt; (FleetMetricNameAndArn -&gt; Maybe Text -&gt; FleetMetricNameAndArn)
+-&gt; Lens
+     FleetMetricNameAndArn
+     FleetMetricNameAndArn
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn%27"><span class="hs-identifier hs-type">FleetMetricNameAndArn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785509"><span class="annot"><span class="annottext">Maybe Text
+metricArn :: Maybe Text
+$sel:metricArn:FleetMetricNameAndArn' :: FleetMetricNameAndArn -&gt; Maybe Text
+</span><a href="#local-6989586621679785509"><span class="hs-identifier hs-var hs-var">metricArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785509"><span class="hs-identifier hs-var">metricArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785508"><span class="annot"><span class="annottext">s :: FleetMetricNameAndArn
+</span><a href="#local-6989586621679785508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn%27"><span class="hs-identifier hs-type">FleetMetricNameAndArn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785507"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetMetricNameAndArn
+</span><a href="#local-6989586621679785508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricArn:FleetMetricNameAndArn' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#%24sel%3AmetricArn%3AFleetMetricNameAndArn%27"><span class="hs-identifier hs-var">metricArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn"><span class="hs-identifier hs-type">FleetMetricNameAndArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785504"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn"><span class="hs-identifier hs-type">FleetMetricNameAndArn</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679785502"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FleetMetricNameAndArn
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FleetMetricNameAndArn)
 -&gt; Value
 -&gt; Parser FleetMetricNameAndArn
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FleetMetricNameAndArn&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679784648"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679784648"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; FleetMetricNameAndArn
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679785499"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679785499"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; FleetMetricNameAndArn
 </span><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn%27"><span class="hs-identifier hs-var">FleetMetricNameAndArn'</span></a></span><span>
-</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; FleetMetricNameAndArn)
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; FleetMetricNameAndArn)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; FleetMetricNameAndArn)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679784648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;metricArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; FleetMetricNameAndArn)
--&gt; Parser (Maybe Text) -&gt; Parser FleetMetricNameAndArn
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679784648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679785499"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metricName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784642"><span id="local-6989586621679784644"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn"><span class="hs-identifier hs-type">FleetMetricNameAndArn</span></a></span></span></span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784639"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn"><span class="hs-identifier hs-type">FleetMetricNameAndArn</span></a></span></span><span>
-</span><span id="line-77"></span></pre></body></html>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; FleetMetricNameAndArn)
+-&gt; Parser (Maybe Text) -&gt; Parser FleetMetricNameAndArn
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679785499"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metricArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785493"><span id="local-6989586621679785495"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn"><span class="hs-identifier hs-type">FleetMetricNameAndArn</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785490"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricNameAndArn.html#FleetMetricNameAndArn"><span class="hs-identifier hs-type">FleetMetricNameAndArn</span></a></span></span><span>
+</span><span id="line-78"></span></pre></body></html>

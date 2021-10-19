@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newUpdateGroup' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679463137"><span id="local-6989586621679463138"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGroup"><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-var">UpdateGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGroup%27"><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-var">UpdateGroup'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679463787"><span id="local-6989586621679463788"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGroup"><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-var">UpdateGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGroup%27"><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-var">UpdateGroup'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | New name for the IAM group. Only include this if changing the group\'s</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- name.</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -89,7 +89,7 @@
 </span><span id="line-87"></span><span>    </span><span id="%24sel%3AgroupName%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Text
 </span><a href="Network.AWS.IAM.UpdateGroup.html#%24sel%3AgroupName%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463129"><span id="local-6989586621679463131"><span class="annot"><span class="annottext">UpdateGroup -&gt; UpdateGroup -&gt; Bool
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463779"><span id="local-6989586621679463781"><span class="annot"><span class="annottext">UpdateGroup -&gt; UpdateGroup -&gt; Bool
 (UpdateGroup -&gt; UpdateGroup -&gt; Bool)
 -&gt; (UpdateGroup -&gt; UpdateGroup -&gt; Bool) -&gt; Eq UpdateGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -97,7 +97,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateGroup -&gt; UpdateGroup -&gt; Bool
 == :: UpdateGroup -&gt; UpdateGroup -&gt; Bool
 $c== :: UpdateGroup -&gt; UpdateGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463120"><span id="local-6989586621679463122"><span id="local-6989586621679463124"><span id="local-6989586621679463126"><span class="annot"><span class="annottext">ReadPrec [UpdateGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463770"><span id="local-6989586621679463772"><span id="local-6989586621679463774"><span id="local-6989586621679463776"><span class="annot"><span class="annottext">ReadPrec [UpdateGroup]
 ReadPrec UpdateGroup
 Int -&gt; ReadS UpdateGroup
 ReadS [UpdateGroup]
@@ -117,7 +117,7 @@ readList :: ReadS [UpdateGroup]
 $creadList :: ReadS [UpdateGroup]
 readsPrec :: Int -&gt; ReadS UpdateGroup
 $creadsPrec :: Int -&gt; ReadS UpdateGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463113"><span id="local-6989586621679463115"><span id="local-6989586621679463117"><span class="annot"><span class="annottext">Int -&gt; UpdateGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463763"><span id="local-6989586621679463765"><span id="local-6989586621679463767"><span class="annot"><span class="annottext">Int -&gt; UpdateGroup -&gt; ShowS
 [UpdateGroup] -&gt; ShowS
 UpdateGroup -&gt; String
 (Int -&gt; UpdateGroup -&gt; ShowS)
@@ -181,8 +181,8 @@ $cfrom :: forall x. UpdateGroup -&gt; Rep UpdateGroup x
 </span><span id="line-126"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span>
 </span><span id="line-128"></span><span id="newUpdateGroup"><span class="annot"><span class="annottext">newUpdateGroup :: Text -&gt; UpdateGroup
-</span><a href="Network.AWS.IAM.UpdateGroup.html#newUpdateGroup"><span class="hs-identifier hs-var hs-var">newUpdateGroup</span></a></span></span><span> </span><span id="local-6989586621679463108"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463108"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.UpdateGroup.html#newUpdateGroup"><span class="hs-identifier hs-var hs-var">newUpdateGroup</span></a></span></span><span> </span><span id="local-6989586621679463758"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463758"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>  </span><span class="annot"><span class="annottext">UpdateGroup' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; UpdateGroup
 </span><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:newGroupName':UpdateGroup' :: Maybe Text
@@ -195,7 +195,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:UpdateGroup' :: Text
 </span><a href="Network.AWS.IAM.UpdateGroup.html#%24sel%3AgroupName%3AUpdateGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463108"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679463758"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | New name for the IAM group. Only include this if changing the group\'s</span><span>
@@ -210,16 +210,16 @@ forall a. Maybe a
 -&gt; (UpdateGroup -&gt; Maybe Text -&gt; UpdateGroup)
 -&gt; Lens UpdateGroup UpdateGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463105"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463755"><span class="annot"><span class="annottext">Maybe Text
 newGroupName' :: Maybe Text
 $sel:newGroupName':UpdateGroup' :: UpdateGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679463105"><span class="hs-identifier hs-var hs-var">newGroupName'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679463105"><span class="hs-identifier hs-var">newGroupName'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463104"><span class="annot"><span class="annottext">s :: UpdateGroup
-</span><a href="#local-6989586621679463104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463103"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679463103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
-</span><a href="#local-6989586621679463104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newGroupName':UpdateGroup' :: Maybe Text
+</span><a href="#local-6989586621679463755"><span class="hs-identifier hs-var hs-var">newGroupName'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679463755"><span class="hs-identifier hs-var">newGroupName'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463754"><span class="annot"><span class="annottext">s :: UpdateGroup
+</span><a href="#local-6989586621679463754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463753"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679463753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
+</span><a href="#local-6989586621679463754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newGroupName':UpdateGroup' :: Maybe Text
 </span><a href="Network.AWS.IAM.UpdateGroup.html#%24sel%3AnewGroupName%27%3AUpdateGroup%27"><span class="hs-identifier hs-var">newGroupName'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679463103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | New path for the IAM group. Only include this if changing the group\'s</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- path.</span><span>
@@ -237,16 +237,16 @@ $sel:newGroupName':UpdateGroup' :: UpdateGroup -&gt; Maybe Text
 -&gt; (UpdateGroup -&gt; Maybe Text -&gt; UpdateGroup)
 -&gt; Lens UpdateGroup UpdateGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463102"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463752"><span class="annot"><span class="annottext">Maybe Text
 newPath' :: Maybe Text
 $sel:newPath':UpdateGroup' :: UpdateGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679463102"><span class="hs-identifier hs-var hs-var">newPath'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679463102"><span class="hs-identifier hs-var">newPath'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463101"><span class="annot"><span class="annottext">s :: UpdateGroup
-</span><a href="#local-6989586621679463101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463100"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679463100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
-</span><a href="#local-6989586621679463101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newPath':UpdateGroup' :: Maybe Text
+</span><a href="#local-6989586621679463752"><span class="hs-identifier hs-var hs-var">newPath'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679463752"><span class="hs-identifier hs-var">newPath'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463751"><span class="annot"><span class="annottext">s :: UpdateGroup
+</span><a href="#local-6989586621679463751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463750"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679463750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
+</span><a href="#local-6989586621679463751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newPath':UpdateGroup' :: Maybe Text
 </span><a href="Network.AWS.IAM.UpdateGroup.html#%24sel%3AnewPath%27%3AUpdateGroup%27"><span class="hs-identifier hs-var">newPath'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679463100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | Name of the IAM group to update. If you\'re changing the name of the</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- group, this is the original name.</span><span>
@@ -261,25 +261,25 @@ $sel:newPath':UpdateGroup' :: UpdateGroup -&gt; Maybe Text
 -&gt; (UpdateGroup -&gt; Text -&gt; UpdateGroup)
 -&gt; Lens UpdateGroup UpdateGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463099"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463749"><span class="annot"><span class="annottext">Text
 groupName :: Text
 $sel:groupName:UpdateGroup' :: UpdateGroup -&gt; Text
-</span><a href="#local-6989586621679463099"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463099"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463098"><span class="annot"><span class="annottext">s :: UpdateGroup
-</span><a href="#local-6989586621679463098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463097"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
-</span><a href="#local-6989586621679463098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:UpdateGroup' :: Text
+</span><a href="#local-6989586621679463749"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463749"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463748"><span class="annot"><span class="annottext">s :: UpdateGroup
+</span><a href="#local-6989586621679463748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463747"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
+</span><a href="#local-6989586621679463748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:UpdateGroup' :: Text
 </span><a href="Network.AWS.IAM.UpdateGroup.html#%24sel%3AgroupName%3AUpdateGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679463093"><span class="annot"><span class="annottext">request :: UpdateGroup -&gt; Request UpdateGroup
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679463743"><span class="annot"><span class="annottext">request :: UpdateGroup -&gt; Request UpdateGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateGroup -&gt; Request UpdateGroup
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679463089"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679463739"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateGroup
 -&gt; ClientResponse ClientBody
@@ -302,12 +302,12 @@ AWSResponse a
 UpdateGroupResponse
 </span><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-var">UpdateGroupResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463082"><span id="local-6989586621679463084"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463732"><span id="local-6989586621679463734"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span></span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463729"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679463075"><span class="annot"><span class="annottext">toHeaders :: UpdateGroup -&gt; [Header]
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679463725"><span class="annot"><span class="annottext">toHeaders :: UpdateGroup -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateGroup -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -315,15 +315,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679463070"><span class="annot"><span class="annottext">toPath :: UpdateGroup -&gt; ByteString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679463720"><span class="annot"><span class="annottext">toPath :: UpdateGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679463066"><span class="annot"><span class="annottext">toQuery :: UpdateGroup -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463062"><span id="local-6989586621679463063"><span id="local-6989586621679463064"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679463716"><span class="annot"><span class="annottext">toQuery :: UpdateGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463712"><span id="local-6989586621679463713"><span id="local-6989586621679463714"><span class="annot"><span class="annottext">Maybe Text
 Text
 groupName :: Text
 newPath' :: Maybe Text
@@ -331,7 +331,7 @@ newGroupName' :: Maybe Text
 $sel:groupName:UpdateGroup' :: UpdateGroup -&gt; Text
 $sel:newPath':UpdateGroup' :: UpdateGroup -&gt; Maybe Text
 $sel:newGroupName':UpdateGroup' :: UpdateGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679463062"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679463712"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -351,24 +351,24 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;NewGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679463064"><span class="hs-identifier hs-var">newGroupName'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679463714"><span class="hs-identifier hs-var">newGroupName'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NewPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679463063"><span class="hs-identifier hs-var">newPath'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679463713"><span class="hs-identifier hs-var">newPath'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463062"><span class="hs-identifier hs-var">groupName</span></a></span><span>
+</span><a href="#local-6989586621679463712"><span class="hs-identifier hs-var">groupName</span></a></span><span>
 </span><span id="line-192"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | /See:/ 'newUpdateGroupResponse' smart constructor.</span><span>
-</span><span id="line-195"></span><span id="local-6989586621679463059"><span id="local-6989586621679463060"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGroupResponse"><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-var">UpdateGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGroupResponse%27"><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-var">UpdateGroupResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span id="local-6989586621679463709"><span id="local-6989586621679463710"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGroupResponse"><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-var">UpdateGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGroupResponse%27"><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-var">UpdateGroupResponse'</span></a></span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-197"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463055"><span id="local-6989586621679463057"><span class="annot"><span class="annottext">UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
+</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463705"><span id="local-6989586621679463707"><span class="annot"><span class="annottext">UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
 (UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool)
 -&gt; (UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool)
 -&gt; Eq UpdateGroupResponse
@@ -377,7 +377,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
 == :: UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
 $c== :: UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463047"><span id="local-6989586621679463049"><span id="local-6989586621679463051"><span id="local-6989586621679463053"><span class="annot"><span class="annottext">ReadPrec [UpdateGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463697"><span id="local-6989586621679463699"><span id="local-6989586621679463701"><span id="local-6989586621679463703"><span class="annot"><span class="annottext">ReadPrec [UpdateGroupResponse]
 ReadPrec UpdateGroupResponse
 Int -&gt; ReadS UpdateGroupResponse
 ReadS [UpdateGroupResponse]
@@ -397,7 +397,7 @@ readList :: ReadS [UpdateGroupResponse]
 $creadList :: ReadS [UpdateGroupResponse]
 readsPrec :: Int -&gt; ReadS UpdateGroupResponse
 $creadsPrec :: Int -&gt; ReadS UpdateGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463041"><span id="local-6989586621679463043"><span id="local-6989586621679463045"><span class="annot"><span class="annottext">Int -&gt; UpdateGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463691"><span id="local-6989586621679463693"><span id="local-6989586621679463695"><span class="annot"><span class="annottext">Int -&gt; UpdateGroupResponse -&gt; ShowS
 [UpdateGroupResponse] -&gt; ShowS
 UpdateGroupResponse -&gt; String
 (Int -&gt; UpdateGroupResponse -&gt; ShowS)
@@ -433,5 +433,5 @@ $cfrom :: forall x. UpdateGroupResponse -&gt; Rep UpdateGroupResponse x
 </span><a href="Network.AWS.IAM.UpdateGroup.html#newUpdateGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateGroupResponse
 </span><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-var">UpdateGroupResponse'</span></a></span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463037"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463687"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span></span><span>
 </span><span id="line-209"></span></pre></body></html>

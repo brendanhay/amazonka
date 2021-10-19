@@ -31,21 +31,21 @@
 </span><span id="line-31"></span><span class="hs-comment">-- for more information.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newFacetAttributeDefinition' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679328742"><span id="local-6989586621679328743"></span></span><span class="hs-keyword">data</span><span> </span><span id="FacetAttributeDefinition"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-var">FacetAttributeDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FacetAttributeDefinition%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-var">FacetAttributeDefinition'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether the attribute is mutable or not.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AisImmutable%3AFacetAttributeDefinition%27"><span class="annot"><span class="annottext">FacetAttributeDefinition -&gt; Maybe Bool
-</span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#%24sel%3AisImmutable%3AFacetAttributeDefinition%27"><span class="hs-identifier hs-var hs-var">isImmutable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Validation rules attached to the attribute definition.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Arules%3AFacetAttributeDefinition%27"><span class="annot"><span class="annottext">FacetAttributeDefinition -&gt; Maybe (HashMap Text Rule)
+</span><span id="line-34"></span><span id="local-6989586621679329100"><span id="local-6989586621679329101"></span></span><span class="hs-keyword">data</span><span> </span><span id="FacetAttributeDefinition"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-var">FacetAttributeDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FacetAttributeDefinition%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-var">FacetAttributeDefinition'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Validation rules attached to the attribute definition.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Arules%3AFacetAttributeDefinition%27"><span class="annot"><span class="annottext">FacetAttributeDefinition -&gt; Maybe (HashMap Text Rule)
 </span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#%24sel%3Arules%3AFacetAttributeDefinition%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The default value of the attribute (if configured).</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdefaultValue%3AFacetAttributeDefinition%27"><span class="annot"><span class="annottext">FacetAttributeDefinition -&gt; Maybe TypedAttributeValue
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The default value of the attribute (if configured).</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdefaultValue%3AFacetAttributeDefinition%27"><span class="annot"><span class="annottext">FacetAttributeDefinition -&gt; Maybe TypedAttributeValue
 </span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#%24sel%3AdefaultValue%3AFacetAttributeDefinition%27"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Whether the attribute is mutable or not.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AisImmutable%3AFacetAttributeDefinition%27"><span class="annot"><span class="annottext">FacetAttributeDefinition -&gt; Maybe Bool
+</span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#%24sel%3AisImmutable%3AFacetAttributeDefinition%27"><span class="hs-identifier hs-var hs-var">isImmutable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The type of the attribute.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Atype%27%3AFacetAttributeDefinition%27"><span class="annot"><span class="annottext">FacetAttributeDefinition -&gt; FacetAttributeType
 </span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#%24sel%3Atype%27%3AFacetAttributeDefinition%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeType.html#FacetAttributeType"><span class="hs-identifier hs-type">FacetAttributeType</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679328733"><span id="local-6989586621679328735"><span class="annot"><span class="annottext">FacetAttributeDefinition -&gt; FacetAttributeDefinition -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329091"><span id="local-6989586621679329093"><span class="annot"><span class="annottext">FacetAttributeDefinition -&gt; FacetAttributeDefinition -&gt; Bool
 (FacetAttributeDefinition -&gt; FacetAttributeDefinition -&gt; Bool)
 -&gt; (FacetAttributeDefinition -&gt; FacetAttributeDefinition -&gt; Bool)
 -&gt; Eq FacetAttributeDefinition
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FacetAttributeDefinition -&gt; FacetAttributeDefinition -&gt; Bool
 == :: FacetAttributeDefinition -&gt; FacetAttributeDefinition -&gt; Bool
 $c== :: FacetAttributeDefinition -&gt; FacetAttributeDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328724"><span id="local-6989586621679328726"><span id="local-6989586621679328728"><span id="local-6989586621679328730"><span class="annot"><span class="annottext">ReadPrec [FacetAttributeDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329082"><span id="local-6989586621679329084"><span id="local-6989586621679329086"><span id="local-6989586621679329088"><span class="annot"><span class="annottext">ReadPrec [FacetAttributeDefinition]
 ReadPrec FacetAttributeDefinition
 Int -&gt; ReadS FacetAttributeDefinition
 ReadS [FacetAttributeDefinition]
@@ -74,7 +74,7 @@ readList :: ReadS [FacetAttributeDefinition]
 $creadList :: ReadS [FacetAttributeDefinition]
 readsPrec :: Int -&gt; ReadS FacetAttributeDefinition
 $creadsPrec :: Int -&gt; ReadS FacetAttributeDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328717"><span id="local-6989586621679328719"><span id="local-6989586621679328721"><span class="annot"><span class="annottext">Int -&gt; FacetAttributeDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329075"><span id="local-6989586621679329077"><span id="local-6989586621679329079"><span class="annot"><span class="annottext">Int -&gt; FacetAttributeDefinition -&gt; ShowS
 [FacetAttributeDefinition] -&gt; ShowS
 FacetAttributeDefinition -&gt; String
 (Int -&gt; FacetAttributeDefinition -&gt; ShowS)
@@ -114,11 +114,11 @@ FacetAttributeDefinition -&gt; Rep FacetAttributeDefinition x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'isImmutable', 'facetAttributeDefinition_isImmutable' - Whether the attribute is mutable or not.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'rules', 'facetAttributeDefinition_rules' - Validation rules attached to the attribute definition.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'rules', 'facetAttributeDefinition_rules' - Validation rules attached to the attribute definition.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'defaultValue', 'facetAttributeDefinition_defaultValue' - The default value of the attribute (if configured).</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'defaultValue', 'facetAttributeDefinition_defaultValue' - The default value of the attribute (if configured).</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'isImmutable', 'facetAttributeDefinition_isImmutable' - Whether the attribute is mutable or not.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- 'type'', 'facetAttributeDefinition_type' - The type of the attribute.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#newFacetAttributeDefinition"><span class="hs-identifier hs-type">newFacetAttributeDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -126,59 +126,34 @@ FacetAttributeDefinition -&gt; Rep FacetAttributeDefinition x
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeType.html#FacetAttributeType"><span class="hs-identifier hs-type">FacetAttributeType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span><span>
 </span><span id="line-65"></span><span id="newFacetAttributeDefinition"><span class="annot"><span class="annottext">newFacetAttributeDefinition :: FacetAttributeType -&gt; FacetAttributeDefinition
-</span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#newFacetAttributeDefinition"><span class="hs-identifier hs-var hs-var">newFacetAttributeDefinition</span></a></span></span><span> </span><span id="local-6989586621679328711"><span class="annot"><span class="annottext">FacetAttributeType
-</span><a href="#local-6989586621679328711"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">FacetAttributeDefinition' :: Maybe Bool
--&gt; Maybe (HashMap Text Rule)
+</span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#newFacetAttributeDefinition"><span class="hs-identifier hs-var hs-var">newFacetAttributeDefinition</span></a></span></span><span> </span><span id="local-6989586621679329069"><span class="annot"><span class="annottext">FacetAttributeType
+</span><a href="#local-6989586621679329069"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">FacetAttributeDefinition' :: Maybe (HashMap Text Rule)
 -&gt; Maybe TypedAttributeValue
+-&gt; Maybe Bool
 -&gt; FacetAttributeType
 -&gt; FacetAttributeDefinition
 </span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:isImmutable:FacetAttributeDefinition' :: Maybe Bool
-</span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#%24sel%3AisImmutable%3AFacetAttributeDefinition%27"><span class="hs-identifier hs-var">isImmutable</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:rules:FacetAttributeDefinition' :: Maybe (HashMap Text Rule)
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rules:FacetAttributeDefinition' :: Maybe (HashMap Text Rule)
 </span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#%24sel%3Arules%3AFacetAttributeDefinition%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultValue:FacetAttributeDefinition' :: Maybe TypedAttributeValue
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultValue:FacetAttributeDefinition' :: Maybe TypedAttributeValue
 </span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#%24sel%3AdefaultValue%3AFacetAttributeDefinition%27"><span class="hs-identifier hs-var">defaultValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':FacetAttributeDefinition' :: FacetAttributeType
-</span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#%24sel%3Atype%27%3AFacetAttributeDefinition%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FacetAttributeType
-</span><a href="#local-6989586621679328711"><span class="hs-identifier hs-var">pType_</span></a></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | Whether the attribute is mutable or not.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#facetAttributeDefinition_isImmutable"><span class="hs-identifier hs-type">facetAttributeDefinition_isImmutable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="facetAttributeDefinition_isImmutable"><span class="annot"><span class="annottext">facetAttributeDefinition_isImmutable :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; FacetAttributeDefinition -&gt; f FacetAttributeDefinition
-</span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#facetAttributeDefinition_isImmutable"><span class="hs-identifier hs-var hs-var">facetAttributeDefinition_isImmutable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FacetAttributeDefinition -&gt; Maybe Bool)
--&gt; (FacetAttributeDefinition
-    -&gt; Maybe Bool -&gt; FacetAttributeDefinition)
--&gt; Lens
-     FacetAttributeDefinition
-     FacetAttributeDefinition
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328707"><span class="annot"><span class="annottext">Maybe Bool
-isImmutable :: Maybe Bool
-$sel:isImmutable:FacetAttributeDefinition' :: FacetAttributeDefinition -&gt; Maybe Bool
-</span><a href="#local-6989586621679328707"><span class="hs-identifier hs-var hs-var">isImmutable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679328707"><span class="hs-identifier hs-var">isImmutable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328706"><span class="annot"><span class="annottext">s :: FacetAttributeDefinition
-</span><a href="#local-6989586621679328706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328705"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679328705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FacetAttributeDefinition
-</span><a href="#local-6989586621679328706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isImmutable:FacetAttributeDefinition' :: Maybe Bool
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:isImmutable:FacetAttributeDefinition' :: Maybe Bool
 </span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#%24sel%3AisImmutable%3AFacetAttributeDefinition%27"><span class="hs-identifier hs-var">isImmutable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679328705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | Validation rules attached to the attribute definition.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#facetAttributeDefinition_rules"><span class="hs-identifier hs-type">facetAttributeDefinition_rules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="facetAttributeDefinition_rules"><span class="annot"><span class="annottext">facetAttributeDefinition_rules :: (Maybe (HashMap Text Rule) -&gt; f (Maybe (HashMap Text Rule)))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':FacetAttributeDefinition' :: FacetAttributeType
+</span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#%24sel%3Atype%27%3AFacetAttributeDefinition%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FacetAttributeType
+</span><a href="#local-6989586621679329069"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | Validation rules attached to the attribute definition.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#facetAttributeDefinition_rules"><span class="hs-identifier hs-type">facetAttributeDefinition_rules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="facetAttributeDefinition_rules"><span class="annot"><span class="annottext">facetAttributeDefinition_rules :: (Maybe (HashMap Text Rule) -&gt; f (Maybe (HashMap Text Rule)))
 -&gt; FacetAttributeDefinition -&gt; f FacetAttributeDefinition
 </span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#facetAttributeDefinition_rules"><span class="hs-identifier hs-var hs-var">facetAttributeDefinition_rules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FacetAttributeDefinition -&gt; Maybe (HashMap Text Rule))
 -&gt; (FacetAttributeDefinition
@@ -189,16 +164,16 @@ $sel:isImmutable:FacetAttributeDefinition' :: FacetAttributeDefinition -&gt; May
      (Maybe (HashMap Text Rule))
      (Maybe (HashMap Text Rule))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328703"><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329065"><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
 rules :: Maybe (HashMap Text Rule)
 $sel:rules:FacetAttributeDefinition' :: FacetAttributeDefinition -&gt; Maybe (HashMap Text Rule)
-</span><a href="#local-6989586621679328703"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
-</span><a href="#local-6989586621679328703"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328702"><span class="annot"><span class="annottext">s :: FacetAttributeDefinition
-</span><a href="#local-6989586621679328702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328701"><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
-</span><a href="#local-6989586621679328701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FacetAttributeDefinition
-</span><a href="#local-6989586621679328702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:FacetAttributeDefinition' :: Maybe (HashMap Text Rule)
+</span><a href="#local-6989586621679329065"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
+</span><a href="#local-6989586621679329065"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329064"><span class="annot"><span class="annottext">s :: FacetAttributeDefinition
+</span><a href="#local-6989586621679329064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329063"><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
+</span><a href="#local-6989586621679329063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FacetAttributeDefinition
+</span><a href="#local-6989586621679329064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:FacetAttributeDefinition' :: Maybe (HashMap Text Rule)
 </span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#%24sel%3Arules%3AFacetAttributeDefinition%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
-</span><a href="#local-6989586621679328701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Rule) -&gt; f (Maybe (HashMap Text Rule)))
+</span><a href="#local-6989586621679329063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Rule) -&gt; f (Maybe (HashMap Text Rule)))
  -&gt; FacetAttributeDefinition -&gt; f FacetAttributeDefinition)
 -&gt; ((Maybe (HashMap Text Rule) -&gt; f (Maybe (HashMap Text Rule)))
     -&gt; Maybe (HashMap Text Rule) -&gt; f (Maybe (HashMap Text Rule)))
@@ -224,12 +199,12 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Rule)
   (HashMap Text Rule)
   (HashMap Text Rule)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | The default value of the attribute (if configured).</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#facetAttributeDefinition_defaultValue"><span class="hs-identifier hs-type">facetAttributeDefinition_defaultValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="facetAttributeDefinition_defaultValue"><span class="annot"><span class="annottext">facetAttributeDefinition_defaultValue :: (Maybe TypedAttributeValue -&gt; f (Maybe TypedAttributeValue))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The default value of the attribute (if configured).</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#facetAttributeDefinition_defaultValue"><span class="hs-identifier hs-type">facetAttributeDefinition_defaultValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="facetAttributeDefinition_defaultValue"><span class="annot"><span class="annottext">facetAttributeDefinition_defaultValue :: (Maybe TypedAttributeValue -&gt; f (Maybe TypedAttributeValue))
 -&gt; FacetAttributeDefinition -&gt; f FacetAttributeDefinition
 </span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#facetAttributeDefinition_defaultValue"><span class="hs-identifier hs-var hs-var">facetAttributeDefinition_defaultValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FacetAttributeDefinition -&gt; Maybe TypedAttributeValue)
 -&gt; (FacetAttributeDefinition
@@ -240,20 +215,44 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe TypedAttributeValue)
      (Maybe TypedAttributeValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328696"><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329058"><span class="annot"><span class="annottext">Maybe TypedAttributeValue
 defaultValue :: Maybe TypedAttributeValue
 $sel:defaultValue:FacetAttributeDefinition' :: FacetAttributeDefinition -&gt; Maybe TypedAttributeValue
-</span><a href="#local-6989586621679328696"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
-</span><a href="#local-6989586621679328696"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328695"><span class="annot"><span class="annottext">s :: FacetAttributeDefinition
-</span><a href="#local-6989586621679328695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328694"><span class="annot"><span class="annottext">Maybe TypedAttributeValue
-</span><a href="#local-6989586621679328694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FacetAttributeDefinition
-</span><a href="#local-6989586621679328695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultValue:FacetAttributeDefinition' :: Maybe TypedAttributeValue
+</span><a href="#local-6989586621679329058"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679329058"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329057"><span class="annot"><span class="annottext">s :: FacetAttributeDefinition
+</span><a href="#local-6989586621679329057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329056"><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679329056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FacetAttributeDefinition
+</span><a href="#local-6989586621679329057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultValue:FacetAttributeDefinition' :: Maybe TypedAttributeValue
 </span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#%24sel%3AdefaultValue%3AFacetAttributeDefinition%27"><span class="hs-identifier hs-var">defaultValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
-</span><a href="#local-6989586621679328694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | The type of the attribute.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#facetAttributeDefinition_type"><span class="hs-identifier hs-type">facetAttributeDefinition_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeType.html#FacetAttributeType"><span class="hs-identifier hs-type">FacetAttributeType</span></a></span><span>
-</span><span id="line-88"></span><span id="facetAttributeDefinition_type"><span class="annot"><span class="annottext">facetAttributeDefinition_type :: (FacetAttributeType -&gt; f FacetAttributeType)
+</span><a href="#local-6989586621679329056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | Whether the attribute is mutable or not.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#facetAttributeDefinition_isImmutable"><span class="hs-identifier hs-type">facetAttributeDefinition_isImmutable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="facetAttributeDefinition_isImmutable"><span class="annot"><span class="annottext">facetAttributeDefinition_isImmutable :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; FacetAttributeDefinition -&gt; f FacetAttributeDefinition
+</span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#facetAttributeDefinition_isImmutable"><span class="hs-identifier hs-var hs-var">facetAttributeDefinition_isImmutable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FacetAttributeDefinition -&gt; Maybe Bool)
+-&gt; (FacetAttributeDefinition
+    -&gt; Maybe Bool -&gt; FacetAttributeDefinition)
+-&gt; Lens
+     FacetAttributeDefinition
+     FacetAttributeDefinition
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329054"><span class="annot"><span class="annottext">Maybe Bool
+isImmutable :: Maybe Bool
+$sel:isImmutable:FacetAttributeDefinition' :: FacetAttributeDefinition -&gt; Maybe Bool
+</span><a href="#local-6989586621679329054"><span class="hs-identifier hs-var hs-var">isImmutable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679329054"><span class="hs-identifier hs-var">isImmutable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329053"><span class="annot"><span class="annottext">s :: FacetAttributeDefinition
+</span><a href="#local-6989586621679329053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329052"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679329052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FacetAttributeDefinition
+</span><a href="#local-6989586621679329053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isImmutable:FacetAttributeDefinition' :: Maybe Bool
+</span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#%24sel%3AisImmutable%3AFacetAttributeDefinition%27"><span class="hs-identifier hs-var">isImmutable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679329052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The type of the attribute.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#facetAttributeDefinition_type"><span class="hs-identifier hs-type">facetAttributeDefinition_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeType.html#FacetAttributeType"><span class="hs-identifier hs-type">FacetAttributeType</span></a></span><span>
+</span><span id="line-87"></span><span id="facetAttributeDefinition_type"><span class="annot"><span class="annottext">facetAttributeDefinition_type :: (FacetAttributeType -&gt; f FacetAttributeType)
 -&gt; FacetAttributeDefinition -&gt; f FacetAttributeDefinition
 </span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#facetAttributeDefinition_type"><span class="hs-identifier hs-var hs-var">facetAttributeDefinition_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FacetAttributeDefinition -&gt; FacetAttributeType)
 -&gt; (FacetAttributeDefinition
@@ -264,65 +263,48 @@ $sel:defaultValue:FacetAttributeDefinition' :: FacetAttributeDefinition -&gt; Ma
      FacetAttributeType
      FacetAttributeType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328692"><span class="annot"><span class="annottext">FacetAttributeType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329050"><span class="annot"><span class="annottext">FacetAttributeType
 type' :: FacetAttributeType
 $sel:type':FacetAttributeDefinition' :: FacetAttributeDefinition -&gt; FacetAttributeType
-</span><a href="#local-6989586621679328692"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FacetAttributeType
-</span><a href="#local-6989586621679328692"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328691"><span class="annot"><span class="annottext">s :: FacetAttributeDefinition
-</span><a href="#local-6989586621679328691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328690"><span class="annot"><span class="annottext">FacetAttributeType
-</span><a href="#local-6989586621679328690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FacetAttributeDefinition
-</span><a href="#local-6989586621679328691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':FacetAttributeDefinition' :: FacetAttributeType
+</span><a href="#local-6989586621679329050"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FacetAttributeType
+</span><a href="#local-6989586621679329050"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329049"><span class="annot"><span class="annottext">s :: FacetAttributeDefinition
+</span><a href="#local-6989586621679329049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329048"><span class="annot"><span class="annottext">FacetAttributeType
+</span><a href="#local-6989586621679329048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FacetAttributeDefinition
+</span><a href="#local-6989586621679329049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':FacetAttributeDefinition' :: FacetAttributeType
 </span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#%24sel%3Atype%27%3AFacetAttributeDefinition%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FacetAttributeType
-</span><a href="#local-6989586621679328690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328687"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679328685"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FacetAttributeDefinition
+</span><a href="#local-6989586621679329048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329045"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679329043"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FacetAttributeDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FacetAttributeDefinition)
 -&gt; Value
 -&gt; Parser FacetAttributeDefinition
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FacetAttributeDefinition&quot;</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679328682"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328682"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
--&gt; Maybe (HashMap Text Rule)
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679329040"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329040"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
 -&gt; Maybe TypedAttributeValue
+-&gt; Maybe Bool
 -&gt; FacetAttributeType
 -&gt; FacetAttributeDefinition
 </span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-var">FacetAttributeDefinition'</span></a></span><span>
-</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
- -&gt; Maybe (HashMap Text Rule)
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Rule)
  -&gt; Maybe TypedAttributeValue
+ -&gt; Maybe Bool
  -&gt; FacetAttributeType
  -&gt; FacetAttributeDefinition)
--&gt; Parser (Maybe Bool)
--&gt; Parser
-     (Maybe (HashMap Text Rule)
-      -&gt; Maybe TypedAttributeValue
-      -&gt; FacetAttributeType
-      -&gt; FacetAttributeDefinition)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IsImmutable&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (HashMap Text Rule)
-   -&gt; Maybe TypedAttributeValue
-   -&gt; FacetAttributeType
-   -&gt; FacetAttributeDefinition)
 -&gt; Parser (Maybe (HashMap Text Rule))
 -&gt; Parser
      (Maybe TypedAttributeValue
-      -&gt; FacetAttributeType -&gt; FacetAttributeDefinition)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Rule)))
+      -&gt; Maybe Bool -&gt; FacetAttributeType -&gt; FacetAttributeDefinition)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Rule)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Rule)))
@@ -331,81 +313,92 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe TypedAttributeValue
-   -&gt; FacetAttributeType -&gt; FacetAttributeDefinition)
+   -&gt; Maybe Bool -&gt; FacetAttributeType -&gt; FacetAttributeDefinition)
 -&gt; Parser (Maybe TypedAttributeValue)
--&gt; Parser (FacetAttributeType -&gt; FacetAttributeDefinition)
+-&gt; Parser
+     (Maybe Bool -&gt; FacetAttributeType -&gt; FacetAttributeDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TypedAttributeValue)
+</span><a href="#local-6989586621679329040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TypedAttributeValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultValue&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser (FacetAttributeType -&gt; FacetAttributeDefinition)
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool -&gt; FacetAttributeType -&gt; FacetAttributeDefinition)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (FacetAttributeType -&gt; FacetAttributeDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsImmutable&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (FacetAttributeType -&gt; FacetAttributeDefinition)
 -&gt; Parser FacetAttributeType -&gt; Parser FacetAttributeDefinition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FacetAttributeType
+</span><a href="#local-6989586621679329040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FacetAttributeType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328674"><span id="local-6989586621679328676"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span></span></span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span></span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328663"><span id="local-6989586621679328665"><span id="local-6989586621679328667"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679328661"><span class="annot"><span class="annottext">toJSON :: FacetAttributeDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328656"><span id="local-6989586621679328657"><span id="local-6989586621679328658"><span id="local-6989586621679328659"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329032"><span id="local-6989586621679329034"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329029"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329021"><span id="local-6989586621679329023"><span id="local-6989586621679329025"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition"><span class="hs-identifier hs-type">FacetAttributeDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679329019"><span class="annot"><span class="annottext">toJSON :: FacetAttributeDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeDefinition.html#FacetAttributeDefinition%27"><span class="hs-identifier hs-type">FacetAttributeDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329014"><span id="local-6989586621679329015"><span id="local-6989586621679329016"><span id="local-6989586621679329017"><span class="annot"><span class="annottext">Maybe Bool
 Maybe (HashMap Text Rule)
 Maybe TypedAttributeValue
 FacetAttributeType
 type' :: FacetAttributeType
+isImmutable :: Maybe Bool
 defaultValue :: Maybe TypedAttributeValue
 rules :: Maybe (HashMap Text Rule)
-isImmutable :: Maybe Bool
 $sel:type':FacetAttributeDefinition' :: FacetAttributeDefinition -&gt; FacetAttributeType
+$sel:isImmutable:FacetAttributeDefinition' :: FacetAttributeDefinition -&gt; Maybe Bool
 $sel:defaultValue:FacetAttributeDefinition' :: FacetAttributeDefinition -&gt; Maybe TypedAttributeValue
 $sel:rules:FacetAttributeDefinition' :: FacetAttributeDefinition -&gt; Maybe (HashMap Text Rule)
-$sel:isImmutable:FacetAttributeDefinition' :: FacetAttributeDefinition -&gt; Maybe Bool
-</span><a href="#local-6989586621679328656"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><a href="#local-6989586621679329014"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IsImmutable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679328659"><span class="hs-identifier hs-var">isImmutable</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Rule -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Rule -&gt; Pair)
 -&gt; Maybe (HashMap Text Rule) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Rule)
-</span><a href="#local-6989586621679328658"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679329017"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TypedAttributeValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TypedAttributeValue -&gt; Pair)
 -&gt; Maybe TypedAttributeValue -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
-</span><a href="#local-6989586621679328657"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679329016"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsImmutable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679329015"><span class="hs-identifier hs-var">isImmutable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FacetAttributeType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">FacetAttributeType
-</span><a href="#local-6989586621679328656"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span></pre></body></html>
+</span><a href="#local-6989586621679329014"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span></pre></body></html>

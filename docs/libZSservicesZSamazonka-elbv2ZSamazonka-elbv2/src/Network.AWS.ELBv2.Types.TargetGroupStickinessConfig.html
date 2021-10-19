@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about the target group stickiness for a rule.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTargetGroupStickinessConfig' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679250851"><span id="local-6989586621679250852"></span></span><span class="hs-keyword">data</span><span> </span><span id="TargetGroupStickinessConfig"><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig"><span class="hs-identifier hs-var">TargetGroupStickinessConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetGroupStickinessConfig%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig%27"><span class="hs-identifier hs-var">TargetGroupStickinessConfig'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679253729"><span id="local-6989586621679253730"></span></span><span class="hs-keyword">data</span><span> </span><span id="TargetGroupStickinessConfig"><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig"><span class="hs-identifier hs-var">TargetGroupStickinessConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetGroupStickinessConfig%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig%27"><span class="hs-identifier hs-var">TargetGroupStickinessConfig'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether target group stickiness is enabled.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aenabled%3ATargetGroupStickinessConfig%27"><span class="annot"><span class="annottext">TargetGroupStickinessConfig -&gt; Maybe Bool
 </span><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#%24sel%3Aenabled%3ATargetGroupStickinessConfig%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AdurationSeconds%3ATargetGroupStickinessConfig%27"><span class="annot"><span class="annottext">TargetGroupStickinessConfig -&gt; Maybe Int
 </span><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#%24sel%3AdurationSeconds%3ATargetGroupStickinessConfig%27"><span class="hs-identifier hs-var hs-var">durationSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250844"><span id="local-6989586621679250846"><span class="annot"><span class="annottext">TargetGroupStickinessConfig -&gt; TargetGroupStickinessConfig -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253722"><span id="local-6989586621679253724"><span class="annot"><span class="annottext">TargetGroupStickinessConfig -&gt; TargetGroupStickinessConfig -&gt; Bool
 (TargetGroupStickinessConfig
  -&gt; TargetGroupStickinessConfig -&gt; Bool)
 -&gt; (TargetGroupStickinessConfig
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TargetGroupStickinessConfig -&gt; TargetGroupStickinessConfig -&gt; Bool
 == :: TargetGroupStickinessConfig -&gt; TargetGroupStickinessConfig -&gt; Bool
 $c== :: TargetGroupStickinessConfig -&gt; TargetGroupStickinessConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250835"><span id="local-6989586621679250837"><span id="local-6989586621679250839"><span id="local-6989586621679250841"><span class="annot"><span class="annottext">ReadPrec [TargetGroupStickinessConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253713"><span id="local-6989586621679253715"><span id="local-6989586621679253717"><span id="local-6989586621679253719"><span class="annot"><span class="annottext">ReadPrec [TargetGroupStickinessConfig]
 ReadPrec TargetGroupStickinessConfig
 Int -&gt; ReadS TargetGroupStickinessConfig
 ReadS [TargetGroupStickinessConfig]
@@ -67,7 +67,7 @@ readList :: ReadS [TargetGroupStickinessConfig]
 $creadList :: ReadS [TargetGroupStickinessConfig]
 readsPrec :: Int -&gt; ReadS TargetGroupStickinessConfig
 $creadsPrec :: Int -&gt; ReadS TargetGroupStickinessConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250828"><span id="local-6989586621679250830"><span id="local-6989586621679250832"><span class="annot"><span class="annottext">Int -&gt; TargetGroupStickinessConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253706"><span id="local-6989586621679253708"><span id="local-6989586621679253710"><span class="annot"><span class="annottext">Int -&gt; TargetGroupStickinessConfig -&gt; ShowS
 [TargetGroupStickinessConfig] -&gt; ShowS
 TargetGroupStickinessConfig -&gt; String
 (Int -&gt; TargetGroupStickinessConfig -&gt; ShowS)
@@ -142,16 +142,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig%27"><span class="hs-identifier hs-type">TargetGroupStickinessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250819"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig%27"><span class="hs-identifier hs-type">TargetGroupStickinessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253697"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:TargetGroupStickinessConfig' :: TargetGroupStickinessConfig -&gt; Maybe Bool
-</span><a href="#local-6989586621679250819"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679250819"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250818"><span class="annot"><span class="annottext">s :: TargetGroupStickinessConfig
-</span><a href="#local-6989586621679250818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig%27"><span class="hs-identifier hs-type">TargetGroupStickinessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250817"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679250817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetGroupStickinessConfig
-</span><a href="#local-6989586621679250818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:TargetGroupStickinessConfig' :: Maybe Bool
+</span><a href="#local-6989586621679253697"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253697"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253696"><span class="annot"><span class="annottext">s :: TargetGroupStickinessConfig
+</span><a href="#local-6989586621679253696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig%27"><span class="hs-identifier hs-type">TargetGroupStickinessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253695"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetGroupStickinessConfig
+</span><a href="#local-6989586621679253696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:TargetGroupStickinessConfig' :: Maybe Bool
 </span><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#%24sel%3Aenabled%3ATargetGroupStickinessConfig%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679250817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig"><span class="hs-identifier hs-type">TargetGroupStickinessConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig"><span class="hs-identifier hs-type">TargetGroupStickinessConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The time period, in seconds, during which requests from a client should</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- be routed to the same target group. The range is 1-604800 seconds (7</span><span>
@@ -168,21 +168,21 @@ $sel:enabled:TargetGroupStickinessConfig' :: TargetGroupStickinessConfig -&gt; M
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig%27"><span class="hs-identifier hs-type">TargetGroupStickinessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250815"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig%27"><span class="hs-identifier hs-type">TargetGroupStickinessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253693"><span class="annot"><span class="annottext">Maybe Int
 durationSeconds :: Maybe Int
 $sel:durationSeconds:TargetGroupStickinessConfig' :: TargetGroupStickinessConfig -&gt; Maybe Int
-</span><a href="#local-6989586621679250815"><span class="hs-identifier hs-var hs-var">durationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679250815"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250814"><span class="annot"><span class="annottext">s :: TargetGroupStickinessConfig
-</span><a href="#local-6989586621679250814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig%27"><span class="hs-identifier hs-type">TargetGroupStickinessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250813"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679250813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetGroupStickinessConfig
-</span><a href="#local-6989586621679250814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationSeconds:TargetGroupStickinessConfig' :: Maybe Int
+</span><a href="#local-6989586621679253693"><span class="hs-identifier hs-var hs-var">durationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679253693"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253692"><span class="annot"><span class="annottext">s :: TargetGroupStickinessConfig
+</span><a href="#local-6989586621679253692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig%27"><span class="hs-identifier hs-type">TargetGroupStickinessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253691"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679253691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetGroupStickinessConfig
+</span><a href="#local-6989586621679253692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationSeconds:TargetGroupStickinessConfig' :: Maybe Int
 </span><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#%24sel%3AdurationSeconds%3ATargetGroupStickinessConfig%27"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679250813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig"><span class="hs-identifier hs-type">TargetGroupStickinessConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig"><span class="hs-identifier hs-type">TargetGroupStickinessConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig"><span class="hs-identifier hs-type">TargetGroupStickinessConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679250810"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TargetGroupStickinessConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679250808"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679250808"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679253688"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TargetGroupStickinessConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679253686"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679253686"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Int -&gt; TargetGroupStickinessConfig
 </span><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig%27"><span class="hs-identifier hs-var">TargetGroupStickinessConfig'</span></a></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Int -&gt; TargetGroupStickinessConfig)
@@ -190,7 +190,7 @@ $sel:durationSeconds:TargetGroupStickinessConfig' :: TargetGroupStickinessConfig
 -&gt; Either String (Maybe Int -&gt; TargetGroupStickinessConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679250808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679253686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -199,24 +199,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String TargetGroupStickinessConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679250808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679253686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DurationSeconds&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250802"><span id="local-6989586621679250804"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig"><span class="hs-identifier hs-type">TargetGroupStickinessConfig</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253680"><span id="local-6989586621679253682"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig"><span class="hs-identifier hs-type">TargetGroupStickinessConfig</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250799"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig"><span class="hs-identifier hs-type">TargetGroupStickinessConfig</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253677"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig"><span class="hs-identifier hs-type">TargetGroupStickinessConfig</span></a></span></span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig"><span class="hs-identifier hs-type">TargetGroupStickinessConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679250795"><span class="annot"><span class="annottext">toQuery :: TargetGroupStickinessConfig -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig%27"><span class="hs-identifier hs-type">TargetGroupStickinessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250792"><span id="local-6989586621679250793"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679253673"><span class="annot"><span class="annottext">toQuery :: TargetGroupStickinessConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetGroupStickinessConfig.html#TargetGroupStickinessConfig%27"><span class="hs-identifier hs-type">TargetGroupStickinessConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253670"><span id="local-6989586621679253671"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 durationSeconds :: Maybe Int
 enabled :: Maybe Bool
 $sel:durationSeconds:TargetGroupStickinessConfig' :: TargetGroupStickinessConfig -&gt; Maybe Int
 $sel:enabled:TargetGroupStickinessConfig' :: TargetGroupStickinessConfig -&gt; Maybe Bool
-</span><a href="#local-6989586621679250792"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679253670"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -224,11 +224,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679250793"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679253671"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DurationSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679250792"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span>
+</span><a href="#local-6989586621679253670"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-87"></span></pre></body></html>

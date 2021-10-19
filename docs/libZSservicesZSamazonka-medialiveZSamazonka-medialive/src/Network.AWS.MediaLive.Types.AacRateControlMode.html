@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Aac Rate Control Mode</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679855788"><span id="local-6989586621679855789"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AacRateControlMode"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacRateControlMode.html#AacRateControlMode"><span class="hs-identifier hs-var">AacRateControlMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AacRateControlMode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacRateControlMode.html#AacRateControlMode%27"><span class="hs-identifier hs-var">AacRateControlMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679862445"><span id="local-6989586621679862446"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AacRateControlMode"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacRateControlMode.html#AacRateControlMode"><span class="hs-identifier hs-var">AacRateControlMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AacRateControlMode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacRateControlMode.html#AacRateControlMode%27"><span class="hs-identifier hs-var">AacRateControlMode'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAacRateControlMode"><span class="annot"><span class="annottext">AacRateControlMode -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.AacRateControlMode.html#fromAacRateControlMode"><span class="hs-identifier hs-var hs-var">fromAacRateControlMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679855780"><span id="local-6989586621679855782"><span id="local-6989586621679855784"><span class="annot"><span class="annottext">Int -&gt; AacRateControlMode -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679862437"><span id="local-6989586621679862439"><span id="local-6989586621679862441"><span class="annot"><span class="annottext">Int -&gt; AacRateControlMode -&gt; ShowS
 [AacRateControlMode] -&gt; ShowS
 AacRateControlMode -&gt; String
 (Int -&gt; AacRateControlMode -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AacRateControlMode -&gt; String
 showsPrec :: Int -&gt; AacRateControlMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; AacRateControlMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679855771"><span id="local-6989586621679855773"><span id="local-6989586621679855775"><span id="local-6989586621679855777"><span class="annot"><span class="annottext">ReadPrec [AacRateControlMode]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679862428"><span id="local-6989586621679862430"><span id="local-6989586621679862432"><span id="local-6989586621679862434"><span class="annot"><span class="annottext">ReadPrec [AacRateControlMode]
 ReadPrec AacRateControlMode
 Int -&gt; ReadS AacRateControlMode
 ReadS [AacRateControlMode]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AacRateControlMode]
 readsPrec :: Int -&gt; ReadS AacRateControlMode
 $creadsPrec :: Int -&gt; ReadS AacRateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679855766"><span id="local-6989586621679855768"><span class="annot"><span class="annottext">AacRateControlMode -&gt; AacRateControlMode -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679862423"><span id="local-6989586621679862425"><span class="annot"><span class="annottext">AacRateControlMode -&gt; AacRateControlMode -&gt; Bool
 (AacRateControlMode -&gt; AacRateControlMode -&gt; Bool)
 -&gt; (AacRateControlMode -&gt; AacRateControlMode -&gt; Bool)
 -&gt; Eq AacRateControlMode
@@ -83,7 +83,7 @@ $c/= :: AacRateControlMode -&gt; AacRateControlMode -&gt; Bool
 == :: AacRateControlMode -&gt; AacRateControlMode -&gt; Bool
 $c== :: AacRateControlMode -&gt; AacRateControlMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679855750"><span id="local-6989586621679855752"><span id="local-6989586621679855754"><span id="local-6989586621679855756"><span id="local-6989586621679855758"><span id="local-6989586621679855760"><span id="local-6989586621679855762"><span class="annot"><span class="annottext">Eq AacRateControlMode
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679862407"><span id="local-6989586621679862409"><span id="local-6989586621679862411"><span id="local-6989586621679862413"><span id="local-6989586621679862415"><span id="local-6989586621679862417"><span id="local-6989586621679862419"><span class="annot"><span class="annottext">Eq AacRateControlMode
 Eq AacRateControlMode
 -&gt; (AacRateControlMode -&gt; AacRateControlMode -&gt; Ordering)
 -&gt; (AacRateControlMode -&gt; AacRateControlMode -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. AacRateControlMode -&gt; Rep AacRateControlMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679855742"><span id="local-6989586621679855744"><span class="annot"><span class="annottext">Int -&gt; AacRateControlMode -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679862399"><span id="local-6989586621679862401"><span class="annot"><span class="annottext">Int -&gt; AacRateControlMode -&gt; Int
 AacRateControlMode -&gt; Int
 (Int -&gt; AacRateControlMode -&gt; Int)
 -&gt; (AacRateControlMode -&gt; Int) -&gt; Hashable AacRateControlMode
@@ -144,53 +144,53 @@ $chash :: AacRateControlMode -&gt; Int
 hashWithSalt :: Int -&gt; AacRateControlMode -&gt; Int
 $chashWithSalt :: Int -&gt; AacRateControlMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679855739"><span class="annot"><span class="annottext">AacRateControlMode -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679862396"><span class="annot"><span class="annottext">AacRateControlMode -&gt; ()
 (AacRateControlMode -&gt; ()) -&gt; NFData AacRateControlMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AacRateControlMode -&gt; ()
 $crnf :: AacRateControlMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679855736"><span class="annot"><span class="annottext">Text -&gt; Either String AacRateControlMode
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679862393"><span class="annot"><span class="annottext">Text -&gt; Either String AacRateControlMode
 (Text -&gt; Either String AacRateControlMode)
 -&gt; FromText AacRateControlMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AacRateControlMode
 $cfromText :: Text -&gt; Either String AacRateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679855733"><span class="annot"><span class="annottext">AacRateControlMode -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679862390"><span class="annot"><span class="annottext">AacRateControlMode -&gt; Text
 (AacRateControlMode -&gt; Text) -&gt; ToText AacRateControlMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AacRateControlMode -&gt; Text
 $ctoText :: AacRateControlMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679855730"><span class="annot"><span class="annottext">AacRateControlMode -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679862387"><span class="annot"><span class="annottext">AacRateControlMode -&gt; ByteString
 (AacRateControlMode -&gt; ByteString)
 -&gt; ToByteString AacRateControlMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AacRateControlMode -&gt; ByteString
 $ctoBS :: AacRateControlMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679855727"><span class="annot"><span class="annottext">AacRateControlMode -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679862384"><span class="annot"><span class="annottext">AacRateControlMode -&gt; ByteStringBuilder
 (AacRateControlMode -&gt; ByteStringBuilder)
 -&gt; ToLog AacRateControlMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AacRateControlMode -&gt; ByteStringBuilder
 $cbuild :: AacRateControlMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679855724"><span class="annot"><span class="annottext">HeaderName -&gt; AacRateControlMode -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679862381"><span class="annot"><span class="annottext">HeaderName -&gt; AacRateControlMode -&gt; [Header]
 (HeaderName -&gt; AacRateControlMode -&gt; [Header])
 -&gt; ToHeader AacRateControlMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AacRateControlMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AacRateControlMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679855721"><span class="annot"><span class="annottext">AacRateControlMode -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679862378"><span class="annot"><span class="annottext">AacRateControlMode -&gt; QueryString
 (AacRateControlMode -&gt; QueryString) -&gt; ToQuery AacRateControlMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AacRateControlMode -&gt; QueryString
 $ctoQuery :: AacRateControlMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679855716"><span id="local-6989586621679855718"><span class="annot"><span class="annottext">Value -&gt; Parser [AacRateControlMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679862373"><span id="local-6989586621679862375"><span class="annot"><span class="annottext">Value -&gt; Parser [AacRateControlMode]
 Value -&gt; Parser AacRateControlMode
 (Value -&gt; Parser AacRateControlMode)
 -&gt; (Value -&gt; Parser [AacRateControlMode])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [AacRateControlMode]
 parseJSON :: Value -&gt; Parser AacRateControlMode
 $cparseJSON :: Value -&gt; Parser AacRateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679855711"><span id="local-6989586621679855713"><span class="annot"><span class="annottext">FromJSONKeyFunction [AacRateControlMode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679862368"><span id="local-6989586621679862370"><span class="annot"><span class="annottext">FromJSONKeyFunction [AacRateControlMode]
 FromJSONKeyFunction AacRateControlMode
 FromJSONKeyFunction AacRateControlMode
 -&gt; FromJSONKeyFunction [AacRateControlMode]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AacRateControlMode]
 fromJSONKey :: FromJSONKeyFunction AacRateControlMode
 $cfromJSONKey :: FromJSONKeyFunction AacRateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679855702"><span id="local-6989586621679855704"><span id="local-6989586621679855706"><span id="local-6989586621679855708"><span class="annot"><span class="annottext">[AacRateControlMode] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679862359"><span id="local-6989586621679862361"><span id="local-6989586621679862363"><span id="local-6989586621679862365"><span class="annot"><span class="annottext">[AacRateControlMode] -&gt; Encoding
 [AacRateControlMode] -&gt; Value
 AacRateControlMode -&gt; Encoding
 AacRateControlMode -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: AacRateControlMode -&gt; Encoding
 toJSON :: AacRateControlMode -&gt; Value
 $ctoJSON :: AacRateControlMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679855697"><span id="local-6989586621679855699"><span class="annot"><span class="annottext">ToJSONKeyFunction [AacRateControlMode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679862354"><span id="local-6989586621679862356"><span class="annot"><span class="annottext">ToJSONKeyFunction [AacRateControlMode]
 ToJSONKeyFunction AacRateControlMode
 ToJSONKeyFunction AacRateControlMode
 -&gt; ToJSONKeyFunction [AacRateControlMode]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AacRateControlMode]
 toJSONKey :: ToJSONKeyFunction AacRateControlMode
 $ctoJSONKey :: ToJSONKeyFunction AacRateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679855694"><span class="annot"><span class="annottext">[Node] -&gt; Either String AacRateControlMode
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679862351"><span class="annot"><span class="annottext">[Node] -&gt; Either String AacRateControlMode
 ([Node] -&gt; Either String AacRateControlMode)
 -&gt; FromXML AacRateControlMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AacRateControlMode
 $cparseXML :: [Node] -&gt; Either String AacRateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679855691"><span class="annot"><span class="annottext">AacRateControlMode -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679862348"><span class="annot"><span class="annottext">AacRateControlMode -&gt; XML
 (AacRateControlMode -&gt; XML) -&gt; ToXML AacRateControlMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AacRateControlMode -&gt; XML

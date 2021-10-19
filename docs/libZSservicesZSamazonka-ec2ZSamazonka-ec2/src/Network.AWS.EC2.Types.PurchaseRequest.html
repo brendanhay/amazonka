@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes a request to purchase Scheduled Instances.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPurchaseRequest' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681107155"><span id="local-6989586621681107156"></span></span><span class="hs-keyword">data</span><span> </span><span id="PurchaseRequest"><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest"><span class="hs-identifier hs-var">PurchaseRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PurchaseRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest%27"><span class="hs-identifier hs-var">PurchaseRequest'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681141870"><span id="local-6989586621681141871"></span></span><span class="hs-keyword">data</span><span> </span><span id="PurchaseRequest"><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest"><span class="hs-identifier hs-var">PurchaseRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PurchaseRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest%27"><span class="hs-identifier hs-var">PurchaseRequest'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of instances.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AinstanceCount%3APurchaseRequest%27"><span class="annot"><span class="annottext">PurchaseRequest -&gt; Int
 </span><a href="Network.AWS.EC2.Types.PurchaseRequest.html#%24sel%3AinstanceCount%3APurchaseRequest%27"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3ApurchaseToken%3APurchaseRequest%27"><span class="annot"><span class="annottext">PurchaseRequest -&gt; Text
 </span><a href="Network.AWS.EC2.Types.PurchaseRequest.html#%24sel%3ApurchaseToken%3APurchaseRequest%27"><span class="hs-identifier hs-var hs-var">purchaseToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681107148"><span id="local-6989586621681107150"><span class="annot"><span class="annottext">PurchaseRequest -&gt; PurchaseRequest -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681141863"><span id="local-6989586621681141865"><span class="annot"><span class="annottext">PurchaseRequest -&gt; PurchaseRequest -&gt; Bool
 (PurchaseRequest -&gt; PurchaseRequest -&gt; Bool)
 -&gt; (PurchaseRequest -&gt; PurchaseRequest -&gt; Bool)
 -&gt; Eq PurchaseRequest
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PurchaseRequest -&gt; PurchaseRequest -&gt; Bool
 == :: PurchaseRequest -&gt; PurchaseRequest -&gt; Bool
 $c== :: PurchaseRequest -&gt; PurchaseRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681107139"><span id="local-6989586621681107141"><span id="local-6989586621681107143"><span id="local-6989586621681107145"><span class="annot"><span class="annottext">ReadPrec [PurchaseRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681141854"><span id="local-6989586621681141856"><span id="local-6989586621681141858"><span id="local-6989586621681141860"><span class="annot"><span class="annottext">ReadPrec [PurchaseRequest]
 ReadPrec PurchaseRequest
 Int -&gt; ReadS PurchaseRequest
 ReadS [PurchaseRequest]
@@ -64,7 +64,7 @@ readList :: ReadS [PurchaseRequest]
 $creadList :: ReadS [PurchaseRequest]
 readsPrec :: Int -&gt; ReadS PurchaseRequest
 $creadsPrec :: Int -&gt; ReadS PurchaseRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681107132"><span id="local-6989586621681107134"><span id="local-6989586621681107136"><span class="annot"><span class="annottext">Int -&gt; PurchaseRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681141847"><span id="local-6989586621681141849"><span id="local-6989586621681141851"><span class="annot"><span class="annottext">Int -&gt; PurchaseRequest -&gt; ShowS
 [PurchaseRequest] -&gt; ShowS
 PurchaseRequest -&gt; String
 (Int -&gt; PurchaseRequest -&gt; ShowS)
@@ -108,17 +108,17 @@ $cfrom :: forall x. PurchaseRequest -&gt; Rep PurchaseRequest x
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest"><span class="hs-identifier hs-type">PurchaseRequest</span></a></span><span>
 </span><span id="line-55"></span><span id="newPurchaseRequest"><span class="annot"><span class="annottext">newPurchaseRequest :: Int -&gt; Text -&gt; PurchaseRequest
-</span><a href="Network.AWS.EC2.Types.PurchaseRequest.html#newPurchaseRequest"><span class="hs-identifier hs-var hs-var">newPurchaseRequest</span></a></span></span><span> </span><span id="local-6989586621681107126"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681107126"><span class="hs-identifier hs-var">pInstanceCount_</span></a></span></span><span> </span><span id="local-6989586621681107125"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681107125"><span class="hs-identifier hs-var">pPurchaseToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.Types.PurchaseRequest.html#newPurchaseRequest"><span class="hs-identifier hs-var hs-var">newPurchaseRequest</span></a></span></span><span> </span><span id="local-6989586621681141841"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681141841"><span class="hs-identifier hs-var">pInstanceCount_</span></a></span></span><span> </span><span id="local-6989586621681141840"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681141840"><span class="hs-identifier hs-var">pPurchaseToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">PurchaseRequest' :: Int -&gt; Text -&gt; PurchaseRequest
 </span><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest%27"><span class="hs-identifier hs-type">PurchaseRequest'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceCount:PurchaseRequest' :: Int
 </span><a href="Network.AWS.EC2.Types.PurchaseRequest.html#%24sel%3AinstanceCount%3APurchaseRequest%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681107126"><span class="hs-identifier hs-var">pInstanceCount_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681141841"><span class="hs-identifier hs-var">pInstanceCount_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:purchaseToken:PurchaseRequest' :: Text
 </span><a href="Network.AWS.EC2.Types.PurchaseRequest.html#%24sel%3ApurchaseToken%3APurchaseRequest%27"><span class="hs-identifier hs-var">purchaseToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681107125"><span class="hs-identifier hs-var">pPurchaseToken_</span></a></span><span>
+</span><a href="#local-6989586621681141840"><span class="hs-identifier hs-var">pPurchaseToken_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The number of instances.</span><span>
@@ -128,16 +128,16 @@ $cfrom :: forall x. PurchaseRequest -&gt; Rep PurchaseRequest x
 -&gt; (PurchaseRequest -&gt; Int -&gt; PurchaseRequest)
 -&gt; Lens PurchaseRequest PurchaseRequest Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest%27"><span class="hs-identifier hs-type">PurchaseRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681107121"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest%27"><span class="hs-identifier hs-type">PurchaseRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141836"><span class="annot"><span class="annottext">Int
 instanceCount :: Int
 $sel:instanceCount:PurchaseRequest' :: PurchaseRequest -&gt; Int
-</span><a href="#local-6989586621681107121"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681107121"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681107120"><span class="annot"><span class="annottext">s :: PurchaseRequest
-</span><a href="#local-6989586621681107120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest%27"><span class="hs-identifier hs-type">PurchaseRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681107119"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681107119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseRequest
-</span><a href="#local-6989586621681107120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCount:PurchaseRequest' :: Int
+</span><a href="#local-6989586621681141836"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681141836"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141835"><span class="annot"><span class="annottext">s :: PurchaseRequest
+</span><a href="#local-6989586621681141835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest%27"><span class="hs-identifier hs-type">PurchaseRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141834"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681141834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseRequest
+</span><a href="#local-6989586621681141835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCount:PurchaseRequest' :: Int
 </span><a href="Network.AWS.EC2.Types.PurchaseRequest.html#%24sel%3AinstanceCount%3APurchaseRequest%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681107119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest"><span class="hs-identifier hs-type">PurchaseRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681141834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest"><span class="hs-identifier hs-type">PurchaseRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The purchase token.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#purchaseRequest_purchaseToken"><span class="hs-identifier hs-type">purchaseRequest_purchaseToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest"><span class="hs-identifier hs-type">PurchaseRequest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -146,30 +146,30 @@ $sel:instanceCount:PurchaseRequest' :: PurchaseRequest -&gt; Int
 -&gt; (PurchaseRequest -&gt; Text -&gt; PurchaseRequest)
 -&gt; Lens PurchaseRequest PurchaseRequest Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest%27"><span class="hs-identifier hs-type">PurchaseRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681107117"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest%27"><span class="hs-identifier hs-type">PurchaseRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141832"><span class="annot"><span class="annottext">Text
 purchaseToken :: Text
 $sel:purchaseToken:PurchaseRequest' :: PurchaseRequest -&gt; Text
-</span><a href="#local-6989586621681107117"><span class="hs-identifier hs-var hs-var">purchaseToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681107117"><span class="hs-identifier hs-var">purchaseToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681107116"><span class="annot"><span class="annottext">s :: PurchaseRequest
-</span><a href="#local-6989586621681107116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest%27"><span class="hs-identifier hs-type">PurchaseRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681107115"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681107115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseRequest
-</span><a href="#local-6989586621681107116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:purchaseToken:PurchaseRequest' :: Text
+</span><a href="#local-6989586621681141832"><span class="hs-identifier hs-var hs-var">purchaseToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681141832"><span class="hs-identifier hs-var">purchaseToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141831"><span class="annot"><span class="annottext">s :: PurchaseRequest
+</span><a href="#local-6989586621681141831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest%27"><span class="hs-identifier hs-type">PurchaseRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141830"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681141830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseRequest
+</span><a href="#local-6989586621681141831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:purchaseToken:PurchaseRequest' :: Text
 </span><a href="Network.AWS.EC2.Types.PurchaseRequest.html#%24sel%3ApurchaseToken%3APurchaseRequest%27"><span class="hs-identifier hs-var">purchaseToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681107115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest"><span class="hs-identifier hs-type">PurchaseRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681141830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest"><span class="hs-identifier hs-type">PurchaseRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681107111"><span id="local-6989586621681107113"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest"><span class="hs-identifier hs-type">PurchaseRequest</span></a></span></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681141826"><span id="local-6989586621681141828"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest"><span class="hs-identifier hs-type">PurchaseRequest</span></a></span></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681107108"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest"><span class="hs-identifier hs-type">PurchaseRequest</span></a></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681141823"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest"><span class="hs-identifier hs-type">PurchaseRequest</span></a></span></span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest"><span class="hs-identifier hs-type">PurchaseRequest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621681107104"><span class="annot"><span class="annottext">toQuery :: PurchaseRequest -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest%27"><span class="hs-identifier hs-type">PurchaseRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681107101"><span id="local-6989586621681107102"><span class="annot"><span class="annottext">Int
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621681141819"><span class="annot"><span class="annottext">toQuery :: PurchaseRequest -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest%27"><span class="hs-identifier hs-type">PurchaseRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141816"><span id="local-6989586621681141817"><span class="annot"><span class="annottext">Int
 Text
 purchaseToken :: Text
 instanceCount :: Int
 $sel:purchaseToken:PurchaseRequest' :: PurchaseRequest -&gt; Text
 $sel:instanceCount:PurchaseRequest' :: PurchaseRequest -&gt; Int
-</span><a href="#local-6989586621681107101"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681141816"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -177,11 +177,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;InstanceCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681107102"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681141817"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PurchaseToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681107101"><span class="hs-identifier hs-var">purchaseToken</span></a></span><span>
+</span><a href="#local-6989586621681141816"><span class="hs-identifier hs-var">purchaseToken</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-79"></span></pre></body></html>

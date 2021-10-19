@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The source of the experiment.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newExperimentSource' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680303558"><span id="local-6989586621680303559"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExperimentSource"><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource"><span class="hs-identifier hs-var">ExperimentSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExperimentSource%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource%27"><span class="hs-identifier hs-var">ExperimentSource'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680304933"><span id="local-6989586621680304934"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExperimentSource"><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource"><span class="hs-identifier hs-var">ExperimentSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExperimentSource%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource%27"><span class="hs-identifier hs-var">ExperimentSource'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The source type.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AsourceType%3AExperimentSource%27"><span class="annot"><span class="annottext">ExperimentSource -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#%24sel%3AsourceType%3AExperimentSource%27"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AsourceArn%3AExperimentSource%27"><span class="annot"><span class="annottext">ExperimentSource -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#%24sel%3AsourceArn%3AExperimentSource%27"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680303551"><span id="local-6989586621680303553"><span class="annot"><span class="annottext">ExperimentSource -&gt; ExperimentSource -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680304926"><span id="local-6989586621680304928"><span class="annot"><span class="annottext">ExperimentSource -&gt; ExperimentSource -&gt; Bool
 (ExperimentSource -&gt; ExperimentSource -&gt; Bool)
 -&gt; (ExperimentSource -&gt; ExperimentSource -&gt; Bool)
 -&gt; Eq ExperimentSource
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExperimentSource -&gt; ExperimentSource -&gt; Bool
 == :: ExperimentSource -&gt; ExperimentSource -&gt; Bool
 $c== :: ExperimentSource -&gt; ExperimentSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680303542"><span id="local-6989586621680303544"><span id="local-6989586621680303546"><span id="local-6989586621680303548"><span class="annot"><span class="annottext">ReadPrec [ExperimentSource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680304917"><span id="local-6989586621680304919"><span id="local-6989586621680304921"><span id="local-6989586621680304923"><span class="annot"><span class="annottext">ReadPrec [ExperimentSource]
 ReadPrec ExperimentSource
 Int -&gt; ReadS ExperimentSource
 ReadS [ExperimentSource]
@@ -63,7 +63,7 @@ readList :: ReadS [ExperimentSource]
 $creadList :: ReadS [ExperimentSource]
 readsPrec :: Int -&gt; ReadS ExperimentSource
 $creadsPrec :: Int -&gt; ReadS ExperimentSource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680303535"><span id="local-6989586621680303537"><span id="local-6989586621680303539"><span class="annot"><span class="annottext">Int -&gt; ExperimentSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680304910"><span id="local-6989586621680304912"><span id="local-6989586621680304914"><span class="annot"><span class="annottext">Int -&gt; ExperimentSource -&gt; ShowS
 [ExperimentSource] -&gt; ShowS
 ExperimentSource -&gt; String
 (Int -&gt; ExperimentSource -&gt; ShowS)
@@ -105,8 +105,8 @@ $cfrom :: forall x. ExperimentSource -&gt; Rep ExperimentSource x
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource"><span class="hs-identifier hs-type">ExperimentSource</span></a></span><span>
 </span><span id="line-52"></span><span id="newExperimentSource"><span class="annot"><span class="annottext">newExperimentSource :: Text -&gt; ExperimentSource
-</span><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#newExperimentSource"><span class="hs-identifier hs-var hs-var">newExperimentSource</span></a></span></span><span> </span><span id="local-6989586621680303529"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680303529"><span class="hs-identifier hs-var">pSourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#newExperimentSource"><span class="hs-identifier hs-var hs-var">newExperimentSource</span></a></span></span><span> </span><span id="local-6989586621680304904"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680304904"><span class="hs-identifier hs-var">pSourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">ExperimentSource' :: Maybe Text -&gt; Text -&gt; ExperimentSource
 </span><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource%27"><span class="hs-identifier hs-type">ExperimentSource'</span></a></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceType:ExperimentSource' :: Maybe Text
@@ -115,7 +115,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceArn:ExperimentSource' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#%24sel%3AsourceArn%3AExperimentSource%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680303529"><span class="hs-identifier hs-var">pSourceArn_</span></a></span><span>
+</span><a href="#local-6989586621680304904"><span class="hs-identifier hs-var">pSourceArn_</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | The source type.</span><span>
@@ -126,16 +126,16 @@ forall a. Maybe a
 -&gt; (ExperimentSource -&gt; Maybe Text -&gt; ExperimentSource)
 -&gt; Lens ExperimentSource ExperimentSource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource%27"><span class="hs-identifier hs-type">ExperimentSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680303525"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource%27"><span class="hs-identifier hs-type">ExperimentSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680304900"><span class="annot"><span class="annottext">Maybe Text
 sourceType :: Maybe Text
 $sel:sourceType:ExperimentSource' :: ExperimentSource -&gt; Maybe Text
-</span><a href="#local-6989586621680303525"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680303525"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680303524"><span class="annot"><span class="annottext">s :: ExperimentSource
-</span><a href="#local-6989586621680303524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource%27"><span class="hs-identifier hs-type">ExperimentSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680303523"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680303523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExperimentSource
-</span><a href="#local-6989586621680303524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:ExperimentSource' :: Maybe Text
+</span><a href="#local-6989586621680304900"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680304900"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680304899"><span class="annot"><span class="annottext">s :: ExperimentSource
+</span><a href="#local-6989586621680304899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource%27"><span class="hs-identifier hs-type">ExperimentSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680304898"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680304898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExperimentSource
+</span><a href="#local-6989586621680304899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:ExperimentSource' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#%24sel%3AsourceType%3AExperimentSource%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680303523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource"><span class="hs-identifier hs-type">ExperimentSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680304898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource"><span class="hs-identifier hs-type">ExperimentSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the source.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#experimentSource_sourceArn"><span class="hs-identifier hs-type">experimentSource_sourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource"><span class="hs-identifier hs-type">ExperimentSource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -144,19 +144,19 @@ $sel:sourceType:ExperimentSource' :: ExperimentSource -&gt; Maybe Text
 -&gt; (ExperimentSource -&gt; Text -&gt; ExperimentSource)
 -&gt; Lens ExperimentSource ExperimentSource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource%27"><span class="hs-identifier hs-type">ExperimentSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680303521"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource%27"><span class="hs-identifier hs-type">ExperimentSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680304896"><span class="annot"><span class="annottext">Text
 sourceArn :: Text
 $sel:sourceArn:ExperimentSource' :: ExperimentSource -&gt; Text
-</span><a href="#local-6989586621680303521"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680303521"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680303520"><span class="annot"><span class="annottext">s :: ExperimentSource
-</span><a href="#local-6989586621680303520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource%27"><span class="hs-identifier hs-type">ExperimentSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680303519"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680303519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExperimentSource
-</span><a href="#local-6989586621680303520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceArn:ExperimentSource' :: Text
+</span><a href="#local-6989586621680304896"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680304896"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680304895"><span class="annot"><span class="annottext">s :: ExperimentSource
+</span><a href="#local-6989586621680304895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource%27"><span class="hs-identifier hs-type">ExperimentSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680304894"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680304894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExperimentSource
+</span><a href="#local-6989586621680304895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceArn:ExperimentSource' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#%24sel%3AsourceArn%3AExperimentSource%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680303519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource"><span class="hs-identifier hs-type">ExperimentSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680304894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource"><span class="hs-identifier hs-type">ExperimentSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680303516"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource"><span class="hs-identifier hs-type">ExperimentSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621680303514"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExperimentSource
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680304891"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource"><span class="hs-identifier hs-type">ExperimentSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621680304889"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExperimentSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ExperimentSource)
@@ -166,15 +166,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ExperimentSource&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680303511"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680303511"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680304886"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680304886"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; ExperimentSource
 </span><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource%27"><span class="hs-identifier hs-var">ExperimentSource'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; ExperimentSource)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; ExperimentSource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680303511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680304886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceType&quot;</span></span><span class="hs-special">)</span><span>
@@ -182,13 +182,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser ExperimentSource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680303511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680304886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680303504"><span id="local-6989586621680303506"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource"><span class="hs-identifier hs-type">ExperimentSource</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680304879"><span id="local-6989586621680304881"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource"><span class="hs-identifier hs-type">ExperimentSource</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680303501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource"><span class="hs-identifier hs-type">ExperimentSource</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680304876"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExperimentSource.html#ExperimentSource"><span class="hs-identifier hs-type">ExperimentSource</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

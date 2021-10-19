@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679398651"><span id="local-6989586621679398652"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceStorageResourceType"><span class="annot"><a href="Network.AWS.Connect.Types.InstanceStorageResourceType.html#InstanceStorageResourceType"><span class="hs-identifier hs-var">InstanceStorageResourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceStorageResourceType%27"><span class="annot"><a href="Network.AWS.Connect.Types.InstanceStorageResourceType.html#InstanceStorageResourceType%27"><span class="hs-identifier hs-var">InstanceStorageResourceType'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679398933"><span id="local-6989586621679398934"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceStorageResourceType"><span class="annot"><a href="Network.AWS.Connect.Types.InstanceStorageResourceType.html#InstanceStorageResourceType"><span class="hs-identifier hs-var">InstanceStorageResourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceStorageResourceType%27"><span class="annot"><a href="Network.AWS.Connect.Types.InstanceStorageResourceType.html#InstanceStorageResourceType%27"><span class="hs-identifier hs-var">InstanceStorageResourceType'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceStorageResourceType"><span class="annot"><span class="annottext">InstanceStorageResourceType -&gt; Text
 </span><a href="Network.AWS.Connect.Types.InstanceStorageResourceType.html#fromInstanceStorageResourceType"><span class="hs-identifier hs-var hs-var">fromInstanceStorageResourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398643"><span id="local-6989586621679398645"><span id="local-6989586621679398647"><span class="annot"><span class="annottext">Int -&gt; InstanceStorageResourceType -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398925"><span id="local-6989586621679398927"><span id="local-6989586621679398929"><span class="annot"><span class="annottext">Int -&gt; InstanceStorageResourceType -&gt; ShowS
 [InstanceStorageResourceType] -&gt; ShowS
 InstanceStorageResourceType -&gt; String
 (Int -&gt; InstanceStorageResourceType -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: InstanceStorageResourceType -&gt; String
 showsPrec :: Int -&gt; InstanceStorageResourceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstanceStorageResourceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679398634"><span id="local-6989586621679398636"><span id="local-6989586621679398638"><span id="local-6989586621679398640"><span class="annot"><span class="annottext">ReadPrec [InstanceStorageResourceType]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679398916"><span id="local-6989586621679398918"><span id="local-6989586621679398920"><span id="local-6989586621679398922"><span class="annot"><span class="annottext">ReadPrec [InstanceStorageResourceType]
 ReadPrec InstanceStorageResourceType
 Int -&gt; ReadS InstanceStorageResourceType
 ReadS [InstanceStorageResourceType]
@@ -76,7 +76,7 @@ $creadList :: ReadS [InstanceStorageResourceType]
 readsPrec :: Int -&gt; ReadS InstanceStorageResourceType
 $creadsPrec :: Int -&gt; ReadS InstanceStorageResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679398629"><span id="local-6989586621679398631"><span class="annot"><span class="annottext">InstanceStorageResourceType -&gt; InstanceStorageResourceType -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679398911"><span id="local-6989586621679398913"><span class="annot"><span class="annottext">InstanceStorageResourceType -&gt; InstanceStorageResourceType -&gt; Bool
 (InstanceStorageResourceType
  -&gt; InstanceStorageResourceType -&gt; Bool)
 -&gt; (InstanceStorageResourceType
@@ -88,7 +88,7 @@ $c/= :: InstanceStorageResourceType -&gt; InstanceStorageResourceType -&gt; Bool
 == :: InstanceStorageResourceType -&gt; InstanceStorageResourceType -&gt; Bool
 $c== :: InstanceStorageResourceType -&gt; InstanceStorageResourceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679398613"><span id="local-6989586621679398615"><span id="local-6989586621679398617"><span id="local-6989586621679398619"><span id="local-6989586621679398621"><span id="local-6989586621679398623"><span id="local-6989586621679398625"><span class="annot"><span class="annottext">Eq InstanceStorageResourceType
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679398895"><span id="local-6989586621679398897"><span id="local-6989586621679398899"><span id="local-6989586621679398901"><span id="local-6989586621679398903"><span id="local-6989586621679398905"><span id="local-6989586621679398907"><span class="annot"><span class="annottext">Eq InstanceStorageResourceType
 Eq InstanceStorageResourceType
 -&gt; (InstanceStorageResourceType
     -&gt; InstanceStorageResourceType -&gt; Ordering)
@@ -160,7 +160,7 @@ InstanceStorageResourceType -&gt; Rep InstanceStorageResourceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398605"><span id="local-6989586621679398607"><span class="annot"><span class="annottext">Int -&gt; InstanceStorageResourceType -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398887"><span id="local-6989586621679398889"><span class="annot"><span class="annottext">Int -&gt; InstanceStorageResourceType -&gt; Int
 InstanceStorageResourceType -&gt; Int
 (Int -&gt; InstanceStorageResourceType -&gt; Int)
 -&gt; (InstanceStorageResourceType -&gt; Int)
@@ -171,56 +171,56 @@ $chash :: InstanceStorageResourceType -&gt; Int
 hashWithSalt :: Int -&gt; InstanceStorageResourceType -&gt; Int
 $chashWithSalt :: Int -&gt; InstanceStorageResourceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679398602"><span class="annot"><span class="annottext">InstanceStorageResourceType -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679398884"><span class="annot"><span class="annottext">InstanceStorageResourceType -&gt; ()
 (InstanceStorageResourceType -&gt; ())
 -&gt; NFData InstanceStorageResourceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstanceStorageResourceType -&gt; ()
 $crnf :: InstanceStorageResourceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679398599"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceStorageResourceType
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679398881"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceStorageResourceType
 (Text -&gt; Either String InstanceStorageResourceType)
 -&gt; FromText InstanceStorageResourceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstanceStorageResourceType
 $cfromText :: Text -&gt; Either String InstanceStorageResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679398596"><span class="annot"><span class="annottext">InstanceStorageResourceType -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679398878"><span class="annot"><span class="annottext">InstanceStorageResourceType -&gt; Text
 (InstanceStorageResourceType -&gt; Text)
 -&gt; ToText InstanceStorageResourceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstanceStorageResourceType -&gt; Text
 $ctoText :: InstanceStorageResourceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679398593"><span class="annot"><span class="annottext">InstanceStorageResourceType -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679398875"><span class="annot"><span class="annottext">InstanceStorageResourceType -&gt; ByteString
 (InstanceStorageResourceType -&gt; ByteString)
 -&gt; ToByteString InstanceStorageResourceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstanceStorageResourceType -&gt; ByteString
 $ctoBS :: InstanceStorageResourceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679398590"><span class="annot"><span class="annottext">InstanceStorageResourceType -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679398872"><span class="annot"><span class="annottext">InstanceStorageResourceType -&gt; ByteStringBuilder
 (InstanceStorageResourceType -&gt; ByteStringBuilder)
 -&gt; ToLog InstanceStorageResourceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstanceStorageResourceType -&gt; ByteStringBuilder
 $cbuild :: InstanceStorageResourceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679398587"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceStorageResourceType -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679398869"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceStorageResourceType -&gt; [Header]
 (HeaderName -&gt; InstanceStorageResourceType -&gt; [Header])
 -&gt; ToHeader InstanceStorageResourceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstanceStorageResourceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstanceStorageResourceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679398584"><span class="annot"><span class="annottext">InstanceStorageResourceType -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679398866"><span class="annot"><span class="annottext">InstanceStorageResourceType -&gt; QueryString
 (InstanceStorageResourceType -&gt; QueryString)
 -&gt; ToQuery InstanceStorageResourceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstanceStorageResourceType -&gt; QueryString
 $ctoQuery :: InstanceStorageResourceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679398579"><span id="local-6989586621679398581"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceStorageResourceType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679398861"><span id="local-6989586621679398863"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceStorageResourceType]
 Value -&gt; Parser InstanceStorageResourceType
 (Value -&gt; Parser InstanceStorageResourceType)
 -&gt; (Value -&gt; Parser [InstanceStorageResourceType])
@@ -232,7 +232,7 @@ $cparseJSONList :: Value -&gt; Parser [InstanceStorageResourceType]
 parseJSON :: Value -&gt; Parser InstanceStorageResourceType
 $cparseJSON :: Value -&gt; Parser InstanceStorageResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679398574"><span id="local-6989586621679398576"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceStorageResourceType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679398856"><span id="local-6989586621679398858"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceStorageResourceType]
 FromJSONKeyFunction InstanceStorageResourceType
 FromJSONKeyFunction InstanceStorageResourceType
 -&gt; FromJSONKeyFunction [InstanceStorageResourceType]
@@ -244,7 +244,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstanceStorageResourceType]
 fromJSONKey :: FromJSONKeyFunction InstanceStorageResourceType
 $cfromJSONKey :: FromJSONKeyFunction InstanceStorageResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679398565"><span id="local-6989586621679398567"><span id="local-6989586621679398569"><span id="local-6989586621679398571"><span class="annot"><span class="annottext">[InstanceStorageResourceType] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679398847"><span id="local-6989586621679398849"><span id="local-6989586621679398851"><span id="local-6989586621679398853"><span class="annot"><span class="annottext">[InstanceStorageResourceType] -&gt; Encoding
 [InstanceStorageResourceType] -&gt; Value
 InstanceStorageResourceType -&gt; Encoding
 InstanceStorageResourceType -&gt; Value
@@ -268,7 +268,7 @@ $ctoEncoding :: InstanceStorageResourceType -&gt; Encoding
 toJSON :: InstanceStorageResourceType -&gt; Value
 $ctoJSON :: InstanceStorageResourceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679398560"><span id="local-6989586621679398562"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceStorageResourceType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679398842"><span id="local-6989586621679398844"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceStorageResourceType]
 ToJSONKeyFunction InstanceStorageResourceType
 ToJSONKeyFunction InstanceStorageResourceType
 -&gt; ToJSONKeyFunction [InstanceStorageResourceType]
@@ -280,14 +280,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstanceStorageResourceType]
 toJSONKey :: ToJSONKeyFunction InstanceStorageResourceType
 $ctoJSONKey :: ToJSONKeyFunction InstanceStorageResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679398557"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceStorageResourceType
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679398839"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceStorageResourceType
 ([Node] -&gt; Either String InstanceStorageResourceType)
 -&gt; FromXML InstanceStorageResourceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstanceStorageResourceType
 $cparseXML :: [Node] -&gt; Either String InstanceStorageResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679398554"><span class="annot"><span class="annottext">InstanceStorageResourceType -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679398836"><span class="annot"><span class="annottext">InstanceStorageResourceType -&gt; XML
 (InstanceStorageResourceType -&gt; XML)
 -&gt; ToXML InstanceStorageResourceType
 forall a. (a -&gt; XML) -&gt; ToXML a

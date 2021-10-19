@@ -31,38 +31,38 @@
 </span><span id="line-31"></span><span class="hs-comment">-- export job.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newJobListEntry' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679225765"><span id="local-6989586621679225766"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobListEntry"><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-var">JobListEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobListEntry%27"><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-var">JobListEntry'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value that indicates that this job is a main job. A main job</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- represents a successful request to create an export job. Main jobs</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- aren\'t associated with any Snowballs. Instead, each main job will have</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- at least one job part, and each job part is associated with a Snowball.</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- It might take some time before the job parts associated with a</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- particular main job are listed, because they are created after the main</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- job is created.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AisMaster%3AJobListEntry%27"><span class="annot"><span class="annottext">JobListEntry -&gt; Maybe Bool
-</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AisMaster%3AJobListEntry%27"><span class="hs-identifier hs-var hs-var">isMaster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The current state of this job.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AjobState%3AJobListEntry%27"><span class="annot"><span class="annottext">JobListEntry -&gt; Maybe JobState
-</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AjobState%3AJobListEntry%27"><span class="hs-identifier hs-var hs-var">jobState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The creation date for this job.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AcreationDate%3AJobListEntry%27"><span class="annot"><span class="annottext">JobListEntry -&gt; Maybe POSIX
-</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AcreationDate%3AJobListEntry%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The type of job.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AjobType%3AJobListEntry%27"><span class="annot"><span class="annottext">JobListEntry -&gt; Maybe JobType
+</span><span id="line-34"></span><span id="local-6989586621679225825"><span id="local-6989586621679225826"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobListEntry"><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-var">JobListEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobListEntry%27"><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-var">JobListEntry'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of job.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AjobType%3AJobListEntry%27"><span class="annot"><span class="annottext">JobListEntry -&gt; Maybe JobType
 </span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AjobType%3AJobListEntry%27"><span class="hs-identifier hs-var hs-var">jobType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The type of device used with this job.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AsnowballType%3AJobListEntry%27"><span class="annot"><span class="annottext">JobListEntry -&gt; Maybe SnowballType
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The automatically generated ID for a job, for example</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @JID123e4567-e89b-12d3-a456-426655440000@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AjobId%3AJobListEntry%27"><span class="annot"><span class="annottext">JobListEntry -&gt; Maybe Text
+</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AjobId%3AJobListEntry%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The current state of this job.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AjobState%3AJobListEntry%27"><span class="annot"><span class="annottext">JobListEntry -&gt; Maybe JobState
+</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AjobState%3AJobListEntry%27"><span class="hs-identifier hs-var hs-var">jobState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The type of device used with this job.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AsnowballType%3AJobListEntry%27"><span class="annot"><span class="annottext">JobListEntry -&gt; Maybe SnowballType
 </span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AsnowballType%3AJobListEntry%27"><span class="hs-identifier hs-var hs-var">snowballType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.SnowballType.html#SnowballType"><span class="hs-identifier hs-type">SnowballType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The optional description of this specific job, for example</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- @Important Photos 2016-08-11@.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3Adescription%3AJobListEntry%27"><span class="annot"><span class="annottext">JobListEntry -&gt; Maybe Text
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The creation date for this job.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcreationDate%3AJobListEntry%27"><span class="annot"><span class="annottext">JobListEntry -&gt; Maybe POSIX
+</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AcreationDate%3AJobListEntry%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The optional description of this specific job, for example</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- @Important Photos 2016-08-11@.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Adescription%3AJobListEntry%27"><span class="annot"><span class="annottext">JobListEntry -&gt; Maybe Text
 </span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3Adescription%3AJobListEntry%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The automatically generated ID for a job, for example</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- @JID123e4567-e89b-12d3-a456-426655440000@.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AjobId%3AJobListEntry%27"><span class="annot"><span class="annottext">JobListEntry -&gt; Maybe Text
-</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AjobId%3AJobListEntry%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | A value that indicates that this job is a main job. A main job</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- represents a successful request to create an export job. Main jobs</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- aren\'t associated with any Snowballs. Instead, each main job will have</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- at least one job part, and each job part is associated with a Snowball.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- It might take some time before the job parts associated with a</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- particular main job are listed, because they are created after the main</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- job is created.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AisMaster%3AJobListEntry%27"><span class="annot"><span class="annottext">JobListEntry -&gt; Maybe Bool
+</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AisMaster%3AJobListEntry%27"><span class="hs-identifier hs-var hs-var">isMaster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225753"><span id="local-6989586621679225755"><span class="annot"><span class="annottext">JobListEntry -&gt; JobListEntry -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225813"><span id="local-6989586621679225815"><span class="annot"><span class="annottext">JobListEntry -&gt; JobListEntry -&gt; Bool
 (JobListEntry -&gt; JobListEntry -&gt; Bool)
 -&gt; (JobListEntry -&gt; JobListEntry -&gt; Bool) -&gt; Eq JobListEntry
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JobListEntry -&gt; JobListEntry -&gt; Bool
 == :: JobListEntry -&gt; JobListEntry -&gt; Bool
 $c== :: JobListEntry -&gt; JobListEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225744"><span id="local-6989586621679225746"><span id="local-6989586621679225748"><span id="local-6989586621679225750"><span class="annot"><span class="annottext">ReadPrec [JobListEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225804"><span id="local-6989586621679225806"><span id="local-6989586621679225808"><span id="local-6989586621679225810"><span class="annot"><span class="annottext">ReadPrec [JobListEntry]
 ReadPrec JobListEntry
 Int -&gt; ReadS JobListEntry
 ReadS [JobListEntry]
@@ -90,7 +90,7 @@ readList :: ReadS [JobListEntry]
 $creadList :: ReadS [JobListEntry]
 readsPrec :: Int -&gt; ReadS JobListEntry
 $creadsPrec :: Int -&gt; ReadS JobListEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225737"><span id="local-6989586621679225739"><span id="local-6989586621679225741"><span class="annot"><span class="annottext">Int -&gt; JobListEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225797"><span id="local-6989586621679225799"><span id="local-6989586621679225801"><span class="annot"><span class="annottext">Int -&gt; JobListEntry -&gt; ShowS
 [JobListEntry] -&gt; ShowS
 JobListEntry -&gt; String
 (Int -&gt; JobListEntry -&gt; ShowS)
@@ -124,131 +124,165 @@ $cfrom :: forall x. JobListEntry -&gt; Rep JobListEntry x
 </span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'isMaster', 'jobListEntry_isMaster' - A value that indicates that this job is a main job. A main job</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- represents a successful request to create an export job. Main jobs</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- aren\'t associated with any Snowballs. Instead, each main job will have</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- at least one job part, and each job part is associated with a Snowball.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- It might take some time before the job parts associated with a</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- particular main job are listed, because they are created after the main</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- job is created.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'jobState', 'jobListEntry_jobState' - The current state of this job.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'creationDate', 'jobListEntry_creationDate' - The creation date for this job.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'jobType', 'jobListEntry_jobType' - The type of job.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'jobType', 'jobListEntry_jobType' - The type of job.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'jobId', 'jobListEntry_jobId' - The automatically generated ID for a job, for example</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- @JID123e4567-e89b-12d3-a456-426655440000@.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'jobState', 'jobListEntry_jobState' - The current state of this job.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'snowballType', 'jobListEntry_snowballType' - The type of device used with this job.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'creationDate', 'jobListEntry_creationDate' - The creation date for this job.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'description', 'jobListEntry_description' - The optional description of this specific job, for example</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- @Important Photos 2016-08-11@.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'snowballType', 'jobListEntry_snowballType' - The type of device used with this job.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'description', 'jobListEntry_description' - The optional description of this specific job, for example</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- @Important Photos 2016-08-11@.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'jobId', 'jobListEntry_jobId' - The automatically generated ID for a job, for example</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- @JID123e4567-e89b-12d3-a456-426655440000@.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'isMaster', 'jobListEntry_isMaster' - A value that indicates that this job is a main job. A main job</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- represents a successful request to create an export job. Main jobs</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- aren\'t associated with any Snowballs. Instead, each main job will have</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- at least one job part, and each job part is associated with a Snowball.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- It might take some time before the job parts associated with a</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- particular main job are listed, because they are created after the main</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- job is created.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#newJobListEntry"><span class="hs-identifier hs-type">newJobListEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span>
 </span><span id="line-91"></span><span id="newJobListEntry"><span class="annot"><span class="annottext">newJobListEntry :: JobListEntry
 </span><a href="Network.AWS.Snowball.Types.JobListEntry.html#newJobListEntry"><span class="hs-identifier hs-var hs-var">newJobListEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">JobListEntry' :: Maybe Bool
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">JobListEntry' :: Maybe JobType
+-&gt; Maybe Text
 -&gt; Maybe JobState
--&gt; Maybe POSIX
--&gt; Maybe JobType
 -&gt; Maybe SnowballType
+-&gt; Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; JobListEntry
 </span><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:isMaster:JobListEntry' :: Maybe Bool
-</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AisMaster%3AJobListEntry%27"><span class="hs-identifier hs-var">isMaster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobState:JobListEntry' :: Maybe JobState
-</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AjobState%3AJobListEntry%27"><span class="hs-identifier hs-var">jobState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobState
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:JobListEntry' :: Maybe POSIX
-</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AcreationDate%3AJobListEntry%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobType:JobListEntry' :: Maybe JobType
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobType:JobListEntry' :: Maybe JobType
 </span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AjobType%3AJobListEntry%27"><span class="hs-identifier hs-var">jobType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:snowballType:JobListEntry' :: Maybe SnowballType
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:JobListEntry' :: Maybe Text
+</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AjobId%3AJobListEntry%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobState:JobListEntry' :: Maybe JobState
+</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AjobState%3AJobListEntry%27"><span class="hs-identifier hs-var">jobState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:snowballType:JobListEntry' :: Maybe SnowballType
 </span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AsnowballType%3AJobListEntry%27"><span class="hs-identifier hs-var">snowballType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnowballType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:JobListEntry' :: Maybe POSIX
+</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AcreationDate%3AJobListEntry%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:JobListEntry' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3Adescription%3AJobListEntry%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:JobListEntry' :: Maybe Text
-</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AjobId%3AJobListEntry%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:isMaster:JobListEntry' :: Maybe Bool
+</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AisMaster%3AJobListEntry%27"><span class="hs-identifier hs-var">isMaster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | A value that indicates that this job is a main job. A main job</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- represents a successful request to create an export job. Main jobs</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- aren\'t associated with any Snowballs. Instead, each main job will have</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- at least one job part, and each job part is associated with a Snowball.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- It might take some time before the job parts associated with a</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- particular main job are listed, because they are created after the main</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- job is created.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_isMaster"><span class="hs-identifier hs-type">jobListEntry_isMaster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="jobListEntry_isMaster"><span class="annot"><span class="annottext">jobListEntry_isMaster :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; JobListEntry -&gt; f JobListEntry
-</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_isMaster"><span class="hs-identifier hs-var hs-var">jobListEntry_isMaster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobListEntry -&gt; Maybe Bool)
--&gt; (JobListEntry -&gt; Maybe Bool -&gt; JobListEntry)
--&gt; Lens JobListEntry JobListEntry (Maybe Bool) (Maybe Bool)
+</span><span id="line-102"></span><span class="hs-comment">-- | The type of job.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_jobType"><span class="hs-identifier hs-type">jobListEntry_jobType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="jobListEntry_jobType"><span class="annot"><span class="annottext">jobListEntry_jobType :: (Maybe JobType -&gt; f (Maybe JobType))
+-&gt; JobListEntry -&gt; f JobListEntry
+</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_jobType"><span class="hs-identifier hs-var hs-var">jobListEntry_jobType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobListEntry -&gt; Maybe JobType)
+-&gt; (JobListEntry -&gt; Maybe JobType -&gt; JobListEntry)
+-&gt; Lens JobListEntry JobListEntry (Maybe JobType) (Maybe JobType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225728"><span class="annot"><span class="annottext">Maybe Bool
-isMaster :: Maybe Bool
-$sel:isMaster:JobListEntry' :: JobListEntry -&gt; Maybe Bool
-</span><a href="#local-6989586621679225728"><span class="hs-identifier hs-var hs-var">isMaster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679225728"><span class="hs-identifier hs-var">isMaster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225727"><span class="annot"><span class="annottext">s :: JobListEntry
-</span><a href="#local-6989586621679225727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225726"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679225726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobListEntry
-</span><a href="#local-6989586621679225727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isMaster:JobListEntry' :: Maybe Bool
-</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AisMaster%3AJobListEntry%27"><span class="hs-identifier hs-var">isMaster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679225726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | The current state of this job.</span><span>
-</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_jobState"><span class="hs-identifier hs-type">jobListEntry_jobState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span id="jobListEntry_jobState"><span class="annot"><span class="annottext">jobListEntry_jobState :: (Maybe JobState -&gt; f (Maybe JobState))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225788"><span class="annot"><span class="annottext">Maybe JobType
+jobType :: Maybe JobType
+$sel:jobType:JobListEntry' :: JobListEntry -&gt; Maybe JobType
+</span><a href="#local-6989586621679225788"><span class="hs-identifier hs-var hs-var">jobType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobType
+</span><a href="#local-6989586621679225788"><span class="hs-identifier hs-var">jobType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225787"><span class="annot"><span class="annottext">s :: JobListEntry
+</span><a href="#local-6989586621679225787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225786"><span class="annot"><span class="annottext">Maybe JobType
+</span><a href="#local-6989586621679225786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobListEntry
+</span><a href="#local-6989586621679225787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobType:JobListEntry' :: Maybe JobType
+</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AjobType%3AJobListEntry%27"><span class="hs-identifier hs-var">jobType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobType
+</span><a href="#local-6989586621679225786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The automatically generated ID for a job, for example</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- @JID123e4567-e89b-12d3-a456-426655440000@.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_jobId"><span class="hs-identifier hs-type">jobListEntry_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="jobListEntry_jobId"><span class="annot"><span class="annottext">jobListEntry_jobId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; JobListEntry -&gt; f JobListEntry
+</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_jobId"><span class="hs-identifier hs-var hs-var">jobListEntry_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobListEntry -&gt; Maybe Text)
+-&gt; (JobListEntry -&gt; Maybe Text -&gt; JobListEntry)
+-&gt; Lens JobListEntry JobListEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225784"><span class="annot"><span class="annottext">Maybe Text
+jobId :: Maybe Text
+$sel:jobId:JobListEntry' :: JobListEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679225784"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225784"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225783"><span class="annot"><span class="annottext">s :: JobListEntry
+</span><a href="#local-6989586621679225783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225782"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobListEntry
+</span><a href="#local-6989586621679225783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:JobListEntry' :: Maybe Text
+</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AjobId%3AJobListEntry%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The current state of this job.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_jobState"><span class="hs-identifier hs-type">jobListEntry_jobState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="jobListEntry_jobState"><span class="annot"><span class="annottext">jobListEntry_jobState :: (Maybe JobState -&gt; f (Maybe JobState))
 -&gt; JobListEntry -&gt; f JobListEntry
 </span><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_jobState"><span class="hs-identifier hs-var hs-var">jobListEntry_jobState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobListEntry -&gt; Maybe JobState)
 -&gt; (JobListEntry -&gt; Maybe JobState -&gt; JobListEntry)
 -&gt; Lens JobListEntry JobListEntry (Maybe JobState) (Maybe JobState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225724"><span class="annot"><span class="annottext">Maybe JobState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225780"><span class="annot"><span class="annottext">Maybe JobState
 jobState :: Maybe JobState
 $sel:jobState:JobListEntry' :: JobListEntry -&gt; Maybe JobState
-</span><a href="#local-6989586621679225724"><span class="hs-identifier hs-var hs-var">jobState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobState
-</span><a href="#local-6989586621679225724"><span class="hs-identifier hs-var">jobState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225723"><span class="annot"><span class="annottext">s :: JobListEntry
-</span><a href="#local-6989586621679225723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225722"><span class="annot"><span class="annottext">Maybe JobState
-</span><a href="#local-6989586621679225722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobListEntry
-</span><a href="#local-6989586621679225723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobState:JobListEntry' :: Maybe JobState
+</span><a href="#local-6989586621679225780"><span class="hs-identifier hs-var hs-var">jobState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobState
+</span><a href="#local-6989586621679225780"><span class="hs-identifier hs-var">jobState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225779"><span class="annot"><span class="annottext">s :: JobListEntry
+</span><a href="#local-6989586621679225779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225778"><span class="annot"><span class="annottext">Maybe JobState
+</span><a href="#local-6989586621679225778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobListEntry
+</span><a href="#local-6989586621679225779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobState:JobListEntry' :: Maybe JobState
 </span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AjobState%3AJobListEntry%27"><span class="hs-identifier hs-var">jobState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobState
-</span><a href="#local-6989586621679225722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | The creation date for this job.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_creationDate"><span class="hs-identifier hs-type">jobListEntry_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="jobListEntry_creationDate"><span class="annot"><span class="annottext">jobListEntry_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679225778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The type of device used with this job.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_snowballType"><span class="hs-identifier hs-type">jobListEntry_snowballType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.SnowballType.html#SnowballType"><span class="hs-identifier hs-type">SnowballType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="jobListEntry_snowballType"><span class="annot"><span class="annottext">jobListEntry_snowballType :: (Maybe SnowballType -&gt; f (Maybe SnowballType))
+-&gt; JobListEntry -&gt; f JobListEntry
+</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_snowballType"><span class="hs-identifier hs-var hs-var">jobListEntry_snowballType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobListEntry -&gt; Maybe SnowballType)
+-&gt; (JobListEntry -&gt; Maybe SnowballType -&gt; JobListEntry)
+-&gt; Lens
+     JobListEntry JobListEntry (Maybe SnowballType) (Maybe SnowballType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225776"><span class="annot"><span class="annottext">Maybe SnowballType
+snowballType :: Maybe SnowballType
+$sel:snowballType:JobListEntry' :: JobListEntry -&gt; Maybe SnowballType
+</span><a href="#local-6989586621679225776"><span class="hs-identifier hs-var hs-var">snowballType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SnowballType
+</span><a href="#local-6989586621679225776"><span class="hs-identifier hs-var">snowballType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225775"><span class="annot"><span class="annottext">s :: JobListEntry
+</span><a href="#local-6989586621679225775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225774"><span class="annot"><span class="annottext">Maybe SnowballType
+</span><a href="#local-6989586621679225774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobListEntry
+</span><a href="#local-6989586621679225775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snowballType:JobListEntry' :: Maybe SnowballType
+</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AsnowballType%3AJobListEntry%27"><span class="hs-identifier hs-var">snowballType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnowballType
+</span><a href="#local-6989586621679225774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The creation date for this job.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_creationDate"><span class="hs-identifier hs-type">jobListEntry_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="jobListEntry_creationDate"><span class="annot"><span class="annottext">jobListEntry_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; JobListEntry -&gt; f JobListEntry
 </span><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_creationDate"><span class="hs-identifier hs-var hs-var">jobListEntry_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobListEntry -&gt; Maybe POSIX)
 -&gt; (JobListEntry -&gt; Maybe POSIX -&gt; JobListEntry)
 -&gt; Lens JobListEntry JobListEntry (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225720"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225772"><span class="annot"><span class="annottext">Maybe POSIX
 creationDate :: Maybe POSIX
 $sel:creationDate:JobListEntry' :: JobListEntry -&gt; Maybe POSIX
-</span><a href="#local-6989586621679225720"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679225720"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225719"><span class="annot"><span class="annottext">s :: JobListEntry
-</span><a href="#local-6989586621679225719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225718"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679225718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobListEntry
-</span><a href="#local-6989586621679225719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:JobListEntry' :: Maybe POSIX
+</span><a href="#local-6989586621679225772"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679225772"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225771"><span class="annot"><span class="annottext">s :: JobListEntry
+</span><a href="#local-6989586621679225771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225770"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679225770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobListEntry
+</span><a href="#local-6989586621679225771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:JobListEntry' :: Maybe POSIX
 </span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AcreationDate%3AJobListEntry%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679225718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679225770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; JobListEntry -&gt; f JobListEntry)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -264,86 +298,52 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | The type of job.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_jobType"><span class="hs-identifier hs-type">jobListEntry_jobType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="jobListEntry_jobType"><span class="annot"><span class="annottext">jobListEntry_jobType :: (Maybe JobType -&gt; f (Maybe JobType))
--&gt; JobListEntry -&gt; f JobListEntry
-</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_jobType"><span class="hs-identifier hs-var hs-var">jobListEntry_jobType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobListEntry -&gt; Maybe JobType)
--&gt; (JobListEntry -&gt; Maybe JobType -&gt; JobListEntry)
--&gt; Lens JobListEntry JobListEntry (Maybe JobType) (Maybe JobType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225713"><span class="annot"><span class="annottext">Maybe JobType
-jobType :: Maybe JobType
-$sel:jobType:JobListEntry' :: JobListEntry -&gt; Maybe JobType
-</span><a href="#local-6989586621679225713"><span class="hs-identifier hs-var hs-var">jobType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobType
-</span><a href="#local-6989586621679225713"><span class="hs-identifier hs-var">jobType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225712"><span class="annot"><span class="annottext">s :: JobListEntry
-</span><a href="#local-6989586621679225712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225711"><span class="annot"><span class="annottext">Maybe JobType
-</span><a href="#local-6989586621679225711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobListEntry
-</span><a href="#local-6989586621679225712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobType:JobListEntry' :: Maybe JobType
-</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AjobType%3AJobListEntry%27"><span class="hs-identifier hs-var">jobType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobType
-</span><a href="#local-6989586621679225711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | The type of device used with this job.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_snowballType"><span class="hs-identifier hs-type">jobListEntry_snowballType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.SnowballType.html#SnowballType"><span class="hs-identifier hs-type">SnowballType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="jobListEntry_snowballType"><span class="annot"><span class="annottext">jobListEntry_snowballType :: (Maybe SnowballType -&gt; f (Maybe SnowballType))
--&gt; JobListEntry -&gt; f JobListEntry
-</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_snowballType"><span class="hs-identifier hs-var hs-var">jobListEntry_snowballType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobListEntry -&gt; Maybe SnowballType)
--&gt; (JobListEntry -&gt; Maybe SnowballType -&gt; JobListEntry)
--&gt; Lens
-     JobListEntry JobListEntry (Maybe SnowballType) (Maybe SnowballType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225709"><span class="annot"><span class="annottext">Maybe SnowballType
-snowballType :: Maybe SnowballType
-$sel:snowballType:JobListEntry' :: JobListEntry -&gt; Maybe SnowballType
-</span><a href="#local-6989586621679225709"><span class="hs-identifier hs-var hs-var">snowballType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SnowballType
-</span><a href="#local-6989586621679225709"><span class="hs-identifier hs-var">snowballType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225708"><span class="annot"><span class="annottext">s :: JobListEntry
-</span><a href="#local-6989586621679225708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225707"><span class="annot"><span class="annottext">Maybe SnowballType
-</span><a href="#local-6989586621679225707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobListEntry
-</span><a href="#local-6989586621679225708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snowballType:JobListEntry' :: Maybe SnowballType
-</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AsnowballType%3AJobListEntry%27"><span class="hs-identifier hs-var">snowballType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnowballType
-</span><a href="#local-6989586621679225707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The optional description of this specific job, for example</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- @Important Photos 2016-08-11@.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_description"><span class="hs-identifier hs-type">jobListEntry_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="jobListEntry_description"><span class="annot"><span class="annottext">jobListEntry_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; JobListEntry -&gt; f JobListEntry
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The optional description of this specific job, for example</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- @Important Photos 2016-08-11@.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_description"><span class="hs-identifier hs-type">jobListEntry_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="jobListEntry_description"><span class="annot"><span class="annottext">jobListEntry_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; JobListEntry -&gt; f JobListEntry
 </span><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_description"><span class="hs-identifier hs-var hs-var">jobListEntry_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobListEntry -&gt; Maybe Text)
 -&gt; (JobListEntry -&gt; Maybe Text -&gt; JobListEntry)
 -&gt; Lens JobListEntry JobListEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225705"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225765"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:JobListEntry' :: JobListEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679225705"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225705"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225704"><span class="annot"><span class="annottext">s :: JobListEntry
-</span><a href="#local-6989586621679225704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225703"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobListEntry
-</span><a href="#local-6989586621679225704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:JobListEntry' :: Maybe Text
+</span><a href="#local-6989586621679225765"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225765"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225764"><span class="annot"><span class="annottext">s :: JobListEntry
+</span><a href="#local-6989586621679225764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225763"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobListEntry
+</span><a href="#local-6989586621679225764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:JobListEntry' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3Adescription%3AJobListEntry%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | The automatically generated ID for a job, for example</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- @JID123e4567-e89b-12d3-a456-426655440000@.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_jobId"><span class="hs-identifier hs-type">jobListEntry_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="jobListEntry_jobId"><span class="annot"><span class="annottext">jobListEntry_jobId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; JobListEntry -&gt; f JobListEntry
-</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_jobId"><span class="hs-identifier hs-var hs-var">jobListEntry_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobListEntry -&gt; Maybe Text)
--&gt; (JobListEntry -&gt; Maybe Text -&gt; JobListEntry)
--&gt; Lens JobListEntry JobListEntry (Maybe Text) (Maybe Text)
+</span><a href="#local-6989586621679225763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | A value that indicates that this job is a main job. A main job</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- represents a successful request to create an export job. Main jobs</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- aren\'t associated with any Snowballs. Instead, each main job will have</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- at least one job part, and each job part is associated with a Snowball.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- It might take some time before the job parts associated with a</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- particular main job are listed, because they are created after the main</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- job is created.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_isMaster"><span class="hs-identifier hs-type">jobListEntry_isMaster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="jobListEntry_isMaster"><span class="annot"><span class="annottext">jobListEntry_isMaster :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; JobListEntry -&gt; f JobListEntry
+</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#jobListEntry_isMaster"><span class="hs-identifier hs-var hs-var">jobListEntry_isMaster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobListEntry -&gt; Maybe Bool)
+-&gt; (JobListEntry -&gt; Maybe Bool -&gt; JobListEntry)
+-&gt; Lens JobListEntry JobListEntry (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225701"><span class="annot"><span class="annottext">Maybe Text
-jobId :: Maybe Text
-$sel:jobId:JobListEntry' :: JobListEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679225701"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225701"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225700"><span class="annot"><span class="annottext">s :: JobListEntry
-</span><a href="#local-6989586621679225700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225699"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobListEntry
-</span><a href="#local-6989586621679225700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:JobListEntry' :: Maybe Text
-</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AjobId%3AJobListEntry%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225761"><span class="annot"><span class="annottext">Maybe Bool
+isMaster :: Maybe Bool
+$sel:isMaster:JobListEntry' :: JobListEntry -&gt; Maybe Bool
+</span><a href="#local-6989586621679225761"><span class="hs-identifier hs-var hs-var">isMaster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679225761"><span class="hs-identifier hs-var">isMaster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225760"><span class="annot"><span class="annottext">s :: JobListEntry
+</span><a href="#local-6989586621679225760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-type">JobListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225759"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679225759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobListEntry
+</span><a href="#local-6989586621679225760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isMaster:JobListEntry' :: Maybe Bool
+</span><a href="Network.AWS.Snowball.Types.JobListEntry.html#%24sel%3AisMaster%3AJobListEntry%27"><span class="hs-identifier hs-var">isMaster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679225759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225696"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679225694"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobListEntry
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225756"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679225754"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobListEntry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JobListEntry) -&gt; Value -&gt; Parser JobListEntry
@@ -351,120 +351,118 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JobListEntry&quot;</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225691"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225691"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225751"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225751"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe JobType
+-&gt; Maybe Text
 -&gt; Maybe JobState
--&gt; Maybe POSIX
--&gt; Maybe JobType
 -&gt; Maybe SnowballType
+-&gt; Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; JobListEntry
 </span><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry%27"><span class="hs-identifier hs-var">JobListEntry'</span></a></span><span>
-</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Maybe JobType
+ -&gt; Maybe Text
  -&gt; Maybe JobState
- -&gt; Maybe POSIX
- -&gt; Maybe JobType
  -&gt; Maybe SnowballType
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
- -&gt; Maybe Text
+ -&gt; Maybe Bool
  -&gt; JobListEntry)
--&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe JobType)
 -&gt; Parser
-     (Maybe JobState
-      -&gt; Maybe POSIX
-      -&gt; Maybe JobType
+     (Maybe Text
+      -&gt; Maybe JobState
       -&gt; Maybe SnowballType
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
-      -&gt; Maybe Text
+      -&gt; Maybe Bool
       -&gt; JobListEntry)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225691"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IsMaster&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe JobState
-   -&gt; Maybe POSIX
-   -&gt; Maybe JobType
-   -&gt; Maybe SnowballType
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; JobListEntry)
--&gt; Parser (Maybe JobState)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe JobType
-      -&gt; Maybe SnowballType
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; JobListEntry)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225691"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobState)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;JobState&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe JobType
-   -&gt; Maybe SnowballType
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; JobListEntry)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe JobType
-      -&gt; Maybe SnowballType -&gt; Maybe Text -&gt; Maybe Text -&gt; JobListEntry)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225691"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe JobType
-   -&gt; Maybe SnowballType -&gt; Maybe Text -&gt; Maybe Text -&gt; JobListEntry)
--&gt; Parser (Maybe JobType)
--&gt; Parser
-     (Maybe SnowballType -&gt; Maybe Text -&gt; Maybe Text -&gt; JobListEntry)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225691"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobType)
+</span><a href="#local-6989586621679225751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe SnowballType -&gt; Maybe Text -&gt; Maybe Text -&gt; JobListEntry)
--&gt; Parser (Maybe SnowballType)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; JobListEntry)
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe JobState
+   -&gt; Maybe SnowballType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; JobListEntry)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe JobState
+      -&gt; Maybe SnowballType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; JobListEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225691"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SnowballType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SnowballType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; JobListEntry)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; JobListEntry)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225691"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; JobListEntry)
--&gt; Parser (Maybe Text) -&gt; Parser JobListEntry
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225691"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679225751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe JobState
+   -&gt; Maybe SnowballType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; JobListEntry)
+-&gt; Parser (Maybe JobState)
+-&gt; Parser
+     (Maybe SnowballType
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Bool -&gt; JobListEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SnowballType
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Bool -&gt; JobListEntry)
+-&gt; Parser (Maybe SnowballType)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Bool -&gt; JobListEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SnowballType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SnowballType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Bool -&gt; JobListEntry)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe Bool -&gt; JobListEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Bool -&gt; JobListEntry)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Bool -&gt; JobListEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; JobListEntry)
+-&gt; Parser (Maybe Bool) -&gt; Parser JobListEntry
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsMaster&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225685"><span id="local-6989586621679225687"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225745"><span id="local-6989586621679225747"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225682"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225742"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobListEntry.html#JobListEntry"><span class="hs-identifier hs-type">JobListEntry</span></a></span></span><span>
 </span><span id="line-156"></span></pre></body></html>

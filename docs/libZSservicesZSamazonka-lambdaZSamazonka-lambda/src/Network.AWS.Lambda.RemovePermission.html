@@ -29,8 +29,8 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#newRemovePermission"><span class="hs-identifier">newRemovePermission</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#removePermission_revisionId"><span class="hs-identifier">removePermission_revisionId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#removePermission_qualifier"><span class="hs-identifier">removePermission_qualifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#removePermission_qualifier"><span class="hs-identifier">removePermission_qualifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#removePermission_revisionId"><span class="hs-identifier">removePermission_revisionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#removePermission_functionName"><span class="hs-identifier">removePermission_functionName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#removePermission_statementId"><span class="hs-identifier">removePermission_statementId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
@@ -48,16 +48,16 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newRemovePermission' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679296910"><span id="local-6989586621679296911"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemovePermission"><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-var">RemovePermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemovePermission%27"><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-var">RemovePermission'</span></a></span></span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Only update the policy if the revision ID matches the ID that\'s</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- specified. Use this option to avoid modifying a policy that has changed</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- since you last read it.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3ArevisionId%3ARemovePermission%27"><span class="annot"><span class="annottext">RemovePermission -&gt; Maybe Text
-</span><a href="Network.AWS.Lambda.RemovePermission.html#%24sel%3ArevisionId%3ARemovePermission%27"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Specify a version or alias to remove permissions from a published</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- version of the function.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aqualifier%3ARemovePermission%27"><span class="annot"><span class="annottext">RemovePermission -&gt; Maybe Text
+</span><span id="line-51"></span><span id="local-6989586621679301796"><span id="local-6989586621679301797"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemovePermission"><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-var">RemovePermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemovePermission%27"><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-var">RemovePermission'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify a version or alias to remove permissions from a published</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- version of the function.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aqualifier%3ARemovePermission%27"><span class="annot"><span class="annottext">RemovePermission -&gt; Maybe Text
 </span><a href="Network.AWS.Lambda.RemovePermission.html#%24sel%3Aqualifier%3ARemovePermission%27"><span class="hs-identifier hs-var hs-var">qualifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Only update the policy if the revision ID matches the ID that\'s</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- specified. Use this option to avoid modifying a policy that has changed</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- since you last read it.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3ArevisionId%3ARemovePermission%27"><span class="annot"><span class="annottext">RemovePermission -&gt; Maybe Text
+</span><a href="Network.AWS.Lambda.RemovePermission.html#%24sel%3ArevisionId%3ARemovePermission%27"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of the Lambda function, version, or alias.</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- __Name formats__</span><span>
@@ -79,7 +79,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AstatementId%3ARemovePermission%27"><span class="annot"><span class="annottext">RemovePermission -&gt; Text
 </span><a href="Network.AWS.Lambda.RemovePermission.html#%24sel%3AstatementId%3ARemovePermission%27"><span class="hs-identifier hs-var hs-var">statementId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296901"><span id="local-6989586621679296903"><span class="annot"><span class="annottext">RemovePermission -&gt; RemovePermission -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301787"><span id="local-6989586621679301789"><span class="annot"><span class="annottext">RemovePermission -&gt; RemovePermission -&gt; Bool
 (RemovePermission -&gt; RemovePermission -&gt; Bool)
 -&gt; (RemovePermission -&gt; RemovePermission -&gt; Bool)
 -&gt; Eq RemovePermission
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemovePermission -&gt; RemovePermission -&gt; Bool
 == :: RemovePermission -&gt; RemovePermission -&gt; Bool
 $c== :: RemovePermission -&gt; RemovePermission -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296892"><span id="local-6989586621679296894"><span id="local-6989586621679296896"><span id="local-6989586621679296898"><span class="annot"><span class="annottext">ReadPrec [RemovePermission]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301778"><span id="local-6989586621679301780"><span id="local-6989586621679301782"><span id="local-6989586621679301784"><span class="annot"><span class="annottext">ReadPrec [RemovePermission]
 ReadPrec RemovePermission
 Int -&gt; ReadS RemovePermission
 ReadS [RemovePermission]
@@ -108,7 +108,7 @@ readList :: ReadS [RemovePermission]
 $creadList :: ReadS [RemovePermission]
 readsPrec :: Int -&gt; ReadS RemovePermission
 $creadsPrec :: Int -&gt; ReadS RemovePermission
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296885"><span id="local-6989586621679296887"><span id="local-6989586621679296889"><span class="annot"><span class="annottext">Int -&gt; RemovePermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301771"><span id="local-6989586621679301773"><span id="local-6989586621679301775"><span class="annot"><span class="annottext">Int -&gt; RemovePermission -&gt; ShowS
 [RemovePermission] -&gt; ShowS
 RemovePermission -&gt; String
 (Int -&gt; RemovePermission -&gt; ShowS)
@@ -142,12 +142,12 @@ $cfrom :: forall x. RemovePermission -&gt; Rep RemovePermission x
 </span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'revisionId', 'removePermission_revisionId' - Only update the policy if the revision ID matches the ID that\'s</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- specified. Use this option to avoid modifying a policy that has changed</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- since you last read it.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'qualifier', 'removePermission_qualifier' - Specify a version or alias to remove permissions from a published</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- version of the function.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'qualifier', 'removePermission_qualifier' - Specify a version or alias to remove permissions from a published</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- version of the function.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'revisionId', 'removePermission_revisionId' - Only update the policy if the revision ID matches the ID that\'s</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- specified. Use this option to avoid modifying a policy that has changed</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- since you last read it.</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- 'functionName', 'removePermission_functionName' - The name of the Lambda function, version, or alias.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
@@ -173,67 +173,67 @@ $cfrom :: forall x. RemovePermission -&gt; Rep RemovePermission x
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span>
 </span><span id="line-118"></span><span id="newRemovePermission"><span class="annot"><span class="annottext">newRemovePermission :: Text -&gt; Text -&gt; RemovePermission
-</span><a href="Network.AWS.Lambda.RemovePermission.html#newRemovePermission"><span class="hs-identifier hs-var hs-var">newRemovePermission</span></a></span></span><span> </span><span id="local-6989586621679296880"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296880"><span class="hs-identifier hs-var">pFunctionName_</span></a></span></span><span> </span><span id="local-6989586621679296879"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296879"><span class="hs-identifier hs-var">pStatementId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lambda.RemovePermission.html#newRemovePermission"><span class="hs-identifier hs-var hs-var">newRemovePermission</span></a></span></span><span> </span><span id="local-6989586621679301766"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301766"><span class="hs-identifier hs-var">pFunctionName_</span></a></span></span><span> </span><span id="local-6989586621679301765"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301765"><span class="hs-identifier hs-var">pStatementId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>  </span><span class="annot"><span class="annottext">RemovePermission' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; RemovePermission
 </span><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span>
-</span><span id="line-120"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:revisionId:RemovePermission' :: Maybe Text
-</span><a href="Network.AWS.Lambda.RemovePermission.html#%24sel%3ArevisionId%3ARemovePermission%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-120"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:qualifier:RemovePermission' :: Maybe Text
+</span><a href="Network.AWS.Lambda.RemovePermission.html#%24sel%3Aqualifier%3ARemovePermission%27"><span class="hs-identifier hs-var">qualifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:qualifier:RemovePermission' :: Maybe Text
-</span><a href="Network.AWS.Lambda.RemovePermission.html#%24sel%3Aqualifier%3ARemovePermission%27"><span class="hs-identifier hs-var">qualifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:revisionId:RemovePermission' :: Maybe Text
+</span><a href="Network.AWS.Lambda.RemovePermission.html#%24sel%3ArevisionId%3ARemovePermission%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:functionName:RemovePermission' :: Text
 </span><a href="Network.AWS.Lambda.RemovePermission.html#%24sel%3AfunctionName%3ARemovePermission%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296880"><span class="hs-identifier hs-var">pFunctionName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679301766"><span class="hs-identifier hs-var">pFunctionName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:statementId:RemovePermission' :: Text
 </span><a href="Network.AWS.Lambda.RemovePermission.html#%24sel%3AstatementId%3ARemovePermission%27"><span class="hs-identifier hs-var">statementId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296879"><span class="hs-identifier hs-var">pStatementId_</span></a></span><span>
+</span><a href="#local-6989586621679301765"><span class="hs-identifier hs-var">pStatementId_</span></a></span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | Only update the policy if the revision ID matches the ID that\'s</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- specified. Use this option to avoid modifying a policy that has changed</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- since you last read it.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#removePermission_revisionId"><span class="hs-identifier hs-type">removePermission_revisionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="removePermission_revisionId"><span class="annot"><span class="annottext">removePermission_revisionId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RemovePermission -&gt; f RemovePermission
-</span><a href="Network.AWS.Lambda.RemovePermission.html#removePermission_revisionId"><span class="hs-identifier hs-var hs-var">removePermission_revisionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemovePermission -&gt; Maybe Text)
--&gt; (RemovePermission -&gt; Maybe Text -&gt; RemovePermission)
--&gt; Lens RemovePermission RemovePermission (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296876"><span class="annot"><span class="annottext">Maybe Text
-revisionId :: Maybe Text
-$sel:revisionId:RemovePermission' :: RemovePermission -&gt; Maybe Text
-</span><a href="#local-6989586621679296876"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296876"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296875"><span class="annot"><span class="annottext">s :: RemovePermission
-</span><a href="#local-6989586621679296875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296874"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemovePermission
-</span><a href="#local-6989586621679296875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:RemovePermission' :: Maybe Text
-</span><a href="Network.AWS.Lambda.RemovePermission.html#%24sel%3ArevisionId%3ARemovePermission%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | Specify a version or alias to remove permissions from a published</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- version of the function.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#removePermission_qualifier"><span class="hs-identifier hs-type">removePermission_qualifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="removePermission_qualifier"><span class="annot"><span class="annottext">removePermission_qualifier :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-126"></span><span class="hs-comment">-- | Specify a version or alias to remove permissions from a published</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- version of the function.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#removePermission_qualifier"><span class="hs-identifier hs-type">removePermission_qualifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="removePermission_qualifier"><span class="annot"><span class="annottext">removePermission_qualifier :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; RemovePermission -&gt; f RemovePermission
 </span><a href="Network.AWS.Lambda.RemovePermission.html#removePermission_qualifier"><span class="hs-identifier hs-var hs-var">removePermission_qualifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemovePermission -&gt; Maybe Text)
 -&gt; (RemovePermission -&gt; Maybe Text -&gt; RemovePermission)
 -&gt; Lens RemovePermission RemovePermission (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296873"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301762"><span class="annot"><span class="annottext">Maybe Text
 qualifier :: Maybe Text
 $sel:qualifier:RemovePermission' :: RemovePermission -&gt; Maybe Text
-</span><a href="#local-6989586621679296873"><span class="hs-identifier hs-var hs-var">qualifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296873"><span class="hs-identifier hs-var">qualifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296872"><span class="annot"><span class="annottext">s :: RemovePermission
-</span><a href="#local-6989586621679296872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296871"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemovePermission
-</span><a href="#local-6989586621679296872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualifier:RemovePermission' :: Maybe Text
+</span><a href="#local-6989586621679301762"><span class="hs-identifier hs-var hs-var">qualifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301762"><span class="hs-identifier hs-var">qualifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301761"><span class="annot"><span class="annottext">s :: RemovePermission
+</span><a href="#local-6989586621679301761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301760"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemovePermission
+</span><a href="#local-6989586621679301761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualifier:RemovePermission' :: Maybe Text
 </span><a href="Network.AWS.Lambda.RemovePermission.html#%24sel%3Aqualifier%3ARemovePermission%27"><span class="hs-identifier hs-var">qualifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679301760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Only update the policy if the revision ID matches the ID that\'s</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- specified. Use this option to avoid modifying a policy that has changed</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- since you last read it.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#removePermission_revisionId"><span class="hs-identifier hs-type">removePermission_revisionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="removePermission_revisionId"><span class="annot"><span class="annottext">removePermission_revisionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RemovePermission -&gt; f RemovePermission
+</span><a href="Network.AWS.Lambda.RemovePermission.html#removePermission_revisionId"><span class="hs-identifier hs-var hs-var">removePermission_revisionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemovePermission -&gt; Maybe Text)
+-&gt; (RemovePermission -&gt; Maybe Text -&gt; RemovePermission)
+-&gt; Lens RemovePermission RemovePermission (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301759"><span class="annot"><span class="annottext">Maybe Text
+revisionId :: Maybe Text
+$sel:revisionId:RemovePermission' :: RemovePermission -&gt; Maybe Text
+</span><a href="#local-6989586621679301759"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301759"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301758"><span class="annot"><span class="annottext">s :: RemovePermission
+</span><a href="#local-6989586621679301758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301757"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemovePermission
+</span><a href="#local-6989586621679301758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:RemovePermission' :: Maybe Text
+</span><a href="Network.AWS.Lambda.RemovePermission.html#%24sel%3ArevisionId%3ARemovePermission%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The name of the Lambda function, version, or alias.</span><span>
 </span><span id="line-138"></span><span class="hs-comment">--</span><span>
@@ -256,16 +256,16 @@ $sel:qualifier:RemovePermission' :: RemovePermission -&gt; Maybe Text
 -&gt; (RemovePermission -&gt; Text -&gt; RemovePermission)
 -&gt; Lens RemovePermission RemovePermission Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296870"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301756"><span class="annot"><span class="annottext">Text
 functionName :: Text
 $sel:functionName:RemovePermission' :: RemovePermission -&gt; Text
-</span><a href="#local-6989586621679296870"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296870"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296869"><span class="annot"><span class="annottext">s :: RemovePermission
-</span><a href="#local-6989586621679296869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296868"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemovePermission
-</span><a href="#local-6989586621679296869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionName:RemovePermission' :: Text
+</span><a href="#local-6989586621679301756"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301756"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301755"><span class="annot"><span class="annottext">s :: RemovePermission
+</span><a href="#local-6989586621679301755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301754"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemovePermission
+</span><a href="#local-6989586621679301755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionName:RemovePermission' :: Text
 </span><a href="Network.AWS.Lambda.RemovePermission.html#%24sel%3AfunctionName%3ARemovePermission%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679301754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | Statement ID of the permission to remove.</span><span>
 </span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#removePermission_statementId"><span class="hs-identifier hs-type">removePermission_statementId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -274,27 +274,27 @@ $sel:functionName:RemovePermission' :: RemovePermission -&gt; Text
 -&gt; (RemovePermission -&gt; Text -&gt; RemovePermission)
 -&gt; Lens RemovePermission RemovePermission Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296867"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301753"><span class="annot"><span class="annottext">Text
 statementId :: Text
 $sel:statementId:RemovePermission' :: RemovePermission -&gt; Text
-</span><a href="#local-6989586621679296867"><span class="hs-identifier hs-var hs-var">statementId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296867"><span class="hs-identifier hs-var">statementId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296866"><span class="annot"><span class="annottext">s :: RemovePermission
-</span><a href="#local-6989586621679296866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296865"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemovePermission
-</span><a href="#local-6989586621679296866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statementId:RemovePermission' :: Text
+</span><a href="#local-6989586621679301753"><span class="hs-identifier hs-var hs-var">statementId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301753"><span class="hs-identifier hs-var">statementId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301752"><span class="annot"><span class="annottext">s :: RemovePermission
+</span><a href="#local-6989586621679301752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301751"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemovePermission
+</span><a href="#local-6989586621679301752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statementId:RemovePermission' :: Text
 </span><a href="Network.AWS.Lambda.RemovePermission.html#%24sel%3AstatementId%3ARemovePermission%27"><span class="hs-identifier hs-var">statementId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679301751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-161"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>      </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermissionResponse"><span class="hs-identifier hs-type">RemovePermissionResponse</span></a></span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679296861"><span class="annot"><span class="annottext">request :: RemovePermission -&gt; Request RemovePermission
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679301747"><span class="annot"><span class="annottext">request :: RemovePermission -&gt; Request RemovePermission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RemovePermission -&gt; Request RemovePermission
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lambda.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679296857"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679301743"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RemovePermission
 -&gt; ClientResponse ClientBody
@@ -318,12 +318,12 @@ AWSResponse a
 RemovePermissionResponse
 </span><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermissionResponse%27"><span class="hs-identifier hs-var">RemovePermissionResponse'</span></a></span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296850"><span id="local-6989586621679296852"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301736"><span id="local-6989586621679301738"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span></span></span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296847"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301733"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679296843"><span class="annot"><span class="annottext">toHeaders :: RemovePermission -&gt; [Header]
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679301729"><span class="annot"><span class="annottext">toHeaders :: RemovePermission -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; RemovePermission -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -331,18 +331,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679296838"><span class="annot"><span class="annottext">toPath :: RemovePermission -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296833"><span id="local-6989586621679296834"><span id="local-6989586621679296835"><span id="local-6989586621679296836"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679301724"><span class="annot"><span class="annottext">toPath :: RemovePermission -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301719"><span id="local-6989586621679301720"><span id="local-6989586621679301721"><span id="local-6989586621679301722"><span class="annot"><span class="annottext">Maybe Text
 Text
 statementId :: Text
 functionName :: Text
-qualifier :: Maybe Text
 revisionId :: Maybe Text
+qualifier :: Maybe Text
 $sel:statementId:RemovePermission' :: RemovePermission -&gt; Text
 $sel:functionName:RemovePermission' :: RemovePermission -&gt; Text
-$sel:qualifier:RemovePermission' :: RemovePermission -&gt; Maybe Text
 $sel:revisionId:RemovePermission' :: RemovePermission -&gt; Maybe Text
-</span><a href="#local-6989586621679296833"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:qualifier:RemovePermission' :: RemovePermission -&gt; Maybe Text
+</span><a href="#local-6989586621679301719"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -351,48 +351,48 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296834"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679301720"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/policy/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296833"><span class="hs-identifier hs-var">statementId</span></a></span><span>
+</span><a href="#local-6989586621679301719"><span class="hs-identifier hs-var">statementId</span></a></span><span>
 </span><span id="line-181"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission"><span class="hs-identifier hs-type">RemovePermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679296829"><span class="annot"><span class="annottext">toQuery :: RemovePermission -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296824"><span id="local-6989586621679296825"><span id="local-6989586621679296826"><span id="local-6989586621679296827"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679301715"><span class="annot"><span class="annottext">toQuery :: RemovePermission -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermission%27"><span class="hs-identifier hs-type">RemovePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301710"><span id="local-6989586621679301711"><span id="local-6989586621679301712"><span id="local-6989586621679301713"><span class="annot"><span class="annottext">Maybe Text
 Text
 statementId :: Text
 functionName :: Text
-qualifier :: Maybe Text
 revisionId :: Maybe Text
+qualifier :: Maybe Text
 $sel:statementId:RemovePermission' :: RemovePermission -&gt; Text
 $sel:functionName:RemovePermission' :: RemovePermission -&gt; Text
-$sel:qualifier:RemovePermission' :: RemovePermission -&gt; Maybe Text
 $sel:revisionId:RemovePermission' :: RemovePermission -&gt; Maybe Text
-</span><a href="#local-6989586621679296824"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:qualifier:RemovePermission' :: RemovePermission -&gt; Maybe Text
+</span><a href="#local-6989586621679301710"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;RevisionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296827"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Qualifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296826"><span class="hs-identifier hs-var">qualifier</span></a></span><span>
+</span><a href="#local-6989586621679301713"><span class="hs-identifier hs-var">qualifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RevisionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301712"><span class="hs-identifier hs-var">revisionId</span></a></span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | /See:/ 'newRemovePermissionResponse' smart constructor.</span><span>
-</span><span id="line-191"></span><span id="local-6989586621679296821"><span id="local-6989586621679296822"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemovePermissionResponse"><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermissionResponse"><span class="hs-identifier hs-var">RemovePermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemovePermissionResponse%27"><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermissionResponse%27"><span class="hs-identifier hs-var">RemovePermissionResponse'</span></a></span></span><span>
+</span><span id="line-191"></span><span id="local-6989586621679301707"><span id="local-6989586621679301708"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemovePermissionResponse"><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermissionResponse"><span class="hs-identifier hs-var">RemovePermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemovePermissionResponse%27"><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermissionResponse%27"><span class="hs-identifier hs-var">RemovePermissionResponse'</span></a></span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296817"><span id="local-6989586621679296819"><span class="annot"><span class="annottext">RemovePermissionResponse -&gt; RemovePermissionResponse -&gt; Bool
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301703"><span id="local-6989586621679301705"><span class="annot"><span class="annottext">RemovePermissionResponse -&gt; RemovePermissionResponse -&gt; Bool
 (RemovePermissionResponse -&gt; RemovePermissionResponse -&gt; Bool)
 -&gt; (RemovePermissionResponse -&gt; RemovePermissionResponse -&gt; Bool)
 -&gt; Eq RemovePermissionResponse
@@ -401,7 +401,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemovePermissionResponse -&gt; RemovePermissionResponse -&gt; Bool
 == :: RemovePermissionResponse -&gt; RemovePermissionResponse -&gt; Bool
 $c== :: RemovePermissionResponse -&gt; RemovePermissionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296809"><span id="local-6989586621679296811"><span id="local-6989586621679296813"><span id="local-6989586621679296815"><span class="annot"><span class="annottext">ReadPrec [RemovePermissionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301695"><span id="local-6989586621679301697"><span id="local-6989586621679301699"><span id="local-6989586621679301701"><span class="annot"><span class="annottext">ReadPrec [RemovePermissionResponse]
 ReadPrec RemovePermissionResponse
 Int -&gt; ReadS RemovePermissionResponse
 ReadS [RemovePermissionResponse]
@@ -421,7 +421,7 @@ readList :: ReadS [RemovePermissionResponse]
 $creadList :: ReadS [RemovePermissionResponse]
 readsPrec :: Int -&gt; ReadS RemovePermissionResponse
 $creadsPrec :: Int -&gt; ReadS RemovePermissionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296803"><span id="local-6989586621679296805"><span id="local-6989586621679296807"><span class="annot"><span class="annottext">Int -&gt; RemovePermissionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301689"><span id="local-6989586621679301691"><span id="local-6989586621679301693"><span class="annot"><span class="annottext">Int -&gt; RemovePermissionResponse -&gt; ShowS
 [RemovePermissionResponse] -&gt; ShowS
 RemovePermissionResponse -&gt; String
 (Int -&gt; RemovePermissionResponse -&gt; ShowS)
@@ -464,5 +464,5 @@ RemovePermissionResponse -&gt; Rep RemovePermissionResponse x
 </span><span id="line-203"></span><span>  </span><span class="annot"><span class="annottext">RemovePermissionResponse
 </span><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermissionResponse%27"><span class="hs-identifier hs-var">RemovePermissionResponse'</span></a></span><span>
 </span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296799"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermissionResponse"><span class="hs-identifier hs-type">RemovePermissionResponse</span></a></span></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemovePermission.html#RemovePermissionResponse"><span class="hs-identifier hs-type">RemovePermissionResponse</span></a></span></span><span>
 </span><span id="line-206"></span></pre></body></html>

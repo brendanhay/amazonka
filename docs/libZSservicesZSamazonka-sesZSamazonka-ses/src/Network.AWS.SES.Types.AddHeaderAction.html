@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-add-header.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAddHeaderAction' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679269745"><span id="local-6989586621679269746"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddHeaderAction"><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction"><span class="hs-identifier hs-var">AddHeaderAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddHeaderAction%27"><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction%27"><span class="hs-identifier hs-var">AddHeaderAction'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679269934"><span id="local-6989586621679269935"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddHeaderAction"><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction"><span class="hs-identifier hs-var">AddHeaderAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddHeaderAction%27"><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction%27"><span class="hs-identifier hs-var">AddHeaderAction'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the header to add. Must be between 1 and 50 characters,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- dashes only.</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AheaderValue%3AAddHeaderAction%27"><span class="annot"><span class="annottext">AddHeaderAction -&gt; Text
 </span><a href="Network.AWS.SES.Types.AddHeaderAction.html#%24sel%3AheaderValue%3AAddHeaderAction%27"><span class="hs-identifier hs-var hs-var">headerValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269738"><span id="local-6989586621679269740"><span class="annot"><span class="annottext">AddHeaderAction -&gt; AddHeaderAction -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269927"><span id="local-6989586621679269929"><span class="annot"><span class="annottext">AddHeaderAction -&gt; AddHeaderAction -&gt; Bool
 (AddHeaderAction -&gt; AddHeaderAction -&gt; Bool)
 -&gt; (AddHeaderAction -&gt; AddHeaderAction -&gt; Bool)
 -&gt; Eq AddHeaderAction
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddHeaderAction -&gt; AddHeaderAction -&gt; Bool
 == :: AddHeaderAction -&gt; AddHeaderAction -&gt; Bool
 $c== :: AddHeaderAction -&gt; AddHeaderAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269729"><span id="local-6989586621679269731"><span id="local-6989586621679269733"><span id="local-6989586621679269735"><span class="annot"><span class="annottext">ReadPrec [AddHeaderAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269918"><span id="local-6989586621679269920"><span id="local-6989586621679269922"><span id="local-6989586621679269924"><span class="annot"><span class="annottext">ReadPrec [AddHeaderAction]
 ReadPrec AddHeaderAction
 Int -&gt; ReadS AddHeaderAction
 ReadS [AddHeaderAction]
@@ -70,7 +70,7 @@ readList :: ReadS [AddHeaderAction]
 $creadList :: ReadS [AddHeaderAction]
 readsPrec :: Int -&gt; ReadS AddHeaderAction
 $creadsPrec :: Int -&gt; ReadS AddHeaderAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269722"><span id="local-6989586621679269724"><span id="local-6989586621679269726"><span class="annot"><span class="annottext">Int -&gt; AddHeaderAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269911"><span id="local-6989586621679269913"><span id="local-6989586621679269915"><span class="annot"><span class="annottext">Int -&gt; AddHeaderAction -&gt; ShowS
 [AddHeaderAction] -&gt; ShowS
 AddHeaderAction -&gt; String
 (Int -&gt; AddHeaderAction -&gt; ShowS)
@@ -117,17 +117,17 @@ $cfrom :: forall x. AddHeaderAction -&gt; Rep AddHeaderAction x
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction"><span class="hs-identifier hs-type">AddHeaderAction</span></a></span><span>
 </span><span id="line-64"></span><span id="newAddHeaderAction"><span class="annot"><span class="annottext">newAddHeaderAction :: Text -&gt; Text -&gt; AddHeaderAction
-</span><a href="Network.AWS.SES.Types.AddHeaderAction.html#newAddHeaderAction"><span class="hs-identifier hs-var hs-var">newAddHeaderAction</span></a></span></span><span> </span><span id="local-6989586621679269716"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269716"><span class="hs-identifier hs-var">pHeaderName_</span></a></span></span><span> </span><span id="local-6989586621679269715"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269715"><span class="hs-identifier hs-var">pHeaderValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.Types.AddHeaderAction.html#newAddHeaderAction"><span class="hs-identifier hs-var hs-var">newAddHeaderAction</span></a></span></span><span> </span><span id="local-6989586621679269905"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269905"><span class="hs-identifier hs-var">pHeaderName_</span></a></span></span><span> </span><span id="local-6989586621679269904"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269904"><span class="hs-identifier hs-var">pHeaderValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">AddHeaderAction' :: Text -&gt; Text -&gt; AddHeaderAction
 </span><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction%27"><span class="hs-identifier hs-type">AddHeaderAction'</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:headerName:AddHeaderAction' :: Text
 </span><a href="Network.AWS.SES.Types.AddHeaderAction.html#%24sel%3AheaderName%3AAddHeaderAction%27"><span class="hs-identifier hs-var">headerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269716"><span class="hs-identifier hs-var">pHeaderName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679269905"><span class="hs-identifier hs-var">pHeaderName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:headerValue:AddHeaderAction' :: Text
 </span><a href="Network.AWS.SES.Types.AddHeaderAction.html#%24sel%3AheaderValue%3AAddHeaderAction%27"><span class="hs-identifier hs-var">headerValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269715"><span class="hs-identifier hs-var">pHeaderValue_</span></a></span><span>
+</span><a href="#local-6989586621679269904"><span class="hs-identifier hs-var">pHeaderValue_</span></a></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The name of the header to add. Must be between 1 and 50 characters,</span><span>
@@ -139,16 +139,16 @@ $cfrom :: forall x. AddHeaderAction -&gt; Rep AddHeaderAction x
 -&gt; (AddHeaderAction -&gt; Text -&gt; AddHeaderAction)
 -&gt; Lens AddHeaderAction AddHeaderAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction%27"><span class="hs-identifier hs-type">AddHeaderAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269711"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction%27"><span class="hs-identifier hs-type">AddHeaderAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269900"><span class="annot"><span class="annottext">Text
 headerName :: Text
 $sel:headerName:AddHeaderAction' :: AddHeaderAction -&gt; Text
-</span><a href="#local-6989586621679269711"><span class="hs-identifier hs-var hs-var">headerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269711"><span class="hs-identifier hs-var">headerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269710"><span class="annot"><span class="annottext">s :: AddHeaderAction
-</span><a href="#local-6989586621679269710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction%27"><span class="hs-identifier hs-type">AddHeaderAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269709"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddHeaderAction
-</span><a href="#local-6989586621679269710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headerName:AddHeaderAction' :: Text
+</span><a href="#local-6989586621679269900"><span class="hs-identifier hs-var hs-var">headerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269900"><span class="hs-identifier hs-var">headerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269899"><span class="annot"><span class="annottext">s :: AddHeaderAction
+</span><a href="#local-6989586621679269899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction%27"><span class="hs-identifier hs-type">AddHeaderAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269898"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddHeaderAction
+</span><a href="#local-6989586621679269899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headerName:AddHeaderAction' :: Text
 </span><a href="Network.AWS.SES.Types.AddHeaderAction.html#%24sel%3AheaderName%3AAddHeaderAction%27"><span class="hs-identifier hs-var">headerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction"><span class="hs-identifier hs-type">AddHeaderAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679269898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction"><span class="hs-identifier hs-type">AddHeaderAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | Must be less than 2048 characters, and must not contain newline</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- characters (\&quot;\\r\&quot; or \&quot;\\n\&quot;).</span><span>
@@ -158,28 +158,28 @@ $sel:headerName:AddHeaderAction' :: AddHeaderAction -&gt; Text
 -&gt; (AddHeaderAction -&gt; Text -&gt; AddHeaderAction)
 -&gt; Lens AddHeaderAction AddHeaderAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction%27"><span class="hs-identifier hs-type">AddHeaderAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269707"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction%27"><span class="hs-identifier hs-type">AddHeaderAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269896"><span class="annot"><span class="annottext">Text
 headerValue :: Text
 $sel:headerValue:AddHeaderAction' :: AddHeaderAction -&gt; Text
-</span><a href="#local-6989586621679269707"><span class="hs-identifier hs-var hs-var">headerValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269707"><span class="hs-identifier hs-var">headerValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269706"><span class="annot"><span class="annottext">s :: AddHeaderAction
-</span><a href="#local-6989586621679269706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction%27"><span class="hs-identifier hs-type">AddHeaderAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269705"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddHeaderAction
-</span><a href="#local-6989586621679269706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headerValue:AddHeaderAction' :: Text
+</span><a href="#local-6989586621679269896"><span class="hs-identifier hs-var hs-var">headerValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269896"><span class="hs-identifier hs-var">headerValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269895"><span class="annot"><span class="annottext">s :: AddHeaderAction
+</span><a href="#local-6989586621679269895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction%27"><span class="hs-identifier hs-type">AddHeaderAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269894"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddHeaderAction
+</span><a href="#local-6989586621679269895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headerValue:AddHeaderAction' :: Text
 </span><a href="Network.AWS.SES.Types.AddHeaderAction.html#%24sel%3AheaderValue%3AAddHeaderAction%27"><span class="hs-identifier hs-var">headerValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction"><span class="hs-identifier hs-type">AddHeaderAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679269894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction"><span class="hs-identifier hs-type">AddHeaderAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction"><span class="hs-identifier hs-type">AddHeaderAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679269702"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AddHeaderAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679269700"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679269700"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679269891"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AddHeaderAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679269889"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679269889"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; AddHeaderAction
 </span><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction%27"><span class="hs-identifier hs-var">AddHeaderAction'</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; AddHeaderAction)
 -&gt; Either String Text -&gt; Either String (Text -&gt; AddHeaderAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679269700"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679269889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HeaderName&quot;</span></span><span class="hs-special">)</span><span>
@@ -187,23 +187,23 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String AddHeaderAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679269700"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679269889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HeaderValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269694"><span id="local-6989586621679269696"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction"><span class="hs-identifier hs-type">AddHeaderAction</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269883"><span id="local-6989586621679269885"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction"><span class="hs-identifier hs-type">AddHeaderAction</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269691"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction"><span class="hs-identifier hs-type">AddHeaderAction</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction"><span class="hs-identifier hs-type">AddHeaderAction</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction"><span class="hs-identifier hs-type">AddHeaderAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679269687"><span class="annot"><span class="annottext">toQuery :: AddHeaderAction -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction%27"><span class="hs-identifier hs-type">AddHeaderAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269684"><span id="local-6989586621679269685"><span class="annot"><span class="annottext">Text
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679269876"><span class="annot"><span class="annottext">toQuery :: AddHeaderAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction%27"><span class="hs-identifier hs-type">AddHeaderAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269873"><span id="local-6989586621679269874"><span class="annot"><span class="annottext">Text
 headerValue :: Text
 headerName :: Text
 $sel:headerValue:AddHeaderAction' :: AddHeaderAction -&gt; Text
 $sel:headerName:AddHeaderAction' :: AddHeaderAction -&gt; Text
-</span><a href="#local-6989586621679269684"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679269873"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -211,11 +211,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;HeaderName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269685"><span class="hs-identifier hs-var">headerName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679269874"><span class="hs-identifier hs-var">headerName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;HeaderValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269684"><span class="hs-identifier hs-var">headerValue</span></a></span><span>
+</span><a href="#local-6989586621679269873"><span class="hs-identifier hs-var">headerValue</span></a></span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span></pre></body></html>

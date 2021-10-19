@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-cognito-syncZSamazonka-cognito-sync
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.CognitoSync.Types.BulkPublishStatus
@@ -45,7 +45,7 @@ module Network.AWS.CognitoSync.Types.Dataset
 --   
 --   <i>See:</i> <a>newDataset</a> smart constructor.
 data Dataset
-Dataset' :: Maybe POSIX -> Maybe Integer -> Maybe POSIX -> Maybe Integer -> Maybe Text -> Maybe Text -> Maybe Text -> Dataset
+Dataset' :: Maybe POSIX -> Maybe Integer -> Maybe Integer -> Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe Text -> Dataset
 
 -- | Date when the dataset was last modified.
 [$sel:lastModifiedDate:Dataset'] :: Dataset -> Maybe POSIX
@@ -53,23 +53,23 @@ Dataset' :: Maybe POSIX -> Maybe Integer -> Maybe POSIX -> Maybe Integer -> Mayb
 -- | Number of records in this dataset.
 [$sel:numRecords:Dataset'] :: Dataset -> Maybe Integer
 
+-- | Total size in bytes of the records in this dataset.
+[$sel:dataStorage:Dataset'] :: Dataset -> Maybe Integer
+
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z,
+--   0-9, '_' (underscore), '-' (dash), and '.' (dot).
+[$sel:datasetName:Dataset'] :: Dataset -> Maybe Text
+
 -- | Date on which the dataset was created.
 [$sel:creationDate:Dataset'] :: Dataset -> Maybe POSIX
 
--- | Total size in bytes of the records in this dataset.
-[$sel:dataStorage:Dataset'] :: Dataset -> Maybe Integer
+-- | The device that made the last change to this dataset.
+[$sel:lastModifiedBy:Dataset'] :: Dataset -> Maybe Text
 
 -- | A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito. GUID generation is unique within a region.
 [$sel:identityId:Dataset'] :: Dataset -> Maybe Text
-
--- | The device that made the last change to this dataset.
-[$sel:lastModifiedBy:Dataset'] :: Dataset -> Maybe Text
-
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z,
---   0-9, '_' (underscore), '-' (dash), and '.' (dot).
-[$sel:datasetName:Dataset'] :: Dataset -> Maybe Text
 
 -- | Create a value of <a>Dataset</a> with all optional fields omitted.
 --   
@@ -85,23 +85,23 @@ Dataset' :: Maybe POSIX -> Maybe Integer -> Maybe POSIX -> Maybe Integer -> Mayb
 --   <a>$sel:numRecords:Dataset'</a>, <a>dataset_numRecords</a> - Number of
 --   records in this dataset.
 --   
+--   <a>$sel:dataStorage:Dataset'</a>, <a>dataset_dataStorage</a> - Total
+--   size in bytes of the records in this dataset.
+--   
+--   <a>$sel:datasetName:Dataset'</a>, <a>dataset_datasetName</a> - A
+--   string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
+--   '_' (underscore), '-' (dash), and '.' (dot).
+--   
 --   <a>$sel:creationDate:Dataset'</a>, <a>dataset_creationDate</a> - Date
 --   on which the dataset was created.
 --   
---   <a>$sel:dataStorage:Dataset'</a>, <a>dataset_dataStorage</a> - Total
---   size in bytes of the records in this dataset.
+--   <a>$sel:lastModifiedBy:Dataset'</a>, <a>dataset_lastModifiedBy</a> -
+--   The device that made the last change to this dataset.
 --   
 --   <a>$sel:identityId:Dataset'</a>, <a>dataset_identityId</a> - A
 --   name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito. GUID generation is unique within a region.
---   
---   <a>$sel:lastModifiedBy:Dataset'</a>, <a>dataset_lastModifiedBy</a> -
---   The device that made the last change to this dataset.
---   
---   <a>$sel:datasetName:Dataset'</a>, <a>dataset_datasetName</a> - A
---   string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
---   '_' (underscore), '-' (dash), and '.' (dot).
 newDataset :: Dataset
 
 -- | Date when the dataset was last modified.
@@ -110,23 +110,23 @@ dataset_lastModifiedDate :: Lens' Dataset (Maybe UTCTime)
 -- | Number of records in this dataset.
 dataset_numRecords :: Lens' Dataset (Maybe Integer)
 
+-- | Total size in bytes of the records in this dataset.
+dataset_dataStorage :: Lens' Dataset (Maybe Integer)
+
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z,
+--   0-9, '_' (underscore), '-' (dash), and '.' (dot).
+dataset_datasetName :: Lens' Dataset (Maybe Text)
+
 -- | Date on which the dataset was created.
 dataset_creationDate :: Lens' Dataset (Maybe UTCTime)
 
--- | Total size in bytes of the records in this dataset.
-dataset_dataStorage :: Lens' Dataset (Maybe Integer)
+-- | The device that made the last change to this dataset.
+dataset_lastModifiedBy :: Lens' Dataset (Maybe Text)
 
 -- | A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito. GUID generation is unique within a region.
 dataset_identityId :: Lens' Dataset (Maybe Text)
-
--- | The device that made the last change to this dataset.
-dataset_lastModifiedBy :: Lens' Dataset (Maybe Text)
-
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z,
---   0-9, '_' (underscore), '-' (dash), and '.' (dot).
-dataset_datasetName :: Lens' Dataset (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.CognitoSync.Types.Dataset.Dataset
 instance GHC.Show.Show Network.AWS.CognitoSync.Types.Dataset.Dataset
 instance GHC.Read.Read Network.AWS.CognitoSync.Types.Dataset.Dataset
@@ -152,11 +152,11 @@ IdentityPoolUsage' :: Maybe POSIX -> Maybe Text -> Maybe Integer -> Maybe Intege
 --   Cognito. GUID generation is unique within a region.
 [$sel:identityPoolId:IdentityPoolUsage'] :: IdentityPoolUsage -> Maybe Text
 
--- | Number of sync sessions for the identity pool.
-[$sel:syncSessionsCount:IdentityPoolUsage'] :: IdentityPoolUsage -> Maybe Integer
-
 -- | Data storage information for the identity pool.
 [$sel:dataStorage:IdentityPoolUsage'] :: IdentityPoolUsage -> Maybe Integer
+
+-- | Number of sync sessions for the identity pool.
+[$sel:syncSessionsCount:IdentityPoolUsage'] :: IdentityPoolUsage -> Maybe Integer
 
 -- | Create a value of <a>IdentityPoolUsage</a> with all optional fields
 --   omitted.
@@ -176,13 +176,13 @@ IdentityPoolUsage' :: Maybe POSIX -> Maybe Text -> Maybe Integer -> Maybe Intege
 --   example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
 --   Amazon Cognito. GUID generation is unique within a region.
 --   
---   <a>$sel:syncSessionsCount:IdentityPoolUsage'</a>,
---   <a>identityPoolUsage_syncSessionsCount</a> - Number of sync sessions
---   for the identity pool.
---   
 --   <a>$sel:dataStorage:IdentityPoolUsage'</a>,
 --   <a>identityPoolUsage_dataStorage</a> - Data storage information for
 --   the identity pool.
+--   
+--   <a>$sel:syncSessionsCount:IdentityPoolUsage'</a>,
+--   <a>identityPoolUsage_syncSessionsCount</a> - Number of sync sessions
+--   for the identity pool.
 newIdentityPoolUsage :: IdentityPoolUsage
 
 -- | Date on which the identity pool was last modified.
@@ -193,11 +193,11 @@ identityPoolUsage_lastModifiedDate :: Lens' IdentityPoolUsage (Maybe UTCTime)
 --   Cognito. GUID generation is unique within a region.
 identityPoolUsage_identityPoolId :: Lens' IdentityPoolUsage (Maybe Text)
 
--- | Number of sync sessions for the identity pool.
-identityPoolUsage_syncSessionsCount :: Lens' IdentityPoolUsage (Maybe Integer)
-
 -- | Data storage information for the identity pool.
 identityPoolUsage_dataStorage :: Lens' IdentityPoolUsage (Maybe Integer)
+
+-- | Number of sync sessions for the identity pool.
+identityPoolUsage_syncSessionsCount :: Lens' IdentityPoolUsage (Maybe Integer)
 instance GHC.Generics.Generic Network.AWS.CognitoSync.Types.IdentityPoolUsage.IdentityPoolUsage
 instance GHC.Show.Show Network.AWS.CognitoSync.Types.IdentityPoolUsage.IdentityPoolUsage
 instance GHC.Read.Read Network.AWS.CognitoSync.Types.IdentityPoolUsage.IdentityPoolUsage
@@ -355,14 +355,14 @@ module Network.AWS.CognitoSync.Types.PushSync
 --   
 --   <i>See:</i> <a>newPushSync</a> smart constructor.
 data PushSync
-PushSync' :: Maybe Text -> Maybe [Text] -> PushSync
+PushSync' :: Maybe [Text] -> Maybe Text -> PushSync
+
+-- | List of SNS platform application ARNs that could be used by clients.
+[$sel:applicationArns:PushSync'] :: PushSync -> Maybe [Text]
 
 -- | A role configured to allow Cognito to call SNS on behalf of the
 --   developer.
 [$sel:roleArn:PushSync'] :: PushSync -> Maybe Text
-
--- | List of SNS platform application ARNs that could be used by clients.
-[$sel:applicationArns:PushSync'] :: PushSync -> Maybe [Text]
 
 -- | Create a value of <a>PushSync</a> with all optional fields omitted.
 --   
@@ -372,19 +372,19 @@ PushSync' :: Maybe Text -> Maybe [Text] -> PushSync
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:roleArn:PushSync'</a>, <a>pushSync_roleArn</a> - A role
---   configured to allow Cognito to call SNS on behalf of the developer.
---   
 --   <a>$sel:applicationArns:PushSync'</a>, <a>pushSync_applicationArns</a>
 --   - List of SNS platform application ARNs that could be used by clients.
+--   
+--   <a>$sel:roleArn:PushSync'</a>, <a>pushSync_roleArn</a> - A role
+--   configured to allow Cognito to call SNS on behalf of the developer.
 newPushSync :: PushSync
+
+-- | List of SNS platform application ARNs that could be used by clients.
+pushSync_applicationArns :: Lens' PushSync (Maybe [Text])
 
 -- | A role configured to allow Cognito to call SNS on behalf of the
 --   developer.
 pushSync_roleArn :: Lens' PushSync (Maybe Text)
-
--- | List of SNS platform application ARNs that could be used by clients.
-pushSync_applicationArns :: Lens' PushSync (Maybe [Text])
 instance GHC.Generics.Generic Network.AWS.CognitoSync.Types.PushSync.PushSync
 instance GHC.Show.Show Network.AWS.CognitoSync.Types.PushSync.PushSync
 instance GHC.Read.Read Network.AWS.CognitoSync.Types.PushSync.PushSync
@@ -401,10 +401,10 @@ module Network.AWS.CognitoSync.Types.Record
 --   
 --   <i>See:</i> <a>newRecord</a> smart constructor.
 data Record
-Record' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Maybe Integer -> Maybe Text -> Maybe Text -> Record
+Record' :: Maybe Integer -> Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe Text -> Record
 
--- | The key for the record.
-[$sel:key:Record'] :: Record -> Maybe Text
+-- | The server sync count for this record.
+[$sel:syncCount:Record'] :: Record -> Maybe Integer
 
 -- | The last modified date of the client device.
 [$sel:deviceLastModifiedDate:Record'] :: Record -> Maybe POSIX
@@ -412,11 +412,11 @@ Record' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Maybe Integer -> Maybe Te
 -- | The date on which the record was last modified.
 [$sel:lastModifiedDate:Record'] :: Record -> Maybe POSIX
 
--- | The server sync count for this record.
-[$sel:syncCount:Record'] :: Record -> Maybe Integer
-
 -- | The value for the record.
 [$sel:value:Record'] :: Record -> Maybe Text
+
+-- | The key for the record.
+[$sel:key:Record'] :: Record -> Maybe Text
 
 -- | The user/device that made the last change to this record.
 [$sel:lastModifiedBy:Record'] :: Record -> Maybe Text
@@ -429,7 +429,8 @@ Record' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Maybe Integer -> Maybe Te
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:key:Record'</a>, <a>record_key</a> - The key for the record.
+--   <a>$sel:syncCount:Record'</a>, <a>record_syncCount</a> - The server
+--   sync count for this record.
 --   
 --   <a>$sel:deviceLastModifiedDate:Record'</a>,
 --   <a>record_deviceLastModifiedDate</a> - The last modified date of the
@@ -438,18 +439,17 @@ Record' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Maybe Integer -> Maybe Te
 --   <a>$sel:lastModifiedDate:Record'</a>, <a>record_lastModifiedDate</a> -
 --   The date on which the record was last modified.
 --   
---   <a>$sel:syncCount:Record'</a>, <a>record_syncCount</a> - The server
---   sync count for this record.
---   
 --   <a>$sel:value:Record'</a>, <a>record_value</a> - The value for the
 --   record.
+--   
+--   <a>$sel:key:Record'</a>, <a>record_key</a> - The key for the record.
 --   
 --   <a>$sel:lastModifiedBy:Record'</a>, <a>record_lastModifiedBy</a> - The
 --   user/device that made the last change to this record.
 newRecord :: Record
 
--- | The key for the record.
-record_key :: Lens' Record (Maybe Text)
+-- | The server sync count for this record.
+record_syncCount :: Lens' Record (Maybe Integer)
 
 -- | The last modified date of the client device.
 record_deviceLastModifiedDate :: Lens' Record (Maybe UTCTime)
@@ -457,11 +457,11 @@ record_deviceLastModifiedDate :: Lens' Record (Maybe UTCTime)
 -- | The date on which the record was last modified.
 record_lastModifiedDate :: Lens' Record (Maybe UTCTime)
 
--- | The server sync count for this record.
-record_syncCount :: Lens' Record (Maybe Integer)
-
 -- | The value for the record.
 record_value :: Lens' Record (Maybe Text)
+
+-- | The key for the record.
+record_key :: Lens' Record (Maybe Text)
 
 -- | The user/device that made the last change to this record.
 record_lastModifiedBy :: Lens' Record (Maybe Text)
@@ -578,16 +578,7 @@ module Network.AWS.CognitoSync.Types.CognitoStreams
 --   
 --   <i>See:</i> <a>newCognitoStreams</a> smart constructor.
 data CognitoStreams
-CognitoStreams' :: Maybe Text -> Maybe Text -> Maybe StreamingStatus -> CognitoStreams
-
--- | The ARN of the role Amazon Cognito can assume in order to publish to
---   the stream. This role must grant access to Amazon Cognito
---   (cognito-sync) to invoke PutRecord on your Cognito stream.
-[$sel:roleArn:CognitoStreams'] :: CognitoStreams -> Maybe Text
-
--- | The name of the Cognito stream to receive updates. This stream must be
---   in the developers account and in the same region as the identity pool.
-[$sel:streamName:CognitoStreams'] :: CognitoStreams -> Maybe Text
+CognitoStreams' :: Maybe StreamingStatus -> Maybe Text -> Maybe Text -> CognitoStreams
 
 -- | Status of the Cognito streams. Valid values are:
 --   
@@ -596,6 +587,15 @@ CognitoStreams' :: Maybe Text -> Maybe Text -> Maybe StreamingStatus -> CognitoS
 --   DISABLED - Streaming of updates to identity pool is disabled. Bulk
 --   publish will also fail if StreamingStatus is DISABLED.
 [$sel:streamingStatus:CognitoStreams'] :: CognitoStreams -> Maybe StreamingStatus
+
+-- | The name of the Cognito stream to receive updates. This stream must be
+--   in the developers account and in the same region as the identity pool.
+[$sel:streamName:CognitoStreams'] :: CognitoStreams -> Maybe Text
+
+-- | The ARN of the role Amazon Cognito can assume in order to publish to
+--   the stream. This role must grant access to Amazon Cognito
+--   (cognito-sync) to invoke PutRecord on your Cognito stream.
+[$sel:roleArn:CognitoStreams'] :: CognitoStreams -> Maybe Text
 
 -- | Create a value of <a>CognitoStreams</a> with all optional fields
 --   omitted.
@@ -606,16 +606,6 @@ CognitoStreams' :: Maybe Text -> Maybe Text -> Maybe StreamingStatus -> CognitoS
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:roleArn:CognitoStreams'</a>, <a>cognitoStreams_roleArn</a> -
---   The ARN of the role Amazon Cognito can assume in order to publish to
---   the stream. This role must grant access to Amazon Cognito
---   (cognito-sync) to invoke PutRecord on your Cognito stream.
---   
---   <a>$sel:streamName:CognitoStreams'</a>,
---   <a>cognitoStreams_streamName</a> - The name of the Cognito stream to
---   receive updates. This stream must be in the developers account and in
---   the same region as the identity pool.
---   
 --   <a>$sel:streamingStatus:CognitoStreams'</a>,
 --   <a>cognitoStreams_streamingStatus</a> - Status of the Cognito streams.
 --   Valid values are:
@@ -624,16 +614,17 @@ CognitoStreams' :: Maybe Text -> Maybe Text -> Maybe StreamingStatus -> CognitoS
 --   
 --   DISABLED - Streaming of updates to identity pool is disabled. Bulk
 --   publish will also fail if StreamingStatus is DISABLED.
-newCognitoStreams :: CognitoStreams
-
--- | The ARN of the role Amazon Cognito can assume in order to publish to
+--   
+--   <a>$sel:streamName:CognitoStreams'</a>,
+--   <a>cognitoStreams_streamName</a> - The name of the Cognito stream to
+--   receive updates. This stream must be in the developers account and in
+--   the same region as the identity pool.
+--   
+--   <a>$sel:roleArn:CognitoStreams'</a>, <a>cognitoStreams_roleArn</a> -
+--   The ARN of the role Amazon Cognito can assume in order to publish to
 --   the stream. This role must grant access to Amazon Cognito
 --   (cognito-sync) to invoke PutRecord on your Cognito stream.
-cognitoStreams_roleArn :: Lens' CognitoStreams (Maybe Text)
-
--- | The name of the Cognito stream to receive updates. This stream must be
---   in the developers account and in the same region as the identity pool.
-cognitoStreams_streamName :: Lens' CognitoStreams (Maybe Text)
+newCognitoStreams :: CognitoStreams
 
 -- | Status of the Cognito streams. Valid values are:
 --   
@@ -642,6 +633,15 @@ cognitoStreams_streamName :: Lens' CognitoStreams (Maybe Text)
 --   DISABLED - Streaming of updates to identity pool is disabled. Bulk
 --   publish will also fail if StreamingStatus is DISABLED.
 cognitoStreams_streamingStatus :: Lens' CognitoStreams (Maybe StreamingStatus)
+
+-- | The name of the Cognito stream to receive updates. This stream must be
+--   in the developers account and in the same region as the identity pool.
+cognitoStreams_streamName :: Lens' CognitoStreams (Maybe Text)
+
+-- | The ARN of the role Amazon Cognito can assume in order to publish to
+--   the stream. This role must grant access to Amazon Cognito
+--   (cognito-sync) to invoke PutRecord on your Cognito stream.
+cognitoStreams_roleArn :: Lens' CognitoStreams (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.CognitoSync.Types.CognitoStreams.CognitoStreams
 instance GHC.Show.Show Network.AWS.CognitoSync.Types.CognitoStreams.CognitoStreams
 instance GHC.Read.Read Network.AWS.CognitoSync.Types.CognitoStreams.CognitoStreams
@@ -658,22 +658,25 @@ module Network.AWS.CognitoSync.Types
 --   configuration.
 defaultService :: Service
 
--- | Prism for InvalidConfigurationException' errors.
-_InvalidConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Thrown when a request parameter does not comply with the associated
+--   constraints.
+_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Thrown if an update can't be applied because the resource was changed
---   by another call and this would result in a conflict.
-_ResourceConflictException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Thrown when a user is not authorized to access the requested resource.
+_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Indicates an internal service error.
 _InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Thrown if there are parallel requests to modify a resource.
-_ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Prism for InvalidConfigurationException' errors.
+_InvalidConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Thrown when a request parameter does not comply with the associated
---   constraints.
-_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | An exception thrown when there is an IN_PROGRESS bulk publish
+--   operation for the given identity pool.
+_DuplicateRequestException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | AWS Lambda throttled your account, please contact AWS Support
+_LambdaThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | An exception thrown when a bulk publish operation is requested less
 --   than 24 hours after a previous bulk publish operation completed
@@ -683,25 +686,22 @@ _AlreadyStreamedException :: AsError a => Getting (First ServiceError) a Service
 -- | The AWS Lambda function returned invalid output or an exception.
 _InvalidLambdaFunctionOutputException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | AWS Lambda throttled your account, please contact AWS Support
-_LambdaThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Thrown if the request is throttled.
+_TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Thrown when the limit on the number of objects or operations has been
---   exceeded.
-_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Thrown if there are parallel requests to modify a resource.
+_ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | An exception thrown when there is an IN_PROGRESS bulk publish
---   operation for the given identity pool.
-_DuplicateRequestException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Thrown if an update can't be applied because the resource was changed
+--   by another call and this would result in a conflict.
+_ResourceConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Thrown if the resource doesn't exist.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Thrown when a user is not authorized to access the requested resource.
-_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Thrown if the request is throttled.
-_TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Thrown when the limit on the number of objects or operations has been
+--   exceeded.
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 newtype BulkPublishStatus
 BulkPublishStatus' :: Text -> BulkPublishStatus
 [fromBulkPublishStatus] :: BulkPublishStatus -> Text
@@ -731,16 +731,7 @@ pattern StreamingStatus_ENABLED :: StreamingStatus
 --   
 --   <i>See:</i> <a>newCognitoStreams</a> smart constructor.
 data CognitoStreams
-CognitoStreams' :: Maybe Text -> Maybe Text -> Maybe StreamingStatus -> CognitoStreams
-
--- | The ARN of the role Amazon Cognito can assume in order to publish to
---   the stream. This role must grant access to Amazon Cognito
---   (cognito-sync) to invoke PutRecord on your Cognito stream.
-[$sel:roleArn:CognitoStreams'] :: CognitoStreams -> Maybe Text
-
--- | The name of the Cognito stream to receive updates. This stream must be
---   in the developers account and in the same region as the identity pool.
-[$sel:streamName:CognitoStreams'] :: CognitoStreams -> Maybe Text
+CognitoStreams' :: Maybe StreamingStatus -> Maybe Text -> Maybe Text -> CognitoStreams
 
 -- | Status of the Cognito streams. Valid values are:
 --   
@@ -749,6 +740,15 @@ CognitoStreams' :: Maybe Text -> Maybe Text -> Maybe StreamingStatus -> CognitoS
 --   DISABLED - Streaming of updates to identity pool is disabled. Bulk
 --   publish will also fail if StreamingStatus is DISABLED.
 [$sel:streamingStatus:CognitoStreams'] :: CognitoStreams -> Maybe StreamingStatus
+
+-- | The name of the Cognito stream to receive updates. This stream must be
+--   in the developers account and in the same region as the identity pool.
+[$sel:streamName:CognitoStreams'] :: CognitoStreams -> Maybe Text
+
+-- | The ARN of the role Amazon Cognito can assume in order to publish to
+--   the stream. This role must grant access to Amazon Cognito
+--   (cognito-sync) to invoke PutRecord on your Cognito stream.
+[$sel:roleArn:CognitoStreams'] :: CognitoStreams -> Maybe Text
 
 -- | Create a value of <a>CognitoStreams</a> with all optional fields
 --   omitted.
@@ -759,16 +759,6 @@ CognitoStreams' :: Maybe Text -> Maybe Text -> Maybe StreamingStatus -> CognitoS
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:roleArn:CognitoStreams'</a>, <a>cognitoStreams_roleArn</a> -
---   The ARN of the role Amazon Cognito can assume in order to publish to
---   the stream. This role must grant access to Amazon Cognito
---   (cognito-sync) to invoke PutRecord on your Cognito stream.
---   
---   <a>$sel:streamName:CognitoStreams'</a>,
---   <a>cognitoStreams_streamName</a> - The name of the Cognito stream to
---   receive updates. This stream must be in the developers account and in
---   the same region as the identity pool.
---   
 --   <a>$sel:streamingStatus:CognitoStreams'</a>,
 --   <a>cognitoStreams_streamingStatus</a> - Status of the Cognito streams.
 --   Valid values are:
@@ -777,16 +767,17 @@ CognitoStreams' :: Maybe Text -> Maybe Text -> Maybe StreamingStatus -> CognitoS
 --   
 --   DISABLED - Streaming of updates to identity pool is disabled. Bulk
 --   publish will also fail if StreamingStatus is DISABLED.
-newCognitoStreams :: CognitoStreams
-
--- | The ARN of the role Amazon Cognito can assume in order to publish to
+--   
+--   <a>$sel:streamName:CognitoStreams'</a>,
+--   <a>cognitoStreams_streamName</a> - The name of the Cognito stream to
+--   receive updates. This stream must be in the developers account and in
+--   the same region as the identity pool.
+--   
+--   <a>$sel:roleArn:CognitoStreams'</a>, <a>cognitoStreams_roleArn</a> -
+--   The ARN of the role Amazon Cognito can assume in order to publish to
 --   the stream. This role must grant access to Amazon Cognito
 --   (cognito-sync) to invoke PutRecord on your Cognito stream.
-cognitoStreams_roleArn :: Lens' CognitoStreams (Maybe Text)
-
--- | The name of the Cognito stream to receive updates. This stream must be
---   in the developers account and in the same region as the identity pool.
-cognitoStreams_streamName :: Lens' CognitoStreams (Maybe Text)
+newCognitoStreams :: CognitoStreams
 
 -- | Status of the Cognito streams. Valid values are:
 --   
@@ -795,6 +786,15 @@ cognitoStreams_streamName :: Lens' CognitoStreams (Maybe Text)
 --   DISABLED - Streaming of updates to identity pool is disabled. Bulk
 --   publish will also fail if StreamingStatus is DISABLED.
 cognitoStreams_streamingStatus :: Lens' CognitoStreams (Maybe StreamingStatus)
+
+-- | The name of the Cognito stream to receive updates. This stream must be
+--   in the developers account and in the same region as the identity pool.
+cognitoStreams_streamName :: Lens' CognitoStreams (Maybe Text)
+
+-- | The ARN of the role Amazon Cognito can assume in order to publish to
+--   the stream. This role must grant access to Amazon Cognito
+--   (cognito-sync) to invoke PutRecord on your Cognito stream.
+cognitoStreams_roleArn :: Lens' CognitoStreams (Maybe Text)
 
 -- | A collection of data for an identity pool. An identity pool can have
 --   multiple datasets. A dataset is per identity and can be general or
@@ -805,7 +805,7 @@ cognitoStreams_streamingStatus :: Lens' CognitoStreams (Maybe StreamingStatus)
 --   
 --   <i>See:</i> <a>newDataset</a> smart constructor.
 data Dataset
-Dataset' :: Maybe POSIX -> Maybe Integer -> Maybe POSIX -> Maybe Integer -> Maybe Text -> Maybe Text -> Maybe Text -> Dataset
+Dataset' :: Maybe POSIX -> Maybe Integer -> Maybe Integer -> Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe Text -> Dataset
 
 -- | Date when the dataset was last modified.
 [$sel:lastModifiedDate:Dataset'] :: Dataset -> Maybe POSIX
@@ -813,23 +813,23 @@ Dataset' :: Maybe POSIX -> Maybe Integer -> Maybe POSIX -> Maybe Integer -> Mayb
 -- | Number of records in this dataset.
 [$sel:numRecords:Dataset'] :: Dataset -> Maybe Integer
 
+-- | Total size in bytes of the records in this dataset.
+[$sel:dataStorage:Dataset'] :: Dataset -> Maybe Integer
+
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z,
+--   0-9, '_' (underscore), '-' (dash), and '.' (dot).
+[$sel:datasetName:Dataset'] :: Dataset -> Maybe Text
+
 -- | Date on which the dataset was created.
 [$sel:creationDate:Dataset'] :: Dataset -> Maybe POSIX
 
--- | Total size in bytes of the records in this dataset.
-[$sel:dataStorage:Dataset'] :: Dataset -> Maybe Integer
+-- | The device that made the last change to this dataset.
+[$sel:lastModifiedBy:Dataset'] :: Dataset -> Maybe Text
 
 -- | A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito. GUID generation is unique within a region.
 [$sel:identityId:Dataset'] :: Dataset -> Maybe Text
-
--- | The device that made the last change to this dataset.
-[$sel:lastModifiedBy:Dataset'] :: Dataset -> Maybe Text
-
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z,
---   0-9, '_' (underscore), '-' (dash), and '.' (dot).
-[$sel:datasetName:Dataset'] :: Dataset -> Maybe Text
 
 -- | Create a value of <a>Dataset</a> with all optional fields omitted.
 --   
@@ -845,23 +845,23 @@ Dataset' :: Maybe POSIX -> Maybe Integer -> Maybe POSIX -> Maybe Integer -> Mayb
 --   <a>$sel:numRecords:Dataset'</a>, <a>dataset_numRecords</a> - Number of
 --   records in this dataset.
 --   
+--   <a>$sel:dataStorage:Dataset'</a>, <a>dataset_dataStorage</a> - Total
+--   size in bytes of the records in this dataset.
+--   
+--   <a>$sel:datasetName:Dataset'</a>, <a>dataset_datasetName</a> - A
+--   string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
+--   '_' (underscore), '-' (dash), and '.' (dot).
+--   
 --   <a>$sel:creationDate:Dataset'</a>, <a>dataset_creationDate</a> - Date
 --   on which the dataset was created.
 --   
---   <a>$sel:dataStorage:Dataset'</a>, <a>dataset_dataStorage</a> - Total
---   size in bytes of the records in this dataset.
+--   <a>$sel:lastModifiedBy:Dataset'</a>, <a>dataset_lastModifiedBy</a> -
+--   The device that made the last change to this dataset.
 --   
 --   <a>$sel:identityId:Dataset'</a>, <a>dataset_identityId</a> - A
 --   name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito. GUID generation is unique within a region.
---   
---   <a>$sel:lastModifiedBy:Dataset'</a>, <a>dataset_lastModifiedBy</a> -
---   The device that made the last change to this dataset.
---   
---   <a>$sel:datasetName:Dataset'</a>, <a>dataset_datasetName</a> - A
---   string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
---   '_' (underscore), '-' (dash), and '.' (dot).
 newDataset :: Dataset
 
 -- | Date when the dataset was last modified.
@@ -870,23 +870,23 @@ dataset_lastModifiedDate :: Lens' Dataset (Maybe UTCTime)
 -- | Number of records in this dataset.
 dataset_numRecords :: Lens' Dataset (Maybe Integer)
 
+-- | Total size in bytes of the records in this dataset.
+dataset_dataStorage :: Lens' Dataset (Maybe Integer)
+
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z,
+--   0-9, '_' (underscore), '-' (dash), and '.' (dot).
+dataset_datasetName :: Lens' Dataset (Maybe Text)
+
 -- | Date on which the dataset was created.
 dataset_creationDate :: Lens' Dataset (Maybe UTCTime)
 
--- | Total size in bytes of the records in this dataset.
-dataset_dataStorage :: Lens' Dataset (Maybe Integer)
+-- | The device that made the last change to this dataset.
+dataset_lastModifiedBy :: Lens' Dataset (Maybe Text)
 
 -- | A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito. GUID generation is unique within a region.
 dataset_identityId :: Lens' Dataset (Maybe Text)
-
--- | The device that made the last change to this dataset.
-dataset_lastModifiedBy :: Lens' Dataset (Maybe Text)
-
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z,
---   0-9, '_' (underscore), '-' (dash), and '.' (dot).
-dataset_datasetName :: Lens' Dataset (Maybe Text)
 
 -- | Usage information for the identity pool.
 --   
@@ -902,11 +902,11 @@ IdentityPoolUsage' :: Maybe POSIX -> Maybe Text -> Maybe Integer -> Maybe Intege
 --   Cognito. GUID generation is unique within a region.
 [$sel:identityPoolId:IdentityPoolUsage'] :: IdentityPoolUsage -> Maybe Text
 
--- | Number of sync sessions for the identity pool.
-[$sel:syncSessionsCount:IdentityPoolUsage'] :: IdentityPoolUsage -> Maybe Integer
-
 -- | Data storage information for the identity pool.
 [$sel:dataStorage:IdentityPoolUsage'] :: IdentityPoolUsage -> Maybe Integer
+
+-- | Number of sync sessions for the identity pool.
+[$sel:syncSessionsCount:IdentityPoolUsage'] :: IdentityPoolUsage -> Maybe Integer
 
 -- | Create a value of <a>IdentityPoolUsage</a> with all optional fields
 --   omitted.
@@ -926,13 +926,13 @@ IdentityPoolUsage' :: Maybe POSIX -> Maybe Text -> Maybe Integer -> Maybe Intege
 --   example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
 --   Amazon Cognito. GUID generation is unique within a region.
 --   
---   <a>$sel:syncSessionsCount:IdentityPoolUsage'</a>,
---   <a>identityPoolUsage_syncSessionsCount</a> - Number of sync sessions
---   for the identity pool.
---   
 --   <a>$sel:dataStorage:IdentityPoolUsage'</a>,
 --   <a>identityPoolUsage_dataStorage</a> - Data storage information for
 --   the identity pool.
+--   
+--   <a>$sel:syncSessionsCount:IdentityPoolUsage'</a>,
+--   <a>identityPoolUsage_syncSessionsCount</a> - Number of sync sessions
+--   for the identity pool.
 newIdentityPoolUsage :: IdentityPoolUsage
 
 -- | Date on which the identity pool was last modified.
@@ -943,11 +943,11 @@ identityPoolUsage_lastModifiedDate :: Lens' IdentityPoolUsage (Maybe UTCTime)
 --   Cognito. GUID generation is unique within a region.
 identityPoolUsage_identityPoolId :: Lens' IdentityPoolUsage (Maybe Text)
 
--- | Number of sync sessions for the identity pool.
-identityPoolUsage_syncSessionsCount :: Lens' IdentityPoolUsage (Maybe Integer)
-
 -- | Data storage information for the identity pool.
 identityPoolUsage_dataStorage :: Lens' IdentityPoolUsage (Maybe Integer)
+
+-- | Number of sync sessions for the identity pool.
+identityPoolUsage_syncSessionsCount :: Lens' IdentityPoolUsage (Maybe Integer)
 
 -- | Usage information for the identity.
 --   
@@ -1029,14 +1029,14 @@ identityUsage_identityId :: Lens' IdentityUsage (Maybe Text)
 --   
 --   <i>See:</i> <a>newPushSync</a> smart constructor.
 data PushSync
-PushSync' :: Maybe Text -> Maybe [Text] -> PushSync
+PushSync' :: Maybe [Text] -> Maybe Text -> PushSync
+
+-- | List of SNS platform application ARNs that could be used by clients.
+[$sel:applicationArns:PushSync'] :: PushSync -> Maybe [Text]
 
 -- | A role configured to allow Cognito to call SNS on behalf of the
 --   developer.
 [$sel:roleArn:PushSync'] :: PushSync -> Maybe Text
-
--- | List of SNS platform application ARNs that could be used by clients.
-[$sel:applicationArns:PushSync'] :: PushSync -> Maybe [Text]
 
 -- | Create a value of <a>PushSync</a> with all optional fields omitted.
 --   
@@ -1046,28 +1046,28 @@ PushSync' :: Maybe Text -> Maybe [Text] -> PushSync
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:roleArn:PushSync'</a>, <a>pushSync_roleArn</a> - A role
---   configured to allow Cognito to call SNS on behalf of the developer.
---   
 --   <a>$sel:applicationArns:PushSync'</a>, <a>pushSync_applicationArns</a>
 --   - List of SNS platform application ARNs that could be used by clients.
+--   
+--   <a>$sel:roleArn:PushSync'</a>, <a>pushSync_roleArn</a> - A role
+--   configured to allow Cognito to call SNS on behalf of the developer.
 newPushSync :: PushSync
+
+-- | List of SNS platform application ARNs that could be used by clients.
+pushSync_applicationArns :: Lens' PushSync (Maybe [Text])
 
 -- | A role configured to allow Cognito to call SNS on behalf of the
 --   developer.
 pushSync_roleArn :: Lens' PushSync (Maybe Text)
 
--- | List of SNS platform application ARNs that could be used by clients.
-pushSync_applicationArns :: Lens' PushSync (Maybe [Text])
-
 -- | The basic data structure of a dataset.
 --   
 --   <i>See:</i> <a>newRecord</a> smart constructor.
 data Record
-Record' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Maybe Integer -> Maybe Text -> Maybe Text -> Record
+Record' :: Maybe Integer -> Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe Text -> Record
 
--- | The key for the record.
-[$sel:key:Record'] :: Record -> Maybe Text
+-- | The server sync count for this record.
+[$sel:syncCount:Record'] :: Record -> Maybe Integer
 
 -- | The last modified date of the client device.
 [$sel:deviceLastModifiedDate:Record'] :: Record -> Maybe POSIX
@@ -1075,11 +1075,11 @@ Record' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Maybe Integer -> Maybe Te
 -- | The date on which the record was last modified.
 [$sel:lastModifiedDate:Record'] :: Record -> Maybe POSIX
 
--- | The server sync count for this record.
-[$sel:syncCount:Record'] :: Record -> Maybe Integer
-
 -- | The value for the record.
 [$sel:value:Record'] :: Record -> Maybe Text
+
+-- | The key for the record.
+[$sel:key:Record'] :: Record -> Maybe Text
 
 -- | The user/device that made the last change to this record.
 [$sel:lastModifiedBy:Record'] :: Record -> Maybe Text
@@ -1092,7 +1092,8 @@ Record' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Maybe Integer -> Maybe Te
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:key:Record'</a>, <a>record_key</a> - The key for the record.
+--   <a>$sel:syncCount:Record'</a>, <a>record_syncCount</a> - The server
+--   sync count for this record.
 --   
 --   <a>$sel:deviceLastModifiedDate:Record'</a>,
 --   <a>record_deviceLastModifiedDate</a> - The last modified date of the
@@ -1101,18 +1102,17 @@ Record' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Maybe Integer -> Maybe Te
 --   <a>$sel:lastModifiedDate:Record'</a>, <a>record_lastModifiedDate</a> -
 --   The date on which the record was last modified.
 --   
---   <a>$sel:syncCount:Record'</a>, <a>record_syncCount</a> - The server
---   sync count for this record.
---   
 --   <a>$sel:value:Record'</a>, <a>record_value</a> - The value for the
 --   record.
+--   
+--   <a>$sel:key:Record'</a>, <a>record_key</a> - The key for the record.
 --   
 --   <a>$sel:lastModifiedBy:Record'</a>, <a>record_lastModifiedBy</a> - The
 --   user/device that made the last change to this record.
 newRecord :: Record
 
--- | The key for the record.
-record_key :: Lens' Record (Maybe Text)
+-- | The server sync count for this record.
+record_syncCount :: Lens' Record (Maybe Integer)
 
 -- | The last modified date of the client device.
 record_deviceLastModifiedDate :: Lens' Record (Maybe UTCTime)
@@ -1120,11 +1120,11 @@ record_deviceLastModifiedDate :: Lens' Record (Maybe UTCTime)
 -- | The date on which the record was last modified.
 record_lastModifiedDate :: Lens' Record (Maybe UTCTime)
 
--- | The server sync count for this record.
-record_syncCount :: Lens' Record (Maybe Integer)
-
 -- | The value for the record.
 record_value :: Lens' Record (Maybe Text)
+
+-- | The key for the record.
+record_key :: Lens' Record (Maybe Text)
 
 -- | The user/device that made the last change to this record.
 record_lastModifiedBy :: Lens' Record (Maybe Text)
@@ -1312,13 +1312,13 @@ module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
 --   
 --   <i>See:</i> <a>newSetIdentityPoolConfiguration</a> smart constructor.
 data SetIdentityPoolConfiguration
-SetIdentityPoolConfiguration' :: Maybe PushSync -> Maybe CognitoStreams -> Text -> SetIdentityPoolConfiguration
-
--- | Options to apply to this identity pool for push synchronization.
-[$sel:pushSync:SetIdentityPoolConfiguration'] :: SetIdentityPoolConfiguration -> Maybe PushSync
+SetIdentityPoolConfiguration' :: Maybe CognitoStreams -> Maybe PushSync -> Text -> SetIdentityPoolConfiguration
 
 -- | Options to apply to this identity pool for Amazon Cognito streams.
 [$sel:cognitoStreams:SetIdentityPoolConfiguration'] :: SetIdentityPoolConfiguration -> Maybe CognitoStreams
+
+-- | Options to apply to this identity pool for push synchronization.
+[$sel:pushSync:SetIdentityPoolConfiguration'] :: SetIdentityPoolConfiguration -> Maybe PushSync
 
 -- | A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -1334,13 +1334,13 @@ SetIdentityPoolConfiguration' :: Maybe PushSync -> Maybe CognitoStreams -> Text 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:pushSync:SetIdentityPoolConfiguration'</a>,
---   <a>setIdentityPoolConfiguration_pushSync</a> - Options to apply to
---   this identity pool for push synchronization.
---   
 --   <a>$sel:cognitoStreams:SetIdentityPoolConfiguration'</a>,
 --   <a>setIdentityPoolConfiguration_cognitoStreams</a> - Options to apply
 --   to this identity pool for Amazon Cognito streams.
+--   
+--   <a>$sel:pushSync:SetIdentityPoolConfiguration'</a>,
+--   <a>setIdentityPoolConfiguration_pushSync</a> - Options to apply to
+--   this identity pool for push synchronization.
 --   
 --   <a>$sel:identityPoolId:SetIdentityPoolConfiguration'</a>,
 --   <a>setIdentityPoolConfiguration_identityPoolId</a> - A name-spaced
@@ -1348,11 +1348,11 @@ SetIdentityPoolConfiguration' :: Maybe PushSync -> Maybe CognitoStreams -> Text 
 --   created by Amazon Cognito. This is the ID of the pool to modify.
 newSetIdentityPoolConfiguration :: Text -> SetIdentityPoolConfiguration
 
--- | Options to apply to this identity pool for push synchronization.
-setIdentityPoolConfiguration_pushSync :: Lens' SetIdentityPoolConfiguration (Maybe PushSync)
-
 -- | Options to apply to this identity pool for Amazon Cognito streams.
 setIdentityPoolConfiguration_cognitoStreams :: Lens' SetIdentityPoolConfiguration (Maybe CognitoStreams)
+
+-- | Options to apply to this identity pool for push synchronization.
+setIdentityPoolConfiguration_pushSync :: Lens' SetIdentityPoolConfiguration (Maybe PushSync)
 
 -- | A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -1364,18 +1364,18 @@ setIdentityPoolConfiguration_identityPoolId :: Lens' SetIdentityPoolConfiguratio
 --   <i>See:</i> <a>newSetIdentityPoolConfigurationResponse</a> smart
 --   constructor.
 data SetIdentityPoolConfigurationResponse
-SetIdentityPoolConfigurationResponse' :: Maybe Text -> Maybe PushSync -> Maybe CognitoStreams -> Int -> SetIdentityPoolConfigurationResponse
+SetIdentityPoolConfigurationResponse' :: Maybe Text -> Maybe CognitoStreams -> Maybe PushSync -> Int -> SetIdentityPoolConfigurationResponse
 
 -- | A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito.
 [$sel:identityPoolId:SetIdentityPoolConfigurationResponse'] :: SetIdentityPoolConfigurationResponse -> Maybe Text
 
--- | Options to apply to this identity pool for push synchronization.
-[$sel:pushSync:SetIdentityPoolConfigurationResponse'] :: SetIdentityPoolConfigurationResponse -> Maybe PushSync
-
 -- | Options to apply to this identity pool for Amazon Cognito streams.
 [$sel:cognitoStreams:SetIdentityPoolConfigurationResponse'] :: SetIdentityPoolConfigurationResponse -> Maybe CognitoStreams
+
+-- | Options to apply to this identity pool for push synchronization.
+[$sel:pushSync:SetIdentityPoolConfigurationResponse'] :: SetIdentityPoolConfigurationResponse -> Maybe PushSync
 
 -- | The response's http status code.
 [$sel:httpStatus:SetIdentityPoolConfigurationResponse'] :: SetIdentityPoolConfigurationResponse -> Int
@@ -1395,13 +1395,13 @@ SetIdentityPoolConfigurationResponse' :: Maybe Text -> Maybe PushSync -> Maybe C
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito.
 --   
---   <a>$sel:pushSync:SetIdentityPoolConfiguration'</a>,
---   <a>setIdentityPoolConfigurationResponse_pushSync</a> - Options to
---   apply to this identity pool for push synchronization.
---   
 --   <a>$sel:cognitoStreams:SetIdentityPoolConfiguration'</a>,
 --   <a>setIdentityPoolConfigurationResponse_cognitoStreams</a> - Options
 --   to apply to this identity pool for Amazon Cognito streams.
+--   
+--   <a>$sel:pushSync:SetIdentityPoolConfiguration'</a>,
+--   <a>setIdentityPoolConfigurationResponse_pushSync</a> - Options to
+--   apply to this identity pool for push synchronization.
 --   
 --   <a>$sel:httpStatus:SetIdentityPoolConfigurationResponse'</a>,
 --   <a>setIdentityPoolConfigurationResponse_httpStatus</a> - The
@@ -1413,11 +1413,11 @@ newSetIdentityPoolConfigurationResponse :: Int -> SetIdentityPoolConfigurationRe
 --   Cognito.
 setIdentityPoolConfigurationResponse_identityPoolId :: Lens' SetIdentityPoolConfigurationResponse (Maybe Text)
 
--- | Options to apply to this identity pool for push synchronization.
-setIdentityPoolConfigurationResponse_pushSync :: Lens' SetIdentityPoolConfigurationResponse (Maybe PushSync)
-
 -- | Options to apply to this identity pool for Amazon Cognito streams.
 setIdentityPoolConfigurationResponse_cognitoStreams :: Lens' SetIdentityPoolConfigurationResponse (Maybe CognitoStreams)
+
+-- | Options to apply to this identity pool for push synchronization.
+setIdentityPoolConfigurationResponse_pushSync :: Lens' SetIdentityPoolConfigurationResponse (Maybe PushSync)
 
 -- | The response's http status code.
 setIdentityPoolConfigurationResponse_httpStatus :: Lens' SetIdentityPoolConfigurationResponse Int
@@ -1645,19 +1645,19 @@ module Network.AWS.CognitoSync.ListRecords
 --   
 --   <i>See:</i> <a>newListRecords</a> smart constructor.
 data ListRecords
-ListRecords' :: Maybe Text -> Maybe Int -> Maybe Integer -> Maybe Text -> Text -> Text -> Text -> ListRecords
-
--- | A pagination token for obtaining the next page of results.
-[$sel:nextToken:ListRecords'] :: ListRecords -> Maybe Text
-
--- | The maximum number of results to be returned.
-[$sel:maxResults:ListRecords'] :: ListRecords -> Maybe Int
+ListRecords' :: Maybe Integer -> Maybe Text -> Maybe Text -> Maybe Int -> Text -> Text -> Text -> ListRecords
 
 -- | The last server sync count for this record.
 [$sel:lastSyncCount:ListRecords'] :: ListRecords -> Maybe Integer
 
+-- | A pagination token for obtaining the next page of results.
+[$sel:nextToken:ListRecords'] :: ListRecords -> Maybe Text
+
 -- | A token containing a session ID, identity ID, and expiration.
 [$sel:syncSessionToken:ListRecords'] :: ListRecords -> Maybe Text
+
+-- | The maximum number of results to be returned.
+[$sel:maxResults:ListRecords'] :: ListRecords -> Maybe Int
 
 -- | A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -1681,19 +1681,19 @@ ListRecords' :: Maybe Text -> Maybe Int -> Maybe Integer -> Maybe Text -> Text -
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListRecords'</a>, <a>listRecords_nextToken</a> - A
---   pagination token for obtaining the next page of results.
---   
---   <a>$sel:maxResults:ListRecords'</a>, <a>listRecords_maxResults</a> -
---   The maximum number of results to be returned.
---   
 --   <a>$sel:lastSyncCount:ListRecords'</a>,
 --   <a>listRecords_lastSyncCount</a> - The last server sync count for this
 --   record.
 --   
+--   <a>$sel:nextToken:ListRecords'</a>, <a>listRecords_nextToken</a> - A
+--   pagination token for obtaining the next page of results.
+--   
 --   <a>$sel:syncSessionToken:ListRecords'</a>,
 --   <a>listRecords_syncSessionToken</a> - A token containing a session ID,
 --   identity ID, and expiration.
+--   
+--   <a>$sel:maxResults:ListRecords'</a>, <a>listRecords_maxResults</a> -
+--   The maximum number of results to be returned.
 --   
 --   <a>$sel:identityPoolId:ListRecords'</a>,
 --   <a>listRecords_identityPoolId</a> - A name-spaced GUID (for example,
@@ -1710,17 +1710,17 @@ ListRecords' :: Maybe Text -> Maybe Int -> Maybe Integer -> Maybe Text -> Text -
 --   0-9, '_' (underscore), '-' (dash), and '.' (dot).
 newListRecords :: Text -> Text -> Text -> ListRecords
 
--- | A pagination token for obtaining the next page of results.
-listRecords_nextToken :: Lens' ListRecords (Maybe Text)
-
--- | The maximum number of results to be returned.
-listRecords_maxResults :: Lens' ListRecords (Maybe Int)
-
 -- | The last server sync count for this record.
 listRecords_lastSyncCount :: Lens' ListRecords (Maybe Integer)
 
+-- | A pagination token for obtaining the next page of results.
+listRecords_nextToken :: Lens' ListRecords (Maybe Text)
+
 -- | A token containing a session ID, identity ID, and expiration.
 listRecords_syncSessionToken :: Lens' ListRecords (Maybe Text)
+
+-- | The maximum number of results to be returned.
+listRecords_maxResults :: Lens' ListRecords (Maybe Int)
 
 -- | A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
@@ -1740,34 +1740,34 @@ listRecords_datasetName :: Lens' ListRecords Text
 --   
 --   <i>See:</i> <a>newListRecordsResponse</a> smart constructor.
 data ListRecordsResponse
-ListRecordsResponse' :: Maybe Text -> Maybe Integer -> Maybe [Record] -> Maybe Bool -> Maybe Int -> Maybe Text -> Maybe Bool -> Maybe Text -> Maybe [Text] -> Int -> ListRecordsResponse
-
--- | A pagination token for obtaining the next page of results.
-[$sel:nextToken:ListRecordsResponse'] :: ListRecordsResponse -> Maybe Text
-
--- | Server sync count for this dataset.
-[$sel:datasetSyncCount:ListRecordsResponse'] :: ListRecordsResponse -> Maybe Integer
-
--- | A list of all records.
-[$sel:records:ListRecordsResponse'] :: ListRecordsResponse -> Maybe [Record]
+ListRecordsResponse' :: Maybe Bool -> Maybe Bool -> Maybe Int -> Maybe [Record] -> Maybe Text -> Maybe [Text] -> Maybe Text -> Maybe Text -> Maybe Integer -> Int -> ListRecordsResponse
 
 -- | A boolean value specifying whether to delete the dataset locally.
 [$sel:datasetDeletedAfterRequestedSyncCount:ListRecordsResponse'] :: ListRecordsResponse -> Maybe Bool
 
+-- | Indicates whether the dataset exists.
+[$sel:datasetExists:ListRecordsResponse'] :: ListRecordsResponse -> Maybe Bool
+
 -- | Total number of records.
 [$sel:count:ListRecordsResponse'] :: ListRecordsResponse -> Maybe Int
 
--- | The user/device that made the last change to this record.
-[$sel:lastModifiedBy:ListRecordsResponse'] :: ListRecordsResponse -> Maybe Text
+-- | A list of all records.
+[$sel:records:ListRecordsResponse'] :: ListRecordsResponse -> Maybe [Record]
 
--- | Indicates whether the dataset exists.
-[$sel:datasetExists:ListRecordsResponse'] :: ListRecordsResponse -> Maybe Bool
+-- | A pagination token for obtaining the next page of results.
+[$sel:nextToken:ListRecordsResponse'] :: ListRecordsResponse -> Maybe Text
+
+-- | Names of merged datasets.
+[$sel:mergedDatasetNames:ListRecordsResponse'] :: ListRecordsResponse -> Maybe [Text]
 
 -- | A token containing a session ID, identity ID, and expiration.
 [$sel:syncSessionToken:ListRecordsResponse'] :: ListRecordsResponse -> Maybe Text
 
--- | Names of merged datasets.
-[$sel:mergedDatasetNames:ListRecordsResponse'] :: ListRecordsResponse -> Maybe [Text]
+-- | The user/device that made the last change to this record.
+[$sel:lastModifiedBy:ListRecordsResponse'] :: ListRecordsResponse -> Maybe Text
+
+-- | Server sync count for this dataset.
+[$sel:datasetSyncCount:ListRecordsResponse'] :: ListRecordsResponse -> Maybe Integer
 
 -- | The response's http status code.
 [$sel:httpStatus:ListRecordsResponse'] :: ListRecordsResponse -> Int
@@ -1781,72 +1781,72 @@ ListRecordsResponse' :: Maybe Text -> Maybe Integer -> Maybe [Record] -> Maybe B
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListRecords'</a>,
---   <a>listRecordsResponse_nextToken</a> - A pagination token for
---   obtaining the next page of results.
---   
---   <a>$sel:datasetSyncCount:ListRecordsResponse'</a>,
---   <a>listRecordsResponse_datasetSyncCount</a> - Server sync count for
---   this dataset.
---   
---   <a>$sel:records:ListRecordsResponse'</a>,
---   <a>listRecordsResponse_records</a> - A list of all records.
---   
 --   
 --   <a>$sel:datasetDeletedAfterRequestedSyncCount:ListRecordsResponse'</a>,
 --   <a>listRecordsResponse_datasetDeletedAfterRequestedSyncCount</a> - A
 --   boolean value specifying whether to delete the dataset locally.
 --   
---   <a>$sel:count:ListRecordsResponse'</a>,
---   <a>listRecordsResponse_count</a> - Total number of records.
---   
---   <a>$sel:lastModifiedBy:ListRecordsResponse'</a>,
---   <a>listRecordsResponse_lastModifiedBy</a> - The user/device that made
---   the last change to this record.
---   
 --   <a>$sel:datasetExists:ListRecordsResponse'</a>,
 --   <a>listRecordsResponse_datasetExists</a> - Indicates whether the
 --   dataset exists.
+--   
+--   <a>$sel:count:ListRecordsResponse'</a>,
+--   <a>listRecordsResponse_count</a> - Total number of records.
+--   
+--   <a>$sel:records:ListRecordsResponse'</a>,
+--   <a>listRecordsResponse_records</a> - A list of all records.
+--   
+--   <a>$sel:nextToken:ListRecords'</a>,
+--   <a>listRecordsResponse_nextToken</a> - A pagination token for
+--   obtaining the next page of results.
+--   
+--   <a>$sel:mergedDatasetNames:ListRecordsResponse'</a>,
+--   <a>listRecordsResponse_mergedDatasetNames</a> - Names of merged
+--   datasets.
 --   
 --   <a>$sel:syncSessionToken:ListRecords'</a>,
 --   <a>listRecordsResponse_syncSessionToken</a> - A token containing a
 --   session ID, identity ID, and expiration.
 --   
---   <a>$sel:mergedDatasetNames:ListRecordsResponse'</a>,
---   <a>listRecordsResponse_mergedDatasetNames</a> - Names of merged
---   datasets.
+--   <a>$sel:lastModifiedBy:ListRecordsResponse'</a>,
+--   <a>listRecordsResponse_lastModifiedBy</a> - The user/device that made
+--   the last change to this record.
+--   
+--   <a>$sel:datasetSyncCount:ListRecordsResponse'</a>,
+--   <a>listRecordsResponse_datasetSyncCount</a> - Server sync count for
+--   this dataset.
 --   
 --   <a>$sel:httpStatus:ListRecordsResponse'</a>,
 --   <a>listRecordsResponse_httpStatus</a> - The response's http status
 --   code.
 newListRecordsResponse :: Int -> ListRecordsResponse
 
--- | A pagination token for obtaining the next page of results.
-listRecordsResponse_nextToken :: Lens' ListRecordsResponse (Maybe Text)
-
--- | Server sync count for this dataset.
-listRecordsResponse_datasetSyncCount :: Lens' ListRecordsResponse (Maybe Integer)
-
--- | A list of all records.
-listRecordsResponse_records :: Lens' ListRecordsResponse (Maybe [Record])
-
 -- | A boolean value specifying whether to delete the dataset locally.
 listRecordsResponse_datasetDeletedAfterRequestedSyncCount :: Lens' ListRecordsResponse (Maybe Bool)
-
--- | Total number of records.
-listRecordsResponse_count :: Lens' ListRecordsResponse (Maybe Int)
-
--- | The user/device that made the last change to this record.
-listRecordsResponse_lastModifiedBy :: Lens' ListRecordsResponse (Maybe Text)
 
 -- | Indicates whether the dataset exists.
 listRecordsResponse_datasetExists :: Lens' ListRecordsResponse (Maybe Bool)
 
--- | A token containing a session ID, identity ID, and expiration.
-listRecordsResponse_syncSessionToken :: Lens' ListRecordsResponse (Maybe Text)
+-- | Total number of records.
+listRecordsResponse_count :: Lens' ListRecordsResponse (Maybe Int)
+
+-- | A list of all records.
+listRecordsResponse_records :: Lens' ListRecordsResponse (Maybe [Record])
+
+-- | A pagination token for obtaining the next page of results.
+listRecordsResponse_nextToken :: Lens' ListRecordsResponse (Maybe Text)
 
 -- | Names of merged datasets.
 listRecordsResponse_mergedDatasetNames :: Lens' ListRecordsResponse (Maybe [Text])
+
+-- | A token containing a session ID, identity ID, and expiration.
+listRecordsResponse_syncSessionToken :: Lens' ListRecordsResponse (Maybe Text)
+
+-- | The user/device that made the last change to this record.
+listRecordsResponse_lastModifiedBy :: Lens' ListRecordsResponse (Maybe Text)
+
+-- | Server sync count for this dataset.
+listRecordsResponse_datasetSyncCount :: Lens' ListRecordsResponse (Maybe Integer)
 
 -- | The response's http status code.
 listRecordsResponse_httpStatus :: Lens' ListRecordsResponse Int
@@ -1914,19 +1914,19 @@ listIdentityPoolUsage_maxResults :: Lens' ListIdentityPoolUsage (Maybe Int)
 --   
 --   <i>See:</i> <a>newListIdentityPoolUsageResponse</a> smart constructor.
 data ListIdentityPoolUsageResponse
-ListIdentityPoolUsageResponse' :: Maybe [IdentityPoolUsage] -> Maybe Text -> Maybe Int -> Maybe Int -> Int -> ListIdentityPoolUsageResponse
+ListIdentityPoolUsageResponse' :: Maybe [IdentityPoolUsage] -> Maybe Int -> Maybe Text -> Maybe Int -> Int -> ListIdentityPoolUsageResponse
 
 -- | Usage information for the identity pools.
 [$sel:identityPoolUsages:ListIdentityPoolUsageResponse'] :: ListIdentityPoolUsageResponse -> Maybe [IdentityPoolUsage]
+
+-- | Total number of identities for the identity pool.
+[$sel:count:ListIdentityPoolUsageResponse'] :: ListIdentityPoolUsageResponse -> Maybe Int
 
 -- | A pagination token for obtaining the next page of results.
 [$sel:nextToken:ListIdentityPoolUsageResponse'] :: ListIdentityPoolUsageResponse -> Maybe Text
 
 -- | The maximum number of results to be returned.
 [$sel:maxResults:ListIdentityPoolUsageResponse'] :: ListIdentityPoolUsageResponse -> Maybe Int
-
--- | Total number of identities for the identity pool.
-[$sel:count:ListIdentityPoolUsageResponse'] :: ListIdentityPoolUsageResponse -> Maybe Int
 
 -- | The response's http status code.
 [$sel:httpStatus:ListIdentityPoolUsageResponse'] :: ListIdentityPoolUsageResponse -> Int
@@ -1944,6 +1944,10 @@ ListIdentityPoolUsageResponse' :: Maybe [IdentityPoolUsage] -> Maybe Text -> May
 --   <a>listIdentityPoolUsageResponse_identityPoolUsages</a> - Usage
 --   information for the identity pools.
 --   
+--   <a>$sel:count:ListIdentityPoolUsageResponse'</a>,
+--   <a>listIdentityPoolUsageResponse_count</a> - Total number of
+--   identities for the identity pool.
+--   
 --   <a>$sel:nextToken:ListIdentityPoolUsage'</a>,
 --   <a>listIdentityPoolUsageResponse_nextToken</a> - A pagination token
 --   for obtaining the next page of results.
@@ -1951,10 +1955,6 @@ ListIdentityPoolUsageResponse' :: Maybe [IdentityPoolUsage] -> Maybe Text -> May
 --   <a>$sel:maxResults:ListIdentityPoolUsage'</a>,
 --   <a>listIdentityPoolUsageResponse_maxResults</a> - The maximum number
 --   of results to be returned.
---   
---   <a>$sel:count:ListIdentityPoolUsageResponse'</a>,
---   <a>listIdentityPoolUsageResponse_count</a> - Total number of
---   identities for the identity pool.
 --   
 --   <a>$sel:httpStatus:ListIdentityPoolUsageResponse'</a>,
 --   <a>listIdentityPoolUsageResponse_httpStatus</a> - The response's http
@@ -1964,14 +1964,14 @@ newListIdentityPoolUsageResponse :: Int -> ListIdentityPoolUsageResponse
 -- | Usage information for the identity pools.
 listIdentityPoolUsageResponse_identityPoolUsages :: Lens' ListIdentityPoolUsageResponse (Maybe [IdentityPoolUsage])
 
+-- | Total number of identities for the identity pool.
+listIdentityPoolUsageResponse_count :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
+
 -- | A pagination token for obtaining the next page of results.
 listIdentityPoolUsageResponse_nextToken :: Lens' ListIdentityPoolUsageResponse (Maybe Text)
 
 -- | The maximum number of results to be returned.
 listIdentityPoolUsageResponse_maxResults :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
-
--- | Total number of identities for the identity pool.
-listIdentityPoolUsageResponse_count :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
 
 -- | The response's http status code.
 listIdentityPoolUsageResponse_httpStatus :: Lens' ListIdentityPoolUsageResponse Int
@@ -2069,16 +2069,16 @@ listDatasets_identityPoolId :: Lens' ListDatasets Text
 --   
 --   <i>See:</i> <a>newListDatasetsResponse</a> smart constructor.
 data ListDatasetsResponse
-ListDatasetsResponse' :: Maybe Text -> Maybe [Dataset] -> Maybe Int -> Int -> ListDatasetsResponse
+ListDatasetsResponse' :: Maybe Int -> Maybe Text -> Maybe [Dataset] -> Int -> ListDatasetsResponse
+
+-- | Number of datasets returned.
+[$sel:count:ListDatasetsResponse'] :: ListDatasetsResponse -> Maybe Int
 
 -- | A pagination token for obtaining the next page of results.
 [$sel:nextToken:ListDatasetsResponse'] :: ListDatasetsResponse -> Maybe Text
 
 -- | A set of datasets.
 [$sel:datasets:ListDatasetsResponse'] :: ListDatasetsResponse -> Maybe [Dataset]
-
--- | Number of datasets returned.
-[$sel:count:ListDatasetsResponse'] :: ListDatasetsResponse -> Maybe Int
 
 -- | The response's http status code.
 [$sel:httpStatus:ListDatasetsResponse'] :: ListDatasetsResponse -> Int
@@ -2092,6 +2092,9 @@ ListDatasetsResponse' :: Maybe Text -> Maybe [Dataset] -> Maybe Int -> Int -> Li
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:count:ListDatasetsResponse'</a>,
+--   <a>listDatasetsResponse_count</a> - Number of datasets returned.
+--   
 --   <a>$sel:nextToken:ListDatasets'</a>,
 --   <a>listDatasetsResponse_nextToken</a> - A pagination token for
 --   obtaining the next page of results.
@@ -2099,22 +2102,19 @@ ListDatasetsResponse' :: Maybe Text -> Maybe [Dataset] -> Maybe Int -> Int -> Li
 --   <a>$sel:datasets:ListDatasetsResponse'</a>,
 --   <a>listDatasetsResponse_datasets</a> - A set of datasets.
 --   
---   <a>$sel:count:ListDatasetsResponse'</a>,
---   <a>listDatasetsResponse_count</a> - Number of datasets returned.
---   
 --   <a>$sel:httpStatus:ListDatasetsResponse'</a>,
 --   <a>listDatasetsResponse_httpStatus</a> - The response's http status
 --   code.
 newListDatasetsResponse :: Int -> ListDatasetsResponse
+
+-- | Number of datasets returned.
+listDatasetsResponse_count :: Lens' ListDatasetsResponse (Maybe Int)
 
 -- | A pagination token for obtaining the next page of results.
 listDatasetsResponse_nextToken :: Lens' ListDatasetsResponse (Maybe Text)
 
 -- | A set of datasets.
 listDatasetsResponse_datasets :: Lens' ListDatasetsResponse (Maybe [Dataset])
-
--- | Number of datasets returned.
-listDatasetsResponse_count :: Lens' ListDatasetsResponse (Maybe Int)
 
 -- | The response's http status code.
 listDatasetsResponse_httpStatus :: Lens' ListDatasetsResponse Int
@@ -2181,18 +2181,18 @@ getIdentityPoolConfiguration_identityPoolId :: Lens' GetIdentityPoolConfiguratio
 --   <i>See:</i> <a>newGetIdentityPoolConfigurationResponse</a> smart
 --   constructor.
 data GetIdentityPoolConfigurationResponse
-GetIdentityPoolConfigurationResponse' :: Maybe Text -> Maybe PushSync -> Maybe CognitoStreams -> Int -> GetIdentityPoolConfigurationResponse
+GetIdentityPoolConfigurationResponse' :: Maybe Text -> Maybe CognitoStreams -> Maybe PushSync -> Int -> GetIdentityPoolConfigurationResponse
 
 -- | A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito.
 [$sel:identityPoolId:GetIdentityPoolConfigurationResponse'] :: GetIdentityPoolConfigurationResponse -> Maybe Text
 
--- | Options to apply to this identity pool for push synchronization.
-[$sel:pushSync:GetIdentityPoolConfigurationResponse'] :: GetIdentityPoolConfigurationResponse -> Maybe PushSync
-
 -- | Options to apply to this identity pool for Amazon Cognito streams.
 [$sel:cognitoStreams:GetIdentityPoolConfigurationResponse'] :: GetIdentityPoolConfigurationResponse -> Maybe CognitoStreams
+
+-- | Options to apply to this identity pool for push synchronization.
+[$sel:pushSync:GetIdentityPoolConfigurationResponse'] :: GetIdentityPoolConfigurationResponse -> Maybe PushSync
 
 -- | The response's http status code.
 [$sel:httpStatus:GetIdentityPoolConfigurationResponse'] :: GetIdentityPoolConfigurationResponse -> Int
@@ -2212,13 +2212,13 @@ GetIdentityPoolConfigurationResponse' :: Maybe Text -> Maybe PushSync -> Maybe C
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito.
 --   
---   <a>$sel:pushSync:GetIdentityPoolConfigurationResponse'</a>,
---   <a>getIdentityPoolConfigurationResponse_pushSync</a> - Options to
---   apply to this identity pool for push synchronization.
---   
 --   <a>$sel:cognitoStreams:GetIdentityPoolConfigurationResponse'</a>,
 --   <a>getIdentityPoolConfigurationResponse_cognitoStreams</a> - Options
 --   to apply to this identity pool for Amazon Cognito streams.
+--   
+--   <a>$sel:pushSync:GetIdentityPoolConfigurationResponse'</a>,
+--   <a>getIdentityPoolConfigurationResponse_pushSync</a> - Options to
+--   apply to this identity pool for push synchronization.
 --   
 --   <a>$sel:httpStatus:GetIdentityPoolConfigurationResponse'</a>,
 --   <a>getIdentityPoolConfigurationResponse_httpStatus</a> - The
@@ -2230,11 +2230,11 @@ newGetIdentityPoolConfigurationResponse :: Int -> GetIdentityPoolConfigurationRe
 --   Cognito.
 getIdentityPoolConfigurationResponse_identityPoolId :: Lens' GetIdentityPoolConfigurationResponse (Maybe Text)
 
--- | Options to apply to this identity pool for push synchronization.
-getIdentityPoolConfigurationResponse_pushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
-
 -- | Options to apply to this identity pool for Amazon Cognito streams.
 getIdentityPoolConfigurationResponse_cognitoStreams :: Lens' GetIdentityPoolConfigurationResponse (Maybe CognitoStreams)
+
+-- | Options to apply to this identity pool for push synchronization.
+getIdentityPoolConfigurationResponse_pushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
 
 -- | The response's http status code.
 getIdentityPoolConfigurationResponse_httpStatus :: Lens' GetIdentityPoolConfigurationResponse Int
@@ -2383,23 +2383,23 @@ getBulkPublishDetails_identityPoolId :: Lens' GetBulkPublishDetails Text
 --   
 --   <i>See:</i> <a>newGetBulkPublishDetailsResponse</a> smart constructor.
 data GetBulkPublishDetailsResponse
-GetBulkPublishDetailsResponse' :: Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe POSIX -> Maybe BulkPublishStatus -> Int -> GetBulkPublishDetailsResponse
+GetBulkPublishDetailsResponse' :: Maybe POSIX -> Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe BulkPublishStatus -> Int -> GetBulkPublishDetailsResponse
+
+-- | The date/time at which the last bulk publish was initiated.
+[$sel:bulkPublishStartTime:GetBulkPublishDetailsResponse'] :: GetBulkPublishDetailsResponse -> Maybe POSIX
 
 -- | A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito. GUID generation is unique within a region.
 [$sel:identityPoolId:GetBulkPublishDetailsResponse'] :: GetBulkPublishDetailsResponse -> Maybe Text
 
--- | The date/time at which the last bulk publish was initiated.
-[$sel:bulkPublishStartTime:GetBulkPublishDetailsResponse'] :: GetBulkPublishDetailsResponse -> Maybe POSIX
+-- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish
+--   operation completed.
+[$sel:bulkPublishCompleteTime:GetBulkPublishDetailsResponse'] :: GetBulkPublishDetailsResponse -> Maybe POSIX
 
 -- | If BulkPublishStatus is FAILED this field will contain the error
 --   message that caused the bulk publish to fail.
 [$sel:failureMessage:GetBulkPublishDetailsResponse'] :: GetBulkPublishDetailsResponse -> Maybe Text
-
--- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish
---   operation completed.
-[$sel:bulkPublishCompleteTime:GetBulkPublishDetailsResponse'] :: GetBulkPublishDetailsResponse -> Maybe POSIX
 
 -- | Status of the last bulk publish operation, valid values are:
 --   
@@ -2427,24 +2427,24 @@ GetBulkPublishDetailsResponse' :: Maybe Text -> Maybe POSIX -> Maybe Text -> May
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:bulkPublishStartTime:GetBulkPublishDetailsResponse'</a>,
+--   <a>getBulkPublishDetailsResponse_bulkPublishStartTime</a> - The
+--   date/time at which the last bulk publish was initiated.
+--   
 --   <a>$sel:identityPoolId:GetBulkPublishDetails'</a>,
 --   <a>getBulkPublishDetailsResponse_identityPoolId</a> - A name-spaced
 --   GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
 --   created by Amazon Cognito. GUID generation is unique within a region.
 --   
---   <a>$sel:bulkPublishStartTime:GetBulkPublishDetailsResponse'</a>,
---   <a>getBulkPublishDetailsResponse_bulkPublishStartTime</a> - The
---   date/time at which the last bulk publish was initiated.
+--   <a>$sel:bulkPublishCompleteTime:GetBulkPublishDetailsResponse'</a>,
+--   <a>getBulkPublishDetailsResponse_bulkPublishCompleteTime</a> - If
+--   BulkPublishStatus is SUCCEEDED, the time the last bulk publish
+--   operation completed.
 --   
 --   <a>$sel:failureMessage:GetBulkPublishDetailsResponse'</a>,
 --   <a>getBulkPublishDetailsResponse_failureMessage</a> - If
 --   BulkPublishStatus is FAILED this field will contain the error message
 --   that caused the bulk publish to fail.
---   
---   <a>$sel:bulkPublishCompleteTime:GetBulkPublishDetailsResponse'</a>,
---   <a>getBulkPublishDetailsResponse_bulkPublishCompleteTime</a> - If
---   BulkPublishStatus is SUCCEEDED, the time the last bulk publish
---   operation completed.
 --   
 --   <a>$sel:bulkPublishStatus:GetBulkPublishDetailsResponse'</a>,
 --   <a>getBulkPublishDetailsResponse_bulkPublishStatus</a> - Status of the
@@ -2466,21 +2466,21 @@ GetBulkPublishDetailsResponse' :: Maybe Text -> Maybe POSIX -> Maybe Text -> May
 --   status code.
 newGetBulkPublishDetailsResponse :: Int -> GetBulkPublishDetailsResponse
 
+-- | The date/time at which the last bulk publish was initiated.
+getBulkPublishDetailsResponse_bulkPublishStartTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
+
 -- | A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito. GUID generation is unique within a region.
 getBulkPublishDetailsResponse_identityPoolId :: Lens' GetBulkPublishDetailsResponse (Maybe Text)
 
--- | The date/time at which the last bulk publish was initiated.
-getBulkPublishDetailsResponse_bulkPublishStartTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
+-- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish
+--   operation completed.
+getBulkPublishDetailsResponse_bulkPublishCompleteTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
 
 -- | If BulkPublishStatus is FAILED this field will contain the error
 --   message that caused the bulk publish to fail.
 getBulkPublishDetailsResponse_failureMessage :: Lens' GetBulkPublishDetailsResponse (Maybe Text)
-
--- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish
---   operation completed.
-getBulkPublishDetailsResponse_bulkPublishCompleteTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
 
 -- | Status of the last bulk publish operation, valid values are:
 --   
@@ -3371,6 +3371,311 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CognitoSync.UpdateRecords.Up
 
 module Network.AWS.CognitoSync.Lens
 
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. GUID generation is unique within a region.
+describeDataset_identityPoolId :: Lens' DescribeDataset Text
+
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. GUID generation is unique within a region.
+describeDataset_identityId :: Lens' DescribeDataset Text
+
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z,
+--   0-9, '_' (underscore), '-' (dash), and '.' (dot).
+describeDataset_datasetName :: Lens' DescribeDataset Text
+
+-- | Meta data for a collection of data for an identity. An identity can
+--   have multiple datasets. A dataset can be general or associated with a
+--   particular entity in an application (like a saved game). Datasets are
+--   automatically created if they don't exist. Data is synced by dataset,
+--   and a dataset can hold up to 1MB of key-value pairs.
+describeDatasetResponse_dataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
+
+-- | The response's http status code.
+describeDatasetResponse_httpStatus :: Lens' DescribeDatasetResponse Int
+
+-- | The Cognito Identity Pool to use when configuring Cognito Events
+setCognitoEvents_identityPoolId :: Lens' SetCognitoEvents Text
+
+-- | The events to configure
+setCognitoEvents_events :: Lens' SetCognitoEvents (HashMap Text Text)
+
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. GUID generation is unique within a region.
+describeIdentityPoolUsage_identityPoolId :: Lens' DescribeIdentityPoolUsage Text
+
+-- | Information about the usage of the identity pool.
+describeIdentityPoolUsageResponse_identityPoolUsage :: Lens' DescribeIdentityPoolUsageResponse (Maybe IdentityPoolUsage)
+
+-- | The response's http status code.
+describeIdentityPoolUsageResponse_httpStatus :: Lens' DescribeIdentityPoolUsageResponse Int
+
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. GUID generation is unique within a region.
+getBulkPublishDetails_identityPoolId :: Lens' GetBulkPublishDetails Text
+
+-- | The date/time at which the last bulk publish was initiated.
+getBulkPublishDetailsResponse_bulkPublishStartTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
+
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. GUID generation is unique within a region.
+getBulkPublishDetailsResponse_identityPoolId :: Lens' GetBulkPublishDetailsResponse (Maybe Text)
+
+-- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish
+--   operation completed.
+getBulkPublishDetailsResponse_bulkPublishCompleteTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
+
+-- | If BulkPublishStatus is FAILED this field will contain the error
+--   message that caused the bulk publish to fail.
+getBulkPublishDetailsResponse_failureMessage :: Lens' GetBulkPublishDetailsResponse (Maybe Text)
+
+-- | Status of the last bulk publish operation, valid values are:
+--   
+--   NOT_STARTED - No bulk publish has been requested for this identity
+--   pool
+--   
+--   IN_PROGRESS - Data is being published to the configured stream
+--   
+--   SUCCEEDED - All data for the identity pool has been published to the
+--   configured stream
+--   
+--   FAILED - Some portion of the data has failed to publish, check
+--   FailureMessage for the cause.
+getBulkPublishDetailsResponse_bulkPublishStatus :: Lens' GetBulkPublishDetailsResponse (Maybe BulkPublishStatus)
+
+-- | The response's http status code.
+getBulkPublishDetailsResponse_httpStatus :: Lens' GetBulkPublishDetailsResponse Int
+
+-- | A pagination token for obtaining the next page of results.
+listIdentityPoolUsage_nextToken :: Lens' ListIdentityPoolUsage (Maybe Text)
+
+-- | The maximum number of results to be returned.
+listIdentityPoolUsage_maxResults :: Lens' ListIdentityPoolUsage (Maybe Int)
+
+-- | Usage information for the identity pools.
+listIdentityPoolUsageResponse_identityPoolUsages :: Lens' ListIdentityPoolUsageResponse (Maybe [IdentityPoolUsage])
+
+-- | Total number of identities for the identity pool.
+listIdentityPoolUsageResponse_count :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
+
+-- | A pagination token for obtaining the next page of results.
+listIdentityPoolUsageResponse_nextToken :: Lens' ListIdentityPoolUsageResponse (Maybe Text)
+
+-- | The maximum number of results to be returned.
+listIdentityPoolUsageResponse_maxResults :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
+
+-- | The response's http status code.
+listIdentityPoolUsageResponse_httpStatus :: Lens' ListIdentityPoolUsageResponse Int
+
+-- | Options to apply to this identity pool for Amazon Cognito streams.
+setIdentityPoolConfiguration_cognitoStreams :: Lens' SetIdentityPoolConfiguration (Maybe CognitoStreams)
+
+-- | Options to apply to this identity pool for push synchronization.
+setIdentityPoolConfiguration_pushSync :: Lens' SetIdentityPoolConfiguration (Maybe PushSync)
+
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. This is the ID of the pool to modify.
+setIdentityPoolConfiguration_identityPoolId :: Lens' SetIdentityPoolConfiguration Text
+
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito.
+setIdentityPoolConfigurationResponse_identityPoolId :: Lens' SetIdentityPoolConfigurationResponse (Maybe Text)
+
+-- | Options to apply to this identity pool for Amazon Cognito streams.
+setIdentityPoolConfigurationResponse_cognitoStreams :: Lens' SetIdentityPoolConfigurationResponse (Maybe CognitoStreams)
+
+-- | Options to apply to this identity pool for push synchronization.
+setIdentityPoolConfigurationResponse_pushSync :: Lens' SetIdentityPoolConfigurationResponse (Maybe PushSync)
+
+-- | The response's http status code.
+setIdentityPoolConfigurationResponse_httpStatus :: Lens' SetIdentityPoolConfigurationResponse Int
+
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. GUID generation is unique within a region.
+deleteDataset_identityPoolId :: Lens' DeleteDataset Text
+
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. GUID generation is unique within a region.
+deleteDataset_identityId :: Lens' DeleteDataset Text
+
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z,
+--   0-9, '_' (underscore), '-' (dash), and '.' (dot).
+deleteDataset_datasetName :: Lens' DeleteDataset Text
+
+-- | A collection of data for an identity pool. An identity pool can have
+--   multiple datasets. A dataset is per identity and can be general or
+--   associated with a particular entity in an application (like a saved
+--   game). Datasets are automatically created if they don't exist. Data is
+--   synced by dataset, and a dataset can hold up to 1MB of key-value
+--   pairs.
+deleteDatasetResponse_dataset :: Lens' DeleteDatasetResponse (Maybe Dataset)
+
+-- | The response's http status code.
+deleteDatasetResponse_httpStatus :: Lens' DeleteDatasetResponse Int
+
+-- | The Cognito Identity Pool ID for the request
+getCognitoEvents_identityPoolId :: Lens' GetCognitoEvents Text
+
+-- | The Cognito Events returned from the GetCognitoEvents request
+getCognitoEventsResponse_events :: Lens' GetCognitoEventsResponse (Maybe (HashMap Text Text))
+
+-- | The response's http status code.
+getCognitoEventsResponse_httpStatus :: Lens' GetCognitoEventsResponse Int
+
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. GUID generation is unique within a region.
+describeIdentityUsage_identityPoolId :: Lens' DescribeIdentityUsage Text
+
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. GUID generation is unique within a region.
+describeIdentityUsage_identityId :: Lens' DescribeIdentityUsage Text
+
+-- | Usage information for the identity.
+describeIdentityUsageResponse_identityUsage :: Lens' DescribeIdentityUsageResponse (Maybe IdentityUsage)
+
+-- | The response's http status code.
+describeIdentityUsageResponse_httpStatus :: Lens' DescribeIdentityUsageResponse Int
+
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. Here, the ID of the pool that the identity belongs to.
+registerDevice_identityPoolId :: Lens' RegisterDevice Text
+
+-- | The unique ID for this identity.
+registerDevice_identityId :: Lens' RegisterDevice Text
+
+-- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).
+registerDevice_platform :: Lens' RegisterDevice Platform
+
+-- | The push token.
+registerDevice_token :: Lens' RegisterDevice Text
+
+-- | The unique ID generated for this device by Cognito.
+registerDeviceResponse_deviceId :: Lens' RegisterDeviceResponse (Maybe Text)
+
+-- | The response's http status code.
+registerDeviceResponse_httpStatus :: Lens' RegisterDeviceResponse Int
+
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. The ID of the pool to which the identity belongs.
+subscribeToDataset_identityPoolId :: Lens' SubscribeToDataset Text
+
+-- | Unique ID for this identity.
+subscribeToDataset_identityId :: Lens' SubscribeToDataset Text
+
+-- | The name of the dataset to subcribe to.
+subscribeToDataset_datasetName :: Lens' SubscribeToDataset Text
+
+-- | The unique ID generated for this device by Cognito.
+subscribeToDataset_deviceId :: Lens' SubscribeToDataset Text
+
+-- | The response's http status code.
+subscribeToDatasetResponse_httpStatus :: Lens' SubscribeToDatasetResponse Int
+
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. This is the ID of the pool for which to return a
+--   configuration.
+getIdentityPoolConfiguration_identityPoolId :: Lens' GetIdentityPoolConfiguration Text
+
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito.
+getIdentityPoolConfigurationResponse_identityPoolId :: Lens' GetIdentityPoolConfigurationResponse (Maybe Text)
+
+-- | Options to apply to this identity pool for Amazon Cognito streams.
+getIdentityPoolConfigurationResponse_cognitoStreams :: Lens' GetIdentityPoolConfigurationResponse (Maybe CognitoStreams)
+
+-- | Options to apply to this identity pool for push synchronization.
+getIdentityPoolConfigurationResponse_pushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
+
+-- | The response's http status code.
+getIdentityPoolConfigurationResponse_httpStatus :: Lens' GetIdentityPoolConfigurationResponse Int
+
+-- | The last server sync count for this record.
+listRecords_lastSyncCount :: Lens' ListRecords (Maybe Integer)
+
+-- | A pagination token for obtaining the next page of results.
+listRecords_nextToken :: Lens' ListRecords (Maybe Text)
+
+-- | A token containing a session ID, identity ID, and expiration.
+listRecords_syncSessionToken :: Lens' ListRecords (Maybe Text)
+
+-- | The maximum number of results to be returned.
+listRecords_maxResults :: Lens' ListRecords (Maybe Int)
+
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. GUID generation is unique within a region.
+listRecords_identityPoolId :: Lens' ListRecords Text
+
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. GUID generation is unique within a region.
+listRecords_identityId :: Lens' ListRecords Text
+
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z,
+--   0-9, '_' (underscore), '-' (dash), and '.' (dot).
+listRecords_datasetName :: Lens' ListRecords Text
+
+-- | A boolean value specifying whether to delete the dataset locally.
+listRecordsResponse_datasetDeletedAfterRequestedSyncCount :: Lens' ListRecordsResponse (Maybe Bool)
+
+-- | Indicates whether the dataset exists.
+listRecordsResponse_datasetExists :: Lens' ListRecordsResponse (Maybe Bool)
+
+-- | Total number of records.
+listRecordsResponse_count :: Lens' ListRecordsResponse (Maybe Int)
+
+-- | A list of all records.
+listRecordsResponse_records :: Lens' ListRecordsResponse (Maybe [Record])
+
+-- | A pagination token for obtaining the next page of results.
+listRecordsResponse_nextToken :: Lens' ListRecordsResponse (Maybe Text)
+
+-- | Names of merged datasets.
+listRecordsResponse_mergedDatasetNames :: Lens' ListRecordsResponse (Maybe [Text])
+
+-- | A token containing a session ID, identity ID, and expiration.
+listRecordsResponse_syncSessionToken :: Lens' ListRecordsResponse (Maybe Text)
+
+-- | The user/device that made the last change to this record.
+listRecordsResponse_lastModifiedBy :: Lens' ListRecordsResponse (Maybe Text)
+
+-- | Server sync count for this dataset.
+listRecordsResponse_datasetSyncCount :: Lens' ListRecordsResponse (Maybe Integer)
+
+-- | The response's http status code.
+listRecordsResponse_httpStatus :: Lens' ListRecordsResponse Int
+
+-- | A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. The ID of the pool to which this identity belongs.
+unsubscribeFromDataset_identityPoolId :: Lens' UnsubscribeFromDataset Text
+
+-- | Unique ID for this identity.
+unsubscribeFromDataset_identityId :: Lens' UnsubscribeFromDataset Text
+
+-- | The name of the dataset from which to unsubcribe.
+unsubscribeFromDataset_datasetName :: Lens' UnsubscribeFromDataset Text
+
+-- | The unique ID generated for this device by Cognito.
+unsubscribeFromDataset_deviceId :: Lens' UnsubscribeFromDataset Text
+
+-- | The response's http status code.
+unsubscribeFromDatasetResponse_httpStatus :: Lens' UnsubscribeFromDatasetResponse Int
+
 -- | A list of patch operations.
 updateRecords_recordPatches :: Lens' UpdateRecords (Maybe [RecordPatch])
 
@@ -3407,288 +3712,6 @@ updateRecordsResponse_records :: Lens' UpdateRecordsResponse (Maybe [Record])
 updateRecordsResponse_httpStatus :: Lens' UpdateRecordsResponse Int
 
 -- | A pagination token for obtaining the next page of results.
-listRecords_nextToken :: Lens' ListRecords (Maybe Text)
-
--- | The maximum number of results to be returned.
-listRecords_maxResults :: Lens' ListRecords (Maybe Int)
-
--- | The last server sync count for this record.
-listRecords_lastSyncCount :: Lens' ListRecords (Maybe Integer)
-
--- | A token containing a session ID, identity ID, and expiration.
-listRecords_syncSessionToken :: Lens' ListRecords (Maybe Text)
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. GUID generation is unique within a region.
-listRecords_identityPoolId :: Lens' ListRecords Text
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. GUID generation is unique within a region.
-listRecords_identityId :: Lens' ListRecords Text
-
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z,
---   0-9, '_' (underscore), '-' (dash), and '.' (dot).
-listRecords_datasetName :: Lens' ListRecords Text
-
--- | A pagination token for obtaining the next page of results.
-listRecordsResponse_nextToken :: Lens' ListRecordsResponse (Maybe Text)
-
--- | Server sync count for this dataset.
-listRecordsResponse_datasetSyncCount :: Lens' ListRecordsResponse (Maybe Integer)
-
--- | A list of all records.
-listRecordsResponse_records :: Lens' ListRecordsResponse (Maybe [Record])
-
--- | A boolean value specifying whether to delete the dataset locally.
-listRecordsResponse_datasetDeletedAfterRequestedSyncCount :: Lens' ListRecordsResponse (Maybe Bool)
-
--- | Total number of records.
-listRecordsResponse_count :: Lens' ListRecordsResponse (Maybe Int)
-
--- | The user/device that made the last change to this record.
-listRecordsResponse_lastModifiedBy :: Lens' ListRecordsResponse (Maybe Text)
-
--- | Indicates whether the dataset exists.
-listRecordsResponse_datasetExists :: Lens' ListRecordsResponse (Maybe Bool)
-
--- | A token containing a session ID, identity ID, and expiration.
-listRecordsResponse_syncSessionToken :: Lens' ListRecordsResponse (Maybe Text)
-
--- | Names of merged datasets.
-listRecordsResponse_mergedDatasetNames :: Lens' ListRecordsResponse (Maybe [Text])
-
--- | The response's http status code.
-listRecordsResponse_httpStatus :: Lens' ListRecordsResponse Int
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. Here, the ID of the pool that the identity belongs to.
-registerDevice_identityPoolId :: Lens' RegisterDevice Text
-
--- | The unique ID for this identity.
-registerDevice_identityId :: Lens' RegisterDevice Text
-
--- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).
-registerDevice_platform :: Lens' RegisterDevice Platform
-
--- | The push token.
-registerDevice_token :: Lens' RegisterDevice Text
-
--- | The unique ID generated for this device by Cognito.
-registerDeviceResponse_deviceId :: Lens' RegisterDeviceResponse (Maybe Text)
-
--- | The response's http status code.
-registerDeviceResponse_httpStatus :: Lens' RegisterDeviceResponse Int
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. GUID generation is unique within a region.
-bulkPublish_identityPoolId :: Lens' BulkPublish Text
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. GUID generation is unique within a region.
-bulkPublishResponse_identityPoolId :: Lens' BulkPublishResponse (Maybe Text)
-
--- | The response's http status code.
-bulkPublishResponse_httpStatus :: Lens' BulkPublishResponse Int
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. The ID of the pool to which the identity belongs.
-subscribeToDataset_identityPoolId :: Lens' SubscribeToDataset Text
-
--- | Unique ID for this identity.
-subscribeToDataset_identityId :: Lens' SubscribeToDataset Text
-
--- | The name of the dataset to subcribe to.
-subscribeToDataset_datasetName :: Lens' SubscribeToDataset Text
-
--- | The unique ID generated for this device by Cognito.
-subscribeToDataset_deviceId :: Lens' SubscribeToDataset Text
-
--- | The response's http status code.
-subscribeToDatasetResponse_httpStatus :: Lens' SubscribeToDatasetResponse Int
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. GUID generation is unique within a region.
-describeIdentityUsage_identityPoolId :: Lens' DescribeIdentityUsage Text
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. GUID generation is unique within a region.
-describeIdentityUsage_identityId :: Lens' DescribeIdentityUsage Text
-
--- | Usage information for the identity.
-describeIdentityUsageResponse_identityUsage :: Lens' DescribeIdentityUsageResponse (Maybe IdentityUsage)
-
--- | The response's http status code.
-describeIdentityUsageResponse_httpStatus :: Lens' DescribeIdentityUsageResponse Int
-
--- | Options to apply to this identity pool for push synchronization.
-setIdentityPoolConfiguration_pushSync :: Lens' SetIdentityPoolConfiguration (Maybe PushSync)
-
--- | Options to apply to this identity pool for Amazon Cognito streams.
-setIdentityPoolConfiguration_cognitoStreams :: Lens' SetIdentityPoolConfiguration (Maybe CognitoStreams)
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. This is the ID of the pool to modify.
-setIdentityPoolConfiguration_identityPoolId :: Lens' SetIdentityPoolConfiguration Text
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito.
-setIdentityPoolConfigurationResponse_identityPoolId :: Lens' SetIdentityPoolConfigurationResponse (Maybe Text)
-
--- | Options to apply to this identity pool for push synchronization.
-setIdentityPoolConfigurationResponse_pushSync :: Lens' SetIdentityPoolConfigurationResponse (Maybe PushSync)
-
--- | Options to apply to this identity pool for Amazon Cognito streams.
-setIdentityPoolConfigurationResponse_cognitoStreams :: Lens' SetIdentityPoolConfigurationResponse (Maybe CognitoStreams)
-
--- | The response's http status code.
-setIdentityPoolConfigurationResponse_httpStatus :: Lens' SetIdentityPoolConfigurationResponse Int
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. GUID generation is unique within a region.
-getBulkPublishDetails_identityPoolId :: Lens' GetBulkPublishDetails Text
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. GUID generation is unique within a region.
-getBulkPublishDetailsResponse_identityPoolId :: Lens' GetBulkPublishDetailsResponse (Maybe Text)
-
--- | The date/time at which the last bulk publish was initiated.
-getBulkPublishDetailsResponse_bulkPublishStartTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
-
--- | If BulkPublishStatus is FAILED this field will contain the error
---   message that caused the bulk publish to fail.
-getBulkPublishDetailsResponse_failureMessage :: Lens' GetBulkPublishDetailsResponse (Maybe Text)
-
--- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish
---   operation completed.
-getBulkPublishDetailsResponse_bulkPublishCompleteTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
-
--- | Status of the last bulk publish operation, valid values are:
---   
---   NOT_STARTED - No bulk publish has been requested for this identity
---   pool
---   
---   IN_PROGRESS - Data is being published to the configured stream
---   
---   SUCCEEDED - All data for the identity pool has been published to the
---   configured stream
---   
---   FAILED - Some portion of the data has failed to publish, check
---   FailureMessage for the cause.
-getBulkPublishDetailsResponse_bulkPublishStatus :: Lens' GetBulkPublishDetailsResponse (Maybe BulkPublishStatus)
-
--- | The response's http status code.
-getBulkPublishDetailsResponse_httpStatus :: Lens' GetBulkPublishDetailsResponse Int
-
--- | A pagination token for obtaining the next page of results.
-listIdentityPoolUsage_nextToken :: Lens' ListIdentityPoolUsage (Maybe Text)
-
--- | The maximum number of results to be returned.
-listIdentityPoolUsage_maxResults :: Lens' ListIdentityPoolUsage (Maybe Int)
-
--- | Usage information for the identity pools.
-listIdentityPoolUsageResponse_identityPoolUsages :: Lens' ListIdentityPoolUsageResponse (Maybe [IdentityPoolUsage])
-
--- | A pagination token for obtaining the next page of results.
-listIdentityPoolUsageResponse_nextToken :: Lens' ListIdentityPoolUsageResponse (Maybe Text)
-
--- | The maximum number of results to be returned.
-listIdentityPoolUsageResponse_maxResults :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
-
--- | Total number of identities for the identity pool.
-listIdentityPoolUsageResponse_count :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
-
--- | The response's http status code.
-listIdentityPoolUsageResponse_httpStatus :: Lens' ListIdentityPoolUsageResponse Int
-
--- | The Cognito Identity Pool to use when configuring Cognito Events
-setCognitoEvents_identityPoolId :: Lens' SetCognitoEvents Text
-
--- | The events to configure
-setCognitoEvents_events :: Lens' SetCognitoEvents (HashMap Text Text)
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. GUID generation is unique within a region.
-describeDataset_identityPoolId :: Lens' DescribeDataset Text
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. GUID generation is unique within a region.
-describeDataset_identityId :: Lens' DescribeDataset Text
-
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z,
---   0-9, '_' (underscore), '-' (dash), and '.' (dot).
-describeDataset_datasetName :: Lens' DescribeDataset Text
-
--- | Meta data for a collection of data for an identity. An identity can
---   have multiple datasets. A dataset can be general or associated with a
---   particular entity in an application (like a saved game). Datasets are
---   automatically created if they don't exist. Data is synced by dataset,
---   and a dataset can hold up to 1MB of key-value pairs.
-describeDatasetResponse_dataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
-
--- | The response's http status code.
-describeDatasetResponse_httpStatus :: Lens' DescribeDatasetResponse Int
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. The ID of the pool to which this identity belongs.
-unsubscribeFromDataset_identityPoolId :: Lens' UnsubscribeFromDataset Text
-
--- | Unique ID for this identity.
-unsubscribeFromDataset_identityId :: Lens' UnsubscribeFromDataset Text
-
--- | The name of the dataset from which to unsubcribe.
-unsubscribeFromDataset_datasetName :: Lens' UnsubscribeFromDataset Text
-
--- | The unique ID generated for this device by Cognito.
-unsubscribeFromDataset_deviceId :: Lens' UnsubscribeFromDataset Text
-
--- | The response's http status code.
-unsubscribeFromDatasetResponse_httpStatus :: Lens' UnsubscribeFromDatasetResponse Int
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. This is the ID of the pool for which to return a
---   configuration.
-getIdentityPoolConfiguration_identityPoolId :: Lens' GetIdentityPoolConfiguration Text
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito.
-getIdentityPoolConfigurationResponse_identityPoolId :: Lens' GetIdentityPoolConfigurationResponse (Maybe Text)
-
--- | Options to apply to this identity pool for push synchronization.
-getIdentityPoolConfigurationResponse_pushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
-
--- | Options to apply to this identity pool for Amazon Cognito streams.
-getIdentityPoolConfigurationResponse_cognitoStreams :: Lens' GetIdentityPoolConfigurationResponse (Maybe CognitoStreams)
-
--- | The response's http status code.
-getIdentityPoolConfigurationResponse_httpStatus :: Lens' GetIdentityPoolConfigurationResponse Int
-
--- | The Cognito Identity Pool ID for the request
-getCognitoEvents_identityPoolId :: Lens' GetCognitoEvents Text
-
--- | The Cognito Events returned from the GetCognitoEvents request
-getCognitoEventsResponse_events :: Lens' GetCognitoEventsResponse (Maybe (HashMap Text Text))
-
--- | The response's http status code.
-getCognitoEventsResponse_httpStatus :: Lens' GetCognitoEventsResponse Int
-
--- | A pagination token for obtaining the next page of results.
 listDatasets_nextToken :: Lens' ListDatasets (Maybe Text)
 
 -- | The maximum number of results to be returned.
@@ -3704,14 +3727,14 @@ listDatasets_identityId :: Lens' ListDatasets Text
 --   Cognito. GUID generation is unique within a region.
 listDatasets_identityPoolId :: Lens' ListDatasets Text
 
+-- | Number of datasets returned.
+listDatasetsResponse_count :: Lens' ListDatasetsResponse (Maybe Int)
+
 -- | A pagination token for obtaining the next page of results.
 listDatasetsResponse_nextToken :: Lens' ListDatasetsResponse (Maybe Text)
 
 -- | A set of datasets.
 listDatasetsResponse_datasets :: Lens' ListDatasetsResponse (Maybe [Dataset])
-
--- | Number of datasets returned.
-listDatasetsResponse_count :: Lens' ListDatasetsResponse (Maybe Int)
 
 -- | The response's http status code.
 listDatasetsResponse_httpStatus :: Lens' ListDatasetsResponse Int
@@ -3719,47 +3742,15 @@ listDatasetsResponse_httpStatus :: Lens' ListDatasetsResponse Int
 -- | A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito. GUID generation is unique within a region.
-deleteDataset_identityPoolId :: Lens' DeleteDataset Text
+bulkPublish_identityPoolId :: Lens' BulkPublish Text
 
 -- | A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito. GUID generation is unique within a region.
-deleteDataset_identityId :: Lens' DeleteDataset Text
-
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z,
---   0-9, '_' (underscore), '-' (dash), and '.' (dot).
-deleteDataset_datasetName :: Lens' DeleteDataset Text
-
--- | A collection of data for an identity pool. An identity pool can have
---   multiple datasets. A dataset is per identity and can be general or
---   associated with a particular entity in an application (like a saved
---   game). Datasets are automatically created if they don't exist. Data is
---   synced by dataset, and a dataset can hold up to 1MB of key-value
---   pairs.
-deleteDatasetResponse_dataset :: Lens' DeleteDatasetResponse (Maybe Dataset)
+bulkPublishResponse_identityPoolId :: Lens' BulkPublishResponse (Maybe Text)
 
 -- | The response's http status code.
-deleteDatasetResponse_httpStatus :: Lens' DeleteDatasetResponse Int
-
--- | A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. GUID generation is unique within a region.
-describeIdentityPoolUsage_identityPoolId :: Lens' DescribeIdentityPoolUsage Text
-
--- | Information about the usage of the identity pool.
-describeIdentityPoolUsageResponse_identityPoolUsage :: Lens' DescribeIdentityPoolUsageResponse (Maybe IdentityPoolUsage)
-
--- | The response's http status code.
-describeIdentityPoolUsageResponse_httpStatus :: Lens' DescribeIdentityPoolUsageResponse Int
-
--- | The ARN of the role Amazon Cognito can assume in order to publish to
---   the stream. This role must grant access to Amazon Cognito
---   (cognito-sync) to invoke PutRecord on your Cognito stream.
-cognitoStreams_roleArn :: Lens' CognitoStreams (Maybe Text)
-
--- | The name of the Cognito stream to receive updates. This stream must be
---   in the developers account and in the same region as the identity pool.
-cognitoStreams_streamName :: Lens' CognitoStreams (Maybe Text)
+bulkPublishResponse_httpStatus :: Lens' BulkPublishResponse Int
 
 -- | Status of the Cognito streams. Valid values are:
 --   
@@ -3769,29 +3760,38 @@ cognitoStreams_streamName :: Lens' CognitoStreams (Maybe Text)
 --   publish will also fail if StreamingStatus is DISABLED.
 cognitoStreams_streamingStatus :: Lens' CognitoStreams (Maybe StreamingStatus)
 
+-- | The name of the Cognito stream to receive updates. This stream must be
+--   in the developers account and in the same region as the identity pool.
+cognitoStreams_streamName :: Lens' CognitoStreams (Maybe Text)
+
+-- | The ARN of the role Amazon Cognito can assume in order to publish to
+--   the stream. This role must grant access to Amazon Cognito
+--   (cognito-sync) to invoke PutRecord on your Cognito stream.
+cognitoStreams_roleArn :: Lens' CognitoStreams (Maybe Text)
+
 -- | Date when the dataset was last modified.
 dataset_lastModifiedDate :: Lens' Dataset (Maybe UTCTime)
 
 -- | Number of records in this dataset.
 dataset_numRecords :: Lens' Dataset (Maybe Integer)
 
+-- | Total size in bytes of the records in this dataset.
+dataset_dataStorage :: Lens' Dataset (Maybe Integer)
+
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z,
+--   0-9, '_' (underscore), '-' (dash), and '.' (dot).
+dataset_datasetName :: Lens' Dataset (Maybe Text)
+
 -- | Date on which the dataset was created.
 dataset_creationDate :: Lens' Dataset (Maybe UTCTime)
 
--- | Total size in bytes of the records in this dataset.
-dataset_dataStorage :: Lens' Dataset (Maybe Integer)
+-- | The device that made the last change to this dataset.
+dataset_lastModifiedBy :: Lens' Dataset (Maybe Text)
 
 -- | A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito. GUID generation is unique within a region.
 dataset_identityId :: Lens' Dataset (Maybe Text)
-
--- | The device that made the last change to this dataset.
-dataset_lastModifiedBy :: Lens' Dataset (Maybe Text)
-
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z,
---   0-9, '_' (underscore), '-' (dash), and '.' (dot).
-dataset_datasetName :: Lens' Dataset (Maybe Text)
 
 -- | Date on which the identity pool was last modified.
 identityPoolUsage_lastModifiedDate :: Lens' IdentityPoolUsage (Maybe UTCTime)
@@ -3801,11 +3801,11 @@ identityPoolUsage_lastModifiedDate :: Lens' IdentityPoolUsage (Maybe UTCTime)
 --   Cognito. GUID generation is unique within a region.
 identityPoolUsage_identityPoolId :: Lens' IdentityPoolUsage (Maybe Text)
 
--- | Number of sync sessions for the identity pool.
-identityPoolUsage_syncSessionsCount :: Lens' IdentityPoolUsage (Maybe Integer)
-
 -- | Data storage information for the identity pool.
 identityPoolUsage_dataStorage :: Lens' IdentityPoolUsage (Maybe Integer)
+
+-- | Number of sync sessions for the identity pool.
+identityPoolUsage_syncSessionsCount :: Lens' IdentityPoolUsage (Maybe Integer)
 
 -- | Date on which the identity was last modified.
 identityUsage_lastModifiedDate :: Lens' IdentityUsage (Maybe UTCTime)
@@ -3826,15 +3826,15 @@ identityUsage_dataStorage :: Lens' IdentityUsage (Maybe Integer)
 --   Cognito. GUID generation is unique within a region.
 identityUsage_identityId :: Lens' IdentityUsage (Maybe Text)
 
+-- | List of SNS platform application ARNs that could be used by clients.
+pushSync_applicationArns :: Lens' PushSync (Maybe [Text])
+
 -- | A role configured to allow Cognito to call SNS on behalf of the
 --   developer.
 pushSync_roleArn :: Lens' PushSync (Maybe Text)
 
--- | List of SNS platform application ARNs that could be used by clients.
-pushSync_applicationArns :: Lens' PushSync (Maybe [Text])
-
--- | The key for the record.
-record_key :: Lens' Record (Maybe Text)
+-- | The server sync count for this record.
+record_syncCount :: Lens' Record (Maybe Integer)
 
 -- | The last modified date of the client device.
 record_deviceLastModifiedDate :: Lens' Record (Maybe UTCTime)
@@ -3842,11 +3842,11 @@ record_deviceLastModifiedDate :: Lens' Record (Maybe UTCTime)
 -- | The date on which the record was last modified.
 record_lastModifiedDate :: Lens' Record (Maybe UTCTime)
 
--- | The server sync count for this record.
-record_syncCount :: Lens' Record (Maybe Integer)
-
 -- | The value for the record.
 record_value :: Lens' Record (Maybe Text)
+
+-- | The key for the record.
+record_key :: Lens' Record (Maybe Text)
 
 -- | The user/device that made the last change to this record.
 record_lastModifiedBy :: Lens' Record (Maybe Text)
@@ -3900,22 +3900,25 @@ module Network.AWS.CognitoSync
 --   configuration.
 defaultService :: Service
 
--- | Prism for InvalidConfigurationException' errors.
-_InvalidConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Thrown when a request parameter does not comply with the associated
+--   constraints.
+_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Thrown if an update can't be applied because the resource was changed
---   by another call and this would result in a conflict.
-_ResourceConflictException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Thrown when a user is not authorized to access the requested resource.
+_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Indicates an internal service error.
 _InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Thrown if there are parallel requests to modify a resource.
-_ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Prism for InvalidConfigurationException' errors.
+_InvalidConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Thrown when a request parameter does not comply with the associated
---   constraints.
-_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | An exception thrown when there is an IN_PROGRESS bulk publish
+--   operation for the given identity pool.
+_DuplicateRequestException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | AWS Lambda throttled your account, please contact AWS Support
+_LambdaThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | An exception thrown when a bulk publish operation is requested less
 --   than 24 hours after a previous bulk publish operation completed
@@ -3925,25 +3928,831 @@ _AlreadyStreamedException :: AsError a => Getting (First ServiceError) a Service
 -- | The AWS Lambda function returned invalid output or an exception.
 _InvalidLambdaFunctionOutputException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | AWS Lambda throttled your account, please contact AWS Support
-_LambdaThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Thrown if the request is throttled.
+_TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Thrown if there are parallel requests to modify a resource.
+_ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Thrown if an update can't be applied because the resource was changed
+--   by another call and this would result in a conflict.
+_ResourceConflictException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Thrown if the resource doesn't exist.
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Thrown when the limit on the number of objects or operations has been
 --   exceeded.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | An exception thrown when there is an IN_PROGRESS bulk publish
---   operation for the given identity pool.
-_DuplicateRequestException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | A request for meta data about a dataset (creation date, number of
+--   records, size) by owner and dataset name.
+--   
+--   <i>See:</i> <a>newDescribeDataset</a> smart constructor.
+data DescribeDataset
+DescribeDataset' :: Text -> Text -> Text -> DescribeDataset
 
--- | Thrown if the resource doesn't exist.
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Create a value of <a>DescribeDataset</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:identityPoolId:DescribeDataset'</a>,
+--   <a>describeDataset_identityPoolId</a> - A name-spaced GUID (for
+--   example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
+--   Amazon Cognito. GUID generation is unique within a region.
+--   
+--   <a>$sel:identityId:DescribeDataset'</a>,
+--   <a>describeDataset_identityId</a> - A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. GUID generation is unique within a region.
+--   
+--   <a>$sel:datasetName:DescribeDataset'</a>,
+--   <a>describeDataset_datasetName</a> - A string of up to 128 characters.
+--   Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash),
+--   and '.' (dot).
+newDescribeDataset :: Text -> Text -> Text -> DescribeDataset
 
--- | Thrown when a user is not authorized to access the requested resource.
-_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Response to a successful DescribeDataset request.
+--   
+--   <i>See:</i> <a>newDescribeDatasetResponse</a> smart constructor.
+data DescribeDatasetResponse
+DescribeDatasetResponse' :: Maybe Dataset -> Int -> DescribeDatasetResponse
 
--- | Thrown if the request is throttled.
-_TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Create a value of <a>DescribeDatasetResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:dataset:DescribeDatasetResponse'</a>,
+--   <a>describeDatasetResponse_dataset</a> - Meta data for a collection of
+--   data for an identity. An identity can have multiple datasets. A
+--   dataset can be general or associated with a particular entity in an
+--   application (like a saved game). Datasets are automatically created if
+--   they don't exist. Data is synced by dataset, and a dataset can hold up
+--   to 1MB of key-value pairs.
+--   
+--   <a>$sel:httpStatus:DescribeDatasetResponse'</a>,
+--   <a>describeDatasetResponse_httpStatus</a> - The response's http status
+--   code.
+newDescribeDatasetResponse :: Int -> DescribeDatasetResponse
+
+-- | A request to configure Cognito Events"
+--   
+--   "
+--   
+--   <i>See:</i> <a>newSetCognitoEvents</a> smart constructor.
+data SetCognitoEvents
+SetCognitoEvents' :: Text -> HashMap Text Text -> SetCognitoEvents
+
+-- | Create a value of <a>SetCognitoEvents</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:identityPoolId:SetCognitoEvents'</a>,
+--   <a>setCognitoEvents_identityPoolId</a> - The Cognito Identity Pool to
+--   use when configuring Cognito Events
+--   
+--   <a>$sel:events:SetCognitoEvents'</a>, <a>setCognitoEvents_events</a> -
+--   The events to configure
+newSetCognitoEvents :: Text -> SetCognitoEvents
+
+-- | <i>See:</i> <a>newSetCognitoEventsResponse</a> smart constructor.
+data SetCognitoEventsResponse
+SetCognitoEventsResponse' :: SetCognitoEventsResponse
+
+-- | Create a value of <a>SetCognitoEventsResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+newSetCognitoEventsResponse :: SetCognitoEventsResponse
+
+-- | A request for usage information about the identity pool.
+--   
+--   <i>See:</i> <a>newDescribeIdentityPoolUsage</a> smart constructor.
+data DescribeIdentityPoolUsage
+DescribeIdentityPoolUsage' :: Text -> DescribeIdentityPoolUsage
+
+-- | Create a value of <a>DescribeIdentityPoolUsage</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:identityPoolId:DescribeIdentityPoolUsage'</a>,
+--   <a>describeIdentityPoolUsage_identityPoolId</a> - A name-spaced GUID
+--   (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created
+--   by Amazon Cognito. GUID generation is unique within a region.
+newDescribeIdentityPoolUsage :: Text -> DescribeIdentityPoolUsage
+
+-- | Response to a successful DescribeIdentityPoolUsage request.
+--   
+--   <i>See:</i> <a>newDescribeIdentityPoolUsageResponse</a> smart
+--   constructor.
+data DescribeIdentityPoolUsageResponse
+DescribeIdentityPoolUsageResponse' :: Maybe IdentityPoolUsage -> Int -> DescribeIdentityPoolUsageResponse
+
+-- | Create a value of <a>DescribeIdentityPoolUsageResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:identityPoolUsage:DescribeIdentityPoolUsageResponse'</a>,
+--   <a>describeIdentityPoolUsageResponse_identityPoolUsage</a> -
+--   Information about the usage of the identity pool.
+--   
+--   <a>$sel:httpStatus:DescribeIdentityPoolUsageResponse'</a>,
+--   <a>describeIdentityPoolUsageResponse_httpStatus</a> - The response's
+--   http status code.
+newDescribeIdentityPoolUsageResponse :: Int -> DescribeIdentityPoolUsageResponse
+
+-- | The input for the GetBulkPublishDetails operation.
+--   
+--   <i>See:</i> <a>newGetBulkPublishDetails</a> smart constructor.
+data GetBulkPublishDetails
+GetBulkPublishDetails' :: Text -> GetBulkPublishDetails
+
+-- | Create a value of <a>GetBulkPublishDetails</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:identityPoolId:GetBulkPublishDetails'</a>,
+--   <a>getBulkPublishDetails_identityPoolId</a> - A name-spaced GUID (for
+--   example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
+--   Amazon Cognito. GUID generation is unique within a region.
+newGetBulkPublishDetails :: Text -> GetBulkPublishDetails
+
+-- | The output for the GetBulkPublishDetails operation.
+--   
+--   <i>See:</i> <a>newGetBulkPublishDetailsResponse</a> smart constructor.
+data GetBulkPublishDetailsResponse
+GetBulkPublishDetailsResponse' :: Maybe POSIX -> Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe BulkPublishStatus -> Int -> GetBulkPublishDetailsResponse
+
+-- | Create a value of <a>GetBulkPublishDetailsResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:bulkPublishStartTime:GetBulkPublishDetailsResponse'</a>,
+--   <a>getBulkPublishDetailsResponse_bulkPublishStartTime</a> - The
+--   date/time at which the last bulk publish was initiated.
+--   
+--   <a>$sel:identityPoolId:GetBulkPublishDetails'</a>,
+--   <a>getBulkPublishDetailsResponse_identityPoolId</a> - A name-spaced
+--   GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
+--   created by Amazon Cognito. GUID generation is unique within a region.
+--   
+--   <a>$sel:bulkPublishCompleteTime:GetBulkPublishDetailsResponse'</a>,
+--   <a>getBulkPublishDetailsResponse_bulkPublishCompleteTime</a> - If
+--   BulkPublishStatus is SUCCEEDED, the time the last bulk publish
+--   operation completed.
+--   
+--   <a>$sel:failureMessage:GetBulkPublishDetailsResponse'</a>,
+--   <a>getBulkPublishDetailsResponse_failureMessage</a> - If
+--   BulkPublishStatus is FAILED this field will contain the error message
+--   that caused the bulk publish to fail.
+--   
+--   <a>$sel:bulkPublishStatus:GetBulkPublishDetailsResponse'</a>,
+--   <a>getBulkPublishDetailsResponse_bulkPublishStatus</a> - Status of the
+--   last bulk publish operation, valid values are:
+--   
+--   NOT_STARTED - No bulk publish has been requested for this identity
+--   pool
+--   
+--   IN_PROGRESS - Data is being published to the configured stream
+--   
+--   SUCCEEDED - All data for the identity pool has been published to the
+--   configured stream
+--   
+--   FAILED - Some portion of the data has failed to publish, check
+--   FailureMessage for the cause.
+--   
+--   <a>$sel:httpStatus:GetBulkPublishDetailsResponse'</a>,
+--   <a>getBulkPublishDetailsResponse_httpStatus</a> - The response's http
+--   status code.
+newGetBulkPublishDetailsResponse :: Int -> GetBulkPublishDetailsResponse
+
+-- | A request for usage information on an identity pool.
+--   
+--   <i>See:</i> <a>newListIdentityPoolUsage</a> smart constructor.
+data ListIdentityPoolUsage
+ListIdentityPoolUsage' :: Maybe Text -> Maybe Int -> ListIdentityPoolUsage
+
+-- | Create a value of <a>ListIdentityPoolUsage</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListIdentityPoolUsage'</a>,
+--   <a>listIdentityPoolUsage_nextToken</a> - A pagination token for
+--   obtaining the next page of results.
+--   
+--   <a>$sel:maxResults:ListIdentityPoolUsage'</a>,
+--   <a>listIdentityPoolUsage_maxResults</a> - The maximum number of
+--   results to be returned.
+newListIdentityPoolUsage :: ListIdentityPoolUsage
+
+-- | Returned for a successful ListIdentityPoolUsage request.
+--   
+--   <i>See:</i> <a>newListIdentityPoolUsageResponse</a> smart constructor.
+data ListIdentityPoolUsageResponse
+ListIdentityPoolUsageResponse' :: Maybe [IdentityPoolUsage] -> Maybe Int -> Maybe Text -> Maybe Int -> Int -> ListIdentityPoolUsageResponse
+
+-- | Create a value of <a>ListIdentityPoolUsageResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:identityPoolUsages:ListIdentityPoolUsageResponse'</a>,
+--   <a>listIdentityPoolUsageResponse_identityPoolUsages</a> - Usage
+--   information for the identity pools.
+--   
+--   <a>$sel:count:ListIdentityPoolUsageResponse'</a>,
+--   <a>listIdentityPoolUsageResponse_count</a> - Total number of
+--   identities for the identity pool.
+--   
+--   <a>$sel:nextToken:ListIdentityPoolUsage'</a>,
+--   <a>listIdentityPoolUsageResponse_nextToken</a> - A pagination token
+--   for obtaining the next page of results.
+--   
+--   <a>$sel:maxResults:ListIdentityPoolUsage'</a>,
+--   <a>listIdentityPoolUsageResponse_maxResults</a> - The maximum number
+--   of results to be returned.
+--   
+--   <a>$sel:httpStatus:ListIdentityPoolUsageResponse'</a>,
+--   <a>listIdentityPoolUsageResponse_httpStatus</a> - The response's http
+--   status code.
+newListIdentityPoolUsageResponse :: Int -> ListIdentityPoolUsageResponse
+
+-- | The input for the SetIdentityPoolConfiguration operation.
+--   
+--   <i>See:</i> <a>newSetIdentityPoolConfiguration</a> smart constructor.
+data SetIdentityPoolConfiguration
+SetIdentityPoolConfiguration' :: Maybe CognitoStreams -> Maybe PushSync -> Text -> SetIdentityPoolConfiguration
+
+-- | Create a value of <a>SetIdentityPoolConfiguration</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:cognitoStreams:SetIdentityPoolConfiguration'</a>,
+--   <a>setIdentityPoolConfiguration_cognitoStreams</a> - Options to apply
+--   to this identity pool for Amazon Cognito streams.
+--   
+--   <a>$sel:pushSync:SetIdentityPoolConfiguration'</a>,
+--   <a>setIdentityPoolConfiguration_pushSync</a> - Options to apply to
+--   this identity pool for push synchronization.
+--   
+--   <a>$sel:identityPoolId:SetIdentityPoolConfiguration'</a>,
+--   <a>setIdentityPoolConfiguration_identityPoolId</a> - A name-spaced
+--   GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
+--   created by Amazon Cognito. This is the ID of the pool to modify.
+newSetIdentityPoolConfiguration :: Text -> SetIdentityPoolConfiguration
+
+-- | The output for the SetIdentityPoolConfiguration operation
+--   
+--   <i>See:</i> <a>newSetIdentityPoolConfigurationResponse</a> smart
+--   constructor.
+data SetIdentityPoolConfigurationResponse
+SetIdentityPoolConfigurationResponse' :: Maybe Text -> Maybe CognitoStreams -> Maybe PushSync -> Int -> SetIdentityPoolConfigurationResponse
+
+-- | Create a value of <a>SetIdentityPoolConfigurationResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:identityPoolId:SetIdentityPoolConfiguration'</a>,
+--   <a>setIdentityPoolConfigurationResponse_identityPoolId</a> - A
+--   name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito.
+--   
+--   <a>$sel:cognitoStreams:SetIdentityPoolConfiguration'</a>,
+--   <a>setIdentityPoolConfigurationResponse_cognitoStreams</a> - Options
+--   to apply to this identity pool for Amazon Cognito streams.
+--   
+--   <a>$sel:pushSync:SetIdentityPoolConfiguration'</a>,
+--   <a>setIdentityPoolConfigurationResponse_pushSync</a> - Options to
+--   apply to this identity pool for push synchronization.
+--   
+--   <a>$sel:httpStatus:SetIdentityPoolConfigurationResponse'</a>,
+--   <a>setIdentityPoolConfigurationResponse_httpStatus</a> - The
+--   response's http status code.
+newSetIdentityPoolConfigurationResponse :: Int -> SetIdentityPoolConfigurationResponse
+
+-- | A request to delete the specific dataset.
+--   
+--   <i>See:</i> <a>newDeleteDataset</a> smart constructor.
+data DeleteDataset
+DeleteDataset' :: Text -> Text -> Text -> DeleteDataset
+
+-- | Create a value of <a>DeleteDataset</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:identityPoolId:DeleteDataset'</a>,
+--   <a>deleteDataset_identityPoolId</a> - A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. GUID generation is unique within a region.
+--   
+--   <a>$sel:identityId:DeleteDataset'</a>, <a>deleteDataset_identityId</a>
+--   - A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. GUID generation is unique within a region.
+--   
+--   <a>$sel:datasetName:DeleteDataset'</a>,
+--   <a>deleteDataset_datasetName</a> - A string of up to 128 characters.
+--   Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash),
+--   and '.' (dot).
+newDeleteDataset :: Text -> Text -> Text -> DeleteDataset
+
+-- | Response to a successful DeleteDataset request.
+--   
+--   <i>See:</i> <a>newDeleteDatasetResponse</a> smart constructor.
+data DeleteDatasetResponse
+DeleteDatasetResponse' :: Maybe Dataset -> Int -> DeleteDatasetResponse
+
+-- | Create a value of <a>DeleteDatasetResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:dataset:DeleteDatasetResponse'</a>,
+--   <a>deleteDatasetResponse_dataset</a> - A collection of data for an
+--   identity pool. An identity pool can have multiple datasets. A dataset
+--   is per identity and can be general or associated with a particular
+--   entity in an application (like a saved game). Datasets are
+--   automatically created if they don't exist. Data is synced by dataset,
+--   and a dataset can hold up to 1MB of key-value pairs.
+--   
+--   <a>$sel:httpStatus:DeleteDatasetResponse'</a>,
+--   <a>deleteDatasetResponse_httpStatus</a> - The response's http status
+--   code.
+newDeleteDatasetResponse :: Int -> DeleteDatasetResponse
+
+-- | A request for a list of the configured Cognito Events
+--   
+--   <i>See:</i> <a>newGetCognitoEvents</a> smart constructor.
+data GetCognitoEvents
+GetCognitoEvents' :: Text -> GetCognitoEvents
+
+-- | Create a value of <a>GetCognitoEvents</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:identityPoolId:GetCognitoEvents'</a>,
+--   <a>getCognitoEvents_identityPoolId</a> - The Cognito Identity Pool ID
+--   for the request
+newGetCognitoEvents :: Text -> GetCognitoEvents
+
+-- | The response from the GetCognitoEvents request
+--   
+--   <i>See:</i> <a>newGetCognitoEventsResponse</a> smart constructor.
+data GetCognitoEventsResponse
+GetCognitoEventsResponse' :: Maybe (HashMap Text Text) -> Int -> GetCognitoEventsResponse
+
+-- | Create a value of <a>GetCognitoEventsResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:events:GetCognitoEventsResponse'</a>,
+--   <a>getCognitoEventsResponse_events</a> - The Cognito Events returned
+--   from the GetCognitoEvents request
+--   
+--   <a>$sel:httpStatus:GetCognitoEventsResponse'</a>,
+--   <a>getCognitoEventsResponse_httpStatus</a> - The response's http
+--   status code.
+newGetCognitoEventsResponse :: Int -> GetCognitoEventsResponse
+
+-- | A request for information about the usage of an identity pool.
+--   
+--   <i>See:</i> <a>newDescribeIdentityUsage</a> smart constructor.
+data DescribeIdentityUsage
+DescribeIdentityUsage' :: Text -> Text -> DescribeIdentityUsage
+
+-- | Create a value of <a>DescribeIdentityUsage</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:identityPoolId:DescribeIdentityUsage'</a>,
+--   <a>describeIdentityUsage_identityPoolId</a> - A name-spaced GUID (for
+--   example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
+--   Amazon Cognito. GUID generation is unique within a region.
+--   
+--   <a>$sel:identityId:DescribeIdentityUsage'</a>,
+--   <a>describeIdentityUsage_identityId</a> - A name-spaced GUID (for
+--   example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
+--   Amazon Cognito. GUID generation is unique within a region.
+newDescribeIdentityUsage :: Text -> Text -> DescribeIdentityUsage
+
+-- | The response to a successful DescribeIdentityUsage request.
+--   
+--   <i>See:</i> <a>newDescribeIdentityUsageResponse</a> smart constructor.
+data DescribeIdentityUsageResponse
+DescribeIdentityUsageResponse' :: Maybe IdentityUsage -> Int -> DescribeIdentityUsageResponse
+
+-- | Create a value of <a>DescribeIdentityUsageResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:identityUsage:DescribeIdentityUsageResponse'</a>,
+--   <a>describeIdentityUsageResponse_identityUsage</a> - Usage information
+--   for the identity.
+--   
+--   <a>$sel:httpStatus:DescribeIdentityUsageResponse'</a>,
+--   <a>describeIdentityUsageResponse_httpStatus</a> - The response's http
+--   status code.
+newDescribeIdentityUsageResponse :: Int -> DescribeIdentityUsageResponse
+
+-- | A request to RegisterDevice.
+--   
+--   <i>See:</i> <a>newRegisterDevice</a> smart constructor.
+data RegisterDevice
+RegisterDevice' :: Text -> Text -> Platform -> Text -> RegisterDevice
+
+-- | Create a value of <a>RegisterDevice</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:identityPoolId:RegisterDevice'</a>,
+--   <a>registerDevice_identityPoolId</a> - A name-spaced GUID (for
+--   example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
+--   Amazon Cognito. Here, the ID of the pool that the identity belongs to.
+--   
+--   <a>$sel:identityId:RegisterDevice'</a>,
+--   <a>registerDevice_identityId</a> - The unique ID for this identity.
+--   
+--   <a>$sel:platform:RegisterDevice'</a>, <a>registerDevice_platform</a> -
+--   The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).
+--   
+--   <a>$sel:token:RegisterDevice'</a>, <a>registerDevice_token</a> - The
+--   push token.
+newRegisterDevice :: Text -> Text -> Platform -> Text -> RegisterDevice
+
+-- | Response to a RegisterDevice request.
+--   
+--   <i>See:</i> <a>newRegisterDeviceResponse</a> smart constructor.
+data RegisterDeviceResponse
+RegisterDeviceResponse' :: Maybe Text -> Int -> RegisterDeviceResponse
+
+-- | Create a value of <a>RegisterDeviceResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:deviceId:RegisterDeviceResponse'</a>,
+--   <a>registerDeviceResponse_deviceId</a> - The unique ID generated for
+--   this device by Cognito.
+--   
+--   <a>$sel:httpStatus:RegisterDeviceResponse'</a>,
+--   <a>registerDeviceResponse_httpStatus</a> - The response's http status
+--   code.
+newRegisterDeviceResponse :: Int -> RegisterDeviceResponse
+
+-- | A request to SubscribeToDatasetRequest.
+--   
+--   <i>See:</i> <a>newSubscribeToDataset</a> smart constructor.
+data SubscribeToDataset
+SubscribeToDataset' :: Text -> Text -> Text -> Text -> SubscribeToDataset
+
+-- | Create a value of <a>SubscribeToDataset</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:identityPoolId:SubscribeToDataset'</a>,
+--   <a>subscribeToDataset_identityPoolId</a> - A name-spaced GUID (for
+--   example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
+--   Amazon Cognito. The ID of the pool to which the identity belongs.
+--   
+--   <a>$sel:identityId:SubscribeToDataset'</a>,
+--   <a>subscribeToDataset_identityId</a> - Unique ID for this identity.
+--   
+--   <a>$sel:datasetName:SubscribeToDataset'</a>,
+--   <a>subscribeToDataset_datasetName</a> - The name of the dataset to
+--   subcribe to.
+--   
+--   <a>$sel:deviceId:SubscribeToDataset'</a>,
+--   <a>subscribeToDataset_deviceId</a> - The unique ID generated for this
+--   device by Cognito.
+newSubscribeToDataset :: Text -> Text -> Text -> Text -> SubscribeToDataset
+
+-- | Response to a SubscribeToDataset request.
+--   
+--   <i>See:</i> <a>newSubscribeToDatasetResponse</a> smart constructor.
+data SubscribeToDatasetResponse
+SubscribeToDatasetResponse' :: Int -> SubscribeToDatasetResponse
+
+-- | Create a value of <a>SubscribeToDatasetResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:SubscribeToDatasetResponse'</a>,
+--   <a>subscribeToDatasetResponse_httpStatus</a> - The response's http
+--   status code.
+newSubscribeToDatasetResponse :: Int -> SubscribeToDatasetResponse
+
+-- | The input for the GetIdentityPoolConfiguration operation.
+--   
+--   <i>See:</i> <a>newGetIdentityPoolConfiguration</a> smart constructor.
+data GetIdentityPoolConfiguration
+GetIdentityPoolConfiguration' :: Text -> GetIdentityPoolConfiguration
+
+-- | Create a value of <a>GetIdentityPoolConfiguration</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:identityPoolId:GetIdentityPoolConfiguration'</a>,
+--   <a>getIdentityPoolConfiguration_identityPoolId</a> - A name-spaced
+--   GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
+--   created by Amazon Cognito. This is the ID of the pool for which to
+--   return a configuration.
+newGetIdentityPoolConfiguration :: Text -> GetIdentityPoolConfiguration
+
+-- | The output for the GetIdentityPoolConfiguration operation.
+--   
+--   <i>See:</i> <a>newGetIdentityPoolConfigurationResponse</a> smart
+--   constructor.
+data GetIdentityPoolConfigurationResponse
+GetIdentityPoolConfigurationResponse' :: Maybe Text -> Maybe CognitoStreams -> Maybe PushSync -> Int -> GetIdentityPoolConfigurationResponse
+
+-- | Create a value of <a>GetIdentityPoolConfigurationResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:identityPoolId:GetIdentityPoolConfiguration'</a>,
+--   <a>getIdentityPoolConfigurationResponse_identityPoolId</a> - A
+--   name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito.
+--   
+--   <a>$sel:cognitoStreams:GetIdentityPoolConfigurationResponse'</a>,
+--   <a>getIdentityPoolConfigurationResponse_cognitoStreams</a> - Options
+--   to apply to this identity pool for Amazon Cognito streams.
+--   
+--   <a>$sel:pushSync:GetIdentityPoolConfigurationResponse'</a>,
+--   <a>getIdentityPoolConfigurationResponse_pushSync</a> - Options to
+--   apply to this identity pool for push synchronization.
+--   
+--   <a>$sel:httpStatus:GetIdentityPoolConfigurationResponse'</a>,
+--   <a>getIdentityPoolConfigurationResponse_httpStatus</a> - The
+--   response's http status code.
+newGetIdentityPoolConfigurationResponse :: Int -> GetIdentityPoolConfigurationResponse
+
+-- | A request for a list of records.
+--   
+--   <i>See:</i> <a>newListRecords</a> smart constructor.
+data ListRecords
+ListRecords' :: Maybe Integer -> Maybe Text -> Maybe Text -> Maybe Int -> Text -> Text -> Text -> ListRecords
+
+-- | Create a value of <a>ListRecords</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:lastSyncCount:ListRecords'</a>,
+--   <a>listRecords_lastSyncCount</a> - The last server sync count for this
+--   record.
+--   
+--   <a>$sel:nextToken:ListRecords'</a>, <a>listRecords_nextToken</a> - A
+--   pagination token for obtaining the next page of results.
+--   
+--   <a>$sel:syncSessionToken:ListRecords'</a>,
+--   <a>listRecords_syncSessionToken</a> - A token containing a session ID,
+--   identity ID, and expiration.
+--   
+--   <a>$sel:maxResults:ListRecords'</a>, <a>listRecords_maxResults</a> -
+--   The maximum number of results to be returned.
+--   
+--   <a>$sel:identityPoolId:ListRecords'</a>,
+--   <a>listRecords_identityPoolId</a> - A name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. GUID generation is unique within a region.
+--   
+--   <a>$sel:identityId:ListRecords'</a>, <a>listRecords_identityId</a> - A
+--   name-spaced GUID (for example,
+--   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+--   Cognito. GUID generation is unique within a region.
+--   
+--   <a>$sel:datasetName:ListRecords'</a>, <a>listRecords_datasetName</a> -
+--   A string of up to 128 characters. Allowed characters are a-z, A-Z,
+--   0-9, '_' (underscore), '-' (dash), and '.' (dot).
+newListRecords :: Text -> Text -> Text -> ListRecords
+
+-- | Returned for a successful ListRecordsRequest.
+--   
+--   <i>See:</i> <a>newListRecordsResponse</a> smart constructor.
+data ListRecordsResponse
+ListRecordsResponse' :: Maybe Bool -> Maybe Bool -> Maybe Int -> Maybe [Record] -> Maybe Text -> Maybe [Text] -> Maybe Text -> Maybe Text -> Maybe Integer -> Int -> ListRecordsResponse
+
+-- | Create a value of <a>ListRecordsResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   
+--   <a>$sel:datasetDeletedAfterRequestedSyncCount:ListRecordsResponse'</a>,
+--   <a>listRecordsResponse_datasetDeletedAfterRequestedSyncCount</a> - A
+--   boolean value specifying whether to delete the dataset locally.
+--   
+--   <a>$sel:datasetExists:ListRecordsResponse'</a>,
+--   <a>listRecordsResponse_datasetExists</a> - Indicates whether the
+--   dataset exists.
+--   
+--   <a>$sel:count:ListRecordsResponse'</a>,
+--   <a>listRecordsResponse_count</a> - Total number of records.
+--   
+--   <a>$sel:records:ListRecordsResponse'</a>,
+--   <a>listRecordsResponse_records</a> - A list of all records.
+--   
+--   <a>$sel:nextToken:ListRecords'</a>,
+--   <a>listRecordsResponse_nextToken</a> - A pagination token for
+--   obtaining the next page of results.
+--   
+--   <a>$sel:mergedDatasetNames:ListRecordsResponse'</a>,
+--   <a>listRecordsResponse_mergedDatasetNames</a> - Names of merged
+--   datasets.
+--   
+--   <a>$sel:syncSessionToken:ListRecords'</a>,
+--   <a>listRecordsResponse_syncSessionToken</a> - A token containing a
+--   session ID, identity ID, and expiration.
+--   
+--   <a>$sel:lastModifiedBy:ListRecordsResponse'</a>,
+--   <a>listRecordsResponse_lastModifiedBy</a> - The user/device that made
+--   the last change to this record.
+--   
+--   <a>$sel:datasetSyncCount:ListRecordsResponse'</a>,
+--   <a>listRecordsResponse_datasetSyncCount</a> - Server sync count for
+--   this dataset.
+--   
+--   <a>$sel:httpStatus:ListRecordsResponse'</a>,
+--   <a>listRecordsResponse_httpStatus</a> - The response's http status
+--   code.
+newListRecordsResponse :: Int -> ListRecordsResponse
+
+-- | A request to UnsubscribeFromDataset.
+--   
+--   <i>See:</i> <a>newUnsubscribeFromDataset</a> smart constructor.
+data UnsubscribeFromDataset
+UnsubscribeFromDataset' :: Text -> Text -> Text -> Text -> UnsubscribeFromDataset
+
+-- | Create a value of <a>UnsubscribeFromDataset</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:identityPoolId:UnsubscribeFromDataset'</a>,
+--   <a>unsubscribeFromDataset_identityPoolId</a> - A name-spaced GUID (for
+--   example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
+--   Amazon Cognito. The ID of the pool to which this identity belongs.
+--   
+--   <a>$sel:identityId:UnsubscribeFromDataset'</a>,
+--   <a>unsubscribeFromDataset_identityId</a> - Unique ID for this
+--   identity.
+--   
+--   <a>$sel:datasetName:UnsubscribeFromDataset'</a>,
+--   <a>unsubscribeFromDataset_datasetName</a> - The name of the dataset
+--   from which to unsubcribe.
+--   
+--   <a>$sel:deviceId:UnsubscribeFromDataset'</a>,
+--   <a>unsubscribeFromDataset_deviceId</a> - The unique ID generated for
+--   this device by Cognito.
+newUnsubscribeFromDataset :: Text -> Text -> Text -> Text -> UnsubscribeFromDataset
+
+-- | Response to an UnsubscribeFromDataset request.
+--   
+--   <i>See:</i> <a>newUnsubscribeFromDatasetResponse</a> smart
+--   constructor.
+data UnsubscribeFromDatasetResponse
+UnsubscribeFromDatasetResponse' :: Int -> UnsubscribeFromDatasetResponse
+
+-- | Create a value of <a>UnsubscribeFromDatasetResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:UnsubscribeFromDatasetResponse'</a>,
+--   <a>unsubscribeFromDatasetResponse_httpStatus</a> - The response's http
+--   status code.
+newUnsubscribeFromDatasetResponse :: Int -> UnsubscribeFromDatasetResponse
 
 -- | A request to post updates to records or add and delete records for a
 --   dataset and user.
@@ -4016,13 +4825,14 @@ UpdateRecordsResponse' :: Maybe [Record] -> Int -> UpdateRecordsResponse
 --   code.
 newUpdateRecordsResponse :: Int -> UpdateRecordsResponse
 
--- | A request for a list of records.
+-- | Request for a list of datasets for an identity.
 --   
---   <i>See:</i> <a>newListRecords</a> smart constructor.
-data ListRecords
-ListRecords' :: Maybe Text -> Maybe Int -> Maybe Integer -> Maybe Text -> Text -> Text -> Text -> ListRecords
+--   <i>See:</i> <a>newListDatasets</a> smart constructor.
+data ListDatasets
+ListDatasets' :: Maybe Text -> Maybe Int -> Text -> Text -> ListDatasets
 
--- | Create a value of <a>ListRecords</a> with all optional fields omitted.
+-- | Create a value of <a>ListDatasets</a> with all optional fields
+--   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -4030,42 +4840,30 @@ ListRecords' :: Maybe Text -> Maybe Int -> Maybe Integer -> Maybe Text -> Text -
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListRecords'</a>, <a>listRecords_nextToken</a> - A
+--   <a>$sel:nextToken:ListDatasets'</a>, <a>listDatasets_nextToken</a> - A
 --   pagination token for obtaining the next page of results.
 --   
---   <a>$sel:maxResults:ListRecords'</a>, <a>listRecords_maxResults</a> -
+--   <a>$sel:maxResults:ListDatasets'</a>, <a>listDatasets_maxResults</a> -
 --   The maximum number of results to be returned.
 --   
---   <a>$sel:lastSyncCount:ListRecords'</a>,
---   <a>listRecords_lastSyncCount</a> - The last server sync count for this
---   record.
---   
---   <a>$sel:syncSessionToken:ListRecords'</a>,
---   <a>listRecords_syncSessionToken</a> - A token containing a session ID,
---   identity ID, and expiration.
---   
---   <a>$sel:identityPoolId:ListRecords'</a>,
---   <a>listRecords_identityPoolId</a> - A name-spaced GUID (for example,
+--   <a>$sel:identityId:ListDatasets'</a>, <a>listDatasets_identityId</a> -
+--   A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito. GUID generation is unique within a region.
 --   
---   <a>$sel:identityId:ListRecords'</a>, <a>listRecords_identityId</a> - A
---   name-spaced GUID (for example,
+--   <a>$sel:identityPoolId:ListDatasets'</a>,
+--   <a>listDatasets_identityPoolId</a> - A name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito. GUID generation is unique within a region.
---   
---   <a>$sel:datasetName:ListRecords'</a>, <a>listRecords_datasetName</a> -
---   A string of up to 128 characters. Allowed characters are a-z, A-Z,
---   0-9, '_' (underscore), '-' (dash), and '.' (dot).
-newListRecords :: Text -> Text -> Text -> ListRecords
+newListDatasets :: Text -> Text -> ListDatasets
 
--- | Returned for a successful ListRecordsRequest.
+-- | Returned for a successful ListDatasets request.
 --   
---   <i>See:</i> <a>newListRecordsResponse</a> smart constructor.
-data ListRecordsResponse
-ListRecordsResponse' :: Maybe Text -> Maybe Integer -> Maybe [Record] -> Maybe Bool -> Maybe Int -> Maybe Text -> Maybe Bool -> Maybe Text -> Maybe [Text] -> Int -> ListRecordsResponse
+--   <i>See:</i> <a>newListDatasetsResponse</a> smart constructor.
+data ListDatasetsResponse
+ListDatasetsResponse' :: Maybe Int -> Maybe Text -> Maybe [Dataset] -> Int -> ListDatasetsResponse
 
--- | Create a value of <a>ListRecordsResponse</a> with all optional fields
+-- | Create a value of <a>ListDatasetsResponse</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -4074,99 +4872,20 @@ ListRecordsResponse' :: Maybe Text -> Maybe Integer -> Maybe [Record] -> Maybe B
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListRecords'</a>,
---   <a>listRecordsResponse_nextToken</a> - A pagination token for
+--   <a>$sel:count:ListDatasetsResponse'</a>,
+--   <a>listDatasetsResponse_count</a> - Number of datasets returned.
+--   
+--   <a>$sel:nextToken:ListDatasets'</a>,
+--   <a>listDatasetsResponse_nextToken</a> - A pagination token for
 --   obtaining the next page of results.
 --   
---   <a>$sel:datasetSyncCount:ListRecordsResponse'</a>,
---   <a>listRecordsResponse_datasetSyncCount</a> - Server sync count for
---   this dataset.
+--   <a>$sel:datasets:ListDatasetsResponse'</a>,
+--   <a>listDatasetsResponse_datasets</a> - A set of datasets.
 --   
---   <a>$sel:records:ListRecordsResponse'</a>,
---   <a>listRecordsResponse_records</a> - A list of all records.
---   
---   
---   <a>$sel:datasetDeletedAfterRequestedSyncCount:ListRecordsResponse'</a>,
---   <a>listRecordsResponse_datasetDeletedAfterRequestedSyncCount</a> - A
---   boolean value specifying whether to delete the dataset locally.
---   
---   <a>$sel:count:ListRecordsResponse'</a>,
---   <a>listRecordsResponse_count</a> - Total number of records.
---   
---   <a>$sel:lastModifiedBy:ListRecordsResponse'</a>,
---   <a>listRecordsResponse_lastModifiedBy</a> - The user/device that made
---   the last change to this record.
---   
---   <a>$sel:datasetExists:ListRecordsResponse'</a>,
---   <a>listRecordsResponse_datasetExists</a> - Indicates whether the
---   dataset exists.
---   
---   <a>$sel:syncSessionToken:ListRecords'</a>,
---   <a>listRecordsResponse_syncSessionToken</a> - A token containing a
---   session ID, identity ID, and expiration.
---   
---   <a>$sel:mergedDatasetNames:ListRecordsResponse'</a>,
---   <a>listRecordsResponse_mergedDatasetNames</a> - Names of merged
---   datasets.
---   
---   <a>$sel:httpStatus:ListRecordsResponse'</a>,
---   <a>listRecordsResponse_httpStatus</a> - The response's http status
+--   <a>$sel:httpStatus:ListDatasetsResponse'</a>,
+--   <a>listDatasetsResponse_httpStatus</a> - The response's http status
 --   code.
-newListRecordsResponse :: Int -> ListRecordsResponse
-
--- | A request to RegisterDevice.
---   
---   <i>See:</i> <a>newRegisterDevice</a> smart constructor.
-data RegisterDevice
-RegisterDevice' :: Text -> Text -> Platform -> Text -> RegisterDevice
-
--- | Create a value of <a>RegisterDevice</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identityPoolId:RegisterDevice'</a>,
---   <a>registerDevice_identityPoolId</a> - A name-spaced GUID (for
---   example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
---   Amazon Cognito. Here, the ID of the pool that the identity belongs to.
---   
---   <a>$sel:identityId:RegisterDevice'</a>,
---   <a>registerDevice_identityId</a> - The unique ID for this identity.
---   
---   <a>$sel:platform:RegisterDevice'</a>, <a>registerDevice_platform</a> -
---   The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).
---   
---   <a>$sel:token:RegisterDevice'</a>, <a>registerDevice_token</a> - The
---   push token.
-newRegisterDevice :: Text -> Text -> Platform -> Text -> RegisterDevice
-
--- | Response to a RegisterDevice request.
---   
---   <i>See:</i> <a>newRegisterDeviceResponse</a> smart constructor.
-data RegisterDeviceResponse
-RegisterDeviceResponse' :: Maybe Text -> Int -> RegisterDeviceResponse
-
--- | Create a value of <a>RegisterDeviceResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:deviceId:RegisterDeviceResponse'</a>,
---   <a>registerDeviceResponse_deviceId</a> - The unique ID generated for
---   this device by Cognito.
---   
---   <a>$sel:httpStatus:RegisterDeviceResponse'</a>,
---   <a>registerDeviceResponse_httpStatus</a> - The response's http status
---   code.
-newRegisterDeviceResponse :: Int -> RegisterDeviceResponse
+newListDatasetsResponse :: Int -> ListDatasetsResponse
 
 -- | The input for the BulkPublish operation.
 --   
@@ -4212,725 +4931,6 @@ BulkPublishResponse' :: Maybe Text -> Int -> BulkPublishResponse
 --   <a>bulkPublishResponse_httpStatus</a> - The response's http status
 --   code.
 newBulkPublishResponse :: Int -> BulkPublishResponse
-
--- | A request to SubscribeToDatasetRequest.
---   
---   <i>See:</i> <a>newSubscribeToDataset</a> smart constructor.
-data SubscribeToDataset
-SubscribeToDataset' :: Text -> Text -> Text -> Text -> SubscribeToDataset
-
--- | Create a value of <a>SubscribeToDataset</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identityPoolId:SubscribeToDataset'</a>,
---   <a>subscribeToDataset_identityPoolId</a> - A name-spaced GUID (for
---   example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
---   Amazon Cognito. The ID of the pool to which the identity belongs.
---   
---   <a>$sel:identityId:SubscribeToDataset'</a>,
---   <a>subscribeToDataset_identityId</a> - Unique ID for this identity.
---   
---   <a>$sel:datasetName:SubscribeToDataset'</a>,
---   <a>subscribeToDataset_datasetName</a> - The name of the dataset to
---   subcribe to.
---   
---   <a>$sel:deviceId:SubscribeToDataset'</a>,
---   <a>subscribeToDataset_deviceId</a> - The unique ID generated for this
---   device by Cognito.
-newSubscribeToDataset :: Text -> Text -> Text -> Text -> SubscribeToDataset
-
--- | Response to a SubscribeToDataset request.
---   
---   <i>See:</i> <a>newSubscribeToDatasetResponse</a> smart constructor.
-data SubscribeToDatasetResponse
-SubscribeToDatasetResponse' :: Int -> SubscribeToDatasetResponse
-
--- | Create a value of <a>SubscribeToDatasetResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:SubscribeToDatasetResponse'</a>,
---   <a>subscribeToDatasetResponse_httpStatus</a> - The response's http
---   status code.
-newSubscribeToDatasetResponse :: Int -> SubscribeToDatasetResponse
-
--- | A request for information about the usage of an identity pool.
---   
---   <i>See:</i> <a>newDescribeIdentityUsage</a> smart constructor.
-data DescribeIdentityUsage
-DescribeIdentityUsage' :: Text -> Text -> DescribeIdentityUsage
-
--- | Create a value of <a>DescribeIdentityUsage</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identityPoolId:DescribeIdentityUsage'</a>,
---   <a>describeIdentityUsage_identityPoolId</a> - A name-spaced GUID (for
---   example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
---   Amazon Cognito. GUID generation is unique within a region.
---   
---   <a>$sel:identityId:DescribeIdentityUsage'</a>,
---   <a>describeIdentityUsage_identityId</a> - A name-spaced GUID (for
---   example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
---   Amazon Cognito. GUID generation is unique within a region.
-newDescribeIdentityUsage :: Text -> Text -> DescribeIdentityUsage
-
--- | The response to a successful DescribeIdentityUsage request.
---   
---   <i>See:</i> <a>newDescribeIdentityUsageResponse</a> smart constructor.
-data DescribeIdentityUsageResponse
-DescribeIdentityUsageResponse' :: Maybe IdentityUsage -> Int -> DescribeIdentityUsageResponse
-
--- | Create a value of <a>DescribeIdentityUsageResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identityUsage:DescribeIdentityUsageResponse'</a>,
---   <a>describeIdentityUsageResponse_identityUsage</a> - Usage information
---   for the identity.
---   
---   <a>$sel:httpStatus:DescribeIdentityUsageResponse'</a>,
---   <a>describeIdentityUsageResponse_httpStatus</a> - The response's http
---   status code.
-newDescribeIdentityUsageResponse :: Int -> DescribeIdentityUsageResponse
-
--- | The input for the SetIdentityPoolConfiguration operation.
---   
---   <i>See:</i> <a>newSetIdentityPoolConfiguration</a> smart constructor.
-data SetIdentityPoolConfiguration
-SetIdentityPoolConfiguration' :: Maybe PushSync -> Maybe CognitoStreams -> Text -> SetIdentityPoolConfiguration
-
--- | Create a value of <a>SetIdentityPoolConfiguration</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:pushSync:SetIdentityPoolConfiguration'</a>,
---   <a>setIdentityPoolConfiguration_pushSync</a> - Options to apply to
---   this identity pool for push synchronization.
---   
---   <a>$sel:cognitoStreams:SetIdentityPoolConfiguration'</a>,
---   <a>setIdentityPoolConfiguration_cognitoStreams</a> - Options to apply
---   to this identity pool for Amazon Cognito streams.
---   
---   <a>$sel:identityPoolId:SetIdentityPoolConfiguration'</a>,
---   <a>setIdentityPoolConfiguration_identityPoolId</a> - A name-spaced
---   GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
---   created by Amazon Cognito. This is the ID of the pool to modify.
-newSetIdentityPoolConfiguration :: Text -> SetIdentityPoolConfiguration
-
--- | The output for the SetIdentityPoolConfiguration operation
---   
---   <i>See:</i> <a>newSetIdentityPoolConfigurationResponse</a> smart
---   constructor.
-data SetIdentityPoolConfigurationResponse
-SetIdentityPoolConfigurationResponse' :: Maybe Text -> Maybe PushSync -> Maybe CognitoStreams -> Int -> SetIdentityPoolConfigurationResponse
-
--- | Create a value of <a>SetIdentityPoolConfigurationResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identityPoolId:SetIdentityPoolConfiguration'</a>,
---   <a>setIdentityPoolConfigurationResponse_identityPoolId</a> - A
---   name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito.
---   
---   <a>$sel:pushSync:SetIdentityPoolConfiguration'</a>,
---   <a>setIdentityPoolConfigurationResponse_pushSync</a> - Options to
---   apply to this identity pool for push synchronization.
---   
---   <a>$sel:cognitoStreams:SetIdentityPoolConfiguration'</a>,
---   <a>setIdentityPoolConfigurationResponse_cognitoStreams</a> - Options
---   to apply to this identity pool for Amazon Cognito streams.
---   
---   <a>$sel:httpStatus:SetIdentityPoolConfigurationResponse'</a>,
---   <a>setIdentityPoolConfigurationResponse_httpStatus</a> - The
---   response's http status code.
-newSetIdentityPoolConfigurationResponse :: Int -> SetIdentityPoolConfigurationResponse
-
--- | The input for the GetBulkPublishDetails operation.
---   
---   <i>See:</i> <a>newGetBulkPublishDetails</a> smart constructor.
-data GetBulkPublishDetails
-GetBulkPublishDetails' :: Text -> GetBulkPublishDetails
-
--- | Create a value of <a>GetBulkPublishDetails</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identityPoolId:GetBulkPublishDetails'</a>,
---   <a>getBulkPublishDetails_identityPoolId</a> - A name-spaced GUID (for
---   example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
---   Amazon Cognito. GUID generation is unique within a region.
-newGetBulkPublishDetails :: Text -> GetBulkPublishDetails
-
--- | The output for the GetBulkPublishDetails operation.
---   
---   <i>See:</i> <a>newGetBulkPublishDetailsResponse</a> smart constructor.
-data GetBulkPublishDetailsResponse
-GetBulkPublishDetailsResponse' :: Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe POSIX -> Maybe BulkPublishStatus -> Int -> GetBulkPublishDetailsResponse
-
--- | Create a value of <a>GetBulkPublishDetailsResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identityPoolId:GetBulkPublishDetails'</a>,
---   <a>getBulkPublishDetailsResponse_identityPoolId</a> - A name-spaced
---   GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
---   created by Amazon Cognito. GUID generation is unique within a region.
---   
---   <a>$sel:bulkPublishStartTime:GetBulkPublishDetailsResponse'</a>,
---   <a>getBulkPublishDetailsResponse_bulkPublishStartTime</a> - The
---   date/time at which the last bulk publish was initiated.
---   
---   <a>$sel:failureMessage:GetBulkPublishDetailsResponse'</a>,
---   <a>getBulkPublishDetailsResponse_failureMessage</a> - If
---   BulkPublishStatus is FAILED this field will contain the error message
---   that caused the bulk publish to fail.
---   
---   <a>$sel:bulkPublishCompleteTime:GetBulkPublishDetailsResponse'</a>,
---   <a>getBulkPublishDetailsResponse_bulkPublishCompleteTime</a> - If
---   BulkPublishStatus is SUCCEEDED, the time the last bulk publish
---   operation completed.
---   
---   <a>$sel:bulkPublishStatus:GetBulkPublishDetailsResponse'</a>,
---   <a>getBulkPublishDetailsResponse_bulkPublishStatus</a> - Status of the
---   last bulk publish operation, valid values are:
---   
---   NOT_STARTED - No bulk publish has been requested for this identity
---   pool
---   
---   IN_PROGRESS - Data is being published to the configured stream
---   
---   SUCCEEDED - All data for the identity pool has been published to the
---   configured stream
---   
---   FAILED - Some portion of the data has failed to publish, check
---   FailureMessage for the cause.
---   
---   <a>$sel:httpStatus:GetBulkPublishDetailsResponse'</a>,
---   <a>getBulkPublishDetailsResponse_httpStatus</a> - The response's http
---   status code.
-newGetBulkPublishDetailsResponse :: Int -> GetBulkPublishDetailsResponse
-
--- | A request for usage information on an identity pool.
---   
---   <i>See:</i> <a>newListIdentityPoolUsage</a> smart constructor.
-data ListIdentityPoolUsage
-ListIdentityPoolUsage' :: Maybe Text -> Maybe Int -> ListIdentityPoolUsage
-
--- | Create a value of <a>ListIdentityPoolUsage</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListIdentityPoolUsage'</a>,
---   <a>listIdentityPoolUsage_nextToken</a> - A pagination token for
---   obtaining the next page of results.
---   
---   <a>$sel:maxResults:ListIdentityPoolUsage'</a>,
---   <a>listIdentityPoolUsage_maxResults</a> - The maximum number of
---   results to be returned.
-newListIdentityPoolUsage :: ListIdentityPoolUsage
-
--- | Returned for a successful ListIdentityPoolUsage request.
---   
---   <i>See:</i> <a>newListIdentityPoolUsageResponse</a> smart constructor.
-data ListIdentityPoolUsageResponse
-ListIdentityPoolUsageResponse' :: Maybe [IdentityPoolUsage] -> Maybe Text -> Maybe Int -> Maybe Int -> Int -> ListIdentityPoolUsageResponse
-
--- | Create a value of <a>ListIdentityPoolUsageResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identityPoolUsages:ListIdentityPoolUsageResponse'</a>,
---   <a>listIdentityPoolUsageResponse_identityPoolUsages</a> - Usage
---   information for the identity pools.
---   
---   <a>$sel:nextToken:ListIdentityPoolUsage'</a>,
---   <a>listIdentityPoolUsageResponse_nextToken</a> - A pagination token
---   for obtaining the next page of results.
---   
---   <a>$sel:maxResults:ListIdentityPoolUsage'</a>,
---   <a>listIdentityPoolUsageResponse_maxResults</a> - The maximum number
---   of results to be returned.
---   
---   <a>$sel:count:ListIdentityPoolUsageResponse'</a>,
---   <a>listIdentityPoolUsageResponse_count</a> - Total number of
---   identities for the identity pool.
---   
---   <a>$sel:httpStatus:ListIdentityPoolUsageResponse'</a>,
---   <a>listIdentityPoolUsageResponse_httpStatus</a> - The response's http
---   status code.
-newListIdentityPoolUsageResponse :: Int -> ListIdentityPoolUsageResponse
-
--- | A request to configure Cognito Events"
---   
---   "
---   
---   <i>See:</i> <a>newSetCognitoEvents</a> smart constructor.
-data SetCognitoEvents
-SetCognitoEvents' :: Text -> HashMap Text Text -> SetCognitoEvents
-
--- | Create a value of <a>SetCognitoEvents</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identityPoolId:SetCognitoEvents'</a>,
---   <a>setCognitoEvents_identityPoolId</a> - The Cognito Identity Pool to
---   use when configuring Cognito Events
---   
---   <a>$sel:events:SetCognitoEvents'</a>, <a>setCognitoEvents_events</a> -
---   The events to configure
-newSetCognitoEvents :: Text -> SetCognitoEvents
-
--- | <i>See:</i> <a>newSetCognitoEventsResponse</a> smart constructor.
-data SetCognitoEventsResponse
-SetCognitoEventsResponse' :: SetCognitoEventsResponse
-
--- | Create a value of <a>SetCognitoEventsResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
-newSetCognitoEventsResponse :: SetCognitoEventsResponse
-
--- | A request for meta data about a dataset (creation date, number of
---   records, size) by owner and dataset name.
---   
---   <i>See:</i> <a>newDescribeDataset</a> smart constructor.
-data DescribeDataset
-DescribeDataset' :: Text -> Text -> Text -> DescribeDataset
-
--- | Create a value of <a>DescribeDataset</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identityPoolId:DescribeDataset'</a>,
---   <a>describeDataset_identityPoolId</a> - A name-spaced GUID (for
---   example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
---   Amazon Cognito. GUID generation is unique within a region.
---   
---   <a>$sel:identityId:DescribeDataset'</a>,
---   <a>describeDataset_identityId</a> - A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. GUID generation is unique within a region.
---   
---   <a>$sel:datasetName:DescribeDataset'</a>,
---   <a>describeDataset_datasetName</a> - A string of up to 128 characters.
---   Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash),
---   and '.' (dot).
-newDescribeDataset :: Text -> Text -> Text -> DescribeDataset
-
--- | Response to a successful DescribeDataset request.
---   
---   <i>See:</i> <a>newDescribeDatasetResponse</a> smart constructor.
-data DescribeDatasetResponse
-DescribeDatasetResponse' :: Maybe Dataset -> Int -> DescribeDatasetResponse
-
--- | Create a value of <a>DescribeDatasetResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:dataset:DescribeDatasetResponse'</a>,
---   <a>describeDatasetResponse_dataset</a> - Meta data for a collection of
---   data for an identity. An identity can have multiple datasets. A
---   dataset can be general or associated with a particular entity in an
---   application (like a saved game). Datasets are automatically created if
---   they don't exist. Data is synced by dataset, and a dataset can hold up
---   to 1MB of key-value pairs.
---   
---   <a>$sel:httpStatus:DescribeDatasetResponse'</a>,
---   <a>describeDatasetResponse_httpStatus</a> - The response's http status
---   code.
-newDescribeDatasetResponse :: Int -> DescribeDatasetResponse
-
--- | A request to UnsubscribeFromDataset.
---   
---   <i>See:</i> <a>newUnsubscribeFromDataset</a> smart constructor.
-data UnsubscribeFromDataset
-UnsubscribeFromDataset' :: Text -> Text -> Text -> Text -> UnsubscribeFromDataset
-
--- | Create a value of <a>UnsubscribeFromDataset</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identityPoolId:UnsubscribeFromDataset'</a>,
---   <a>unsubscribeFromDataset_identityPoolId</a> - A name-spaced GUID (for
---   example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
---   Amazon Cognito. The ID of the pool to which this identity belongs.
---   
---   <a>$sel:identityId:UnsubscribeFromDataset'</a>,
---   <a>unsubscribeFromDataset_identityId</a> - Unique ID for this
---   identity.
---   
---   <a>$sel:datasetName:UnsubscribeFromDataset'</a>,
---   <a>unsubscribeFromDataset_datasetName</a> - The name of the dataset
---   from which to unsubcribe.
---   
---   <a>$sel:deviceId:UnsubscribeFromDataset'</a>,
---   <a>unsubscribeFromDataset_deviceId</a> - The unique ID generated for
---   this device by Cognito.
-newUnsubscribeFromDataset :: Text -> Text -> Text -> Text -> UnsubscribeFromDataset
-
--- | Response to an UnsubscribeFromDataset request.
---   
---   <i>See:</i> <a>newUnsubscribeFromDatasetResponse</a> smart
---   constructor.
-data UnsubscribeFromDatasetResponse
-UnsubscribeFromDatasetResponse' :: Int -> UnsubscribeFromDatasetResponse
-
--- | Create a value of <a>UnsubscribeFromDatasetResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:UnsubscribeFromDatasetResponse'</a>,
---   <a>unsubscribeFromDatasetResponse_httpStatus</a> - The response's http
---   status code.
-newUnsubscribeFromDatasetResponse :: Int -> UnsubscribeFromDatasetResponse
-
--- | The input for the GetIdentityPoolConfiguration operation.
---   
---   <i>See:</i> <a>newGetIdentityPoolConfiguration</a> smart constructor.
-data GetIdentityPoolConfiguration
-GetIdentityPoolConfiguration' :: Text -> GetIdentityPoolConfiguration
-
--- | Create a value of <a>GetIdentityPoolConfiguration</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identityPoolId:GetIdentityPoolConfiguration'</a>,
---   <a>getIdentityPoolConfiguration_identityPoolId</a> - A name-spaced
---   GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
---   created by Amazon Cognito. This is the ID of the pool for which to
---   return a configuration.
-newGetIdentityPoolConfiguration :: Text -> GetIdentityPoolConfiguration
-
--- | The output for the GetIdentityPoolConfiguration operation.
---   
---   <i>See:</i> <a>newGetIdentityPoolConfigurationResponse</a> smart
---   constructor.
-data GetIdentityPoolConfigurationResponse
-GetIdentityPoolConfigurationResponse' :: Maybe Text -> Maybe PushSync -> Maybe CognitoStreams -> Int -> GetIdentityPoolConfigurationResponse
-
--- | Create a value of <a>GetIdentityPoolConfigurationResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identityPoolId:GetIdentityPoolConfiguration'</a>,
---   <a>getIdentityPoolConfigurationResponse_identityPoolId</a> - A
---   name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito.
---   
---   <a>$sel:pushSync:GetIdentityPoolConfigurationResponse'</a>,
---   <a>getIdentityPoolConfigurationResponse_pushSync</a> - Options to
---   apply to this identity pool for push synchronization.
---   
---   <a>$sel:cognitoStreams:GetIdentityPoolConfigurationResponse'</a>,
---   <a>getIdentityPoolConfigurationResponse_cognitoStreams</a> - Options
---   to apply to this identity pool for Amazon Cognito streams.
---   
---   <a>$sel:httpStatus:GetIdentityPoolConfigurationResponse'</a>,
---   <a>getIdentityPoolConfigurationResponse_httpStatus</a> - The
---   response's http status code.
-newGetIdentityPoolConfigurationResponse :: Int -> GetIdentityPoolConfigurationResponse
-
--- | A request for a list of the configured Cognito Events
---   
---   <i>See:</i> <a>newGetCognitoEvents</a> smart constructor.
-data GetCognitoEvents
-GetCognitoEvents' :: Text -> GetCognitoEvents
-
--- | Create a value of <a>GetCognitoEvents</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identityPoolId:GetCognitoEvents'</a>,
---   <a>getCognitoEvents_identityPoolId</a> - The Cognito Identity Pool ID
---   for the request
-newGetCognitoEvents :: Text -> GetCognitoEvents
-
--- | The response from the GetCognitoEvents request
---   
---   <i>See:</i> <a>newGetCognitoEventsResponse</a> smart constructor.
-data GetCognitoEventsResponse
-GetCognitoEventsResponse' :: Maybe (HashMap Text Text) -> Int -> GetCognitoEventsResponse
-
--- | Create a value of <a>GetCognitoEventsResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:events:GetCognitoEventsResponse'</a>,
---   <a>getCognitoEventsResponse_events</a> - The Cognito Events returned
---   from the GetCognitoEvents request
---   
---   <a>$sel:httpStatus:GetCognitoEventsResponse'</a>,
---   <a>getCognitoEventsResponse_httpStatus</a> - The response's http
---   status code.
-newGetCognitoEventsResponse :: Int -> GetCognitoEventsResponse
-
--- | Request for a list of datasets for an identity.
---   
---   <i>See:</i> <a>newListDatasets</a> smart constructor.
-data ListDatasets
-ListDatasets' :: Maybe Text -> Maybe Int -> Text -> Text -> ListDatasets
-
--- | Create a value of <a>ListDatasets</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListDatasets'</a>, <a>listDatasets_nextToken</a> - A
---   pagination token for obtaining the next page of results.
---   
---   <a>$sel:maxResults:ListDatasets'</a>, <a>listDatasets_maxResults</a> -
---   The maximum number of results to be returned.
---   
---   <a>$sel:identityId:ListDatasets'</a>, <a>listDatasets_identityId</a> -
---   A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. GUID generation is unique within a region.
---   
---   <a>$sel:identityPoolId:ListDatasets'</a>,
---   <a>listDatasets_identityPoolId</a> - A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. GUID generation is unique within a region.
-newListDatasets :: Text -> Text -> ListDatasets
-
--- | Returned for a successful ListDatasets request.
---   
---   <i>See:</i> <a>newListDatasetsResponse</a> smart constructor.
-data ListDatasetsResponse
-ListDatasetsResponse' :: Maybe Text -> Maybe [Dataset] -> Maybe Int -> Int -> ListDatasetsResponse
-
--- | Create a value of <a>ListDatasetsResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListDatasets'</a>,
---   <a>listDatasetsResponse_nextToken</a> - A pagination token for
---   obtaining the next page of results.
---   
---   <a>$sel:datasets:ListDatasetsResponse'</a>,
---   <a>listDatasetsResponse_datasets</a> - A set of datasets.
---   
---   <a>$sel:count:ListDatasetsResponse'</a>,
---   <a>listDatasetsResponse_count</a> - Number of datasets returned.
---   
---   <a>$sel:httpStatus:ListDatasetsResponse'</a>,
---   <a>listDatasetsResponse_httpStatus</a> - The response's http status
---   code.
-newListDatasetsResponse :: Int -> ListDatasetsResponse
-
--- | A request to delete the specific dataset.
---   
---   <i>See:</i> <a>newDeleteDataset</a> smart constructor.
-data DeleteDataset
-DeleteDataset' :: Text -> Text -> Text -> DeleteDataset
-
--- | Create a value of <a>DeleteDataset</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identityPoolId:DeleteDataset'</a>,
---   <a>deleteDataset_identityPoolId</a> - A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. GUID generation is unique within a region.
---   
---   <a>$sel:identityId:DeleteDataset'</a>, <a>deleteDataset_identityId</a>
---   - A name-spaced GUID (for example,
---   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
---   Cognito. GUID generation is unique within a region.
---   
---   <a>$sel:datasetName:DeleteDataset'</a>,
---   <a>deleteDataset_datasetName</a> - A string of up to 128 characters.
---   Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash),
---   and '.' (dot).
-newDeleteDataset :: Text -> Text -> Text -> DeleteDataset
-
--- | Response to a successful DeleteDataset request.
---   
---   <i>See:</i> <a>newDeleteDatasetResponse</a> smart constructor.
-data DeleteDatasetResponse
-DeleteDatasetResponse' :: Maybe Dataset -> Int -> DeleteDatasetResponse
-
--- | Create a value of <a>DeleteDatasetResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:dataset:DeleteDatasetResponse'</a>,
---   <a>deleteDatasetResponse_dataset</a> - A collection of data for an
---   identity pool. An identity pool can have multiple datasets. A dataset
---   is per identity and can be general or associated with a particular
---   entity in an application (like a saved game). Datasets are
---   automatically created if they don't exist. Data is synced by dataset,
---   and a dataset can hold up to 1MB of key-value pairs.
---   
---   <a>$sel:httpStatus:DeleteDatasetResponse'</a>,
---   <a>deleteDatasetResponse_httpStatus</a> - The response's http status
---   code.
-newDeleteDatasetResponse :: Int -> DeleteDatasetResponse
-
--- | A request for usage information about the identity pool.
---   
---   <i>See:</i> <a>newDescribeIdentityPoolUsage</a> smart constructor.
-data DescribeIdentityPoolUsage
-DescribeIdentityPoolUsage' :: Text -> DescribeIdentityPoolUsage
-
--- | Create a value of <a>DescribeIdentityPoolUsage</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identityPoolId:DescribeIdentityPoolUsage'</a>,
---   <a>describeIdentityPoolUsage_identityPoolId</a> - A name-spaced GUID
---   (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created
---   by Amazon Cognito. GUID generation is unique within a region.
-newDescribeIdentityPoolUsage :: Text -> DescribeIdentityPoolUsage
-
--- | Response to a successful DescribeIdentityPoolUsage request.
---   
---   <i>See:</i> <a>newDescribeIdentityPoolUsageResponse</a> smart
---   constructor.
-data DescribeIdentityPoolUsageResponse
-DescribeIdentityPoolUsageResponse' :: Maybe IdentityPoolUsage -> Int -> DescribeIdentityPoolUsageResponse
-
--- | Create a value of <a>DescribeIdentityPoolUsageResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identityPoolUsage:DescribeIdentityPoolUsageResponse'</a>,
---   <a>describeIdentityPoolUsageResponse_identityPoolUsage</a> -
---   Information about the usage of the identity pool.
---   
---   <a>$sel:httpStatus:DescribeIdentityPoolUsageResponse'</a>,
---   <a>describeIdentityPoolUsageResponse_httpStatus</a> - The response's
---   http status code.
-newDescribeIdentityPoolUsageResponse :: Int -> DescribeIdentityPoolUsageResponse
 newtype BulkPublishStatus
 BulkPublishStatus' :: Text -> BulkPublishStatus
 [fromBulkPublishStatus] :: BulkPublishStatus -> Text
@@ -4960,7 +4960,7 @@ pattern StreamingStatus_ENABLED :: StreamingStatus
 --   
 --   <i>See:</i> <a>newCognitoStreams</a> smart constructor.
 data CognitoStreams
-CognitoStreams' :: Maybe Text -> Maybe Text -> Maybe StreamingStatus -> CognitoStreams
+CognitoStreams' :: Maybe StreamingStatus -> Maybe Text -> Maybe Text -> CognitoStreams
 
 -- | Create a value of <a>CognitoStreams</a> with all optional fields
 --   omitted.
@@ -4971,16 +4971,6 @@ CognitoStreams' :: Maybe Text -> Maybe Text -> Maybe StreamingStatus -> CognitoS
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:roleArn:CognitoStreams'</a>, <a>cognitoStreams_roleArn</a> -
---   The ARN of the role Amazon Cognito can assume in order to publish to
---   the stream. This role must grant access to Amazon Cognito
---   (cognito-sync) to invoke PutRecord on your Cognito stream.
---   
---   <a>$sel:streamName:CognitoStreams'</a>,
---   <a>cognitoStreams_streamName</a> - The name of the Cognito stream to
---   receive updates. This stream must be in the developers account and in
---   the same region as the identity pool.
---   
 --   <a>$sel:streamingStatus:CognitoStreams'</a>,
 --   <a>cognitoStreams_streamingStatus</a> - Status of the Cognito streams.
 --   Valid values are:
@@ -4989,6 +4979,16 @@ CognitoStreams' :: Maybe Text -> Maybe Text -> Maybe StreamingStatus -> CognitoS
 --   
 --   DISABLED - Streaming of updates to identity pool is disabled. Bulk
 --   publish will also fail if StreamingStatus is DISABLED.
+--   
+--   <a>$sel:streamName:CognitoStreams'</a>,
+--   <a>cognitoStreams_streamName</a> - The name of the Cognito stream to
+--   receive updates. This stream must be in the developers account and in
+--   the same region as the identity pool.
+--   
+--   <a>$sel:roleArn:CognitoStreams'</a>, <a>cognitoStreams_roleArn</a> -
+--   The ARN of the role Amazon Cognito can assume in order to publish to
+--   the stream. This role must grant access to Amazon Cognito
+--   (cognito-sync) to invoke PutRecord on your Cognito stream.
 newCognitoStreams :: CognitoStreams
 
 -- | A collection of data for an identity pool. An identity pool can have
@@ -5000,7 +5000,7 @@ newCognitoStreams :: CognitoStreams
 --   
 --   <i>See:</i> <a>newDataset</a> smart constructor.
 data Dataset
-Dataset' :: Maybe POSIX -> Maybe Integer -> Maybe POSIX -> Maybe Integer -> Maybe Text -> Maybe Text -> Maybe Text -> Dataset
+Dataset' :: Maybe POSIX -> Maybe Integer -> Maybe Integer -> Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe Text -> Dataset
 
 -- | Create a value of <a>Dataset</a> with all optional fields omitted.
 --   
@@ -5016,23 +5016,23 @@ Dataset' :: Maybe POSIX -> Maybe Integer -> Maybe POSIX -> Maybe Integer -> Mayb
 --   <a>$sel:numRecords:Dataset'</a>, <a>dataset_numRecords</a> - Number of
 --   records in this dataset.
 --   
+--   <a>$sel:dataStorage:Dataset'</a>, <a>dataset_dataStorage</a> - Total
+--   size in bytes of the records in this dataset.
+--   
+--   <a>$sel:datasetName:Dataset'</a>, <a>dataset_datasetName</a> - A
+--   string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
+--   '_' (underscore), '-' (dash), and '.' (dot).
+--   
 --   <a>$sel:creationDate:Dataset'</a>, <a>dataset_creationDate</a> - Date
 --   on which the dataset was created.
 --   
---   <a>$sel:dataStorage:Dataset'</a>, <a>dataset_dataStorage</a> - Total
---   size in bytes of the records in this dataset.
+--   <a>$sel:lastModifiedBy:Dataset'</a>, <a>dataset_lastModifiedBy</a> -
+--   The device that made the last change to this dataset.
 --   
 --   <a>$sel:identityId:Dataset'</a>, <a>dataset_identityId</a> - A
 --   name-spaced GUID (for example,
 --   us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 --   Cognito. GUID generation is unique within a region.
---   
---   <a>$sel:lastModifiedBy:Dataset'</a>, <a>dataset_lastModifiedBy</a> -
---   The device that made the last change to this dataset.
---   
---   <a>$sel:datasetName:Dataset'</a>, <a>dataset_datasetName</a> - A
---   string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
---   '_' (underscore), '-' (dash), and '.' (dot).
 newDataset :: Dataset
 
 -- | Usage information for the identity pool.
@@ -5059,13 +5059,13 @@ IdentityPoolUsage' :: Maybe POSIX -> Maybe Text -> Maybe Integer -> Maybe Intege
 --   example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
 --   Amazon Cognito. GUID generation is unique within a region.
 --   
---   <a>$sel:syncSessionsCount:IdentityPoolUsage'</a>,
---   <a>identityPoolUsage_syncSessionsCount</a> - Number of sync sessions
---   for the identity pool.
---   
 --   <a>$sel:dataStorage:IdentityPoolUsage'</a>,
 --   <a>identityPoolUsage_dataStorage</a> - Data storage information for
 --   the identity pool.
+--   
+--   <a>$sel:syncSessionsCount:IdentityPoolUsage'</a>,
+--   <a>identityPoolUsage_syncSessionsCount</a> - Number of sync sessions
+--   for the identity pool.
 newIdentityPoolUsage :: IdentityPoolUsage
 
 -- | Usage information for the identity.
@@ -5110,7 +5110,7 @@ newIdentityUsage :: IdentityUsage
 --   
 --   <i>See:</i> <a>newPushSync</a> smart constructor.
 data PushSync
-PushSync' :: Maybe Text -> Maybe [Text] -> PushSync
+PushSync' :: Maybe [Text] -> Maybe Text -> PushSync
 
 -- | Create a value of <a>PushSync</a> with all optional fields omitted.
 --   
@@ -5120,18 +5120,18 @@ PushSync' :: Maybe Text -> Maybe [Text] -> PushSync
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:roleArn:PushSync'</a>, <a>pushSync_roleArn</a> - A role
---   configured to allow Cognito to call SNS on behalf of the developer.
---   
 --   <a>$sel:applicationArns:PushSync'</a>, <a>pushSync_applicationArns</a>
 --   - List of SNS platform application ARNs that could be used by clients.
+--   
+--   <a>$sel:roleArn:PushSync'</a>, <a>pushSync_roleArn</a> - A role
+--   configured to allow Cognito to call SNS on behalf of the developer.
 newPushSync :: PushSync
 
 -- | The basic data structure of a dataset.
 --   
 --   <i>See:</i> <a>newRecord</a> smart constructor.
 data Record
-Record' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Maybe Integer -> Maybe Text -> Maybe Text -> Record
+Record' :: Maybe Integer -> Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe Text -> Record
 
 -- | Create a value of <a>Record</a> with all optional fields omitted.
 --   
@@ -5141,7 +5141,8 @@ Record' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Maybe Integer -> Maybe Te
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:key:Record'</a>, <a>record_key</a> - The key for the record.
+--   <a>$sel:syncCount:Record'</a>, <a>record_syncCount</a> - The server
+--   sync count for this record.
 --   
 --   <a>$sel:deviceLastModifiedDate:Record'</a>,
 --   <a>record_deviceLastModifiedDate</a> - The last modified date of the
@@ -5150,11 +5151,10 @@ Record' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Maybe Integer -> Maybe Te
 --   <a>$sel:lastModifiedDate:Record'</a>, <a>record_lastModifiedDate</a> -
 --   The date on which the record was last modified.
 --   
---   <a>$sel:syncCount:Record'</a>, <a>record_syncCount</a> - The server
---   sync count for this record.
---   
 --   <a>$sel:value:Record'</a>, <a>record_value</a> - The value for the
 --   record.
+--   
+--   <a>$sel:key:Record'</a>, <a>record_key</a> - The key for the record.
 --   
 --   <a>$sel:lastModifiedBy:Record'</a>, <a>record_lastModifiedBy</a> - The
 --   user/device that made the last change to this record.

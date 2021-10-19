@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | When enabled the output audio is corrected using the chosen algorithm.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- If disabled, the audio will be measured but not adjusted.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679935981"><span id="local-6989586621679935982"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioNormalizationAlgorithmControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithmControl.html#AudioNormalizationAlgorithmControl"><span class="hs-identifier hs-var">AudioNormalizationAlgorithmControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioNormalizationAlgorithmControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithmControl.html#AudioNormalizationAlgorithmControl%27"><span class="hs-identifier hs-var">AudioNormalizationAlgorithmControl'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679940602"><span id="local-6989586621679940603"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioNormalizationAlgorithmControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithmControl.html#AudioNormalizationAlgorithmControl"><span class="hs-identifier hs-var">AudioNormalizationAlgorithmControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioNormalizationAlgorithmControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithmControl.html#AudioNormalizationAlgorithmControl%27"><span class="hs-identifier hs-var">AudioNormalizationAlgorithmControl'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAudioNormalizationAlgorithmControl"><span class="annot"><span class="annottext">AudioNormalizationAlgorithmControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithmControl.html#fromAudioNormalizationAlgorithmControl"><span class="hs-identifier hs-var hs-var">fromAudioNormalizationAlgorithmControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679935973"><span id="local-6989586621679935975"><span id="local-6989586621679935977"><span class="annot"><span class="annottext">Int -&gt; AudioNormalizationAlgorithmControl -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679940594"><span id="local-6989586621679940596"><span id="local-6989586621679940598"><span class="annot"><span class="annottext">Int -&gt; AudioNormalizationAlgorithmControl -&gt; ShowS
 [AudioNormalizationAlgorithmControl] -&gt; ShowS
 AudioNormalizationAlgorithmControl -&gt; String
 (Int -&gt; AudioNormalizationAlgorithmControl -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: AudioNormalizationAlgorithmControl -&gt; String
 showsPrec :: Int -&gt; AudioNormalizationAlgorithmControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; AudioNormalizationAlgorithmControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679935964"><span id="local-6989586621679935966"><span id="local-6989586621679935968"><span id="local-6989586621679935970"><span class="annot"><span class="annottext">ReadPrec [AudioNormalizationAlgorithmControl]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679940585"><span id="local-6989586621679940587"><span id="local-6989586621679940589"><span id="local-6989586621679940591"><span class="annot"><span class="annottext">ReadPrec [AudioNormalizationAlgorithmControl]
 ReadPrec AudioNormalizationAlgorithmControl
 Int -&gt; ReadS AudioNormalizationAlgorithmControl
 ReadS [AudioNormalizationAlgorithmControl]
@@ -74,7 +74,7 @@ $creadList :: ReadS [AudioNormalizationAlgorithmControl]
 readsPrec :: Int -&gt; ReadS AudioNormalizationAlgorithmControl
 $creadsPrec :: Int -&gt; ReadS AudioNormalizationAlgorithmControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679935959"><span id="local-6989586621679935961"><span class="annot"><span class="annottext">AudioNormalizationAlgorithmControl
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679940580"><span id="local-6989586621679940582"><span class="annot"><span class="annottext">AudioNormalizationAlgorithmControl
 -&gt; AudioNormalizationAlgorithmControl -&gt; Bool
 (AudioNormalizationAlgorithmControl
  -&gt; AudioNormalizationAlgorithmControl -&gt; Bool)
@@ -91,7 +91,7 @@ $c/= :: AudioNormalizationAlgorithmControl
 $c== :: AudioNormalizationAlgorithmControl
 -&gt; AudioNormalizationAlgorithmControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679935943"><span id="local-6989586621679935945"><span id="local-6989586621679935947"><span id="local-6989586621679935949"><span id="local-6989586621679935951"><span id="local-6989586621679935953"><span id="local-6989586621679935955"><span class="annot"><span class="annottext">Eq AudioNormalizationAlgorithmControl
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679940564"><span id="local-6989586621679940566"><span id="local-6989586621679940568"><span id="local-6989586621679940570"><span id="local-6989586621679940572"><span id="local-6989586621679940574"><span id="local-6989586621679940576"><span class="annot"><span class="annottext">Eq AudioNormalizationAlgorithmControl
 Eq AudioNormalizationAlgorithmControl
 -&gt; (AudioNormalizationAlgorithmControl
     -&gt; AudioNormalizationAlgorithmControl -&gt; Ordering)
@@ -185,7 +185,7 @@ AudioNormalizationAlgorithmControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679935935"><span id="local-6989586621679935937"><span class="annot"><span class="annottext">Int -&gt; AudioNormalizationAlgorithmControl -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679940556"><span id="local-6989586621679940558"><span class="annot"><span class="annottext">Int -&gt; AudioNormalizationAlgorithmControl -&gt; Int
 AudioNormalizationAlgorithmControl -&gt; Int
 (Int -&gt; AudioNormalizationAlgorithmControl -&gt; Int)
 -&gt; (AudioNormalizationAlgorithmControl -&gt; Int)
@@ -196,56 +196,56 @@ $chash :: AudioNormalizationAlgorithmControl -&gt; Int
 hashWithSalt :: Int -&gt; AudioNormalizationAlgorithmControl -&gt; Int
 $chashWithSalt :: Int -&gt; AudioNormalizationAlgorithmControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679935932"><span class="annot"><span class="annottext">AudioNormalizationAlgorithmControl -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679940553"><span class="annot"><span class="annottext">AudioNormalizationAlgorithmControl -&gt; ()
 (AudioNormalizationAlgorithmControl -&gt; ())
 -&gt; NFData AudioNormalizationAlgorithmControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AudioNormalizationAlgorithmControl -&gt; ()
 $crnf :: AudioNormalizationAlgorithmControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679935929"><span class="annot"><span class="annottext">Text -&gt; Either String AudioNormalizationAlgorithmControl
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679940550"><span class="annot"><span class="annottext">Text -&gt; Either String AudioNormalizationAlgorithmControl
 (Text -&gt; Either String AudioNormalizationAlgorithmControl)
 -&gt; FromText AudioNormalizationAlgorithmControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AudioNormalizationAlgorithmControl
 $cfromText :: Text -&gt; Either String AudioNormalizationAlgorithmControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679935926"><span class="annot"><span class="annottext">AudioNormalizationAlgorithmControl -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679940547"><span class="annot"><span class="annottext">AudioNormalizationAlgorithmControl -&gt; Text
 (AudioNormalizationAlgorithmControl -&gt; Text)
 -&gt; ToText AudioNormalizationAlgorithmControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AudioNormalizationAlgorithmControl -&gt; Text
 $ctoText :: AudioNormalizationAlgorithmControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679935923"><span class="annot"><span class="annottext">AudioNormalizationAlgorithmControl -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679940544"><span class="annot"><span class="annottext">AudioNormalizationAlgorithmControl -&gt; ByteString
 (AudioNormalizationAlgorithmControl -&gt; ByteString)
 -&gt; ToByteString AudioNormalizationAlgorithmControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AudioNormalizationAlgorithmControl -&gt; ByteString
 $ctoBS :: AudioNormalizationAlgorithmControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679935920"><span class="annot"><span class="annottext">AudioNormalizationAlgorithmControl -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679940541"><span class="annot"><span class="annottext">AudioNormalizationAlgorithmControl -&gt; ByteStringBuilder
 (AudioNormalizationAlgorithmControl -&gt; ByteStringBuilder)
 -&gt; ToLog AudioNormalizationAlgorithmControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AudioNormalizationAlgorithmControl -&gt; ByteStringBuilder
 $cbuild :: AudioNormalizationAlgorithmControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679935917"><span class="annot"><span class="annottext">HeaderName -&gt; AudioNormalizationAlgorithmControl -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679940538"><span class="annot"><span class="annottext">HeaderName -&gt; AudioNormalizationAlgorithmControl -&gt; [Header]
 (HeaderName -&gt; AudioNormalizationAlgorithmControl -&gt; [Header])
 -&gt; ToHeader AudioNormalizationAlgorithmControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AudioNormalizationAlgorithmControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AudioNormalizationAlgorithmControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679935914"><span class="annot"><span class="annottext">AudioNormalizationAlgorithmControl -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679940535"><span class="annot"><span class="annottext">AudioNormalizationAlgorithmControl -&gt; QueryString
 (AudioNormalizationAlgorithmControl -&gt; QueryString)
 -&gt; ToQuery AudioNormalizationAlgorithmControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AudioNormalizationAlgorithmControl -&gt; QueryString
 $ctoQuery :: AudioNormalizationAlgorithmControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679935909"><span id="local-6989586621679935911"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioNormalizationAlgorithmControl]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679940530"><span id="local-6989586621679940532"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioNormalizationAlgorithmControl]
 Value -&gt; Parser AudioNormalizationAlgorithmControl
 (Value -&gt; Parser AudioNormalizationAlgorithmControl)
 -&gt; (Value -&gt; Parser [AudioNormalizationAlgorithmControl])
@@ -257,7 +257,7 @@ $cparseJSONList :: Value -&gt; Parser [AudioNormalizationAlgorithmControl]
 parseJSON :: Value -&gt; Parser AudioNormalizationAlgorithmControl
 $cparseJSON :: Value -&gt; Parser AudioNormalizationAlgorithmControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679935904"><span id="local-6989586621679935906"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioNormalizationAlgorithmControl]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679940525"><span id="local-6989586621679940527"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioNormalizationAlgorithmControl]
 FromJSONKeyFunction AudioNormalizationAlgorithmControl
 FromJSONKeyFunction AudioNormalizationAlgorithmControl
 -&gt; FromJSONKeyFunction [AudioNormalizationAlgorithmControl]
@@ -269,7 +269,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AudioNormalizationAlgorithmControl]
 fromJSONKey :: FromJSONKeyFunction AudioNormalizationAlgorithmControl
 $cfromJSONKey :: FromJSONKeyFunction AudioNormalizationAlgorithmControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679935895"><span id="local-6989586621679935897"><span id="local-6989586621679935899"><span id="local-6989586621679935901"><span class="annot"><span class="annottext">[AudioNormalizationAlgorithmControl] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679940516"><span id="local-6989586621679940518"><span id="local-6989586621679940520"><span id="local-6989586621679940522"><span class="annot"><span class="annottext">[AudioNormalizationAlgorithmControl] -&gt; Encoding
 [AudioNormalizationAlgorithmControl] -&gt; Value
 AudioNormalizationAlgorithmControl -&gt; Encoding
 AudioNormalizationAlgorithmControl -&gt; Value
@@ -293,7 +293,7 @@ $ctoEncoding :: AudioNormalizationAlgorithmControl -&gt; Encoding
 toJSON :: AudioNormalizationAlgorithmControl -&gt; Value
 $ctoJSON :: AudioNormalizationAlgorithmControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679935890"><span id="local-6989586621679935892"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioNormalizationAlgorithmControl]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679940511"><span id="local-6989586621679940513"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioNormalizationAlgorithmControl]
 ToJSONKeyFunction AudioNormalizationAlgorithmControl
 ToJSONKeyFunction AudioNormalizationAlgorithmControl
 -&gt; ToJSONKeyFunction [AudioNormalizationAlgorithmControl]
@@ -305,14 +305,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AudioNormalizationAlgorithmControl]
 toJSONKey :: ToJSONKeyFunction AudioNormalizationAlgorithmControl
 $ctoJSONKey :: ToJSONKeyFunction AudioNormalizationAlgorithmControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679935887"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioNormalizationAlgorithmControl
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679940508"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioNormalizationAlgorithmControl
 ([Node] -&gt; Either String AudioNormalizationAlgorithmControl)
 -&gt; FromXML AudioNormalizationAlgorithmControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AudioNormalizationAlgorithmControl
 $cparseXML :: [Node] -&gt; Either String AudioNormalizationAlgorithmControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679935884"><span class="annot"><span class="annottext">AudioNormalizationAlgorithmControl -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679940505"><span class="annot"><span class="annottext">AudioNormalizationAlgorithmControl -&gt; XML
 (AudioNormalizationAlgorithmControl -&gt; XML)
 -&gt; ToXML AudioNormalizationAlgorithmControl
 forall a. (a -&gt; XML) -&gt; ToXML a

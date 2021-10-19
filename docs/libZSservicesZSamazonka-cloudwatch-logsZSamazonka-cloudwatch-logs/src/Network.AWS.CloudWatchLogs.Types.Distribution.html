@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | The method used to distribute log data to the destination, which can be</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- either random or grouped by log stream.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679220285"><span id="local-6989586621679220286"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Distribution"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.Distribution.html#Distribution"><span class="hs-identifier hs-var">Distribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Distribution%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-var">Distribution'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679220422"><span id="local-6989586621679220423"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Distribution"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.Distribution.html#Distribution"><span class="hs-identifier hs-var">Distribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Distribution%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-var">Distribution'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDistribution"><span class="annot"><span class="annottext">Distribution -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.Distribution.html#fromDistribution"><span class="hs-identifier hs-var hs-var">fromDistribution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679220277"><span id="local-6989586621679220279"><span id="local-6989586621679220281"><span class="annot"><span class="annottext">Int -&gt; Distribution -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679220414"><span id="local-6989586621679220416"><span id="local-6989586621679220418"><span class="annot"><span class="annottext">Int -&gt; Distribution -&gt; ShowS
 [Distribution] -&gt; ShowS
 Distribution -&gt; String
 (Int -&gt; Distribution -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: Distribution -&gt; String
 showsPrec :: Int -&gt; Distribution -&gt; ShowS
 $cshowsPrec :: Int -&gt; Distribution -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679220268"><span id="local-6989586621679220270"><span id="local-6989586621679220272"><span id="local-6989586621679220274"><span class="annot"><span class="annottext">ReadPrec [Distribution]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679220405"><span id="local-6989586621679220407"><span id="local-6989586621679220409"><span id="local-6989586621679220411"><span class="annot"><span class="annottext">ReadPrec [Distribution]
 ReadPrec Distribution
 Int -&gt; ReadS Distribution
 ReadS [Distribution]
@@ -74,7 +74,7 @@ $creadList :: ReadS [Distribution]
 readsPrec :: Int -&gt; ReadS Distribution
 $creadsPrec :: Int -&gt; ReadS Distribution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679220263"><span id="local-6989586621679220265"><span class="annot"><span class="annottext">Distribution -&gt; Distribution -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679220400"><span id="local-6989586621679220402"><span class="annot"><span class="annottext">Distribution -&gt; Distribution -&gt; Bool
 (Distribution -&gt; Distribution -&gt; Bool)
 -&gt; (Distribution -&gt; Distribution -&gt; Bool) -&gt; Eq Distribution
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: Distribution -&gt; Distribution -&gt; Bool
 == :: Distribution -&gt; Distribution -&gt; Bool
 $c== :: Distribution -&gt; Distribution -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679220247"><span id="local-6989586621679220249"><span id="local-6989586621679220251"><span id="local-6989586621679220253"><span id="local-6989586621679220255"><span id="local-6989586621679220257"><span id="local-6989586621679220259"><span class="annot"><span class="annottext">Eq Distribution
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679220384"><span id="local-6989586621679220386"><span id="local-6989586621679220388"><span id="local-6989586621679220390"><span id="local-6989586621679220392"><span id="local-6989586621679220394"><span id="local-6989586621679220396"><span class="annot"><span class="annottext">Eq Distribution
 Eq Distribution
 -&gt; (Distribution -&gt; Distribution -&gt; Ordering)
 -&gt; (Distribution -&gt; Distribution -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. Distribution -&gt; Rep Distribution x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679220239"><span id="local-6989586621679220241"><span class="annot"><span class="annottext">Int -&gt; Distribution -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679220376"><span id="local-6989586621679220378"><span class="annot"><span class="annottext">Int -&gt; Distribution -&gt; Int
 Distribution -&gt; Int
 (Int -&gt; Distribution -&gt; Int)
 -&gt; (Distribution -&gt; Int) -&gt; Hashable Distribution
@@ -144,49 +144,49 @@ $chash :: Distribution -&gt; Int
 hashWithSalt :: Int -&gt; Distribution -&gt; Int
 $chashWithSalt :: Int -&gt; Distribution -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679220236"><span class="annot"><span class="annottext">Distribution -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679220373"><span class="annot"><span class="annottext">Distribution -&gt; ()
 (Distribution -&gt; ()) -&gt; NFData Distribution
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Distribution -&gt; ()
 $crnf :: Distribution -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679220233"><span class="annot"><span class="annottext">Text -&gt; Either String Distribution
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679220370"><span class="annot"><span class="annottext">Text -&gt; Either String Distribution
 (Text -&gt; Either String Distribution) -&gt; FromText Distribution
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Distribution
 $cfromText :: Text -&gt; Either String Distribution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679220230"><span class="annot"><span class="annottext">Distribution -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679220367"><span class="annot"><span class="annottext">Distribution -&gt; Text
 (Distribution -&gt; Text) -&gt; ToText Distribution
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Distribution -&gt; Text
 $ctoText :: Distribution -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679220227"><span class="annot"><span class="annottext">Distribution -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679220364"><span class="annot"><span class="annottext">Distribution -&gt; ByteString
 (Distribution -&gt; ByteString) -&gt; ToByteString Distribution
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Distribution -&gt; ByteString
 $ctoBS :: Distribution -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679220224"><span class="annot"><span class="annottext">Distribution -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679220361"><span class="annot"><span class="annottext">Distribution -&gt; ByteStringBuilder
 (Distribution -&gt; ByteStringBuilder) -&gt; ToLog Distribution
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Distribution -&gt; ByteStringBuilder
 $cbuild :: Distribution -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679220221"><span class="annot"><span class="annottext">HeaderName -&gt; Distribution -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679220358"><span class="annot"><span class="annottext">HeaderName -&gt; Distribution -&gt; [Header]
 (HeaderName -&gt; Distribution -&gt; [Header]) -&gt; ToHeader Distribution
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Distribution -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Distribution -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679220218"><span class="annot"><span class="annottext">Distribution -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679220355"><span class="annot"><span class="annottext">Distribution -&gt; QueryString
 (Distribution -&gt; QueryString) -&gt; ToQuery Distribution
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Distribution -&gt; QueryString
 $ctoQuery :: Distribution -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679220213"><span id="local-6989586621679220215"><span class="annot"><span class="annottext">Value -&gt; Parser [Distribution]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679220350"><span id="local-6989586621679220352"><span class="annot"><span class="annottext">Value -&gt; Parser [Distribution]
 Value -&gt; Parser Distribution
 (Value -&gt; Parser Distribution)
 -&gt; (Value -&gt; Parser [Distribution]) -&gt; FromJSON Distribution
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [Distribution]
 parseJSON :: Value -&gt; Parser Distribution
 $cparseJSON :: Value -&gt; Parser Distribution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679220208"><span id="local-6989586621679220210"><span class="annot"><span class="annottext">FromJSONKeyFunction [Distribution]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679220345"><span id="local-6989586621679220347"><span class="annot"><span class="annottext">FromJSONKeyFunction [Distribution]
 FromJSONKeyFunction Distribution
 FromJSONKeyFunction Distribution
 -&gt; FromJSONKeyFunction [Distribution] -&gt; FromJSONKey Distribution
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Distribution]
 fromJSONKey :: FromJSONKeyFunction Distribution
 $cfromJSONKey :: FromJSONKeyFunction Distribution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679220199"><span id="local-6989586621679220201"><span id="local-6989586621679220203"><span id="local-6989586621679220205"><span class="annot"><span class="annottext">[Distribution] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679220336"><span id="local-6989586621679220338"><span id="local-6989586621679220340"><span id="local-6989586621679220342"><span class="annot"><span class="annottext">[Distribution] -&gt; Encoding
 [Distribution] -&gt; Value
 Distribution -&gt; Encoding
 Distribution -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: Distribution -&gt; Encoding
 toJSON :: Distribution -&gt; Value
 $ctoJSON :: Distribution -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679220194"><span id="local-6989586621679220196"><span class="annot"><span class="annottext">ToJSONKeyFunction [Distribution]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679220331"><span id="local-6989586621679220333"><span class="annot"><span class="annottext">ToJSONKeyFunction [Distribution]
 ToJSONKeyFunction Distribution
 ToJSONKeyFunction Distribution
 -&gt; ToJSONKeyFunction [Distribution] -&gt; ToJSONKey Distribution
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Distribution]
 toJSONKey :: ToJSONKeyFunction Distribution
 $ctoJSONKey :: ToJSONKeyFunction Distribution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679220191"><span class="annot"><span class="annottext">[Node] -&gt; Either String Distribution
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679220328"><span class="annot"><span class="annottext">[Node] -&gt; Either String Distribution
 ([Node] -&gt; Either String Distribution) -&gt; FromXML Distribution
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Distribution
 $cparseXML :: [Node] -&gt; Either String Distribution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679220188"><span class="annot"><span class="annottext">Distribution -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679220325"><span class="annot"><span class="annottext">Distribution -&gt; XML
 (Distribution -&gt; XML) -&gt; ToXML Distribution
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Distribution -&gt; XML

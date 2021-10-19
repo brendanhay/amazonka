@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- channel.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newChannelStorage' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679259896"><span id="local-6989586621679259897"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChannelStorage"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-var">ChannelStorage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelStorage%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage%27"><span class="hs-identifier hs-var">ChannelStorage'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679260107"><span id="local-6989586621679260108"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChannelStorage"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-var">ChannelStorage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelStorage%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage%27"><span class="hs-identifier hs-var">ChannelStorage'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Used to store channel data in an S3 bucket managed by IoT Analytics. You</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- can\'t change the choice of S3 storage after the data store is created.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AserviceManagedS3%3AChannelStorage%27"><span class="annot"><span class="annottext">ChannelStorage -&gt; Maybe ServiceManagedChannelS3Storage
@@ -43,7 +43,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AcustomerManagedS3%3AChannelStorage%27"><span class="annot"><span class="annottext">ChannelStorage -&gt; Maybe CustomerManagedChannelS3Storage
 </span><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#%24sel%3AcustomerManagedS3%3AChannelStorage%27"><span class="hs-identifier hs-var hs-var">customerManagedS3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3Storage.html#CustomerManagedChannelS3Storage"><span class="hs-identifier hs-type">CustomerManagedChannelS3Storage</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259889"><span id="local-6989586621679259891"><span class="annot"><span class="annottext">ChannelStorage -&gt; ChannelStorage -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260100"><span id="local-6989586621679260102"><span class="annot"><span class="annottext">ChannelStorage -&gt; ChannelStorage -&gt; Bool
 (ChannelStorage -&gt; ChannelStorage -&gt; Bool)
 -&gt; (ChannelStorage -&gt; ChannelStorage -&gt; Bool) -&gt; Eq ChannelStorage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ChannelStorage -&gt; ChannelStorage -&gt; Bool
 == :: ChannelStorage -&gt; ChannelStorage -&gt; Bool
 $c== :: ChannelStorage -&gt; ChannelStorage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259880"><span id="local-6989586621679259882"><span id="local-6989586621679259884"><span id="local-6989586621679259886"><span class="annot"><span class="annottext">ReadPrec [ChannelStorage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260091"><span id="local-6989586621679260093"><span id="local-6989586621679260095"><span id="local-6989586621679260097"><span class="annot"><span class="annottext">ReadPrec [ChannelStorage]
 ReadPrec ChannelStorage
 Int -&gt; ReadS ChannelStorage
 ReadS [ChannelStorage]
@@ -71,7 +71,7 @@ readList :: ReadS [ChannelStorage]
 $creadList :: ReadS [ChannelStorage]
 readsPrec :: Int -&gt; ReadS ChannelStorage
 $creadsPrec :: Int -&gt; ReadS ChannelStorage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259873"><span id="local-6989586621679259875"><span id="local-6989586621679259877"><span class="annot"><span class="annottext">Int -&gt; ChannelStorage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260084"><span id="local-6989586621679260086"><span id="local-6989586621679260088"><span class="annot"><span class="annottext">Int -&gt; ChannelStorage -&gt; ShowS
 [ChannelStorage] -&gt; ShowS
 ChannelStorage -&gt; String
 (Int -&gt; ChannelStorage -&gt; ShowS)
@@ -144,16 +144,16 @@ forall a. Maybe a
      (Maybe ServiceManagedChannelS3Storage)
      (Maybe ServiceManagedChannelS3Storage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage%27"><span class="hs-identifier hs-type">ChannelStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259864"><span class="annot"><span class="annottext">Maybe ServiceManagedChannelS3Storage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage%27"><span class="hs-identifier hs-type">ChannelStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260075"><span class="annot"><span class="annottext">Maybe ServiceManagedChannelS3Storage
 serviceManagedS3 :: Maybe ServiceManagedChannelS3Storage
 $sel:serviceManagedS3:ChannelStorage' :: ChannelStorage -&gt; Maybe ServiceManagedChannelS3Storage
-</span><a href="#local-6989586621679259864"><span class="hs-identifier hs-var hs-var">serviceManagedS3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceManagedChannelS3Storage
-</span><a href="#local-6989586621679259864"><span class="hs-identifier hs-var">serviceManagedS3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259863"><span class="annot"><span class="annottext">s :: ChannelStorage
-</span><a href="#local-6989586621679259863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage%27"><span class="hs-identifier hs-type">ChannelStorage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259862"><span class="annot"><span class="annottext">Maybe ServiceManagedChannelS3Storage
-</span><a href="#local-6989586621679259862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelStorage
-</span><a href="#local-6989586621679259863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceManagedS3:ChannelStorage' :: Maybe ServiceManagedChannelS3Storage
+</span><a href="#local-6989586621679260075"><span class="hs-identifier hs-var hs-var">serviceManagedS3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceManagedChannelS3Storage
+</span><a href="#local-6989586621679260075"><span class="hs-identifier hs-var">serviceManagedS3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260074"><span class="annot"><span class="annottext">s :: ChannelStorage
+</span><a href="#local-6989586621679260074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage%27"><span class="hs-identifier hs-type">ChannelStorage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260073"><span class="annot"><span class="annottext">Maybe ServiceManagedChannelS3Storage
+</span><a href="#local-6989586621679260073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelStorage
+</span><a href="#local-6989586621679260074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceManagedS3:ChannelStorage' :: Maybe ServiceManagedChannelS3Storage
 </span><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#%24sel%3AserviceManagedS3%3AChannelStorage%27"><span class="hs-identifier hs-var">serviceManagedS3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceManagedChannelS3Storage
-</span><a href="#local-6989586621679259862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-type">ChannelStorage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-type">ChannelStorage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | Used to store channel data in an S3 bucket that you manage. If customer</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- managed storage is selected, the @retentionPeriod@ parameter is ignored.</span><span>
@@ -172,19 +172,19 @@ $sel:serviceManagedS3:ChannelStorage' :: ChannelStorage -&gt; Maybe ServiceManag
      (Maybe CustomerManagedChannelS3Storage)
      (Maybe CustomerManagedChannelS3Storage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage%27"><span class="hs-identifier hs-type">ChannelStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259860"><span class="annot"><span class="annottext">Maybe CustomerManagedChannelS3Storage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage%27"><span class="hs-identifier hs-type">ChannelStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260071"><span class="annot"><span class="annottext">Maybe CustomerManagedChannelS3Storage
 customerManagedS3 :: Maybe CustomerManagedChannelS3Storage
 $sel:customerManagedS3:ChannelStorage' :: ChannelStorage -&gt; Maybe CustomerManagedChannelS3Storage
-</span><a href="#local-6989586621679259860"><span class="hs-identifier hs-var hs-var">customerManagedS3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerManagedChannelS3Storage
-</span><a href="#local-6989586621679259860"><span class="hs-identifier hs-var">customerManagedS3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259859"><span class="annot"><span class="annottext">s :: ChannelStorage
-</span><a href="#local-6989586621679259859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage%27"><span class="hs-identifier hs-type">ChannelStorage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259858"><span class="annot"><span class="annottext">Maybe CustomerManagedChannelS3Storage
-</span><a href="#local-6989586621679259858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelStorage
-</span><a href="#local-6989586621679259859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerManagedS3:ChannelStorage' :: Maybe CustomerManagedChannelS3Storage
+</span><a href="#local-6989586621679260071"><span class="hs-identifier hs-var hs-var">customerManagedS3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerManagedChannelS3Storage
+</span><a href="#local-6989586621679260071"><span class="hs-identifier hs-var">customerManagedS3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260070"><span class="annot"><span class="annottext">s :: ChannelStorage
+</span><a href="#local-6989586621679260070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage%27"><span class="hs-identifier hs-type">ChannelStorage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260069"><span class="annot"><span class="annottext">Maybe CustomerManagedChannelS3Storage
+</span><a href="#local-6989586621679260069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelStorage
+</span><a href="#local-6989586621679260070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerManagedS3:ChannelStorage' :: Maybe CustomerManagedChannelS3Storage
 </span><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#%24sel%3AcustomerManagedS3%3AChannelStorage%27"><span class="hs-identifier hs-var">customerManagedS3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerManagedChannelS3Storage
-</span><a href="#local-6989586621679259858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-type">ChannelStorage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-type">ChannelStorage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259855"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-type">ChannelStorage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679259853"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChannelStorage
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260066"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-type">ChannelStorage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679260064"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChannelStorage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ChannelStorage)
@@ -194,8 +194,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ChannelStorage&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259850"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259850"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260061"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260061"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServiceManagedChannelS3Storage
 -&gt; Maybe CustomerManagedChannelS3Storage -&gt; ChannelStorage
 </span><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage%27"><span class="hs-identifier hs-var">ChannelStorage'</span></a></span><span>
@@ -205,7 +205,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe CustomerManagedChannelS3Storage -&gt; ChannelStorage)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259850"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceManagedChannelS3Storage)
+</span><a href="#local-6989586621679260061"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceManagedChannelS3Storage)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serviceManagedS3&quot;</span></span><span class="hs-special">)</span><span>
@@ -214,25 +214,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser ChannelStorage
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259850"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomerManagedChannelS3Storage)
+</span><a href="#local-6989586621679260061"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomerManagedChannelS3Storage)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;customerManagedS3&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259844"><span id="local-6989586621679259846"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-type">ChannelStorage</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260055"><span id="local-6989586621679260057"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-type">ChannelStorage</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259841"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-type">ChannelStorage</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260052"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-type">ChannelStorage</span></a></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259833"><span id="local-6989586621679259835"><span id="local-6989586621679259837"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-type">ChannelStorage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679259831"><span class="annot"><span class="annottext">toJSON :: ChannelStorage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage%27"><span class="hs-identifier hs-type">ChannelStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259828"><span id="local-6989586621679259829"><span class="annot"><span class="annottext">Maybe CustomerManagedChannelS3Storage
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260044"><span id="local-6989586621679260046"><span id="local-6989586621679260048"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-type">ChannelStorage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679260042"><span class="annot"><span class="annottext">toJSON :: ChannelStorage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage%27"><span class="hs-identifier hs-type">ChannelStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260039"><span id="local-6989586621679260040"><span class="annot"><span class="annottext">Maybe CustomerManagedChannelS3Storage
 Maybe ServiceManagedChannelS3Storage
 customerManagedS3 :: Maybe CustomerManagedChannelS3Storage
 serviceManagedS3 :: Maybe ServiceManagedChannelS3Storage
 $sel:customerManagedS3:ChannelStorage' :: ChannelStorage -&gt; Maybe CustomerManagedChannelS3Storage
 $sel:serviceManagedS3:ChannelStorage' :: ChannelStorage -&gt; Maybe ServiceManagedChannelS3Storage
-</span><a href="#local-6989586621679259828"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679260039"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -246,7 +246,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ServiceManagedChannelS3Storage -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ServiceManagedChannelS3Storage
-</span><a href="#local-6989586621679259829"><span class="hs-identifier hs-var">serviceManagedS3</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679260040"><span class="hs-identifier hs-var">serviceManagedS3</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;customerManagedS3&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CustomerManagedChannelS3Storage -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -255,7 +255,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CustomerManagedChannelS3Storage -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CustomerManagedChannelS3Storage
-</span><a href="#local-6989586621679259828"><span class="hs-identifier hs-var">customerManagedS3</span></a></span><span>
+</span><a href="#local-6989586621679260039"><span class="hs-identifier hs-var">customerManagedS3</span></a></span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>

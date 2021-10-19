@@ -51,12 +51,12 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.html"><span class="hs-identifier">Network.AWS.StepFunctions.Types</span></a></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDeleteStateMachine' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679233604"><span id="local-6989586621679233605"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStateMachine"><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-var">DeleteStateMachine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStateMachine%27"><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine%27"><span class="hs-identifier hs-var">DeleteStateMachine'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679233660"><span id="local-6989586621679233661"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStateMachine"><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-var">DeleteStateMachine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStateMachine%27"><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine%27"><span class="hs-identifier hs-var">DeleteStateMachine'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the state machine to delete.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AstateMachineArn%3ADeleteStateMachine%27"><span class="annot"><span class="annottext">DeleteStateMachine -&gt; Text
 </span><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#%24sel%3AstateMachineArn%3ADeleteStateMachine%27"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233598"><span id="local-6989586621679233600"><span class="annot"><span class="annottext">DeleteStateMachine -&gt; DeleteStateMachine -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233654"><span id="local-6989586621679233656"><span class="annot"><span class="annottext">DeleteStateMachine -&gt; DeleteStateMachine -&gt; Bool
 (DeleteStateMachine -&gt; DeleteStateMachine -&gt; Bool)
 -&gt; (DeleteStateMachine -&gt; DeleteStateMachine -&gt; Bool)
 -&gt; Eq DeleteStateMachine
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteStateMachine -&gt; DeleteStateMachine -&gt; Bool
 == :: DeleteStateMachine -&gt; DeleteStateMachine -&gt; Bool
 $c== :: DeleteStateMachine -&gt; DeleteStateMachine -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233589"><span id="local-6989586621679233591"><span id="local-6989586621679233593"><span id="local-6989586621679233595"><span class="annot"><span class="annottext">ReadPrec [DeleteStateMachine]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233645"><span id="local-6989586621679233647"><span id="local-6989586621679233649"><span id="local-6989586621679233651"><span class="annot"><span class="annottext">ReadPrec [DeleteStateMachine]
 ReadPrec DeleteStateMachine
 Int -&gt; ReadS DeleteStateMachine
 ReadS [DeleteStateMachine]
@@ -85,7 +85,7 @@ readList :: ReadS [DeleteStateMachine]
 $creadList :: ReadS [DeleteStateMachine]
 readsPrec :: Int -&gt; ReadS DeleteStateMachine
 $creadsPrec :: Int -&gt; ReadS DeleteStateMachine
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233582"><span id="local-6989586621679233584"><span id="local-6989586621679233586"><span class="annot"><span class="annottext">Int -&gt; DeleteStateMachine -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233638"><span id="local-6989586621679233640"><span id="local-6989586621679233642"><span class="annot"><span class="annottext">Int -&gt; DeleteStateMachine -&gt; ShowS
 [DeleteStateMachine] -&gt; ShowS
 DeleteStateMachine -&gt; String
 (Int -&gt; DeleteStateMachine -&gt; ShowS)
@@ -125,14 +125,14 @@ $cfrom :: forall x. DeleteStateMachine -&gt; Rep DeleteStateMachine x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span><span>
 </span><span id="line-73"></span><span id="newDeleteStateMachine"><span class="annot"><span class="annottext">newDeleteStateMachine :: Text -&gt; DeleteStateMachine
-</span><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#newDeleteStateMachine"><span class="hs-identifier hs-var hs-var">newDeleteStateMachine</span></a></span></span><span> </span><span id="local-6989586621679233577"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233577"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#newDeleteStateMachine"><span class="hs-identifier hs-var hs-var">newDeleteStateMachine</span></a></span></span><span> </span><span id="local-6989586621679233633"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233633"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DeleteStateMachine' :: Text -&gt; DeleteStateMachine
 </span><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine%27"><span class="hs-identifier hs-type">DeleteStateMachine'</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stateMachineArn:DeleteStateMachine' :: Text
 </span><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#%24sel%3AstateMachineArn%3ADeleteStateMachine%27"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233577"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span><span>
+</span><a href="#local-6989586621679233633"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the state machine to delete.</span><span>
@@ -142,27 +142,27 @@ $cfrom :: forall x. DeleteStateMachine -&gt; Rep DeleteStateMachine x
 -&gt; (DeleteStateMachine -&gt; Text -&gt; DeleteStateMachine)
 -&gt; Lens DeleteStateMachine DeleteStateMachine Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine%27"><span class="hs-identifier hs-type">DeleteStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233574"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine%27"><span class="hs-identifier hs-type">DeleteStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233630"><span class="annot"><span class="annottext">Text
 stateMachineArn :: Text
 $sel:stateMachineArn:DeleteStateMachine' :: DeleteStateMachine -&gt; Text
-</span><a href="#local-6989586621679233574"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233574"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233573"><span class="annot"><span class="annottext">s :: DeleteStateMachine
-</span><a href="#local-6989586621679233573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine%27"><span class="hs-identifier hs-type">DeleteStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233572"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStateMachine
-</span><a href="#local-6989586621679233573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateMachineArn:DeleteStateMachine' :: Text
+</span><a href="#local-6989586621679233630"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233630"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233629"><span class="annot"><span class="annottext">s :: DeleteStateMachine
+</span><a href="#local-6989586621679233629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine%27"><span class="hs-identifier hs-type">DeleteStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233628"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStateMachine
+</span><a href="#local-6989586621679233629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateMachineArn:DeleteStateMachine' :: Text
 </span><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#%24sel%3AstateMachineArn%3ADeleteStateMachine%27"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679233628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse"><span class="hs-identifier hs-type">DeleteStateMachineResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679233568"><span class="annot"><span class="annottext">request :: DeleteStateMachine -&gt; Request DeleteStateMachine
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679233624"><span class="annot"><span class="annottext">request :: DeleteStateMachine -&gt; Request DeleteStateMachine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteStateMachine -&gt; Request DeleteStateMachine
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679233564"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679233620"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteStateMachine
 -&gt; ClientResponse ClientBody
@@ -188,10 +188,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679233561"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233561"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679233560"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679233560"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679233559"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679233559"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679233617"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233617"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679233616"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679233616"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679233615"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679233615"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteStateMachineResponse
 </span><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse%27"><span class="hs-identifier hs-var">DeleteStateMachineResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteStateMachineResponse)
@@ -202,15 +202,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233561"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679233617"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233552"><span id="local-6989586621679233554"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233608"><span id="local-6989586621679233610"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233549"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233605"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679233545"><span class="annot"><span class="annottext">toHeaders :: DeleteStateMachine -&gt; ResponseHeaders
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679233601"><span class="annot"><span class="annottext">toHeaders :: DeleteStateMachine -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteStateMachine -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -237,12 +237,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233535"><span id="local-6989586621679233537"><span id="local-6989586621679233539"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679233533"><span class="annot"><span class="annottext">toJSON :: DeleteStateMachine -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine%27"><span class="hs-identifier hs-type">DeleteStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233531"><span class="annot"><span class="annottext">Text
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233591"><span id="local-6989586621679233593"><span id="local-6989586621679233595"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679233589"><span class="annot"><span class="annottext">toJSON :: DeleteStateMachine -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine%27"><span class="hs-identifier hs-type">DeleteStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233587"><span class="annot"><span class="annottext">Text
 stateMachineArn :: Text
 $sel:stateMachineArn:DeleteStateMachine' :: DeleteStateMachine -&gt; Text
-</span><a href="#local-6989586621679233531"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679233587"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -255,19 +255,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;stateMachineArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233531"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679233587"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679233525"><span class="annot"><span class="annottext">toPath :: DeleteStateMachine -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679233581"><span class="annot"><span class="annottext">toPath :: DeleteStateMachine -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteStateMachine -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachine"><span class="hs-identifier hs-type">DeleteStateMachine</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679233521"><span class="annot"><span class="annottext">toQuery :: DeleteStateMachine -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679233577"><span class="annot"><span class="annottext">toQuery :: DeleteStateMachine -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteStateMachine -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -275,12 +275,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newDeleteStateMachineResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679233518"><span id="local-6989586621679233519"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStateMachineResponse"><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse"><span class="hs-identifier hs-var">DeleteStateMachineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStateMachineResponse%27"><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse%27"><span class="hs-identifier hs-var">DeleteStateMachineResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679233574"><span id="local-6989586621679233575"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStateMachineResponse"><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse"><span class="hs-identifier hs-var">DeleteStateMachineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStateMachineResponse%27"><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse%27"><span class="hs-identifier hs-var">DeleteStateMachineResponse'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteStateMachineResponse%27"><span class="annot"><span class="annottext">DeleteStateMachineResponse -&gt; Int
 </span><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#%24sel%3AhttpStatus%3ADeleteStateMachineResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233513"><span id="local-6989586621679233515"><span class="annot"><span class="annottext">DeleteStateMachineResponse -&gt; DeleteStateMachineResponse -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233569"><span id="local-6989586621679233571"><span class="annot"><span class="annottext">DeleteStateMachineResponse -&gt; DeleteStateMachineResponse -&gt; Bool
 (DeleteStateMachineResponse -&gt; DeleteStateMachineResponse -&gt; Bool)
 -&gt; (DeleteStateMachineResponse
     -&gt; DeleteStateMachineResponse -&gt; Bool)
@@ -290,7 +290,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteStateMachineResponse -&gt; DeleteStateMachineResponse -&gt; Bool
 == :: DeleteStateMachineResponse -&gt; DeleteStateMachineResponse -&gt; Bool
 $c== :: DeleteStateMachineResponse -&gt; DeleteStateMachineResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233505"><span id="local-6989586621679233507"><span id="local-6989586621679233509"><span id="local-6989586621679233511"><span class="annot"><span class="annottext">ReadPrec [DeleteStateMachineResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233561"><span id="local-6989586621679233563"><span id="local-6989586621679233565"><span id="local-6989586621679233567"><span class="annot"><span class="annottext">ReadPrec [DeleteStateMachineResponse]
 ReadPrec DeleteStateMachineResponse
 Int -&gt; ReadS DeleteStateMachineResponse
 ReadS [DeleteStateMachineResponse]
@@ -310,7 +310,7 @@ readList :: ReadS [DeleteStateMachineResponse]
 $creadList :: ReadS [DeleteStateMachineResponse]
 readsPrec :: Int -&gt; ReadS DeleteStateMachineResponse
 $creadsPrec :: Int -&gt; ReadS DeleteStateMachineResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233499"><span id="local-6989586621679233501"><span id="local-6989586621679233503"><span class="annot"><span class="annottext">Int -&gt; DeleteStateMachineResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233555"><span id="local-6989586621679233557"><span id="local-6989586621679233559"><span class="annot"><span class="annottext">Int -&gt; DeleteStateMachineResponse -&gt; ShowS
 [DeleteStateMachineResponse] -&gt; ShowS
 DeleteStateMachineResponse -&gt; String
 (Int -&gt; DeleteStateMachineResponse -&gt; ShowS)
@@ -356,14 +356,14 @@ DeleteStateMachineResponse -&gt; Rep DeleteStateMachineResponse x
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse"><span class="hs-identifier hs-type">DeleteStateMachineResponse</span></a></span><span>
 </span><span id="line-149"></span><span id="newDeleteStateMachineResponse"><span class="annot"><span class="annottext">newDeleteStateMachineResponse :: Int -&gt; DeleteStateMachineResponse
-</span><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#newDeleteStateMachineResponse"><span class="hs-identifier hs-var hs-var">newDeleteStateMachineResponse</span></a></span></span><span> </span><span id="local-6989586621679233496"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233496"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#newDeleteStateMachineResponse"><span class="hs-identifier hs-var hs-var">newDeleteStateMachineResponse</span></a></span></span><span> </span><span id="local-6989586621679233552"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233552"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">DeleteStateMachineResponse' :: Int -&gt; DeleteStateMachineResponse
 </span><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse%27"><span class="hs-identifier hs-type">DeleteStateMachineResponse'</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteStateMachineResponse' :: Int
 </span><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#%24sel%3AhttpStatus%3ADeleteStateMachineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233496"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679233552"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -376,16 +376,16 @@ DeleteStateMachineResponse -&gt; Rep DeleteStateMachineResponse x
 -&gt; Lens
      DeleteStateMachineResponse DeleteStateMachineResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse%27"><span class="hs-identifier hs-type">DeleteStateMachineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233495"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse%27"><span class="hs-identifier hs-type">DeleteStateMachineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233551"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteStateMachineResponse' :: DeleteStateMachineResponse -&gt; Int
-</span><a href="#local-6989586621679233495"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233495"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233494"><span class="annot"><span class="annottext">s :: DeleteStateMachineResponse
-</span><a href="#local-6989586621679233494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse%27"><span class="hs-identifier hs-type">DeleteStateMachineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233493"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStateMachineResponse
-</span><a href="#local-6989586621679233494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteStateMachineResponse' :: Int
+</span><a href="#local-6989586621679233551"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233551"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233550"><span class="annot"><span class="annottext">s :: DeleteStateMachineResponse
+</span><a href="#local-6989586621679233550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse%27"><span class="hs-identifier hs-type">DeleteStateMachineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233549"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStateMachineResponse
+</span><a href="#local-6989586621679233550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteStateMachineResponse' :: Int
 </span><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#%24sel%3AhttpStatus%3ADeleteStateMachineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse"><span class="hs-identifier hs-type">DeleteStateMachineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679233549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse"><span class="hs-identifier hs-type">DeleteStateMachineResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233491"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse"><span class="hs-identifier hs-type">DeleteStateMachineResponse</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233547"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteStateMachine.html#DeleteStateMachineResponse"><span class="hs-identifier hs-type">DeleteStateMachineResponse</span></a></span></span><span>
 </span><span id="line-160"></span></pre></body></html>

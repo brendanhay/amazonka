@@ -29,19 +29,19 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span class="hs-comment">-- | The type of action that you want to perform on the address. Acceptable</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The type of action to perform on the address. The following are possible</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- values:</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- -   PUT: add the addresses to the suppression list.</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- -   DELETE: remove the address from the suppression list.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679330082"><span id="local-6989586621679330083"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SuppressionListImportAction"><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListImportAction.html#SuppressionListImportAction"><span class="hs-identifier hs-var">SuppressionListImportAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SuppressionListImportAction%27"><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListImportAction.html#SuppressionListImportAction%27"><span class="hs-identifier hs-var">SuppressionListImportAction'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679332596"><span id="local-6989586621679332597"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SuppressionListImportAction"><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListImportAction.html#SuppressionListImportAction"><span class="hs-identifier hs-var">SuppressionListImportAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SuppressionListImportAction%27"><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListImportAction.html#SuppressionListImportAction%27"><span class="hs-identifier hs-var">SuppressionListImportAction'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSuppressionListImportAction"><span class="annot"><span class="annottext">SuppressionListImportAction -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.SuppressionListImportAction.html#fromSuppressionListImportAction"><span class="hs-identifier hs-var hs-var">fromSuppressionListImportAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330074"><span id="local-6989586621679330076"><span id="local-6989586621679330078"><span class="annot"><span class="annottext">Int -&gt; SuppressionListImportAction -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679332588"><span id="local-6989586621679332590"><span id="local-6989586621679332592"><span class="annot"><span class="annottext">Int -&gt; SuppressionListImportAction -&gt; ShowS
 [SuppressionListImportAction] -&gt; ShowS
 SuppressionListImportAction -&gt; String
 (Int -&gt; SuppressionListImportAction -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: SuppressionListImportAction -&gt; String
 showsPrec :: Int -&gt; SuppressionListImportAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; SuppressionListImportAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679330065"><span id="local-6989586621679330067"><span id="local-6989586621679330069"><span id="local-6989586621679330071"><span class="annot"><span class="annottext">ReadPrec [SuppressionListImportAction]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679332579"><span id="local-6989586621679332581"><span id="local-6989586621679332583"><span id="local-6989586621679332585"><span class="annot"><span class="annottext">ReadPrec [SuppressionListImportAction]
 ReadPrec SuppressionListImportAction
 Int -&gt; ReadS SuppressionListImportAction
 ReadS [SuppressionListImportAction]
@@ -78,7 +78,7 @@ $creadList :: ReadS [SuppressionListImportAction]
 readsPrec :: Int -&gt; ReadS SuppressionListImportAction
 $creadsPrec :: Int -&gt; ReadS SuppressionListImportAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679330060"><span id="local-6989586621679330062"><span class="annot"><span class="annottext">SuppressionListImportAction -&gt; SuppressionListImportAction -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679332574"><span id="local-6989586621679332576"><span class="annot"><span class="annottext">SuppressionListImportAction -&gt; SuppressionListImportAction -&gt; Bool
 (SuppressionListImportAction
  -&gt; SuppressionListImportAction -&gt; Bool)
 -&gt; (SuppressionListImportAction
@@ -90,7 +90,7 @@ $c/= :: SuppressionListImportAction -&gt; SuppressionListImportAction -&gt; Bool
 == :: SuppressionListImportAction -&gt; SuppressionListImportAction -&gt; Bool
 $c== :: SuppressionListImportAction -&gt; SuppressionListImportAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679330044"><span id="local-6989586621679330046"><span id="local-6989586621679330048"><span id="local-6989586621679330050"><span id="local-6989586621679330052"><span id="local-6989586621679330054"><span id="local-6989586621679330056"><span class="annot"><span class="annottext">Eq SuppressionListImportAction
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679332558"><span id="local-6989586621679332560"><span id="local-6989586621679332562"><span id="local-6989586621679332564"><span id="local-6989586621679332566"><span id="local-6989586621679332568"><span id="local-6989586621679332570"><span class="annot"><span class="annottext">Eq SuppressionListImportAction
 Eq SuppressionListImportAction
 -&gt; (SuppressionListImportAction
     -&gt; SuppressionListImportAction -&gt; Ordering)
@@ -162,7 +162,7 @@ SuppressionListImportAction -&gt; Rep SuppressionListImportAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330036"><span id="local-6989586621679330038"><span class="annot"><span class="annottext">Int -&gt; SuppressionListImportAction -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679332550"><span id="local-6989586621679332552"><span class="annot"><span class="annottext">Int -&gt; SuppressionListImportAction -&gt; Int
 SuppressionListImportAction -&gt; Int
 (Int -&gt; SuppressionListImportAction -&gt; Int)
 -&gt; (SuppressionListImportAction -&gt; Int)
@@ -173,56 +173,56 @@ $chash :: SuppressionListImportAction -&gt; Int
 hashWithSalt :: Int -&gt; SuppressionListImportAction -&gt; Int
 $chashWithSalt :: Int -&gt; SuppressionListImportAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679330033"><span class="annot"><span class="annottext">SuppressionListImportAction -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679332547"><span class="annot"><span class="annottext">SuppressionListImportAction -&gt; ()
 (SuppressionListImportAction -&gt; ())
 -&gt; NFData SuppressionListImportAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SuppressionListImportAction -&gt; ()
 $crnf :: SuppressionListImportAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679330030"><span class="annot"><span class="annottext">Text -&gt; Either String SuppressionListImportAction
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679332544"><span class="annot"><span class="annottext">Text -&gt; Either String SuppressionListImportAction
 (Text -&gt; Either String SuppressionListImportAction)
 -&gt; FromText SuppressionListImportAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SuppressionListImportAction
 $cfromText :: Text -&gt; Either String SuppressionListImportAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679330027"><span class="annot"><span class="annottext">SuppressionListImportAction -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679332541"><span class="annot"><span class="annottext">SuppressionListImportAction -&gt; Text
 (SuppressionListImportAction -&gt; Text)
 -&gt; ToText SuppressionListImportAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SuppressionListImportAction -&gt; Text
 $ctoText :: SuppressionListImportAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679330024"><span class="annot"><span class="annottext">SuppressionListImportAction -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679332538"><span class="annot"><span class="annottext">SuppressionListImportAction -&gt; ByteString
 (SuppressionListImportAction -&gt; ByteString)
 -&gt; ToByteString SuppressionListImportAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SuppressionListImportAction -&gt; ByteString
 $ctoBS :: SuppressionListImportAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679330021"><span class="annot"><span class="annottext">SuppressionListImportAction -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679332535"><span class="annot"><span class="annottext">SuppressionListImportAction -&gt; ByteStringBuilder
 (SuppressionListImportAction -&gt; ByteStringBuilder)
 -&gt; ToLog SuppressionListImportAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SuppressionListImportAction -&gt; ByteStringBuilder
 $cbuild :: SuppressionListImportAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679330018"><span class="annot"><span class="annottext">HeaderName -&gt; SuppressionListImportAction -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679332532"><span class="annot"><span class="annottext">HeaderName -&gt; SuppressionListImportAction -&gt; [Header]
 (HeaderName -&gt; SuppressionListImportAction -&gt; [Header])
 -&gt; ToHeader SuppressionListImportAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SuppressionListImportAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SuppressionListImportAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679330015"><span class="annot"><span class="annottext">SuppressionListImportAction -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679332529"><span class="annot"><span class="annottext">SuppressionListImportAction -&gt; QueryString
 (SuppressionListImportAction -&gt; QueryString)
 -&gt; ToQuery SuppressionListImportAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SuppressionListImportAction -&gt; QueryString
 $ctoQuery :: SuppressionListImportAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679330010"><span id="local-6989586621679330012"><span class="annot"><span class="annottext">Value -&gt; Parser [SuppressionListImportAction]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679332524"><span id="local-6989586621679332526"><span class="annot"><span class="annottext">Value -&gt; Parser [SuppressionListImportAction]
 Value -&gt; Parser SuppressionListImportAction
 (Value -&gt; Parser SuppressionListImportAction)
 -&gt; (Value -&gt; Parser [SuppressionListImportAction])
@@ -234,7 +234,7 @@ $cparseJSONList :: Value -&gt; Parser [SuppressionListImportAction]
 parseJSON :: Value -&gt; Parser SuppressionListImportAction
 $cparseJSON :: Value -&gt; Parser SuppressionListImportAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679330005"><span id="local-6989586621679330007"><span class="annot"><span class="annottext">FromJSONKeyFunction [SuppressionListImportAction]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679332519"><span id="local-6989586621679332521"><span class="annot"><span class="annottext">FromJSONKeyFunction [SuppressionListImportAction]
 FromJSONKeyFunction SuppressionListImportAction
 FromJSONKeyFunction SuppressionListImportAction
 -&gt; FromJSONKeyFunction [SuppressionListImportAction]
@@ -246,7 +246,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SuppressionListImportAction]
 fromJSONKey :: FromJSONKeyFunction SuppressionListImportAction
 $cfromJSONKey :: FromJSONKeyFunction SuppressionListImportAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679329996"><span id="local-6989586621679329998"><span id="local-6989586621679330000"><span id="local-6989586621679330002"><span class="annot"><span class="annottext">[SuppressionListImportAction] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679332510"><span id="local-6989586621679332512"><span id="local-6989586621679332514"><span id="local-6989586621679332516"><span class="annot"><span class="annottext">[SuppressionListImportAction] -&gt; Encoding
 [SuppressionListImportAction] -&gt; Value
 SuppressionListImportAction -&gt; Encoding
 SuppressionListImportAction -&gt; Value
@@ -270,7 +270,7 @@ $ctoEncoding :: SuppressionListImportAction -&gt; Encoding
 toJSON :: SuppressionListImportAction -&gt; Value
 $ctoJSON :: SuppressionListImportAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679329991"><span id="local-6989586621679329993"><span class="annot"><span class="annottext">ToJSONKeyFunction [SuppressionListImportAction]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679332505"><span id="local-6989586621679332507"><span class="annot"><span class="annottext">ToJSONKeyFunction [SuppressionListImportAction]
 ToJSONKeyFunction SuppressionListImportAction
 ToJSONKeyFunction SuppressionListImportAction
 -&gt; ToJSONKeyFunction [SuppressionListImportAction]
@@ -282,14 +282,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SuppressionListImportAction]
 toJSONKey :: ToJSONKeyFunction SuppressionListImportAction
 $ctoJSONKey :: ToJSONKeyFunction SuppressionListImportAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679329988"><span class="annot"><span class="annottext">[Node] -&gt; Either String SuppressionListImportAction
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679332502"><span class="annot"><span class="annottext">[Node] -&gt; Either String SuppressionListImportAction
 ([Node] -&gt; Either String SuppressionListImportAction)
 -&gt; FromXML SuppressionListImportAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SuppressionListImportAction
 $cparseXML :: [Node] -&gt; Either String SuppressionListImportAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679329985"><span class="annot"><span class="annottext">SuppressionListImportAction -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679332499"><span class="annot"><span class="annottext">SuppressionListImportAction -&gt; XML
 (SuppressionListImportAction -&gt; XML)
 -&gt; ToXML SuppressionListImportAction
 forall a. (a -&gt; XML) -&gt; ToXML a

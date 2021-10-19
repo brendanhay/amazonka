@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- (RateControlMode).</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newH264QvbrSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679963101"><span id="local-6989586621679963102"></span></span><span class="hs-keyword">data</span><span> </span><span id="H264QvbrSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-var">H264QvbrSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264QvbrSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings%27"><span class="hs-identifier hs-var">H264QvbrSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679967725"><span id="local-6989586621679967726"></span></span><span class="hs-keyword">data</span><span> </span><span id="H264QvbrSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-var">H264QvbrSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264QvbrSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings%27"><span class="hs-identifier hs-var">H264QvbrSettings'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional. Specify a value here to set the QVBR quality to a level that</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- is between whole numbers. For example, if you want your QVBR quality</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- level to be 7.33, set qvbrQualityLevel to 7 and set</span><span>
@@ -38,31 +38,31 @@
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- actual QVBR quality level is 7.33.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AqvbrQualityLevelFineTune%3AH264QvbrSettings%27"><span class="annot"><span class="annottext">H264QvbrSettings -&gt; Maybe Double
 </span><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#%24sel%3AqvbrQualityLevelFineTune%3AH264QvbrSettings%27"><span class="hs-identifier hs-var hs-var">qvbrQualityLevelFineTune</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Use this setting only when you set Rate control mode (RateControlMode)</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- to QVBR. Specify the target quality level for this output. MediaConvert</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- determines the right number of bits to use for each part of the video to</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- maintain the video quality that you specify. When you keep the default</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- value, AUTO, MediaConvert picks a quality level for you, based on</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- characteristics of your input video. If you prefer to specify a quality</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- level, specify a number from 1 through 10. Use higher numbers for</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- greater quality. Level 10 results in nearly lossless compression. The</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- quality level for most broadcast-quality transcodes is between 6 and 9.</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- Optionally, to specify a value between whole numbers, also provide a</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- value for the setting qvbrQualityLevelFineTune. For example, if you want</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- qvbrQualityLevelFineTune to .33.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AqvbrQualityLevel%3AH264QvbrSettings%27"><span class="annot"><span class="annottext">H264QvbrSettings -&gt; Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#%24sel%3AqvbrQualityLevel%3AH264QvbrSettings%27"><span class="hs-identifier hs-var hs-var">qvbrQualityLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Use this setting only when Rate control mode is QVBR and Quality tuning</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- level is Multi-pass HQ. For Max average bitrate values suited to the</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- complexity of your input video, the service limits the average bitrate</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- of the video part of this output to the value that you choose. That is,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the total size of the video element is less than or equal to the value</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- you set multiplied by the number of seconds of encoded output.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxAverageBitrate%3AH264QvbrSettings%27"><span class="annot"><span class="annottext">H264QvbrSettings -&gt; Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#%24sel%3AmaxAverageBitrate%3AH264QvbrSettings%27"><span class="hs-identifier hs-var hs-var">maxAverageBitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Use this setting only when Rate control mode is QVBR and Quality tuning</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- level is Multi-pass HQ. For Max average bitrate values suited to the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- complexity of your input video, the service limits the average bitrate</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- of the video part of this output to the value that you choose. That is,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- the total size of the video element is less than or equal to the value</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- you set multiplied by the number of seconds of encoded output.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AmaxAverageBitrate%3AH264QvbrSettings%27"><span class="annot"><span class="annottext">H264QvbrSettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#%24sel%3AmaxAverageBitrate%3AH264QvbrSettings%27"><span class="hs-identifier hs-var hs-var">maxAverageBitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Use this setting only when you set Rate control mode (RateControlMode)</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- to QVBR. Specify the target quality level for this output. MediaConvert</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- determines the right number of bits to use for each part of the video to</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- maintain the video quality that you specify. When you keep the default</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- value, AUTO, MediaConvert picks a quality level for you, based on</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- characteristics of your input video. If you prefer to specify a quality</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- level, specify a number from 1 through 10. Use higher numbers for</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- greater quality. Level 10 results in nearly lossless compression. The</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- quality level for most broadcast-quality transcodes is between 6 and 9.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Optionally, to specify a value between whole numbers, also provide a</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- value for the setting qvbrQualityLevelFineTune. For example, if you want</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- qvbrQualityLevelFineTune to .33.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AqvbrQualityLevel%3AH264QvbrSettings%27"><span class="annot"><span class="annottext">H264QvbrSettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#%24sel%3AqvbrQualityLevel%3AH264QvbrSettings%27"><span class="hs-identifier hs-var hs-var">qvbrQualityLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679963093"><span id="local-6989586621679963095"><span class="annot"><span class="annottext">H264QvbrSettings -&gt; H264QvbrSettings -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679967717"><span id="local-6989586621679967719"><span class="annot"><span class="annottext">H264QvbrSettings -&gt; H264QvbrSettings -&gt; Bool
 (H264QvbrSettings -&gt; H264QvbrSettings -&gt; Bool)
 -&gt; (H264QvbrSettings -&gt; H264QvbrSettings -&gt; Bool)
 -&gt; Eq H264QvbrSettings
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: H264QvbrSettings -&gt; H264QvbrSettings -&gt; Bool
 == :: H264QvbrSettings -&gt; H264QvbrSettings -&gt; Bool
 $c== :: H264QvbrSettings -&gt; H264QvbrSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679963084"><span id="local-6989586621679963086"><span id="local-6989586621679963088"><span id="local-6989586621679963090"><span class="annot"><span class="annottext">ReadPrec [H264QvbrSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679967708"><span id="local-6989586621679967710"><span id="local-6989586621679967712"><span id="local-6989586621679967714"><span class="annot"><span class="annottext">ReadPrec [H264QvbrSettings]
 ReadPrec H264QvbrSettings
 Int -&gt; ReadS H264QvbrSettings
 ReadS [H264QvbrSettings]
@@ -91,7 +91,7 @@ readList :: ReadS [H264QvbrSettings]
 $creadList :: ReadS [H264QvbrSettings]
 readsPrec :: Int -&gt; ReadS H264QvbrSettings
 $creadsPrec :: Int -&gt; ReadS H264QvbrSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679963077"><span id="local-6989586621679963079"><span id="local-6989586621679963081"><span class="annot"><span class="annottext">Int -&gt; H264QvbrSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679967701"><span id="local-6989586621679967703"><span id="local-6989586621679967705"><span class="annot"><span class="annottext">Int -&gt; H264QvbrSettings -&gt; ShowS
 [H264QvbrSettings] -&gt; ShowS
 H264QvbrSettings -&gt; String
 (Int -&gt; H264QvbrSettings -&gt; ShowS)
@@ -133,26 +133,26 @@ $cfrom :: forall x. H264QvbrSettings -&gt; Rep H264QvbrSettings x
 </span><span id="line-77"></span><span class="hs-comment">-- qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- actual QVBR quality level is 7.33.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'qvbrQualityLevel', 'h264QvbrSettings_qvbrQualityLevel' - Use this setting only when you set Rate control mode (RateControlMode)</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- to QVBR. Specify the target quality level for this output. MediaConvert</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- determines the right number of bits to use for each part of the video to</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- maintain the video quality that you specify. When you keep the default</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- value, AUTO, MediaConvert picks a quality level for you, based on</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- characteristics of your input video. If you prefer to specify a quality</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- level, specify a number from 1 through 10. Use higher numbers for</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- greater quality. Level 10 results in nearly lossless compression. The</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- quality level for most broadcast-quality transcodes is between 6 and 9.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- Optionally, to specify a value between whole numbers, also provide a</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- value for the setting qvbrQualityLevelFineTune. For example, if you want</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- qvbrQualityLevelFineTune to .33.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'maxAverageBitrate', 'h264QvbrSettings_maxAverageBitrate' - Use this setting only when Rate control mode is QVBR and Quality tuning</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- level is Multi-pass HQ. For Max average bitrate values suited to the</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- complexity of your input video, the service limits the average bitrate</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- of the video part of this output to the value that you choose. That is,</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- the total size of the video element is less than or equal to the value</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- you set multiplied by the number of seconds of encoded output.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'maxAverageBitrate', 'h264QvbrSettings_maxAverageBitrate' - Use this setting only when Rate control mode is QVBR and Quality tuning</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- level is Multi-pass HQ. For Max average bitrate values suited to the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- complexity of your input video, the service limits the average bitrate</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- of the video part of this output to the value that you choose. That is,</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- the total size of the video element is less than or equal to the value</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- you set multiplied by the number of seconds of encoded output.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'qvbrQualityLevel', 'h264QvbrSettings_qvbrQualityLevel' - Use this setting only when you set Rate control mode (RateControlMode)</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- to QVBR. Specify the target quality level for this output. MediaConvert</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- determines the right number of bits to use for each part of the video to</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- maintain the video quality that you specify. When you keep the default</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- value, AUTO, MediaConvert picks a quality level for you, based on</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- characteristics of your input video. If you prefer to specify a quality</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- level, specify a number from 1 through 10. Use higher numbers for</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- greater quality. Level 10 results in nearly lossless compression. The</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- quality level for most broadcast-quality transcodes is between 6 and 9.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Optionally, to specify a value between whole numbers, also provide a</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- value for the setting qvbrQualityLevelFineTune. For example, if you want</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- qvbrQualityLevelFineTune to .33.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#newH264QvbrSettings"><span class="hs-identifier hs-type">newH264QvbrSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span><span>
 </span><span id="line-102"></span><span id="newH264QvbrSettings"><span class="annot"><span class="annottext">newH264QvbrSettings :: H264QvbrSettings
@@ -164,12 +164,12 @@ $cfrom :: forall x. H264QvbrSettings -&gt; Rep H264QvbrSettings x
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:qvbrQualityLevel:H264QvbrSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#%24sel%3AqvbrQualityLevel%3AH264QvbrSettings%27"><span class="hs-identifier hs-var">qvbrQualityLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxAverageBitrate:H264QvbrSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#%24sel%3AmaxAverageBitrate%3AH264QvbrSettings%27"><span class="hs-identifier hs-var">maxAverageBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxAverageBitrate:H264QvbrSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#%24sel%3AmaxAverageBitrate%3AH264QvbrSettings%27"><span class="hs-identifier hs-var">maxAverageBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:qvbrQualityLevel:H264QvbrSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#%24sel%3AqvbrQualityLevel%3AH264QvbrSettings%27"><span class="hs-identifier hs-var">qvbrQualityLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
@@ -189,76 +189,76 @@ forall a. Maybe a
 -&gt; Lens
      H264QvbrSettings H264QvbrSettings (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings%27"><span class="hs-identifier hs-type">H264QvbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963068"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings%27"><span class="hs-identifier hs-type">H264QvbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679967692"><span class="annot"><span class="annottext">Maybe Double
 qvbrQualityLevelFineTune :: Maybe Double
 $sel:qvbrQualityLevelFineTune:H264QvbrSettings' :: H264QvbrSettings -&gt; Maybe Double
-</span><a href="#local-6989586621679963068"><span class="hs-identifier hs-var hs-var">qvbrQualityLevelFineTune</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679963068"><span class="hs-identifier hs-var">qvbrQualityLevelFineTune</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679963067"><span class="annot"><span class="annottext">s :: H264QvbrSettings
-</span><a href="#local-6989586621679963067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings%27"><span class="hs-identifier hs-type">H264QvbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679963066"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679963066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">H264QvbrSettings
-</span><a href="#local-6989586621679963067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qvbrQualityLevelFineTune:H264QvbrSettings' :: Maybe Double
+</span><a href="#local-6989586621679967692"><span class="hs-identifier hs-var hs-var">qvbrQualityLevelFineTune</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679967692"><span class="hs-identifier hs-var">qvbrQualityLevelFineTune</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679967691"><span class="annot"><span class="annottext">s :: H264QvbrSettings
+</span><a href="#local-6989586621679967691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings%27"><span class="hs-identifier hs-type">H264QvbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679967690"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679967690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">H264QvbrSettings
+</span><a href="#local-6989586621679967691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qvbrQualityLevelFineTune:H264QvbrSettings' :: Maybe Double
 </span><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#%24sel%3AqvbrQualityLevelFineTune%3AH264QvbrSettings%27"><span class="hs-identifier hs-var">qvbrQualityLevelFineTune</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679963066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679967690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | Use this setting only when you set Rate control mode (RateControlMode)</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- to QVBR. Specify the target quality level for this output. MediaConvert</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- determines the right number of bits to use for each part of the video to</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- maintain the video quality that you specify. When you keep the default</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- value, AUTO, MediaConvert picks a quality level for you, based on</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- characteristics of your input video. If you prefer to specify a quality</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- level, specify a number from 1 through 10. Use higher numbers for</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- greater quality. Level 10 results in nearly lossless compression. The</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- quality level for most broadcast-quality transcodes is between 6 and 9.</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- Optionally, to specify a value between whole numbers, also provide a</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- value for the setting qvbrQualityLevelFineTune. For example, if you want</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- qvbrQualityLevelFineTune to .33.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#h264QvbrSettings_qvbrQualityLevel"><span class="hs-identifier hs-type">h264QvbrSettings_qvbrQualityLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="h264QvbrSettings_qvbrQualityLevel"><span class="annot"><span class="annottext">h264QvbrSettings_qvbrQualityLevel :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; H264QvbrSettings -&gt; f H264QvbrSettings
-</span><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#h264QvbrSettings_qvbrQualityLevel"><span class="hs-identifier hs-var hs-var">h264QvbrSettings_qvbrQualityLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(H264QvbrSettings -&gt; Maybe Natural)
--&gt; (H264QvbrSettings -&gt; Maybe Natural -&gt; H264QvbrSettings)
--&gt; Lens
-     H264QvbrSettings H264QvbrSettings (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings%27"><span class="hs-identifier hs-type">H264QvbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963064"><span class="annot"><span class="annottext">Maybe Natural
-qvbrQualityLevel :: Maybe Natural
-$sel:qvbrQualityLevel:H264QvbrSettings' :: H264QvbrSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679963064"><span class="hs-identifier hs-var hs-var">qvbrQualityLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679963064"><span class="hs-identifier hs-var">qvbrQualityLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679963063"><span class="annot"><span class="annottext">s :: H264QvbrSettings
-</span><a href="#local-6989586621679963063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings%27"><span class="hs-identifier hs-type">H264QvbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679963062"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679963062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">H264QvbrSettings
-</span><a href="#local-6989586621679963063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qvbrQualityLevel:H264QvbrSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#%24sel%3AqvbrQualityLevel%3AH264QvbrSettings%27"><span class="hs-identifier hs-var">qvbrQualityLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679963062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | Use this setting only when Rate control mode is QVBR and Quality tuning</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- level is Multi-pass HQ. For Max average bitrate values suited to the</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- complexity of your input video, the service limits the average bitrate</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- of the video part of this output to the value that you choose. That is,</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- the total size of the video element is less than or equal to the value</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- you set multiplied by the number of seconds of encoded output.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#h264QvbrSettings_maxAverageBitrate"><span class="hs-identifier hs-type">h264QvbrSettings_maxAverageBitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="h264QvbrSettings_maxAverageBitrate"><span class="annot"><span class="annottext">h264QvbrSettings_maxAverageBitrate :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-120"></span><span class="hs-comment">-- | Use this setting only when Rate control mode is QVBR and Quality tuning</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- level is Multi-pass HQ. For Max average bitrate values suited to the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- complexity of your input video, the service limits the average bitrate</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- of the video part of this output to the value that you choose. That is,</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- the total size of the video element is less than or equal to the value</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- you set multiplied by the number of seconds of encoded output.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#h264QvbrSettings_maxAverageBitrate"><span class="hs-identifier hs-type">h264QvbrSettings_maxAverageBitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="h264QvbrSettings_maxAverageBitrate"><span class="annot"><span class="annottext">h264QvbrSettings_maxAverageBitrate :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; H264QvbrSettings -&gt; f H264QvbrSettings
 </span><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#h264QvbrSettings_maxAverageBitrate"><span class="hs-identifier hs-var hs-var">h264QvbrSettings_maxAverageBitrate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(H264QvbrSettings -&gt; Maybe Natural)
 -&gt; (H264QvbrSettings -&gt; Maybe Natural -&gt; H264QvbrSettings)
 -&gt; Lens
      H264QvbrSettings H264QvbrSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings%27"><span class="hs-identifier hs-type">H264QvbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963060"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings%27"><span class="hs-identifier hs-type">H264QvbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679967688"><span class="annot"><span class="annottext">Maybe Natural
 maxAverageBitrate :: Maybe Natural
 $sel:maxAverageBitrate:H264QvbrSettings' :: H264QvbrSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679963060"><span class="hs-identifier hs-var hs-var">maxAverageBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679963060"><span class="hs-identifier hs-var">maxAverageBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679963059"><span class="annot"><span class="annottext">s :: H264QvbrSettings
-</span><a href="#local-6989586621679963059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings%27"><span class="hs-identifier hs-type">H264QvbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679963058"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679963058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">H264QvbrSettings
-</span><a href="#local-6989586621679963059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxAverageBitrate:H264QvbrSettings' :: Maybe Natural
+</span><a href="#local-6989586621679967688"><span class="hs-identifier hs-var hs-var">maxAverageBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679967688"><span class="hs-identifier hs-var">maxAverageBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679967687"><span class="annot"><span class="annottext">s :: H264QvbrSettings
+</span><a href="#local-6989586621679967687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings%27"><span class="hs-identifier hs-type">H264QvbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679967686"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679967686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">H264QvbrSettings
+</span><a href="#local-6989586621679967687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxAverageBitrate:H264QvbrSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#%24sel%3AmaxAverageBitrate%3AH264QvbrSettings%27"><span class="hs-identifier hs-var">maxAverageBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679963058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679967686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | Use this setting only when you set Rate control mode (RateControlMode)</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- to QVBR. Specify the target quality level for this output. MediaConvert</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- determines the right number of bits to use for each part of the video to</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- maintain the video quality that you specify. When you keep the default</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- value, AUTO, MediaConvert picks a quality level for you, based on</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- characteristics of your input video. If you prefer to specify a quality</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- level, specify a number from 1 through 10. Use higher numbers for</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- greater quality. Level 10 results in nearly lossless compression. The</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- quality level for most broadcast-quality transcodes is between 6 and 9.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Optionally, to specify a value between whole numbers, also provide a</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- value for the setting qvbrQualityLevelFineTune. For example, if you want</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- qvbrQualityLevelFineTune to .33.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#h264QvbrSettings_qvbrQualityLevel"><span class="hs-identifier hs-type">h264QvbrSettings_qvbrQualityLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="h264QvbrSettings_qvbrQualityLevel"><span class="annot"><span class="annottext">h264QvbrSettings_qvbrQualityLevel :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; H264QvbrSettings -&gt; f H264QvbrSettings
+</span><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#h264QvbrSettings_qvbrQualityLevel"><span class="hs-identifier hs-var hs-var">h264QvbrSettings_qvbrQualityLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(H264QvbrSettings -&gt; Maybe Natural)
+-&gt; (H264QvbrSettings -&gt; Maybe Natural -&gt; H264QvbrSettings)
+-&gt; Lens
+     H264QvbrSettings H264QvbrSettings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings%27"><span class="hs-identifier hs-type">H264QvbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679967684"><span class="annot"><span class="annottext">Maybe Natural
+qvbrQualityLevel :: Maybe Natural
+$sel:qvbrQualityLevel:H264QvbrSettings' :: H264QvbrSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679967684"><span class="hs-identifier hs-var hs-var">qvbrQualityLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679967684"><span class="hs-identifier hs-var">qvbrQualityLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679967683"><span class="annot"><span class="annottext">s :: H264QvbrSettings
+</span><a href="#local-6989586621679967683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings%27"><span class="hs-identifier hs-type">H264QvbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679967682"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679967682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">H264QvbrSettings
+</span><a href="#local-6989586621679967683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qvbrQualityLevel:H264QvbrSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#%24sel%3AqvbrQualityLevel%3AH264QvbrSettings%27"><span class="hs-identifier hs-var">qvbrQualityLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679967682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679963055"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679963053"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser H264QvbrSettings
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679967679"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679967677"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser H264QvbrSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser H264QvbrSettings)
@@ -268,8 +268,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;H264QvbrSettings&quot;</span></span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679963050"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679963050"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679967674"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679967674"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Natural -&gt; Maybe Natural -&gt; H264QvbrSettings
 </span><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings%27"><span class="hs-identifier hs-var">H264QvbrSettings'</span></a></span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double
@@ -278,7 +278,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; H264QvbrSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679963050"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679967674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;qvbrQualityLevelFineTune&quot;</span></span><span class="hs-special">)</span><span>
@@ -287,35 +287,35 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; H264QvbrSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679963050"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679967674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;qvbrQualityLevel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;maxAverageBitrate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; H264QvbrSettings)
 -&gt; Parser (Maybe Natural) -&gt; Parser H264QvbrSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679963050"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679967674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;maxAverageBitrate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;qvbrQualityLevel&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679963044"><span id="local-6989586621679963046"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679967668"><span id="local-6989586621679967670"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679963041"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679967665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679963033"><span id="local-6989586621679963035"><span id="local-6989586621679963037"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679963031"><span class="annot"><span class="annottext">toJSON :: H264QvbrSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings%27"><span class="hs-identifier hs-type">H264QvbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963027"><span id="local-6989586621679963028"><span id="local-6989586621679963029"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679967657"><span id="local-6989586621679967659"><span id="local-6989586621679967661"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings"><span class="hs-identifier hs-type">H264QvbrSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679967655"><span class="annot"><span class="annottext">toJSON :: H264QvbrSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264QvbrSettings.html#H264QvbrSettings%27"><span class="hs-identifier hs-type">H264QvbrSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679967651"><span id="local-6989586621679967652"><span id="local-6989586621679967653"><span class="annot"><span class="annottext">Maybe Double
 Maybe Natural
-maxAverageBitrate :: Maybe Natural
 qvbrQualityLevel :: Maybe Natural
+maxAverageBitrate :: Maybe Natural
 qvbrQualityLevelFineTune :: Maybe Double
-$sel:maxAverageBitrate:H264QvbrSettings' :: H264QvbrSettings -&gt; Maybe Natural
 $sel:qvbrQualityLevel:H264QvbrSettings' :: H264QvbrSettings -&gt; Maybe Natural
+$sel:maxAverageBitrate:H264QvbrSettings' :: H264QvbrSettings -&gt; Maybe Natural
 $sel:qvbrQualityLevelFineTune:H264QvbrSettings' :: H264QvbrSettings -&gt; Maybe Double
-</span><a href="#local-6989586621679963027"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679967651"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -328,23 +328,23 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679963029"><span class="hs-identifier hs-var">qvbrQualityLevelFineTune</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679967653"><span class="hs-identifier hs-var">qvbrQualityLevelFineTune</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;qvbrQualityLevel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+</span><span class="hs-string">&quot;maxAverageBitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679963028"><span class="hs-identifier hs-var">qvbrQualityLevel</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679967652"><span class="hs-identifier hs-var">maxAverageBitrate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;maxAverageBitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+</span><span class="hs-string">&quot;qvbrQualityLevel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679963027"><span class="hs-identifier hs-var">maxAverageBitrate</span></a></span><span>
+</span><a href="#local-6989586621679967651"><span class="hs-identifier hs-var">qvbrQualityLevel</span></a></span><span>
 </span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span></pre></body></html>

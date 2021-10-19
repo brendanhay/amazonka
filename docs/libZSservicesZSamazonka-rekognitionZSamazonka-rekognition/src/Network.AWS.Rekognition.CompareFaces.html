@@ -97,11 +97,11 @@
 </span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#newCompareFacesResponse"><span class="hs-identifier">newCompareFacesResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_unmatchedFaces"><span class="hs-identifier">compareFacesResponse_unmatchedFaces</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_sourceImageFace"><span class="hs-identifier">compareFacesResponse_sourceImageFace</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_faceMatches"><span class="hs-identifier">compareFacesResponse_faceMatches</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_targetImageOrientationCorrection"><span class="hs-identifier">compareFacesResponse_targetImageOrientationCorrection</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_sourceImageOrientationCorrection"><span class="hs-identifier">compareFacesResponse_sourceImageOrientationCorrection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_faceMatches"><span class="hs-identifier">compareFacesResponse_faceMatches</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_unmatchedFaces"><span class="hs-identifier">compareFacesResponse_unmatchedFaces</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_targetImageOrientationCorrection"><span class="hs-identifier">compareFacesResponse_targetImageOrientationCorrection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_sourceImageOrientationCorrection"><span class="hs-identifier">compareFacesResponse_sourceImageOrientationCorrection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_sourceImageFace"><span class="hs-identifier">compareFacesResponse_sourceImageFace</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_httpStatus"><span class="hs-identifier">compareFacesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span class="hs-keyword">where</span><span>
@@ -114,7 +114,7 @@
 </span><span id="line-114"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | /See:/ 'newCompareFaces' smart constructor.</span><span>
-</span><span id="line-117"></span><span id="local-6989586621679348565"><span id="local-6989586621679348566"></span></span><span class="hs-keyword">data</span><span> </span><span id="CompareFaces"><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-var">CompareFaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompareFaces%27"><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-var">CompareFaces'</span></a></span></span><span>
+</span><span id="line-117"></span><span id="local-6989586621679348895"><span id="local-6989586621679348896"></span></span><span class="hs-keyword">data</span><span> </span><span id="CompareFaces"><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-var">CompareFaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompareFaces%27"><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-var">CompareFaces'</span></a></span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A filter that specifies a quality bar for how much filtering is done to</span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-comment">-- identify faces. Filtered faces aren\'t compared. If you specify @AUTO@,</span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-comment">-- Amazon Rekognition chooses the quality bar. If you specify @LOW@,</span><span>
@@ -152,7 +152,7 @@
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AtargetImage%3ACompareFaces%27"><span class="annot"><span class="annottext">CompareFaces -&gt; Image
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AtargetImage%3ACompareFaces%27"><span class="hs-identifier hs-var hs-var">targetImage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348556"><span id="local-6989586621679348558"><span class="annot"><span class="annottext">CompareFaces -&gt; CompareFaces -&gt; Bool
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348886"><span id="local-6989586621679348888"><span class="annot"><span class="annottext">CompareFaces -&gt; CompareFaces -&gt; Bool
 (CompareFaces -&gt; CompareFaces -&gt; Bool)
 -&gt; (CompareFaces -&gt; CompareFaces -&gt; Bool) -&gt; Eq CompareFaces
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -160,7 +160,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CompareFaces -&gt; CompareFaces -&gt; Bool
 == :: CompareFaces -&gt; CompareFaces -&gt; Bool
 $c== :: CompareFaces -&gt; CompareFaces -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348547"><span id="local-6989586621679348549"><span id="local-6989586621679348551"><span id="local-6989586621679348553"><span class="annot"><span class="annottext">ReadPrec [CompareFaces]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348877"><span id="local-6989586621679348879"><span id="local-6989586621679348881"><span id="local-6989586621679348883"><span class="annot"><span class="annottext">ReadPrec [CompareFaces]
 ReadPrec CompareFaces
 Int -&gt; ReadS CompareFaces
 ReadS [CompareFaces]
@@ -180,7 +180,7 @@ readList :: ReadS [CompareFaces]
 $creadList :: ReadS [CompareFaces]
 readsPrec :: Int -&gt; ReadS CompareFaces
 $creadsPrec :: Int -&gt; ReadS CompareFaces
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348540"><span id="local-6989586621679348542"><span id="local-6989586621679348544"><span class="annot"><span class="annottext">Int -&gt; CompareFaces -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348870"><span id="local-6989586621679348872"><span id="local-6989586621679348874"><span class="annot"><span class="annottext">Int -&gt; CompareFaces -&gt; ShowS
 [CompareFaces] -&gt; ShowS
 CompareFaces -&gt; String
 (Int -&gt; CompareFaces -&gt; ShowS)
@@ -252,9 +252,9 @@ $cfrom :: forall x. CompareFaces -&gt; Rep CompareFaces x
 </span><span id="line-196"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span>
 </span><span id="line-198"></span><span id="newCompareFaces"><span class="annot"><span class="annottext">newCompareFaces :: Image -&gt; Image -&gt; CompareFaces
-</span><a href="Network.AWS.Rekognition.CompareFaces.html#newCompareFaces"><span class="hs-identifier hs-var hs-var">newCompareFaces</span></a></span></span><span> </span><span id="local-6989586621679348535"><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679348535"><span class="hs-identifier hs-var">pSourceImage_</span></a></span></span><span> </span><span id="local-6989586621679348534"><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679348534"><span class="hs-identifier hs-var">pTargetImage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.CompareFaces.html#newCompareFaces"><span class="hs-identifier hs-var hs-var">newCompareFaces</span></a></span></span><span> </span><span id="local-6989586621679348865"><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348865"><span class="hs-identifier hs-var">pSourceImage_</span></a></span></span><span> </span><span id="local-6989586621679348864"><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348864"><span class="hs-identifier hs-var">pTargetImage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">CompareFaces' :: Maybe QualityFilter
 -&gt; Maybe Double -&gt; Image -&gt; Image -&gt; CompareFaces
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span>
@@ -268,10 +268,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceImage:CompareFaces' :: Image
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AsourceImage%3ACompareFaces%27"><span class="hs-identifier hs-var">sourceImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679348535"><span class="hs-identifier hs-var">pSourceImage_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679348865"><span class="hs-identifier hs-var">pSourceImage_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetImage:CompareFaces' :: Image
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AtargetImage%3ACompareFaces%27"><span class="hs-identifier hs-var">targetImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679348534"><span class="hs-identifier hs-var">pTargetImage_</span></a></span><span>
+</span><a href="#local-6989586621679348864"><span class="hs-identifier hs-var">pTargetImage_</span></a></span><span>
 </span><span id="line-204"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | A filter that specifies a quality bar for how much filtering is done to</span><span>
@@ -297,16 +297,16 @@ forall a. Maybe a
      (Maybe QualityFilter)
      (Maybe QualityFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348531"><span class="annot"><span class="annottext">Maybe QualityFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348861"><span class="annot"><span class="annottext">Maybe QualityFilter
 qualityFilter :: Maybe QualityFilter
 $sel:qualityFilter:CompareFaces' :: CompareFaces -&gt; Maybe QualityFilter
-</span><a href="#local-6989586621679348531"><span class="hs-identifier hs-var hs-var">qualityFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QualityFilter
-</span><a href="#local-6989586621679348531"><span class="hs-identifier hs-var">qualityFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348530"><span class="annot"><span class="annottext">s :: CompareFaces
-</span><a href="#local-6989586621679348530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348529"><span class="annot"><span class="annottext">Maybe QualityFilter
-</span><a href="#local-6989586621679348529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFaces
-</span><a href="#local-6989586621679348530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualityFilter:CompareFaces' :: Maybe QualityFilter
+</span><a href="#local-6989586621679348861"><span class="hs-identifier hs-var hs-var">qualityFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QualityFilter
+</span><a href="#local-6989586621679348861"><span class="hs-identifier hs-var">qualityFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348860"><span class="annot"><span class="annottext">s :: CompareFaces
+</span><a href="#local-6989586621679348860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348859"><span class="annot"><span class="annottext">Maybe QualityFilter
+</span><a href="#local-6989586621679348859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFaces
+</span><a href="#local-6989586621679348860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualityFilter:CompareFaces' :: Maybe QualityFilter
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AqualityFilter%3ACompareFaces%27"><span class="hs-identifier hs-var">qualityFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QualityFilter
-</span><a href="#local-6989586621679348529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | The minimum level of confidence in the face matches that a match must</span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- meet to be included in the @FaceMatches@ array.</span><span>
@@ -317,16 +317,16 @@ $sel:qualityFilter:CompareFaces' :: CompareFaces -&gt; Maybe QualityFilter
 -&gt; (CompareFaces -&gt; Maybe Double -&gt; CompareFaces)
 -&gt; Lens CompareFaces CompareFaces (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348528"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348858"><span class="annot"><span class="annottext">Maybe Double
 similarityThreshold :: Maybe Double
 $sel:similarityThreshold:CompareFaces' :: CompareFaces -&gt; Maybe Double
-</span><a href="#local-6989586621679348528"><span class="hs-identifier hs-var hs-var">similarityThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679348528"><span class="hs-identifier hs-var">similarityThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348527"><span class="annot"><span class="annottext">s :: CompareFaces
-</span><a href="#local-6989586621679348527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348526"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679348526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFaces
-</span><a href="#local-6989586621679348527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:similarityThreshold:CompareFaces' :: Maybe Double
+</span><a href="#local-6989586621679348858"><span class="hs-identifier hs-var hs-var">similarityThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679348858"><span class="hs-identifier hs-var">similarityThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348857"><span class="annot"><span class="annottext">s :: CompareFaces
+</span><a href="#local-6989586621679348857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348856"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679348856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFaces
+</span><a href="#local-6989586621679348857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:similarityThreshold:CompareFaces' :: Maybe Double
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AsimilarityThreshold%3ACompareFaces%27"><span class="hs-identifier hs-var">similarityThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679348526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | The input image as base64-encoded bytes or an S3 object. If you use the</span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- AWS CLI to call Amazon Rekognition operations, passing base64-encoded</span><span>
@@ -341,16 +341,16 @@ $sel:similarityThreshold:CompareFaces' :: CompareFaces -&gt; Maybe Double
 -&gt; (CompareFaces -&gt; Image -&gt; CompareFaces)
 -&gt; Lens CompareFaces CompareFaces Image Image
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348525"><span class="annot"><span class="annottext">Image
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348855"><span class="annot"><span class="annottext">Image
 sourceImage :: Image
 $sel:sourceImage:CompareFaces' :: CompareFaces -&gt; Image
-</span><a href="#local-6989586621679348525"><span class="hs-identifier hs-var hs-var">sourceImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679348525"><span class="hs-identifier hs-var">sourceImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348524"><span class="annot"><span class="annottext">s :: CompareFaces
-</span><a href="#local-6989586621679348524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348523"><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679348523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFaces
-</span><a href="#local-6989586621679348524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceImage:CompareFaces' :: Image
+</span><a href="#local-6989586621679348855"><span class="hs-identifier hs-var hs-var">sourceImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348855"><span class="hs-identifier hs-var">sourceImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348854"><span class="annot"><span class="annottext">s :: CompareFaces
+</span><a href="#local-6989586621679348854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348853"><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFaces
+</span><a href="#local-6989586621679348854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceImage:CompareFaces' :: Image
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AsourceImage%3ACompareFaces%27"><span class="hs-identifier hs-var">sourceImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679348523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | The target image as base64-encoded bytes or an S3 object. If you use the</span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- AWS CLI to call Amazon Rekognition operations, passing base64-encoded</span><span>
@@ -365,25 +365,25 @@ $sel:sourceImage:CompareFaces' :: CompareFaces -&gt; Image
 -&gt; (CompareFaces -&gt; Image -&gt; CompareFaces)
 -&gt; Lens CompareFaces CompareFaces Image Image
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348522"><span class="annot"><span class="annottext">Image
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348852"><span class="annot"><span class="annottext">Image
 targetImage :: Image
 $sel:targetImage:CompareFaces' :: CompareFaces -&gt; Image
-</span><a href="#local-6989586621679348522"><span class="hs-identifier hs-var hs-var">targetImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679348522"><span class="hs-identifier hs-var">targetImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348521"><span class="annot"><span class="annottext">s :: CompareFaces
-</span><a href="#local-6989586621679348521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348520"><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679348520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFaces
-</span><a href="#local-6989586621679348521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetImage:CompareFaces' :: Image
+</span><a href="#local-6989586621679348852"><span class="hs-identifier hs-var hs-var">targetImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348852"><span class="hs-identifier hs-var">targetImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348851"><span class="annot"><span class="annottext">s :: CompareFaces
+</span><a href="#local-6989586621679348851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348850"><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679348850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFaces
+</span><a href="#local-6989586621679348851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetImage:CompareFaces' :: Image
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AtargetImage%3ACompareFaces%27"><span class="hs-identifier hs-var">targetImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679348520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-247"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span>
-</span><span id="line-248"></span><span>  </span><span id="local-6989586621679348516"><span class="annot"><span class="annottext">request :: CompareFaces -&gt; Request CompareFaces
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679348846"><span class="annot"><span class="annottext">request :: CompareFaces -&gt; Request CompareFaces
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CompareFaces -&gt; Request CompareFaces
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Rekognition.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-249"></span><span>  </span><span id="local-6989586621679348512"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679348842"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CompareFaces
 -&gt; ClientResponse ClientBody
@@ -407,82 +407,37 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-251"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348509"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348509"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348508"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679348508"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348507"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348507"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-252"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ComparedFace]
+</span><span id="line-251"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348839"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348839"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348838"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679348838"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348837"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348837"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-252"></span><span>          </span><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
+-&gt; Maybe [ComparedFace]
+-&gt; Maybe OrientationCorrection
+-&gt; Maybe OrientationCorrection
 -&gt; Maybe ComparedSourceImageFace
--&gt; Maybe [CompareFacesMatch]
--&gt; Maybe OrientationCorrection
--&gt; Maybe OrientationCorrection
 -&gt; Int
 -&gt; CompareFacesResponse
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-var">CompareFacesResponse'</span></a></span><span>
-</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ComparedFace]
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [CompareFacesMatch]
+ -&gt; Maybe [ComparedFace]
+ -&gt; Maybe OrientationCorrection
+ -&gt; Maybe OrientationCorrection
  -&gt; Maybe ComparedSourceImageFace
- -&gt; Maybe [CompareFacesMatch]
- -&gt; Maybe OrientationCorrection
- -&gt; Maybe OrientationCorrection
  -&gt; Int
  -&gt; CompareFacesResponse)
--&gt; Either String (Maybe [ComparedFace])
+-&gt; Either String (Maybe [CompareFacesMatch])
 -&gt; Either
      String
-     (Maybe ComparedSourceImageFace
-      -&gt; Maybe [CompareFacesMatch]
+     (Maybe [ComparedFace]
       -&gt; Maybe OrientationCorrection
       -&gt; Maybe OrientationCorrection
+      -&gt; Maybe ComparedSourceImageFace
       -&gt; Int
       -&gt; CompareFacesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ComparedFace]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;UnmatchedFaces&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ComparedFace]))
--&gt; Maybe [ComparedFace] -&gt; Either String (Maybe [ComparedFace])
-forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
-</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ComparedFace]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ComparedSourceImageFace
-   -&gt; Maybe [CompareFacesMatch]
-   -&gt; Maybe OrientationCorrection
-   -&gt; Maybe OrientationCorrection
-   -&gt; Int
-   -&gt; CompareFacesResponse)
--&gt; Either String (Maybe ComparedSourceImageFace)
--&gt; Either
-     String
-     (Maybe [CompareFacesMatch]
-      -&gt; Maybe OrientationCorrection
-      -&gt; Maybe OrientationCorrection
-      -&gt; Int
-      -&gt; CompareFacesResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ComparedSourceImageFace)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourceImageFace&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-255"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [CompareFacesMatch]
-   -&gt; Maybe OrientationCorrection
-   -&gt; Maybe OrientationCorrection
-   -&gt; Int
-   -&gt; CompareFacesResponse)
--&gt; Either String (Maybe [CompareFacesMatch])
--&gt; Either
-     String
-     (Maybe OrientationCorrection
-      -&gt; Maybe OrientationCorrection -&gt; Int -&gt; CompareFacesResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CompareFacesMatch]))
+</span><a href="#local-6989586621679348837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CompareFacesMatch]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FaceMatches&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [CompareFacesMatch]))
@@ -492,29 +447,76 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Either
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe OrientationCorrection
-   -&gt; Maybe OrientationCorrection -&gt; Int -&gt; CompareFacesResponse)
--&gt; Either String (Maybe OrientationCorrection)
+  (Maybe [ComparedFace]
+   -&gt; Maybe OrientationCorrection
+   -&gt; Maybe OrientationCorrection
+   -&gt; Maybe ComparedSourceImageFace
+   -&gt; Int
+   -&gt; CompareFacesResponse)
+-&gt; Either String (Maybe [ComparedFace])
 -&gt; Either
-     String (Maybe OrientationCorrection -&gt; Int -&gt; CompareFacesResponse)
+     String
+     (Maybe OrientationCorrection
+      -&gt; Maybe OrientationCorrection
+      -&gt; Maybe ComparedSourceImageFace
+      -&gt; Int
+      -&gt; CompareFacesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OrientationCorrection)
+</span><a href="#local-6989586621679348837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ComparedFace]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UnmatchedFaces&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ComparedFace]))
+-&gt; Maybe [ComparedFace] -&gt; Either String (Maybe [ComparedFace])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ComparedFace]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe OrientationCorrection
+   -&gt; Maybe OrientationCorrection
+   -&gt; Maybe ComparedSourceImageFace
+   -&gt; Int
+   -&gt; CompareFacesResponse)
+-&gt; Either String (Maybe OrientationCorrection)
+-&gt; Either
+     String
+     (Maybe OrientationCorrection
+      -&gt; Maybe ComparedSourceImageFace -&gt; Int -&gt; CompareFacesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OrientationCorrection)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetImageOrientationCorrection&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe OrientationCorrection -&gt; Int -&gt; CompareFacesResponse)
+</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe OrientationCorrection
+   -&gt; Maybe ComparedSourceImageFace -&gt; Int -&gt; CompareFacesResponse)
 -&gt; Either String (Maybe OrientationCorrection)
--&gt; Either String (Int -&gt; CompareFacesResponse)
+-&gt; Either
+     String
+     (Maybe ComparedSourceImageFace -&gt; Int -&gt; CompareFacesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OrientationCorrection)
+</span><a href="#local-6989586621679348837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OrientationCorrection)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceImageOrientationCorrection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ComparedSourceImageFace -&gt; Int -&gt; CompareFacesResponse)
+-&gt; Either String (Maybe ComparedSourceImageFace)
+-&gt; Either String (Int -&gt; CompareFacesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ComparedSourceImageFace)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceImageFace&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CompareFacesResponse)
 -&gt; Either String Int -&gt; Either String CompareFacesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -523,15 +525,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348509"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348839"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>
-</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348498"><span id="local-6989586621679348500"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span></span></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348828"><span id="local-6989586621679348830"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span></span></span><span>
 </span><span id="line-262"></span><span>
-</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348825"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span></span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-266"></span><span>  </span><span id="local-6989586621679348491"><span class="annot"><span class="annottext">toHeaders :: CompareFaces -&gt; ResponseHeaders
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679348821"><span class="annot"><span class="annottext">toHeaders :: CompareFaces -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-267"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CompareFaces -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -558,9 +560,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-277"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-278"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-279"></span><span>
-</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348481"><span id="local-6989586621679348483"><span id="local-6989586621679348485"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-281"></span><span>  </span><span id="local-6989586621679348479"><span class="annot"><span class="annottext">toJSON :: CompareFaces -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348474"><span id="local-6989586621679348475"><span id="local-6989586621679348476"><span id="local-6989586621679348477"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348811"><span id="local-6989586621679348813"><span id="local-6989586621679348815"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-281"></span><span>  </span><span id="local-6989586621679348809"><span class="annot"><span class="annottext">toJSON :: CompareFaces -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces%27"><span class="hs-identifier hs-type">CompareFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348804"><span id="local-6989586621679348805"><span id="local-6989586621679348806"><span id="local-6989586621679348807"><span class="annot"><span class="annottext">Maybe Double
 Maybe QualityFilter
 Image
 targetImage :: Image
@@ -571,7 +573,7 @@ $sel:targetImage:CompareFaces' :: CompareFaces -&gt; Image
 $sel:sourceImage:CompareFaces' :: CompareFaces -&gt; Image
 $sel:similarityThreshold:CompareFaces' :: CompareFaces -&gt; Maybe Double
 $sel:qualityFilter:CompareFaces' :: CompareFaces -&gt; Maybe QualityFilter
-</span><a href="#local-6989586621679348474"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679348804"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-282"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-283"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -583,7 +585,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(QualityFilter -&gt; Pair) -&gt; Maybe QualityFilter -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe QualityFilter
-</span><a href="#local-6989586621679348477"><span class="hs-identifier hs-var">qualityFilter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679348807"><span class="hs-identifier hs-var">qualityFilter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-285"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SimilarityThreshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -591,33 +593,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-286"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679348476"><span class="hs-identifier hs-var">similarityThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679348806"><span class="hs-identifier hs-var">similarityThreshold</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-287"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceImage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Image -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679348475"><span class="hs-identifier hs-var">sourceImage</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679348805"><span class="hs-identifier hs-var">sourceImage</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetImage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Image -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679348474"><span class="hs-identifier hs-var">targetImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348804"><span class="hs-identifier hs-var">targetImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-289"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-290"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-291"></span><span>
 </span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-293"></span><span>  </span><span id="local-6989586621679348468"><span class="annot"><span class="annottext">toPath :: CompareFaces -&gt; ByteString
+</span><span id="line-293"></span><span>  </span><span id="local-6989586621679348798"><span class="annot"><span class="annottext">toPath :: CompareFaces -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CompareFaces -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-294"></span><span>
 </span><span id="line-295"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFaces"><span class="hs-identifier hs-type">CompareFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-296"></span><span>  </span><span id="local-6989586621679348464"><span class="annot"><span class="annottext">toQuery :: CompareFaces -&gt; QueryString
+</span><span id="line-296"></span><span>  </span><span id="local-6989586621679348794"><span class="annot"><span class="annottext">toQuery :: CompareFaces -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CompareFaces -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -625,58 +627,58 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-297"></span><span>
 </span><span id="line-298"></span><span class="hs-comment">-- | /See:/ 'newCompareFacesResponse' smart constructor.</span><span>
-</span><span id="line-299"></span><span id="local-6989586621679348461"><span id="local-6989586621679348462"></span></span><span class="hs-keyword">data</span><span> </span><span id="CompareFacesResponse"><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-var">CompareFacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompareFacesResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-var">CompareFacesResponse'</span></a></span></span><span>
-</span><span id="line-300"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of faces in the target image that did not match the source</span><span>
-</span><span id="line-301"></span><span>    </span><span class="hs-comment">-- image face.</span><span>
-</span><span id="line-302"></span><span>    </span><span id="%24sel%3AunmatchedFaces%3ACompareFacesResponse%27"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; Maybe [ComparedFace]
-</span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AunmatchedFaces%3ACompareFacesResponse%27"><span class="hs-identifier hs-var hs-var">unmatchedFaces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ComparedFace.html#ComparedFace"><span class="hs-identifier hs-type">ComparedFace</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-303"></span><span>    </span><span class="hs-comment">-- | The face in the source image that was used for comparison.</span><span>
-</span><span id="line-304"></span><span>    </span><span id="%24sel%3AsourceImageFace%3ACompareFacesResponse%27"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; Maybe ComparedSourceImageFace
-</span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AsourceImageFace%3ACompareFacesResponse%27"><span class="hs-identifier hs-var hs-var">sourceImageFace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ComparedSourceImageFace.html#ComparedSourceImageFace"><span class="hs-identifier hs-type">ComparedSourceImageFace</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-305"></span><span>    </span><span class="hs-comment">-- | An array of faces in the target image that match the source image face.</span><span>
-</span><span id="line-306"></span><span>    </span><span class="hs-comment">-- Each @CompareFacesMatch@ object provides the bounding box, the</span><span>
-</span><span id="line-307"></span><span>    </span><span class="hs-comment">-- confidence level that the bounding box contains a face, and the</span><span>
-</span><span id="line-308"></span><span>    </span><span class="hs-comment">-- similarity score for the face in the bounding box and the face in the</span><span>
-</span><span id="line-309"></span><span>    </span><span class="hs-comment">-- source image.</span><span>
-</span><span id="line-310"></span><span>    </span><span id="%24sel%3AfaceMatches%3ACompareFacesResponse%27"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; Maybe [CompareFacesMatch]
+</span><span id="line-299"></span><span id="local-6989586621679348791"><span id="local-6989586621679348792"></span></span><span class="hs-keyword">data</span><span> </span><span id="CompareFacesResponse"><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-var">CompareFacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompareFacesResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-var">CompareFacesResponse'</span></a></span></span><span>
+</span><span id="line-300"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of faces in the target image that match the source image face.</span><span>
+</span><span id="line-301"></span><span>    </span><span class="hs-comment">-- Each @CompareFacesMatch@ object provides the bounding box, the</span><span>
+</span><span id="line-302"></span><span>    </span><span class="hs-comment">-- confidence level that the bounding box contains a face, and the</span><span>
+</span><span id="line-303"></span><span>    </span><span class="hs-comment">-- similarity score for the face in the bounding box and the face in the</span><span>
+</span><span id="line-304"></span><span>    </span><span class="hs-comment">-- source image.</span><span>
+</span><span id="line-305"></span><span>    </span><span id="%24sel%3AfaceMatches%3ACompareFacesResponse%27"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; Maybe [CompareFacesMatch]
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AfaceMatches%3ACompareFacesResponse%27"><span class="hs-identifier hs-var hs-var">faceMatches</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch"><span class="hs-identifier hs-type">CompareFacesMatch</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-311"></span><span>    </span><span class="hs-comment">-- | The value of @TargetImageOrientationCorrection@ is always null.</span><span>
-</span><span id="line-312"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-313"></span><span>    </span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
-</span><span id="line-314"></span><span>    </span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
-</span><span id="line-315"></span><span>    </span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
-</span><span id="line-316"></span><span>    </span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
-</span><span id="line-317"></span><span>    </span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
-</span><span id="line-318"></span><span>    </span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
-</span><span id="line-319"></span><span>    </span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
-</span><span id="line-320"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-321"></span><span>    </span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
-</span><span id="line-322"></span><span>    </span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
-</span><span id="line-323"></span><span>    </span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
-</span><span id="line-324"></span><span>    </span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
-</span><span id="line-325"></span><span>    </span><span id="%24sel%3AtargetImageOrientationCorrection%3ACompareFacesResponse%27"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; Maybe OrientationCorrection
+</span><span id="line-306"></span><span>    </span><span class="hs-comment">-- | An array of faces in the target image that did not match the source</span><span>
+</span><span id="line-307"></span><span>    </span><span class="hs-comment">-- image face.</span><span>
+</span><span id="line-308"></span><span>    </span><span id="%24sel%3AunmatchedFaces%3ACompareFacesResponse%27"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; Maybe [ComparedFace]
+</span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AunmatchedFaces%3ACompareFacesResponse%27"><span class="hs-identifier hs-var hs-var">unmatchedFaces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ComparedFace.html#ComparedFace"><span class="hs-identifier hs-type">ComparedFace</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>    </span><span class="hs-comment">-- | The value of @TargetImageOrientationCorrection@ is always null.</span><span>
+</span><span id="line-310"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-311"></span><span>    </span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-312"></span><span>    </span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-313"></span><span>    </span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-314"></span><span>    </span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
+</span><span id="line-315"></span><span>    </span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
+</span><span id="line-316"></span><span>    </span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
+</span><span id="line-317"></span><span>    </span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
+</span><span id="line-318"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-319"></span><span>    </span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
+</span><span id="line-320"></span><span>    </span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
+</span><span id="line-321"></span><span>    </span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
+</span><span id="line-322"></span><span>    </span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
+</span><span id="line-323"></span><span>    </span><span id="%24sel%3AtargetImageOrientationCorrection%3ACompareFacesResponse%27"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; Maybe OrientationCorrection
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AtargetImageOrientationCorrection%3ACompareFacesResponse%27"><span class="hs-identifier hs-var hs-var">targetImageOrientationCorrection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-326"></span><span>    </span><span class="hs-comment">-- | The value of @SourceImageOrientationCorrection@ is always null.</span><span>
-</span><span id="line-327"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-328"></span><span>    </span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
-</span><span id="line-329"></span><span>    </span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
-</span><span id="line-330"></span><span>    </span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
-</span><span id="line-331"></span><span>    </span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
-</span><span id="line-332"></span><span>    </span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
-</span><span id="line-333"></span><span>    </span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
-</span><span id="line-334"></span><span>    </span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
-</span><span id="line-335"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-336"></span><span>    </span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
-</span><span id="line-337"></span><span>    </span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
-</span><span id="line-338"></span><span>    </span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
-</span><span id="line-339"></span><span>    </span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
-</span><span id="line-340"></span><span>    </span><span id="%24sel%3AsourceImageOrientationCorrection%3ACompareFacesResponse%27"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; Maybe OrientationCorrection
+</span><span id="line-324"></span><span>    </span><span class="hs-comment">-- | The value of @SourceImageOrientationCorrection@ is always null.</span><span>
+</span><span id="line-325"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-326"></span><span>    </span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-327"></span><span>    </span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-328"></span><span>    </span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-329"></span><span>    </span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
+</span><span id="line-330"></span><span>    </span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
+</span><span id="line-331"></span><span>    </span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
+</span><span id="line-332"></span><span>    </span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
+</span><span id="line-333"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-334"></span><span>    </span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
+</span><span id="line-335"></span><span>    </span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
+</span><span id="line-336"></span><span>    </span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
+</span><span id="line-337"></span><span>    </span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
+</span><span id="line-338"></span><span>    </span><span id="%24sel%3AsourceImageOrientationCorrection%3ACompareFacesResponse%27"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; Maybe OrientationCorrection
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AsourceImageOrientationCorrection%3ACompareFacesResponse%27"><span class="hs-identifier hs-var hs-var">sourceImageOrientationCorrection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>    </span><span class="hs-comment">-- | The face in the source image that was used for comparison.</span><span>
+</span><span id="line-340"></span><span>    </span><span id="%24sel%3AsourceImageFace%3ACompareFacesResponse%27"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; Maybe ComparedSourceImageFace
+</span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AsourceImageFace%3ACompareFacesResponse%27"><span class="hs-identifier hs-var hs-var">sourceImageFace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ComparedSourceImageFace.html#ComparedSourceImageFace"><span class="hs-identifier hs-type">ComparedSourceImageFace</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-341"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-342"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACompareFacesResponse%27"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; Int
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AhttpStatus%3ACompareFacesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-343"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-344"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348451"><span id="local-6989586621679348453"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; CompareFacesResponse -&gt; Bool
+</span><span id="line-344"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348781"><span id="local-6989586621679348783"><span class="annot"><span class="annottext">CompareFacesResponse -&gt; CompareFacesResponse -&gt; Bool
 (CompareFacesResponse -&gt; CompareFacesResponse -&gt; Bool)
 -&gt; (CompareFacesResponse -&gt; CompareFacesResponse -&gt; Bool)
 -&gt; Eq CompareFacesResponse
@@ -685,7 +687,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CompareFacesResponse -&gt; CompareFacesResponse -&gt; Bool
 == :: CompareFacesResponse -&gt; CompareFacesResponse -&gt; Bool
 $c== :: CompareFacesResponse -&gt; CompareFacesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348443"><span id="local-6989586621679348445"><span id="local-6989586621679348447"><span id="local-6989586621679348449"><span class="annot"><span class="annottext">ReadPrec [CompareFacesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348773"><span id="local-6989586621679348775"><span id="local-6989586621679348777"><span id="local-6989586621679348779"><span class="annot"><span class="annottext">ReadPrec [CompareFacesResponse]
 ReadPrec CompareFacesResponse
 Int -&gt; ReadS CompareFacesResponse
 ReadS [CompareFacesResponse]
@@ -705,7 +707,7 @@ readList :: ReadS [CompareFacesResponse]
 $creadList :: ReadS [CompareFacesResponse]
 readsPrec :: Int -&gt; ReadS CompareFacesResponse
 $creadsPrec :: Int -&gt; ReadS CompareFacesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348437"><span id="local-6989586621679348439"><span id="local-6989586621679348441"><span class="annot"><span class="annottext">Int -&gt; CompareFacesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348767"><span id="local-6989586621679348769"><span id="local-6989586621679348771"><span class="annot"><span class="annottext">Int -&gt; CompareFacesResponse -&gt; ShowS
 [CompareFacesResponse] -&gt; ShowS
 CompareFacesResponse -&gt; String
 (Int -&gt; CompareFacesResponse -&gt; ShowS)
@@ -739,46 +741,46 @@ $cfrom :: forall x. CompareFacesResponse -&gt; Rep CompareFacesResponse x
 </span><span id="line-351"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-352"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-353"></span><span class="hs-comment">--</span><span>
-</span><span id="line-354"></span><span class="hs-comment">-- 'unmatchedFaces', 'compareFacesResponse_unmatchedFaces' - An array of faces in the target image that did not match the source</span><span>
-</span><span id="line-355"></span><span class="hs-comment">-- image face.</span><span>
-</span><span id="line-356"></span><span class="hs-comment">--</span><span>
-</span><span id="line-357"></span><span class="hs-comment">-- 'sourceImageFace', 'compareFacesResponse_sourceImageFace' - The face in the source image that was used for comparison.</span><span>
-</span><span id="line-358"></span><span class="hs-comment">--</span><span>
-</span><span id="line-359"></span><span class="hs-comment">-- 'faceMatches', 'compareFacesResponse_faceMatches' - An array of faces in the target image that match the source image face.</span><span>
-</span><span id="line-360"></span><span class="hs-comment">-- Each @CompareFacesMatch@ object provides the bounding box, the</span><span>
-</span><span id="line-361"></span><span class="hs-comment">-- confidence level that the bounding box contains a face, and the</span><span>
-</span><span id="line-362"></span><span class="hs-comment">-- similarity score for the face in the bounding box and the face in the</span><span>
-</span><span id="line-363"></span><span class="hs-comment">-- source image.</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- 'faceMatches', 'compareFacesResponse_faceMatches' - An array of faces in the target image that match the source image face.</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- Each @CompareFacesMatch@ object provides the bounding box, the</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- confidence level that the bounding box contains a face, and the</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- similarity score for the face in the bounding box and the face in the</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- source image.</span><span>
+</span><span id="line-359"></span><span class="hs-comment">--</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- 'unmatchedFaces', 'compareFacesResponse_unmatchedFaces' - An array of faces in the target image that did not match the source</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- image face.</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- 'targetImageOrientationCorrection', 'compareFacesResponse_targetImageOrientationCorrection' - The value of @TargetImageOrientationCorrection@ is always null.</span><span>
 </span><span id="line-364"></span><span class="hs-comment">--</span><span>
-</span><span id="line-365"></span><span class="hs-comment">-- 'targetImageOrientationCorrection', 'compareFacesResponse_targetImageOrientationCorrection' - The value of @TargetImageOrientationCorrection@ is always null.</span><span>
-</span><span id="line-366"></span><span class="hs-comment">--</span><span>
-</span><span id="line-367"></span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
-</span><span id="line-368"></span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
-</span><span id="line-369"></span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
-</span><span id="line-370"></span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
-</span><span id="line-371"></span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
-</span><span id="line-372"></span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
-</span><span id="line-373"></span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
-</span><span id="line-374"></span><span class="hs-comment">--</span><span>
-</span><span id="line-375"></span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
-</span><span id="line-376"></span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
-</span><span id="line-377"></span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
-</span><span id="line-378"></span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
+</span><span id="line-372"></span><span class="hs-comment">--</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
+</span><span id="line-377"></span><span class="hs-comment">--</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- 'sourceImageOrientationCorrection', 'compareFacesResponse_sourceImageOrientationCorrection' - The value of @SourceImageOrientationCorrection@ is always null.</span><span>
 </span><span id="line-379"></span><span class="hs-comment">--</span><span>
-</span><span id="line-380"></span><span class="hs-comment">-- 'sourceImageOrientationCorrection', 'compareFacesResponse_sourceImageOrientationCorrection' - The value of @SourceImageOrientationCorrection@ is always null.</span><span>
-</span><span id="line-381"></span><span class="hs-comment">--</span><span>
-</span><span id="line-382"></span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
-</span><span id="line-383"></span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
-</span><span id="line-384"></span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
-</span><span id="line-385"></span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
-</span><span id="line-386"></span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
-</span><span id="line-387"></span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
-</span><span id="line-388"></span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
-</span><span id="line-389"></span><span class="hs-comment">--</span><span>
-</span><span id="line-390"></span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
-</span><span id="line-391"></span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
-</span><span id="line-392"></span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
-</span><span id="line-393"></span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
+</span><span id="line-387"></span><span class="hs-comment">--</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
+</span><span id="line-392"></span><span class="hs-comment">--</span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- 'sourceImageFace', 'compareFacesResponse_sourceImageFace' - The face in the source image that was used for comparison.</span><span>
 </span><span id="line-394"></span><span class="hs-comment">--</span><span>
 </span><span id="line-395"></span><span class="hs-comment">-- 'httpStatus', 'compareFacesResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-396"></span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#newCompareFacesResponse"><span class="hs-identifier hs-type">newCompareFacesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -786,118 +788,49 @@ $cfrom :: forall x. CompareFacesResponse -&gt; Rep CompareFacesResponse x
 </span><span id="line-398"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-399"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span>
 </span><span id="line-400"></span><span id="newCompareFacesResponse"><span class="annot"><span class="annottext">newCompareFacesResponse :: Int -&gt; CompareFacesResponse
-</span><a href="Network.AWS.Rekognition.CompareFaces.html#newCompareFacesResponse"><span class="hs-identifier hs-var hs-var">newCompareFacesResponse</span></a></span></span><span> </span><span id="local-6989586621679348434"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348434"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-401"></span><span>  </span><span class="annot"><span class="annottext">CompareFacesResponse' :: Maybe [ComparedFace]
+</span><a href="Network.AWS.Rekognition.CompareFaces.html#newCompareFacesResponse"><span class="hs-identifier hs-var hs-var">newCompareFacesResponse</span></a></span></span><span> </span><span id="local-6989586621679348764"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348764"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-401"></span><span>  </span><span class="annot"><span class="annottext">CompareFacesResponse' :: Maybe [CompareFacesMatch]
+-&gt; Maybe [ComparedFace]
+-&gt; Maybe OrientationCorrection
+-&gt; Maybe OrientationCorrection
 -&gt; Maybe ComparedSourceImageFace
--&gt; Maybe [CompareFacesMatch]
--&gt; Maybe OrientationCorrection
--&gt; Maybe OrientationCorrection
 -&gt; Int
 -&gt; CompareFacesResponse
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span>
-</span><span id="line-402"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:unmatchedFaces:CompareFacesResponse' :: Maybe [ComparedFace]
-</span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AunmatchedFaces%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">unmatchedFaces</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-403"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ComparedFace]
+</span><span id="line-402"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:faceMatches:CompareFacesResponse' :: Maybe [CompareFacesMatch]
+</span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AfaceMatches%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">faceMatches</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-403"></span><span>        </span><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-404"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceImageFace:CompareFacesResponse' :: Maybe ComparedSourceImageFace
-</span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AsourceImageFace%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">sourceImageFace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComparedSourceImageFace
+</span><span id="line-404"></span><span>      </span><span class="annot"><span class="annottext">$sel:unmatchedFaces:CompareFacesResponse' :: Maybe [ComparedFace]
+</span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AunmatchedFaces%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">unmatchedFaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ComparedFace]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-405"></span><span>      </span><span class="annot"><span class="annottext">$sel:faceMatches:CompareFacesResponse' :: Maybe [CompareFacesMatch]
-</span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AfaceMatches%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">faceMatches</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-406"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetImageOrientationCorrection:CompareFacesResponse' :: Maybe OrientationCorrection
+</span><span id="line-405"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetImageOrientationCorrection:CompareFacesResponse' :: Maybe OrientationCorrection
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AtargetImageOrientationCorrection%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">targetImageOrientationCorrection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-407"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceImageOrientationCorrection:CompareFacesResponse' :: Maybe OrientationCorrection
+</span><span id="line-406"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceImageOrientationCorrection:CompareFacesResponse' :: Maybe OrientationCorrection
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AsourceImageOrientationCorrection%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">sourceImageOrientationCorrection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-407"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceImageFace:CompareFacesResponse' :: Maybe ComparedSourceImageFace
+</span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AsourceImageFace%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">sourceImageFace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComparedSourceImageFace
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-408"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CompareFacesResponse' :: Int
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AhttpStatus%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348434"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679348764"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-409"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-410"></span><span>
-</span><span id="line-411"></span><span class="hs-comment">-- | An array of faces in the target image that did not match the source</span><span>
-</span><span id="line-412"></span><span class="hs-comment">-- image face.</span><span>
-</span><span id="line-413"></span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_unmatchedFaces"><span class="hs-identifier hs-type">compareFacesResponse_unmatchedFaces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ComparedFace.html#ComparedFace"><span class="hs-identifier hs-type">ComparedFace</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-414"></span><span id="compareFacesResponse_unmatchedFaces"><span class="annot"><span class="annottext">compareFacesResponse_unmatchedFaces :: (Maybe [ComparedFace] -&gt; f (Maybe [ComparedFace]))
--&gt; CompareFacesResponse -&gt; f CompareFacesResponse
-</span><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_unmatchedFaces"><span class="hs-identifier hs-var hs-var">compareFacesResponse_unmatchedFaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CompareFacesResponse -&gt; Maybe [ComparedFace])
--&gt; (CompareFacesResponse
-    -&gt; Maybe [ComparedFace] -&gt; CompareFacesResponse)
--&gt; Lens
-     CompareFacesResponse
-     CompareFacesResponse
-     (Maybe [ComparedFace])
-     (Maybe [ComparedFace])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348433"><span class="annot"><span class="annottext">Maybe [ComparedFace]
-unmatchedFaces :: Maybe [ComparedFace]
-$sel:unmatchedFaces:CompareFacesResponse' :: CompareFacesResponse -&gt; Maybe [ComparedFace]
-</span><a href="#local-6989586621679348433"><span class="hs-identifier hs-var hs-var">unmatchedFaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ComparedFace]
-</span><a href="#local-6989586621679348433"><span class="hs-identifier hs-var">unmatchedFaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348432"><span class="annot"><span class="annottext">s :: CompareFacesResponse
-</span><a href="#local-6989586621679348432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348431"><span class="annot"><span class="annottext">Maybe [ComparedFace]
-</span><a href="#local-6989586621679348431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
-</span><a href="#local-6989586621679348432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unmatchedFaces:CompareFacesResponse' :: Maybe [ComparedFace]
-</span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AunmatchedFaces%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">unmatchedFaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ComparedFace]
-</span><a href="#local-6989586621679348431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ComparedFace] -&gt; f (Maybe [ComparedFace]))
- -&gt; CompareFacesResponse -&gt; f CompareFacesResponse)
--&gt; ((Maybe [ComparedFace] -&gt; f (Maybe [ComparedFace]))
-    -&gt; Maybe [ComparedFace] -&gt; f (Maybe [ComparedFace]))
--&gt; (Maybe [ComparedFace] -&gt; f (Maybe [ComparedFace]))
--&gt; CompareFacesResponse
--&gt; f CompareFacesResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ComparedFace] [ComparedFace] [ComparedFace] [ComparedFace]
--&gt; Iso
-     (Maybe [ComparedFace])
-     (Maybe [ComparedFace])
-     (Maybe [ComparedFace])
-     (Maybe [ComparedFace])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ComparedFace] [ComparedFace] [ComparedFace] [ComparedFace]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-415"></span><span>
-</span><span id="line-416"></span><span class="hs-comment">-- | The face in the source image that was used for comparison.</span><span>
-</span><span id="line-417"></span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_sourceImageFace"><span class="hs-identifier hs-type">compareFacesResponse_sourceImageFace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ComparedSourceImageFace.html#ComparedSourceImageFace"><span class="hs-identifier hs-type">ComparedSourceImageFace</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-418"></span><span id="compareFacesResponse_sourceImageFace"><span class="annot"><span class="annottext">compareFacesResponse_sourceImageFace :: (Maybe ComparedSourceImageFace
- -&gt; f (Maybe ComparedSourceImageFace))
--&gt; CompareFacesResponse -&gt; f CompareFacesResponse
-</span><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_sourceImageFace"><span class="hs-identifier hs-var hs-var">compareFacesResponse_sourceImageFace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CompareFacesResponse -&gt; Maybe ComparedSourceImageFace)
--&gt; (CompareFacesResponse
-    -&gt; Maybe ComparedSourceImageFace -&gt; CompareFacesResponse)
--&gt; Lens
-     CompareFacesResponse
-     CompareFacesResponse
-     (Maybe ComparedSourceImageFace)
-     (Maybe ComparedSourceImageFace)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348427"><span class="annot"><span class="annottext">Maybe ComparedSourceImageFace
-sourceImageFace :: Maybe ComparedSourceImageFace
-$sel:sourceImageFace:CompareFacesResponse' :: CompareFacesResponse -&gt; Maybe ComparedSourceImageFace
-</span><a href="#local-6989586621679348427"><span class="hs-identifier hs-var hs-var">sourceImageFace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComparedSourceImageFace
-</span><a href="#local-6989586621679348427"><span class="hs-identifier hs-var">sourceImageFace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348426"><span class="annot"><span class="annottext">s :: CompareFacesResponse
-</span><a href="#local-6989586621679348426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348425"><span class="annot"><span class="annottext">Maybe ComparedSourceImageFace
-</span><a href="#local-6989586621679348425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
-</span><a href="#local-6989586621679348426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceImageFace:CompareFacesResponse' :: Maybe ComparedSourceImageFace
-</span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AsourceImageFace%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">sourceImageFace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComparedSourceImageFace
-</span><a href="#local-6989586621679348425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-419"></span><span>
-</span><span id="line-420"></span><span class="hs-comment">-- | An array of faces in the target image that match the source image face.</span><span>
-</span><span id="line-421"></span><span class="hs-comment">-- Each @CompareFacesMatch@ object provides the bounding box, the</span><span>
-</span><span id="line-422"></span><span class="hs-comment">-- confidence level that the bounding box contains a face, and the</span><span>
-</span><span id="line-423"></span><span class="hs-comment">-- similarity score for the face in the bounding box and the face in the</span><span>
-</span><span id="line-424"></span><span class="hs-comment">-- source image.</span><span>
-</span><span id="line-425"></span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_faceMatches"><span class="hs-identifier hs-type">compareFacesResponse_faceMatches</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch"><span class="hs-identifier hs-type">CompareFacesMatch</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-426"></span><span id="compareFacesResponse_faceMatches"><span class="annot"><span class="annottext">compareFacesResponse_faceMatches :: (Maybe [CompareFacesMatch] -&gt; f (Maybe [CompareFacesMatch]))
+</span><span id="line-411"></span><span class="hs-comment">-- | An array of faces in the target image that match the source image face.</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- Each @CompareFacesMatch@ object provides the bounding box, the</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- confidence level that the bounding box contains a face, and the</span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- similarity score for the face in the bounding box and the face in the</span><span>
+</span><span id="line-415"></span><span class="hs-comment">-- source image.</span><span>
+</span><span id="line-416"></span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_faceMatches"><span class="hs-identifier hs-type">compareFacesResponse_faceMatches</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch"><span class="hs-identifier hs-type">CompareFacesMatch</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-417"></span><span id="compareFacesResponse_faceMatches"><span class="annot"><span class="annottext">compareFacesResponse_faceMatches :: (Maybe [CompareFacesMatch] -&gt; f (Maybe [CompareFacesMatch]))
 -&gt; CompareFacesResponse -&gt; f CompareFacesResponse
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_faceMatches"><span class="hs-identifier hs-var hs-var">compareFacesResponse_faceMatches</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CompareFacesResponse -&gt; Maybe [CompareFacesMatch])
 -&gt; (CompareFacesResponse
@@ -908,16 +841,16 @@ $sel:sourceImageFace:CompareFacesResponse' :: CompareFacesResponse -&gt; Maybe C
      (Maybe [CompareFacesMatch])
      (Maybe [CompareFacesMatch])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348424"><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348763"><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
 faceMatches :: Maybe [CompareFacesMatch]
 $sel:faceMatches:CompareFacesResponse' :: CompareFacesResponse -&gt; Maybe [CompareFacesMatch]
-</span><a href="#local-6989586621679348424"><span class="hs-identifier hs-var hs-var">faceMatches</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
-</span><a href="#local-6989586621679348424"><span class="hs-identifier hs-var">faceMatches</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348423"><span class="annot"><span class="annottext">s :: CompareFacesResponse
-</span><a href="#local-6989586621679348423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348422"><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
-</span><a href="#local-6989586621679348422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
-</span><a href="#local-6989586621679348423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceMatches:CompareFacesResponse' :: Maybe [CompareFacesMatch]
+</span><a href="#local-6989586621679348763"><span class="hs-identifier hs-var hs-var">faceMatches</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
+</span><a href="#local-6989586621679348763"><span class="hs-identifier hs-var">faceMatches</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348762"><span class="annot"><span class="annottext">s :: CompareFacesResponse
+</span><a href="#local-6989586621679348762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348761"><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
+</span><a href="#local-6989586621679348761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
+</span><a href="#local-6989586621679348762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceMatches:CompareFacesResponse' :: Maybe [CompareFacesMatch]
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AfaceMatches%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">faceMatches</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CompareFacesMatch]
-</span><a href="#local-6989586621679348422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CompareFacesMatch] -&gt; f (Maybe [CompareFacesMatch]))
+</span><a href="#local-6989586621679348761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CompareFacesMatch] -&gt; f (Maybe [CompareFacesMatch]))
  -&gt; CompareFacesResponse -&gt; f CompareFacesResponse)
 -&gt; ((Maybe [CompareFacesMatch] -&gt; f (Maybe [CompareFacesMatch]))
     -&gt; Maybe [CompareFacesMatch] -&gt; f (Maybe [CompareFacesMatch]))
@@ -943,25 +876,69 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [CompareFacesMatch]
   [CompareFacesMatch]
   [CompareFacesMatch]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-427"></span><span>
-</span><span id="line-428"></span><span class="hs-comment">-- | The value of @TargetImageOrientationCorrection@ is always null.</span><span>
-</span><span id="line-429"></span><span class="hs-comment">--</span><span>
-</span><span id="line-430"></span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
-</span><span id="line-431"></span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
-</span><span id="line-432"></span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
-</span><span id="line-433"></span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
-</span><span id="line-434"></span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
-</span><span id="line-435"></span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
-</span><span id="line-436"></span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
-</span><span id="line-437"></span><span class="hs-comment">--</span><span>
-</span><span id="line-438"></span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
-</span><span id="line-439"></span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
-</span><span id="line-440"></span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
-</span><span id="line-441"></span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
-</span><span id="line-442"></span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_targetImageOrientationCorrection"><span class="hs-identifier hs-type">compareFacesResponse_targetImageOrientationCorrection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-443"></span><span id="compareFacesResponse_targetImageOrientationCorrection"><span class="annot"><span class="annottext">compareFacesResponse_targetImageOrientationCorrection :: (Maybe OrientationCorrection -&gt; f (Maybe OrientationCorrection))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-418"></span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- | An array of faces in the target image that did not match the source</span><span>
+</span><span id="line-420"></span><span class="hs-comment">-- image face.</span><span>
+</span><span id="line-421"></span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_unmatchedFaces"><span class="hs-identifier hs-type">compareFacesResponse_unmatchedFaces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ComparedFace.html#ComparedFace"><span class="hs-identifier hs-type">ComparedFace</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-422"></span><span id="compareFacesResponse_unmatchedFaces"><span class="annot"><span class="annottext">compareFacesResponse_unmatchedFaces :: (Maybe [ComparedFace] -&gt; f (Maybe [ComparedFace]))
+-&gt; CompareFacesResponse -&gt; f CompareFacesResponse
+</span><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_unmatchedFaces"><span class="hs-identifier hs-var hs-var">compareFacesResponse_unmatchedFaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CompareFacesResponse -&gt; Maybe [ComparedFace])
+-&gt; (CompareFacesResponse
+    -&gt; Maybe [ComparedFace] -&gt; CompareFacesResponse)
+-&gt; Lens
+     CompareFacesResponse
+     CompareFacesResponse
+     (Maybe [ComparedFace])
+     (Maybe [ComparedFace])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348757"><span class="annot"><span class="annottext">Maybe [ComparedFace]
+unmatchedFaces :: Maybe [ComparedFace]
+$sel:unmatchedFaces:CompareFacesResponse' :: CompareFacesResponse -&gt; Maybe [ComparedFace]
+</span><a href="#local-6989586621679348757"><span class="hs-identifier hs-var hs-var">unmatchedFaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ComparedFace]
+</span><a href="#local-6989586621679348757"><span class="hs-identifier hs-var">unmatchedFaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348756"><span class="annot"><span class="annottext">s :: CompareFacesResponse
+</span><a href="#local-6989586621679348756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348755"><span class="annot"><span class="annottext">Maybe [ComparedFace]
+</span><a href="#local-6989586621679348755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
+</span><a href="#local-6989586621679348756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unmatchedFaces:CompareFacesResponse' :: Maybe [ComparedFace]
+</span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AunmatchedFaces%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">unmatchedFaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ComparedFace]
+</span><a href="#local-6989586621679348755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ComparedFace] -&gt; f (Maybe [ComparedFace]))
+ -&gt; CompareFacesResponse -&gt; f CompareFacesResponse)
+-&gt; ((Maybe [ComparedFace] -&gt; f (Maybe [ComparedFace]))
+    -&gt; Maybe [ComparedFace] -&gt; f (Maybe [ComparedFace]))
+-&gt; (Maybe [ComparedFace] -&gt; f (Maybe [ComparedFace]))
+-&gt; CompareFacesResponse
+-&gt; f CompareFacesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ComparedFace] [ComparedFace] [ComparedFace] [ComparedFace]
+-&gt; Iso
+     (Maybe [ComparedFace])
+     (Maybe [ComparedFace])
+     (Maybe [ComparedFace])
+     (Maybe [ComparedFace])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ComparedFace] [ComparedFace] [ComparedFace] [ComparedFace]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-423"></span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- | The value of @TargetImageOrientationCorrection@ is always null.</span><span>
+</span><span id="line-425"></span><span class="hs-comment">--</span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-428"></span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
+</span><span id="line-430"></span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
+</span><span id="line-431"></span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
+</span><span id="line-432"></span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
+</span><span id="line-433"></span><span class="hs-comment">--</span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
+</span><span id="line-435"></span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
+</span><span id="line-436"></span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
+</span><span id="line-437"></span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
+</span><span id="line-438"></span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_targetImageOrientationCorrection"><span class="hs-identifier hs-type">compareFacesResponse_targetImageOrientationCorrection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-439"></span><span id="compareFacesResponse_targetImageOrientationCorrection"><span class="annot"><span class="annottext">compareFacesResponse_targetImageOrientationCorrection :: (Maybe OrientationCorrection -&gt; f (Maybe OrientationCorrection))
 -&gt; CompareFacesResponse -&gt; f CompareFacesResponse
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_targetImageOrientationCorrection"><span class="hs-identifier hs-var hs-var">compareFacesResponse_targetImageOrientationCorrection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CompareFacesResponse -&gt; Maybe OrientationCorrection)
 -&gt; (CompareFacesResponse
@@ -972,33 +949,33 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe OrientationCorrection)
      (Maybe OrientationCorrection)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348421"><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348754"><span class="annot"><span class="annottext">Maybe OrientationCorrection
 targetImageOrientationCorrection :: Maybe OrientationCorrection
 $sel:targetImageOrientationCorrection:CompareFacesResponse' :: CompareFacesResponse -&gt; Maybe OrientationCorrection
-</span><a href="#local-6989586621679348421"><span class="hs-identifier hs-var hs-var">targetImageOrientationCorrection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
-</span><a href="#local-6989586621679348421"><span class="hs-identifier hs-var">targetImageOrientationCorrection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348420"><span class="annot"><span class="annottext">s :: CompareFacesResponse
-</span><a href="#local-6989586621679348420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348419"><span class="annot"><span class="annottext">Maybe OrientationCorrection
-</span><a href="#local-6989586621679348419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
-</span><a href="#local-6989586621679348420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetImageOrientationCorrection:CompareFacesResponse' :: Maybe OrientationCorrection
+</span><a href="#local-6989586621679348754"><span class="hs-identifier hs-var hs-var">targetImageOrientationCorrection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679348754"><span class="hs-identifier hs-var">targetImageOrientationCorrection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348753"><span class="annot"><span class="annottext">s :: CompareFacesResponse
+</span><a href="#local-6989586621679348753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348752"><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679348752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
+</span><a href="#local-6989586621679348753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetImageOrientationCorrection:CompareFacesResponse' :: Maybe OrientationCorrection
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AtargetImageOrientationCorrection%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">targetImageOrientationCorrection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
-</span><a href="#local-6989586621679348419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-444"></span><span>
-</span><span id="line-445"></span><span class="hs-comment">-- | The value of @SourceImageOrientationCorrection@ is always null.</span><span>
-</span><span id="line-446"></span><span class="hs-comment">--</span><span>
-</span><span id="line-447"></span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
-</span><span id="line-448"></span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
-</span><span id="line-449"></span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
-</span><span id="line-450"></span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
-</span><span id="line-451"></span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
-</span><span id="line-452"></span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
-</span><span id="line-453"></span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
-</span><span id="line-454"></span><span class="hs-comment">--</span><span>
-</span><span id="line-455"></span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
-</span><span id="line-456"></span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
-</span><span id="line-457"></span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
-</span><span id="line-458"></span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
-</span><span id="line-459"></span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_sourceImageOrientationCorrection"><span class="hs-identifier hs-type">compareFacesResponse_sourceImageOrientationCorrection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-460"></span><span id="compareFacesResponse_sourceImageOrientationCorrection"><span class="annot"><span class="annottext">compareFacesResponse_sourceImageOrientationCorrection :: (Maybe OrientationCorrection -&gt; f (Maybe OrientationCorrection))
+</span><a href="#local-6989586621679348752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-440"></span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- | The value of @SourceImageOrientationCorrection@ is always null.</span><span>
+</span><span id="line-442"></span><span class="hs-comment">--</span><span>
+</span><span id="line-443"></span><span class="hs-comment">-- If the input image is in .jpeg format, it might contain exchangeable</span><span>
+</span><span id="line-444"></span><span class="hs-comment">-- image file format (Exif) metadata that includes the image\'s</span><span>
+</span><span id="line-445"></span><span class="hs-comment">-- orientation. Amazon Rekognition uses this orientation information to</span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- perform image correction. The bounding box coordinates are translated to</span><span>
+</span><span id="line-447"></span><span class="hs-comment">-- represent object locations after the orientation information in the Exif</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- metadata is used to correct the image orientation. Images in .png format</span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- don\'t contain Exif metadata.</span><span>
+</span><span id="line-450"></span><span class="hs-comment">--</span><span>
+</span><span id="line-451"></span><span class="hs-comment">-- Amazon Rekognition doesn&#8217;t perform image correction for images in .png</span><span>
+</span><span id="line-452"></span><span class="hs-comment">-- format and .jpeg images without orientation information in the image</span><span>
+</span><span id="line-453"></span><span class="hs-comment">-- Exif metadata. The bounding box coordinates aren\'t translated and</span><span>
+</span><span id="line-454"></span><span class="hs-comment">-- represent the object locations before the image is rotated.</span><span>
+</span><span id="line-455"></span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_sourceImageOrientationCorrection"><span class="hs-identifier hs-type">compareFacesResponse_sourceImageOrientationCorrection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.OrientationCorrection.html#OrientationCorrection"><span class="hs-identifier hs-type">OrientationCorrection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-456"></span><span id="compareFacesResponse_sourceImageOrientationCorrection"><span class="annot"><span class="annottext">compareFacesResponse_sourceImageOrientationCorrection :: (Maybe OrientationCorrection -&gt; f (Maybe OrientationCorrection))
 -&gt; CompareFacesResponse -&gt; f CompareFacesResponse
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_sourceImageOrientationCorrection"><span class="hs-identifier hs-var hs-var">compareFacesResponse_sourceImageOrientationCorrection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CompareFacesResponse -&gt; Maybe OrientationCorrection)
 -&gt; (CompareFacesResponse
@@ -1009,16 +986,41 @@ $sel:targetImageOrientationCorrection:CompareFacesResponse' :: CompareFacesRespo
      (Maybe OrientationCorrection)
      (Maybe OrientationCorrection)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348418"><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348751"><span class="annot"><span class="annottext">Maybe OrientationCorrection
 sourceImageOrientationCorrection :: Maybe OrientationCorrection
 $sel:sourceImageOrientationCorrection:CompareFacesResponse' :: CompareFacesResponse -&gt; Maybe OrientationCorrection
-</span><a href="#local-6989586621679348418"><span class="hs-identifier hs-var hs-var">sourceImageOrientationCorrection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
-</span><a href="#local-6989586621679348418"><span class="hs-identifier hs-var">sourceImageOrientationCorrection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348417"><span class="annot"><span class="annottext">s :: CompareFacesResponse
-</span><a href="#local-6989586621679348417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348416"><span class="annot"><span class="annottext">Maybe OrientationCorrection
-</span><a href="#local-6989586621679348416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
-</span><a href="#local-6989586621679348417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceImageOrientationCorrection:CompareFacesResponse' :: Maybe OrientationCorrection
+</span><a href="#local-6989586621679348751"><span class="hs-identifier hs-var hs-var">sourceImageOrientationCorrection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679348751"><span class="hs-identifier hs-var">sourceImageOrientationCorrection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348750"><span class="annot"><span class="annottext">s :: CompareFacesResponse
+</span><a href="#local-6989586621679348750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348749"><span class="annot"><span class="annottext">Maybe OrientationCorrection
+</span><a href="#local-6989586621679348749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
+</span><a href="#local-6989586621679348750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceImageOrientationCorrection:CompareFacesResponse' :: Maybe OrientationCorrection
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AsourceImageOrientationCorrection%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">sourceImageOrientationCorrection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrientationCorrection
-</span><a href="#local-6989586621679348416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-457"></span><span>
+</span><span id="line-458"></span><span class="hs-comment">-- | The face in the source image that was used for comparison.</span><span>
+</span><span id="line-459"></span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_sourceImageFace"><span class="hs-identifier hs-type">compareFacesResponse_sourceImageFace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ComparedSourceImageFace.html#ComparedSourceImageFace"><span class="hs-identifier hs-type">ComparedSourceImageFace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-460"></span><span id="compareFacesResponse_sourceImageFace"><span class="annot"><span class="annottext">compareFacesResponse_sourceImageFace :: (Maybe ComparedSourceImageFace
+ -&gt; f (Maybe ComparedSourceImageFace))
+-&gt; CompareFacesResponse -&gt; f CompareFacesResponse
+</span><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_sourceImageFace"><span class="hs-identifier hs-var hs-var">compareFacesResponse_sourceImageFace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CompareFacesResponse -&gt; Maybe ComparedSourceImageFace)
+-&gt; (CompareFacesResponse
+    -&gt; Maybe ComparedSourceImageFace -&gt; CompareFacesResponse)
+-&gt; Lens
+     CompareFacesResponse
+     CompareFacesResponse
+     (Maybe ComparedSourceImageFace)
+     (Maybe ComparedSourceImageFace)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348748"><span class="annot"><span class="annottext">Maybe ComparedSourceImageFace
+sourceImageFace :: Maybe ComparedSourceImageFace
+$sel:sourceImageFace:CompareFacesResponse' :: CompareFacesResponse -&gt; Maybe ComparedSourceImageFace
+</span><a href="#local-6989586621679348748"><span class="hs-identifier hs-var hs-var">sourceImageFace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComparedSourceImageFace
+</span><a href="#local-6989586621679348748"><span class="hs-identifier hs-var">sourceImageFace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348747"><span class="annot"><span class="annottext">s :: CompareFacesResponse
+</span><a href="#local-6989586621679348747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348746"><span class="annot"><span class="annottext">Maybe ComparedSourceImageFace
+</span><a href="#local-6989586621679348746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
+</span><a href="#local-6989586621679348747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceImageFace:CompareFacesResponse' :: Maybe ComparedSourceImageFace
+</span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AsourceImageFace%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">sourceImageFace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComparedSourceImageFace
+</span><a href="#local-6989586621679348746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-461"></span><span>
 </span><span id="line-462"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-463"></span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#compareFacesResponse_httpStatus"><span class="hs-identifier hs-type">compareFacesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1027,16 +1029,16 @@ $sel:sourceImageOrientationCorrection:CompareFacesResponse' :: CompareFacesRespo
 -&gt; (CompareFacesResponse -&gt; Int -&gt; CompareFacesResponse)
 -&gt; Lens CompareFacesResponse CompareFacesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348415"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348745"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CompareFacesResponse' :: CompareFacesResponse -&gt; Int
-</span><a href="#local-6989586621679348415"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348415"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348414"><span class="annot"><span class="annottext">s :: CompareFacesResponse
-</span><a href="#local-6989586621679348414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348413"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
-</span><a href="#local-6989586621679348414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CompareFacesResponse' :: Int
+</span><a href="#local-6989586621679348745"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348745"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348744"><span class="annot"><span class="annottext">s :: CompareFacesResponse
+</span><a href="#local-6989586621679348744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse%27"><span class="hs-identifier hs-type">CompareFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348743"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesResponse
+</span><a href="#local-6989586621679348744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CompareFacesResponse' :: Int
 </span><a href="Network.AWS.Rekognition.CompareFaces.html#%24sel%3AhttpStatus%3ACompareFacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-465"></span><span>
-</span><span id="line-466"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348411"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span></span><span>
+</span><span id="line-466"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348741"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CompareFaces.html#CompareFacesResponse"><span class="hs-identifier hs-type">CompareFacesResponse</span></a></span></span><span>
 </span><span id="line-467"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679253849"><span id="local-6989586621679253850"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HistoryItemType"><span class="annot"><a href="Network.AWS.CloudWatch.Types.HistoryItemType.html#HistoryItemType"><span class="hs-identifier hs-var">HistoryItemType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HistoryItemType%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.HistoryItemType.html#HistoryItemType%27"><span class="hs-identifier hs-var">HistoryItemType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679254174"><span id="local-6989586621679254175"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HistoryItemType"><span class="annot"><a href="Network.AWS.CloudWatch.Types.HistoryItemType.html#HistoryItemType"><span class="hs-identifier hs-var">HistoryItemType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HistoryItemType%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.HistoryItemType.html#HistoryItemType%27"><span class="hs-identifier hs-var">HistoryItemType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHistoryItemType"><span class="annot"><span class="annottext">HistoryItemType -&gt; Text
 </span><a href="Network.AWS.CloudWatch.Types.HistoryItemType.html#fromHistoryItemType"><span class="hs-identifier hs-var hs-var">fromHistoryItemType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679253841"><span id="local-6989586621679253843"><span id="local-6989586621679253845"><span class="annot"><span class="annottext">Int -&gt; HistoryItemType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679254166"><span id="local-6989586621679254168"><span id="local-6989586621679254170"><span class="annot"><span class="annottext">Int -&gt; HistoryItemType -&gt; ShowS
 [HistoryItemType] -&gt; ShowS
 HistoryItemType -&gt; String
 (Int -&gt; HistoryItemType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: HistoryItemType -&gt; String
 showsPrec :: Int -&gt; HistoryItemType -&gt; ShowS
 $cshowsPrec :: Int -&gt; HistoryItemType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679253832"><span id="local-6989586621679253834"><span id="local-6989586621679253836"><span id="local-6989586621679253838"><span class="annot"><span class="annottext">ReadPrec [HistoryItemType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679254157"><span id="local-6989586621679254159"><span id="local-6989586621679254161"><span id="local-6989586621679254163"><span class="annot"><span class="annottext">ReadPrec [HistoryItemType]
 ReadPrec HistoryItemType
 Int -&gt; ReadS HistoryItemType
 ReadS [HistoryItemType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [HistoryItemType]
 readsPrec :: Int -&gt; ReadS HistoryItemType
 $creadsPrec :: Int -&gt; ReadS HistoryItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679253827"><span id="local-6989586621679253829"><span class="annot"><span class="annottext">HistoryItemType -&gt; HistoryItemType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679254152"><span id="local-6989586621679254154"><span class="annot"><span class="annottext">HistoryItemType -&gt; HistoryItemType -&gt; Bool
 (HistoryItemType -&gt; HistoryItemType -&gt; Bool)
 -&gt; (HistoryItemType -&gt; HistoryItemType -&gt; Bool)
 -&gt; Eq HistoryItemType
@@ -83,7 +83,7 @@ $c/= :: HistoryItemType -&gt; HistoryItemType -&gt; Bool
 == :: HistoryItemType -&gt; HistoryItemType -&gt; Bool
 $c== :: HistoryItemType -&gt; HistoryItemType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679253811"><span id="local-6989586621679253813"><span id="local-6989586621679253815"><span id="local-6989586621679253817"><span id="local-6989586621679253819"><span id="local-6989586621679253821"><span id="local-6989586621679253823"><span class="annot"><span class="annottext">Eq HistoryItemType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679254136"><span id="local-6989586621679254138"><span id="local-6989586621679254140"><span id="local-6989586621679254142"><span id="local-6989586621679254144"><span id="local-6989586621679254146"><span id="local-6989586621679254148"><span class="annot"><span class="annottext">Eq HistoryItemType
 Eq HistoryItemType
 -&gt; (HistoryItemType -&gt; HistoryItemType -&gt; Ordering)
 -&gt; (HistoryItemType -&gt; HistoryItemType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. HistoryItemType -&gt; Rep HistoryItemType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679253803"><span id="local-6989586621679253805"><span class="annot"><span class="annottext">Int -&gt; HistoryItemType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679254128"><span id="local-6989586621679254130"><span class="annot"><span class="annottext">Int -&gt; HistoryItemType -&gt; Int
 HistoryItemType -&gt; Int
 (Int -&gt; HistoryItemType -&gt; Int)
 -&gt; (HistoryItemType -&gt; Int) -&gt; Hashable HistoryItemType
@@ -144,50 +144,50 @@ $chash :: HistoryItemType -&gt; Int
 hashWithSalt :: Int -&gt; HistoryItemType -&gt; Int
 $chashWithSalt :: Int -&gt; HistoryItemType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679253800"><span class="annot"><span class="annottext">HistoryItemType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679254125"><span class="annot"><span class="annottext">HistoryItemType -&gt; ()
 (HistoryItemType -&gt; ()) -&gt; NFData HistoryItemType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HistoryItemType -&gt; ()
 $crnf :: HistoryItemType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679253797"><span class="annot"><span class="annottext">Text -&gt; Either String HistoryItemType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679254122"><span class="annot"><span class="annottext">Text -&gt; Either String HistoryItemType
 (Text -&gt; Either String HistoryItemType) -&gt; FromText HistoryItemType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HistoryItemType
 $cfromText :: Text -&gt; Either String HistoryItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679253794"><span class="annot"><span class="annottext">HistoryItemType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679254119"><span class="annot"><span class="annottext">HistoryItemType -&gt; Text
 (HistoryItemType -&gt; Text) -&gt; ToText HistoryItemType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HistoryItemType -&gt; Text
 $ctoText :: HistoryItemType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679253791"><span class="annot"><span class="annottext">HistoryItemType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679254116"><span class="annot"><span class="annottext">HistoryItemType -&gt; ByteString
 (HistoryItemType -&gt; ByteString) -&gt; ToByteString HistoryItemType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HistoryItemType -&gt; ByteString
 $ctoBS :: HistoryItemType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679253788"><span class="annot"><span class="annottext">HistoryItemType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679254113"><span class="annot"><span class="annottext">HistoryItemType -&gt; ByteStringBuilder
 (HistoryItemType -&gt; ByteStringBuilder) -&gt; ToLog HistoryItemType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HistoryItemType -&gt; ByteStringBuilder
 $cbuild :: HistoryItemType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679253785"><span class="annot"><span class="annottext">HeaderName -&gt; HistoryItemType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679254110"><span class="annot"><span class="annottext">HeaderName -&gt; HistoryItemType -&gt; [Header]
 (HeaderName -&gt; HistoryItemType -&gt; [Header])
 -&gt; ToHeader HistoryItemType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HistoryItemType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HistoryItemType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679253782"><span class="annot"><span class="annottext">HistoryItemType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679254107"><span class="annot"><span class="annottext">HistoryItemType -&gt; QueryString
 (HistoryItemType -&gt; QueryString) -&gt; ToQuery HistoryItemType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HistoryItemType -&gt; QueryString
 $ctoQuery :: HistoryItemType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679253777"><span id="local-6989586621679253779"><span class="annot"><span class="annottext">Value -&gt; Parser [HistoryItemType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679254102"><span id="local-6989586621679254104"><span class="annot"><span class="annottext">Value -&gt; Parser [HistoryItemType]
 Value -&gt; Parser HistoryItemType
 (Value -&gt; Parser HistoryItemType)
 -&gt; (Value -&gt; Parser [HistoryItemType]) -&gt; FromJSON HistoryItemType
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [HistoryItemType]
 parseJSON :: Value -&gt; Parser HistoryItemType
 $cparseJSON :: Value -&gt; Parser HistoryItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679253772"><span id="local-6989586621679253774"><span class="annot"><span class="annottext">FromJSONKeyFunction [HistoryItemType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679254097"><span id="local-6989586621679254099"><span class="annot"><span class="annottext">FromJSONKeyFunction [HistoryItemType]
 FromJSONKeyFunction HistoryItemType
 FromJSONKeyFunction HistoryItemType
 -&gt; FromJSONKeyFunction [HistoryItemType]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HistoryItemType]
 fromJSONKey :: FromJSONKeyFunction HistoryItemType
 $cfromJSONKey :: FromJSONKeyFunction HistoryItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679253763"><span id="local-6989586621679253765"><span id="local-6989586621679253767"><span id="local-6989586621679253769"><span class="annot"><span class="annottext">[HistoryItemType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679254088"><span id="local-6989586621679254090"><span id="local-6989586621679254092"><span id="local-6989586621679254094"><span class="annot"><span class="annottext">[HistoryItemType] -&gt; Encoding
 [HistoryItemType] -&gt; Value
 HistoryItemType -&gt; Encoding
 HistoryItemType -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: HistoryItemType -&gt; Encoding
 toJSON :: HistoryItemType -&gt; Value
 $ctoJSON :: HistoryItemType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679253758"><span id="local-6989586621679253760"><span class="annot"><span class="annottext">ToJSONKeyFunction [HistoryItemType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679254083"><span id="local-6989586621679254085"><span class="annot"><span class="annottext">ToJSONKeyFunction [HistoryItemType]
 ToJSONKeyFunction HistoryItemType
 ToJSONKeyFunction HistoryItemType
 -&gt; ToJSONKeyFunction [HistoryItemType] -&gt; ToJSONKey HistoryItemType
@@ -245,14 +245,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HistoryItemType]
 toJSONKey :: ToJSONKeyFunction HistoryItemType
 $ctoJSONKey :: ToJSONKeyFunction HistoryItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679253755"><span class="annot"><span class="annottext">[Node] -&gt; Either String HistoryItemType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679254080"><span class="annot"><span class="annottext">[Node] -&gt; Either String HistoryItemType
 ([Node] -&gt; Either String HistoryItemType)
 -&gt; FromXML HistoryItemType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HistoryItemType
 $cparseXML :: [Node] -&gt; Either String HistoryItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679253752"><span class="annot"><span class="annottext">HistoryItemType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679254077"><span class="annot"><span class="annottext">HistoryItemType -&gt; XML
 (HistoryItemType -&gt; XML) -&gt; ToXML HistoryItemType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HistoryItemType -&gt; XML

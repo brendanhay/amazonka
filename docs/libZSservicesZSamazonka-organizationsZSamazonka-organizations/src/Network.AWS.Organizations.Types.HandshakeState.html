@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679237790"><span id="local-6989586621679237791"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HandshakeState"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeState.html#HandshakeState"><span class="hs-identifier hs-var">HandshakeState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HandshakeState%27"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeState.html#HandshakeState%27"><span class="hs-identifier hs-var">HandshakeState'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679237911"><span id="local-6989586621679237912"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HandshakeState"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeState.html#HandshakeState"><span class="hs-identifier hs-var">HandshakeState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HandshakeState%27"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeState.html#HandshakeState%27"><span class="hs-identifier hs-var">HandshakeState'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHandshakeState"><span class="annot"><span class="annottext">HandshakeState -&gt; Text
 </span><a href="Network.AWS.Organizations.Types.HandshakeState.html#fromHandshakeState"><span class="hs-identifier hs-var hs-var">fromHandshakeState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237782"><span id="local-6989586621679237784"><span id="local-6989586621679237786"><span class="annot"><span class="annottext">Int -&gt; HandshakeState -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237903"><span id="local-6989586621679237905"><span id="local-6989586621679237907"><span class="annot"><span class="annottext">Int -&gt; HandshakeState -&gt; ShowS
 [HandshakeState] -&gt; ShowS
 HandshakeState -&gt; String
 (Int -&gt; HandshakeState -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: HandshakeState -&gt; String
 showsPrec :: Int -&gt; HandshakeState -&gt; ShowS
 $cshowsPrec :: Int -&gt; HandshakeState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679237773"><span id="local-6989586621679237775"><span id="local-6989586621679237777"><span id="local-6989586621679237779"><span class="annot"><span class="annottext">ReadPrec [HandshakeState]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679237894"><span id="local-6989586621679237896"><span id="local-6989586621679237898"><span id="local-6989586621679237900"><span class="annot"><span class="annottext">ReadPrec [HandshakeState]
 ReadPrec HandshakeState
 Int -&gt; ReadS HandshakeState
 ReadS [HandshakeState]
@@ -76,7 +76,7 @@ $creadList :: ReadS [HandshakeState]
 readsPrec :: Int -&gt; ReadS HandshakeState
 $creadsPrec :: Int -&gt; ReadS HandshakeState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679237768"><span id="local-6989586621679237770"><span class="annot"><span class="annottext">HandshakeState -&gt; HandshakeState -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679237889"><span id="local-6989586621679237891"><span class="annot"><span class="annottext">HandshakeState -&gt; HandshakeState -&gt; Bool
 (HandshakeState -&gt; HandshakeState -&gt; Bool)
 -&gt; (HandshakeState -&gt; HandshakeState -&gt; Bool) -&gt; Eq HandshakeState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: HandshakeState -&gt; HandshakeState -&gt; Bool
 == :: HandshakeState -&gt; HandshakeState -&gt; Bool
 $c== :: HandshakeState -&gt; HandshakeState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679237752"><span id="local-6989586621679237754"><span id="local-6989586621679237756"><span id="local-6989586621679237758"><span id="local-6989586621679237760"><span id="local-6989586621679237762"><span id="local-6989586621679237764"><span class="annot"><span class="annottext">Eq HandshakeState
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679237873"><span id="local-6989586621679237875"><span id="local-6989586621679237877"><span id="local-6989586621679237879"><span id="local-6989586621679237881"><span id="local-6989586621679237883"><span id="local-6989586621679237885"><span class="annot"><span class="annottext">Eq HandshakeState
 Eq HandshakeState
 -&gt; (HandshakeState -&gt; HandshakeState -&gt; Ordering)
 -&gt; (HandshakeState -&gt; HandshakeState -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. HandshakeState -&gt; Rep HandshakeState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237744"><span id="local-6989586621679237746"><span class="annot"><span class="annottext">Int -&gt; HandshakeState -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237865"><span id="local-6989586621679237867"><span class="annot"><span class="annottext">Int -&gt; HandshakeState -&gt; Int
 HandshakeState -&gt; Int
 (Int -&gt; HandshakeState -&gt; Int)
 -&gt; (HandshakeState -&gt; Int) -&gt; Hashable HandshakeState
@@ -146,50 +146,50 @@ $chash :: HandshakeState -&gt; Int
 hashWithSalt :: Int -&gt; HandshakeState -&gt; Int
 $chashWithSalt :: Int -&gt; HandshakeState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679237741"><span class="annot"><span class="annottext">HandshakeState -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679237862"><span class="annot"><span class="annottext">HandshakeState -&gt; ()
 (HandshakeState -&gt; ()) -&gt; NFData HandshakeState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HandshakeState -&gt; ()
 $crnf :: HandshakeState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679237738"><span class="annot"><span class="annottext">Text -&gt; Either String HandshakeState
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679237859"><span class="annot"><span class="annottext">Text -&gt; Either String HandshakeState
 (Text -&gt; Either String HandshakeState) -&gt; FromText HandshakeState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HandshakeState
 $cfromText :: Text -&gt; Either String HandshakeState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679237735"><span class="annot"><span class="annottext">HandshakeState -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679237856"><span class="annot"><span class="annottext">HandshakeState -&gt; Text
 (HandshakeState -&gt; Text) -&gt; ToText HandshakeState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HandshakeState -&gt; Text
 $ctoText :: HandshakeState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679237732"><span class="annot"><span class="annottext">HandshakeState -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679237853"><span class="annot"><span class="annottext">HandshakeState -&gt; ByteString
 (HandshakeState -&gt; ByteString) -&gt; ToByteString HandshakeState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HandshakeState -&gt; ByteString
 $ctoBS :: HandshakeState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679237729"><span class="annot"><span class="annottext">HandshakeState -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679237850"><span class="annot"><span class="annottext">HandshakeState -&gt; ByteStringBuilder
 (HandshakeState -&gt; ByteStringBuilder) -&gt; ToLog HandshakeState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HandshakeState -&gt; ByteStringBuilder
 $cbuild :: HandshakeState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679237726"><span class="annot"><span class="annottext">HeaderName -&gt; HandshakeState -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679237847"><span class="annot"><span class="annottext">HeaderName -&gt; HandshakeState -&gt; [Header]
 (HeaderName -&gt; HandshakeState -&gt; [Header])
 -&gt; ToHeader HandshakeState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HandshakeState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HandshakeState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679237723"><span class="annot"><span class="annottext">HandshakeState -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679237844"><span class="annot"><span class="annottext">HandshakeState -&gt; QueryString
 (HandshakeState -&gt; QueryString) -&gt; ToQuery HandshakeState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HandshakeState -&gt; QueryString
 $ctoQuery :: HandshakeState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679237718"><span id="local-6989586621679237720"><span class="annot"><span class="annottext">Value -&gt; Parser [HandshakeState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679237839"><span id="local-6989586621679237841"><span class="annot"><span class="annottext">Value -&gt; Parser [HandshakeState]
 Value -&gt; Parser HandshakeState
 (Value -&gt; Parser HandshakeState)
 -&gt; (Value -&gt; Parser [HandshakeState]) -&gt; FromJSON HandshakeState
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [HandshakeState]
 parseJSON :: Value -&gt; Parser HandshakeState
 $cparseJSON :: Value -&gt; Parser HandshakeState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679237713"><span id="local-6989586621679237715"><span class="annot"><span class="annottext">FromJSONKeyFunction [HandshakeState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679237834"><span id="local-6989586621679237836"><span class="annot"><span class="annottext">FromJSONKeyFunction [HandshakeState]
 FromJSONKeyFunction HandshakeState
 FromJSONKeyFunction HandshakeState
 -&gt; FromJSONKeyFunction [HandshakeState]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HandshakeState]
 fromJSONKey :: FromJSONKeyFunction HandshakeState
 $cfromJSONKey :: FromJSONKeyFunction HandshakeState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679237704"><span id="local-6989586621679237706"><span id="local-6989586621679237708"><span id="local-6989586621679237710"><span class="annot"><span class="annottext">[HandshakeState] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679237825"><span id="local-6989586621679237827"><span id="local-6989586621679237829"><span id="local-6989586621679237831"><span class="annot"><span class="annottext">[HandshakeState] -&gt; Encoding
 [HandshakeState] -&gt; Value
 HandshakeState -&gt; Encoding
 HandshakeState -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: HandshakeState -&gt; Encoding
 toJSON :: HandshakeState -&gt; Value
 $ctoJSON :: HandshakeState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679237699"><span id="local-6989586621679237701"><span class="annot"><span class="annottext">ToJSONKeyFunction [HandshakeState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679237820"><span id="local-6989586621679237822"><span class="annot"><span class="annottext">ToJSONKeyFunction [HandshakeState]
 ToJSONKeyFunction HandshakeState
 ToJSONKeyFunction HandshakeState
 -&gt; ToJSONKeyFunction [HandshakeState] -&gt; ToJSONKey HandshakeState
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HandshakeState]
 toJSONKey :: ToJSONKeyFunction HandshakeState
 $ctoJSONKey :: ToJSONKeyFunction HandshakeState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679237696"><span class="annot"><span class="annottext">[Node] -&gt; Either String HandshakeState
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679237817"><span class="annot"><span class="annottext">[Node] -&gt; Either String HandshakeState
 ([Node] -&gt; Either String HandshakeState) -&gt; FromXML HandshakeState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HandshakeState
 $cparseXML :: [Node] -&gt; Either String HandshakeState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679237693"><span class="annot"><span class="annottext">HandshakeState -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679237814"><span class="annot"><span class="annottext">HandshakeState -&gt; XML
 (HandshakeState -&gt; XML) -&gt; ToXML HandshakeState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HandshakeState -&gt; XML

@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newAddAttributesToFindings' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679258903"><span id="local-6989586621679258904"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddAttributesToFindings"><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-var">AddAttributesToFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddAttributesToFindings%27"><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings%27"><span class="hs-identifier hs-var">AddAttributesToFindings'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679259316"><span id="local-6989586621679259317"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddAttributesToFindings"><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-var">AddAttributesToFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddAttributesToFindings%27"><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings%27"><span class="hs-identifier hs-var">AddAttributesToFindings'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARNs that specify the findings that you want to assign attributes</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- to.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AfindingArns%3AAddAttributesToFindings%27"><span class="annot"><span class="annottext">AddAttributesToFindings -&gt; NonEmpty Text
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3Aattributes%3AAddAttributesToFindings%27"><span class="annot"><span class="annottext">AddAttributesToFindings -&gt; [Attribute]
 </span><a href="Network.AWS.Inspector.AddAttributesToFindings.html#%24sel%3Aattributes%3AAddAttributesToFindings%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258896"><span id="local-6989586621679258898"><span class="annot"><span class="annottext">AddAttributesToFindings -&gt; AddAttributesToFindings -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259309"><span id="local-6989586621679259311"><span class="annot"><span class="annottext">AddAttributesToFindings -&gt; AddAttributesToFindings -&gt; Bool
 (AddAttributesToFindings -&gt; AddAttributesToFindings -&gt; Bool)
 -&gt; (AddAttributesToFindings -&gt; AddAttributesToFindings -&gt; Bool)
 -&gt; Eq AddAttributesToFindings
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddAttributesToFindings -&gt; AddAttributesToFindings -&gt; Bool
 == :: AddAttributesToFindings -&gt; AddAttributesToFindings -&gt; Bool
 $c== :: AddAttributesToFindings -&gt; AddAttributesToFindings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258887"><span id="local-6989586621679258889"><span id="local-6989586621679258891"><span id="local-6989586621679258893"><span class="annot"><span class="annottext">ReadPrec [AddAttributesToFindings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259300"><span id="local-6989586621679259302"><span id="local-6989586621679259304"><span id="local-6989586621679259306"><span class="annot"><span class="annottext">ReadPrec [AddAttributesToFindings]
 ReadPrec AddAttributesToFindings
 Int -&gt; ReadS AddAttributesToFindings
 ReadS [AddAttributesToFindings]
@@ -87,7 +87,7 @@ readList :: ReadS [AddAttributesToFindings]
 $creadList :: ReadS [AddAttributesToFindings]
 readsPrec :: Int -&gt; ReadS AddAttributesToFindings
 $creadsPrec :: Int -&gt; ReadS AddAttributesToFindings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258880"><span id="local-6989586621679258882"><span id="local-6989586621679258884"><span class="annot"><span class="annottext">Int -&gt; AddAttributesToFindings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259293"><span id="local-6989586621679259295"><span id="local-6989586621679259297"><span class="annot"><span class="annottext">Int -&gt; AddAttributesToFindings -&gt; ShowS
 [AddAttributesToFindings] -&gt; ShowS
 AddAttributesToFindings -&gt; String
 (Int -&gt; AddAttributesToFindings -&gt; ShowS)
@@ -132,21 +132,21 @@ $cfrom :: forall x. AddAttributesToFindings -&gt; Rep AddAttributesToFindings x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-type">AddAttributesToFindings</span></a></span><span>
 </span><span id="line-77"></span><span id="newAddAttributesToFindings"><span class="annot"><span class="annottext">newAddAttributesToFindings :: NonEmpty Text -&gt; AddAttributesToFindings
-</span><a href="Network.AWS.Inspector.AddAttributesToFindings.html#newAddAttributesToFindings"><span class="hs-identifier hs-var hs-var">newAddAttributesToFindings</span></a></span></span><span> </span><span id="local-6989586621679258875"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679258875"><span class="hs-identifier hs-var">pFindingArns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.AddAttributesToFindings.html#newAddAttributesToFindings"><span class="hs-identifier hs-var hs-var">newAddAttributesToFindings</span></a></span></span><span> </span><span id="local-6989586621679259288"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679259288"><span class="hs-identifier hs-var">pFindingArns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">AddAttributesToFindings' :: NonEmpty Text -&gt; [Attribute] -&gt; AddAttributesToFindings
 </span><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings%27"><span class="hs-identifier hs-type">AddAttributesToFindings'</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:findingArns:AddAttributesToFindings' :: NonEmpty Text
 </span><a href="Network.AWS.Inspector.AddAttributesToFindings.html#%24sel%3AfindingArns%3AAddAttributesToFindings%27"><span class="hs-identifier hs-var">findingArns</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679258875"><span class="hs-identifier hs-var">pFindingArns_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259288"><span class="hs-identifier hs-var">pFindingArns_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:AddAttributesToFindings' :: [Attribute]
 </span><a href="Network.AWS.Inspector.AddAttributesToFindings.html#%24sel%3Aattributes%3AAddAttributesToFindings%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Attribute]
 forall a. Monoid a =&gt; a
@@ -167,16 +167,16 @@ forall a. Monoid a =&gt; a
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings%27"><span class="hs-identifier hs-type">AddAttributesToFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258870"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings%27"><span class="hs-identifier hs-type">AddAttributesToFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259283"><span class="annot"><span class="annottext">NonEmpty Text
 findingArns :: NonEmpty Text
 $sel:findingArns:AddAttributesToFindings' :: AddAttributesToFindings -&gt; NonEmpty Text
-</span><a href="#local-6989586621679258870"><span class="hs-identifier hs-var hs-var">findingArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679258870"><span class="hs-identifier hs-var">findingArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258869"><span class="annot"><span class="annottext">s :: AddAttributesToFindings
-</span><a href="#local-6989586621679258869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings%27"><span class="hs-identifier hs-type">AddAttributesToFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258868"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679258868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddAttributesToFindings
-</span><a href="#local-6989586621679258869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingArns:AddAttributesToFindings' :: NonEmpty Text
+</span><a href="#local-6989586621679259283"><span class="hs-identifier hs-var hs-var">findingArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679259283"><span class="hs-identifier hs-var">findingArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259282"><span class="annot"><span class="annottext">s :: AddAttributesToFindings
+</span><a href="#local-6989586621679259282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings%27"><span class="hs-identifier hs-type">AddAttributesToFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259281"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679259281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddAttributesToFindings
+</span><a href="#local-6989586621679259282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingArns:AddAttributesToFindings' :: NonEmpty Text
 </span><a href="Network.AWS.Inspector.AddAttributesToFindings.html#%24sel%3AfindingArns%3AAddAttributesToFindings%27"><span class="hs-identifier hs-var">findingArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679258868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-type">AddAttributesToFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679259281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-type">AddAttributesToFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; AddAttributesToFindings -&gt; f AddAttributesToFindings)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -186,8 +186,8 @@ $sel:findingArns:AddAttributesToFindings' :: AddAttributesToFindings -&gt; NonEm
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The array of attributes that you want to assign to specified findings.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#addAttributesToFindings_attributes"><span class="hs-identifier hs-type">addAttributesToFindings_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-type">AddAttributesToFindings</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span>
@@ -202,16 +202,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      [Attribute]
      [Attribute]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings%27"><span class="hs-identifier hs-type">AddAttributesToFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258866"><span class="annot"><span class="annottext">[Attribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings%27"><span class="hs-identifier hs-type">AddAttributesToFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259279"><span class="annot"><span class="annottext">[Attribute]
 attributes :: [Attribute]
 $sel:attributes:AddAttributesToFindings' :: AddAttributesToFindings -&gt; [Attribute]
-</span><a href="#local-6989586621679258866"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Attribute]
-</span><a href="#local-6989586621679258866"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258865"><span class="annot"><span class="annottext">s :: AddAttributesToFindings
-</span><a href="#local-6989586621679258865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings%27"><span class="hs-identifier hs-type">AddAttributesToFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258864"><span class="annot"><span class="annottext">[Attribute]
-</span><a href="#local-6989586621679258864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddAttributesToFindings
-</span><a href="#local-6989586621679258865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:AddAttributesToFindings' :: [Attribute]
+</span><a href="#local-6989586621679259279"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Attribute]
+</span><a href="#local-6989586621679259279"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259278"><span class="annot"><span class="annottext">s :: AddAttributesToFindings
+</span><a href="#local-6989586621679259278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings%27"><span class="hs-identifier hs-type">AddAttributesToFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259277"><span class="annot"><span class="annottext">[Attribute]
+</span><a href="#local-6989586621679259277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddAttributesToFindings
+</span><a href="#local-6989586621679259278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:AddAttributesToFindings' :: [Attribute]
 </span><a href="Network.AWS.Inspector.AddAttributesToFindings.html#%24sel%3Aattributes%3AAddAttributesToFindings%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Attribute]
-</span><a href="#local-6989586621679258864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-type">AddAttributesToFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Attribute] -&gt; f [Attribute])
+</span><a href="#local-6989586621679259277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-type">AddAttributesToFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Attribute] -&gt; f [Attribute])
  -&gt; AddAttributesToFindings -&gt; f AddAttributesToFindings)
 -&gt; (([Attribute] -&gt; f [Attribute]) -&gt; [Attribute] -&gt; f [Attribute])
 -&gt; ([Attribute] -&gt; f [Attribute])
@@ -219,20 +219,20 @@ $sel:attributes:AddAttributesToFindings' :: AddAttributesToFindings -&gt; [Attri
 -&gt; f AddAttributesToFindings
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Attribute] -&gt; f [Attribute]) -&gt; [Attribute] -&gt; f [Attribute]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-type">AddAttributesToFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-type">AddAttributesToFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse"><span class="hs-identifier hs-type">AddAttributesToFindingsResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679258860"><span class="annot"><span class="annottext">request :: AddAttributesToFindings -&gt; Request AddAttributesToFindings
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679259273"><span class="annot"><span class="annottext">request :: AddAttributesToFindings -&gt; Request AddAttributesToFindings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; AddAttributesToFindings -&gt; Request AddAttributesToFindings
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Inspector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679258856"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679259269"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AddAttributesToFindings
 -&gt; ClientResponse ClientBody
@@ -258,10 +258,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258853"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258853"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679258852"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679258852"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679258851"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258851"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259266"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259266"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259265"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679259265"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259264"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259264"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; HashMap Text FailedItemDetails
 -&gt; AddAttributesToFindingsResponse
@@ -279,7 +279,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258853"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259266"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (HashMap Text FailedItemDetails -&gt; AddAttributesToFindingsResponse)
@@ -287,7 +287,7 @@ forall a. Enum a =&gt; a -&gt; Int
 -&gt; Either String AddAttributesToFindingsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258851"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (HashMap Text FailedItemDetails))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -300,12 +300,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258842"><span id="local-6989586621679258844"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-type">AddAttributesToFindings</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259255"><span id="local-6989586621679259257"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-type">AddAttributesToFindings</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258839"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-type">AddAttributesToFindings</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-type">AddAttributesToFindings</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-type">AddAttributesToFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679258835"><span class="annot"><span class="annottext">toHeaders :: AddAttributesToFindings -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679259248"><span class="annot"><span class="annottext">toHeaders :: AddAttributesToFindings -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AddAttributesToFindings -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -332,15 +332,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258825"><span id="local-6989586621679258827"><span id="local-6989586621679258829"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-type">AddAttributesToFindings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679258823"><span class="annot"><span class="annottext">toJSON :: AddAttributesToFindings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings%27"><span class="hs-identifier hs-type">AddAttributesToFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258820"><span id="local-6989586621679258821"><span class="annot"><span class="annottext">[Attribute]
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259238"><span id="local-6989586621679259240"><span id="local-6989586621679259242"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-type">AddAttributesToFindings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679259236"><span class="annot"><span class="annottext">toJSON :: AddAttributesToFindings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings%27"><span class="hs-identifier hs-type">AddAttributesToFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259233"><span id="local-6989586621679259234"><span class="annot"><span class="annottext">[Attribute]
 NonEmpty Text
 attributes :: [Attribute]
 findingArns :: NonEmpty Text
 $sel:attributes:AddAttributesToFindings' :: AddAttributesToFindings -&gt; [Attribute]
 $sel:findingArns:AddAttributesToFindings' :: AddAttributesToFindings -&gt; NonEmpty Text
-</span><a href="#local-6989586621679258820"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679259233"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -352,26 +352,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;findingArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679258821"><span class="hs-identifier hs-var">findingArns</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259234"><span class="hs-identifier hs-var">findingArns</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Attribute] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Attribute]
-</span><a href="#local-6989586621679258820"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259233"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-type">AddAttributesToFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679258814"><span class="annot"><span class="annottext">toPath :: AddAttributesToFindings -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679259227"><span class="annot"><span class="annottext">toPath :: AddAttributesToFindings -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AddAttributesToFindings -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindings"><span class="hs-identifier hs-type">AddAttributesToFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679258810"><span class="annot"><span class="annottext">toQuery :: AddAttributesToFindings -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679259223"><span class="annot"><span class="annottext">toQuery :: AddAttributesToFindings -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AddAttributesToFindings -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -379,7 +379,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newAddAttributesToFindingsResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679258807"><span id="local-6989586621679258808"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddAttributesToFindingsResponse"><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse"><span class="hs-identifier hs-var">AddAttributesToFindingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddAttributesToFindingsResponse%27"><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse%27"><span class="hs-identifier hs-var">AddAttributesToFindingsResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679259220"><span id="local-6989586621679259221"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddAttributesToFindingsResponse"><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse"><span class="hs-identifier hs-var">AddAttributesToFindingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddAttributesToFindingsResponse%27"><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse%27"><span class="hs-identifier hs-var">AddAttributesToFindingsResponse'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddAttributesToFindingsResponse%27"><span class="annot"><span class="annottext">AddAttributesToFindingsResponse -&gt; Int
 </span><a href="Network.AWS.Inspector.AddAttributesToFindings.html#%24sel%3AhttpStatus%3AAddAttributesToFindingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -388,7 +388,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3AfailedItems%3AAddAttributesToFindingsResponse%27"><span class="annot"><span class="annottext">AddAttributesToFindingsResponse -&gt; HashMap Text FailedItemDetails
 </span><a href="Network.AWS.Inspector.AddAttributesToFindings.html#%24sel%3AfailedItems%3AAddAttributesToFindingsResponse%27"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258801"><span id="local-6989586621679258803"><span class="annot"><span class="annottext">AddAttributesToFindingsResponse
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259214"><span id="local-6989586621679259216"><span class="annot"><span class="annottext">AddAttributesToFindingsResponse
 -&gt; AddAttributesToFindingsResponse -&gt; Bool
 (AddAttributesToFindingsResponse
  -&gt; AddAttributesToFindingsResponse -&gt; Bool)
@@ -404,7 +404,7 @@ $c/= :: AddAttributesToFindingsResponse
 -&gt; AddAttributesToFindingsResponse -&gt; Bool
 $c== :: AddAttributesToFindingsResponse
 -&gt; AddAttributesToFindingsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258793"><span id="local-6989586621679258795"><span id="local-6989586621679258797"><span id="local-6989586621679258799"><span class="annot"><span class="annottext">ReadPrec [AddAttributesToFindingsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259206"><span id="local-6989586621679259208"><span id="local-6989586621679259210"><span id="local-6989586621679259212"><span class="annot"><span class="annottext">ReadPrec [AddAttributesToFindingsResponse]
 ReadPrec AddAttributesToFindingsResponse
 Int -&gt; ReadS AddAttributesToFindingsResponse
 ReadS [AddAttributesToFindingsResponse]
@@ -424,7 +424,7 @@ readList :: ReadS [AddAttributesToFindingsResponse]
 $creadList :: ReadS [AddAttributesToFindingsResponse]
 readsPrec :: Int -&gt; ReadS AddAttributesToFindingsResponse
 $creadsPrec :: Int -&gt; ReadS AddAttributesToFindingsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258787"><span id="local-6989586621679258789"><span id="local-6989586621679258791"><span class="annot"><span class="annottext">Int -&gt; AddAttributesToFindingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259200"><span id="local-6989586621679259202"><span id="local-6989586621679259204"><span class="annot"><span class="annottext">Int -&gt; AddAttributesToFindingsResponse -&gt; ShowS
 [AddAttributesToFindingsResponse] -&gt; ShowS
 AddAttributesToFindingsResponse -&gt; String
 (Int -&gt; AddAttributesToFindingsResponse -&gt; ShowS)
@@ -479,8 +479,8 @@ AddAttributesToFindingsResponse
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse"><span class="hs-identifier hs-type">AddAttributesToFindingsResponse</span></a></span><span>
 </span><span id="line-166"></span><span id="newAddAttributesToFindingsResponse"><span class="annot"><span class="annottext">newAddAttributesToFindingsResponse :: Int -&gt; AddAttributesToFindingsResponse
-</span><a href="Network.AWS.Inspector.AddAttributesToFindings.html#newAddAttributesToFindingsResponse"><span class="hs-identifier hs-var hs-var">newAddAttributesToFindingsResponse</span></a></span></span><span> </span><span id="local-6989586621679258784"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258784"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.AddAttributesToFindings.html#newAddAttributesToFindingsResponse"><span class="hs-identifier hs-var hs-var">newAddAttributesToFindingsResponse</span></a></span></span><span> </span><span id="local-6989586621679259197"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259197"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">AddAttributesToFindingsResponse' :: Int
 -&gt; HashMap Text FailedItemDetails
 -&gt; AddAttributesToFindingsResponse
@@ -488,7 +488,7 @@ AddAttributesToFindingsResponse
 </span><span id="line-168"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AddAttributesToFindingsResponse' :: Int
 </span><a href="Network.AWS.Inspector.AddAttributesToFindings.html#%24sel%3AhttpStatus%3AAddAttributesToFindingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258784"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259197"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:failedItems:AddAttributesToFindingsResponse' :: HashMap Text FailedItemDetails
 </span><a href="Network.AWS.Inspector.AddAttributesToFindings.html#%24sel%3AfailedItems%3AAddAttributesToFindingsResponse%27"><span class="hs-identifier hs-var">failedItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
 forall a. Monoid a =&gt; a
@@ -509,16 +509,16 @@ forall a. Monoid a =&gt; a
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse%27"><span class="hs-identifier hs-type">AddAttributesToFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258783"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse%27"><span class="hs-identifier hs-type">AddAttributesToFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259196"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AddAttributesToFindingsResponse' :: AddAttributesToFindingsResponse -&gt; Int
-</span><a href="#local-6989586621679258783"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258783"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258782"><span class="annot"><span class="annottext">s :: AddAttributesToFindingsResponse
-</span><a href="#local-6989586621679258782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse%27"><span class="hs-identifier hs-type">AddAttributesToFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258781"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddAttributesToFindingsResponse
-</span><a href="#local-6989586621679258782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddAttributesToFindingsResponse' :: Int
+</span><a href="#local-6989586621679259196"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259196"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259195"><span class="annot"><span class="annottext">s :: AddAttributesToFindingsResponse
+</span><a href="#local-6989586621679259195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse%27"><span class="hs-identifier hs-type">AddAttributesToFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259194"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddAttributesToFindingsResponse
+</span><a href="#local-6989586621679259195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddAttributesToFindingsResponse' :: Int
 </span><a href="Network.AWS.Inspector.AddAttributesToFindings.html#%24sel%3AhttpStatus%3AAddAttributesToFindingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse"><span class="hs-identifier hs-type">AddAttributesToFindingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse"><span class="hs-identifier hs-type">AddAttributesToFindingsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | Attribute details that cannot be described. An error code is provided</span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- for each failed item.</span><span>
@@ -537,16 +537,16 @@ $sel:httpStatus:AddAttributesToFindingsResponse' :: AddAttributesToFindingsRespo
      (HashMap Text FailedItemDetails)
      (HashMap Text FailedItemDetails)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse%27"><span class="hs-identifier hs-type">AddAttributesToFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258780"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse%27"><span class="hs-identifier hs-type">AddAttributesToFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259193"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
 failedItems :: HashMap Text FailedItemDetails
 $sel:failedItems:AddAttributesToFindingsResponse' :: AddAttributesToFindingsResponse -&gt; HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679258780"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679258780"><span class="hs-identifier hs-var">failedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258779"><span class="annot"><span class="annottext">s :: AddAttributesToFindingsResponse
-</span><a href="#local-6989586621679258779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse%27"><span class="hs-identifier hs-type">AddAttributesToFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258778"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679258778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddAttributesToFindingsResponse
-</span><a href="#local-6989586621679258779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedItems:AddAttributesToFindingsResponse' :: HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679259193"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679259193"><span class="hs-identifier hs-var">failedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259192"><span class="annot"><span class="annottext">s :: AddAttributesToFindingsResponse
+</span><a href="#local-6989586621679259192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse%27"><span class="hs-identifier hs-type">AddAttributesToFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259191"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679259191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddAttributesToFindingsResponse
+</span><a href="#local-6989586621679259192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedItems:AddAttributesToFindingsResponse' :: HashMap Text FailedItemDetails
 </span><a href="Network.AWS.Inspector.AddAttributesToFindings.html#%24sel%3AfailedItems%3AAddAttributesToFindingsResponse%27"><span class="hs-identifier hs-var">failedItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679258778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse"><span class="hs-identifier hs-type">AddAttributesToFindingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679259191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse"><span class="hs-identifier hs-type">AddAttributesToFindingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text FailedItemDetails
   -&gt; f (HashMap Text FailedItemDetails))
  -&gt; AddAttributesToFindingsResponse
  -&gt; f AddAttributesToFindingsResponse)
@@ -563,10 +563,10 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
  -&gt; f (HashMap Text FailedItemDetails))
 -&gt; HashMap Text FailedItemDetails
 -&gt; f (HashMap Text FailedItemDetails)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679258776"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679259189"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.AddAttributesToFindings.html#AddAttributesToFindingsResponse"><span class="hs-identifier hs-type">AddAttributesToFindingsResponse</span></a></span></span><span>
 </span><span id="line-185"></span></pre></body></html>

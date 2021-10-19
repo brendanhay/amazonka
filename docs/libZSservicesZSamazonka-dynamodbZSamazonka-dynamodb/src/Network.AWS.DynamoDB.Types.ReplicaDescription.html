@@ -29,62 +29,62 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Contains the details of the replica.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newReplicaDescription' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679377920"><span id="local-6989586621679377921"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicaDescription"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-var">ReplicaDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicaDescription%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-var">ReplicaDescription'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Region.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AregionName%3AReplicaDescription%27"><span class="annot"><span class="annottext">ReplicaDescription -&gt; Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AregionName%3AReplicaDescription%27"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Replica-specific global secondary index settings.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AglobalSecondaryIndexes%3AReplicaDescription%27"><span class="annot"><span class="annottext">ReplicaDescription
--&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AglobalSecondaryIndexes%3AReplicaDescription%27"><span class="hs-identifier hs-var hs-var">globalSecondaryIndexes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexDescription.html#ReplicaGlobalSecondaryIndexDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Replica-specific provisioned throughput. If not described, uses the</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- source table\'s provisioned throughput settings.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AprovisionedThroughputOverride%3AReplicaDescription%27"><span class="annot"><span class="annottext">ReplicaDescription -&gt; Maybe ProvisionedThroughputOverride
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AprovisionedThroughputOverride%3AReplicaDescription%27"><span class="hs-identifier hs-var hs-var">provisionedThroughputOverride</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride.html#ProvisionedThroughputOverride"><span class="hs-identifier hs-type">ProvisionedThroughputOverride</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The AWS KMS customer master key (CMK) of the replica that will be used</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- for AWS KMS encryption.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AkmsMasterKeyId%3AReplicaDescription%27"><span class="annot"><span class="annottext">ReplicaDescription -&gt; Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AkmsMasterKeyId%3AReplicaDescription%27"><span class="hs-identifier hs-var hs-var">kmsMasterKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Detailed information about the replica status.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AreplicaStatusDescription%3AReplicaDescription%27"><span class="annot"><span class="annottext">ReplicaDescription -&gt; Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaStatusDescription%3AReplicaDescription%27"><span class="hs-identifier hs-var hs-var">replicaStatusDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Specifies the progress of a Create, Update, or Delete action on the</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- replica as a percentage.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AreplicaStatusPercentProgress%3AReplicaDescription%27"><span class="annot"><span class="annottext">ReplicaDescription -&gt; Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaStatusPercentProgress%3AReplicaDescription%27"><span class="hs-identifier hs-var hs-var">replicaStatusPercentProgress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The current state of the replica:</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @CREATING@ - The replica is being created.</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   @UPDATING@ - The replica is being updated.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679378609"><span id="local-6989586621679378610"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicaDescription"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-var">ReplicaDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicaDescription%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-var">ReplicaDescription'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of the replica:</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   @CREATING@ - The replica is being created.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   @UPDATING@ - The replica is being updated.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   @DELETING@ - The replica is being deleted.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   @ACTIVE@ - The replica is ready for use.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   @REGION_DISABLED@ - The replica is inaccessible because the AWS</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     Region has been disabled.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     If the AWS Region remains inaccessible for more than 20 hours,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     DynamoDB will remove this replica from the replication group. The</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     replica will not be deleted and replication will stop from and to</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     this region.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The AWS KMS key used to</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     encrypt the table is inaccessible.</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- -   @DELETING@ - The replica is being deleted.</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   @ACTIVE@ - The replica is ready for use.</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   @REGION_DISABLED@ - The replica is inaccessible because the AWS</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     Region has been disabled.</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     If the AWS Region remains inaccessible for more than 20 hours,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     DynamoDB will remove this replica from the replication group. The</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     replica will not be deleted and replication will stop from and to</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     this region.</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The AWS KMS key used to</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     encrypt the table is inaccessible.</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     If the AWS KMS key remains inaccessible for more than 20 hours,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     DynamoDB will remove this replica from the replication group. The</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     replica will not be deleted and replication will stop from and to</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     this region.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AreplicaStatus%3AReplicaDescription%27"><span class="annot"><span class="annottext">ReplicaDescription -&gt; Maybe ReplicaStatus
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     If the AWS KMS key remains inaccessible for more than 20 hours,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     DynamoDB will remove this replica from the replication group. The</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     replica will not be deleted and replication will stop from and to</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     this region.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AreplicaStatus%3AReplicaDescription%27"><span class="annot"><span class="annottext">ReplicaDescription -&gt; Maybe ReplicaStatus
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaStatus%3AReplicaDescription%27"><span class="hs-identifier hs-var hs-var">replicaStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaStatus.html#ReplicaStatus"><span class="hs-identifier hs-type">ReplicaStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The time at which the replica was first detected as inaccessible. To</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- determine cause of inaccessibility check the @ReplicaStatus@ property.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3AreplicaInaccessibleDateTime%3AReplicaDescription%27"><span class="annot"><span class="annottext">ReplicaDescription -&gt; Maybe POSIX
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaInaccessibleDateTime%3AReplicaDescription%27"><span class="hs-identifier hs-var hs-var">replicaInaccessibleDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of the Region.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AregionName%3AReplicaDescription%27"><span class="annot"><span class="annottext">ReplicaDescription -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AregionName%3AReplicaDescription%27"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Specifies the progress of a Create, Update, or Delete action on the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- replica as a percentage.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AreplicaStatusPercentProgress%3AReplicaDescription%27"><span class="annot"><span class="annottext">ReplicaDescription -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaStatusPercentProgress%3AReplicaDescription%27"><span class="hs-identifier hs-var hs-var">replicaStatusPercentProgress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Detailed information about the replica status.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AreplicaStatusDescription%3AReplicaDescription%27"><span class="annot"><span class="annottext">ReplicaDescription -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaStatusDescription%3AReplicaDescription%27"><span class="hs-identifier hs-var hs-var">replicaStatusDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The time at which the replica was first detected as inaccessible. To</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- determine cause of inaccessibility check the @ReplicaStatus@ property.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AreplicaInaccessibleDateTime%3AReplicaDescription%27"><span class="annot"><span class="annottext">ReplicaDescription -&gt; Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaInaccessibleDateTime%3AReplicaDescription%27"><span class="hs-identifier hs-var hs-var">replicaInaccessibleDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The AWS KMS customer master key (CMK) of the replica that will be used</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- for AWS KMS encryption.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AkmsMasterKeyId%3AReplicaDescription%27"><span class="annot"><span class="annottext">ReplicaDescription -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AkmsMasterKeyId%3AReplicaDescription%27"><span class="hs-identifier hs-var hs-var">kmsMasterKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Replica-specific provisioned throughput. If not described, uses the</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- source table\'s provisioned throughput settings.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AprovisionedThroughputOverride%3AReplicaDescription%27"><span class="annot"><span class="annottext">ReplicaDescription -&gt; Maybe ProvisionedThroughputOverride
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AprovisionedThroughputOverride%3AReplicaDescription%27"><span class="hs-identifier hs-var hs-var">provisionedThroughputOverride</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride.html#ProvisionedThroughputOverride"><span class="hs-identifier hs-type">ProvisionedThroughputOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Replica-specific global secondary index settings.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AglobalSecondaryIndexes%3AReplicaDescription%27"><span class="annot"><span class="annottext">ReplicaDescription
+-&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AglobalSecondaryIndexes%3AReplicaDescription%27"><span class="hs-identifier hs-var hs-var">globalSecondaryIndexes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexDescription.html#ReplicaGlobalSecondaryIndexDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexDescription</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377907"><span id="local-6989586621679377909"><span class="annot"><span class="annottext">ReplicaDescription -&gt; ReplicaDescription -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378596"><span id="local-6989586621679378598"><span class="annot"><span class="annottext">ReplicaDescription -&gt; ReplicaDescription -&gt; Bool
 (ReplicaDescription -&gt; ReplicaDescription -&gt; Bool)
 -&gt; (ReplicaDescription -&gt; ReplicaDescription -&gt; Bool)
 -&gt; Eq ReplicaDescription
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReplicaDescription -&gt; ReplicaDescription -&gt; Bool
 == :: ReplicaDescription -&gt; ReplicaDescription -&gt; Bool
 $c== :: ReplicaDescription -&gt; ReplicaDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377898"><span id="local-6989586621679377900"><span id="local-6989586621679377902"><span id="local-6989586621679377904"><span class="annot"><span class="annottext">ReadPrec [ReplicaDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378587"><span id="local-6989586621679378589"><span id="local-6989586621679378591"><span id="local-6989586621679378593"><span class="annot"><span class="annottext">ReadPrec [ReplicaDescription]
 ReadPrec ReplicaDescription
 Int -&gt; ReadS ReplicaDescription
 ReadS [ReplicaDescription]
@@ -113,7 +113,7 @@ readList :: ReadS [ReplicaDescription]
 $creadList :: ReadS [ReplicaDescription]
 readsPrec :: Int -&gt; ReadS ReplicaDescription
 $creadsPrec :: Int -&gt; ReadS ReplicaDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377891"><span id="local-6989586621679377893"><span id="local-6989586621679377895"><span class="annot"><span class="annottext">Int -&gt; ReplicaDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378580"><span id="local-6989586621679378582"><span id="local-6989586621679378584"><span class="annot"><span class="annottext">Int -&gt; ReplicaDescription -&gt; ShowS
 [ReplicaDescription] -&gt; ShowS
 ReplicaDescription -&gt; String
 (Int -&gt; ReplicaDescription -&gt; ShowS)
@@ -147,120 +147,293 @@ $cfrom :: forall x. ReplicaDescription -&gt; Rep ReplicaDescription x
 </span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'regionName', 'replicaDescription_regionName' - The name of the Region.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'replicaStatus', 'replicaDescription_replicaStatus' - The current state of the replica:</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'globalSecondaryIndexes', 'replicaDescription_globalSecondaryIndexes' - Replica-specific global secondary index settings.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- -   @CREATING@ - The replica is being created.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'provisionedThroughputOverride', 'replicaDescription_provisionedThroughputOverride' - Replica-specific provisioned throughput. If not described, uses the</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- source table\'s provisioned throughput settings.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'kmsMasterKeyId', 'replicaDescription_kmsMasterKeyId' - The AWS KMS customer master key (CMK) of the replica that will be used</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- for AWS KMS encryption.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- -   @UPDATING@ - The replica is being updated.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   @DELETING@ - The replica is being deleted.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- -   @ACTIVE@ - The replica is ready for use.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'replicaStatusDescription', 'replicaDescription_replicaStatusDescription' - Detailed information about the replica status.</span><span>
-</span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- 'replicaStatusPercentProgress', 'replicaDescription_replicaStatusPercentProgress' - Specifies the progress of a Create, Update, or Delete action on the</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- replica as a percentage.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'replicaStatus', 'replicaDescription_replicaStatus' - The current state of the replica:</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- -   @CREATING@ - The replica is being created.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- -   @UPDATING@ - The replica is being updated.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- -   @REGION_DISABLED@ - The replica is inaccessible because the AWS</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--     Region has been disabled.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--     If the AWS Region remains inaccessible for more than 20 hours,</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--     DynamoDB will remove this replica from the replication group. The</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--     replica will not be deleted and replication will stop from and to</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--     this region.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The AWS KMS key used to</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--     encrypt the table is inaccessible.</span><span>
 </span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- -   @DELETING@ - The replica is being deleted.</span><span>
-</span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- -   @ACTIVE@ - The replica is ready for use.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- -   @REGION_DISABLED@ - The replica is inaccessible because the AWS</span><span>
-</span><span id="line-114"></span><span class="hs-comment">--     Region has been disabled.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--     If the AWS KMS key remains inaccessible for more than 20 hours,</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--     DynamoDB will remove this replica from the replication group. The</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--     replica will not be deleted and replication will stop from and to</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--     this region.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'regionName', 'replicaDescription_regionName' - The name of the Region.</span><span>
 </span><span id="line-115"></span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span class="hs-comment">--     If the AWS Region remains inaccessible for more than 20 hours,</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--     DynamoDB will remove this replica from the replication group. The</span><span>
-</span><span id="line-118"></span><span class="hs-comment">--     replica will not be deleted and replication will stop from and to</span><span>
-</span><span id="line-119"></span><span class="hs-comment">--     this region.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'replicaStatusPercentProgress', 'replicaDescription_replicaStatusPercentProgress' - Specifies the progress of a Create, Update, or Delete action on the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- replica as a percentage.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'replicaStatusDescription', 'replicaDescription_replicaStatusDescription' - Detailed information about the replica status.</span><span>
 </span><span id="line-120"></span><span class="hs-comment">--</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The AWS KMS key used to</span><span>
-</span><span id="line-122"></span><span class="hs-comment">--     encrypt the table is inaccessible.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'replicaInaccessibleDateTime', 'replicaDescription_replicaInaccessibleDateTime' - The time at which the replica was first detected as inaccessible. To</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- determine cause of inaccessibility check the @ReplicaStatus@ property.</span><span>
 </span><span id="line-123"></span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span class="hs-comment">--     If the AWS KMS key remains inaccessible for more than 20 hours,</span><span>
-</span><span id="line-125"></span><span class="hs-comment">--     DynamoDB will remove this replica from the replication group. The</span><span>
-</span><span id="line-126"></span><span class="hs-comment">--     replica will not be deleted and replication will stop from and to</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--     this region.</span><span>
-</span><span id="line-128"></span><span class="hs-comment">--</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- 'replicaInaccessibleDateTime', 'replicaDescription_replicaInaccessibleDateTime' - The time at which the replica was first detected as inaccessible. To</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- determine cause of inaccessibility check the @ReplicaStatus@ property.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'kmsMasterKeyId', 'replicaDescription_kmsMasterKeyId' - The AWS KMS customer master key (CMK) of the replica that will be used</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- for AWS KMS encryption.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'provisionedThroughputOverride', 'replicaDescription_provisionedThroughputOverride' - Replica-specific provisioned throughput. If not described, uses the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- source table\'s provisioned throughput settings.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'globalSecondaryIndexes', 'replicaDescription_globalSecondaryIndexes' - Replica-specific global secondary index settings.</span><span>
 </span><span id="line-131"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#newReplicaDescription"><span class="hs-identifier hs-type">newReplicaDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span>
 </span><span id="line-133"></span><span id="newReplicaDescription"><span class="annot"><span class="annottext">newReplicaDescription :: ReplicaDescription
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#newReplicaDescription"><span class="hs-identifier hs-var hs-var">newReplicaDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">ReplicaDescription' :: Maybe Text
--&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
--&gt; Maybe ProvisionedThroughputOverride
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">ReplicaDescription' :: Maybe ReplicaStatus
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe ReplicaStatus
 -&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe ProvisionedThroughputOverride
+-&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
 -&gt; ReplicaDescription
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span>
-</span><span id="line-135"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:regionName:ReplicaDescription' :: Maybe Text
+</span><span id="line-135"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicaStatus:ReplicaDescription' :: Maybe ReplicaStatus
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaStatus%3AReplicaDescription%27"><span class="hs-identifier hs-var">replicaStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReplicaStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:regionName:ReplicaDescription' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AregionName%3AReplicaDescription%27"><span class="hs-identifier hs-var">regionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:globalSecondaryIndexes:ReplicaDescription' :: Maybe [ReplicaGlobalSecondaryIndexDescription]
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AglobalSecondaryIndexes%3AReplicaDescription%27"><span class="hs-identifier hs-var">globalSecondaryIndexes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexDescription]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisionedThroughputOverride:ReplicaDescription' :: Maybe ProvisionedThroughputOverride
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AprovisionedThroughputOverride%3AReplicaDescription%27"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsMasterKeyId:ReplicaDescription' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AkmsMasterKeyId%3AReplicaDescription%27"><span class="hs-identifier hs-var">kmsMasterKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaStatusPercentProgress:ReplicaDescription' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaStatusPercentProgress%3AReplicaDescription%27"><span class="hs-identifier hs-var">replicaStatusPercentProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaStatusDescription:ReplicaDescription' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaStatusDescription%3AReplicaDescription%27"><span class="hs-identifier hs-var">replicaStatusDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaStatusPercentProgress:ReplicaDescription' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaStatusPercentProgress%3AReplicaDescription%27"><span class="hs-identifier hs-var">replicaStatusPercentProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaStatus:ReplicaDescription' :: Maybe ReplicaStatus
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaStatus%3AReplicaDescription%27"><span class="hs-identifier hs-var">replicaStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicaStatus
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaInaccessibleDateTime:ReplicaDescription' :: Maybe POSIX
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaInaccessibleDateTime:ReplicaDescription' :: Maybe POSIX
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaInaccessibleDateTime%3AReplicaDescription%27"><span class="hs-identifier hs-var">replicaInaccessibleDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsMasterKeyId:ReplicaDescription' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AkmsMasterKeyId%3AReplicaDescription%27"><span class="hs-identifier hs-var">kmsMasterKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisionedThroughputOverride:ReplicaDescription' :: Maybe ProvisionedThroughputOverride
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AprovisionedThroughputOverride%3AReplicaDescription%27"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:globalSecondaryIndexes:ReplicaDescription' :: Maybe [ReplicaGlobalSecondaryIndexDescription]
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AglobalSecondaryIndexes%3AReplicaDescription%27"><span class="hs-identifier hs-var">globalSecondaryIndexes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexDescription]
+forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | The name of the Region.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_regionName"><span class="hs-identifier hs-type">replicaDescription_regionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="replicaDescription_regionName"><span class="annot"><span class="annottext">replicaDescription_regionName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The current state of the replica:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- -   @CREATING@ - The replica is being created.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- -   @UPDATING@ - The replica is being updated.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- -   @DELETING@ - The replica is being deleted.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- -   @ACTIVE@ - The replica is ready for use.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   @REGION_DISABLED@ - The replica is inaccessible because the AWS</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--     Region has been disabled.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--     If the AWS Region remains inaccessible for more than 20 hours,</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--     DynamoDB will remove this replica from the replication group. The</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--     replica will not be deleted and replication will stop from and to</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--     this region.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The AWS KMS key used to</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--     encrypt the table is inaccessible.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--     If the AWS KMS key remains inaccessible for more than 20 hours,</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--     DynamoDB will remove this replica from the replication group. The</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--     replica will not be deleted and replication will stop from and to</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--     this region.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_replicaStatus"><span class="hs-identifier hs-type">replicaDescription_replicaStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaStatus.html#ReplicaStatus"><span class="hs-identifier hs-type">ReplicaStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="replicaDescription_replicaStatus"><span class="annot"><span class="annottext">replicaDescription_replicaStatus :: (Maybe ReplicaStatus -&gt; f (Maybe ReplicaStatus))
+-&gt; ReplicaDescription -&gt; f ReplicaDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_replicaStatus"><span class="hs-identifier hs-var hs-var">replicaDescription_replicaStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaDescription -&gt; Maybe ReplicaStatus)
+-&gt; (ReplicaDescription
+    -&gt; Maybe ReplicaStatus -&gt; ReplicaDescription)
+-&gt; Lens
+     ReplicaDescription
+     ReplicaDescription
+     (Maybe ReplicaStatus)
+     (Maybe ReplicaStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378571"><span class="annot"><span class="annottext">Maybe ReplicaStatus
+replicaStatus :: Maybe ReplicaStatus
+$sel:replicaStatus:ReplicaDescription' :: ReplicaDescription -&gt; Maybe ReplicaStatus
+</span><a href="#local-6989586621679378571"><span class="hs-identifier hs-var hs-var">replicaStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicaStatus
+</span><a href="#local-6989586621679378571"><span class="hs-identifier hs-var">replicaStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378570"><span class="annot"><span class="annottext">s :: ReplicaDescription
+</span><a href="#local-6989586621679378570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378569"><span class="annot"><span class="annottext">Maybe ReplicaStatus
+</span><a href="#local-6989586621679378569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaDescription
+</span><a href="#local-6989586621679378570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaStatus:ReplicaDescription' :: Maybe ReplicaStatus
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaStatus%3AReplicaDescription%27"><span class="hs-identifier hs-var">replicaStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicaStatus
+</span><a href="#local-6989586621679378569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The name of the Region.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_regionName"><span class="hs-identifier hs-type">replicaDescription_regionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="replicaDescription_regionName"><span class="annot"><span class="annottext">replicaDescription_regionName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ReplicaDescription -&gt; f ReplicaDescription
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_regionName"><span class="hs-identifier hs-var hs-var">replicaDescription_regionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaDescription -&gt; Maybe Text)
 -&gt; (ReplicaDescription -&gt; Maybe Text -&gt; ReplicaDescription)
 -&gt; Lens
      ReplicaDescription ReplicaDescription (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377882"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378567"><span class="annot"><span class="annottext">Maybe Text
 regionName :: Maybe Text
 $sel:regionName:ReplicaDescription' :: ReplicaDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679377882"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377882"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377881"><span class="annot"><span class="annottext">s :: ReplicaDescription
-</span><a href="#local-6989586621679377881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377880"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaDescription
-</span><a href="#local-6989586621679377881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionName:ReplicaDescription' :: Maybe Text
+</span><a href="#local-6989586621679378567"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378567"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378566"><span class="annot"><span class="annottext">s :: ReplicaDescription
+</span><a href="#local-6989586621679378566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378565"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaDescription
+</span><a href="#local-6989586621679378566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionName:ReplicaDescription' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AregionName%3AReplicaDescription%27"><span class="hs-identifier hs-var">regionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- | Replica-specific global secondary index settings.</span><span>
-</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_globalSecondaryIndexes"><span class="hs-identifier hs-type">replicaDescription_globalSecondaryIndexes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexDescription.html#ReplicaGlobalSecondaryIndexDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span id="replicaDescription_globalSecondaryIndexes"><span class="annot"><span class="annottext">replicaDescription_globalSecondaryIndexes :: (Maybe [ReplicaGlobalSecondaryIndexDescription]
+</span><a href="#local-6989586621679378565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | Specifies the progress of a Create, Update, or Delete action on the</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- replica as a percentage.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_replicaStatusPercentProgress"><span class="hs-identifier hs-type">replicaDescription_replicaStatusPercentProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="replicaDescription_replicaStatusPercentProgress"><span class="annot"><span class="annottext">replicaDescription_replicaStatusPercentProgress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicaDescription -&gt; f ReplicaDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_replicaStatusPercentProgress"><span class="hs-identifier hs-var hs-var">replicaDescription_replicaStatusPercentProgress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaDescription -&gt; Maybe Text)
+-&gt; (ReplicaDescription -&gt; Maybe Text -&gt; ReplicaDescription)
+-&gt; Lens
+     ReplicaDescription ReplicaDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378563"><span class="annot"><span class="annottext">Maybe Text
+replicaStatusPercentProgress :: Maybe Text
+$sel:replicaStatusPercentProgress:ReplicaDescription' :: ReplicaDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679378563"><span class="hs-identifier hs-var hs-var">replicaStatusPercentProgress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378563"><span class="hs-identifier hs-var">replicaStatusPercentProgress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378562"><span class="annot"><span class="annottext">s :: ReplicaDescription
+</span><a href="#local-6989586621679378562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378561"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaDescription
+</span><a href="#local-6989586621679378562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaStatusPercentProgress:ReplicaDescription' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaStatusPercentProgress%3AReplicaDescription%27"><span class="hs-identifier hs-var">replicaStatusPercentProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | Detailed information about the replica status.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_replicaStatusDescription"><span class="hs-identifier hs-type">replicaDescription_replicaStatusDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="replicaDescription_replicaStatusDescription"><span class="annot"><span class="annottext">replicaDescription_replicaStatusDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicaDescription -&gt; f ReplicaDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_replicaStatusDescription"><span class="hs-identifier hs-var hs-var">replicaDescription_replicaStatusDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaDescription -&gt; Maybe Text)
+-&gt; (ReplicaDescription -&gt; Maybe Text -&gt; ReplicaDescription)
+-&gt; Lens
+     ReplicaDescription ReplicaDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378559"><span class="annot"><span class="annottext">Maybe Text
+replicaStatusDescription :: Maybe Text
+$sel:replicaStatusDescription:ReplicaDescription' :: ReplicaDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679378559"><span class="hs-identifier hs-var hs-var">replicaStatusDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378559"><span class="hs-identifier hs-var">replicaStatusDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378558"><span class="annot"><span class="annottext">s :: ReplicaDescription
+</span><a href="#local-6989586621679378558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378557"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaDescription
+</span><a href="#local-6989586621679378558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaStatusDescription:ReplicaDescription' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaStatusDescription%3AReplicaDescription%27"><span class="hs-identifier hs-var">replicaStatusDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The time at which the replica was first detected as inaccessible. To</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- determine cause of inaccessibility check the @ReplicaStatus@ property.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_replicaInaccessibleDateTime"><span class="hs-identifier hs-type">replicaDescription_replicaInaccessibleDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="replicaDescription_replicaInaccessibleDateTime"><span class="annot"><span class="annottext">replicaDescription_replicaInaccessibleDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReplicaDescription -&gt; f ReplicaDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_replicaInaccessibleDateTime"><span class="hs-identifier hs-var hs-var">replicaDescription_replicaInaccessibleDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaDescription -&gt; Maybe POSIX)
+-&gt; (ReplicaDescription -&gt; Maybe POSIX -&gt; ReplicaDescription)
+-&gt; Lens
+     ReplicaDescription ReplicaDescription (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378555"><span class="annot"><span class="annottext">Maybe POSIX
+replicaInaccessibleDateTime :: Maybe POSIX
+$sel:replicaInaccessibleDateTime:ReplicaDescription' :: ReplicaDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679378555"><span class="hs-identifier hs-var hs-var">replicaInaccessibleDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679378555"><span class="hs-identifier hs-var">replicaInaccessibleDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378554"><span class="annot"><span class="annottext">s :: ReplicaDescription
+</span><a href="#local-6989586621679378554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378553"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679378553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaDescription
+</span><a href="#local-6989586621679378554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaInaccessibleDateTime:ReplicaDescription' :: Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaInaccessibleDateTime%3AReplicaDescription%27"><span class="hs-identifier hs-var">replicaInaccessibleDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679378553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ReplicaDescription -&gt; f ReplicaDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReplicaDescription
+-&gt; f ReplicaDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The AWS KMS customer master key (CMK) of the replica that will be used</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- for AWS KMS encryption.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_kmsMasterKeyId"><span class="hs-identifier hs-type">replicaDescription_kmsMasterKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="replicaDescription_kmsMasterKeyId"><span class="annot"><span class="annottext">replicaDescription_kmsMasterKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicaDescription -&gt; f ReplicaDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_kmsMasterKeyId"><span class="hs-identifier hs-var hs-var">replicaDescription_kmsMasterKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaDescription -&gt; Maybe Text)
+-&gt; (ReplicaDescription -&gt; Maybe Text -&gt; ReplicaDescription)
+-&gt; Lens
+     ReplicaDescription ReplicaDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378548"><span class="annot"><span class="annottext">Maybe Text
+kmsMasterKeyId :: Maybe Text
+$sel:kmsMasterKeyId:ReplicaDescription' :: ReplicaDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679378548"><span class="hs-identifier hs-var hs-var">kmsMasterKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378548"><span class="hs-identifier hs-var">kmsMasterKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378547"><span class="annot"><span class="annottext">s :: ReplicaDescription
+</span><a href="#local-6989586621679378547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378546"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaDescription
+</span><a href="#local-6989586621679378547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsMasterKeyId:ReplicaDescription' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AkmsMasterKeyId%3AReplicaDescription%27"><span class="hs-identifier hs-var">kmsMasterKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | Replica-specific provisioned throughput. If not described, uses the</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- source table\'s provisioned throughput settings.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_provisionedThroughputOverride"><span class="hs-identifier hs-type">replicaDescription_provisionedThroughputOverride</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride.html#ProvisionedThroughputOverride"><span class="hs-identifier hs-type">ProvisionedThroughputOverride</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="replicaDescription_provisionedThroughputOverride"><span class="annot"><span class="annottext">replicaDescription_provisionedThroughputOverride :: (Maybe ProvisionedThroughputOverride
+ -&gt; f (Maybe ProvisionedThroughputOverride))
+-&gt; ReplicaDescription -&gt; f ReplicaDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_provisionedThroughputOverride"><span class="hs-identifier hs-var hs-var">replicaDescription_provisionedThroughputOverride</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaDescription -&gt; Maybe ProvisionedThroughputOverride)
+-&gt; (ReplicaDescription
+    -&gt; Maybe ProvisionedThroughputOverride -&gt; ReplicaDescription)
+-&gt; Lens
+     ReplicaDescription
+     ReplicaDescription
+     (Maybe ProvisionedThroughputOverride)
+     (Maybe ProvisionedThroughputOverride)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378544"><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
+provisionedThroughputOverride :: Maybe ProvisionedThroughputOverride
+$sel:provisionedThroughputOverride:ReplicaDescription' :: ReplicaDescription -&gt; Maybe ProvisionedThroughputOverride
+</span><a href="#local-6989586621679378544"><span class="hs-identifier hs-var hs-var">provisionedThroughputOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
+</span><a href="#local-6989586621679378544"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378543"><span class="annot"><span class="annottext">s :: ReplicaDescription
+</span><a href="#local-6989586621679378543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378542"><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
+</span><a href="#local-6989586621679378542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaDescription
+</span><a href="#local-6989586621679378543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedThroughputOverride:ReplicaDescription' :: Maybe ProvisionedThroughputOverride
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AprovisionedThroughputOverride%3AReplicaDescription%27"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
+</span><a href="#local-6989586621679378542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | Replica-specific global secondary index settings.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_globalSecondaryIndexes"><span class="hs-identifier hs-type">replicaDescription_globalSecondaryIndexes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexDescription.html#ReplicaGlobalSecondaryIndexDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="replicaDescription_globalSecondaryIndexes"><span class="annot"><span class="annottext">replicaDescription_globalSecondaryIndexes :: (Maybe [ReplicaGlobalSecondaryIndexDescription]
  -&gt; f (Maybe [ReplicaGlobalSecondaryIndexDescription]))
 -&gt; ReplicaDescription -&gt; f ReplicaDescription
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_globalSecondaryIndexes"><span class="hs-identifier hs-var hs-var">replicaDescription_globalSecondaryIndexes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaDescription
@@ -274,17 +447,17 @@ $sel:regionName:ReplicaDescription' :: ReplicaDescription -&gt; Maybe Text
      (Maybe [ReplicaGlobalSecondaryIndexDescription])
      (Maybe [ReplicaGlobalSecondaryIndexDescription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377878"><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexDescription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378540"><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexDescription]
 globalSecondaryIndexes :: Maybe [ReplicaGlobalSecondaryIndexDescription]
 $sel:globalSecondaryIndexes:ReplicaDescription' :: ReplicaDescription
 -&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
-</span><a href="#local-6989586621679377878"><span class="hs-identifier hs-var hs-var">globalSecondaryIndexes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexDescription]
-</span><a href="#local-6989586621679377878"><span class="hs-identifier hs-var">globalSecondaryIndexes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377877"><span class="annot"><span class="annottext">s :: ReplicaDescription
-</span><a href="#local-6989586621679377877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377876"><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexDescription]
-</span><a href="#local-6989586621679377876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaDescription
-</span><a href="#local-6989586621679377877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalSecondaryIndexes:ReplicaDescription' :: Maybe [ReplicaGlobalSecondaryIndexDescription]
+</span><a href="#local-6989586621679378540"><span class="hs-identifier hs-var hs-var">globalSecondaryIndexes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexDescription]
+</span><a href="#local-6989586621679378540"><span class="hs-identifier hs-var">globalSecondaryIndexes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378539"><span class="annot"><span class="annottext">s :: ReplicaDescription
+</span><a href="#local-6989586621679378539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378538"><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexDescription]
+</span><a href="#local-6989586621679378538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaDescription
+</span><a href="#local-6989586621679378539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalSecondaryIndexes:ReplicaDescription' :: Maybe [ReplicaGlobalSecondaryIndexDescription]
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AglobalSecondaryIndexes%3AReplicaDescription%27"><span class="hs-identifier hs-var">globalSecondaryIndexes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexDescription]
-</span><a href="#local-6989586621679377876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReplicaGlobalSecondaryIndexDescription]
+</span><a href="#local-6989586621679378538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReplicaGlobalSecondaryIndexDescription]
   -&gt; f (Maybe [ReplicaGlobalSecondaryIndexDescription]))
  -&gt; ReplicaDescription -&gt; f ReplicaDescription)
 -&gt; ((Maybe [ReplicaGlobalSecondaryIndexDescription]
@@ -314,353 +487,195 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ReplicaGlobalSecondaryIndexDescription]
   [ReplicaGlobalSecondaryIndexDescription]
   [ReplicaGlobalSecondaryIndexDescription]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- | Replica-specific provisioned throughput. If not described, uses the</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- source table\'s provisioned throughput settings.</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_provisionedThroughputOverride"><span class="hs-identifier hs-type">replicaDescription_provisionedThroughputOverride</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride.html#ProvisionedThroughputOverride"><span class="hs-identifier hs-type">ProvisionedThroughputOverride</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="replicaDescription_provisionedThroughputOverride"><span class="annot"><span class="annottext">replicaDescription_provisionedThroughputOverride :: (Maybe ProvisionedThroughputOverride
- -&gt; f (Maybe ProvisionedThroughputOverride))
--&gt; ReplicaDescription -&gt; f ReplicaDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_provisionedThroughputOverride"><span class="hs-identifier hs-var hs-var">replicaDescription_provisionedThroughputOverride</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaDescription -&gt; Maybe ProvisionedThroughputOverride)
--&gt; (ReplicaDescription
-    -&gt; Maybe ProvisionedThroughputOverride -&gt; ReplicaDescription)
--&gt; Lens
-     ReplicaDescription
-     ReplicaDescription
-     (Maybe ProvisionedThroughputOverride)
-     (Maybe ProvisionedThroughputOverride)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377871"><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
-provisionedThroughputOverride :: Maybe ProvisionedThroughputOverride
-$sel:provisionedThroughputOverride:ReplicaDescription' :: ReplicaDescription -&gt; Maybe ProvisionedThroughputOverride
-</span><a href="#local-6989586621679377871"><span class="hs-identifier hs-var hs-var">provisionedThroughputOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
-</span><a href="#local-6989586621679377871"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377870"><span class="annot"><span class="annottext">s :: ReplicaDescription
-</span><a href="#local-6989586621679377870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377869"><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
-</span><a href="#local-6989586621679377869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaDescription
-</span><a href="#local-6989586621679377870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedThroughputOverride:ReplicaDescription' :: Maybe ProvisionedThroughputOverride
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AprovisionedThroughputOverride%3AReplicaDescription%27"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
-</span><a href="#local-6989586621679377869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- | The AWS KMS customer master key (CMK) of the replica that will be used</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- for AWS KMS encryption.</span><span>
-</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_kmsMasterKeyId"><span class="hs-identifier hs-type">replicaDescription_kmsMasterKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span id="replicaDescription_kmsMasterKeyId"><span class="annot"><span class="annottext">replicaDescription_kmsMasterKeyId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReplicaDescription -&gt; f ReplicaDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_kmsMasterKeyId"><span class="hs-identifier hs-var hs-var">replicaDescription_kmsMasterKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaDescription -&gt; Maybe Text)
--&gt; (ReplicaDescription -&gt; Maybe Text -&gt; ReplicaDescription)
--&gt; Lens
-     ReplicaDescription ReplicaDescription (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377867"><span class="annot"><span class="annottext">Maybe Text
-kmsMasterKeyId :: Maybe Text
-$sel:kmsMasterKeyId:ReplicaDescription' :: ReplicaDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679377867"><span class="hs-identifier hs-var hs-var">kmsMasterKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377867"><span class="hs-identifier hs-var">kmsMasterKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377866"><span class="annot"><span class="annottext">s :: ReplicaDescription
-</span><a href="#local-6989586621679377866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377865"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaDescription
-</span><a href="#local-6989586621679377866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsMasterKeyId:ReplicaDescription' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AkmsMasterKeyId%3AReplicaDescription%27"><span class="hs-identifier hs-var">kmsMasterKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- | Detailed information about the replica status.</span><span>
-</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_replicaStatusDescription"><span class="hs-identifier hs-type">replicaDescription_replicaStatusDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span id="replicaDescription_replicaStatusDescription"><span class="annot"><span class="annottext">replicaDescription_replicaStatusDescription :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReplicaDescription -&gt; f ReplicaDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_replicaStatusDescription"><span class="hs-identifier hs-var hs-var">replicaDescription_replicaStatusDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaDescription -&gt; Maybe Text)
--&gt; (ReplicaDescription -&gt; Maybe Text -&gt; ReplicaDescription)
--&gt; Lens
-     ReplicaDescription ReplicaDescription (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377863"><span class="annot"><span class="annottext">Maybe Text
-replicaStatusDescription :: Maybe Text
-$sel:replicaStatusDescription:ReplicaDescription' :: ReplicaDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679377863"><span class="hs-identifier hs-var hs-var">replicaStatusDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377863"><span class="hs-identifier hs-var">replicaStatusDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377862"><span class="annot"><span class="annottext">s :: ReplicaDescription
-</span><a href="#local-6989586621679377862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377861"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaDescription
-</span><a href="#local-6989586621679377862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaStatusDescription:ReplicaDescription' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaStatusDescription%3AReplicaDescription%27"><span class="hs-identifier hs-var">replicaStatusDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- | Specifies the progress of a Create, Update, or Delete action on the</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- replica as a percentage.</span><span>
-</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_replicaStatusPercentProgress"><span class="hs-identifier hs-type">replicaDescription_replicaStatusPercentProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span id="replicaDescription_replicaStatusPercentProgress"><span class="annot"><span class="annottext">replicaDescription_replicaStatusPercentProgress :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReplicaDescription -&gt; f ReplicaDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_replicaStatusPercentProgress"><span class="hs-identifier hs-var hs-var">replicaDescription_replicaStatusPercentProgress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaDescription -&gt; Maybe Text)
--&gt; (ReplicaDescription -&gt; Maybe Text -&gt; ReplicaDescription)
--&gt; Lens
-     ReplicaDescription ReplicaDescription (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377859"><span class="annot"><span class="annottext">Maybe Text
-replicaStatusPercentProgress :: Maybe Text
-$sel:replicaStatusPercentProgress:ReplicaDescription' :: ReplicaDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679377859"><span class="hs-identifier hs-var hs-var">replicaStatusPercentProgress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377859"><span class="hs-identifier hs-var">replicaStatusPercentProgress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377858"><span class="annot"><span class="annottext">s :: ReplicaDescription
-</span><a href="#local-6989586621679377858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377857"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaDescription
-</span><a href="#local-6989586621679377858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaStatusPercentProgress:ReplicaDescription' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaStatusPercentProgress%3AReplicaDescription%27"><span class="hs-identifier hs-var">replicaStatusPercentProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- | The current state of the replica:</span><span>
-</span><span id="line-173"></span><span class="hs-comment">--</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- -   @CREATING@ - The replica is being created.</span><span>
-</span><span id="line-175"></span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- -   @UPDATING@ - The replica is being updated.</span><span>
-</span><span id="line-177"></span><span class="hs-comment">--</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- -   @DELETING@ - The replica is being deleted.</span><span>
-</span><span id="line-179"></span><span class="hs-comment">--</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- -   @ACTIVE@ - The replica is ready for use.</span><span>
-</span><span id="line-181"></span><span class="hs-comment">--</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- -   @REGION_DISABLED@ - The replica is inaccessible because the AWS</span><span>
-</span><span id="line-183"></span><span class="hs-comment">--     Region has been disabled.</span><span>
-</span><span id="line-184"></span><span class="hs-comment">--</span><span>
-</span><span id="line-185"></span><span class="hs-comment">--     If the AWS Region remains inaccessible for more than 20 hours,</span><span>
-</span><span id="line-186"></span><span class="hs-comment">--     DynamoDB will remove this replica from the replication group. The</span><span>
-</span><span id="line-187"></span><span class="hs-comment">--     replica will not be deleted and replication will stop from and to</span><span>
-</span><span id="line-188"></span><span class="hs-comment">--     this region.</span><span>
-</span><span id="line-189"></span><span class="hs-comment">--</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The AWS KMS key used to</span><span>
-</span><span id="line-191"></span><span class="hs-comment">--     encrypt the table is inaccessible.</span><span>
-</span><span id="line-192"></span><span class="hs-comment">--</span><span>
-</span><span id="line-193"></span><span class="hs-comment">--     If the AWS KMS key remains inaccessible for more than 20 hours,</span><span>
-</span><span id="line-194"></span><span class="hs-comment">--     DynamoDB will remove this replica from the replication group. The</span><span>
-</span><span id="line-195"></span><span class="hs-comment">--     replica will not be deleted and replication will stop from and to</span><span>
-</span><span id="line-196"></span><span class="hs-comment">--     this region.</span><span>
-</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_replicaStatus"><span class="hs-identifier hs-type">replicaDescription_replicaStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaStatus.html#ReplicaStatus"><span class="hs-identifier hs-type">ReplicaStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-198"></span><span id="replicaDescription_replicaStatus"><span class="annot"><span class="annottext">replicaDescription_replicaStatus :: (Maybe ReplicaStatus -&gt; f (Maybe ReplicaStatus))
--&gt; ReplicaDescription -&gt; f ReplicaDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_replicaStatus"><span class="hs-identifier hs-var hs-var">replicaDescription_replicaStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaDescription -&gt; Maybe ReplicaStatus)
--&gt; (ReplicaDescription
-    -&gt; Maybe ReplicaStatus -&gt; ReplicaDescription)
--&gt; Lens
-     ReplicaDescription
-     ReplicaDescription
-     (Maybe ReplicaStatus)
-     (Maybe ReplicaStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377855"><span class="annot"><span class="annottext">Maybe ReplicaStatus
-replicaStatus :: Maybe ReplicaStatus
-$sel:replicaStatus:ReplicaDescription' :: ReplicaDescription -&gt; Maybe ReplicaStatus
-</span><a href="#local-6989586621679377855"><span class="hs-identifier hs-var hs-var">replicaStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicaStatus
-</span><a href="#local-6989586621679377855"><span class="hs-identifier hs-var">replicaStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377854"><span class="annot"><span class="annottext">s :: ReplicaDescription
-</span><a href="#local-6989586621679377854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377853"><span class="annot"><span class="annottext">Maybe ReplicaStatus
-</span><a href="#local-6989586621679377853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaDescription
-</span><a href="#local-6989586621679377854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaStatus:ReplicaDescription' :: Maybe ReplicaStatus
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaStatus%3AReplicaDescription%27"><span class="hs-identifier hs-var">replicaStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicaStatus
-</span><a href="#local-6989586621679377853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- | The time at which the replica was first detected as inaccessible. To</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- determine cause of inaccessibility check the @ReplicaStatus@ property.</span><span>
-</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_replicaInaccessibleDateTime"><span class="hs-identifier hs-type">replicaDescription_replicaInaccessibleDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-203"></span><span id="replicaDescription_replicaInaccessibleDateTime"><span class="annot"><span class="annottext">replicaDescription_replicaInaccessibleDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ReplicaDescription -&gt; f ReplicaDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#replicaDescription_replicaInaccessibleDateTime"><span class="hs-identifier hs-var hs-var">replicaDescription_replicaInaccessibleDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaDescription -&gt; Maybe POSIX)
--&gt; (ReplicaDescription -&gt; Maybe POSIX -&gt; ReplicaDescription)
--&gt; Lens
-     ReplicaDescription ReplicaDescription (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377851"><span class="annot"><span class="annottext">Maybe POSIX
-replicaInaccessibleDateTime :: Maybe POSIX
-$sel:replicaInaccessibleDateTime:ReplicaDescription' :: ReplicaDescription -&gt; Maybe POSIX
-</span><a href="#local-6989586621679377851"><span class="hs-identifier hs-var hs-var">replicaInaccessibleDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679377851"><span class="hs-identifier hs-var">replicaInaccessibleDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377850"><span class="annot"><span class="annottext">s :: ReplicaDescription
-</span><a href="#local-6989586621679377850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-type">ReplicaDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377849"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679377849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaDescription
-</span><a href="#local-6989586621679377850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaInaccessibleDateTime:ReplicaDescription' :: Maybe POSIX
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#%24sel%3AreplicaInaccessibleDateTime%3AReplicaDescription%27"><span class="hs-identifier hs-var">replicaInaccessibleDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679377849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; ReplicaDescription -&gt; f ReplicaDescription)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ReplicaDescription
--&gt; f ReplicaDescription
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377845"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621679377843"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplicaDescription
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378534"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679378532"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplicaDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReplicaDescription)
 -&gt; Value
 -&gt; Parser ReplicaDescription
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReplicaDescription&quot;</span></span><span>
-</span><span id="line-209"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377840"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377840"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-210"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
--&gt; Maybe ProvisionedThroughputOverride
+</span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378529"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378529"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReplicaStatus
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe ReplicaStatus
 -&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe ProvisionedThroughputOverride
+-&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
 -&gt; ReplicaDescription
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription%27"><span class="hs-identifier hs-var">ReplicaDescription'</span></a></span><span>
-</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
- -&gt; Maybe ProvisionedThroughputOverride
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ReplicaStatus
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe ReplicaStatus
  -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe ProvisionedThroughputOverride
+ -&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
  -&gt; ReplicaDescription)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ReplicaStatus)
 -&gt; Parser
-     (Maybe [ReplicaGlobalSecondaryIndexDescription]
-      -&gt; Maybe ProvisionedThroughputOverride
+     (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ReplicaStatus
       -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ProvisionedThroughputOverride
+      -&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
       -&gt; ReplicaDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679378529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReplicaStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicaStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ProvisionedThroughputOverride
+   -&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
+   -&gt; ReplicaDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ProvisionedThroughputOverride
+      -&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
+      -&gt; ReplicaDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegionName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [ReplicaGlobalSecondaryIndexDescription]
-   -&gt; Maybe ProvisionedThroughputOverride
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ReplicaStatus
    -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ProvisionedThroughputOverride
+   -&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
    -&gt; ReplicaDescription)
--&gt; Parser (Maybe [ReplicaGlobalSecondaryIndexDescription])
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe ProvisionedThroughputOverride
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ReplicaStatus
+     (Maybe Text
       -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ProvisionedThroughputOverride
+      -&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
       -&gt; ReplicaDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicaStatusPercentProgress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ProvisionedThroughputOverride
+   -&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
+   -&gt; ReplicaDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ProvisionedThroughputOverride
+      -&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
+      -&gt; ReplicaDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicaStatusDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ProvisionedThroughputOverride
+   -&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
+   -&gt; ReplicaDescription)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ProvisionedThroughputOverride
+      -&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
+      -&gt; ReplicaDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicaInaccessibleDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ProvisionedThroughputOverride
+   -&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
+   -&gt; ReplicaDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ProvisionedThroughputOverride
+      -&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
+      -&gt; ReplicaDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KMSMasterKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ProvisionedThroughputOverride
+   -&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
+   -&gt; ReplicaDescription)
+-&gt; Parser (Maybe ProvisionedThroughputOverride)
+-&gt; Parser
+     (Maybe [ReplicaGlobalSecondaryIndexDescription]
+      -&gt; ReplicaDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProvisionedThroughputOverride)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisionedThroughputOverride&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ReplicaGlobalSecondaryIndexDescription]
+   -&gt; ReplicaDescription)
+-&gt; Parser (Maybe [ReplicaGlobalSecondaryIndexDescription])
+-&gt; Parser ReplicaDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser (Maybe (Maybe [ReplicaGlobalSecondaryIndexDescription]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GlobalSecondaryIndexes&quot;</span></span><span>
-</span><span id="line-213"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ReplicaGlobalSecondaryIndexDescription]))
+</span><span id="line-220"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ReplicaGlobalSecondaryIndexDescription]))
 -&gt; Maybe [ReplicaGlobalSecondaryIndexDescription]
 -&gt; Parser (Maybe [ReplicaGlobalSecondaryIndexDescription])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexDescription]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-214"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ProvisionedThroughputOverride
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ReplicaStatus
-   -&gt; Maybe POSIX
-   -&gt; ReplicaDescription)
--&gt; Parser (Maybe ProvisionedThroughputOverride)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ReplicaStatus
-      -&gt; Maybe POSIX
-      -&gt; ReplicaDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProvisionedThroughputOverride)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProvisionedThroughputOverride&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ReplicaStatus
-   -&gt; Maybe POSIX
-   -&gt; ReplicaDescription)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ReplicaStatus
-      -&gt; Maybe POSIX
-      -&gt; ReplicaDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;KMSMasterKeyId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ReplicaStatus
-   -&gt; Maybe POSIX
-   -&gt; ReplicaDescription)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe ReplicaStatus -&gt; Maybe POSIX -&gt; ReplicaDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReplicaStatusDescription&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe ReplicaStatus -&gt; Maybe POSIX -&gt; ReplicaDescription)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe ReplicaStatus -&gt; Maybe POSIX -&gt; ReplicaDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReplicaStatusPercentProgress&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ReplicaStatus -&gt; Maybe POSIX -&gt; ReplicaDescription)
--&gt; Parser (Maybe ReplicaStatus)
--&gt; Parser (Maybe POSIX -&gt; ReplicaDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReplicaStatus)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReplicaStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; ReplicaDescription)
--&gt; Parser (Maybe POSIX) -&gt; Parser ReplicaDescription
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReplicaInaccessibleDateTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377833"><span id="local-6989586621679377835"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span></span></span><span>
-</span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span></span><span>
-</span><span id="line-226"></span></pre></body></html>
+</span><span id="line-221"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378522"><span id="local-6989586621679378524"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span></span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaDescription.html#ReplicaDescription"><span class="hs-identifier hs-type">ReplicaDescription</span></a></span></span><span>
+</span><span id="line-227"></span></pre></body></html>

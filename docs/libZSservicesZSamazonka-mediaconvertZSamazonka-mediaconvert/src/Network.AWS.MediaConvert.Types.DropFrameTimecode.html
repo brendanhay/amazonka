@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- to use drop-frame timecode, the system will fall back to non-drop-frame.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- This setting is enabled by default when Timecode insertion</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- (TimecodeInsertion) is enabled.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679951419"><span id="local-6989586621679951420"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DropFrameTimecode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DropFrameTimecode.html#DropFrameTimecode"><span class="hs-identifier hs-var">DropFrameTimecode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DropFrameTimecode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DropFrameTimecode.html#DropFrameTimecode%27"><span class="hs-identifier hs-var">DropFrameTimecode'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679956043"><span id="local-6989586621679956044"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DropFrameTimecode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DropFrameTimecode.html#DropFrameTimecode"><span class="hs-identifier hs-var">DropFrameTimecode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DropFrameTimecode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DropFrameTimecode.html#DropFrameTimecode%27"><span class="hs-identifier hs-var">DropFrameTimecode'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDropFrameTimecode"><span class="annot"><span class="annottext">DropFrameTimecode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.DropFrameTimecode.html#fromDropFrameTimecode"><span class="hs-identifier hs-var hs-var">fromDropFrameTimecode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679951411"><span id="local-6989586621679951413"><span id="local-6989586621679951415"><span class="annot"><span class="annottext">Int -&gt; DropFrameTimecode -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679956035"><span id="local-6989586621679956037"><span id="local-6989586621679956039"><span class="annot"><span class="annottext">Int -&gt; DropFrameTimecode -&gt; ShowS
 [DropFrameTimecode] -&gt; ShowS
 DropFrameTimecode -&gt; String
 (Int -&gt; DropFrameTimecode -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: DropFrameTimecode -&gt; String
 showsPrec :: Int -&gt; DropFrameTimecode -&gt; ShowS
 $cshowsPrec :: Int -&gt; DropFrameTimecode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679951402"><span id="local-6989586621679951404"><span id="local-6989586621679951406"><span id="local-6989586621679951408"><span class="annot"><span class="annottext">ReadPrec [DropFrameTimecode]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679956026"><span id="local-6989586621679956028"><span id="local-6989586621679956030"><span id="local-6989586621679956032"><span class="annot"><span class="annottext">ReadPrec [DropFrameTimecode]
 ReadPrec DropFrameTimecode
 Int -&gt; ReadS DropFrameTimecode
 ReadS [DropFrameTimecode]
@@ -77,7 +77,7 @@ $creadList :: ReadS [DropFrameTimecode]
 readsPrec :: Int -&gt; ReadS DropFrameTimecode
 $creadsPrec :: Int -&gt; ReadS DropFrameTimecode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679951397"><span id="local-6989586621679951399"><span class="annot"><span class="annottext">DropFrameTimecode -&gt; DropFrameTimecode -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679956021"><span id="local-6989586621679956023"><span class="annot"><span class="annottext">DropFrameTimecode -&gt; DropFrameTimecode -&gt; Bool
 (DropFrameTimecode -&gt; DropFrameTimecode -&gt; Bool)
 -&gt; (DropFrameTimecode -&gt; DropFrameTimecode -&gt; Bool)
 -&gt; Eq DropFrameTimecode
@@ -87,7 +87,7 @@ $c/= :: DropFrameTimecode -&gt; DropFrameTimecode -&gt; Bool
 == :: DropFrameTimecode -&gt; DropFrameTimecode -&gt; Bool
 $c== :: DropFrameTimecode -&gt; DropFrameTimecode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679951381"><span id="local-6989586621679951383"><span id="local-6989586621679951385"><span id="local-6989586621679951387"><span id="local-6989586621679951389"><span id="local-6989586621679951391"><span id="local-6989586621679951393"><span class="annot"><span class="annottext">Eq DropFrameTimecode
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679956005"><span id="local-6989586621679956007"><span id="local-6989586621679956009"><span id="local-6989586621679956011"><span id="local-6989586621679956013"><span id="local-6989586621679956015"><span id="local-6989586621679956017"><span class="annot"><span class="annottext">Eq DropFrameTimecode
 Eq DropFrameTimecode
 -&gt; (DropFrameTimecode -&gt; DropFrameTimecode -&gt; Ordering)
 -&gt; (DropFrameTimecode -&gt; DropFrameTimecode -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. DropFrameTimecode -&gt; Rep DropFrameTimecode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679951373"><span id="local-6989586621679951375"><span class="annot"><span class="annottext">Int -&gt; DropFrameTimecode -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679955997"><span id="local-6989586621679955999"><span class="annot"><span class="annottext">Int -&gt; DropFrameTimecode -&gt; Int
 DropFrameTimecode -&gt; Int
 (Int -&gt; DropFrameTimecode -&gt; Int)
 -&gt; (DropFrameTimecode -&gt; Int) -&gt; Hashable DropFrameTimecode
@@ -148,51 +148,51 @@ $chash :: DropFrameTimecode -&gt; Int
 hashWithSalt :: Int -&gt; DropFrameTimecode -&gt; Int
 $chashWithSalt :: Int -&gt; DropFrameTimecode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679951370"><span class="annot"><span class="annottext">DropFrameTimecode -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679955994"><span class="annot"><span class="annottext">DropFrameTimecode -&gt; ()
 (DropFrameTimecode -&gt; ()) -&gt; NFData DropFrameTimecode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DropFrameTimecode -&gt; ()
 $crnf :: DropFrameTimecode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679951367"><span class="annot"><span class="annottext">Text -&gt; Either String DropFrameTimecode
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679955991"><span class="annot"><span class="annottext">Text -&gt; Either String DropFrameTimecode
 (Text -&gt; Either String DropFrameTimecode)
 -&gt; FromText DropFrameTimecode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DropFrameTimecode
 $cfromText :: Text -&gt; Either String DropFrameTimecode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679951364"><span class="annot"><span class="annottext">DropFrameTimecode -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679955988"><span class="annot"><span class="annottext">DropFrameTimecode -&gt; Text
 (DropFrameTimecode -&gt; Text) -&gt; ToText DropFrameTimecode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DropFrameTimecode -&gt; Text
 $ctoText :: DropFrameTimecode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679951361"><span class="annot"><span class="annottext">DropFrameTimecode -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679955985"><span class="annot"><span class="annottext">DropFrameTimecode -&gt; ByteString
 (DropFrameTimecode -&gt; ByteString) -&gt; ToByteString DropFrameTimecode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DropFrameTimecode -&gt; ByteString
 $ctoBS :: DropFrameTimecode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679951358"><span class="annot"><span class="annottext">DropFrameTimecode -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679955982"><span class="annot"><span class="annottext">DropFrameTimecode -&gt; ByteStringBuilder
 (DropFrameTimecode -&gt; ByteStringBuilder) -&gt; ToLog DropFrameTimecode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DropFrameTimecode -&gt; ByteStringBuilder
 $cbuild :: DropFrameTimecode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679951355"><span class="annot"><span class="annottext">HeaderName -&gt; DropFrameTimecode -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679955979"><span class="annot"><span class="annottext">HeaderName -&gt; DropFrameTimecode -&gt; [Header]
 (HeaderName -&gt; DropFrameTimecode -&gt; [Header])
 -&gt; ToHeader DropFrameTimecode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DropFrameTimecode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DropFrameTimecode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679951352"><span class="annot"><span class="annottext">DropFrameTimecode -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679955976"><span class="annot"><span class="annottext">DropFrameTimecode -&gt; QueryString
 (DropFrameTimecode -&gt; QueryString) -&gt; ToQuery DropFrameTimecode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DropFrameTimecode -&gt; QueryString
 $ctoQuery :: DropFrameTimecode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679951347"><span id="local-6989586621679951349"><span class="annot"><span class="annottext">Value -&gt; Parser [DropFrameTimecode]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679955971"><span id="local-6989586621679955973"><span class="annot"><span class="annottext">Value -&gt; Parser [DropFrameTimecode]
 Value -&gt; Parser DropFrameTimecode
 (Value -&gt; Parser DropFrameTimecode)
 -&gt; (Value -&gt; Parser [DropFrameTimecode])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [DropFrameTimecode]
 parseJSON :: Value -&gt; Parser DropFrameTimecode
 $cparseJSON :: Value -&gt; Parser DropFrameTimecode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679951342"><span id="local-6989586621679951344"><span class="annot"><span class="annottext">FromJSONKeyFunction [DropFrameTimecode]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679955966"><span id="local-6989586621679955968"><span class="annot"><span class="annottext">FromJSONKeyFunction [DropFrameTimecode]
 FromJSONKeyFunction DropFrameTimecode
 FromJSONKeyFunction DropFrameTimecode
 -&gt; FromJSONKeyFunction [DropFrameTimecode]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DropFrameTimecode]
 fromJSONKey :: FromJSONKeyFunction DropFrameTimecode
 $cfromJSONKey :: FromJSONKeyFunction DropFrameTimecode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679951333"><span id="local-6989586621679951335"><span id="local-6989586621679951337"><span id="local-6989586621679951339"><span class="annot"><span class="annottext">[DropFrameTimecode] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679955957"><span id="local-6989586621679955959"><span id="local-6989586621679955961"><span id="local-6989586621679955963"><span class="annot"><span class="annottext">[DropFrameTimecode] -&gt; Encoding
 [DropFrameTimecode] -&gt; Value
 DropFrameTimecode -&gt; Encoding
 DropFrameTimecode -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: DropFrameTimecode -&gt; Encoding
 toJSON :: DropFrameTimecode -&gt; Value
 $ctoJSON :: DropFrameTimecode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679951328"><span id="local-6989586621679951330"><span class="annot"><span class="annottext">ToJSONKeyFunction [DropFrameTimecode]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679955952"><span id="local-6989586621679955954"><span class="annot"><span class="annottext">ToJSONKeyFunction [DropFrameTimecode]
 ToJSONKeyFunction DropFrameTimecode
 ToJSONKeyFunction DropFrameTimecode
 -&gt; ToJSONKeyFunction [DropFrameTimecode]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DropFrameTimecode]
 toJSONKey :: ToJSONKeyFunction DropFrameTimecode
 $ctoJSONKey :: ToJSONKeyFunction DropFrameTimecode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679951325"><span class="annot"><span class="annottext">[Node] -&gt; Either String DropFrameTimecode
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679955949"><span class="annot"><span class="annottext">[Node] -&gt; Either String DropFrameTimecode
 ([Node] -&gt; Either String DropFrameTimecode)
 -&gt; FromXML DropFrameTimecode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DropFrameTimecode
 $cparseXML :: [Node] -&gt; Either String DropFrameTimecode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679951322"><span class="annot"><span class="annottext">DropFrameTimecode -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679955946"><span class="annot"><span class="annottext">DropFrameTimecode -&gt; XML
 (DropFrameTimecode -&gt; XML) -&gt; ToXML DropFrameTimecode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DropFrameTimecode -&gt; XML

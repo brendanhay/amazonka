@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679268770"><span id="local-6989586621679268771"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResolveConflicts"><span class="annot"><a href="Network.AWS.EKS.Types.ResolveConflicts.html#ResolveConflicts"><span class="hs-identifier hs-var">ResolveConflicts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResolveConflicts%27"><span class="annot"><a href="Network.AWS.EKS.Types.ResolveConflicts.html#ResolveConflicts%27"><span class="hs-identifier hs-var">ResolveConflicts'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679269035"><span id="local-6989586621679269036"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResolveConflicts"><span class="annot"><a href="Network.AWS.EKS.Types.ResolveConflicts.html#ResolveConflicts"><span class="hs-identifier hs-var">ResolveConflicts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResolveConflicts%27"><span class="annot"><a href="Network.AWS.EKS.Types.ResolveConflicts.html#ResolveConflicts%27"><span class="hs-identifier hs-var">ResolveConflicts'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResolveConflicts"><span class="annot"><span class="annottext">ResolveConflicts -&gt; Text
 </span><a href="Network.AWS.EKS.Types.ResolveConflicts.html#fromResolveConflicts"><span class="hs-identifier hs-var hs-var">fromResolveConflicts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679268762"><span id="local-6989586621679268764"><span id="local-6989586621679268766"><span class="annot"><span class="annottext">Int -&gt; ResolveConflicts -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679269027"><span id="local-6989586621679269029"><span id="local-6989586621679269031"><span class="annot"><span class="annottext">Int -&gt; ResolveConflicts -&gt; ShowS
 [ResolveConflicts] -&gt; ShowS
 ResolveConflicts -&gt; String
 (Int -&gt; ResolveConflicts -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ResolveConflicts -&gt; String
 showsPrec :: Int -&gt; ResolveConflicts -&gt; ShowS
 $cshowsPrec :: Int -&gt; ResolveConflicts -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679268753"><span id="local-6989586621679268755"><span id="local-6989586621679268757"><span id="local-6989586621679268759"><span class="annot"><span class="annottext">ReadPrec [ResolveConflicts]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679269018"><span id="local-6989586621679269020"><span id="local-6989586621679269022"><span id="local-6989586621679269024"><span class="annot"><span class="annottext">ReadPrec [ResolveConflicts]
 ReadPrec ResolveConflicts
 Int -&gt; ReadS ResolveConflicts
 ReadS [ResolveConflicts]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ResolveConflicts]
 readsPrec :: Int -&gt; ReadS ResolveConflicts
 $creadsPrec :: Int -&gt; ReadS ResolveConflicts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679268748"><span id="local-6989586621679268750"><span class="annot"><span class="annottext">ResolveConflicts -&gt; ResolveConflicts -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679269013"><span id="local-6989586621679269015"><span class="annot"><span class="annottext">ResolveConflicts -&gt; ResolveConflicts -&gt; Bool
 (ResolveConflicts -&gt; ResolveConflicts -&gt; Bool)
 -&gt; (ResolveConflicts -&gt; ResolveConflicts -&gt; Bool)
 -&gt; Eq ResolveConflicts
@@ -82,7 +82,7 @@ $c/= :: ResolveConflicts -&gt; ResolveConflicts -&gt; Bool
 == :: ResolveConflicts -&gt; ResolveConflicts -&gt; Bool
 $c== :: ResolveConflicts -&gt; ResolveConflicts -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679268732"><span id="local-6989586621679268734"><span id="local-6989586621679268736"><span id="local-6989586621679268738"><span id="local-6989586621679268740"><span id="local-6989586621679268742"><span id="local-6989586621679268744"><span class="annot"><span class="annottext">Eq ResolveConflicts
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679268997"><span id="local-6989586621679268999"><span id="local-6989586621679269001"><span id="local-6989586621679269003"><span id="local-6989586621679269005"><span id="local-6989586621679269007"><span id="local-6989586621679269009"><span class="annot"><span class="annottext">Eq ResolveConflicts
 Eq ResolveConflicts
 -&gt; (ResolveConflicts -&gt; ResolveConflicts -&gt; Ordering)
 -&gt; (ResolveConflicts -&gt; ResolveConflicts -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ResolveConflicts -&gt; Rep ResolveConflicts x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679268724"><span id="local-6989586621679268726"><span class="annot"><span class="annottext">Int -&gt; ResolveConflicts -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679268989"><span id="local-6989586621679268991"><span class="annot"><span class="annottext">Int -&gt; ResolveConflicts -&gt; Int
 ResolveConflicts -&gt; Int
 (Int -&gt; ResolveConflicts -&gt; Int)
 -&gt; (ResolveConflicts -&gt; Int) -&gt; Hashable ResolveConflicts
@@ -143,51 +143,51 @@ $chash :: ResolveConflicts -&gt; Int
 hashWithSalt :: Int -&gt; ResolveConflicts -&gt; Int
 $chashWithSalt :: Int -&gt; ResolveConflicts -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679268721"><span class="annot"><span class="annottext">ResolveConflicts -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679268986"><span class="annot"><span class="annottext">ResolveConflicts -&gt; ()
 (ResolveConflicts -&gt; ()) -&gt; NFData ResolveConflicts
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ResolveConflicts -&gt; ()
 $crnf :: ResolveConflicts -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679268718"><span class="annot"><span class="annottext">Text -&gt; Either String ResolveConflicts
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679268983"><span class="annot"><span class="annottext">Text -&gt; Either String ResolveConflicts
 (Text -&gt; Either String ResolveConflicts)
 -&gt; FromText ResolveConflicts
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ResolveConflicts
 $cfromText :: Text -&gt; Either String ResolveConflicts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679268715"><span class="annot"><span class="annottext">ResolveConflicts -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679268980"><span class="annot"><span class="annottext">ResolveConflicts -&gt; Text
 (ResolveConflicts -&gt; Text) -&gt; ToText ResolveConflicts
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ResolveConflicts -&gt; Text
 $ctoText :: ResolveConflicts -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679268712"><span class="annot"><span class="annottext">ResolveConflicts -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679268977"><span class="annot"><span class="annottext">ResolveConflicts -&gt; ByteString
 (ResolveConflicts -&gt; ByteString) -&gt; ToByteString ResolveConflicts
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ResolveConflicts -&gt; ByteString
 $ctoBS :: ResolveConflicts -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679268709"><span class="annot"><span class="annottext">ResolveConflicts -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679268974"><span class="annot"><span class="annottext">ResolveConflicts -&gt; ByteStringBuilder
 (ResolveConflicts -&gt; ByteStringBuilder) -&gt; ToLog ResolveConflicts
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ResolveConflicts -&gt; ByteStringBuilder
 $cbuild :: ResolveConflicts -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679268706"><span class="annot"><span class="annottext">HeaderName -&gt; ResolveConflicts -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679268971"><span class="annot"><span class="annottext">HeaderName -&gt; ResolveConflicts -&gt; [Header]
 (HeaderName -&gt; ResolveConflicts -&gt; [Header])
 -&gt; ToHeader ResolveConflicts
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ResolveConflicts -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ResolveConflicts -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679268703"><span class="annot"><span class="annottext">ResolveConflicts -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679268968"><span class="annot"><span class="annottext">ResolveConflicts -&gt; QueryString
 (ResolveConflicts -&gt; QueryString) -&gt; ToQuery ResolveConflicts
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ResolveConflicts -&gt; QueryString
 $ctoQuery :: ResolveConflicts -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679268698"><span id="local-6989586621679268700"><span class="annot"><span class="annottext">Value -&gt; Parser [ResolveConflicts]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679268963"><span id="local-6989586621679268965"><span class="annot"><span class="annottext">Value -&gt; Parser [ResolveConflicts]
 Value -&gt; Parser ResolveConflicts
 (Value -&gt; Parser ResolveConflicts)
 -&gt; (Value -&gt; Parser [ResolveConflicts])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ResolveConflicts]
 parseJSON :: Value -&gt; Parser ResolveConflicts
 $cparseJSON :: Value -&gt; Parser ResolveConflicts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679268693"><span id="local-6989586621679268695"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResolveConflicts]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679268958"><span id="local-6989586621679268960"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResolveConflicts]
 FromJSONKeyFunction ResolveConflicts
 FromJSONKeyFunction ResolveConflicts
 -&gt; FromJSONKeyFunction [ResolveConflicts]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ResolveConflicts]
 fromJSONKey :: FromJSONKeyFunction ResolveConflicts
 $cfromJSONKey :: FromJSONKeyFunction ResolveConflicts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679268684"><span id="local-6989586621679268686"><span id="local-6989586621679268688"><span id="local-6989586621679268690"><span class="annot"><span class="annottext">[ResolveConflicts] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679268949"><span id="local-6989586621679268951"><span id="local-6989586621679268953"><span id="local-6989586621679268955"><span class="annot"><span class="annottext">[ResolveConflicts] -&gt; Encoding
 [ResolveConflicts] -&gt; Value
 ResolveConflicts -&gt; Encoding
 ResolveConflicts -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: ResolveConflicts -&gt; Encoding
 toJSON :: ResolveConflicts -&gt; Value
 $ctoJSON :: ResolveConflicts -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679268679"><span id="local-6989586621679268681"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResolveConflicts]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679268944"><span id="local-6989586621679268946"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResolveConflicts]
 ToJSONKeyFunction ResolveConflicts
 ToJSONKeyFunction ResolveConflicts
 -&gt; ToJSONKeyFunction [ResolveConflicts]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ResolveConflicts]
 toJSONKey :: ToJSONKeyFunction ResolveConflicts
 $ctoJSONKey :: ToJSONKeyFunction ResolveConflicts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679268676"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResolveConflicts
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679268941"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResolveConflicts
 ([Node] -&gt; Either String ResolveConflicts)
 -&gt; FromXML ResolveConflicts
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ResolveConflicts
 $cparseXML :: [Node] -&gt; Either String ResolveConflicts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679268673"><span class="annot"><span class="annottext">ResolveConflicts -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679268938"><span class="annot"><span class="annottext">ResolveConflicts -&gt; XML
 (ResolveConflicts -&gt; XML) -&gt; ToXML ResolveConflicts
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ResolveConflicts -&gt; XML

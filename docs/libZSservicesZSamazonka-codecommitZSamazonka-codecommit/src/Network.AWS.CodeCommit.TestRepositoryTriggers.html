@@ -38,8 +38,8 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#newTestRepositoryTriggersResponse"><span class="hs-identifier">newTestRepositoryTriggersResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#testRepositoryTriggersResponse_successfulExecutions"><span class="hs-identifier">testRepositoryTriggersResponse_successfulExecutions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#testRepositoryTriggersResponse_failedExecutions"><span class="hs-identifier">testRepositoryTriggersResponse_failedExecutions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#testRepositoryTriggersResponse_failedExecutions"><span class="hs-identifier">testRepositoryTriggersResponse_failedExecutions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#testRepositoryTriggersResponse_successfulExecutions"><span class="hs-identifier">testRepositoryTriggersResponse_successfulExecutions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#testRepositoryTriggersResponse_httpStatus"><span class="hs-identifier">testRepositoryTriggersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span class="hs-keyword">where</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | Represents the input of a test repository triggers operation.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newTestRepositoryTriggers' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679357070"><span id="local-6989586621679357071"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestRepositoryTriggers"><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-var">TestRepositoryTriggers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestRepositoryTriggers%27"><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers%27"><span class="hs-identifier hs-var">TestRepositoryTriggers'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679357350"><span id="local-6989586621679357351"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestRepositoryTriggers"><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-var">TestRepositoryTriggers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestRepositoryTriggers%27"><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers%27"><span class="hs-identifier hs-var">TestRepositoryTriggers'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the repository in which to test the triggers.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3ArepositoryName%3ATestRepositoryTriggers%27"><span class="annot"><span class="annottext">TestRepositoryTriggers -&gt; Text
 </span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3ArepositoryName%3ATestRepositoryTriggers%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3Atriggers%3ATestRepositoryTriggers%27"><span class="annot"><span class="annottext">TestRepositoryTriggers -&gt; [RepositoryTrigger]
 </span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3Atriggers%3ATestRepositoryTriggers%27"><span class="hs-identifier hs-var hs-var">triggers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357063"><span id="local-6989586621679357065"><span class="annot"><span class="annottext">TestRepositoryTriggers -&gt; TestRepositoryTriggers -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357343"><span id="local-6989586621679357345"><span class="annot"><span class="annottext">TestRepositoryTriggers -&gt; TestRepositoryTriggers -&gt; Bool
 (TestRepositoryTriggers -&gt; TestRepositoryTriggers -&gt; Bool)
 -&gt; (TestRepositoryTriggers -&gt; TestRepositoryTriggers -&gt; Bool)
 -&gt; Eq TestRepositoryTriggers
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TestRepositoryTriggers -&gt; TestRepositoryTriggers -&gt; Bool
 == :: TestRepositoryTriggers -&gt; TestRepositoryTriggers -&gt; Bool
 $c== :: TestRepositoryTriggers -&gt; TestRepositoryTriggers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357054"><span id="local-6989586621679357056"><span id="local-6989586621679357058"><span id="local-6989586621679357060"><span class="annot"><span class="annottext">ReadPrec [TestRepositoryTriggers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357334"><span id="local-6989586621679357336"><span id="local-6989586621679357338"><span id="local-6989586621679357340"><span class="annot"><span class="annottext">ReadPrec [TestRepositoryTriggers]
 ReadPrec TestRepositoryTriggers
 Int -&gt; ReadS TestRepositoryTriggers
 ReadS [TestRepositoryTriggers]
@@ -91,7 +91,7 @@ readList :: ReadS [TestRepositoryTriggers]
 $creadList :: ReadS [TestRepositoryTriggers]
 readsPrec :: Int -&gt; ReadS TestRepositoryTriggers
 $creadsPrec :: Int -&gt; ReadS TestRepositoryTriggers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357047"><span id="local-6989586621679357049"><span id="local-6989586621679357051"><span class="annot"><span class="annottext">Int -&gt; TestRepositoryTriggers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357327"><span id="local-6989586621679357329"><span id="local-6989586621679357331"><span class="annot"><span class="annottext">Int -&gt; TestRepositoryTriggers -&gt; ShowS
 [TestRepositoryTriggers] -&gt; ShowS
 TestRepositoryTriggers -&gt; String
 (Int -&gt; TestRepositoryTriggers -&gt; ShowS)
@@ -134,14 +134,14 @@ $cfrom :: forall x. TestRepositoryTriggers -&gt; Rep TestRepositoryTriggers x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-type">TestRepositoryTriggers</span></a></span><span>
 </span><span id="line-80"></span><span id="newTestRepositoryTriggers"><span class="annot"><span class="annottext">newTestRepositoryTriggers :: Text -&gt; TestRepositoryTriggers
-</span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#newTestRepositoryTriggers"><span class="hs-identifier hs-var hs-var">newTestRepositoryTriggers</span></a></span></span><span> </span><span id="local-6989586621679357042"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357042"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#newTestRepositoryTriggers"><span class="hs-identifier hs-var hs-var">newTestRepositoryTriggers</span></a></span></span><span> </span><span id="local-6989586621679357322"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357322"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">TestRepositoryTriggers' :: Text -&gt; [RepositoryTrigger] -&gt; TestRepositoryTriggers
 </span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers%27"><span class="hs-identifier hs-type">TestRepositoryTriggers'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:repositoryName:TestRepositoryTriggers' :: Text
 </span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3ArepositoryName%3ATestRepositoryTriggers%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357042"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679357322"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:triggers:TestRepositoryTriggers' :: [RepositoryTrigger]
 </span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3Atriggers%3ATestRepositoryTriggers%27"><span class="hs-identifier hs-var">triggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RepositoryTrigger]
 forall a. Monoid a =&gt; a
@@ -156,16 +156,16 @@ forall a. Monoid a =&gt; a
 -&gt; (TestRepositoryTriggers -&gt; Text -&gt; TestRepositoryTriggers)
 -&gt; Lens TestRepositoryTriggers TestRepositoryTriggers Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers%27"><span class="hs-identifier hs-type">TestRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357039"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers%27"><span class="hs-identifier hs-type">TestRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357319"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:TestRepositoryTriggers' :: TestRepositoryTriggers -&gt; Text
-</span><a href="#local-6989586621679357039"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357039"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357038"><span class="annot"><span class="annottext">s :: TestRepositoryTriggers
-</span><a href="#local-6989586621679357038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers%27"><span class="hs-identifier hs-type">TestRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357037"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestRepositoryTriggers
-</span><a href="#local-6989586621679357038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:TestRepositoryTriggers' :: Text
+</span><a href="#local-6989586621679357319"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357319"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357318"><span class="annot"><span class="annottext">s :: TestRepositoryTriggers
+</span><a href="#local-6989586621679357318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers%27"><span class="hs-identifier hs-type">TestRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357317"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestRepositoryTriggers
+</span><a href="#local-6989586621679357318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:TestRepositoryTriggers' :: Text
 </span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3ArepositoryName%3ATestRepositoryTriggers%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-type">TestRepositoryTriggers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-type">TestRepositoryTriggers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The list of triggers to test.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#testRepositoryTriggers_triggers"><span class="hs-identifier hs-type">testRepositoryTriggers_triggers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-type">TestRepositoryTriggers</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span><span class="hs-special">]</span><span>
@@ -180,16 +180,16 @@ $sel:repositoryName:TestRepositoryTriggers' :: TestRepositoryTriggers -&gt; Text
      [RepositoryTrigger]
      [RepositoryTrigger]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers%27"><span class="hs-identifier hs-type">TestRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357036"><span class="annot"><span class="annottext">[RepositoryTrigger]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers%27"><span class="hs-identifier hs-type">TestRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357316"><span class="annot"><span class="annottext">[RepositoryTrigger]
 triggers :: [RepositoryTrigger]
 $sel:triggers:TestRepositoryTriggers' :: TestRepositoryTriggers -&gt; [RepositoryTrigger]
-</span><a href="#local-6989586621679357036"><span class="hs-identifier hs-var hs-var">triggers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[RepositoryTrigger]
-</span><a href="#local-6989586621679357036"><span class="hs-identifier hs-var">triggers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357035"><span class="annot"><span class="annottext">s :: TestRepositoryTriggers
-</span><a href="#local-6989586621679357035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers%27"><span class="hs-identifier hs-type">TestRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357034"><span class="annot"><span class="annottext">[RepositoryTrigger]
-</span><a href="#local-6989586621679357034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestRepositoryTriggers
-</span><a href="#local-6989586621679357035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggers:TestRepositoryTriggers' :: [RepositoryTrigger]
+</span><a href="#local-6989586621679357316"><span class="hs-identifier hs-var hs-var">triggers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[RepositoryTrigger]
+</span><a href="#local-6989586621679357316"><span class="hs-identifier hs-var">triggers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357315"><span class="annot"><span class="annottext">s :: TestRepositoryTriggers
+</span><a href="#local-6989586621679357315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers%27"><span class="hs-identifier hs-type">TestRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357314"><span class="annot"><span class="annottext">[RepositoryTrigger]
+</span><a href="#local-6989586621679357314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestRepositoryTriggers
+</span><a href="#local-6989586621679357315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggers:TestRepositoryTriggers' :: [RepositoryTrigger]
 </span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3Atriggers%3ATestRepositoryTriggers%27"><span class="hs-identifier hs-var">triggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RepositoryTrigger]
-</span><a href="#local-6989586621679357034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-type">TestRepositoryTriggers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([RepositoryTrigger] -&gt; f [RepositoryTrigger])
+</span><a href="#local-6989586621679357314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-type">TestRepositoryTriggers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([RepositoryTrigger] -&gt; f [RepositoryTrigger])
  -&gt; TestRepositoryTriggers -&gt; f TestRepositoryTriggers)
 -&gt; (([RepositoryTrigger] -&gt; f [RepositoryTrigger])
     -&gt; [RepositoryTrigger] -&gt; f [RepositoryTrigger])
@@ -199,19 +199,19 @@ $sel:triggers:TestRepositoryTriggers' :: TestRepositoryTriggers -&gt; [Repositor
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([RepositoryTrigger] -&gt; f [RepositoryTrigger])
 -&gt; [RepositoryTrigger] -&gt; f [RepositoryTrigger]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-type">TestRepositoryTriggers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-type">TestRepositoryTriggers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679357028"><span class="annot"><span class="annottext">request :: TestRepositoryTriggers -&gt; Request TestRepositoryTriggers
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679357308"><span class="annot"><span class="annottext">request :: TestRepositoryTriggers -&gt; Request TestRepositoryTriggers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TestRepositoryTriggers -&gt; Request TestRepositoryTriggers
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679357024"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679357304"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TestRepositoryTriggers
 -&gt; ClientResponse ClientBody
@@ -237,57 +237,49 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679357021"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679357021"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679357020"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679357020"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679357019"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679357019"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
--&gt; Maybe [RepositoryTriggerExecutionFailure]
--&gt; Int
--&gt; TestRepositoryTriggersResponse
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679357301"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357301"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679357300"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679357300"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679357299"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357299"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RepositoryTriggerExecutionFailure]
+-&gt; Maybe [Text] -&gt; Int -&gt; TestRepositoryTriggersResponse
 </span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">TestRepositoryTriggersResponse'</span></a></span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
- -&gt; Maybe [RepositoryTriggerExecutionFailure]
- -&gt; Int
- -&gt; TestRepositoryTriggersResponse)
--&gt; Either String (Maybe [Text])
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [RepositoryTriggerExecutionFailure]
+ -&gt; Maybe [Text] -&gt; Int -&gt; TestRepositoryTriggersResponse)
+-&gt; Either String (Maybe [RepositoryTriggerExecutionFailure])
 -&gt; Either
-     String
-     (Maybe [RepositoryTriggerExecutionFailure]
-      -&gt; Int -&gt; TestRepositoryTriggersResponse)
+     String (Maybe [Text] -&gt; Int -&gt; TestRepositoryTriggersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679357019"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;successfulExecutions&quot;</span></span><span>
-</span><span id="line-105"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
--&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
-forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
-</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-106"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [RepositoryTriggerExecutionFailure]
-   -&gt; Int -&gt; TestRepositoryTriggersResponse)
--&gt; Either String (Maybe [RepositoryTriggerExecutionFailure])
--&gt; Either String (Int -&gt; TestRepositoryTriggersResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679357019"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either
      String (Maybe (Maybe [RepositoryTriggerExecutionFailure]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;failedExecutions&quot;</span></span><span>
-</span><span id="line-108"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [RepositoryTriggerExecutionFailure]))
+</span><span id="line-105"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [RepositoryTriggerExecutionFailure]))
 -&gt; Maybe [RepositoryTriggerExecutionFailure]
 -&gt; Either String (Maybe [RepositoryTriggerExecutionFailure])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RepositoryTriggerExecutionFailure]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-106"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [Text] -&gt; Int -&gt; TestRepositoryTriggersResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Int -&gt; TestRepositoryTriggersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;successfulExecutions&quot;</span></span><span>
+</span><span id="line-108"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-109"></span><span>                        </span><span class="hs-special">)</span><span>
@@ -300,15 +292,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679357021"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357301"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357010"><span id="local-6989586621679357012"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-type">TestRepositoryTriggers</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357290"><span id="local-6989586621679357292"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-type">TestRepositoryTriggers</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357007"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-type">TestRepositoryTriggers</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357287"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-type">TestRepositoryTriggers</span></a></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-type">TestRepositoryTriggers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679357003"><span class="annot"><span class="annottext">toHeaders :: TestRepositoryTriggers -&gt; ResponseHeaders
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679357283"><span class="annot"><span class="annottext">toHeaders :: TestRepositoryTriggers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; TestRepositoryTriggers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -335,15 +327,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679356993"><span id="local-6989586621679356995"><span id="local-6989586621679356997"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-type">TestRepositoryTriggers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679356991"><span class="annot"><span class="annottext">toJSON :: TestRepositoryTriggers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers%27"><span class="hs-identifier hs-type">TestRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356988"><span id="local-6989586621679356989"><span class="annot"><span class="annottext">[RepositoryTrigger]
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357273"><span id="local-6989586621679357275"><span id="local-6989586621679357277"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-type">TestRepositoryTriggers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679357271"><span class="annot"><span class="annottext">toJSON :: TestRepositoryTriggers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers%27"><span class="hs-identifier hs-type">TestRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357268"><span id="local-6989586621679357269"><span class="annot"><span class="annottext">[RepositoryTrigger]
 Text
 triggers :: [RepositoryTrigger]
 repositoryName :: Text
 $sel:triggers:TestRepositoryTriggers' :: TestRepositoryTriggers -&gt; [RepositoryTrigger]
 $sel:repositoryName:TestRepositoryTriggers' :: TestRepositoryTriggers -&gt; Text
-</span><a href="#local-6989586621679356988"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679357268"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -356,26 +348,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679356989"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679357269"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;triggers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [RepositoryTrigger] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[RepositoryTrigger]
-</span><a href="#local-6989586621679356988"><span class="hs-identifier hs-var">triggers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357268"><span class="hs-identifier hs-var">triggers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-type">TestRepositoryTriggers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679356982"><span class="annot"><span class="annottext">toPath :: TestRepositoryTriggers -&gt; ByteString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679357262"><span class="annot"><span class="annottext">toPath :: TestRepositoryTriggers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TestRepositoryTriggers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggers"><span class="hs-identifier hs-type">TestRepositoryTriggers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679356978"><span class="annot"><span class="annottext">toQuery :: TestRepositoryTriggers -&gt; QueryString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679357258"><span class="annot"><span class="annottext">toQuery :: TestRepositoryTriggers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; TestRepositoryTriggers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -385,22 +377,22 @@ forall a. Monoid a =&gt; a
 </span><span id="line-148"></span><span class="hs-comment">-- | Represents the output of a test repository triggers operation.</span><span>
 </span><span id="line-149"></span><span class="hs-comment">--</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- /See:/ 'newTestRepositoryTriggersResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679356975"><span id="local-6989586621679356976"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestRepositoryTriggersResponse"><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse"><span class="hs-identifier hs-var">TestRepositoryTriggersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestRepositoryTriggersResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">TestRepositoryTriggersResponse'</span></a></span></span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of triggers that were successfully tested. This list provides</span><span>
-</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- the names of the triggers that were successfully tested, separated by</span><span>
-</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- commas.</span><span>
-</span><span id="line-155"></span><span>    </span><span id="%24sel%3AsuccessfulExecutions%3ATestRepositoryTriggersResponse%27"><span class="annot"><span class="annottext">TestRepositoryTriggersResponse -&gt; Maybe [Text]
-</span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3AsuccessfulExecutions%3ATestRepositoryTriggersResponse%27"><span class="hs-identifier hs-var hs-var">successfulExecutions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | The list of triggers that were not tested. This list provides the names</span><span>
-</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- of the triggers that could not be tested, separated by commas.</span><span>
-</span><span id="line-158"></span><span>    </span><span id="%24sel%3AfailedExecutions%3ATestRepositoryTriggersResponse%27"><span class="annot"><span class="annottext">TestRepositoryTriggersResponse
+</span><span id="line-151"></span><span id="local-6989586621679357255"><span id="local-6989586621679357256"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestRepositoryTriggersResponse"><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse"><span class="hs-identifier hs-var">TestRepositoryTriggersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestRepositoryTriggersResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">TestRepositoryTriggersResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of triggers that were not tested. This list provides the names</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- of the triggers that could not be tested, separated by commas.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AfailedExecutions%3ATestRepositoryTriggersResponse%27"><span class="annot"><span class="annottext">TestRepositoryTriggersResponse
 -&gt; Maybe [RepositoryTriggerExecutionFailure]
 </span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3AfailedExecutions%3ATestRepositoryTriggersResponse%27"><span class="hs-identifier hs-var hs-var">failedExecutions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTriggerExecutionFailure.html#RepositoryTriggerExecutionFailure"><span class="hs-identifier hs-type">RepositoryTriggerExecutionFailure</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The list of triggers that were successfully tested. This list provides</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- the names of the triggers that were successfully tested, separated by</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- commas.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AsuccessfulExecutions%3ATestRepositoryTriggersResponse%27"><span class="annot"><span class="annottext">TestRepositoryTriggersResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3AsuccessfulExecutions%3ATestRepositoryTriggersResponse%27"><span class="hs-identifier hs-var hs-var">successfulExecutions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATestRepositoryTriggersResponse%27"><span class="annot"><span class="annottext">TestRepositoryTriggersResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3AhttpStatus%3ATestRepositoryTriggersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679356968"><span id="local-6989586621679356970"><span class="annot"><span class="annottext">TestRepositoryTriggersResponse
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357248"><span id="local-6989586621679357250"><span class="annot"><span class="annottext">TestRepositoryTriggersResponse
 -&gt; TestRepositoryTriggersResponse -&gt; Bool
 (TestRepositoryTriggersResponse
  -&gt; TestRepositoryTriggersResponse -&gt; Bool)
@@ -416,7 +408,7 @@ $c/= :: TestRepositoryTriggersResponse
 -&gt; TestRepositoryTriggersResponse -&gt; Bool
 $c== :: TestRepositoryTriggersResponse
 -&gt; TestRepositoryTriggersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679356960"><span id="local-6989586621679356962"><span id="local-6989586621679356964"><span id="local-6989586621679356966"><span class="annot"><span class="annottext">ReadPrec [TestRepositoryTriggersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357240"><span id="local-6989586621679357242"><span id="local-6989586621679357244"><span id="local-6989586621679357246"><span class="annot"><span class="annottext">ReadPrec [TestRepositoryTriggersResponse]
 ReadPrec TestRepositoryTriggersResponse
 Int -&gt; ReadS TestRepositoryTriggersResponse
 ReadS [TestRepositoryTriggersResponse]
@@ -436,7 +428,7 @@ readList :: ReadS [TestRepositoryTriggersResponse]
 $creadList :: ReadS [TestRepositoryTriggersResponse]
 readsPrec :: Int -&gt; ReadS TestRepositoryTriggersResponse
 $creadsPrec :: Int -&gt; ReadS TestRepositoryTriggersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679356954"><span id="local-6989586621679356956"><span id="local-6989586621679356958"><span class="annot"><span class="annottext">Int -&gt; TestRepositoryTriggersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357234"><span id="local-6989586621679357236"><span id="local-6989586621679357238"><span class="annot"><span class="annottext">Int -&gt; TestRepositoryTriggersResponse -&gt; ShowS
 [TestRepositoryTriggersResponse] -&gt; ShowS
 TestRepositoryTriggersResponse -&gt; String
 (Int -&gt; TestRepositoryTriggersResponse -&gt; ShowS)
@@ -482,12 +474,12 @@ TestRepositoryTriggersResponse
 </span><span id="line-169"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-171"></span><span class="hs-comment">--</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- 'successfulExecutions', 'testRepositoryTriggersResponse_successfulExecutions' - The list of triggers that were successfully tested. This list provides</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- the names of the triggers that were successfully tested, separated by</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- commas.</span><span>
-</span><span id="line-175"></span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- 'failedExecutions', 'testRepositoryTriggersResponse_failedExecutions' - The list of triggers that were not tested. This list provides the names</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- of the triggers that could not be tested, separated by commas.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'failedExecutions', 'testRepositoryTriggersResponse_failedExecutions' - The list of triggers that were not tested. This list provides the names</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- of the triggers that could not be tested, separated by commas.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'successfulExecutions', 'testRepositoryTriggersResponse_successfulExecutions' - The list of triggers that were successfully tested. This list provides</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- the names of the triggers that were successfully tested, separated by</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- commas.</span><span>
 </span><span id="line-178"></span><span class="hs-comment">--</span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- 'httpStatus', 'testRepositoryTriggersResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-180"></span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#newTestRepositoryTriggersResponse"><span class="hs-identifier hs-type">newTestRepositoryTriggersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -495,74 +487,29 @@ TestRepositoryTriggersResponse
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse</span></a></span><span>
 </span><span id="line-184"></span><span id="newTestRepositoryTriggersResponse"><span class="annot"><span class="annottext">newTestRepositoryTriggersResponse :: Int -&gt; TestRepositoryTriggersResponse
-</span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#newTestRepositoryTriggersResponse"><span class="hs-identifier hs-var hs-var">newTestRepositoryTriggersResponse</span></a></span></span><span> </span><span id="local-6989586621679356951"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679356951"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">TestRepositoryTriggersResponse' :: Maybe [Text]
--&gt; Maybe [RepositoryTriggerExecutionFailure]
--&gt; Int
--&gt; TestRepositoryTriggersResponse
+</span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#newTestRepositoryTriggersResponse"><span class="hs-identifier hs-var hs-var">newTestRepositoryTriggersResponse</span></a></span></span><span> </span><span id="local-6989586621679357231"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357231"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">TestRepositoryTriggersResponse' :: Maybe [RepositoryTriggerExecutionFailure]
+-&gt; Maybe [Text] -&gt; Int -&gt; TestRepositoryTriggersResponse
 </span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse'</span></a></span><span>
-</span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:successfulExecutions:TestRepositoryTriggersResponse' :: Maybe [Text]
-</span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3AsuccessfulExecutions%3ATestRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">successfulExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failedExecutions:TestRepositoryTriggersResponse' :: Maybe [RepositoryTriggerExecutionFailure]
+</span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3AfailedExecutions%3ATestRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">failedExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">Maybe [RepositoryTriggerExecutionFailure]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:failedExecutions:TestRepositoryTriggersResponse' :: Maybe [RepositoryTriggerExecutionFailure]
-</span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3AfailedExecutions%3ATestRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">failedExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RepositoryTriggerExecutionFailure]
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:successfulExecutions:TestRepositoryTriggersResponse' :: Maybe [Text]
+</span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3AsuccessfulExecutions%3ATestRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">successfulExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:TestRepositoryTriggersResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3AhttpStatus%3ATestRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679356951"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679357231"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-190"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- | The list of triggers that were successfully tested. This list provides</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- the names of the triggers that were successfully tested, separated by</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- commas.</span><span>
-</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#testRepositoryTriggersResponse_successfulExecutions"><span class="hs-identifier hs-type">testRepositoryTriggersResponse_successfulExecutions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span id="testRepositoryTriggersResponse_successfulExecutions"><span class="annot"><span class="annottext">testRepositoryTriggersResponse_successfulExecutions :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; TestRepositoryTriggersResponse
--&gt; f TestRepositoryTriggersResponse
-</span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#testRepositoryTriggersResponse_successfulExecutions"><span class="hs-identifier hs-var hs-var">testRepositoryTriggersResponse_successfulExecutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestRepositoryTriggersResponse -&gt; Maybe [Text])
--&gt; (TestRepositoryTriggersResponse
-    -&gt; Maybe [Text] -&gt; TestRepositoryTriggersResponse)
--&gt; Lens
-     TestRepositoryTriggersResponse
-     TestRepositoryTriggersResponse
-     (Maybe [Text])
-     (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356950"><span class="annot"><span class="annottext">Maybe [Text]
-successfulExecutions :: Maybe [Text]
-$sel:successfulExecutions:TestRepositoryTriggersResponse' :: TestRepositoryTriggersResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679356950"><span class="hs-identifier hs-var hs-var">successfulExecutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679356950"><span class="hs-identifier hs-var">successfulExecutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356949"><span class="annot"><span class="annottext">s :: TestRepositoryTriggersResponse
-</span><a href="#local-6989586621679356949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356948"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679356948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestRepositoryTriggersResponse
-</span><a href="#local-6989586621679356949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successfulExecutions:TestRepositoryTriggersResponse' :: Maybe [Text]
-</span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3AsuccessfulExecutions%3ATestRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">successfulExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679356948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; TestRepositoryTriggersResponse
- -&gt; f TestRepositoryTriggersResponse)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; TestRepositoryTriggersResponse
--&gt; f TestRepositoryTriggersResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- | The list of triggers that were not tested. This list provides the names</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- of the triggers that could not be tested, separated by commas.</span><span>
-</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#testRepositoryTriggersResponse_failedExecutions"><span class="hs-identifier hs-type">testRepositoryTriggersResponse_failedExecutions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTriggerExecutionFailure.html#RepositoryTriggerExecutionFailure"><span class="hs-identifier hs-type">RepositoryTriggerExecutionFailure</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-201"></span><span id="testRepositoryTriggersResponse_failedExecutions"><span class="annot"><span class="annottext">testRepositoryTriggersResponse_failedExecutions :: (Maybe [RepositoryTriggerExecutionFailure]
+</span><span id="line-192"></span><span class="hs-comment">-- | The list of triggers that were not tested. This list provides the names</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- of the triggers that could not be tested, separated by commas.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#testRepositoryTriggersResponse_failedExecutions"><span class="hs-identifier hs-type">testRepositoryTriggersResponse_failedExecutions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTriggerExecutionFailure.html#RepositoryTriggerExecutionFailure"><span class="hs-identifier hs-type">RepositoryTriggerExecutionFailure</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="testRepositoryTriggersResponse_failedExecutions"><span class="annot"><span class="annottext">testRepositoryTriggersResponse_failedExecutions :: (Maybe [RepositoryTriggerExecutionFailure]
  -&gt; f (Maybe [RepositoryTriggerExecutionFailure]))
 -&gt; TestRepositoryTriggersResponse
 -&gt; f TestRepositoryTriggersResponse
@@ -577,17 +524,17 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [RepositoryTriggerExecutionFailure])
      (Maybe [RepositoryTriggerExecutionFailure])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356946"><span class="annot"><span class="annottext">Maybe [RepositoryTriggerExecutionFailure]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357230"><span class="annot"><span class="annottext">Maybe [RepositoryTriggerExecutionFailure]
 failedExecutions :: Maybe [RepositoryTriggerExecutionFailure]
 $sel:failedExecutions:TestRepositoryTriggersResponse' :: TestRepositoryTriggersResponse
 -&gt; Maybe [RepositoryTriggerExecutionFailure]
-</span><a href="#local-6989586621679356946"><span class="hs-identifier hs-var hs-var">failedExecutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RepositoryTriggerExecutionFailure]
-</span><a href="#local-6989586621679356946"><span class="hs-identifier hs-var">failedExecutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356945"><span class="annot"><span class="annottext">s :: TestRepositoryTriggersResponse
-</span><a href="#local-6989586621679356945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356944"><span class="annot"><span class="annottext">Maybe [RepositoryTriggerExecutionFailure]
-</span><a href="#local-6989586621679356944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestRepositoryTriggersResponse
-</span><a href="#local-6989586621679356945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedExecutions:TestRepositoryTriggersResponse' :: Maybe [RepositoryTriggerExecutionFailure]
+</span><a href="#local-6989586621679357230"><span class="hs-identifier hs-var hs-var">failedExecutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RepositoryTriggerExecutionFailure]
+</span><a href="#local-6989586621679357230"><span class="hs-identifier hs-var">failedExecutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357229"><span class="annot"><span class="annottext">s :: TestRepositoryTriggersResponse
+</span><a href="#local-6989586621679357229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357228"><span class="annot"><span class="annottext">Maybe [RepositoryTriggerExecutionFailure]
+</span><a href="#local-6989586621679357228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestRepositoryTriggersResponse
+</span><a href="#local-6989586621679357229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedExecutions:TestRepositoryTriggersResponse' :: Maybe [RepositoryTriggerExecutionFailure]
 </span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3AfailedExecutions%3ATestRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">failedExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RepositoryTriggerExecutionFailure]
-</span><a href="#local-6989586621679356944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RepositoryTriggerExecutionFailure]
+</span><a href="#local-6989586621679357228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RepositoryTriggerExecutionFailure]
   -&gt; f (Maybe [RepositoryTriggerExecutionFailure]))
  -&gt; TestRepositoryTriggersResponse
  -&gt; f TestRepositoryTriggersResponse)
@@ -618,8 +565,51 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [RepositoryTriggerExecutionFailure]
   [RepositoryTriggerExecutionFailure]
   [RepositoryTriggerExecutionFailure]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The list of triggers that were successfully tested. This list provides</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- the names of the triggers that were successfully tested, separated by</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- commas.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#testRepositoryTriggersResponse_successfulExecutions"><span class="hs-identifier hs-type">testRepositoryTriggersResponse_successfulExecutions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="testRepositoryTriggersResponse_successfulExecutions"><span class="annot"><span class="annottext">testRepositoryTriggersResponse_successfulExecutions :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; TestRepositoryTriggersResponse
+-&gt; f TestRepositoryTriggersResponse
+</span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#testRepositoryTriggersResponse_successfulExecutions"><span class="hs-identifier hs-var hs-var">testRepositoryTriggersResponse_successfulExecutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestRepositoryTriggersResponse -&gt; Maybe [Text])
+-&gt; (TestRepositoryTriggersResponse
+    -&gt; Maybe [Text] -&gt; TestRepositoryTriggersResponse)
+-&gt; Lens
+     TestRepositoryTriggersResponse
+     TestRepositoryTriggersResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357226"><span class="annot"><span class="annottext">Maybe [Text]
+successfulExecutions :: Maybe [Text]
+$sel:successfulExecutions:TestRepositoryTriggersResponse' :: TestRepositoryTriggersResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679357226"><span class="hs-identifier hs-var hs-var">successfulExecutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679357226"><span class="hs-identifier hs-var">successfulExecutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357225"><span class="annot"><span class="annottext">s :: TestRepositoryTriggersResponse
+</span><a href="#local-6989586621679357225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357224"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679357224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestRepositoryTriggersResponse
+</span><a href="#local-6989586621679357225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successfulExecutions:TestRepositoryTriggersResponse' :: Maybe [Text]
+</span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3AsuccessfulExecutions%3ATestRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">successfulExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679357224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; TestRepositoryTriggersResponse
+ -&gt; f TestRepositoryTriggersResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; TestRepositoryTriggersResponse
+-&gt; f TestRepositoryTriggersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-204"></span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#testRepositoryTriggersResponse_httpStatus"><span class="hs-identifier hs-type">testRepositoryTriggersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -635,18 +625,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356943"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357223"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:TestRepositoryTriggersResponse' :: TestRepositoryTriggersResponse -&gt; Int
-</span><a href="#local-6989586621679356943"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679356943"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356942"><span class="annot"><span class="annottext">s :: TestRepositoryTriggersResponse
-</span><a href="#local-6989586621679356942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356941"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679356941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestRepositoryTriggersResponse
-</span><a href="#local-6989586621679356942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TestRepositoryTriggersResponse' :: Int
+</span><a href="#local-6989586621679357223"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357223"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357222"><span class="annot"><span class="annottext">s :: TestRepositoryTriggersResponse
+</span><a href="#local-6989586621679357222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357221"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestRepositoryTriggersResponse
+</span><a href="#local-6989586621679357222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TestRepositoryTriggersResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#%24sel%3AhttpStatus%3ATestRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679356941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679356939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679357219"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-209"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.TestRepositoryTriggers.html#TestRepositoryTriggersResponse"><span class="hs-identifier hs-type">TestRepositoryTriggersResponse</span></a></span></span><span>
 </span><span id="line-210"></span></pre></body></html>

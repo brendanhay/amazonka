@@ -40,8 +40,8 @@
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#newListGroupMembersResponse"><span class="hs-identifier">newListGroupMembersResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#listGroupMembersResponse_nextToken"><span class="hs-identifier">listGroupMembersResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#listGroupMembersResponse_members"><span class="hs-identifier">listGroupMembersResponse_members</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#listGroupMembersResponse_members"><span class="hs-identifier">listGroupMembersResponse_members</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#listGroupMembersResponse_nextToken"><span class="hs-identifier">listGroupMembersResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#listGroupMembersResponse_httpStatus"><span class="hs-identifier">listGroupMembersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span class="hs-keyword">where</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.html"><span class="hs-identifier">Network.AWS.WorkMail.Types</span></a></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListGroupMembers' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679266365"><span id="local-6989586621679266366"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupMembers"><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-var">ListGroupMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupMembers%27"><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-var">ListGroupMembers'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679288303"><span id="local-6989586621679288304"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupMembers"><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-var">ListGroupMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupMembers%27"><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-var">ListGroupMembers'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. The first call</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- does not contain any tokens.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AnextToken%3AListGroupMembers%27"><span class="annot"><span class="annottext">ListGroupMembers -&gt; Maybe Text
@@ -70,7 +70,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AgroupId%3AListGroupMembers%27"><span class="annot"><span class="annottext">ListGroupMembers -&gt; Text
 </span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3AgroupId%3AListGroupMembers%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266356"><span id="local-6989586621679266358"><span class="annot"><span class="annottext">ListGroupMembers -&gt; ListGroupMembers -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288294"><span id="local-6989586621679288296"><span class="annot"><span class="annottext">ListGroupMembers -&gt; ListGroupMembers -&gt; Bool
 (ListGroupMembers -&gt; ListGroupMembers -&gt; Bool)
 -&gt; (ListGroupMembers -&gt; ListGroupMembers -&gt; Bool)
 -&gt; Eq ListGroupMembers
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListGroupMembers -&gt; ListGroupMembers -&gt; Bool
 == :: ListGroupMembers -&gt; ListGroupMembers -&gt; Bool
 $c== :: ListGroupMembers -&gt; ListGroupMembers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266347"><span id="local-6989586621679266349"><span id="local-6989586621679266351"><span id="local-6989586621679266353"><span class="annot"><span class="annottext">ReadPrec [ListGroupMembers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288285"><span id="local-6989586621679288287"><span id="local-6989586621679288289"><span id="local-6989586621679288291"><span class="annot"><span class="annottext">ReadPrec [ListGroupMembers]
 ReadPrec ListGroupMembers
 Int -&gt; ReadS ListGroupMembers
 ReadS [ListGroupMembers]
@@ -99,7 +99,7 @@ readList :: ReadS [ListGroupMembers]
 $creadList :: ReadS [ListGroupMembers]
 readsPrec :: Int -&gt; ReadS ListGroupMembers
 $creadsPrec :: Int -&gt; ReadS ListGroupMembers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266340"><span id="local-6989586621679266342"><span id="local-6989586621679266344"><span class="annot"><span class="annottext">Int -&gt; ListGroupMembers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288278"><span id="local-6989586621679288280"><span id="local-6989586621679288282"><span class="annot"><span class="annottext">Int -&gt; ListGroupMembers -&gt; ShowS
 [ListGroupMembers] -&gt; ShowS
 ListGroupMembers -&gt; String
 (Int -&gt; ListGroupMembers -&gt; ShowS)
@@ -149,9 +149,9 @@ $cfrom :: forall x. ListGroupMembers -&gt; Rep ListGroupMembers x
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span><span>
 </span><span id="line-94"></span><span id="newListGroupMembers"><span class="annot"><span class="annottext">newListGroupMembers :: Text -&gt; Text -&gt; ListGroupMembers
-</span><a href="Network.AWS.WorkMail.ListGroupMembers.html#newListGroupMembers"><span class="hs-identifier hs-var hs-var">newListGroupMembers</span></a></span></span><span> </span><span id="local-6989586621679266335"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266335"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span> </span><span id="local-6989586621679266334"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266334"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkMail.ListGroupMembers.html#newListGroupMembers"><span class="hs-identifier hs-var hs-var">newListGroupMembers</span></a></span></span><span> </span><span id="local-6989586621679288273"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288273"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span> </span><span id="local-6989586621679288272"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288272"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">ListGroupMembers' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; Text -&gt; ListGroupMembers
 </span><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupMembers' :: Maybe Text
@@ -164,10 +164,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationId:ListGroupMembers' :: Text
 </span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3AorganizationId%3AListGroupMembers%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266335"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679288273"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupId:ListGroupMembers' :: Text
 </span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3AgroupId%3AListGroupMembers%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266334"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span>
+</span><a href="#local-6989586621679288272"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. The first call</span><span>
@@ -179,16 +179,16 @@ forall a. Maybe a
 -&gt; (ListGroupMembers -&gt; Maybe Text -&gt; ListGroupMembers)
 -&gt; Lens ListGroupMembers ListGroupMembers (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266332"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288270"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListGroupMembers' :: ListGroupMembers -&gt; Maybe Text
-</span><a href="#local-6989586621679266332"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266332"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266331"><span class="annot"><span class="annottext">s :: ListGroupMembers
-</span><a href="#local-6989586621679266331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266330"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupMembers
-</span><a href="#local-6989586621679266331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupMembers' :: Maybe Text
+</span><a href="#local-6989586621679288270"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288270"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288269"><span class="annot"><span class="annottext">s :: ListGroupMembers
+</span><a href="#local-6989586621679288269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288268"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupMembers
+</span><a href="#local-6989586621679288269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupMembers' :: Maybe Text
 </span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3AnextToken%3AListGroupMembers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The maximum number of results to return in a single call.</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#listGroupMembers_maxResults"><span class="hs-identifier hs-type">listGroupMembers_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -199,16 +199,16 @@ $sel:nextToken:ListGroupMembers' :: ListGroupMembers -&gt; Maybe Text
 -&gt; Lens
      ListGroupMembers ListGroupMembers (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266329"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288267"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListGroupMembers' :: ListGroupMembers -&gt; Maybe Natural
-</span><a href="#local-6989586621679266329"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679266329"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266328"><span class="annot"><span class="annottext">s :: ListGroupMembers
-</span><a href="#local-6989586621679266328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266327"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679266327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupMembers
-</span><a href="#local-6989586621679266328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListGroupMembers' :: Maybe Natural
+</span><a href="#local-6989586621679288267"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679288267"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288266"><span class="annot"><span class="annottext">s :: ListGroupMembers
+</span><a href="#local-6989586621679288266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288265"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679288265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupMembers
+</span><a href="#local-6989586621679288266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListGroupMembers' :: Maybe Natural
 </span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3AmaxResults%3AListGroupMembers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679266327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The identifier for the organization under which the group exists.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#listGroupMembers_organizationId"><span class="hs-identifier hs-type">listGroupMembers_organizationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -217,16 +217,16 @@ $sel:maxResults:ListGroupMembers' :: ListGroupMembers -&gt; Maybe Natural
 -&gt; (ListGroupMembers -&gt; Text -&gt; ListGroupMembers)
 -&gt; Lens ListGroupMembers ListGroupMembers Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266326"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288264"><span class="annot"><span class="annottext">Text
 organizationId :: Text
 $sel:organizationId:ListGroupMembers' :: ListGroupMembers -&gt; Text
-</span><a href="#local-6989586621679266326"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266326"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266325"><span class="annot"><span class="annottext">s :: ListGroupMembers
-</span><a href="#local-6989586621679266325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266324"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupMembers
-</span><a href="#local-6989586621679266325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:ListGroupMembers' :: Text
+</span><a href="#local-6989586621679288264"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288264"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288263"><span class="annot"><span class="annottext">s :: ListGroupMembers
+</span><a href="#local-6989586621679288263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288262"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupMembers
+</span><a href="#local-6989586621679288263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:ListGroupMembers' :: Text
 </span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3AorganizationId%3AListGroupMembers%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The identifier for the group to which the members (users or groups) are</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- associated.</span><span>
@@ -236,29 +236,29 @@ $sel:organizationId:ListGroupMembers' :: ListGroupMembers -&gt; Text
 -&gt; (ListGroupMembers -&gt; Text -&gt; ListGroupMembers)
 -&gt; Lens ListGroupMembers ListGroupMembers Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266323"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288261"><span class="annot"><span class="annottext">Text
 groupId :: Text
 $sel:groupId:ListGroupMembers' :: ListGroupMembers -&gt; Text
-</span><a href="#local-6989586621679266323"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266323"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266322"><span class="annot"><span class="annottext">s :: ListGroupMembers
-</span><a href="#local-6989586621679266322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266321"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupMembers
-</span><a href="#local-6989586621679266322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:ListGroupMembers' :: Text
+</span><a href="#local-6989586621679288261"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288261"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288260"><span class="annot"><span class="annottext">s :: ListGroupMembers
+</span><a href="#local-6989586621679288260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288259"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupMembers
+</span><a href="#local-6989586621679288260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:ListGroupMembers' :: Text
 </span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3AgroupId%3AListGroupMembers%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679266317"><span class="annot"><span class="annottext">page :: ListGroupMembers
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679288255"><span class="annot"><span class="annottext">page :: ListGroupMembers
 -&gt; AWSResponse ListGroupMembers -&gt; Maybe ListGroupMembers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679266315"><span class="annot"><span class="annottext">ListGroupMembers
-</span><a href="#local-6989586621679266315"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679266314"><span class="annot"><span class="annottext">AWSResponse ListGroupMembers
-</span><a href="#local-6989586621679266314"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679288253"><span class="annot"><span class="annottext">ListGroupMembers
+</span><a href="#local-6989586621679288253"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679288252"><span class="annot"><span class="annottext">AWSResponse ListGroupMembers
+</span><a href="#local-6989586621679288252"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroupMembers
 ListGroupMembersResponse
-</span><a href="#local-6989586621679266314"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679288252"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">ListGroupMembersResponse
 -&gt; Getting (First Text) ListGroupMembersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -287,7 +287,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-129"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroupMembers
 ListGroupMembersResponse
-</span><a href="#local-6989586621679266314"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679288252"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">ListGroupMembersResponse
 -&gt; Getting (First [Member]) ListGroupMembersResponse [Member]
 -&gt; Maybe [Member]
@@ -321,7 +321,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ListGroupMembers
-</span><a href="#local-6989586621679266315"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679288253"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">ListGroupMembers
 -&gt; (ListGroupMembers -&gt; ListGroupMembers) -&gt; ListGroupMembers
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -335,7 +335,7 @@ Lens ListGroupMembers ListGroupMembers (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroupMembers
 ListGroupMembersResponse
-</span><a href="#local-6989586621679266314"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679288252"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">ListGroupMembersResponse
 -&gt; Getting (First Text) ListGroupMembersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -360,12 +360,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-143"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-144"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse"><span class="hs-identifier hs-type">ListGroupMembersResponse</span></a></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679266304"><span class="annot"><span class="annottext">request :: ListGroupMembers -&gt; Request ListGroupMembers
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679288242"><span class="annot"><span class="annottext">request :: ListGroupMembers -&gt; Request ListGroupMembers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListGroupMembers -&gt; Request ListGroupMembers
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkMail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679266300"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679288238"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListGroupMembers
 -&gt; ClientResponse ClientBody
@@ -389,28 +389,18 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266297"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266297"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679266296"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679266296"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679266295"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679266295"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Member] -&gt; Int -&gt; ListGroupMembersResponse
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679288235"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288235"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679288234"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679288234"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679288233"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679288233"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Member] -&gt; Maybe Text -&gt; Int -&gt; ListGroupMembersResponse
 </span><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse%27"><span class="hs-identifier hs-var">ListGroupMembersResponse'</span></a></span><span>
-</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Member] -&gt; Int -&gt; ListGroupMembersResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe [Member] -&gt; Int -&gt; ListGroupMembersResponse)
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Member] -&gt; Maybe Text -&gt; Int -&gt; ListGroupMembersResponse)
+-&gt; Either String (Maybe [Member])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListGroupMembersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679266295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Member] -&gt; Int -&gt; ListGroupMembersResponse)
--&gt; Either String (Maybe [Member])
--&gt; Either String (Int -&gt; ListGroupMembersResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679266295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Member]))
+</span><a href="#local-6989586621679288233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Member]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Members&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Member]))
@@ -419,6 +409,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Member]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListGroupMembersResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListGroupMembersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679288233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListGroupMembersResponse)
 -&gt; Either String Int -&gt; Either String ListGroupMembersResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -427,15 +426,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266297"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288235"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266286"><span id="local-6989586621679266288"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288224"><span id="local-6989586621679288226"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288221"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679266279"><span class="annot"><span class="annottext">toHeaders :: ListGroupMembers -&gt; ResponseHeaders
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679288217"><span class="annot"><span class="annottext">toHeaders :: ListGroupMembers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListGroupMembers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -462,9 +461,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266269"><span id="local-6989586621679266271"><span id="local-6989586621679266273"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679266267"><span class="annot"><span class="annottext">toJSON :: ListGroupMembers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266262"><span id="local-6989586621679266263"><span id="local-6989586621679266264"><span id="local-6989586621679266265"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288207"><span id="local-6989586621679288209"><span id="local-6989586621679288211"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679288205"><span class="annot"><span class="annottext">toJSON :: ListGroupMembers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers%27"><span class="hs-identifier hs-type">ListGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288200"><span id="local-6989586621679288201"><span id="local-6989586621679288202"><span id="local-6989586621679288203"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 groupId :: Text
@@ -475,7 +474,7 @@ $sel:groupId:ListGroupMembers' :: ListGroupMembers -&gt; Text
 $sel:organizationId:ListGroupMembers' :: ListGroupMembers -&gt; Text
 $sel:maxResults:ListGroupMembers' :: ListGroupMembers -&gt; Maybe Natural
 $sel:nextToken:ListGroupMembers' :: ListGroupMembers -&gt; Maybe Text
-</span><a href="#local-6989586621679266262"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679288200"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -487,14 +486,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266265"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679288203"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679266264"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679288202"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -502,26 +501,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;OrganizationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266263"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679288201"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266262"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288200"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679266256"><span class="annot"><span class="annottext">toPath :: ListGroupMembers -&gt; ByteString
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679288194"><span class="annot"><span class="annottext">toPath :: ListGroupMembers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListGroupMembers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembers"><span class="hs-identifier hs-type">ListGroupMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679266252"><span class="annot"><span class="annottext">toQuery :: ListGroupMembers -&gt; QueryString
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679288190"><span class="annot"><span class="annottext">toQuery :: ListGroupMembers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListGroupMembers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -529,19 +528,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | /See:/ 'newListGroupMembersResponse' smart constructor.</span><span>
-</span><span id="line-194"></span><span id="local-6989586621679266249"><span id="local-6989586621679266250"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupMembersResponse"><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse"><span class="hs-identifier hs-var">ListGroupMembersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupMembersResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse%27"><span class="hs-identifier hs-var">ListGroupMembersResponse'</span></a></span></span><span>
-</span><span id="line-195"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. The first call</span><span>
-</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- does not contain any tokens.</span><span>
-</span><span id="line-197"></span><span>    </span><span id="%24sel%3AnextToken%3AListGroupMembersResponse%27"><span class="annot"><span class="annottext">ListGroupMembersResponse -&gt; Maybe Text
-</span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3AnextToken%3AListGroupMembersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | The members associated to the group.</span><span>
-</span><span id="line-199"></span><span>    </span><span id="%24sel%3Amembers%3AListGroupMembersResponse%27"><span class="annot"><span class="annottext">ListGroupMembersResponse -&gt; Maybe [Member]
+</span><span id="line-194"></span><span id="local-6989586621679288187"><span id="local-6989586621679288188"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupMembersResponse"><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse"><span class="hs-identifier hs-var">ListGroupMembersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupMembersResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse%27"><span class="hs-identifier hs-var">ListGroupMembersResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The members associated to the group.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3Amembers%3AListGroupMembersResponse%27"><span class="annot"><span class="annottext">ListGroupMembersResponse -&gt; Maybe [Member]
 </span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3Amembers%3AListGroupMembersResponse%27"><span class="hs-identifier hs-var hs-var">members</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. The first call</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- does not contain any tokens.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AnextToken%3AListGroupMembersResponse%27"><span class="annot"><span class="annottext">ListGroupMembersResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3AnextToken%3AListGroupMembersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-201"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListGroupMembersResponse%27"><span class="annot"><span class="annottext">ListGroupMembersResponse -&gt; Int
 </span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3AhttpStatus%3AListGroupMembersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-202"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266242"><span id="local-6989586621679266244"><span class="annot"><span class="annottext">ListGroupMembersResponse -&gt; ListGroupMembersResponse -&gt; Bool
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288180"><span id="local-6989586621679288182"><span class="annot"><span class="annottext">ListGroupMembersResponse -&gt; ListGroupMembersResponse -&gt; Bool
 (ListGroupMembersResponse -&gt; ListGroupMembersResponse -&gt; Bool)
 -&gt; (ListGroupMembersResponse -&gt; ListGroupMembersResponse -&gt; Bool)
 -&gt; Eq ListGroupMembersResponse
@@ -550,7 +549,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListGroupMembersResponse -&gt; ListGroupMembersResponse -&gt; Bool
 == :: ListGroupMembersResponse -&gt; ListGroupMembersResponse -&gt; Bool
 $c== :: ListGroupMembersResponse -&gt; ListGroupMembersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266234"><span id="local-6989586621679266236"><span id="local-6989586621679266238"><span id="local-6989586621679266240"><span class="annot"><span class="annottext">ReadPrec [ListGroupMembersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288172"><span id="local-6989586621679288174"><span id="local-6989586621679288176"><span id="local-6989586621679288178"><span class="annot"><span class="annottext">ReadPrec [ListGroupMembersResponse]
 ReadPrec ListGroupMembersResponse
 Int -&gt; ReadS ListGroupMembersResponse
 ReadS [ListGroupMembersResponse]
@@ -570,7 +569,7 @@ readList :: ReadS [ListGroupMembersResponse]
 $creadList :: ReadS [ListGroupMembersResponse]
 readsPrec :: Int -&gt; ReadS ListGroupMembersResponse
 $creadsPrec :: Int -&gt; ReadS ListGroupMembersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266228"><span id="local-6989586621679266230"><span id="local-6989586621679266232"><span class="annot"><span class="annottext">Int -&gt; ListGroupMembersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288166"><span id="local-6989586621679288168"><span id="local-6989586621679288170"><span class="annot"><span class="annottext">Int -&gt; ListGroupMembersResponse -&gt; ShowS
 [ListGroupMembersResponse] -&gt; ShowS
 ListGroupMembersResponse -&gt; String
 (Int -&gt; ListGroupMembersResponse -&gt; ShowS)
@@ -610,10 +609,10 @@ ListGroupMembersResponse -&gt; Rep ListGroupMembersResponse x
 </span><span id="line-210"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-212"></span><span class="hs-comment">--</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- 'nextToken', 'listGroupMembersResponse_nextToken' - The token to use to retrieve the next page of results. The first call</span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- does not contain any tokens.</span><span>
-</span><span id="line-215"></span><span class="hs-comment">--</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- 'members', 'listGroupMembersResponse_members' - The members associated to the group.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'members', 'listGroupMembersResponse_members' - The members associated to the group.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'nextToken', 'listGroupMembersResponse_nextToken' - The token to use to retrieve the next page of results. The first call</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- does not contain any tokens.</span><span>
 </span><span id="line-217"></span><span class="hs-comment">--</span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- 'httpStatus', 'listGroupMembersResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-219"></span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#newListGroupMembersResponse"><span class="hs-identifier hs-type">newListGroupMembersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -621,64 +620,43 @@ ListGroupMembersResponse -&gt; Rep ListGroupMembersResponse x
 </span><span id="line-221"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-222"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse"><span class="hs-identifier hs-type">ListGroupMembersResponse</span></a></span><span>
 </span><span id="line-223"></span><span id="newListGroupMembersResponse"><span class="annot"><span class="annottext">newListGroupMembersResponse :: Int -&gt; ListGroupMembersResponse
-</span><a href="Network.AWS.WorkMail.ListGroupMembers.html#newListGroupMembersResponse"><span class="hs-identifier hs-var hs-var">newListGroupMembersResponse</span></a></span></span><span> </span><span id="local-6989586621679266225"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266225"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-224"></span><span>  </span><span class="annot"><span class="annottext">ListGroupMembersResponse' :: Maybe Text -&gt; Maybe [Member] -&gt; Int -&gt; ListGroupMembersResponse
+</span><a href="Network.AWS.WorkMail.ListGroupMembers.html#newListGroupMembersResponse"><span class="hs-identifier hs-var hs-var">newListGroupMembersResponse</span></a></span></span><span> </span><span id="local-6989586621679288163"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288163"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><span class="annottext">ListGroupMembersResponse' :: Maybe [Member] -&gt; Maybe Text -&gt; Int -&gt; ListGroupMembersResponse
 </span><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse%27"><span class="hs-identifier hs-type">ListGroupMembersResponse'</span></a></span><span>
-</span><span id="line-225"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupMembersResponse' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3AnextToken%3AListGroupMembersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-225"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:members:ListGroupMembersResponse' :: Maybe [Member]
+</span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3Amembers%3AListGroupMembersResponse%27"><span class="hs-identifier hs-var">members</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Member]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:members:ListGroupMembersResponse' :: Maybe [Member]
-</span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3Amembers%3AListGroupMembersResponse%27"><span class="hs-identifier hs-var">members</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Member]
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupMembersResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3AnextToken%3AListGroupMembersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListGroupMembersResponse' :: Int
 </span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3AhttpStatus%3AListGroupMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266225"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679288163"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-229"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. The first call</span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- does not contain any tokens.</span><span>
-</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#listGroupMembersResponse_nextToken"><span class="hs-identifier hs-type">listGroupMembersResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse"><span class="hs-identifier hs-type">ListGroupMembersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-234"></span><span id="listGroupMembersResponse_nextToken"><span class="annot"><span class="annottext">listGroupMembersResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListGroupMembersResponse -&gt; f ListGroupMembersResponse
-</span><a href="Network.AWS.WorkMail.ListGroupMembers.html#listGroupMembersResponse_nextToken"><span class="hs-identifier hs-var hs-var">listGroupMembersResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupMembersResponse -&gt; Maybe Text)
--&gt; (ListGroupMembersResponse
-    -&gt; Maybe Text -&gt; ListGroupMembersResponse)
--&gt; Lens' ListGroupMembersResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse%27"><span class="hs-identifier hs-type">ListGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266224"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListGroupMembersResponse' :: ListGroupMembersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679266224"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266224"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266223"><span class="annot"><span class="annottext">s :: ListGroupMembersResponse
-</span><a href="#local-6989586621679266223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse%27"><span class="hs-identifier hs-type">ListGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266222"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupMembersResponse
-</span><a href="#local-6989586621679266223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupMembersResponse' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3AnextToken%3AListGroupMembersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse"><span class="hs-identifier hs-type">ListGroupMembersResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- | The members associated to the group.</span><span>
-</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#listGroupMembersResponse_members"><span class="hs-identifier hs-type">listGroupMembersResponse_members</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse"><span class="hs-identifier hs-type">ListGroupMembersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-238"></span><span id="listGroupMembersResponse_members"><span class="annot"><span class="annottext">listGroupMembersResponse_members :: (Maybe [Member] -&gt; f (Maybe [Member]))
+</span><span id="line-231"></span><span class="hs-comment">-- | The members associated to the group.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#listGroupMembersResponse_members"><span class="hs-identifier hs-type">listGroupMembersResponse_members</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse"><span class="hs-identifier hs-type">ListGroupMembersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="listGroupMembersResponse_members"><span class="annot"><span class="annottext">listGroupMembersResponse_members :: (Maybe [Member] -&gt; f (Maybe [Member]))
 -&gt; ListGroupMembersResponse -&gt; f ListGroupMembersResponse
 </span><a href="Network.AWS.WorkMail.ListGroupMembers.html#listGroupMembersResponse_members"><span class="hs-identifier hs-var hs-var">listGroupMembersResponse_members</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupMembersResponse -&gt; Maybe [Member])
 -&gt; (ListGroupMembersResponse
     -&gt; Maybe [Member] -&gt; ListGroupMembersResponse)
 -&gt; Lens' ListGroupMembersResponse (Maybe [Member])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse%27"><span class="hs-identifier hs-type">ListGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266221"><span class="annot"><span class="annottext">Maybe [Member]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse%27"><span class="hs-identifier hs-type">ListGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288162"><span class="annot"><span class="annottext">Maybe [Member]
 members :: Maybe [Member]
 $sel:members:ListGroupMembersResponse' :: ListGroupMembersResponse -&gt; Maybe [Member]
-</span><a href="#local-6989586621679266221"><span class="hs-identifier hs-var hs-var">members</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Member]
-</span><a href="#local-6989586621679266221"><span class="hs-identifier hs-var">members</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266220"><span class="annot"><span class="annottext">s :: ListGroupMembersResponse
-</span><a href="#local-6989586621679266220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse%27"><span class="hs-identifier hs-type">ListGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266219"><span class="annot"><span class="annottext">Maybe [Member]
-</span><a href="#local-6989586621679266219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupMembersResponse
-</span><a href="#local-6989586621679266220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:members:ListGroupMembersResponse' :: Maybe [Member]
+</span><a href="#local-6989586621679288162"><span class="hs-identifier hs-var hs-var">members</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Member]
+</span><a href="#local-6989586621679288162"><span class="hs-identifier hs-var">members</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288161"><span class="annot"><span class="annottext">s :: ListGroupMembersResponse
+</span><a href="#local-6989586621679288161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse%27"><span class="hs-identifier hs-type">ListGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288160"><span class="annot"><span class="annottext">Maybe [Member]
+</span><a href="#local-6989586621679288160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupMembersResponse
+</span><a href="#local-6989586621679288161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:members:ListGroupMembersResponse' :: Maybe [Member]
 </span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3Amembers%3AListGroupMembersResponse%27"><span class="hs-identifier hs-var">members</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Member]
-</span><a href="#local-6989586621679266219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse"><span class="hs-identifier hs-type">ListGroupMembersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Member] -&gt; f (Maybe [Member]))
+</span><a href="#local-6989586621679288160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse"><span class="hs-identifier hs-type">ListGroupMembersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Member] -&gt; f (Maybe [Member]))
  -&gt; ListGroupMembersResponse -&gt; f ListGroupMembersResponse)
 -&gt; ((Maybe [Member] -&gt; f (Maybe [Member]))
     -&gt; Maybe [Member] -&gt; f (Maybe [Member]))
@@ -693,8 +671,29 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Member] [Member] [Member] [Member]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. The first call</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- does not contain any tokens.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#listGroupMembersResponse_nextToken"><span class="hs-identifier hs-type">listGroupMembersResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse"><span class="hs-identifier hs-type">ListGroupMembersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="listGroupMembersResponse_nextToken"><span class="annot"><span class="annottext">listGroupMembersResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListGroupMembersResponse -&gt; f ListGroupMembersResponse
+</span><a href="Network.AWS.WorkMail.ListGroupMembers.html#listGroupMembersResponse_nextToken"><span class="hs-identifier hs-var hs-var">listGroupMembersResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupMembersResponse -&gt; Maybe Text)
+-&gt; (ListGroupMembersResponse
+    -&gt; Maybe Text -&gt; ListGroupMembersResponse)
+-&gt; Lens' ListGroupMembersResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse%27"><span class="hs-identifier hs-type">ListGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288157"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListGroupMembersResponse' :: ListGroupMembersResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679288157"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288157"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288156"><span class="annot"><span class="annottext">s :: ListGroupMembersResponse
+</span><a href="#local-6989586621679288156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse%27"><span class="hs-identifier hs-type">ListGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288155"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupMembersResponse
+</span><a href="#local-6989586621679288156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupMembersResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3AnextToken%3AListGroupMembersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse"><span class="hs-identifier hs-type">ListGroupMembersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-241"></span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#listGroupMembersResponse_httpStatus"><span class="hs-identifier hs-type">listGroupMembersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse"><span class="hs-identifier hs-type">ListGroupMembersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -704,16 +703,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListGroupMembersResponse -&gt; Int -&gt; ListGroupMembersResponse)
 -&gt; Lens ListGroupMembersResponse ListGroupMembersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse%27"><span class="hs-identifier hs-type">ListGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266216"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse%27"><span class="hs-identifier hs-type">ListGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288154"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListGroupMembersResponse' :: ListGroupMembersResponse -&gt; Int
-</span><a href="#local-6989586621679266216"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266216"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266215"><span class="annot"><span class="annottext">s :: ListGroupMembersResponse
-</span><a href="#local-6989586621679266215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse%27"><span class="hs-identifier hs-type">ListGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266214"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupMembersResponse
-</span><a href="#local-6989586621679266215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGroupMembersResponse' :: Int
+</span><a href="#local-6989586621679288154"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288154"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288153"><span class="annot"><span class="annottext">s :: ListGroupMembersResponse
+</span><a href="#local-6989586621679288153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse%27"><span class="hs-identifier hs-type">ListGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288152"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupMembersResponse
+</span><a href="#local-6989586621679288153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGroupMembersResponse' :: Int
 </span><a href="Network.AWS.WorkMail.ListGroupMembers.html#%24sel%3AhttpStatus%3AListGroupMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse"><span class="hs-identifier hs-type">ListGroupMembersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse"><span class="hs-identifier hs-type">ListGroupMembersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>
-</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse"><span class="hs-identifier hs-type">ListGroupMembersResponse</span></a></span></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListGroupMembers.html#ListGroupMembersResponse"><span class="hs-identifier hs-type">ListGroupMembersResponse</span></a></span></span><span>
 </span><span id="line-245"></span></pre></body></html>

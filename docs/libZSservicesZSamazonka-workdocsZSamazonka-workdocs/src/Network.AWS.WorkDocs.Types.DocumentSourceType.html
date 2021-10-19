@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679260006"><span id="local-6989586621679260007"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentSourceType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.DocumentSourceType.html#DocumentSourceType"><span class="hs-identifier hs-var">DocumentSourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentSourceType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.DocumentSourceType.html#DocumentSourceType%27"><span class="hs-identifier hs-var">DocumentSourceType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679260124"><span id="local-6989586621679260125"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentSourceType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.DocumentSourceType.html#DocumentSourceType"><span class="hs-identifier hs-var">DocumentSourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentSourceType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.DocumentSourceType.html#DocumentSourceType%27"><span class="hs-identifier hs-var">DocumentSourceType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDocumentSourceType"><span class="annot"><span class="annottext">DocumentSourceType -&gt; Text
 </span><a href="Network.AWS.WorkDocs.Types.DocumentSourceType.html#fromDocumentSourceType"><span class="hs-identifier hs-var hs-var">fromDocumentSourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259998"><span id="local-6989586621679260000"><span id="local-6989586621679260002"><span class="annot"><span class="annottext">Int -&gt; DocumentSourceType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260116"><span id="local-6989586621679260118"><span id="local-6989586621679260120"><span class="annot"><span class="annottext">Int -&gt; DocumentSourceType -&gt; ShowS
 [DocumentSourceType] -&gt; ShowS
 DocumentSourceType -&gt; String
 (Int -&gt; DocumentSourceType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DocumentSourceType -&gt; String
 showsPrec :: Int -&gt; DocumentSourceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; DocumentSourceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679259989"><span id="local-6989586621679259991"><span id="local-6989586621679259993"><span id="local-6989586621679259995"><span class="annot"><span class="annottext">ReadPrec [DocumentSourceType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679260107"><span id="local-6989586621679260109"><span id="local-6989586621679260111"><span id="local-6989586621679260113"><span class="annot"><span class="annottext">ReadPrec [DocumentSourceType]
 ReadPrec DocumentSourceType
 Int -&gt; ReadS DocumentSourceType
 ReadS [DocumentSourceType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DocumentSourceType]
 readsPrec :: Int -&gt; ReadS DocumentSourceType
 $creadsPrec :: Int -&gt; ReadS DocumentSourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679259984"><span id="local-6989586621679259986"><span class="annot"><span class="annottext">DocumentSourceType -&gt; DocumentSourceType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679260102"><span id="local-6989586621679260104"><span class="annot"><span class="annottext">DocumentSourceType -&gt; DocumentSourceType -&gt; Bool
 (DocumentSourceType -&gt; DocumentSourceType -&gt; Bool)
 -&gt; (DocumentSourceType -&gt; DocumentSourceType -&gt; Bool)
 -&gt; Eq DocumentSourceType
@@ -82,7 +82,7 @@ $c/= :: DocumentSourceType -&gt; DocumentSourceType -&gt; Bool
 == :: DocumentSourceType -&gt; DocumentSourceType -&gt; Bool
 $c== :: DocumentSourceType -&gt; DocumentSourceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679259968"><span id="local-6989586621679259970"><span id="local-6989586621679259972"><span id="local-6989586621679259974"><span id="local-6989586621679259976"><span id="local-6989586621679259978"><span id="local-6989586621679259980"><span class="annot"><span class="annottext">Eq DocumentSourceType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679260086"><span id="local-6989586621679260088"><span id="local-6989586621679260090"><span id="local-6989586621679260092"><span id="local-6989586621679260094"><span id="local-6989586621679260096"><span id="local-6989586621679260098"><span class="annot"><span class="annottext">Eq DocumentSourceType
 Eq DocumentSourceType
 -&gt; (DocumentSourceType -&gt; DocumentSourceType -&gt; Ordering)
 -&gt; (DocumentSourceType -&gt; DocumentSourceType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. DocumentSourceType -&gt; Rep DocumentSourceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259960"><span id="local-6989586621679259962"><span class="annot"><span class="annottext">Int -&gt; DocumentSourceType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260078"><span id="local-6989586621679260080"><span class="annot"><span class="annottext">Int -&gt; DocumentSourceType -&gt; Int
 DocumentSourceType -&gt; Int
 (Int -&gt; DocumentSourceType -&gt; Int)
 -&gt; (DocumentSourceType -&gt; Int) -&gt; Hashable DocumentSourceType
@@ -143,53 +143,53 @@ $chash :: DocumentSourceType -&gt; Int
 hashWithSalt :: Int -&gt; DocumentSourceType -&gt; Int
 $chashWithSalt :: Int -&gt; DocumentSourceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679259957"><span class="annot"><span class="annottext">DocumentSourceType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679260075"><span class="annot"><span class="annottext">DocumentSourceType -&gt; ()
 (DocumentSourceType -&gt; ()) -&gt; NFData DocumentSourceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DocumentSourceType -&gt; ()
 $crnf :: DocumentSourceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679259954"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentSourceType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679260072"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentSourceType
 (Text -&gt; Either String DocumentSourceType)
 -&gt; FromText DocumentSourceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DocumentSourceType
 $cfromText :: Text -&gt; Either String DocumentSourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679259951"><span class="annot"><span class="annottext">DocumentSourceType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679260069"><span class="annot"><span class="annottext">DocumentSourceType -&gt; Text
 (DocumentSourceType -&gt; Text) -&gt; ToText DocumentSourceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DocumentSourceType -&gt; Text
 $ctoText :: DocumentSourceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679259948"><span class="annot"><span class="annottext">DocumentSourceType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679260066"><span class="annot"><span class="annottext">DocumentSourceType -&gt; ByteString
 (DocumentSourceType -&gt; ByteString)
 -&gt; ToByteString DocumentSourceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DocumentSourceType -&gt; ByteString
 $ctoBS :: DocumentSourceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679259945"><span class="annot"><span class="annottext">DocumentSourceType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679260063"><span class="annot"><span class="annottext">DocumentSourceType -&gt; ByteStringBuilder
 (DocumentSourceType -&gt; ByteStringBuilder)
 -&gt; ToLog DocumentSourceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DocumentSourceType -&gt; ByteStringBuilder
 $cbuild :: DocumentSourceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679259942"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentSourceType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679260060"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentSourceType -&gt; [Header]
 (HeaderName -&gt; DocumentSourceType -&gt; [Header])
 -&gt; ToHeader DocumentSourceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DocumentSourceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DocumentSourceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679259939"><span class="annot"><span class="annottext">DocumentSourceType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679260057"><span class="annot"><span class="annottext">DocumentSourceType -&gt; QueryString
 (DocumentSourceType -&gt; QueryString) -&gt; ToQuery DocumentSourceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DocumentSourceType -&gt; QueryString
 $ctoQuery :: DocumentSourceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679259934"><span id="local-6989586621679259936"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentSourceType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679260052"><span id="local-6989586621679260054"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentSourceType]
 Value -&gt; Parser DocumentSourceType
 (Value -&gt; Parser DocumentSourceType)
 -&gt; (Value -&gt; Parser [DocumentSourceType])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [DocumentSourceType]
 parseJSON :: Value -&gt; Parser DocumentSourceType
 $cparseJSON :: Value -&gt; Parser DocumentSourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679259929"><span id="local-6989586621679259931"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentSourceType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679260047"><span id="local-6989586621679260049"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentSourceType]
 FromJSONKeyFunction DocumentSourceType
 FromJSONKeyFunction DocumentSourceType
 -&gt; FromJSONKeyFunction [DocumentSourceType]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DocumentSourceType]
 fromJSONKey :: FromJSONKeyFunction DocumentSourceType
 $cfromJSONKey :: FromJSONKeyFunction DocumentSourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679259920"><span id="local-6989586621679259922"><span id="local-6989586621679259924"><span id="local-6989586621679259926"><span class="annot"><span class="annottext">[DocumentSourceType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679260038"><span id="local-6989586621679260040"><span id="local-6989586621679260042"><span id="local-6989586621679260044"><span class="annot"><span class="annottext">[DocumentSourceType] -&gt; Encoding
 [DocumentSourceType] -&gt; Value
 DocumentSourceType -&gt; Encoding
 DocumentSourceType -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: DocumentSourceType -&gt; Encoding
 toJSON :: DocumentSourceType -&gt; Value
 $ctoJSON :: DocumentSourceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679259915"><span id="local-6989586621679259917"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentSourceType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679260033"><span id="local-6989586621679260035"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentSourceType]
 ToJSONKeyFunction DocumentSourceType
 ToJSONKeyFunction DocumentSourceType
 -&gt; ToJSONKeyFunction [DocumentSourceType]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DocumentSourceType]
 toJSONKey :: ToJSONKeyFunction DocumentSourceType
 $ctoJSONKey :: ToJSONKeyFunction DocumentSourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679259912"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentSourceType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679260030"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentSourceType
 ([Node] -&gt; Either String DocumentSourceType)
 -&gt; FromXML DocumentSourceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DocumentSourceType
 $cparseXML :: [Node] -&gt; Either String DocumentSourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679259909"><span class="annot"><span class="annottext">DocumentSourceType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679260027"><span class="annot"><span class="annottext">DocumentSourceType -&gt; XML
 (DocumentSourceType -&gt; XML) -&gt; ToXML DocumentSourceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DocumentSourceType -&gt; XML

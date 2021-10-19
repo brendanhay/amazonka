@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A container for the calculated facet values and counts.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBucketInfo' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679152204"><span id="local-6989586621679152205"></span></span><span class="hs-keyword">data</span><span> </span><span id="BucketInfo"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#BucketInfo"><span class="hs-identifier hs-var">BucketInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BucketInfo%27"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#BucketInfo%27"><span class="hs-identifier hs-var">BucketInfo'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679152248"><span id="local-6989586621679152249"></span></span><span class="hs-keyword">data</span><span> </span><span id="BucketInfo"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#BucketInfo"><span class="hs-identifier hs-var">BucketInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BucketInfo%27"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#BucketInfo%27"><span class="hs-identifier hs-var">BucketInfo'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the calculated facet values and counts.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Abuckets%3ABucketInfo%27"><span class="annot"><span class="annottext">BucketInfo -&gt; Maybe [Bucket]
 </span><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#%24sel%3Abuckets%3ABucketInfo%27"><span class="hs-identifier hs-var hs-var">buckets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Bucket.html#Bucket"><span class="hs-identifier hs-type">Bucket</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152198"><span id="local-6989586621679152200"><span class="annot"><span class="annottext">BucketInfo -&gt; BucketInfo -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152242"><span id="local-6989586621679152244"><span class="annot"><span class="annottext">BucketInfo -&gt; BucketInfo -&gt; Bool
 (BucketInfo -&gt; BucketInfo -&gt; Bool)
 -&gt; (BucketInfo -&gt; BucketInfo -&gt; Bool) -&gt; Eq BucketInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BucketInfo -&gt; BucketInfo -&gt; Bool
 == :: BucketInfo -&gt; BucketInfo -&gt; Bool
 $c== :: BucketInfo -&gt; BucketInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152189"><span id="local-6989586621679152191"><span id="local-6989586621679152193"><span id="local-6989586621679152195"><span class="annot"><span class="annottext">ReadPrec [BucketInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152233"><span id="local-6989586621679152235"><span id="local-6989586621679152237"><span id="local-6989586621679152239"><span class="annot"><span class="annottext">ReadPrec [BucketInfo]
 ReadPrec BucketInfo
 Int -&gt; ReadS BucketInfo
 ReadS [BucketInfo]
@@ -60,7 +60,7 @@ readList :: ReadS [BucketInfo]
 $creadList :: ReadS [BucketInfo]
 readsPrec :: Int -&gt; ReadS BucketInfo
 $creadsPrec :: Int -&gt; ReadS BucketInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152182"><span id="local-6989586621679152184"><span id="local-6989586621679152186"><span class="annot"><span class="annottext">Int -&gt; BucketInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152226"><span id="local-6989586621679152228"><span id="local-6989586621679152230"><span class="annot"><span class="annottext">Int -&gt; BucketInfo -&gt; ShowS
 [BucketInfo] -&gt; ShowS
 BucketInfo -&gt; String
 (Int -&gt; BucketInfo -&gt; ShowS)
@@ -112,16 +112,16 @@ forall a. Maybe a
 -&gt; (BucketInfo -&gt; Maybe [Bucket] -&gt; BucketInfo)
 -&gt; Lens BucketInfo BucketInfo (Maybe [Bucket]) (Maybe [Bucket])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#BucketInfo%27"><span class="hs-identifier hs-type">BucketInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152173"><span class="annot"><span class="annottext">Maybe [Bucket]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#BucketInfo%27"><span class="hs-identifier hs-type">BucketInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152217"><span class="annot"><span class="annottext">Maybe [Bucket]
 buckets :: Maybe [Bucket]
 $sel:buckets:BucketInfo' :: BucketInfo -&gt; Maybe [Bucket]
-</span><a href="#local-6989586621679152173"><span class="hs-identifier hs-var hs-var">buckets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Bucket]
-</span><a href="#local-6989586621679152173"><span class="hs-identifier hs-var">buckets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152172"><span class="annot"><span class="annottext">s :: BucketInfo
-</span><a href="#local-6989586621679152172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#BucketInfo%27"><span class="hs-identifier hs-type">BucketInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152171"><span class="annot"><span class="annottext">Maybe [Bucket]
-</span><a href="#local-6989586621679152171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketInfo
-</span><a href="#local-6989586621679152172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buckets:BucketInfo' :: Maybe [Bucket]
+</span><a href="#local-6989586621679152217"><span class="hs-identifier hs-var hs-var">buckets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Bucket]
+</span><a href="#local-6989586621679152217"><span class="hs-identifier hs-var">buckets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152216"><span class="annot"><span class="annottext">s :: BucketInfo
+</span><a href="#local-6989586621679152216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#BucketInfo%27"><span class="hs-identifier hs-type">BucketInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152215"><span class="annot"><span class="annottext">Maybe [Bucket]
+</span><a href="#local-6989586621679152215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketInfo
+</span><a href="#local-6989586621679152216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buckets:BucketInfo' :: Maybe [Bucket]
 </span><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#%24sel%3Abuckets%3ABucketInfo%27"><span class="hs-identifier hs-var">buckets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Bucket]
-</span><a href="#local-6989586621679152171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#BucketInfo"><span class="hs-identifier hs-type">BucketInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Bucket] -&gt; f (Maybe [Bucket]))
+</span><a href="#local-6989586621679152215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#BucketInfo"><span class="hs-identifier hs-type">BucketInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Bucket] -&gt; f (Maybe [Bucket]))
  -&gt; BucketInfo -&gt; f BucketInfo)
 -&gt; ((Maybe [Bucket] -&gt; f (Maybe [Bucket]))
     -&gt; Maybe [Bucket] -&gt; f (Maybe [Bucket]))
@@ -136,11 +136,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Bucket] [Bucket] [Bucket] [Bucket]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152165"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#BucketInfo"><span class="hs-identifier hs-type">BucketInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679152163"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BucketInfo
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152209"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#BucketInfo"><span class="hs-identifier hs-type">BucketInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679152207"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BucketInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BucketInfo) -&gt; Value -&gt; Parser BucketInfo
@@ -148,15 +148,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BucketInfo&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679152160"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152160"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679152204"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152204"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Bucket] -&gt; BucketInfo
 </span><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#BucketInfo%27"><span class="hs-identifier hs-var">BucketInfo'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Bucket] -&gt; BucketInfo)
 -&gt; Parser (Maybe [Bucket]) -&gt; Parser BucketInfo
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Bucket]))
+</span><a href="#local-6989586621679152204"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Bucket]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;buckets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Bucket]))
@@ -167,7 +167,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152153"><span id="local-6989586621679152155"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#BucketInfo"><span class="hs-identifier hs-type">BucketInfo</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152197"><span id="local-6989586621679152199"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#BucketInfo"><span class="hs-identifier hs-type">BucketInfo</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#BucketInfo"><span class="hs-identifier hs-type">BucketInfo</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152194"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#BucketInfo"><span class="hs-identifier hs-type">BucketInfo</span></a></span></span><span>
 </span><span id="line-66"></span></pre></body></html>

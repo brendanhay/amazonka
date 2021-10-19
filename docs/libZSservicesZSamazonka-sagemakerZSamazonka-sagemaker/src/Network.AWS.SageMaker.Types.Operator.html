@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-39"></span><span>
-</span><span id="line-40"></span><span id="local-6989586621680325074"><span id="local-6989586621680325075"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Operator"><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator"><span class="hs-identifier hs-var">Operator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Operator%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator%27"><span class="hs-identifier hs-var">Operator'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621680326467"><span id="local-6989586621680326468"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Operator"><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator"><span class="hs-identifier hs-var">Operator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Operator%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator%27"><span class="hs-identifier hs-var">Operator'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOperator"><span class="annot"><span class="annottext">Operator -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.Operator.html#fromOperator"><span class="hs-identifier hs-var hs-var">fromOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680325066"><span id="local-6989586621680325068"><span id="local-6989586621680325070"><span class="annot"><span class="annottext">Int -&gt; Operator -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680326459"><span id="local-6989586621680326461"><span id="local-6989586621680326463"><span class="annot"><span class="annottext">Int -&gt; Operator -&gt; ShowS
 [Operator] -&gt; ShowS
 Operator -&gt; String
 (Int -&gt; Operator -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: Operator -&gt; String
 showsPrec :: Int -&gt; Operator -&gt; ShowS
 $cshowsPrec :: Int -&gt; Operator -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680325057"><span id="local-6989586621680325059"><span id="local-6989586621680325061"><span id="local-6989586621680325063"><span class="annot"><span class="annottext">ReadPrec [Operator]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680326450"><span id="local-6989586621680326452"><span id="local-6989586621680326454"><span id="local-6989586621680326456"><span class="annot"><span class="annottext">ReadPrec [Operator]
 ReadPrec Operator
 Int -&gt; ReadS Operator
 ReadS [Operator]
@@ -78,7 +78,7 @@ $creadList :: ReadS [Operator]
 readsPrec :: Int -&gt; ReadS Operator
 $creadsPrec :: Int -&gt; ReadS Operator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680325052"><span id="local-6989586621680325054"><span class="annot"><span class="annottext">Operator -&gt; Operator -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680326445"><span id="local-6989586621680326447"><span class="annot"><span class="annottext">Operator -&gt; Operator -&gt; Bool
 (Operator -&gt; Operator -&gt; Bool)
 -&gt; (Operator -&gt; Operator -&gt; Bool) -&gt; Eq Operator
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ $c/= :: Operator -&gt; Operator -&gt; Bool
 == :: Operator -&gt; Operator -&gt; Bool
 $c== :: Operator -&gt; Operator -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680325036"><span id="local-6989586621680325038"><span id="local-6989586621680325040"><span id="local-6989586621680325042"><span id="local-6989586621680325044"><span id="local-6989586621680325046"><span id="local-6989586621680325048"><span class="annot"><span class="annottext">Eq Operator
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680326429"><span id="local-6989586621680326431"><span id="local-6989586621680326433"><span id="local-6989586621680326435"><span id="local-6989586621680326437"><span id="local-6989586621680326439"><span id="local-6989586621680326441"><span class="annot"><span class="annottext">Eq Operator
 Eq Operator
 -&gt; (Operator -&gt; Operator -&gt; Ordering)
 -&gt; (Operator -&gt; Operator -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. Operator -&gt; Rep Operator x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680325028"><span id="local-6989586621680325030"><span class="annot"><span class="annottext">Int -&gt; Operator -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680326421"><span id="local-6989586621680326423"><span class="annot"><span class="annottext">Int -&gt; Operator -&gt; Int
 Operator -&gt; Int
 (Int -&gt; Operator -&gt; Int) -&gt; (Operator -&gt; Int) -&gt; Hashable Operator
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -146,49 +146,49 @@ $chash :: Operator -&gt; Int
 hashWithSalt :: Int -&gt; Operator -&gt; Int
 $chashWithSalt :: Int -&gt; Operator -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680325025"><span class="annot"><span class="annottext">Operator -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680326418"><span class="annot"><span class="annottext">Operator -&gt; ()
 (Operator -&gt; ()) -&gt; NFData Operator
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Operator -&gt; ()
 $crnf :: Operator -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680325022"><span class="annot"><span class="annottext">Text -&gt; Either String Operator
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680326415"><span class="annot"><span class="annottext">Text -&gt; Either String Operator
 (Text -&gt; Either String Operator) -&gt; FromText Operator
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Operator
 $cfromText :: Text -&gt; Either String Operator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680325019"><span class="annot"><span class="annottext">Operator -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680326412"><span class="annot"><span class="annottext">Operator -&gt; Text
 (Operator -&gt; Text) -&gt; ToText Operator
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Operator -&gt; Text
 $ctoText :: Operator -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680325016"><span class="annot"><span class="annottext">Operator -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680326409"><span class="annot"><span class="annottext">Operator -&gt; ByteString
 (Operator -&gt; ByteString) -&gt; ToByteString Operator
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Operator -&gt; ByteString
 $ctoBS :: Operator -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680325013"><span class="annot"><span class="annottext">Operator -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680326406"><span class="annot"><span class="annottext">Operator -&gt; ByteStringBuilder
 (Operator -&gt; ByteStringBuilder) -&gt; ToLog Operator
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Operator -&gt; ByteStringBuilder
 $cbuild :: Operator -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680325010"><span class="annot"><span class="annottext">HeaderName -&gt; Operator -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680326403"><span class="annot"><span class="annottext">HeaderName -&gt; Operator -&gt; [Header]
 (HeaderName -&gt; Operator -&gt; [Header]) -&gt; ToHeader Operator
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Operator -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Operator -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680325007"><span class="annot"><span class="annottext">Operator -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680326400"><span class="annot"><span class="annottext">Operator -&gt; QueryString
 (Operator -&gt; QueryString) -&gt; ToQuery Operator
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Operator -&gt; QueryString
 $ctoQuery :: Operator -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680325002"><span id="local-6989586621680325004"><span class="annot"><span class="annottext">Value -&gt; Parser [Operator]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680326395"><span id="local-6989586621680326397"><span class="annot"><span class="annottext">Value -&gt; Parser [Operator]
 Value -&gt; Parser Operator
 (Value -&gt; Parser Operator)
 -&gt; (Value -&gt; Parser [Operator]) -&gt; FromJSON Operator
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [Operator]
 parseJSON :: Value -&gt; Parser Operator
 $cparseJSON :: Value -&gt; Parser Operator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680324997"><span id="local-6989586621680324999"><span class="annot"><span class="annottext">FromJSONKeyFunction [Operator]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680326390"><span id="local-6989586621680326392"><span class="annot"><span class="annottext">FromJSONKeyFunction [Operator]
 FromJSONKeyFunction Operator
 FromJSONKeyFunction Operator
 -&gt; FromJSONKeyFunction [Operator] -&gt; FromJSONKey Operator
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Operator]
 fromJSONKey :: FromJSONKeyFunction Operator
 $cfromJSONKey :: FromJSONKeyFunction Operator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680324988"><span id="local-6989586621680324990"><span id="local-6989586621680324992"><span id="local-6989586621680324994"><span class="annot"><span class="annottext">[Operator] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680326381"><span id="local-6989586621680326383"><span id="local-6989586621680326385"><span id="local-6989586621680326387"><span class="annot"><span class="annottext">[Operator] -&gt; Encoding
 [Operator] -&gt; Value
 Operator -&gt; Encoding
 Operator -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: Operator -&gt; Encoding
 toJSON :: Operator -&gt; Value
 $ctoJSON :: Operator -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680324983"><span id="local-6989586621680324985"><span class="annot"><span class="annottext">ToJSONKeyFunction [Operator]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680326376"><span id="local-6989586621680326378"><span class="annot"><span class="annottext">ToJSONKeyFunction [Operator]
 ToJSONKeyFunction Operator
 ToJSONKeyFunction Operator
 -&gt; ToJSONKeyFunction [Operator] -&gt; ToJSONKey Operator
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Operator]
 toJSONKey :: ToJSONKeyFunction Operator
 $ctoJSONKey :: ToJSONKeyFunction Operator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680324980"><span class="annot"><span class="annottext">[Node] -&gt; Either String Operator
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680326373"><span class="annot"><span class="annottext">[Node] -&gt; Either String Operator
 ([Node] -&gt; Either String Operator) -&gt; FromXML Operator
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Operator
 $cparseXML :: [Node] -&gt; Either String Operator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680324977"><span class="annot"><span class="annottext">Operator -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680326370"><span class="annot"><span class="annottext">Operator -&gt; XML
 (Operator -&gt; XML) -&gt; ToXML Operator
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Operator -&gt; XML

@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeregisterTargets' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679258756"><span id="local-6989586621679258757"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterTargets"><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets"><span class="hs-identifier hs-var">DeregisterTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterTargets%27"><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets%27"><span class="hs-identifier hs-var">DeregisterTargets'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679261687"><span id="local-6989586621679261688"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterTargets"><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets"><span class="hs-identifier hs-var">DeregisterTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterTargets%27"><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets%27"><span class="hs-identifier hs-var">DeregisterTargets'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the target group.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AtargetGroupArn%3ADeregisterTargets%27"><span class="annot"><span class="annottext">DeregisterTargets -&gt; Text
 </span><a href="Network.AWS.ELBv2.DeregisterTargets.html#%24sel%3AtargetGroupArn%3ADeregisterTargets%27"><span class="hs-identifier hs-var hs-var">targetGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Atargets%3ADeregisterTargets%27"><span class="annot"><span class="annottext">DeregisterTargets -&gt; [TargetDescription]
 </span><a href="Network.AWS.ELBv2.DeregisterTargets.html#%24sel%3Atargets%3ADeregisterTargets%27"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetDescription.html#TargetDescription"><span class="hs-identifier hs-type">TargetDescription</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258749"><span id="local-6989586621679258751"><span class="annot"><span class="annottext">DeregisterTargets -&gt; DeregisterTargets -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261680"><span id="local-6989586621679261682"><span class="annot"><span class="annottext">DeregisterTargets -&gt; DeregisterTargets -&gt; Bool
 (DeregisterTargets -&gt; DeregisterTargets -&gt; Bool)
 -&gt; (DeregisterTargets -&gt; DeregisterTargets -&gt; Bool)
 -&gt; Eq DeregisterTargets
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeregisterTargets -&gt; DeregisterTargets -&gt; Bool
 == :: DeregisterTargets -&gt; DeregisterTargets -&gt; Bool
 $c== :: DeregisterTargets -&gt; DeregisterTargets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258740"><span id="local-6989586621679258742"><span id="local-6989586621679258744"><span id="local-6989586621679258746"><span class="annot"><span class="annottext">ReadPrec [DeregisterTargets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261671"><span id="local-6989586621679261673"><span id="local-6989586621679261675"><span id="local-6989586621679261677"><span class="annot"><span class="annottext">ReadPrec [DeregisterTargets]
 ReadPrec DeregisterTargets
 Int -&gt; ReadS DeregisterTargets
 ReadS [DeregisterTargets]
@@ -88,7 +88,7 @@ readList :: ReadS [DeregisterTargets]
 $creadList :: ReadS [DeregisterTargets]
 readsPrec :: Int -&gt; ReadS DeregisterTargets
 $creadsPrec :: Int -&gt; ReadS DeregisterTargets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258733"><span id="local-6989586621679258735"><span id="local-6989586621679258737"><span class="annot"><span class="annottext">Int -&gt; DeregisterTargets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261664"><span id="local-6989586621679261666"><span id="local-6989586621679261668"><span class="annot"><span class="annottext">Int -&gt; DeregisterTargets -&gt; ShowS
 [DeregisterTargets] -&gt; ShowS
 DeregisterTargets -&gt; String
 (Int -&gt; DeregisterTargets -&gt; ShowS)
@@ -132,14 +132,14 @@ $cfrom :: forall x. DeregisterTargets -&gt; Rep DeregisterTargets x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets"><span class="hs-identifier hs-type">DeregisterTargets</span></a></span><span>
 </span><span id="line-79"></span><span id="newDeregisterTargets"><span class="annot"><span class="annottext">newDeregisterTargets :: Text -&gt; DeregisterTargets
-</span><a href="Network.AWS.ELBv2.DeregisterTargets.html#newDeregisterTargets"><span class="hs-identifier hs-var hs-var">newDeregisterTargets</span></a></span></span><span> </span><span id="local-6989586621679258728"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258728"><span class="hs-identifier hs-var">pTargetGroupArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ELBv2.DeregisterTargets.html#newDeregisterTargets"><span class="hs-identifier hs-var hs-var">newDeregisterTargets</span></a></span></span><span> </span><span id="local-6989586621679261659"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261659"><span class="hs-identifier hs-var">pTargetGroupArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DeregisterTargets' :: Text -&gt; [TargetDescription] -&gt; DeregisterTargets
 </span><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets%27"><span class="hs-identifier hs-type">DeregisterTargets'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetGroupArn:DeregisterTargets' :: Text
 </span><a href="Network.AWS.ELBv2.DeregisterTargets.html#%24sel%3AtargetGroupArn%3ADeregisterTargets%27"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258728"><span class="hs-identifier hs-var">pTargetGroupArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261659"><span class="hs-identifier hs-var">pTargetGroupArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:targets:DeregisterTargets' :: [TargetDescription]
 </span><a href="Network.AWS.ELBv2.DeregisterTargets.html#%24sel%3Atargets%3ADeregisterTargets%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[TargetDescription]
 forall a. Monoid a =&gt; a
@@ -153,16 +153,16 @@ forall a. Monoid a =&gt; a
 -&gt; (DeregisterTargets -&gt; Text -&gt; DeregisterTargets)
 -&gt; Lens DeregisterTargets DeregisterTargets Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets%27"><span class="hs-identifier hs-type">DeregisterTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258725"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets%27"><span class="hs-identifier hs-type">DeregisterTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261656"><span class="annot"><span class="annottext">Text
 targetGroupArn :: Text
 $sel:targetGroupArn:DeregisterTargets' :: DeregisterTargets -&gt; Text
-</span><a href="#local-6989586621679258725"><span class="hs-identifier hs-var hs-var">targetGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258725"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258724"><span class="annot"><span class="annottext">s :: DeregisterTargets
-</span><a href="#local-6989586621679258724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets%27"><span class="hs-identifier hs-type">DeregisterTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258723"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTargets
-</span><a href="#local-6989586621679258724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroupArn:DeregisterTargets' :: Text
+</span><a href="#local-6989586621679261656"><span class="hs-identifier hs-var hs-var">targetGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261656"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261655"><span class="annot"><span class="annottext">s :: DeregisterTargets
+</span><a href="#local-6989586621679261655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets%27"><span class="hs-identifier hs-type">DeregisterTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261654"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTargets
+</span><a href="#local-6989586621679261655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroupArn:DeregisterTargets' :: Text
 </span><a href="Network.AWS.ELBv2.DeregisterTargets.html#%24sel%3AtargetGroupArn%3ADeregisterTargets%27"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets"><span class="hs-identifier hs-type">DeregisterTargets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets"><span class="hs-identifier hs-type">DeregisterTargets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The targets. If you specified a port override when you registered a</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- target, you must specify both the target ID and the port when you</span><span>
@@ -178,16 +178,16 @@ $sel:targetGroupArn:DeregisterTargets' :: DeregisterTargets -&gt; Text
      [TargetDescription]
      [TargetDescription]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets%27"><span class="hs-identifier hs-type">DeregisterTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258722"><span class="annot"><span class="annottext">[TargetDescription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets%27"><span class="hs-identifier hs-type">DeregisterTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261653"><span class="annot"><span class="annottext">[TargetDescription]
 targets :: [TargetDescription]
 $sel:targets:DeregisterTargets' :: DeregisterTargets -&gt; [TargetDescription]
-</span><a href="#local-6989586621679258722"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[TargetDescription]
-</span><a href="#local-6989586621679258722"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258721"><span class="annot"><span class="annottext">s :: DeregisterTargets
-</span><a href="#local-6989586621679258721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets%27"><span class="hs-identifier hs-type">DeregisterTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258720"><span class="annot"><span class="annottext">[TargetDescription]
-</span><a href="#local-6989586621679258720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTargets
-</span><a href="#local-6989586621679258721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:DeregisterTargets' :: [TargetDescription]
+</span><a href="#local-6989586621679261653"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[TargetDescription]
+</span><a href="#local-6989586621679261653"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261652"><span class="annot"><span class="annottext">s :: DeregisterTargets
+</span><a href="#local-6989586621679261652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets%27"><span class="hs-identifier hs-type">DeregisterTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261651"><span class="annot"><span class="annottext">[TargetDescription]
+</span><a href="#local-6989586621679261651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTargets
+</span><a href="#local-6989586621679261652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:DeregisterTargets' :: [TargetDescription]
 </span><a href="Network.AWS.ELBv2.DeregisterTargets.html#%24sel%3Atargets%3ADeregisterTargets%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[TargetDescription]
-</span><a href="#local-6989586621679258720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets"><span class="hs-identifier hs-type">DeregisterTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([TargetDescription] -&gt; f [TargetDescription])
+</span><a href="#local-6989586621679261651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets"><span class="hs-identifier hs-type">DeregisterTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([TargetDescription] -&gt; f [TargetDescription])
  -&gt; DeregisterTargets -&gt; f DeregisterTargets)
 -&gt; (([TargetDescription] -&gt; f [TargetDescription])
     -&gt; [TargetDescription] -&gt; f [TargetDescription])
@@ -197,19 +197,19 @@ $sel:targets:DeregisterTargets' :: DeregisterTargets -&gt; [TargetDescription]
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([TargetDescription] -&gt; f [TargetDescription])
 -&gt; [TargetDescription] -&gt; f [TargetDescription]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets"><span class="hs-identifier hs-type">DeregisterTargets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets"><span class="hs-identifier hs-type">DeregisterTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargetsResponse"><span class="hs-identifier hs-type">DeregisterTargetsResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679258714"><span class="annot"><span class="annottext">request :: DeregisterTargets -&gt; Request DeregisterTargets
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679261645"><span class="annot"><span class="annottext">request :: DeregisterTargets -&gt; Request DeregisterTargets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeregisterTargets -&gt; Request DeregisterTargets
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ELBv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679258710"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679261641"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeregisterTargets
 -&gt; ClientResponse ClientBody
@@ -240,10 +240,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeregisterTargetsResult&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258707"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258707"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679258706"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679258706"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679258705"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679258705"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679261638"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261638"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679261637"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679261637"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679261636"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679261636"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeregisterTargetsResponse
 </span><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargetsResponse%27"><span class="hs-identifier hs-var">DeregisterTargetsResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeregisterTargetsResponse)
@@ -254,15 +254,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258707"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261638"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258698"><span id="local-6989586621679258700"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets"><span class="hs-identifier hs-type">DeregisterTargets</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261629"><span id="local-6989586621679261631"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets"><span class="hs-identifier hs-type">DeregisterTargets</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258695"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets"><span class="hs-identifier hs-type">DeregisterTargets</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261626"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets"><span class="hs-identifier hs-type">DeregisterTargets</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets"><span class="hs-identifier hs-type">DeregisterTargets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679258691"><span class="annot"><span class="annottext">toHeaders :: DeregisterTargets -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679261622"><span class="annot"><span class="annottext">toHeaders :: DeregisterTargets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeregisterTargets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -270,21 +270,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets"><span class="hs-identifier hs-type">DeregisterTargets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679258686"><span class="annot"><span class="annottext">toPath :: DeregisterTargets -&gt; ByteString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679261617"><span class="annot"><span class="annottext">toPath :: DeregisterTargets -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeregisterTargets -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets"><span class="hs-identifier hs-type">DeregisterTargets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679258682"><span class="annot"><span class="annottext">toQuery :: DeregisterTargets -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets%27"><span class="hs-identifier hs-type">DeregisterTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258679"><span id="local-6989586621679258680"><span class="annot"><span class="annottext">[TargetDescription]
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679261613"><span class="annot"><span class="annottext">toQuery :: DeregisterTargets -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargets%27"><span class="hs-identifier hs-type">DeregisterTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261610"><span id="local-6989586621679261611"><span class="annot"><span class="annottext">[TargetDescription]
 Text
 targets :: [TargetDescription]
 targetGroupArn :: Text
 $sel:targets:DeregisterTargets' :: DeregisterTargets -&gt; [TargetDescription]
 $sel:targetGroupArn:DeregisterTargets' :: DeregisterTargets -&gt; Text
-</span><a href="#local-6989586621679258679"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679261610"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -304,7 +304,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;TargetGroupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258680"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261611"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Targets&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
@@ -314,16 +314,16 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[TargetDescription]
-</span><a href="#local-6989586621679258679"><span class="hs-identifier hs-var">targets</span></a></span><span>
+</span><a href="#local-6989586621679261610"><span class="hs-identifier hs-var">targets</span></a></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | /See:/ 'newDeregisterTargetsResponse' smart constructor.</span><span>
-</span><span id="line-131"></span><span id="local-6989586621679258675"><span id="local-6989586621679258676"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterTargetsResponse"><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargetsResponse"><span class="hs-identifier hs-var">DeregisterTargetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterTargetsResponse%27"><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargetsResponse%27"><span class="hs-identifier hs-var">DeregisterTargetsResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span id="local-6989586621679261606"><span id="local-6989586621679261607"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterTargetsResponse"><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargetsResponse"><span class="hs-identifier hs-var">DeregisterTargetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterTargetsResponse%27"><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargetsResponse%27"><span class="hs-identifier hs-var">DeregisterTargetsResponse'</span></a></span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeregisterTargetsResponse%27"><span class="annot"><span class="annottext">DeregisterTargetsResponse -&gt; Int
 </span><a href="Network.AWS.ELBv2.DeregisterTargets.html#%24sel%3AhttpStatus%3ADeregisterTargetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258670"><span id="local-6989586621679258672"><span class="annot"><span class="annottext">DeregisterTargetsResponse -&gt; DeregisterTargetsResponse -&gt; Bool
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261601"><span id="local-6989586621679261603"><span class="annot"><span class="annottext">DeregisterTargetsResponse -&gt; DeregisterTargetsResponse -&gt; Bool
 (DeregisterTargetsResponse -&gt; DeregisterTargetsResponse -&gt; Bool)
 -&gt; (DeregisterTargetsResponse -&gt; DeregisterTargetsResponse -&gt; Bool)
 -&gt; Eq DeregisterTargetsResponse
@@ -332,7 +332,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeregisterTargetsResponse -&gt; DeregisterTargetsResponse -&gt; Bool
 == :: DeregisterTargetsResponse -&gt; DeregisterTargetsResponse -&gt; Bool
 $c== :: DeregisterTargetsResponse -&gt; DeregisterTargetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258662"><span id="local-6989586621679258664"><span id="local-6989586621679258666"><span id="local-6989586621679258668"><span class="annot"><span class="annottext">ReadPrec [DeregisterTargetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261593"><span id="local-6989586621679261595"><span id="local-6989586621679261597"><span id="local-6989586621679261599"><span class="annot"><span class="annottext">ReadPrec [DeregisterTargetsResponse]
 ReadPrec DeregisterTargetsResponse
 Int -&gt; ReadS DeregisterTargetsResponse
 ReadS [DeregisterTargetsResponse]
@@ -352,7 +352,7 @@ readList :: ReadS [DeregisterTargetsResponse]
 $creadList :: ReadS [DeregisterTargetsResponse]
 readsPrec :: Int -&gt; ReadS DeregisterTargetsResponse
 $creadsPrec :: Int -&gt; ReadS DeregisterTargetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258656"><span id="local-6989586621679258658"><span id="local-6989586621679258660"><span class="annot"><span class="annottext">Int -&gt; DeregisterTargetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261587"><span id="local-6989586621679261589"><span id="local-6989586621679261591"><span class="annot"><span class="annottext">Int -&gt; DeregisterTargetsResponse -&gt; ShowS
 [DeregisterTargetsResponse] -&gt; ShowS
 DeregisterTargetsResponse -&gt; String
 (Int -&gt; DeregisterTargetsResponse -&gt; ShowS)
@@ -398,14 +398,14 @@ DeregisterTargetsResponse -&gt; Rep DeregisterTargetsResponse x
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargetsResponse"><span class="hs-identifier hs-type">DeregisterTargetsResponse</span></a></span><span>
 </span><span id="line-150"></span><span id="newDeregisterTargetsResponse"><span class="annot"><span class="annottext">newDeregisterTargetsResponse :: Int -&gt; DeregisterTargetsResponse
-</span><a href="Network.AWS.ELBv2.DeregisterTargets.html#newDeregisterTargetsResponse"><span class="hs-identifier hs-var hs-var">newDeregisterTargetsResponse</span></a></span></span><span> </span><span id="local-6989586621679258653"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258653"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ELBv2.DeregisterTargets.html#newDeregisterTargetsResponse"><span class="hs-identifier hs-var hs-var">newDeregisterTargetsResponse</span></a></span></span><span> </span><span id="local-6989586621679261584"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261584"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">DeregisterTargetsResponse' :: Int -&gt; DeregisterTargetsResponse
 </span><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargetsResponse%27"><span class="hs-identifier hs-type">DeregisterTargetsResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterTargetsResponse' :: Int
 </span><a href="Network.AWS.ELBv2.DeregisterTargets.html#%24sel%3AhttpStatus%3ADeregisterTargetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258653"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679261584"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -416,16 +416,16 @@ DeregisterTargetsResponse -&gt; Rep DeregisterTargetsResponse x
 -&gt; (DeregisterTargetsResponse -&gt; Int -&gt; DeregisterTargetsResponse)
 -&gt; Lens DeregisterTargetsResponse DeregisterTargetsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargetsResponse%27"><span class="hs-identifier hs-type">DeregisterTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258652"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargetsResponse%27"><span class="hs-identifier hs-type">DeregisterTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261583"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeregisterTargetsResponse' :: DeregisterTargetsResponse -&gt; Int
-</span><a href="#local-6989586621679258652"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258652"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258651"><span class="annot"><span class="annottext">s :: DeregisterTargetsResponse
-</span><a href="#local-6989586621679258651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargetsResponse%27"><span class="hs-identifier hs-type">DeregisterTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258650"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTargetsResponse
-</span><a href="#local-6989586621679258651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterTargetsResponse' :: Int
+</span><a href="#local-6989586621679261583"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261583"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261582"><span class="annot"><span class="annottext">s :: DeregisterTargetsResponse
+</span><a href="#local-6989586621679261582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargetsResponse%27"><span class="hs-identifier hs-type">DeregisterTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261581"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTargetsResponse
+</span><a href="#local-6989586621679261582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterTargetsResponse' :: Int
 </span><a href="Network.AWS.ELBv2.DeregisterTargets.html#%24sel%3AhttpStatus%3ADeregisterTargetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargetsResponse"><span class="hs-identifier hs-type">DeregisterTargetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargetsResponse"><span class="hs-identifier hs-type">DeregisterTargetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258648"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargetsResponse"><span class="hs-identifier hs-type">DeregisterTargetsResponse</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261579"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DeregisterTargets.html#DeregisterTargetsResponse"><span class="hs-identifier hs-type">DeregisterTargetsResponse</span></a></span></span><span>
 </span><span id="line-161"></span></pre></body></html>

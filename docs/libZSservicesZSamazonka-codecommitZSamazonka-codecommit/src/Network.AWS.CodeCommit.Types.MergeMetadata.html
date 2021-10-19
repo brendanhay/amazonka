@@ -28,21 +28,21 @@
 </span><span id="line-28"></span><span class="hs-comment">-- reference and a destination reference in a pull request.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMergeMetadata' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679350070"><span id="local-6989586621679350071"></span></span><span class="hs-keyword">data</span><span> </span><span id="MergeMetadata"><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-var">MergeMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MergeMetadata%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-var">MergeMetadata'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679350341"><span id="local-6989586621679350342"></span></span><span class="hs-keyword">data</span><span> </span><span id="MergeMetadata"><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-var">MergeMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MergeMetadata%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-var">MergeMetadata'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user who merged the branches.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AmergedBy%3AMergeMetadata%27"><span class="annot"><span class="annottext">MergeMetadata -&gt; Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AmergedBy%3AMergeMetadata%27"><span class="hs-identifier hs-var hs-var">mergedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The commit ID for the merge commit, if any.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AmergeCommitId%3AMergeMetadata%27"><span class="annot"><span class="annottext">MergeMetadata -&gt; Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AmergeCommitId%3AMergeMetadata%27"><span class="hs-identifier hs-var hs-var">mergeCommitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The merge strategy used in the merge.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AmergeOption%3AMergeMetadata%27"><span class="annot"><span class="annottext">MergeMetadata -&gt; Maybe MergeOptionTypeEnum
+</span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AmergeOption%3AMergeMetadata%27"><span class="hs-identifier hs-var hs-var">mergeOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum"><span class="hs-identifier hs-type">MergeOptionTypeEnum</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A Boolean value indicating whether the merge has been made.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AisMerged%3AMergeMetadata%27"><span class="annot"><span class="annottext">MergeMetadata -&gt; Maybe Bool
 </span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AisMerged%3AMergeMetadata%27"><span class="hs-identifier hs-var hs-var">isMerged</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The merge strategy used in the merge.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AmergeOption%3AMergeMetadata%27"><span class="annot"><span class="annottext">MergeMetadata -&gt; Maybe MergeOptionTypeEnum
-</span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AmergeOption%3AMergeMetadata%27"><span class="hs-identifier hs-var hs-var">mergeOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum"><span class="hs-identifier hs-type">MergeOptionTypeEnum</span></a></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The commit ID for the merge commit, if any.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AmergeCommitId%3AMergeMetadata%27"><span class="annot"><span class="annottext">MergeMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AmergeCommitId%3AMergeMetadata%27"><span class="hs-identifier hs-var hs-var">mergeCommitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350061"><span id="local-6989586621679350063"><span class="annot"><span class="annottext">MergeMetadata -&gt; MergeMetadata -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350332"><span id="local-6989586621679350334"><span class="annot"><span class="annottext">MergeMetadata -&gt; MergeMetadata -&gt; Bool
 (MergeMetadata -&gt; MergeMetadata -&gt; Bool)
 -&gt; (MergeMetadata -&gt; MergeMetadata -&gt; Bool) -&gt; Eq MergeMetadata
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MergeMetadata -&gt; MergeMetadata -&gt; Bool
 == :: MergeMetadata -&gt; MergeMetadata -&gt; Bool
 $c== :: MergeMetadata -&gt; MergeMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350052"><span id="local-6989586621679350054"><span id="local-6989586621679350056"><span id="local-6989586621679350058"><span class="annot"><span class="annottext">ReadPrec [MergeMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350323"><span id="local-6989586621679350325"><span id="local-6989586621679350327"><span id="local-6989586621679350329"><span class="annot"><span class="annottext">ReadPrec [MergeMetadata]
 ReadPrec MergeMetadata
 Int -&gt; ReadS MergeMetadata
 ReadS [MergeMetadata]
@@ -70,7 +70,7 @@ readList :: ReadS [MergeMetadata]
 $creadList :: ReadS [MergeMetadata]
 readsPrec :: Int -&gt; ReadS MergeMetadata
 $creadsPrec :: Int -&gt; ReadS MergeMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350045"><span id="local-6989586621679350047"><span id="local-6989586621679350049"><span class="annot"><span class="annottext">Int -&gt; MergeMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350316"><span id="local-6989586621679350318"><span id="local-6989586621679350320"><span class="annot"><span class="annottext">Int -&gt; MergeMetadata -&gt; ShowS
 [MergeMetadata] -&gt; ShowS
 MergeMetadata -&gt; String
 (Int -&gt; MergeMetadata -&gt; ShowS)
@@ -106,35 +106,35 @@ $cfrom :: forall x. MergeMetadata -&gt; Rep MergeMetadata x
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- 'mergedBy', 'mergeMetadata_mergedBy' - The Amazon Resource Name (ARN) of the user who merged the branches.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'mergeCommitId', 'mergeMetadata_mergeCommitId' - The commit ID for the merge commit, if any.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'mergeOption', 'mergeMetadata_mergeOption' - The merge strategy used in the merge.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- 'isMerged', 'mergeMetadata_isMerged' - A Boolean value indicating whether the merge has been made.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'mergeOption', 'mergeMetadata_mergeOption' - The merge strategy used in the merge.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'mergeCommitId', 'mergeMetadata_mergeCommitId' - The commit ID for the merge commit, if any.</span><span>
 </span><span id="line-58"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#newMergeMetadata"><span class="hs-identifier hs-type">newMergeMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span><span>
 </span><span id="line-60"></span><span id="newMergeMetadata"><span class="annot"><span class="annottext">newMergeMetadata :: MergeMetadata
 </span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#newMergeMetadata"><span class="hs-identifier hs-var hs-var">newMergeMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">MergeMetadata' :: Maybe Text
--&gt; Maybe Text
--&gt; Maybe Bool
 -&gt; Maybe MergeOptionTypeEnum
+-&gt; Maybe Bool
+-&gt; Maybe Text
 -&gt; MergeMetadata
 </span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-type">MergeMetadata'</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mergedBy:MergeMetadata' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AmergedBy%3AMergeMetadata%27"><span class="hs-identifier hs-var">mergedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:mergeCommitId:MergeMetadata' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AmergeCommitId%3AMergeMetadata%27"><span class="hs-identifier hs-var">mergeCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:mergeOption:MergeMetadata' :: Maybe MergeOptionTypeEnum
+</span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AmergeOption%3AMergeMetadata%27"><span class="hs-identifier hs-var">mergeOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MergeOptionTypeEnum
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:isMerged:MergeMetadata' :: Maybe Bool
 </span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AisMerged%3AMergeMetadata%27"><span class="hs-identifier hs-var">isMerged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:mergeOption:MergeMetadata' :: Maybe MergeOptionTypeEnum
-</span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AmergeOption%3AMergeMetadata%27"><span class="hs-identifier hs-var">mergeOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MergeOptionTypeEnum
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:mergeCommitId:MergeMetadata' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AmergeCommitId%3AMergeMetadata%27"><span class="hs-identifier hs-var">mergeCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
@@ -146,56 +146,20 @@ forall a. Maybe a
 -&gt; (MergeMetadata -&gt; Maybe Text -&gt; MergeMetadata)
 -&gt; Lens MergeMetadata MergeMetadata (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-type">MergeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350036"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-type">MergeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350307"><span class="annot"><span class="annottext">Maybe Text
 mergedBy :: Maybe Text
 $sel:mergedBy:MergeMetadata' :: MergeMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679350036"><span class="hs-identifier hs-var hs-var">mergedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350036"><span class="hs-identifier hs-var">mergedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350035"><span class="annot"><span class="annottext">s :: MergeMetadata
-</span><a href="#local-6989586621679350035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-type">MergeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350034"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeMetadata
-</span><a href="#local-6989586621679350035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergedBy:MergeMetadata' :: Maybe Text
+</span><a href="#local-6989586621679350307"><span class="hs-identifier hs-var hs-var">mergedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350307"><span class="hs-identifier hs-var">mergedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350306"><span class="annot"><span class="annottext">s :: MergeMetadata
+</span><a href="#local-6989586621679350306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-type">MergeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350305"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeMetadata
+</span><a href="#local-6989586621679350306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergedBy:MergeMetadata' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AmergedBy%3AMergeMetadata%27"><span class="hs-identifier hs-var">mergedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The commit ID for the merge commit, if any.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#mergeMetadata_mergeCommitId"><span class="hs-identifier hs-type">mergeMetadata_mergeCommitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="mergeMetadata_mergeCommitId"><span class="annot"><span class="annottext">mergeMetadata_mergeCommitId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MergeMetadata -&gt; f MergeMetadata
-</span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#mergeMetadata_mergeCommitId"><span class="hs-identifier hs-var hs-var">mergeMetadata_mergeCommitId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeMetadata -&gt; Maybe Text)
--&gt; (MergeMetadata -&gt; Maybe Text -&gt; MergeMetadata)
--&gt; Lens MergeMetadata MergeMetadata (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-type">MergeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350032"><span class="annot"><span class="annottext">Maybe Text
-mergeCommitId :: Maybe Text
-$sel:mergeCommitId:MergeMetadata' :: MergeMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679350032"><span class="hs-identifier hs-var hs-var">mergeCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350032"><span class="hs-identifier hs-var">mergeCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350031"><span class="annot"><span class="annottext">s :: MergeMetadata
-</span><a href="#local-6989586621679350031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-type">MergeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350030"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeMetadata
-</span><a href="#local-6989586621679350031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergeCommitId:MergeMetadata' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AmergeCommitId%3AMergeMetadata%27"><span class="hs-identifier hs-var">mergeCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | A Boolean value indicating whether the merge has been made.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#mergeMetadata_isMerged"><span class="hs-identifier hs-type">mergeMetadata_isMerged</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="mergeMetadata_isMerged"><span class="annot"><span class="annottext">mergeMetadata_isMerged :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; MergeMetadata -&gt; f MergeMetadata
-</span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#mergeMetadata_isMerged"><span class="hs-identifier hs-var hs-var">mergeMetadata_isMerged</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeMetadata -&gt; Maybe Bool)
--&gt; (MergeMetadata -&gt; Maybe Bool -&gt; MergeMetadata)
--&gt; Lens MergeMetadata MergeMetadata (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-type">MergeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350028"><span class="annot"><span class="annottext">Maybe Bool
-isMerged :: Maybe Bool
-$sel:isMerged:MergeMetadata' :: MergeMetadata -&gt; Maybe Bool
-</span><a href="#local-6989586621679350028"><span class="hs-identifier hs-var hs-var">isMerged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679350028"><span class="hs-identifier hs-var">isMerged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350027"><span class="annot"><span class="annottext">s :: MergeMetadata
-</span><a href="#local-6989586621679350027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-type">MergeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350026"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679350026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeMetadata
-</span><a href="#local-6989586621679350027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isMerged:MergeMetadata' :: Maybe Bool
-</span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AisMerged%3AMergeMetadata%27"><span class="hs-identifier hs-var">isMerged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679350026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The merge strategy used in the merge.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#mergeMetadata_mergeOption"><span class="hs-identifier hs-type">mergeMetadata_mergeOption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum"><span class="hs-identifier hs-type">MergeOptionTypeEnum</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="mergeMetadata_mergeOption"><span class="annot"><span class="annottext">mergeMetadata_mergeOption :: (Maybe MergeOptionTypeEnum -&gt; f (Maybe MergeOptionTypeEnum))
+</span><span id="line-72"></span><span class="hs-comment">-- | The merge strategy used in the merge.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#mergeMetadata_mergeOption"><span class="hs-identifier hs-type">mergeMetadata_mergeOption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum"><span class="hs-identifier hs-type">MergeOptionTypeEnum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="mergeMetadata_mergeOption"><span class="annot"><span class="annottext">mergeMetadata_mergeOption :: (Maybe MergeOptionTypeEnum -&gt; f (Maybe MergeOptionTypeEnum))
 -&gt; MergeMetadata -&gt; f MergeMetadata
 </span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#mergeMetadata_mergeOption"><span class="hs-identifier hs-var hs-var">mergeMetadata_mergeOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeMetadata -&gt; Maybe MergeOptionTypeEnum)
 -&gt; (MergeMetadata -&gt; Maybe MergeOptionTypeEnum -&gt; MergeMetadata)
@@ -205,19 +169,55 @@ $sel:isMerged:MergeMetadata' :: MergeMetadata -&gt; Maybe Bool
      (Maybe MergeOptionTypeEnum)
      (Maybe MergeOptionTypeEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-type">MergeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350024"><span class="annot"><span class="annottext">Maybe MergeOptionTypeEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-type">MergeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350303"><span class="annot"><span class="annottext">Maybe MergeOptionTypeEnum
 mergeOption :: Maybe MergeOptionTypeEnum
 $sel:mergeOption:MergeMetadata' :: MergeMetadata -&gt; Maybe MergeOptionTypeEnum
-</span><a href="#local-6989586621679350024"><span class="hs-identifier hs-var hs-var">mergeOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MergeOptionTypeEnum
-</span><a href="#local-6989586621679350024"><span class="hs-identifier hs-var">mergeOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350023"><span class="annot"><span class="annottext">s :: MergeMetadata
-</span><a href="#local-6989586621679350023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-type">MergeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350022"><span class="annot"><span class="annottext">Maybe MergeOptionTypeEnum
-</span><a href="#local-6989586621679350022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeMetadata
-</span><a href="#local-6989586621679350023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergeOption:MergeMetadata' :: Maybe MergeOptionTypeEnum
+</span><a href="#local-6989586621679350303"><span class="hs-identifier hs-var hs-var">mergeOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MergeOptionTypeEnum
+</span><a href="#local-6989586621679350303"><span class="hs-identifier hs-var">mergeOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350302"><span class="annot"><span class="annottext">s :: MergeMetadata
+</span><a href="#local-6989586621679350302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-type">MergeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350301"><span class="annot"><span class="annottext">Maybe MergeOptionTypeEnum
+</span><a href="#local-6989586621679350301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeMetadata
+</span><a href="#local-6989586621679350302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergeOption:MergeMetadata' :: Maybe MergeOptionTypeEnum
 </span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AmergeOption%3AMergeMetadata%27"><span class="hs-identifier hs-var">mergeOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MergeOptionTypeEnum
-</span><a href="#local-6989586621679350022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | A Boolean value indicating whether the merge has been made.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#mergeMetadata_isMerged"><span class="hs-identifier hs-type">mergeMetadata_isMerged</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="mergeMetadata_isMerged"><span class="annot"><span class="annottext">mergeMetadata_isMerged :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; MergeMetadata -&gt; f MergeMetadata
+</span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#mergeMetadata_isMerged"><span class="hs-identifier hs-var hs-var">mergeMetadata_isMerged</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeMetadata -&gt; Maybe Bool)
+-&gt; (MergeMetadata -&gt; Maybe Bool -&gt; MergeMetadata)
+-&gt; Lens MergeMetadata MergeMetadata (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-type">MergeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350299"><span class="annot"><span class="annottext">Maybe Bool
+isMerged :: Maybe Bool
+$sel:isMerged:MergeMetadata' :: MergeMetadata -&gt; Maybe Bool
+</span><a href="#local-6989586621679350299"><span class="hs-identifier hs-var hs-var">isMerged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679350299"><span class="hs-identifier hs-var">isMerged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350298"><span class="annot"><span class="annottext">s :: MergeMetadata
+</span><a href="#local-6989586621679350298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-type">MergeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350297"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679350297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeMetadata
+</span><a href="#local-6989586621679350298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isMerged:MergeMetadata' :: Maybe Bool
+</span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AisMerged%3AMergeMetadata%27"><span class="hs-identifier hs-var">isMerged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679350297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The commit ID for the merge commit, if any.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#mergeMetadata_mergeCommitId"><span class="hs-identifier hs-type">mergeMetadata_mergeCommitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="mergeMetadata_mergeCommitId"><span class="annot"><span class="annottext">mergeMetadata_mergeCommitId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MergeMetadata -&gt; f MergeMetadata
+</span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#mergeMetadata_mergeCommitId"><span class="hs-identifier hs-var hs-var">mergeMetadata_mergeCommitId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MergeMetadata -&gt; Maybe Text)
+-&gt; (MergeMetadata -&gt; Maybe Text -&gt; MergeMetadata)
+-&gt; Lens MergeMetadata MergeMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-type">MergeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350295"><span class="annot"><span class="annottext">Maybe Text
+mergeCommitId :: Maybe Text
+$sel:mergeCommitId:MergeMetadata' :: MergeMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679350295"><span class="hs-identifier hs-var hs-var">mergeCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350295"><span class="hs-identifier hs-var">mergeCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350294"><span class="annot"><span class="annottext">s :: MergeMetadata
+</span><a href="#local-6989586621679350294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-type">MergeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350293"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeMetadata
+</span><a href="#local-6989586621679350294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergeCommitId:MergeMetadata' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#%24sel%3AmergeCommitId%3AMergeMetadata%27"><span class="hs-identifier hs-var">mergeCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350019"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679350017"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MergeMetadata
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350290"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679350288"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MergeMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MergeMetadata)
@@ -227,61 +227,59 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MergeMetadata&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350014"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350014"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350285"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350285"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
--&gt; Maybe Bool
 -&gt; Maybe MergeOptionTypeEnum
+-&gt; Maybe Bool
+-&gt; Maybe Text
 -&gt; MergeMetadata
 </span><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata%27"><span class="hs-identifier hs-var">MergeMetadata'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Bool
  -&gt; Maybe MergeOptionTypeEnum
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
  -&gt; MergeMetadata)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Bool -&gt; Maybe MergeOptionTypeEnum -&gt; MergeMetadata)
+     (Maybe MergeOptionTypeEnum
+      -&gt; Maybe Bool -&gt; Maybe Text -&gt; MergeMetadata)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679350285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mergedBy&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Bool -&gt; Maybe MergeOptionTypeEnum -&gt; MergeMetadata)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Bool -&gt; Maybe MergeOptionTypeEnum -&gt; MergeMetadata)
+  (Maybe MergeOptionTypeEnum
+   -&gt; Maybe Bool -&gt; Maybe Text -&gt; MergeMetadata)
+-&gt; Parser (Maybe MergeOptionTypeEnum)
+-&gt; Parser (Maybe Bool -&gt; Maybe Text -&gt; MergeMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;mergeCommitId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe MergeOptionTypeEnum -&gt; MergeMetadata)
--&gt; Parser (Maybe Bool)
--&gt; Parser (Maybe MergeOptionTypeEnum -&gt; MergeMetadata)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;isMerged&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe MergeOptionTypeEnum -&gt; MergeMetadata)
--&gt; Parser (Maybe MergeOptionTypeEnum) -&gt; Parser MergeMetadata
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MergeOptionTypeEnum)
+</span><a href="#local-6989586621679350285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MergeOptionTypeEnum)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mergeOption&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Text -&gt; MergeMetadata)
+-&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Text -&gt; MergeMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isMerged&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MergeMetadata)
+-&gt; Parser (Maybe Text) -&gt; Parser MergeMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mergeCommitId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350008"><span id="local-6989586621679350010"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350279"><span id="local-6989586621679350281"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350276"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeMetadata.html#MergeMetadata"><span class="hs-identifier hs-type">MergeMetadata</span></a></span></span><span>
 </span><span id="line-99"></span></pre></body></html>

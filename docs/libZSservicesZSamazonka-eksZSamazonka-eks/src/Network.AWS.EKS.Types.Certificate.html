@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- cluster.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCertificate' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679263822"><span id="local-6989586621679263823"></span></span><span class="hs-keyword">data</span><span> </span><span id="Certificate"><span class="annot"><a href="Network.AWS.EKS.Types.Certificate.html#Certificate"><span class="hs-identifier hs-var">Certificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Certificate%27"><span class="annot"><a href="Network.AWS.EKS.Types.Certificate.html#Certificate%27"><span class="hs-identifier hs-var">Certificate'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679264071"><span id="local-6989586621679264072"></span></span><span class="hs-keyword">data</span><span> </span><span id="Certificate"><span class="annot"><a href="Network.AWS.EKS.Types.Certificate.html#Certificate"><span class="hs-identifier hs-var">Certificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Certificate%27"><span class="annot"><a href="Network.AWS.EKS.Types.Certificate.html#Certificate%27"><span class="hs-identifier hs-var">Certificate'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Base64-encoded certificate data required to communicate with your</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- cluster. Add this to the @certificate-authority-data@ section of the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @kubeconfig@ file for your cluster.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Adata%27%3ACertificate%27"><span class="annot"><span class="annottext">Certificate -&gt; Maybe Text
 </span><a href="Network.AWS.EKS.Types.Certificate.html#%24sel%3Adata%27%3ACertificate%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263816"><span id="local-6989586621679263818"><span class="annot"><span class="annottext">Certificate -&gt; Certificate -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264065"><span id="local-6989586621679264067"><span class="annot"><span class="annottext">Certificate -&gt; Certificate -&gt; Bool
 (Certificate -&gt; Certificate -&gt; Bool)
 -&gt; (Certificate -&gt; Certificate -&gt; Bool) -&gt; Eq Certificate
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Certificate -&gt; Certificate -&gt; Bool
 == :: Certificate -&gt; Certificate -&gt; Bool
 $c== :: Certificate -&gt; Certificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263807"><span id="local-6989586621679263809"><span id="local-6989586621679263811"><span id="local-6989586621679263813"><span class="annot"><span class="annottext">ReadPrec [Certificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264056"><span id="local-6989586621679264058"><span id="local-6989586621679264060"><span id="local-6989586621679264062"><span class="annot"><span class="annottext">ReadPrec [Certificate]
 ReadPrec Certificate
 Int -&gt; ReadS Certificate
 ReadS [Certificate]
@@ -62,7 +62,7 @@ readList :: ReadS [Certificate]
 $creadList :: ReadS [Certificate]
 readsPrec :: Int -&gt; ReadS Certificate
 $creadsPrec :: Int -&gt; ReadS Certificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263800"><span id="local-6989586621679263802"><span id="local-6989586621679263804"><span class="annot"><span class="annottext">Int -&gt; Certificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264049"><span id="local-6989586621679264051"><span id="local-6989586621679264053"><span class="annot"><span class="annottext">Int -&gt; Certificate -&gt; ShowS
 [Certificate] -&gt; ShowS
 Certificate -&gt; String
 (Int -&gt; Certificate -&gt; ShowS)
@@ -118,19 +118,19 @@ forall a. Maybe a
 -&gt; (Certificate -&gt; Maybe Text -&gt; Certificate)
 -&gt; Lens Certificate Certificate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Certificate.html#Certificate%27"><span class="hs-identifier hs-type">Certificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263791"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Certificate.html#Certificate%27"><span class="hs-identifier hs-type">Certificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264040"><span class="annot"><span class="annottext">Maybe Text
 data' :: Maybe Text
 $sel:data':Certificate' :: Certificate -&gt; Maybe Text
-</span><a href="#local-6989586621679263791"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263791"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263790"><span class="annot"><span class="annottext">s :: Certificate
-</span><a href="#local-6989586621679263790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Certificate.html#Certificate%27"><span class="hs-identifier hs-type">Certificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263789"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Certificate
-</span><a href="#local-6989586621679263790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':Certificate' :: Maybe Text
+</span><a href="#local-6989586621679264040"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264040"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264039"><span class="annot"><span class="annottext">s :: Certificate
+</span><a href="#local-6989586621679264039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Certificate.html#Certificate%27"><span class="hs-identifier hs-type">Certificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264038"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Certificate
+</span><a href="#local-6989586621679264039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':Certificate' :: Maybe Text
 </span><a href="Network.AWS.EKS.Types.Certificate.html#%24sel%3Adata%27%3ACertificate%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Certificate.html#Certificate"><span class="hs-identifier hs-type">Certificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679264038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Certificate.html#Certificate"><span class="hs-identifier hs-type">Certificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263786"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Certificate.html#Certificate"><span class="hs-identifier hs-type">Certificate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679263784"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Certificate
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264035"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Certificate.html#Certificate"><span class="hs-identifier hs-type">Certificate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679264033"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Certificate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Certificate) -&gt; Value -&gt; Parser Certificate
@@ -138,18 +138,18 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Certificate&quot;</span></span><span>
-</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263781"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263781"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Certificate
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264030"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264030"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Certificate
 </span><a href="Network.AWS.EKS.Types.Certificate.html#Certificate%27"><span class="hs-identifier hs-var">Certificate'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Certificate)
 -&gt; Parser (Maybe Text) -&gt; Parser Certificate
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679264030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;data&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263775"><span id="local-6989586621679263777"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Certificate.html#Certificate"><span class="hs-identifier hs-type">Certificate</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264024"><span id="local-6989586621679264026"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Certificate.html#Certificate"><span class="hs-identifier hs-type">Certificate</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263772"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Certificate.html#Certificate"><span class="hs-identifier hs-type">Certificate</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264021"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Certificate.html#Certificate"><span class="hs-identifier hs-type">Certificate</span></a></span></span><span>
 </span><span id="line-69"></span></pre></body></html>

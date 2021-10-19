@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679323433"><span id="local-6989586621679323434"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConsistencyLevel"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ConsistencyLevel.html#ConsistencyLevel"><span class="hs-identifier hs-var">ConsistencyLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConsistencyLevel%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ConsistencyLevel.html#ConsistencyLevel%27"><span class="hs-identifier hs-var">ConsistencyLevel'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679323780"><span id="local-6989586621679323781"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConsistencyLevel"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ConsistencyLevel.html#ConsistencyLevel"><span class="hs-identifier hs-var">ConsistencyLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConsistencyLevel%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ConsistencyLevel.html#ConsistencyLevel%27"><span class="hs-identifier hs-var">ConsistencyLevel'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConsistencyLevel"><span class="annot"><span class="annottext">ConsistencyLevel -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.Types.ConsistencyLevel.html#fromConsistencyLevel"><span class="hs-identifier hs-var hs-var">fromConsistencyLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323425"><span id="local-6989586621679323427"><span id="local-6989586621679323429"><span class="annot"><span class="annottext">Int -&gt; ConsistencyLevel -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323772"><span id="local-6989586621679323774"><span id="local-6989586621679323776"><span class="annot"><span class="annottext">Int -&gt; ConsistencyLevel -&gt; ShowS
 [ConsistencyLevel] -&gt; ShowS
 ConsistencyLevel -&gt; String
 (Int -&gt; ConsistencyLevel -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ConsistencyLevel -&gt; String
 showsPrec :: Int -&gt; ConsistencyLevel -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConsistencyLevel -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679323416"><span id="local-6989586621679323418"><span id="local-6989586621679323420"><span id="local-6989586621679323422"><span class="annot"><span class="annottext">ReadPrec [ConsistencyLevel]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679323763"><span id="local-6989586621679323765"><span id="local-6989586621679323767"><span id="local-6989586621679323769"><span class="annot"><span class="annottext">ReadPrec [ConsistencyLevel]
 ReadPrec ConsistencyLevel
 Int -&gt; ReadS ConsistencyLevel
 ReadS [ConsistencyLevel]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ConsistencyLevel]
 readsPrec :: Int -&gt; ReadS ConsistencyLevel
 $creadsPrec :: Int -&gt; ReadS ConsistencyLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679323411"><span id="local-6989586621679323413"><span class="annot"><span class="annottext">ConsistencyLevel -&gt; ConsistencyLevel -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679323758"><span id="local-6989586621679323760"><span class="annot"><span class="annottext">ConsistencyLevel -&gt; ConsistencyLevel -&gt; Bool
 (ConsistencyLevel -&gt; ConsistencyLevel -&gt; Bool)
 -&gt; (ConsistencyLevel -&gt; ConsistencyLevel -&gt; Bool)
 -&gt; Eq ConsistencyLevel
@@ -82,7 +82,7 @@ $c/= :: ConsistencyLevel -&gt; ConsistencyLevel -&gt; Bool
 == :: ConsistencyLevel -&gt; ConsistencyLevel -&gt; Bool
 $c== :: ConsistencyLevel -&gt; ConsistencyLevel -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679323395"><span id="local-6989586621679323397"><span id="local-6989586621679323399"><span id="local-6989586621679323401"><span id="local-6989586621679323403"><span id="local-6989586621679323405"><span id="local-6989586621679323407"><span class="annot"><span class="annottext">Eq ConsistencyLevel
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679323742"><span id="local-6989586621679323744"><span id="local-6989586621679323746"><span id="local-6989586621679323748"><span id="local-6989586621679323750"><span id="local-6989586621679323752"><span id="local-6989586621679323754"><span class="annot"><span class="annottext">Eq ConsistencyLevel
 Eq ConsistencyLevel
 -&gt; (ConsistencyLevel -&gt; ConsistencyLevel -&gt; Ordering)
 -&gt; (ConsistencyLevel -&gt; ConsistencyLevel -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ConsistencyLevel -&gt; Rep ConsistencyLevel x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323387"><span id="local-6989586621679323389"><span class="annot"><span class="annottext">Int -&gt; ConsistencyLevel -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323734"><span id="local-6989586621679323736"><span class="annot"><span class="annottext">Int -&gt; ConsistencyLevel -&gt; Int
 ConsistencyLevel -&gt; Int
 (Int -&gt; ConsistencyLevel -&gt; Int)
 -&gt; (ConsistencyLevel -&gt; Int) -&gt; Hashable ConsistencyLevel
@@ -143,51 +143,51 @@ $chash :: ConsistencyLevel -&gt; Int
 hashWithSalt :: Int -&gt; ConsistencyLevel -&gt; Int
 $chashWithSalt :: Int -&gt; ConsistencyLevel -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679323384"><span class="annot"><span class="annottext">ConsistencyLevel -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679323731"><span class="annot"><span class="annottext">ConsistencyLevel -&gt; ()
 (ConsistencyLevel -&gt; ()) -&gt; NFData ConsistencyLevel
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConsistencyLevel -&gt; ()
 $crnf :: ConsistencyLevel -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679323381"><span class="annot"><span class="annottext">Text -&gt; Either String ConsistencyLevel
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679323728"><span class="annot"><span class="annottext">Text -&gt; Either String ConsistencyLevel
 (Text -&gt; Either String ConsistencyLevel)
 -&gt; FromText ConsistencyLevel
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConsistencyLevel
 $cfromText :: Text -&gt; Either String ConsistencyLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679323378"><span class="annot"><span class="annottext">ConsistencyLevel -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679323725"><span class="annot"><span class="annottext">ConsistencyLevel -&gt; Text
 (ConsistencyLevel -&gt; Text) -&gt; ToText ConsistencyLevel
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConsistencyLevel -&gt; Text
 $ctoText :: ConsistencyLevel -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679323375"><span class="annot"><span class="annottext">ConsistencyLevel -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679323722"><span class="annot"><span class="annottext">ConsistencyLevel -&gt; ByteString
 (ConsistencyLevel -&gt; ByteString) -&gt; ToByteString ConsistencyLevel
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConsistencyLevel -&gt; ByteString
 $ctoBS :: ConsistencyLevel -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679323372"><span class="annot"><span class="annottext">ConsistencyLevel -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679323719"><span class="annot"><span class="annottext">ConsistencyLevel -&gt; ByteStringBuilder
 (ConsistencyLevel -&gt; ByteStringBuilder) -&gt; ToLog ConsistencyLevel
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConsistencyLevel -&gt; ByteStringBuilder
 $cbuild :: ConsistencyLevel -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679323369"><span class="annot"><span class="annottext">HeaderName -&gt; ConsistencyLevel -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679323716"><span class="annot"><span class="annottext">HeaderName -&gt; ConsistencyLevel -&gt; [Header]
 (HeaderName -&gt; ConsistencyLevel -&gt; [Header])
 -&gt; ToHeader ConsistencyLevel
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConsistencyLevel -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConsistencyLevel -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679323366"><span class="annot"><span class="annottext">ConsistencyLevel -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679323713"><span class="annot"><span class="annottext">ConsistencyLevel -&gt; QueryString
 (ConsistencyLevel -&gt; QueryString) -&gt; ToQuery ConsistencyLevel
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConsistencyLevel -&gt; QueryString
 $ctoQuery :: ConsistencyLevel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679323361"><span id="local-6989586621679323363"><span class="annot"><span class="annottext">Value -&gt; Parser [ConsistencyLevel]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679323708"><span id="local-6989586621679323710"><span class="annot"><span class="annottext">Value -&gt; Parser [ConsistencyLevel]
 Value -&gt; Parser ConsistencyLevel
 (Value -&gt; Parser ConsistencyLevel)
 -&gt; (Value -&gt; Parser [ConsistencyLevel])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ConsistencyLevel]
 parseJSON :: Value -&gt; Parser ConsistencyLevel
 $cparseJSON :: Value -&gt; Parser ConsistencyLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679323356"><span id="local-6989586621679323358"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConsistencyLevel]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679323703"><span id="local-6989586621679323705"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConsistencyLevel]
 FromJSONKeyFunction ConsistencyLevel
 FromJSONKeyFunction ConsistencyLevel
 -&gt; FromJSONKeyFunction [ConsistencyLevel]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConsistencyLevel]
 fromJSONKey :: FromJSONKeyFunction ConsistencyLevel
 $cfromJSONKey :: FromJSONKeyFunction ConsistencyLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679323347"><span id="local-6989586621679323349"><span id="local-6989586621679323351"><span id="local-6989586621679323353"><span class="annot"><span class="annottext">[ConsistencyLevel] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679323694"><span id="local-6989586621679323696"><span id="local-6989586621679323698"><span id="local-6989586621679323700"><span class="annot"><span class="annottext">[ConsistencyLevel] -&gt; Encoding
 [ConsistencyLevel] -&gt; Value
 ConsistencyLevel -&gt; Encoding
 ConsistencyLevel -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: ConsistencyLevel -&gt; Encoding
 toJSON :: ConsistencyLevel -&gt; Value
 $ctoJSON :: ConsistencyLevel -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679323342"><span id="local-6989586621679323344"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConsistencyLevel]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679323689"><span id="local-6989586621679323691"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConsistencyLevel]
 ToJSONKeyFunction ConsistencyLevel
 ToJSONKeyFunction ConsistencyLevel
 -&gt; ToJSONKeyFunction [ConsistencyLevel]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConsistencyLevel]
 toJSONKey :: ToJSONKeyFunction ConsistencyLevel
 $ctoJSONKey :: ToJSONKeyFunction ConsistencyLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679323339"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConsistencyLevel
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679323686"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConsistencyLevel
 ([Node] -&gt; Either String ConsistencyLevel)
 -&gt; FromXML ConsistencyLevel
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConsistencyLevel
 $cparseXML :: [Node] -&gt; Either String ConsistencyLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679323336"><span class="annot"><span class="annottext">ConsistencyLevel -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679323683"><span class="annot"><span class="annottext">ConsistencyLevel -&gt; XML
 (ConsistencyLevel -&gt; XML) -&gt; ToXML ConsistencyLevel
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ConsistencyLevel -&gt; XML

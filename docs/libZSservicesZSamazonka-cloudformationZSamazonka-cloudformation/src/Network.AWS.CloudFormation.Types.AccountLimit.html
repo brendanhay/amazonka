@@ -39,17 +39,17 @@
 </span><span id="line-39"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
 </span><span id="line-40"></span><span class="hs-comment">--</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newAccountLimit' smart constructor.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679413885"><span id="local-6989586621679413886"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountLimit"><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-var">AccountLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountLimit%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-var">AccountLimit'</span></a></span></span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the account limit.</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aname%3AAccountLimit%27"><span class="annot"><span class="annottext">AccountLimit -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#%24sel%3Aname%3AAccountLimit%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The value that is associated with the account limit name.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3Avalue%3AAccountLimit%27"><span class="annot"><span class="annottext">AccountLimit -&gt; Maybe Int
-</span><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#%24sel%3Avalue%3AAccountLimit%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679414284"><span id="local-6989586621679414285"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountLimit"><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-var">AccountLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountLimit%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-var">AccountLimit'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value that is associated with the account limit name.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Avalue%3AAccountLimit%27"><span class="annot"><span class="annottext">AccountLimit -&gt; Maybe Int
+</span><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#%24sel%3Avalue%3AAccountLimit%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The name of the account limit.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aname%3AAccountLimit%27"><span class="annot"><span class="annottext">AccountLimit -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#%24sel%3Aname%3AAccountLimit%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413878"><span id="local-6989586621679413880"><span class="annot"><span class="annottext">AccountLimit -&gt; AccountLimit -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414277"><span id="local-6989586621679414279"><span class="annot"><span class="annottext">AccountLimit -&gt; AccountLimit -&gt; Bool
 (AccountLimit -&gt; AccountLimit -&gt; Bool)
 -&gt; (AccountLimit -&gt; AccountLimit -&gt; Bool) -&gt; Eq AccountLimit
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccountLimit -&gt; AccountLimit -&gt; Bool
 == :: AccountLimit -&gt; AccountLimit -&gt; Bool
 $c== :: AccountLimit -&gt; AccountLimit -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413869"><span id="local-6989586621679413871"><span id="local-6989586621679413873"><span id="local-6989586621679413875"><span class="annot"><span class="annottext">ReadPrec [AccountLimit]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414268"><span id="local-6989586621679414270"><span id="local-6989586621679414272"><span id="local-6989586621679414274"><span class="annot"><span class="annottext">ReadPrec [AccountLimit]
 ReadPrec AccountLimit
 Int -&gt; ReadS AccountLimit
 ReadS [AccountLimit]
@@ -77,7 +77,7 @@ readList :: ReadS [AccountLimit]
 $creadList :: ReadS [AccountLimit]
 readsPrec :: Int -&gt; ReadS AccountLimit
 $creadsPrec :: Int -&gt; ReadS AccountLimit
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413862"><span id="local-6989586621679413864"><span id="local-6989586621679413866"><span class="annot"><span class="annottext">Int -&gt; AccountLimit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414261"><span id="local-6989586621679414263"><span id="local-6989586621679414265"><span class="annot"><span class="annottext">Int -&gt; AccountLimit -&gt; ShowS
 [AccountLimit] -&gt; ShowS
 AccountLimit -&gt; String
 (Int -&gt; AccountLimit -&gt; ShowS)
@@ -111,89 +111,89 @@ $cfrom :: forall x. AccountLimit -&gt; Rep AccountLimit x
 </span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'name', 'accountLimit_name' - The name of the account limit.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'value', 'accountLimit_value' - The value that is associated with the account limit name.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'name', 'accountLimit_name' - The name of the account limit.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'value', 'accountLimit_value' - The value that is associated with the account limit name.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#newAccountLimit"><span class="hs-identifier hs-type">newAccountLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span><span>
 </span><span id="line-67"></span><span id="newAccountLimit"><span class="annot"><span class="annottext">newAccountLimit :: AccountLimit
 </span><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#newAccountLimit"><span class="hs-identifier hs-var hs-var">newAccountLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">AccountLimit' :: Maybe Text -&gt; Maybe Int -&gt; AccountLimit
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">AccountLimit' :: Maybe Int -&gt; Maybe Text -&gt; AccountLimit
 </span><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:AccountLimit' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#%24sel%3Aname%3AAccountLimit%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:AccountLimit' :: Maybe Int
+</span><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#%24sel%3Avalue%3AAccountLimit%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:AccountLimit' :: Maybe Int
-</span><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#%24sel%3Avalue%3AAccountLimit%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:AccountLimit' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#%24sel%3Aname%3AAccountLimit%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The name of the account limit.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#accountLimit_name"><span class="hs-identifier hs-type">accountLimit_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="accountLimit_name"><span class="annot"><span class="annottext">accountLimit_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AccountLimit -&gt; f AccountLimit
-</span><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#accountLimit_name"><span class="hs-identifier hs-var hs-var">accountLimit_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountLimit -&gt; Maybe Text)
--&gt; (AccountLimit -&gt; Maybe Text -&gt; AccountLimit)
--&gt; Lens AccountLimit AccountLimit (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413853"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:AccountLimit' :: AccountLimit -&gt; Maybe Text
-</span><a href="#local-6989586621679413853"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413853"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413852"><span class="annot"><span class="annottext">s :: AccountLimit
-</span><a href="#local-6989586621679413852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413851"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountLimit
-</span><a href="#local-6989586621679413852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AccountLimit' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#%24sel%3Aname%3AAccountLimit%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | The value that is associated with the account limit name.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#accountLimit_value"><span class="hs-identifier hs-type">accountLimit_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="accountLimit_value"><span class="annot"><span class="annottext">accountLimit_value :: (Maybe Int -&gt; f (Maybe Int)) -&gt; AccountLimit -&gt; f AccountLimit
+</span><span id="line-73"></span><span class="hs-comment">-- | The value that is associated with the account limit name.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#accountLimit_value"><span class="hs-identifier hs-type">accountLimit_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="accountLimit_value"><span class="annot"><span class="annottext">accountLimit_value :: (Maybe Int -&gt; f (Maybe Int)) -&gt; AccountLimit -&gt; f AccountLimit
 </span><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#accountLimit_value"><span class="hs-identifier hs-var hs-var">accountLimit_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountLimit -&gt; Maybe Int)
 -&gt; (AccountLimit -&gt; Maybe Int -&gt; AccountLimit)
 -&gt; Lens AccountLimit AccountLimit (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413849"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414252"><span class="annot"><span class="annottext">Maybe Int
 value :: Maybe Int
 $sel:value:AccountLimit' :: AccountLimit -&gt; Maybe Int
-</span><a href="#local-6989586621679413849"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679413849"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413848"><span class="annot"><span class="annottext">s :: AccountLimit
-</span><a href="#local-6989586621679413848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413847"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679413847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountLimit
-</span><a href="#local-6989586621679413848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:AccountLimit' :: Maybe Int
+</span><a href="#local-6989586621679414252"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679414252"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414251"><span class="annot"><span class="annottext">s :: AccountLimit
+</span><a href="#local-6989586621679414251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414250"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679414250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountLimit
+</span><a href="#local-6989586621679414251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:AccountLimit' :: Maybe Int
 </span><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#%24sel%3Avalue%3AAccountLimit%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679413847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The name of the account limit.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#accountLimit_name"><span class="hs-identifier hs-type">accountLimit_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="accountLimit_name"><span class="annot"><span class="annottext">accountLimit_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AccountLimit -&gt; f AccountLimit
+</span><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#accountLimit_name"><span class="hs-identifier hs-var hs-var">accountLimit_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountLimit -&gt; Maybe Text)
+-&gt; (AccountLimit -&gt; Maybe Text -&gt; AccountLimit)
+-&gt; Lens AccountLimit AccountLimit (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414248"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:AccountLimit' :: AccountLimit -&gt; Maybe Text
+</span><a href="#local-6989586621679414248"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414248"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414247"><span class="annot"><span class="annottext">s :: AccountLimit
+</span><a href="#local-6989586621679414247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414246"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountLimit
+</span><a href="#local-6989586621679414247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AccountLimit' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#%24sel%3Aname%3AAccountLimit%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679413844"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AccountLimit
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679413842"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679413842"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Int -&gt; AccountLimit
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679414243"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AccountLimit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679414241"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679414241"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Text -&gt; AccountLimit
 </span><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-var">AccountLimit'</span></a></span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Int -&gt; AccountLimit)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Int -&gt; AccountLimit)
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Text -&gt; AccountLimit)
+-&gt; Either String (Maybe Int)
+-&gt; Either String (Maybe Text -&gt; AccountLimit)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679413842"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679414241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; AccountLimit)
--&gt; Either String (Maybe Int) -&gt; Either String AccountLimit
+</span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; AccountLimit)
+-&gt; Either String (Maybe Text) -&gt; Either String AccountLimit
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679413842"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679414241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413836"><span id="local-6989586621679413838"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414235"><span id="local-6989586621679414237"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413833"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414232"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span></span><span>
 </span><span id="line-91"></span></pre></body></html>

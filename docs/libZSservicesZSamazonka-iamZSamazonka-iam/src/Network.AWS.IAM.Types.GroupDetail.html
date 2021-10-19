@@ -32,36 +32,36 @@
 </span><span id="line-32"></span><span class="hs-comment">-- GetAccountAuthorizationDetails operation.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newGroupDetail' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679426328"><span id="local-6989586621679426329"></span></span><span class="hs-keyword">data</span><span> </span><span id="GroupDetail"><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-var">GroupDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GroupDetail%27"><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-var">GroupDetail'</span></a></span></span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the managed policies attached to the group.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AattachedManagedPolicies%3AGroupDetail%27"><span class="annot"><span class="annottext">GroupDetail -&gt; Maybe [AttachedPolicy]
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AattachedManagedPolicies%3AGroupDetail%27"><span class="hs-identifier hs-var hs-var">attachedManagedPolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.AttachedPolicy.html#AttachedPolicy"><span class="hs-identifier hs-type">AttachedPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The date and time, in</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- &lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when the</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- group was created.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcreateDate%3AGroupDetail%27"><span class="annot"><span class="annottext">GroupDetail -&gt; Maybe ISO8601
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AcreateDate%3AGroupDetail%27"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The friendly name that identifies the group.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AgroupName%3AGroupDetail%27"><span class="annot"><span class="annottext">GroupDetail -&gt; Maybe Text
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AgroupName%3AGroupDetail%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aarn%3AGroupDetail%27"><span class="annot"><span class="annottext">GroupDetail -&gt; Maybe Text
+</span><span id="line-35"></span><span id="local-6989586621679426833"><span id="local-6989586621679426834"></span></span><span class="hs-keyword">data</span><span> </span><span id="GroupDetail"><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-var">GroupDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GroupDetail%27"><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-var">GroupDetail'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Aarn%3AGroupDetail%27"><span class="annot"><span class="annottext">GroupDetail -&gt; Maybe Text
 </span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3Aarn%3AGroupDetail%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The path to the group. For more information about paths, see</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers&gt;</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Apath%3AGroupDetail%27"><span class="annot"><span class="annottext">GroupDetail -&gt; Maybe Text
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3Apath%3AGroupDetail%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The date and time, in</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- &lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- group was created.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcreateDate%3AGroupDetail%27"><span class="annot"><span class="annottext">GroupDetail -&gt; Maybe ISO8601
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AcreateDate%3AGroupDetail%27"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The stable and unique string identifying the group. For more information</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- about IDs, see</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers&gt;</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AgroupId%3AGroupDetail%27"><span class="annot"><span class="annottext">GroupDetail -&gt; Maybe Text
 </span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AgroupId%3AGroupDetail%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The path to the group. For more information about paths, see</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers&gt;</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3Apath%3AGroupDetail%27"><span class="annot"><span class="annottext">GroupDetail -&gt; Maybe Text
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3Apath%3AGroupDetail%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | A list of the inline policies embedded in the group.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AgroupPolicyList%3AGroupDetail%27"><span class="annot"><span class="annottext">GroupDetail -&gt; Maybe [PolicyDetail]
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AgroupPolicyList%3AGroupDetail%27"><span class="hs-identifier hs-var hs-var">groupPolicyList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyDetail.html#PolicyDetail"><span class="hs-identifier hs-type">PolicyDetail</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | A list of the inline policies embedded in the group.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AgroupPolicyList%3AGroupDetail%27"><span class="annot"><span class="annottext">GroupDetail -&gt; Maybe [PolicyDetail]
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AgroupPolicyList%3AGroupDetail%27"><span class="hs-identifier hs-var hs-var">groupPolicyList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyDetail.html#PolicyDetail"><span class="hs-identifier hs-type">PolicyDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The friendly name that identifies the group.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AgroupName%3AGroupDetail%27"><span class="annot"><span class="annottext">GroupDetail -&gt; Maybe Text
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AgroupName%3AGroupDetail%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | A list of the managed policies attached to the group.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AattachedManagedPolicies%3AGroupDetail%27"><span class="annot"><span class="annottext">GroupDetail -&gt; Maybe [AttachedPolicy]
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AattachedManagedPolicies%3AGroupDetail%27"><span class="hs-identifier hs-var hs-var">attachedManagedPolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.AttachedPolicy.html#AttachedPolicy"><span class="hs-identifier hs-type">AttachedPolicy</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679426316"><span id="local-6989586621679426318"><span class="annot"><span class="annottext">GroupDetail -&gt; GroupDetail -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679426821"><span id="local-6989586621679426823"><span class="annot"><span class="annottext">GroupDetail -&gt; GroupDetail -&gt; Bool
 (GroupDetail -&gt; GroupDetail -&gt; Bool)
 -&gt; (GroupDetail -&gt; GroupDetail -&gt; Bool) -&gt; Eq GroupDetail
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GroupDetail -&gt; GroupDetail -&gt; Bool
 == :: GroupDetail -&gt; GroupDetail -&gt; Bool
 $c== :: GroupDetail -&gt; GroupDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426307"><span id="local-6989586621679426309"><span id="local-6989586621679426311"><span id="local-6989586621679426313"><span class="annot"><span class="annottext">ReadPrec [GroupDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426812"><span id="local-6989586621679426814"><span id="local-6989586621679426816"><span id="local-6989586621679426818"><span class="annot"><span class="annottext">ReadPrec [GroupDetail]
 ReadPrec GroupDetail
 Int -&gt; ReadS GroupDetail
 ReadS [GroupDetail]
@@ -89,7 +89,7 @@ readList :: ReadS [GroupDetail]
 $creadList :: ReadS [GroupDetail]
 readsPrec :: Int -&gt; ReadS GroupDetail
 $creadsPrec :: Int -&gt; ReadS GroupDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426300"><span id="local-6989586621679426302"><span id="local-6989586621679426304"><span class="annot"><span class="annottext">Int -&gt; GroupDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426805"><span id="local-6989586621679426807"><span id="local-6989586621679426809"><span class="annot"><span class="annottext">Int -&gt; GroupDetail -&gt; ShowS
 [GroupDetail] -&gt; ShowS
 GroupDetail -&gt; String
 (Int -&gt; GroupDetail -&gt; ShowS)
@@ -123,73 +123,228 @@ $cfrom :: forall x. GroupDetail -&gt; Rep GroupDetail x
 </span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'attachedManagedPolicies', 'groupDetail_attachedManagedPolicies' - A list of the managed policies attached to the group.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'arn', 'groupDetail_arn' - Undocumented member.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'createDate', 'groupDetail_createDate' - The date and time, in</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- &lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when the</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- group was created.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'path', 'groupDetail_path' - The path to the group. For more information about paths, see</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers&gt;</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'groupName', 'groupDetail_groupName' - The friendly name that identifies the group.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'arn', 'groupDetail_arn' - Undocumented member.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'createDate', 'groupDetail_createDate' - The date and time, in</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- &lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- group was created.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- 'groupId', 'groupDetail_groupId' - The stable and unique string identifying the group. For more information</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- about IDs, see</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers&gt;</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'path', 'groupDetail_path' - The path to the group. For more information about paths, see</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers&gt;</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'groupPolicyList', 'groupDetail_groupPolicyList' - A list of the inline policies embedded in the group.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'groupName', 'groupDetail_groupName' - The friendly name that identifies the group.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'groupPolicyList', 'groupDetail_groupPolicyList' - A list of the inline policies embedded in the group.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'attachedManagedPolicies', 'groupDetail_attachedManagedPolicies' - A list of the managed policies attached to the group.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#newGroupDetail"><span class="hs-identifier hs-type">newGroupDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span>
 </span><span id="line-89"></span><span id="newGroupDetail"><span class="annot"><span class="annottext">newGroupDetail :: GroupDetail
 </span><a href="Network.AWS.IAM.Types.GroupDetail.html#newGroupDetail"><span class="hs-identifier hs-var hs-var">newGroupDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">GroupDetail' :: Maybe [AttachedPolicy]
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">GroupDetail' :: Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe ISO8601
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe [PolicyDetail]
+-&gt; Maybe Text
+-&gt; Maybe [AttachedPolicy]
 -&gt; GroupDetail
 </span><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attachedManagedPolicies:GroupDetail' :: Maybe [AttachedPolicy]
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AattachedManagedPolicies%3AGroupDetail%27"><span class="hs-identifier hs-var">attachedManagedPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:GroupDetail' :: Maybe Text
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3Aarn%3AGroupDetail%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:path:GroupDetail' :: Maybe Text
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3Apath%3AGroupDetail%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:createDate:GroupDetail' :: Maybe ISO8601
 </span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AcreateDate%3AGroupDetail%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:GroupDetail' :: Maybe Text
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AgroupName%3AGroupDetail%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:GroupDetail' :: Maybe Text
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3Aarn%3AGroupDetail%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupId:GroupDetail' :: Maybe Text
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupId:GroupDetail' :: Maybe Text
 </span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AgroupId%3AGroupDetail%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:path:GroupDetail' :: Maybe Text
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3Apath%3AGroupDetail%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupPolicyList:GroupDetail' :: Maybe [PolicyDetail]
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupPolicyList:GroupDetail' :: Maybe [PolicyDetail]
 </span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AgroupPolicyList%3AGroupDetail%27"><span class="hs-identifier hs-var">groupPolicyList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyDetail]
 forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:GroupDetail' :: Maybe Text
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AgroupName%3AGroupDetail%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:attachedManagedPolicies:GroupDetail' :: Maybe [AttachedPolicy]
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AattachedManagedPolicies%3AGroupDetail%27"><span class="hs-identifier hs-var">attachedManagedPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
+forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | A list of the managed policies attached to the group.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_attachedManagedPolicies"><span class="hs-identifier hs-type">groupDetail_attachedManagedPolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.AttachedPolicy.html#AttachedPolicy"><span class="hs-identifier hs-type">AttachedPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="groupDetail_attachedManagedPolicies"><span class="annot"><span class="annottext">groupDetail_attachedManagedPolicies :: (Maybe [AttachedPolicy] -&gt; f (Maybe [AttachedPolicy]))
+</span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_arn"><span class="hs-identifier hs-type">groupDetail_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="groupDetail_arn"><span class="annot"><span class="annottext">groupDetail_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GroupDetail -&gt; f GroupDetail
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_arn"><span class="hs-identifier hs-var hs-var">groupDetail_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupDetail -&gt; Maybe Text)
+-&gt; (GroupDetail -&gt; Maybe Text -&gt; GroupDetail)
+-&gt; Lens GroupDetail GroupDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426796"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:GroupDetail' :: GroupDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679426796"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426796"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426795"><span class="annot"><span class="annottext">s :: GroupDetail
+</span><a href="#local-6989586621679426795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426794"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupDetail
+</span><a href="#local-6989586621679426795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GroupDetail' :: Maybe Text
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3Aarn%3AGroupDetail%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The path to the group. For more information about paths, see</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers&gt;</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_path"><span class="hs-identifier hs-type">groupDetail_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="groupDetail_path"><span class="annot"><span class="annottext">groupDetail_path :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GroupDetail -&gt; f GroupDetail
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_path"><span class="hs-identifier hs-var hs-var">groupDetail_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupDetail -&gt; Maybe Text)
+-&gt; (GroupDetail -&gt; Maybe Text -&gt; GroupDetail)
+-&gt; Lens GroupDetail GroupDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426792"><span class="annot"><span class="annottext">Maybe Text
+path :: Maybe Text
+$sel:path:GroupDetail' :: GroupDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679426792"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426792"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426791"><span class="annot"><span class="annottext">s :: GroupDetail
+</span><a href="#local-6989586621679426791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426790"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupDetail
+</span><a href="#local-6989586621679426791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:GroupDetail' :: Maybe Text
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3Apath%3AGroupDetail%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The date and time, in</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- &lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- group was created.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_createDate"><span class="hs-identifier hs-type">groupDetail_createDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="groupDetail_createDate"><span class="annot"><span class="annottext">groupDetail_createDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GroupDetail -&gt; f GroupDetail
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_createDate"><span class="hs-identifier hs-var hs-var">groupDetail_createDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupDetail -&gt; Maybe ISO8601)
+-&gt; (GroupDetail -&gt; Maybe ISO8601 -&gt; GroupDetail)
+-&gt; Lens GroupDetail GroupDetail (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426788"><span class="annot"><span class="annottext">Maybe ISO8601
+createDate :: Maybe ISO8601
+$sel:createDate:GroupDetail' :: GroupDetail -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679426788"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679426788"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426787"><span class="annot"><span class="annottext">s :: GroupDetail
+</span><a href="#local-6989586621679426787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426786"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679426786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupDetail
+</span><a href="#local-6989586621679426787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:GroupDetail' :: Maybe ISO8601
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AcreateDate%3AGroupDetail%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679426786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; GroupDetail -&gt; f GroupDetail)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GroupDetail
+-&gt; f GroupDetail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The stable and unique string identifying the group. For more information</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- about IDs, see</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers&gt;</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_groupId"><span class="hs-identifier hs-type">groupDetail_groupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="groupDetail_groupId"><span class="annot"><span class="annottext">groupDetail_groupId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GroupDetail -&gt; f GroupDetail
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_groupId"><span class="hs-identifier hs-var hs-var">groupDetail_groupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupDetail -&gt; Maybe Text)
+-&gt; (GroupDetail -&gt; Maybe Text -&gt; GroupDetail)
+-&gt; Lens GroupDetail GroupDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426781"><span class="annot"><span class="annottext">Maybe Text
+groupId :: Maybe Text
+$sel:groupId:GroupDetail' :: GroupDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679426781"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426781"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426780"><span class="annot"><span class="annottext">s :: GroupDetail
+</span><a href="#local-6989586621679426780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426779"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupDetail
+</span><a href="#local-6989586621679426780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:GroupDetail' :: Maybe Text
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AgroupId%3AGroupDetail%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | A list of the inline policies embedded in the group.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_groupPolicyList"><span class="hs-identifier hs-type">groupDetail_groupPolicyList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyDetail.html#PolicyDetail"><span class="hs-identifier hs-type">PolicyDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="groupDetail_groupPolicyList"><span class="annot"><span class="annottext">groupDetail_groupPolicyList :: (Maybe [PolicyDetail] -&gt; f (Maybe [PolicyDetail]))
+-&gt; GroupDetail -&gt; f GroupDetail
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_groupPolicyList"><span class="hs-identifier hs-var hs-var">groupDetail_groupPolicyList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupDetail -&gt; Maybe [PolicyDetail])
+-&gt; (GroupDetail -&gt; Maybe [PolicyDetail] -&gt; GroupDetail)
+-&gt; Lens
+     GroupDetail
+     GroupDetail
+     (Maybe [PolicyDetail])
+     (Maybe [PolicyDetail])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426777"><span class="annot"><span class="annottext">Maybe [PolicyDetail]
+groupPolicyList :: Maybe [PolicyDetail]
+$sel:groupPolicyList:GroupDetail' :: GroupDetail -&gt; Maybe [PolicyDetail]
+</span><a href="#local-6989586621679426777"><span class="hs-identifier hs-var hs-var">groupPolicyList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyDetail]
+</span><a href="#local-6989586621679426777"><span class="hs-identifier hs-var">groupPolicyList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426776"><span class="annot"><span class="annottext">s :: GroupDetail
+</span><a href="#local-6989586621679426776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426775"><span class="annot"><span class="annottext">Maybe [PolicyDetail]
+</span><a href="#local-6989586621679426775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupDetail
+</span><a href="#local-6989586621679426776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupPolicyList:GroupDetail' :: Maybe [PolicyDetail]
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AgroupPolicyList%3AGroupDetail%27"><span class="hs-identifier hs-var">groupPolicyList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyDetail]
+</span><a href="#local-6989586621679426775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyDetail] -&gt; f (Maybe [PolicyDetail]))
+ -&gt; GroupDetail -&gt; f GroupDetail)
+-&gt; ((Maybe [PolicyDetail] -&gt; f (Maybe [PolicyDetail]))
+    -&gt; Maybe [PolicyDetail] -&gt; f (Maybe [PolicyDetail]))
+-&gt; (Maybe [PolicyDetail] -&gt; f (Maybe [PolicyDetail]))
+-&gt; GroupDetail
+-&gt; f GroupDetail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PolicyDetail] [PolicyDetail] [PolicyDetail] [PolicyDetail]
+-&gt; Iso
+     (Maybe [PolicyDetail])
+     (Maybe [PolicyDetail])
+     (Maybe [PolicyDetail])
+     (Maybe [PolicyDetail])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PolicyDetail] [PolicyDetail] [PolicyDetail] [PolicyDetail]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The friendly name that identifies the group.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_groupName"><span class="hs-identifier hs-type">groupDetail_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="groupDetail_groupName"><span class="annot"><span class="annottext">groupDetail_groupName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GroupDetail -&gt; f GroupDetail
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_groupName"><span class="hs-identifier hs-var hs-var">groupDetail_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupDetail -&gt; Maybe Text)
+-&gt; (GroupDetail -&gt; Maybe Text -&gt; GroupDetail)
+-&gt; Lens GroupDetail GroupDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426772"><span class="annot"><span class="annottext">Maybe Text
+groupName :: Maybe Text
+$sel:groupName:GroupDetail' :: GroupDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679426772"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426772"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426771"><span class="annot"><span class="annottext">s :: GroupDetail
+</span><a href="#local-6989586621679426771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426770"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupDetail
+</span><a href="#local-6989586621679426771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GroupDetail' :: Maybe Text
+</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AgroupName%3AGroupDetail%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | A list of the managed policies attached to the group.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_attachedManagedPolicies"><span class="hs-identifier hs-type">groupDetail_attachedManagedPolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.AttachedPolicy.html#AttachedPolicy"><span class="hs-identifier hs-type">AttachedPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="groupDetail_attachedManagedPolicies"><span class="annot"><span class="annottext">groupDetail_attachedManagedPolicies :: (Maybe [AttachedPolicy] -&gt; f (Maybe [AttachedPolicy]))
 -&gt; GroupDetail -&gt; f GroupDetail
 </span><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_attachedManagedPolicies"><span class="hs-identifier hs-var hs-var">groupDetail_attachedManagedPolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupDetail -&gt; Maybe [AttachedPolicy])
 -&gt; (GroupDetail -&gt; Maybe [AttachedPolicy] -&gt; GroupDetail)
@@ -199,16 +354,16 @@ forall a. Maybe a
      (Maybe [AttachedPolicy])
      (Maybe [AttachedPolicy])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426291"><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426768"><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
 attachedManagedPolicies :: Maybe [AttachedPolicy]
 $sel:attachedManagedPolicies:GroupDetail' :: GroupDetail -&gt; Maybe [AttachedPolicy]
-</span><a href="#local-6989586621679426291"><span class="hs-identifier hs-var hs-var">attachedManagedPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
-</span><a href="#local-6989586621679426291"><span class="hs-identifier hs-var">attachedManagedPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426290"><span class="annot"><span class="annottext">s :: GroupDetail
-</span><a href="#local-6989586621679426290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426289"><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
-</span><a href="#local-6989586621679426289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupDetail
-</span><a href="#local-6989586621679426290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachedManagedPolicies:GroupDetail' :: Maybe [AttachedPolicy]
+</span><a href="#local-6989586621679426768"><span class="hs-identifier hs-var hs-var">attachedManagedPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
+</span><a href="#local-6989586621679426768"><span class="hs-identifier hs-var">attachedManagedPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426767"><span class="annot"><span class="annottext">s :: GroupDetail
+</span><a href="#local-6989586621679426767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426766"><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
+</span><a href="#local-6989586621679426766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupDetail
+</span><a href="#local-6989586621679426767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachedManagedPolicies:GroupDetail' :: Maybe [AttachedPolicy]
 </span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AattachedManagedPolicies%3AGroupDetail%27"><span class="hs-identifier hs-var">attachedManagedPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
-</span><a href="#local-6989586621679426289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttachedPolicy] -&gt; f (Maybe [AttachedPolicy]))
+</span><a href="#local-6989586621679426766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttachedPolicy] -&gt; f (Maybe [AttachedPolicy]))
  -&gt; GroupDetail -&gt; f GroupDetail)
 -&gt; ((Maybe [AttachedPolicy] -&gt; f (Maybe [AttachedPolicy]))
     -&gt; Maybe [AttachedPolicy] -&gt; f (Maybe [AttachedPolicy]))
@@ -228,305 +383,120 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [AttachedPolicy] [AttachedPolicy] [AttachedPolicy] [AttachedPolicy]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The date and time, in</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- &lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when the</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- group was created.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_createDate"><span class="hs-identifier hs-type">groupDetail_createDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="groupDetail_createDate"><span class="annot"><span class="annottext">groupDetail_createDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; GroupDetail -&gt; f GroupDetail
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_createDate"><span class="hs-identifier hs-var hs-var">groupDetail_createDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupDetail -&gt; Maybe ISO8601)
--&gt; (GroupDetail -&gt; Maybe ISO8601 -&gt; GroupDetail)
--&gt; Lens GroupDetail GroupDetail (Maybe ISO8601) (Maybe ISO8601)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426284"><span class="annot"><span class="annottext">Maybe ISO8601
-createDate :: Maybe ISO8601
-$sel:createDate:GroupDetail' :: GroupDetail -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679426284"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679426284"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426283"><span class="annot"><span class="annottext">s :: GroupDetail
-</span><a href="#local-6989586621679426283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426282"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679426282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupDetail
-</span><a href="#local-6989586621679426283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:GroupDetail' :: Maybe ISO8601
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AcreateDate%3AGroupDetail%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679426282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
- -&gt; GroupDetail -&gt; f GroupDetail)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; GroupDetail
--&gt; f GroupDetail
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
--&gt; Iso
-     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The friendly name that identifies the group.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_groupName"><span class="hs-identifier hs-type">groupDetail_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="groupDetail_groupName"><span class="annot"><span class="annottext">groupDetail_groupName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GroupDetail -&gt; f GroupDetail
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_groupName"><span class="hs-identifier hs-var hs-var">groupDetail_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupDetail -&gt; Maybe Text)
--&gt; (GroupDetail -&gt; Maybe Text -&gt; GroupDetail)
--&gt; Lens GroupDetail GroupDetail (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426279"><span class="annot"><span class="annottext">Maybe Text
-groupName :: Maybe Text
-$sel:groupName:GroupDetail' :: GroupDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679426279"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426279"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426278"><span class="annot"><span class="annottext">s :: GroupDetail
-</span><a href="#local-6989586621679426278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426277"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupDetail
-</span><a href="#local-6989586621679426278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GroupDetail' :: Maybe Text
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AgroupName%3AGroupDetail%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_arn"><span class="hs-identifier hs-type">groupDetail_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="groupDetail_arn"><span class="annot"><span class="annottext">groupDetail_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GroupDetail -&gt; f GroupDetail
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_arn"><span class="hs-identifier hs-var hs-var">groupDetail_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupDetail -&gt; Maybe Text)
--&gt; (GroupDetail -&gt; Maybe Text -&gt; GroupDetail)
--&gt; Lens GroupDetail GroupDetail (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426275"><span class="annot"><span class="annottext">Maybe Text
-arn :: Maybe Text
-$sel:arn:GroupDetail' :: GroupDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679426275"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426275"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426274"><span class="annot"><span class="annottext">s :: GroupDetail
-</span><a href="#local-6989586621679426274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426273"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupDetail
-</span><a href="#local-6989586621679426274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GroupDetail' :: Maybe Text
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3Aarn%3AGroupDetail%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The stable and unique string identifying the group. For more information</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- about IDs, see</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers&gt;</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_groupId"><span class="hs-identifier hs-type">groupDetail_groupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="groupDetail_groupId"><span class="annot"><span class="annottext">groupDetail_groupId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GroupDetail -&gt; f GroupDetail
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_groupId"><span class="hs-identifier hs-var hs-var">groupDetail_groupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupDetail -&gt; Maybe Text)
--&gt; (GroupDetail -&gt; Maybe Text -&gt; GroupDetail)
--&gt; Lens GroupDetail GroupDetail (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426271"><span class="annot"><span class="annottext">Maybe Text
-groupId :: Maybe Text
-$sel:groupId:GroupDetail' :: GroupDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679426271"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426271"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426270"><span class="annot"><span class="annottext">s :: GroupDetail
-</span><a href="#local-6989586621679426270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426269"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupDetail
-</span><a href="#local-6989586621679426270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:GroupDetail' :: Maybe Text
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AgroupId%3AGroupDetail%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The path to the group. For more information about paths, see</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers&gt;</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_path"><span class="hs-identifier hs-type">groupDetail_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="groupDetail_path"><span class="annot"><span class="annottext">groupDetail_path :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GroupDetail -&gt; f GroupDetail
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_path"><span class="hs-identifier hs-var hs-var">groupDetail_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupDetail -&gt; Maybe Text)
--&gt; (GroupDetail -&gt; Maybe Text -&gt; GroupDetail)
--&gt; Lens GroupDetail GroupDetail (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426267"><span class="annot"><span class="annottext">Maybe Text
-path :: Maybe Text
-$sel:path:GroupDetail' :: GroupDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679426267"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426267"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426266"><span class="annot"><span class="annottext">s :: GroupDetail
-</span><a href="#local-6989586621679426266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426265"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupDetail
-</span><a href="#local-6989586621679426266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:GroupDetail' :: Maybe Text
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3Apath%3AGroupDetail%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | A list of the inline policies embedded in the group.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_groupPolicyList"><span class="hs-identifier hs-type">groupDetail_groupPolicyList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyDetail.html#PolicyDetail"><span class="hs-identifier hs-type">PolicyDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="groupDetail_groupPolicyList"><span class="annot"><span class="annottext">groupDetail_groupPolicyList :: (Maybe [PolicyDetail] -&gt; f (Maybe [PolicyDetail]))
--&gt; GroupDetail -&gt; f GroupDetail
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#groupDetail_groupPolicyList"><span class="hs-identifier hs-var hs-var">groupDetail_groupPolicyList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupDetail -&gt; Maybe [PolicyDetail])
--&gt; (GroupDetail -&gt; Maybe [PolicyDetail] -&gt; GroupDetail)
--&gt; Lens
-     GroupDetail
-     GroupDetail
-     (Maybe [PolicyDetail])
-     (Maybe [PolicyDetail])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426263"><span class="annot"><span class="annottext">Maybe [PolicyDetail]
-groupPolicyList :: Maybe [PolicyDetail]
-$sel:groupPolicyList:GroupDetail' :: GroupDetail -&gt; Maybe [PolicyDetail]
-</span><a href="#local-6989586621679426263"><span class="hs-identifier hs-var hs-var">groupPolicyList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyDetail]
-</span><a href="#local-6989586621679426263"><span class="hs-identifier hs-var">groupPolicyList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426262"><span class="annot"><span class="annottext">s :: GroupDetail
-</span><a href="#local-6989586621679426262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-type">GroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426261"><span class="annot"><span class="annottext">Maybe [PolicyDetail]
-</span><a href="#local-6989586621679426261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupDetail
-</span><a href="#local-6989586621679426262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupPolicyList:GroupDetail' :: Maybe [PolicyDetail]
-</span><a href="Network.AWS.IAM.Types.GroupDetail.html#%24sel%3AgroupPolicyList%3AGroupDetail%27"><span class="hs-identifier hs-var">groupPolicyList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyDetail]
-</span><a href="#local-6989586621679426261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyDetail] -&gt; f (Maybe [PolicyDetail]))
- -&gt; GroupDetail -&gt; f GroupDetail)
--&gt; ((Maybe [PolicyDetail] -&gt; f (Maybe [PolicyDetail]))
-    -&gt; Maybe [PolicyDetail] -&gt; f (Maybe [PolicyDetail]))
--&gt; (Maybe [PolicyDetail] -&gt; f (Maybe [PolicyDetail]))
--&gt; GroupDetail
--&gt; f GroupDetail
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PolicyDetail] [PolicyDetail] [PolicyDetail] [PolicyDetail]
--&gt; Iso
-     (Maybe [PolicyDetail])
-     (Maybe [PolicyDetail])
-     (Maybe [PolicyDetail])
-     (Maybe [PolicyDetail])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PolicyDetail] [PolicyDetail] [PolicyDetail] [PolicyDetail]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679426258"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String GroupDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679426256"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679426256"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679426763"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String GroupDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679426761"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679426761"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe ISO8601
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe [PolicyDetail]
+-&gt; Maybe Text
+-&gt; Maybe [AttachedPolicy]
 -&gt; GroupDetail
 </span><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail%27"><span class="hs-identifier hs-var">GroupDetail'</span></a></span><span>
-</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [AttachedPolicy]
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe ISO8601
  -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe [PolicyDetail]
+ -&gt; Maybe Text
+ -&gt; Maybe [AttachedPolicy]
  -&gt; GroupDetail)
--&gt; Either String (Maybe [AttachedPolicy])
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe [PolicyDetail]
+      -&gt; Maybe Text
+      -&gt; Maybe [AttachedPolicy]
+      -&gt; GroupDetail)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679426761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe [PolicyDetail]
+   -&gt; Maybe Text
+   -&gt; Maybe [AttachedPolicy]
+   -&gt; GroupDetail)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe ISO8601
       -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe [PolicyDetail]
+      -&gt; Maybe Text
+      -&gt; Maybe [AttachedPolicy]
       -&gt; GroupDetail)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679426256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679426761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AttachedManagedPolicies&quot;</span></span><span>
-</span><span id="line-140"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
-forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
-</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-141"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
--&gt; ([Node] -&gt; Either String (Maybe [AttachedPolicy]))
--&gt; Either String (Maybe [AttachedPolicy])
-forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
-</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [AttachedPolicy])
--&gt; [Node] -&gt; Either String (Maybe [AttachedPolicy])
-forall (f :: * -&gt; *) a b.
-Applicative f =&gt;
-([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
-</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [AttachedPolicy]
-forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
-</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;Path&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe ISO8601
    -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe [PolicyDetail]
+   -&gt; Maybe Text
+   -&gt; Maybe [AttachedPolicy]
    -&gt; GroupDetail)
 -&gt; Either String (Maybe ISO8601)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe [PolicyDetail]
+      -&gt; Maybe Text
+      -&gt; Maybe [AttachedPolicy]
       -&gt; GroupDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679426256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679426761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe [PolicyDetail]
+   -&gt; Maybe Text
+   -&gt; Maybe [AttachedPolicy]
    -&gt; GroupDetail)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [PolicyDetail] -&gt; GroupDetail)
+     (Maybe [PolicyDetail]
+      -&gt; Maybe Text -&gt; Maybe [AttachedPolicy] -&gt; GroupDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679426256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;GroupName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [PolicyDetail] -&gt; GroupDetail)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text -&gt; Maybe Text -&gt; Maybe [PolicyDetail] -&gt; GroupDetail)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679426256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text -&gt; Maybe Text -&gt; Maybe [PolicyDetail] -&gt; GroupDetail)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe Text -&gt; Maybe [PolicyDetail] -&gt; GroupDetail)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679426256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679426761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe [PolicyDetail] -&gt; GroupDetail)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe [PolicyDetail] -&gt; GroupDetail)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679426256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Path&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [PolicyDetail] -&gt; GroupDetail)
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [PolicyDetail]
+   -&gt; Maybe Text -&gt; Maybe [AttachedPolicy] -&gt; GroupDetail)
 -&gt; Either String (Maybe [PolicyDetail])
--&gt; Either String GroupDetail
+-&gt; Either
+     String (Maybe Text -&gt; Maybe [AttachedPolicy] -&gt; GroupDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679426256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679426761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupPolicyList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -534,7 +504,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-149"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-143"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [PolicyDetail]))
 -&gt; Either String (Maybe [PolicyDetail])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -547,9 +517,46 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426247"><span id="local-6989586621679426249"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span></span></span><span>
-</span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426244"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span></span><span>
-</span><span id="line-155"></span></pre></body></html>
+</span><span id="line-144"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe [AttachedPolicy] -&gt; GroupDetail)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [AttachedPolicy] -&gt; GroupDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679426761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [AttachedPolicy] -&gt; GroupDetail)
+-&gt; Either String (Maybe [AttachedPolicy])
+-&gt; Either String GroupDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679426761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttachedManagedPolicies&quot;</span></span><span>
+</span><span id="line-147"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [AttachedPolicy]))
+-&gt; Either String (Maybe [AttachedPolicy])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [AttachedPolicy])
+-&gt; [Node] -&gt; Either String (Maybe [AttachedPolicy])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [AttachedPolicy]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426752"><span id="local-6989586621679426754"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426749"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.GroupDetail.html#GroupDetail"><span class="hs-identifier hs-type">GroupDetail</span></a></span></span><span>
+</span><span id="line-154"></span></pre></body></html>

@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- Don\'t flag (DONT_FLAG), MediaConvert leaves this parameter out. The DVS</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- flag can help with accessibility on Apple devices. For more information,</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- see the Apple documentation.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679945958"><span id="local-6989586621679945959"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmfcDescriptiveVideoServiceFlag"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcDescriptiveVideoServiceFlag.html#CmfcDescriptiveVideoServiceFlag"><span class="hs-identifier hs-var">CmfcDescriptiveVideoServiceFlag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmfcDescriptiveVideoServiceFlag%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcDescriptiveVideoServiceFlag.html#CmfcDescriptiveVideoServiceFlag%27"><span class="hs-identifier hs-var">CmfcDescriptiveVideoServiceFlag'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679950581"><span id="local-6989586621679950582"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmfcDescriptiveVideoServiceFlag"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcDescriptiveVideoServiceFlag.html#CmfcDescriptiveVideoServiceFlag"><span class="hs-identifier hs-var">CmfcDescriptiveVideoServiceFlag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmfcDescriptiveVideoServiceFlag%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcDescriptiveVideoServiceFlag.html#CmfcDescriptiveVideoServiceFlag%27"><span class="hs-identifier hs-var">CmfcDescriptiveVideoServiceFlag'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmfcDescriptiveVideoServiceFlag"><span class="annot"><span class="annottext">CmfcDescriptiveVideoServiceFlag -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.CmfcDescriptiveVideoServiceFlag.html#fromCmfcDescriptiveVideoServiceFlag"><span class="hs-identifier hs-var hs-var">fromCmfcDescriptiveVideoServiceFlag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679945950"><span id="local-6989586621679945952"><span id="local-6989586621679945954"><span class="annot"><span class="annottext">Int -&gt; CmfcDescriptiveVideoServiceFlag -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950573"><span id="local-6989586621679950575"><span id="local-6989586621679950577"><span class="annot"><span class="annottext">Int -&gt; CmfcDescriptiveVideoServiceFlag -&gt; ShowS
 [CmfcDescriptiveVideoServiceFlag] -&gt; ShowS
 CmfcDescriptiveVideoServiceFlag -&gt; String
 (Int -&gt; CmfcDescriptiveVideoServiceFlag -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: CmfcDescriptiveVideoServiceFlag -&gt; String
 showsPrec :: Int -&gt; CmfcDescriptiveVideoServiceFlag -&gt; ShowS
 $cshowsPrec :: Int -&gt; CmfcDescriptiveVideoServiceFlag -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679945941"><span id="local-6989586621679945943"><span id="local-6989586621679945945"><span id="local-6989586621679945947"><span class="annot"><span class="annottext">ReadPrec [CmfcDescriptiveVideoServiceFlag]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679950564"><span id="local-6989586621679950566"><span id="local-6989586621679950568"><span id="local-6989586621679950570"><span class="annot"><span class="annottext">ReadPrec [CmfcDescriptiveVideoServiceFlag]
 ReadPrec CmfcDescriptiveVideoServiceFlag
 Int -&gt; ReadS CmfcDescriptiveVideoServiceFlag
 ReadS [CmfcDescriptiveVideoServiceFlag]
@@ -80,7 +80,7 @@ $creadList :: ReadS [CmfcDescriptiveVideoServiceFlag]
 readsPrec :: Int -&gt; ReadS CmfcDescriptiveVideoServiceFlag
 $creadsPrec :: Int -&gt; ReadS CmfcDescriptiveVideoServiceFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679945936"><span id="local-6989586621679945938"><span class="annot"><span class="annottext">CmfcDescriptiveVideoServiceFlag
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679950559"><span id="local-6989586621679950561"><span class="annot"><span class="annottext">CmfcDescriptiveVideoServiceFlag
 -&gt; CmfcDescriptiveVideoServiceFlag -&gt; Bool
 (CmfcDescriptiveVideoServiceFlag
  -&gt; CmfcDescriptiveVideoServiceFlag -&gt; Bool)
@@ -97,7 +97,7 @@ $c/= :: CmfcDescriptiveVideoServiceFlag
 $c== :: CmfcDescriptiveVideoServiceFlag
 -&gt; CmfcDescriptiveVideoServiceFlag -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679945920"><span id="local-6989586621679945922"><span id="local-6989586621679945924"><span id="local-6989586621679945926"><span id="local-6989586621679945928"><span id="local-6989586621679945930"><span id="local-6989586621679945932"><span class="annot"><span class="annottext">Eq CmfcDescriptiveVideoServiceFlag
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679950543"><span id="local-6989586621679950545"><span id="local-6989586621679950547"><span id="local-6989586621679950549"><span id="local-6989586621679950551"><span id="local-6989586621679950553"><span id="local-6989586621679950555"><span class="annot"><span class="annottext">Eq CmfcDescriptiveVideoServiceFlag
 Eq CmfcDescriptiveVideoServiceFlag
 -&gt; (CmfcDescriptiveVideoServiceFlag
     -&gt; CmfcDescriptiveVideoServiceFlag -&gt; Ordering)
@@ -191,7 +191,7 @@ CmfcDescriptiveVideoServiceFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679945912"><span id="local-6989586621679945914"><span class="annot"><span class="annottext">Int -&gt; CmfcDescriptiveVideoServiceFlag -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950535"><span id="local-6989586621679950537"><span class="annot"><span class="annottext">Int -&gt; CmfcDescriptiveVideoServiceFlag -&gt; Int
 CmfcDescriptiveVideoServiceFlag -&gt; Int
 (Int -&gt; CmfcDescriptiveVideoServiceFlag -&gt; Int)
 -&gt; (CmfcDescriptiveVideoServiceFlag -&gt; Int)
@@ -202,56 +202,56 @@ $chash :: CmfcDescriptiveVideoServiceFlag -&gt; Int
 hashWithSalt :: Int -&gt; CmfcDescriptiveVideoServiceFlag -&gt; Int
 $chashWithSalt :: Int -&gt; CmfcDescriptiveVideoServiceFlag -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679945909"><span class="annot"><span class="annottext">CmfcDescriptiveVideoServiceFlag -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679950532"><span class="annot"><span class="annottext">CmfcDescriptiveVideoServiceFlag -&gt; ()
 (CmfcDescriptiveVideoServiceFlag -&gt; ())
 -&gt; NFData CmfcDescriptiveVideoServiceFlag
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CmfcDescriptiveVideoServiceFlag -&gt; ()
 $crnf :: CmfcDescriptiveVideoServiceFlag -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679945906"><span class="annot"><span class="annottext">Text -&gt; Either String CmfcDescriptiveVideoServiceFlag
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679950529"><span class="annot"><span class="annottext">Text -&gt; Either String CmfcDescriptiveVideoServiceFlag
 (Text -&gt; Either String CmfcDescriptiveVideoServiceFlag)
 -&gt; FromText CmfcDescriptiveVideoServiceFlag
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CmfcDescriptiveVideoServiceFlag
 $cfromText :: Text -&gt; Either String CmfcDescriptiveVideoServiceFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679945903"><span class="annot"><span class="annottext">CmfcDescriptiveVideoServiceFlag -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679950526"><span class="annot"><span class="annottext">CmfcDescriptiveVideoServiceFlag -&gt; Text
 (CmfcDescriptiveVideoServiceFlag -&gt; Text)
 -&gt; ToText CmfcDescriptiveVideoServiceFlag
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CmfcDescriptiveVideoServiceFlag -&gt; Text
 $ctoText :: CmfcDescriptiveVideoServiceFlag -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679945900"><span class="annot"><span class="annottext">CmfcDescriptiveVideoServiceFlag -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679950523"><span class="annot"><span class="annottext">CmfcDescriptiveVideoServiceFlag -&gt; ByteString
 (CmfcDescriptiveVideoServiceFlag -&gt; ByteString)
 -&gt; ToByteString CmfcDescriptiveVideoServiceFlag
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CmfcDescriptiveVideoServiceFlag -&gt; ByteString
 $ctoBS :: CmfcDescriptiveVideoServiceFlag -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679945897"><span class="annot"><span class="annottext">CmfcDescriptiveVideoServiceFlag -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679950520"><span class="annot"><span class="annottext">CmfcDescriptiveVideoServiceFlag -&gt; ByteStringBuilder
 (CmfcDescriptiveVideoServiceFlag -&gt; ByteStringBuilder)
 -&gt; ToLog CmfcDescriptiveVideoServiceFlag
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CmfcDescriptiveVideoServiceFlag -&gt; ByteStringBuilder
 $cbuild :: CmfcDescriptiveVideoServiceFlag -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679945894"><span class="annot"><span class="annottext">HeaderName -&gt; CmfcDescriptiveVideoServiceFlag -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679950517"><span class="annot"><span class="annottext">HeaderName -&gt; CmfcDescriptiveVideoServiceFlag -&gt; [Header]
 (HeaderName -&gt; CmfcDescriptiveVideoServiceFlag -&gt; [Header])
 -&gt; ToHeader CmfcDescriptiveVideoServiceFlag
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CmfcDescriptiveVideoServiceFlag -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CmfcDescriptiveVideoServiceFlag -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679945891"><span class="annot"><span class="annottext">CmfcDescriptiveVideoServiceFlag -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679950514"><span class="annot"><span class="annottext">CmfcDescriptiveVideoServiceFlag -&gt; QueryString
 (CmfcDescriptiveVideoServiceFlag -&gt; QueryString)
 -&gt; ToQuery CmfcDescriptiveVideoServiceFlag
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CmfcDescriptiveVideoServiceFlag -&gt; QueryString
 $ctoQuery :: CmfcDescriptiveVideoServiceFlag -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679945886"><span id="local-6989586621679945888"><span class="annot"><span class="annottext">Value -&gt; Parser [CmfcDescriptiveVideoServiceFlag]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679950509"><span id="local-6989586621679950511"><span class="annot"><span class="annottext">Value -&gt; Parser [CmfcDescriptiveVideoServiceFlag]
 Value -&gt; Parser CmfcDescriptiveVideoServiceFlag
 (Value -&gt; Parser CmfcDescriptiveVideoServiceFlag)
 -&gt; (Value -&gt; Parser [CmfcDescriptiveVideoServiceFlag])
@@ -263,7 +263,7 @@ $cparseJSONList :: Value -&gt; Parser [CmfcDescriptiveVideoServiceFlag]
 parseJSON :: Value -&gt; Parser CmfcDescriptiveVideoServiceFlag
 $cparseJSON :: Value -&gt; Parser CmfcDescriptiveVideoServiceFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679945881"><span id="local-6989586621679945883"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmfcDescriptiveVideoServiceFlag]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679950504"><span id="local-6989586621679950506"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmfcDescriptiveVideoServiceFlag]
 FromJSONKeyFunction CmfcDescriptiveVideoServiceFlag
 FromJSONKeyFunction CmfcDescriptiveVideoServiceFlag
 -&gt; FromJSONKeyFunction [CmfcDescriptiveVideoServiceFlag]
@@ -275,7 +275,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CmfcDescriptiveVideoServiceFlag]
 fromJSONKey :: FromJSONKeyFunction CmfcDescriptiveVideoServiceFlag
 $cfromJSONKey :: FromJSONKeyFunction CmfcDescriptiveVideoServiceFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679945872"><span id="local-6989586621679945874"><span id="local-6989586621679945876"><span id="local-6989586621679945878"><span class="annot"><span class="annottext">[CmfcDescriptiveVideoServiceFlag] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679950495"><span id="local-6989586621679950497"><span id="local-6989586621679950499"><span id="local-6989586621679950501"><span class="annot"><span class="annottext">[CmfcDescriptiveVideoServiceFlag] -&gt; Encoding
 [CmfcDescriptiveVideoServiceFlag] -&gt; Value
 CmfcDescriptiveVideoServiceFlag -&gt; Encoding
 CmfcDescriptiveVideoServiceFlag -&gt; Value
@@ -299,7 +299,7 @@ $ctoEncoding :: CmfcDescriptiveVideoServiceFlag -&gt; Encoding
 toJSON :: CmfcDescriptiveVideoServiceFlag -&gt; Value
 $ctoJSON :: CmfcDescriptiveVideoServiceFlag -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679945867"><span id="local-6989586621679945869"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmfcDescriptiveVideoServiceFlag]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679950490"><span id="local-6989586621679950492"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmfcDescriptiveVideoServiceFlag]
 ToJSONKeyFunction CmfcDescriptiveVideoServiceFlag
 ToJSONKeyFunction CmfcDescriptiveVideoServiceFlag
 -&gt; ToJSONKeyFunction [CmfcDescriptiveVideoServiceFlag]
@@ -311,14 +311,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CmfcDescriptiveVideoServiceFlag]
 toJSONKey :: ToJSONKeyFunction CmfcDescriptiveVideoServiceFlag
 $ctoJSONKey :: ToJSONKeyFunction CmfcDescriptiveVideoServiceFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679945864"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmfcDescriptiveVideoServiceFlag
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679950487"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmfcDescriptiveVideoServiceFlag
 ([Node] -&gt; Either String CmfcDescriptiveVideoServiceFlag)
 -&gt; FromXML CmfcDescriptiveVideoServiceFlag
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CmfcDescriptiveVideoServiceFlag
 $cparseXML :: [Node] -&gt; Either String CmfcDescriptiveVideoServiceFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679945861"><span class="annot"><span class="annottext">CmfcDescriptiveVideoServiceFlag -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679950484"><span class="annot"><span class="annottext">CmfcDescriptiveVideoServiceFlag -&gt; XML
 (CmfcDescriptiveVideoServiceFlag -&gt; XML)
 -&gt; ToXML CmfcDescriptiveVideoServiceFlag
 forall a. (a -&gt; XML) -&gt; ToXML a

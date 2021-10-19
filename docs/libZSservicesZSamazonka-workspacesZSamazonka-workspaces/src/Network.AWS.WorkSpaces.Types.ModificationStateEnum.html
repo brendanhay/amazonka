@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679269525"><span id="local-6989586621679269526"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModificationStateEnum"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationStateEnum.html#ModificationStateEnum"><span class="hs-identifier hs-var">ModificationStateEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModificationStateEnum%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationStateEnum.html#ModificationStateEnum%27"><span class="hs-identifier hs-var">ModificationStateEnum'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679272256"><span id="local-6989586621679272257"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModificationStateEnum"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationStateEnum.html#ModificationStateEnum"><span class="hs-identifier hs-var">ModificationStateEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModificationStateEnum%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationStateEnum.html#ModificationStateEnum%27"><span class="hs-identifier hs-var">ModificationStateEnum'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromModificationStateEnum"><span class="annot"><span class="annottext">ModificationStateEnum -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.Types.ModificationStateEnum.html#fromModificationStateEnum"><span class="hs-identifier hs-var hs-var">fromModificationStateEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679269517"><span id="local-6989586621679269519"><span id="local-6989586621679269521"><span class="annot"><span class="annottext">Int -&gt; ModificationStateEnum -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272248"><span id="local-6989586621679272250"><span id="local-6989586621679272252"><span class="annot"><span class="annottext">Int -&gt; ModificationStateEnum -&gt; ShowS
 [ModificationStateEnum] -&gt; ShowS
 ModificationStateEnum -&gt; String
 (Int -&gt; ModificationStateEnum -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ModificationStateEnum -&gt; String
 showsPrec :: Int -&gt; ModificationStateEnum -&gt; ShowS
 $cshowsPrec :: Int -&gt; ModificationStateEnum -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679269508"><span id="local-6989586621679269510"><span id="local-6989586621679269512"><span id="local-6989586621679269514"><span class="annot"><span class="annottext">ReadPrec [ModificationStateEnum]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679272239"><span id="local-6989586621679272241"><span id="local-6989586621679272243"><span id="local-6989586621679272245"><span class="annot"><span class="annottext">ReadPrec [ModificationStateEnum]
 ReadPrec ModificationStateEnum
 Int -&gt; ReadS ModificationStateEnum
 ReadS [ModificationStateEnum]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ModificationStateEnum]
 readsPrec :: Int -&gt; ReadS ModificationStateEnum
 $creadsPrec :: Int -&gt; ReadS ModificationStateEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679269503"><span id="local-6989586621679269505"><span class="annot"><span class="annottext">ModificationStateEnum -&gt; ModificationStateEnum -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679272234"><span id="local-6989586621679272236"><span class="annot"><span class="annottext">ModificationStateEnum -&gt; ModificationStateEnum -&gt; Bool
 (ModificationStateEnum -&gt; ModificationStateEnum -&gt; Bool)
 -&gt; (ModificationStateEnum -&gt; ModificationStateEnum -&gt; Bool)
 -&gt; Eq ModificationStateEnum
@@ -82,7 +82,7 @@ $c/= :: ModificationStateEnum -&gt; ModificationStateEnum -&gt; Bool
 == :: ModificationStateEnum -&gt; ModificationStateEnum -&gt; Bool
 $c== :: ModificationStateEnum -&gt; ModificationStateEnum -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679269487"><span id="local-6989586621679269489"><span id="local-6989586621679269491"><span id="local-6989586621679269493"><span id="local-6989586621679269495"><span id="local-6989586621679269497"><span id="local-6989586621679269499"><span class="annot"><span class="annottext">Eq ModificationStateEnum
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679272218"><span id="local-6989586621679272220"><span id="local-6989586621679272222"><span id="local-6989586621679272224"><span id="local-6989586621679272226"><span id="local-6989586621679272228"><span id="local-6989586621679272230"><span class="annot"><span class="annottext">Eq ModificationStateEnum
 Eq ModificationStateEnum
 -&gt; (ModificationStateEnum -&gt; ModificationStateEnum -&gt; Ordering)
 -&gt; (ModificationStateEnum -&gt; ModificationStateEnum -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. ModificationStateEnum -&gt; Rep ModificationStateEnum x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679269479"><span id="local-6989586621679269481"><span class="annot"><span class="annottext">Int -&gt; ModificationStateEnum -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272210"><span id="local-6989586621679272212"><span class="annot"><span class="annottext">Int -&gt; ModificationStateEnum -&gt; Int
 ModificationStateEnum -&gt; Int
 (Int -&gt; ModificationStateEnum -&gt; Int)
 -&gt; (ModificationStateEnum -&gt; Int) -&gt; Hashable ModificationStateEnum
@@ -150,54 +150,54 @@ $chash :: ModificationStateEnum -&gt; Int
 hashWithSalt :: Int -&gt; ModificationStateEnum -&gt; Int
 $chashWithSalt :: Int -&gt; ModificationStateEnum -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679269476"><span class="annot"><span class="annottext">ModificationStateEnum -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679272207"><span class="annot"><span class="annottext">ModificationStateEnum -&gt; ()
 (ModificationStateEnum -&gt; ()) -&gt; NFData ModificationStateEnum
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ModificationStateEnum -&gt; ()
 $crnf :: ModificationStateEnum -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679269473"><span class="annot"><span class="annottext">Text -&gt; Either String ModificationStateEnum
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679272204"><span class="annot"><span class="annottext">Text -&gt; Either String ModificationStateEnum
 (Text -&gt; Either String ModificationStateEnum)
 -&gt; FromText ModificationStateEnum
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ModificationStateEnum
 $cfromText :: Text -&gt; Either String ModificationStateEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679269470"><span class="annot"><span class="annottext">ModificationStateEnum -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679272201"><span class="annot"><span class="annottext">ModificationStateEnum -&gt; Text
 (ModificationStateEnum -&gt; Text) -&gt; ToText ModificationStateEnum
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ModificationStateEnum -&gt; Text
 $ctoText :: ModificationStateEnum -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679269467"><span class="annot"><span class="annottext">ModificationStateEnum -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679272198"><span class="annot"><span class="annottext">ModificationStateEnum -&gt; ByteString
 (ModificationStateEnum -&gt; ByteString)
 -&gt; ToByteString ModificationStateEnum
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ModificationStateEnum -&gt; ByteString
 $ctoBS :: ModificationStateEnum -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679269464"><span class="annot"><span class="annottext">ModificationStateEnum -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679272195"><span class="annot"><span class="annottext">ModificationStateEnum -&gt; ByteStringBuilder
 (ModificationStateEnum -&gt; ByteStringBuilder)
 -&gt; ToLog ModificationStateEnum
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ModificationStateEnum -&gt; ByteStringBuilder
 $cbuild :: ModificationStateEnum -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679269461"><span class="annot"><span class="annottext">HeaderName -&gt; ModificationStateEnum -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679272192"><span class="annot"><span class="annottext">HeaderName -&gt; ModificationStateEnum -&gt; [Header]
 (HeaderName -&gt; ModificationStateEnum -&gt; [Header])
 -&gt; ToHeader ModificationStateEnum
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ModificationStateEnum -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ModificationStateEnum -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679269458"><span class="annot"><span class="annottext">ModificationStateEnum -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679272189"><span class="annot"><span class="annottext">ModificationStateEnum -&gt; QueryString
 (ModificationStateEnum -&gt; QueryString)
 -&gt; ToQuery ModificationStateEnum
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ModificationStateEnum -&gt; QueryString
 $ctoQuery :: ModificationStateEnum -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679269453"><span id="local-6989586621679269455"><span class="annot"><span class="annottext">Value -&gt; Parser [ModificationStateEnum]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679272184"><span id="local-6989586621679272186"><span class="annot"><span class="annottext">Value -&gt; Parser [ModificationStateEnum]
 Value -&gt; Parser ModificationStateEnum
 (Value -&gt; Parser ModificationStateEnum)
 -&gt; (Value -&gt; Parser [ModificationStateEnum])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [ModificationStateEnum]
 parseJSON :: Value -&gt; Parser ModificationStateEnum
 $cparseJSON :: Value -&gt; Parser ModificationStateEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679269448"><span id="local-6989586621679269450"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModificationStateEnum]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679272179"><span id="local-6989586621679272181"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModificationStateEnum]
 FromJSONKeyFunction ModificationStateEnum
 FromJSONKeyFunction ModificationStateEnum
 -&gt; FromJSONKeyFunction [ModificationStateEnum]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ModificationStateEnum]
 fromJSONKey :: FromJSONKeyFunction ModificationStateEnum
 $cfromJSONKey :: FromJSONKeyFunction ModificationStateEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679269439"><span id="local-6989586621679269441"><span id="local-6989586621679269443"><span id="local-6989586621679269445"><span class="annot"><span class="annottext">[ModificationStateEnum] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679272170"><span id="local-6989586621679272172"><span id="local-6989586621679272174"><span id="local-6989586621679272176"><span class="annot"><span class="annottext">[ModificationStateEnum] -&gt; Encoding
 [ModificationStateEnum] -&gt; Value
 ModificationStateEnum -&gt; Encoding
 ModificationStateEnum -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: ModificationStateEnum -&gt; Encoding
 toJSON :: ModificationStateEnum -&gt; Value
 $ctoJSON :: ModificationStateEnum -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679269434"><span id="local-6989586621679269436"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModificationStateEnum]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679272165"><span id="local-6989586621679272167"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModificationStateEnum]
 ToJSONKeyFunction ModificationStateEnum
 ToJSONKeyFunction ModificationStateEnum
 -&gt; ToJSONKeyFunction [ModificationStateEnum]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ModificationStateEnum]
 toJSONKey :: ToJSONKeyFunction ModificationStateEnum
 $ctoJSONKey :: ToJSONKeyFunction ModificationStateEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679269431"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModificationStateEnum
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679272162"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModificationStateEnum
 ([Node] -&gt; Either String ModificationStateEnum)
 -&gt; FromXML ModificationStateEnum
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ModificationStateEnum
 $cparseXML :: [Node] -&gt; Either String ModificationStateEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679269428"><span class="annot"><span class="annottext">ModificationStateEnum -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679272159"><span class="annot"><span class="annottext">ModificationStateEnum -&gt; XML
 (ModificationStateEnum -&gt; XML) -&gt; ToXML ModificationStateEnum
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ModificationStateEnum -&gt; XML

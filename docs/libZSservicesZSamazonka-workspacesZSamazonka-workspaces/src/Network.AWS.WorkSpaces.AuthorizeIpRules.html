@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types</span></a></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newAuthorizeIpRules' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679286104"><span id="local-6989586621679286105"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizeIpRules"><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-var">AuthorizeIpRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizeIpRules%27"><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules%27"><span class="hs-identifier hs-var">AuthorizeIpRules'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679289235"><span id="local-6989586621679289236"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizeIpRules"><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-var">AuthorizeIpRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizeIpRules%27"><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules%27"><span class="hs-identifier hs-var">AuthorizeIpRules'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the group.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AgroupId%3AAuthorizeIpRules%27"><span class="annot"><span class="annottext">AuthorizeIpRules -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#%24sel%3AgroupId%3AAuthorizeIpRules%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AuserRules%3AAuthorizeIpRules%27"><span class="annot"><span class="annottext">AuthorizeIpRules -&gt; [IpRuleItem]
 </span><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#%24sel%3AuserRules%3AAuthorizeIpRules%27"><span class="hs-identifier hs-var hs-var">userRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.IpRuleItem.html#IpRuleItem"><span class="hs-identifier hs-type">IpRuleItem</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286097"><span id="local-6989586621679286099"><span class="annot"><span class="annottext">AuthorizeIpRules -&gt; AuthorizeIpRules -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289228"><span id="local-6989586621679289230"><span class="annot"><span class="annottext">AuthorizeIpRules -&gt; AuthorizeIpRules -&gt; Bool
 (AuthorizeIpRules -&gt; AuthorizeIpRules -&gt; Bool)
 -&gt; (AuthorizeIpRules -&gt; AuthorizeIpRules -&gt; Bool)
 -&gt; Eq AuthorizeIpRules
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AuthorizeIpRules -&gt; AuthorizeIpRules -&gt; Bool
 == :: AuthorizeIpRules -&gt; AuthorizeIpRules -&gt; Bool
 $c== :: AuthorizeIpRules -&gt; AuthorizeIpRules -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286088"><span id="local-6989586621679286090"><span id="local-6989586621679286092"><span id="local-6989586621679286094"><span class="annot"><span class="annottext">ReadPrec [AuthorizeIpRules]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289219"><span id="local-6989586621679289221"><span id="local-6989586621679289223"><span id="local-6989586621679289225"><span class="annot"><span class="annottext">ReadPrec [AuthorizeIpRules]
 ReadPrec AuthorizeIpRules
 Int -&gt; ReadS AuthorizeIpRules
 ReadS [AuthorizeIpRules]
@@ -87,7 +87,7 @@ readList :: ReadS [AuthorizeIpRules]
 $creadList :: ReadS [AuthorizeIpRules]
 readsPrec :: Int -&gt; ReadS AuthorizeIpRules
 $creadsPrec :: Int -&gt; ReadS AuthorizeIpRules
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286081"><span id="local-6989586621679286083"><span id="local-6989586621679286085"><span class="annot"><span class="annottext">Int -&gt; AuthorizeIpRules -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289212"><span id="local-6989586621679289214"><span id="local-6989586621679289216"><span class="annot"><span class="annottext">Int -&gt; AuthorizeIpRules -&gt; ShowS
 [AuthorizeIpRules] -&gt; ShowS
 AuthorizeIpRules -&gt; String
 (Int -&gt; AuthorizeIpRules -&gt; ShowS)
@@ -129,13 +129,13 @@ $cfrom :: forall x. AuthorizeIpRules -&gt; Rep AuthorizeIpRules x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-type">AuthorizeIpRules</span></a></span><span>
 </span><span id="line-76"></span><span id="newAuthorizeIpRules"><span class="annot"><span class="annottext">newAuthorizeIpRules :: Text -&gt; AuthorizeIpRules
-</span><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#newAuthorizeIpRules"><span class="hs-identifier hs-var hs-var">newAuthorizeIpRules</span></a></span></span><span> </span><span id="local-6989586621679286076"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286076"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#newAuthorizeIpRules"><span class="hs-identifier hs-var hs-var">newAuthorizeIpRules</span></a></span></span><span> </span><span id="local-6989586621679289207"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289207"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">AuthorizeIpRules' :: Text -&gt; [IpRuleItem] -&gt; AuthorizeIpRules
 </span><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules%27"><span class="hs-identifier hs-type">AuthorizeIpRules'</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupId:AuthorizeIpRules' :: Text
 </span><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#%24sel%3AgroupId%3AAuthorizeIpRules%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286076"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679289207"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:userRules:AuthorizeIpRules' :: [IpRuleItem]
 </span><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#%24sel%3AuserRules%3AAuthorizeIpRules%27"><span class="hs-identifier hs-var">userRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[IpRuleItem]
 forall a. Monoid a =&gt; a
@@ -149,16 +149,16 @@ forall a. Monoid a =&gt; a
 -&gt; (AuthorizeIpRules -&gt; Text -&gt; AuthorizeIpRules)
 -&gt; Lens AuthorizeIpRules AuthorizeIpRules Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules%27"><span class="hs-identifier hs-type">AuthorizeIpRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286073"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules%27"><span class="hs-identifier hs-type">AuthorizeIpRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289204"><span class="annot"><span class="annottext">Text
 groupId :: Text
 $sel:groupId:AuthorizeIpRules' :: AuthorizeIpRules -&gt; Text
-</span><a href="#local-6989586621679286073"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286073"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286072"><span class="annot"><span class="annottext">s :: AuthorizeIpRules
-</span><a href="#local-6989586621679286072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules%27"><span class="hs-identifier hs-type">AuthorizeIpRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286071"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeIpRules
-</span><a href="#local-6989586621679286072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:AuthorizeIpRules' :: Text
+</span><a href="#local-6989586621679289204"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289204"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289203"><span class="annot"><span class="annottext">s :: AuthorizeIpRules
+</span><a href="#local-6989586621679289203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules%27"><span class="hs-identifier hs-type">AuthorizeIpRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289202"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeIpRules
+</span><a href="#local-6989586621679289203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:AuthorizeIpRules' :: Text
 </span><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#%24sel%3AgroupId%3AAuthorizeIpRules%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-type">AuthorizeIpRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-type">AuthorizeIpRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The rules to add to the group.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#authorizeIpRules_userRules"><span class="hs-identifier hs-type">authorizeIpRules_userRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-type">AuthorizeIpRules</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.IpRuleItem.html#IpRuleItem"><span class="hs-identifier hs-type">IpRuleItem</span></a></span><span class="hs-special">]</span><span>
@@ -168,16 +168,16 @@ $sel:groupId:AuthorizeIpRules' :: AuthorizeIpRules -&gt; Text
 -&gt; (AuthorizeIpRules -&gt; [IpRuleItem] -&gt; AuthorizeIpRules)
 -&gt; Lens AuthorizeIpRules AuthorizeIpRules [IpRuleItem] [IpRuleItem]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules%27"><span class="hs-identifier hs-type">AuthorizeIpRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286070"><span class="annot"><span class="annottext">[IpRuleItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules%27"><span class="hs-identifier hs-type">AuthorizeIpRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289201"><span class="annot"><span class="annottext">[IpRuleItem]
 userRules :: [IpRuleItem]
 $sel:userRules:AuthorizeIpRules' :: AuthorizeIpRules -&gt; [IpRuleItem]
-</span><a href="#local-6989586621679286070"><span class="hs-identifier hs-var hs-var">userRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[IpRuleItem]
-</span><a href="#local-6989586621679286070"><span class="hs-identifier hs-var">userRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286069"><span class="annot"><span class="annottext">s :: AuthorizeIpRules
-</span><a href="#local-6989586621679286069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules%27"><span class="hs-identifier hs-type">AuthorizeIpRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286068"><span class="annot"><span class="annottext">[IpRuleItem]
-</span><a href="#local-6989586621679286068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeIpRules
-</span><a href="#local-6989586621679286069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userRules:AuthorizeIpRules' :: [IpRuleItem]
+</span><a href="#local-6989586621679289201"><span class="hs-identifier hs-var hs-var">userRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[IpRuleItem]
+</span><a href="#local-6989586621679289201"><span class="hs-identifier hs-var">userRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289200"><span class="annot"><span class="annottext">s :: AuthorizeIpRules
+</span><a href="#local-6989586621679289200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules%27"><span class="hs-identifier hs-type">AuthorizeIpRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289199"><span class="annot"><span class="annottext">[IpRuleItem]
+</span><a href="#local-6989586621679289199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeIpRules
+</span><a href="#local-6989586621679289200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userRules:AuthorizeIpRules' :: [IpRuleItem]
 </span><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#%24sel%3AuserRules%3AAuthorizeIpRules%27"><span class="hs-identifier hs-var">userRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[IpRuleItem]
-</span><a href="#local-6989586621679286068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-type">AuthorizeIpRules</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([IpRuleItem] -&gt; f [IpRuleItem])
+</span><a href="#local-6989586621679289199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-type">AuthorizeIpRules</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([IpRuleItem] -&gt; f [IpRuleItem])
  -&gt; AuthorizeIpRules -&gt; f AuthorizeIpRules)
 -&gt; (([IpRuleItem] -&gt; f [IpRuleItem])
     -&gt; [IpRuleItem] -&gt; f [IpRuleItem])
@@ -186,19 +186,19 @@ $sel:userRules:AuthorizeIpRules' :: AuthorizeIpRules -&gt; [IpRuleItem]
 -&gt; f AuthorizeIpRules
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([IpRuleItem] -&gt; f [IpRuleItem]) -&gt; [IpRuleItem] -&gt; f [IpRuleItem]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-type">AuthorizeIpRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-type">AuthorizeIpRules</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRulesResponse"><span class="hs-identifier hs-type">AuthorizeIpRulesResponse</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679286062"><span class="annot"><span class="annottext">request :: AuthorizeIpRules -&gt; Request AuthorizeIpRules
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679289193"><span class="annot"><span class="annottext">request :: AuthorizeIpRules -&gt; Request AuthorizeIpRules
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AuthorizeIpRules -&gt; Request AuthorizeIpRules
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679286058"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679289189"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AuthorizeIpRules
 -&gt; ClientResponse ClientBody
@@ -222,10 +222,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679286055"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286055"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679286054"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679286054"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679286053"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679286053"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289186"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289186"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679289185"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679289185"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679289184"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679289184"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AuthorizeIpRulesResponse
 </span><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRulesResponse%27"><span class="hs-identifier hs-var">AuthorizeIpRulesResponse'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AuthorizeIpRulesResponse)
@@ -236,15 +236,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286055"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289186"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286046"><span id="local-6989586621679286048"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-type">AuthorizeIpRules</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289177"><span id="local-6989586621679289179"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-type">AuthorizeIpRules</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286043"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-type">AuthorizeIpRules</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289174"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-type">AuthorizeIpRules</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-type">AuthorizeIpRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679286039"><span class="annot"><span class="annottext">toHeaders :: AuthorizeIpRules -&gt; ResponseHeaders
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679289170"><span class="annot"><span class="annottext">toHeaders :: AuthorizeIpRules -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AuthorizeIpRules -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -271,15 +271,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286029"><span id="local-6989586621679286031"><span id="local-6989586621679286033"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-type">AuthorizeIpRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679286027"><span class="annot"><span class="annottext">toJSON :: AuthorizeIpRules -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules%27"><span class="hs-identifier hs-type">AuthorizeIpRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286024"><span id="local-6989586621679286025"><span class="annot"><span class="annottext">[IpRuleItem]
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289160"><span id="local-6989586621679289162"><span id="local-6989586621679289164"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-type">AuthorizeIpRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679289158"><span class="annot"><span class="annottext">toJSON :: AuthorizeIpRules -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules%27"><span class="hs-identifier hs-type">AuthorizeIpRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289155"><span id="local-6989586621679289156"><span class="annot"><span class="annottext">[IpRuleItem]
 Text
 userRules :: [IpRuleItem]
 groupId :: Text
 $sel:userRules:AuthorizeIpRules' :: AuthorizeIpRules -&gt; [IpRuleItem]
 $sel:groupId:AuthorizeIpRules' :: AuthorizeIpRules -&gt; Text
-</span><a href="#local-6989586621679286024"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679289155"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -291,26 +291,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;GroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286025"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679289156"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserRules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [IpRuleItem] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[IpRuleItem]
-</span><a href="#local-6989586621679286024"><span class="hs-identifier hs-var">userRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289155"><span class="hs-identifier hs-var">userRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-type">AuthorizeIpRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679286018"><span class="annot"><span class="annottext">toPath :: AuthorizeIpRules -&gt; ByteString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679289149"><span class="annot"><span class="annottext">toPath :: AuthorizeIpRules -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AuthorizeIpRules -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRules"><span class="hs-identifier hs-type">AuthorizeIpRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679286014"><span class="annot"><span class="annottext">toQuery :: AuthorizeIpRules -&gt; QueryString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679289145"><span class="annot"><span class="annottext">toQuery :: AuthorizeIpRules -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AuthorizeIpRules -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -318,12 +318,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newAuthorizeIpRulesResponse' smart constructor.</span><span>
-</span><span id="line-137"></span><span id="local-6989586621679286011"><span id="local-6989586621679286012"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizeIpRulesResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRulesResponse"><span class="hs-identifier hs-var">AuthorizeIpRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizeIpRulesResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRulesResponse%27"><span class="hs-identifier hs-var">AuthorizeIpRulesResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span id="local-6989586621679289142"><span id="local-6989586621679289143"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizeIpRulesResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRulesResponse"><span class="hs-identifier hs-var">AuthorizeIpRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizeIpRulesResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRulesResponse%27"><span class="hs-identifier hs-var">AuthorizeIpRulesResponse'</span></a></span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAuthorizeIpRulesResponse%27"><span class="annot"><span class="annottext">AuthorizeIpRulesResponse -&gt; Int
 </span><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#%24sel%3AhttpStatus%3AAuthorizeIpRulesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286006"><span id="local-6989586621679286008"><span class="annot"><span class="annottext">AuthorizeIpRulesResponse -&gt; AuthorizeIpRulesResponse -&gt; Bool
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289137"><span id="local-6989586621679289139"><span class="annot"><span class="annottext">AuthorizeIpRulesResponse -&gt; AuthorizeIpRulesResponse -&gt; Bool
 (AuthorizeIpRulesResponse -&gt; AuthorizeIpRulesResponse -&gt; Bool)
 -&gt; (AuthorizeIpRulesResponse -&gt; AuthorizeIpRulesResponse -&gt; Bool)
 -&gt; Eq AuthorizeIpRulesResponse
@@ -332,7 +332,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AuthorizeIpRulesResponse -&gt; AuthorizeIpRulesResponse -&gt; Bool
 == :: AuthorizeIpRulesResponse -&gt; AuthorizeIpRulesResponse -&gt; Bool
 $c== :: AuthorizeIpRulesResponse -&gt; AuthorizeIpRulesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285998"><span id="local-6989586621679286000"><span id="local-6989586621679286002"><span id="local-6989586621679286004"><span class="annot"><span class="annottext">ReadPrec [AuthorizeIpRulesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289129"><span id="local-6989586621679289131"><span id="local-6989586621679289133"><span id="local-6989586621679289135"><span class="annot"><span class="annottext">ReadPrec [AuthorizeIpRulesResponse]
 ReadPrec AuthorizeIpRulesResponse
 Int -&gt; ReadS AuthorizeIpRulesResponse
 ReadS [AuthorizeIpRulesResponse]
@@ -352,7 +352,7 @@ readList :: ReadS [AuthorizeIpRulesResponse]
 $creadList :: ReadS [AuthorizeIpRulesResponse]
 readsPrec :: Int -&gt; ReadS AuthorizeIpRulesResponse
 $creadsPrec :: Int -&gt; ReadS AuthorizeIpRulesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285992"><span id="local-6989586621679285994"><span id="local-6989586621679285996"><span class="annot"><span class="annottext">Int -&gt; AuthorizeIpRulesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289123"><span id="local-6989586621679289125"><span id="local-6989586621679289127"><span class="annot"><span class="annottext">Int -&gt; AuthorizeIpRulesResponse -&gt; ShowS
 [AuthorizeIpRulesResponse] -&gt; ShowS
 AuthorizeIpRulesResponse -&gt; String
 (Int -&gt; AuthorizeIpRulesResponse -&gt; ShowS)
@@ -398,14 +398,14 @@ AuthorizeIpRulesResponse -&gt; Rep AuthorizeIpRulesResponse x
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRulesResponse"><span class="hs-identifier hs-type">AuthorizeIpRulesResponse</span></a></span><span>
 </span><span id="line-156"></span><span id="newAuthorizeIpRulesResponse"><span class="annot"><span class="annottext">newAuthorizeIpRulesResponse :: Int -&gt; AuthorizeIpRulesResponse
-</span><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#newAuthorizeIpRulesResponse"><span class="hs-identifier hs-var hs-var">newAuthorizeIpRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679285989"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285989"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#newAuthorizeIpRulesResponse"><span class="hs-identifier hs-var hs-var">newAuthorizeIpRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679289120"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289120"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">AuthorizeIpRulesResponse' :: Int -&gt; AuthorizeIpRulesResponse
 </span><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRulesResponse%27"><span class="hs-identifier hs-type">AuthorizeIpRulesResponse'</span></a></span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AuthorizeIpRulesResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#%24sel%3AhttpStatus%3AAuthorizeIpRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285989"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679289120"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -416,16 +416,16 @@ AuthorizeIpRulesResponse -&gt; Rep AuthorizeIpRulesResponse x
 -&gt; (AuthorizeIpRulesResponse -&gt; Int -&gt; AuthorizeIpRulesResponse)
 -&gt; Lens AuthorizeIpRulesResponse AuthorizeIpRulesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRulesResponse%27"><span class="hs-identifier hs-type">AuthorizeIpRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285988"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRulesResponse%27"><span class="hs-identifier hs-type">AuthorizeIpRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289119"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AuthorizeIpRulesResponse' :: AuthorizeIpRulesResponse -&gt; Int
-</span><a href="#local-6989586621679285988"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285988"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285987"><span class="annot"><span class="annottext">s :: AuthorizeIpRulesResponse
-</span><a href="#local-6989586621679285987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRulesResponse%27"><span class="hs-identifier hs-type">AuthorizeIpRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285986"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeIpRulesResponse
-</span><a href="#local-6989586621679285987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AuthorizeIpRulesResponse' :: Int
+</span><a href="#local-6989586621679289119"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289119"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289118"><span class="annot"><span class="annottext">s :: AuthorizeIpRulesResponse
+</span><a href="#local-6989586621679289118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRulesResponse%27"><span class="hs-identifier hs-type">AuthorizeIpRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289117"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeIpRulesResponse
+</span><a href="#local-6989586621679289118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AuthorizeIpRulesResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#%24sel%3AhttpStatus%3AAuthorizeIpRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRulesResponse"><span class="hs-identifier hs-type">AuthorizeIpRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRulesResponse"><span class="hs-identifier hs-type">AuthorizeIpRulesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285984"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRulesResponse"><span class="hs-identifier hs-type">AuthorizeIpRulesResponse</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.AuthorizeIpRules.html#AuthorizeIpRulesResponse"><span class="hs-identifier hs-type">AuthorizeIpRulesResponse</span></a></span></span><span>
 </span><span id="line-167"></span></pre></body></html>

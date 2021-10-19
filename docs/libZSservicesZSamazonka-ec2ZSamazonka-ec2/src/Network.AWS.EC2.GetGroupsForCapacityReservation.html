@@ -31,8 +31,8 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#getGroupsForCapacityReservation_nextToken"><span class="hs-identifier">getGroupsForCapacityReservation_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#getGroupsForCapacityReservation_maxResults"><span class="hs-identifier">getGroupsForCapacityReservation_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#getGroupsForCapacityReservation_dryRun"><span class="hs-identifier">getGroupsForCapacityReservation_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#getGroupsForCapacityReservation_dryRun"><span class="hs-identifier">getGroupsForCapacityReservation_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#getGroupsForCapacityReservation_maxResults"><span class="hs-identifier">getGroupsForCapacityReservation_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#getGroupsForCapacityReservation_capacityReservationId"><span class="hs-identifier">getGroupsForCapacityReservation_capacityReservationId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -54,27 +54,27 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newGetGroupsForCapacityReservation' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621681193332"><span id="local-6989586621681193333"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupsForCapacityReservation"><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-var">GetGroupsForCapacityReservation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupsForCapacityReservation%27"><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-var">GetGroupsForCapacityReservation'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621681228982"><span id="local-6989586621681228983"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupsForCapacityReservation"><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-var">GetGroupsForCapacityReservation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupsForCapacityReservation%27"><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-var">GetGroupsForCapacityReservation'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AGetGroupsForCapacityReservation%27"><span class="annot"><span class="annottext">GetGroupsForCapacityReservation -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AnextToken%3AGetGroupsForCapacityReservation%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return for the request in a single</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- page. The remaining results can be seen by sending another request with</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the returned @nextToken@ value. This value can be between 5 and 500. If</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- @maxResults@ is given a larger value than 500, you receive an error.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetGroupsForCapacityReservation%27"><span class="annot"><span class="annottext">GetGroupsForCapacityReservation -&gt; Maybe Natural
-</span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AmaxResults%3AGetGroupsForCapacityReservation%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AdryRun%3AGetGroupsForCapacityReservation%27"><span class="annot"><span class="annottext">GetGroupsForCapacityReservation -&gt; Maybe Bool
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdryRun%3AGetGroupsForCapacityReservation%27"><span class="annot"><span class="annottext">GetGroupsForCapacityReservation -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AdryRun%3AGetGroupsForCapacityReservation%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return for the request in a single</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- page. The remaining results can be seen by sending another request with</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- the returned @nextToken@ value. This value can be between 5 and 500. If</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @maxResults@ is given a larger value than 500, you receive an error.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetGroupsForCapacityReservation%27"><span class="annot"><span class="annottext">GetGroupsForCapacityReservation -&gt; Maybe Natural
+</span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AmaxResults%3AGetGroupsForCapacityReservation%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The ID of the Capacity Reservation.</span><span>
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AcapacityReservationId%3AGetGroupsForCapacityReservation%27"><span class="annot"><span class="annottext">GetGroupsForCapacityReservation -&gt; Text
 </span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AcapacityReservationId%3AGetGroupsForCapacityReservation%27"><span class="hs-identifier hs-var hs-var">capacityReservationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681193323"><span id="local-6989586621681193325"><span class="annot"><span class="annottext">GetGroupsForCapacityReservation
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681228973"><span id="local-6989586621681228975"><span class="annot"><span class="annottext">GetGroupsForCapacityReservation
 -&gt; GetGroupsForCapacityReservation -&gt; Bool
 (GetGroupsForCapacityReservation
  -&gt; GetGroupsForCapacityReservation -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: GetGroupsForCapacityReservation
 -&gt; GetGroupsForCapacityReservation -&gt; Bool
 $c== :: GetGroupsForCapacityReservation
 -&gt; GetGroupsForCapacityReservation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681193314"><span id="local-6989586621681193316"><span id="local-6989586621681193318"><span id="local-6989586621681193320"><span class="annot"><span class="annottext">ReadPrec [GetGroupsForCapacityReservation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681228964"><span id="local-6989586621681228966"><span id="local-6989586621681228968"><span id="local-6989586621681228970"><span class="annot"><span class="annottext">ReadPrec [GetGroupsForCapacityReservation]
 ReadPrec GetGroupsForCapacityReservation
 Int -&gt; ReadS GetGroupsForCapacityReservation
 ReadS [GetGroupsForCapacityReservation]
@@ -110,7 +110,7 @@ readList :: ReadS [GetGroupsForCapacityReservation]
 $creadList :: ReadS [GetGroupsForCapacityReservation]
 readsPrec :: Int -&gt; ReadS GetGroupsForCapacityReservation
 $creadsPrec :: Int -&gt; ReadS GetGroupsForCapacityReservation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681193307"><span id="local-6989586621681193309"><span id="local-6989586621681193311"><span class="annot"><span class="annottext">Int -&gt; GetGroupsForCapacityReservation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681228957"><span id="local-6989586621681228959"><span id="local-6989586621681228961"><span class="annot"><span class="annottext">Int -&gt; GetGroupsForCapacityReservation -&gt; ShowS
 [GetGroupsForCapacityReservation] -&gt; ShowS
 GetGroupsForCapacityReservation -&gt; String
 (Int -&gt; GetGroupsForCapacityReservation -&gt; ShowS)
@@ -158,15 +158,15 @@ GetGroupsForCapacityReservation
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- 'nextToken', 'getGroupsForCapacityReservation_nextToken' - The token to use to retrieve the next page of results.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'maxResults', 'getGroupsForCapacityReservation_maxResults' - The maximum number of results to return for the request in a single</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- page. The remaining results can be seen by sending another request with</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- the returned @nextToken@ value. This value can be between 5 and 500. If</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- @maxResults@ is given a larger value than 500, you receive an error.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'dryRun', 'getGroupsForCapacityReservation_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'dryRun', 'getGroupsForCapacityReservation_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'maxResults', 'getGroupsForCapacityReservation_maxResults' - The maximum number of results to return for the request in a single</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- page. The remaining results can be seen by sending another request with</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- the returned @nextToken@ value. This value can be between 5 and 500. If</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- @maxResults@ is given a larger value than 500, you receive an error.</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- 'capacityReservationId', 'getGroupsForCapacityReservation_capacityReservationId' - The ID of the Capacity Reservation.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#newGetGroupsForCapacityReservation"><span class="hs-identifier hs-type">newGetGroupsForCapacityReservation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -175,11 +175,11 @@ GetGroupsForCapacityReservation
 </span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span>
 </span><span id="line-100"></span><span id="newGetGroupsForCapacityReservation"><span class="annot"><span class="annottext">newGetGroupsForCapacityReservation :: Text -&gt; GetGroupsForCapacityReservation
 </span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#newGetGroupsForCapacityReservation"><span class="hs-identifier hs-var hs-var">newGetGroupsForCapacityReservation</span></a></span></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621681193302"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681193302"><span class="hs-identifier hs-var">pCapacityReservationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621681228952"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681228952"><span class="hs-identifier hs-var">pCapacityReservationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservation' :: Maybe Text
--&gt; Maybe Natural
 -&gt; Maybe Bool
+-&gt; Maybe Natural
 -&gt; Text
 -&gt; GetGroupsForCapacityReservation
 </span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span>
@@ -188,18 +188,18 @@ GetGroupsForCapacityReservation
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxResults:GetGroupsForCapacityReservation' :: Maybe Natural
-</span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AmaxResults%3AGetGroupsForCapacityReservation%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:GetGroupsForCapacityReservation' :: Maybe Bool
+</span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AdryRun%3AGetGroupsForCapacityReservation%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:GetGroupsForCapacityReservation' :: Maybe Bool
-</span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AdryRun%3AGetGroupsForCapacityReservation%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxResults:GetGroupsForCapacityReservation' :: Maybe Natural
+</span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AmaxResults%3AGetGroupsForCapacityReservation%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:capacityReservationId:GetGroupsForCapacityReservation' :: Text
 </span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AcapacityReservationId%3AGetGroupsForCapacityReservation%27"><span class="hs-identifier hs-var">capacityReservationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681193302"><span class="hs-identifier hs-var">pCapacityReservationId_</span></a></span><span>
+</span><a href="#local-6989586621681228952"><span class="hs-identifier hs-var">pCapacityReservationId_</span></a></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results.</span><span>
@@ -216,51 +216,23 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681193300"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228950"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetGroupsForCapacityReservation' :: GetGroupsForCapacityReservation -&gt; Maybe Text
-</span><a href="#local-6989586621681193300"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681193300"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681193299"><span class="annot"><span class="annottext">s :: GetGroupsForCapacityReservation
-</span><a href="#local-6989586621681193299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681193298"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681193298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservation
-</span><a href="#local-6989586621681193299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetGroupsForCapacityReservation' :: Maybe Text
+</span><a href="#local-6989586621681228950"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681228950"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228949"><span class="annot"><span class="annottext">s :: GetGroupsForCapacityReservation
+</span><a href="#local-6989586621681228949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228948"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681228948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservation
+</span><a href="#local-6989586621681228949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetGroupsForCapacityReservation' :: Maybe Text
 </span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AnextToken%3AGetGroupsForCapacityReservation%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681193298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681228948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The maximum number of results to return for the request in a single</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- page. The remaining results can be seen by sending another request with</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- the returned @nextToken@ value. This value can be between 5 and 500. If</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- @maxResults@ is given a larger value than 500, you receive an error.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#getGroupsForCapacityReservation_maxResults"><span class="hs-identifier hs-type">getGroupsForCapacityReservation_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="getGroupsForCapacityReservation_maxResults"><span class="annot"><span class="annottext">getGroupsForCapacityReservation_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; GetGroupsForCapacityReservation
--&gt; f GetGroupsForCapacityReservation
-</span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#getGroupsForCapacityReservation_maxResults"><span class="hs-identifier hs-var hs-var">getGroupsForCapacityReservation_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGroupsForCapacityReservation -&gt; Maybe Natural)
--&gt; (GetGroupsForCapacityReservation
-    -&gt; Maybe Natural -&gt; GetGroupsForCapacityReservation)
--&gt; Lens
-     GetGroupsForCapacityReservation
-     GetGroupsForCapacityReservation
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681193297"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:GetGroupsForCapacityReservation' :: GetGroupsForCapacityReservation -&gt; Maybe Natural
-</span><a href="#local-6989586621681193297"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681193297"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681193296"><span class="annot"><span class="annottext">s :: GetGroupsForCapacityReservation
-</span><a href="#local-6989586621681193296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681193295"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681193295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservation
-</span><a href="#local-6989586621681193296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetGroupsForCapacityReservation' :: Maybe Natural
-</span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AmaxResults%3AGetGroupsForCapacityReservation%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681193295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#getGroupsForCapacityReservation_dryRun"><span class="hs-identifier hs-type">getGroupsForCapacityReservation_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="getGroupsForCapacityReservation_dryRun"><span class="annot"><span class="annottext">getGroupsForCapacityReservation_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-115"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#getGroupsForCapacityReservation_dryRun"><span class="hs-identifier hs-type">getGroupsForCapacityReservation_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="getGroupsForCapacityReservation_dryRun"><span class="annot"><span class="annottext">getGroupsForCapacityReservation_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; GetGroupsForCapacityReservation
 -&gt; f GetGroupsForCapacityReservation
 </span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#getGroupsForCapacityReservation_dryRun"><span class="hs-identifier hs-var hs-var">getGroupsForCapacityReservation_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGroupsForCapacityReservation -&gt; Maybe Bool)
@@ -272,16 +244,44 @@ $sel:maxResults:GetGroupsForCapacityReservation' :: GetGroupsForCapacityReservat
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681193294"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228947"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:GetGroupsForCapacityReservation' :: GetGroupsForCapacityReservation -&gt; Maybe Bool
-</span><a href="#local-6989586621681193294"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681193294"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681193293"><span class="annot"><span class="annottext">s :: GetGroupsForCapacityReservation
-</span><a href="#local-6989586621681193293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681193292"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681193292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservation
-</span><a href="#local-6989586621681193293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:GetGroupsForCapacityReservation' :: Maybe Bool
+</span><a href="#local-6989586621681228947"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681228947"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228946"><span class="annot"><span class="annottext">s :: GetGroupsForCapacityReservation
+</span><a href="#local-6989586621681228946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228945"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681228945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservation
+</span><a href="#local-6989586621681228946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:GetGroupsForCapacityReservation' :: Maybe Bool
 </span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AdryRun%3AGetGroupsForCapacityReservation%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681193292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681228945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The maximum number of results to return for the request in a single</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- page. The remaining results can be seen by sending another request with</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- the returned @nextToken@ value. This value can be between 5 and 500. If</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- @maxResults@ is given a larger value than 500, you receive an error.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#getGroupsForCapacityReservation_maxResults"><span class="hs-identifier hs-type">getGroupsForCapacityReservation_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="getGroupsForCapacityReservation_maxResults"><span class="annot"><span class="annottext">getGroupsForCapacityReservation_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetGroupsForCapacityReservation
+-&gt; f GetGroupsForCapacityReservation
+</span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#getGroupsForCapacityReservation_maxResults"><span class="hs-identifier hs-var hs-var">getGroupsForCapacityReservation_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGroupsForCapacityReservation -&gt; Maybe Natural)
+-&gt; (GetGroupsForCapacityReservation
+    -&gt; Maybe Natural -&gt; GetGroupsForCapacityReservation)
+-&gt; Lens
+     GetGroupsForCapacityReservation
+     GetGroupsForCapacityReservation
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228944"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetGroupsForCapacityReservation' :: GetGroupsForCapacityReservation -&gt; Maybe Natural
+</span><a href="#local-6989586621681228944"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681228944"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228943"><span class="annot"><span class="annottext">s :: GetGroupsForCapacityReservation
+</span><a href="#local-6989586621681228943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228942"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681228942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservation
+</span><a href="#local-6989586621681228943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetGroupsForCapacityReservation' :: Maybe Natural
+</span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AmaxResults%3AGetGroupsForCapacityReservation%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681228942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The ID of the Capacity Reservation.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#getGroupsForCapacityReservation_capacityReservationId"><span class="hs-identifier hs-type">getGroupsForCapacityReservation_capacityReservationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -297,33 +297,33 @@ $sel:dryRun:GetGroupsForCapacityReservation' :: GetGroupsForCapacityReservation 
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681193291"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228941"><span class="annot"><span class="annottext">Text
 capacityReservationId :: Text
 $sel:capacityReservationId:GetGroupsForCapacityReservation' :: GetGroupsForCapacityReservation -&gt; Text
-</span><a href="#local-6989586621681193291"><span class="hs-identifier hs-var hs-var">capacityReservationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681193291"><span class="hs-identifier hs-var">capacityReservationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681193290"><span class="annot"><span class="annottext">s :: GetGroupsForCapacityReservation
-</span><a href="#local-6989586621681193290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681193289"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681193289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservation
-</span><a href="#local-6989586621681193290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityReservationId:GetGroupsForCapacityReservation' :: Text
+</span><a href="#local-6989586621681228941"><span class="hs-identifier hs-var hs-var">capacityReservationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681228941"><span class="hs-identifier hs-var">capacityReservationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228940"><span class="annot"><span class="annottext">s :: GetGroupsForCapacityReservation
+</span><a href="#local-6989586621681228940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228939"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681228939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservation
+</span><a href="#local-6989586621681228940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityReservationId:GetGroupsForCapacityReservation' :: Text
 </span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AcapacityReservationId%3AGetGroupsForCapacityReservation%27"><span class="hs-identifier hs-var">capacityReservationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681193289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681228939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621681193285"><span class="annot"><span class="annottext">page :: GetGroupsForCapacityReservation
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621681228935"><span class="annot"><span class="annottext">page :: GetGroupsForCapacityReservation
 -&gt; AWSResponse GetGroupsForCapacityReservation
 -&gt; Maybe GetGroupsForCapacityReservation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681193283"><span class="annot"><span class="annottext">GetGroupsForCapacityReservation
-</span><a href="#local-6989586621681193283"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681193282"><span class="annot"><span class="annottext">AWSResponse GetGroupsForCapacityReservation
-</span><a href="#local-6989586621681193282"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681228933"><span class="annot"><span class="annottext">GetGroupsForCapacityReservation
+</span><a href="#local-6989586621681228933"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681228932"><span class="annot"><span class="annottext">AWSResponse GetGroupsForCapacityReservation
+</span><a href="#local-6989586621681228932"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-139"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetGroupsForCapacityReservation
 GetGroupsForCapacityReservationResponse
-</span><a href="#local-6989586621681193282"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681228932"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservationResponse
 -&gt; Getting
      (First Text) GetGroupsForCapacityReservationResponse Text
@@ -355,7 +355,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-145"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetGroupsForCapacityReservation
 GetGroupsForCapacityReservationResponse
-</span><a href="#local-6989586621681193282"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681228932"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservationResponse
 -&gt; Getting
      (First [CapacityReservationGroup])
@@ -420,7 +420,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservation
-</span><a href="#local-6989586621681193283"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621681228933"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservation
 -&gt; (GetGroupsForCapacityReservation
     -&gt; GetGroupsForCapacityReservation)
@@ -444,7 +444,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetGroupsForCapacityReservation
 GetGroupsForCapacityReservationResponse
-</span><a href="#local-6989586621681193282"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681228932"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservationResponse
 -&gt; Getting
      (First Text) GetGroupsForCapacityReservationResponse Text
@@ -475,7 +475,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-162"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-163"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse</span></a></span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621681193272"><span class="annot"><span class="annottext">request :: GetGroupsForCapacityReservation
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621681228922"><span class="annot"><span class="annottext">request :: GetGroupsForCapacityReservation
 -&gt; Request GetGroupsForCapacityReservation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetGroupsForCapacityReservation
@@ -483,7 +483,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621681193268"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621681228918"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetGroupsForCapacityReservation
 -&gt; ClientResponse ClientBody
@@ -511,10 +511,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681193265"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681193265"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681193264"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681193264"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681193263"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681193263"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681228915"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681228915"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681228914"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681228914"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681228913"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681228913"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [CapacityReservationGroup]
 -&gt; Int
@@ -531,7 +531,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; GetGroupsForCapacityReservationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681193263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681228913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -543,7 +543,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetGroupsForCapacityReservationResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681193263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681228913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;capacityReservationGroupSet&quot;</span></span><span>
@@ -575,22 +575,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681193265"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681228915"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621681193252"><span id="local-6989586621681193254"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621681228902"><span id="local-6989586621681228904"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span></span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621681193249"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621681228899"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621681193245"><span class="annot"><span class="annottext">toHeaders :: GetGroupsForCapacityReservation -&gt; ResponseHeaders
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621681228895"><span class="annot"><span class="annottext">toHeaders :: GetGroupsForCapacityReservation -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; GetGroupsForCapacityReservation -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -599,27 +599,27 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621681193240"><span class="annot"><span class="annottext">toPath :: GetGroupsForCapacityReservation -&gt; ByteString
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621681228890"><span class="annot"><span class="annottext">toPath :: GetGroupsForCapacityReservation -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetGroupsForCapacityReservation -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621681193236"><span class="annot"><span class="annottext">toQuery :: GetGroupsForCapacityReservation -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681193231"><span id="local-6989586621681193232"><span id="local-6989586621681193233"><span id="local-6989586621681193234"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621681228886"><span class="annot"><span class="annottext">toQuery :: GetGroupsForCapacityReservation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservation%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228881"><span id="local-6989586621681228882"><span id="local-6989586621681228883"><span id="local-6989586621681228884"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe Text
 Text
 capacityReservationId :: Text
-dryRun :: Maybe Bool
 maxResults :: Maybe Natural
+dryRun :: Maybe Bool
 nextToken :: Maybe Text
 $sel:capacityReservationId:GetGroupsForCapacityReservation' :: GetGroupsForCapacityReservation -&gt; Text
-$sel:dryRun:GetGroupsForCapacityReservation' :: GetGroupsForCapacityReservation -&gt; Maybe Bool
 $sel:maxResults:GetGroupsForCapacityReservation' :: GetGroupsForCapacityReservation -&gt; Maybe Natural
+$sel:dryRun:GetGroupsForCapacityReservation' :: GetGroupsForCapacityReservation -&gt; Maybe Bool
 $sel:nextToken:GetGroupsForCapacityReservation' :: GetGroupsForCapacityReservation -&gt; Maybe Text
-</span><a href="#local-6989586621681193231"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681228881"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -641,27 +641,27 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681193234"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681228884"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681193233"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681193232"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681228883"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681228882"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;CapacityReservationId&quot;</span></span><span>
 </span><span id="line-208"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681193231"><span class="hs-identifier hs-var">capacityReservationId</span></a></span><span>
+</span><a href="#local-6989586621681228881"><span class="hs-identifier hs-var">capacityReservationId</span></a></span><span>
 </span><span id="line-209"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | /See:/ 'newGetGroupsForCapacityReservationResponse' smart constructor.</span><span>
-</span><span id="line-212"></span><span id="local-6989586621681193228"><span id="local-6989586621681193229"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupsForCapacityReservationResponse"><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse"><span class="hs-identifier hs-var">GetGroupsForCapacityReservationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupsForCapacityReservationResponse%27"><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-var">GetGroupsForCapacityReservationResponse'</span></a></span></span><span>
+</span><span id="line-212"></span><span id="local-6989586621681228878"><span id="local-6989586621681228879"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupsForCapacityReservationResponse"><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse"><span class="hs-identifier hs-var">GetGroupsForCapacityReservationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupsForCapacityReservationResponse%27"><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-var">GetGroupsForCapacityReservationResponse'</span></a></span></span><span>
 </span><span id="line-213"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
 </span><span id="line-214"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
 </span><span id="line-215"></span><span>    </span><span id="%24sel%3AnextToken%3AGetGroupsForCapacityReservationResponse%27"><span class="annot"><span class="annottext">GetGroupsForCapacityReservationResponse -&gt; Maybe Text
@@ -675,7 +675,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-220"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetGroupsForCapacityReservationResponse%27"><span class="annot"><span class="annottext">GetGroupsForCapacityReservationResponse -&gt; Int
 </span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AhttpStatus%3AGetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-221"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681193221"><span id="local-6989586621681193223"><span class="annot"><span class="annottext">GetGroupsForCapacityReservationResponse
+</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681228871"><span id="local-6989586621681228873"><span class="annot"><span class="annottext">GetGroupsForCapacityReservationResponse
 -&gt; GetGroupsForCapacityReservationResponse -&gt; Bool
 (GetGroupsForCapacityReservationResponse
  -&gt; GetGroupsForCapacityReservationResponse -&gt; Bool)
@@ -691,7 +691,7 @@ $c/= :: GetGroupsForCapacityReservationResponse
 -&gt; GetGroupsForCapacityReservationResponse -&gt; Bool
 $c== :: GetGroupsForCapacityReservationResponse
 -&gt; GetGroupsForCapacityReservationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681193213"><span id="local-6989586621681193215"><span id="local-6989586621681193217"><span id="local-6989586621681193219"><span class="annot"><span class="annottext">ReadPrec [GetGroupsForCapacityReservationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681228863"><span id="local-6989586621681228865"><span id="local-6989586621681228867"><span id="local-6989586621681228869"><span class="annot"><span class="annottext">ReadPrec [GetGroupsForCapacityReservationResponse]
 ReadPrec GetGroupsForCapacityReservationResponse
 Int -&gt; ReadS GetGroupsForCapacityReservationResponse
 ReadS [GetGroupsForCapacityReservationResponse]
@@ -711,7 +711,7 @@ readList :: ReadS [GetGroupsForCapacityReservationResponse]
 $creadList :: ReadS [GetGroupsForCapacityReservationResponse]
 readsPrec :: Int -&gt; ReadS GetGroupsForCapacityReservationResponse
 $creadsPrec :: Int -&gt; ReadS GetGroupsForCapacityReservationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681193207"><span id="local-6989586621681193209"><span id="local-6989586621681193211"><span class="annot"><span class="annottext">Int -&gt; GetGroupsForCapacityReservationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681228857"><span id="local-6989586621681228859"><span id="local-6989586621681228861"><span class="annot"><span class="annottext">Int -&gt; GetGroupsForCapacityReservationResponse -&gt; ShowS
 [GetGroupsForCapacityReservationResponse] -&gt; ShowS
 GetGroupsForCapacityReservationResponse -&gt; String
 (Int -&gt; GetGroupsForCapacityReservationResponse -&gt; ShowS)
@@ -770,8 +770,8 @@ GetGroupsForCapacityReservationResponse
 </span><span id="line-242"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse</span></a></span><span>
 </span><span id="line-243"></span><span id="newGetGroupsForCapacityReservationResponse"><span class="annot"><span class="annottext">newGetGroupsForCapacityReservationResponse :: Int -&gt; GetGroupsForCapacityReservationResponse
 </span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#newGetGroupsForCapacityReservationResponse"><span class="hs-identifier hs-var hs-var">newGetGroupsForCapacityReservationResponse</span></a></span></span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621681193204"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681193204"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621681228854"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681228854"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-245"></span><span>    </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservationResponse' :: Maybe Text
 -&gt; Maybe [CapacityReservationGroup]
 -&gt; Int
@@ -789,7 +789,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupsForCapacityReservationResponse' :: Int
 </span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AhttpStatus%3AGetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681193204"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681228854"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-251"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
@@ -803,16 +803,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; GetGroupsForCapacityReservationResponse)
 -&gt; Lens' GetGroupsForCapacityReservationResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681193203"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228853"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetGroupsForCapacityReservationResponse' :: GetGroupsForCapacityReservationResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681193203"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681193203"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681193202"><span class="annot"><span class="annottext">s :: GetGroupsForCapacityReservationResponse
-</span><a href="#local-6989586621681193202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681193201"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681193201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservationResponse
-</span><a href="#local-6989586621681193202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetGroupsForCapacityReservationResponse' :: Maybe Text
+</span><a href="#local-6989586621681228853"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681228853"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228852"><span class="annot"><span class="annottext">s :: GetGroupsForCapacityReservationResponse
+</span><a href="#local-6989586621681228852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228851"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681228851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservationResponse
+</span><a href="#local-6989586621681228852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetGroupsForCapacityReservationResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AnextToken%3AGetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681193201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681228851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>
 </span><span id="line-258"></span><span class="hs-comment">-- | Information about the resource groups to which the Capacity Reservation</span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- has been added.</span><span>
@@ -830,17 +830,17 @@ $sel:nextToken:GetGroupsForCapacityReservationResponse' :: GetGroupsForCapacityR
      GetGroupsForCapacityReservationResponse
      (Maybe [CapacityReservationGroup])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681193200"><span class="annot"><span class="annottext">Maybe [CapacityReservationGroup]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228850"><span class="annot"><span class="annottext">Maybe [CapacityReservationGroup]
 capacityReservationGroups :: Maybe [CapacityReservationGroup]
 $sel:capacityReservationGroups:GetGroupsForCapacityReservationResponse' :: GetGroupsForCapacityReservationResponse
 -&gt; Maybe [CapacityReservationGroup]
-</span><a href="#local-6989586621681193200"><span class="hs-identifier hs-var hs-var">capacityReservationGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityReservationGroup]
-</span><a href="#local-6989586621681193200"><span class="hs-identifier hs-var">capacityReservationGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681193199"><span class="annot"><span class="annottext">s :: GetGroupsForCapacityReservationResponse
-</span><a href="#local-6989586621681193199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681193198"><span class="annot"><span class="annottext">Maybe [CapacityReservationGroup]
-</span><a href="#local-6989586621681193198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservationResponse
-</span><a href="#local-6989586621681193199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityReservationGroups:GetGroupsForCapacityReservationResponse' :: Maybe [CapacityReservationGroup]
+</span><a href="#local-6989586621681228850"><span class="hs-identifier hs-var hs-var">capacityReservationGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityReservationGroup]
+</span><a href="#local-6989586621681228850"><span class="hs-identifier hs-var">capacityReservationGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228849"><span class="annot"><span class="annottext">s :: GetGroupsForCapacityReservationResponse
+</span><a href="#local-6989586621681228849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228848"><span class="annot"><span class="annottext">Maybe [CapacityReservationGroup]
+</span><a href="#local-6989586621681228848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservationResponse
+</span><a href="#local-6989586621681228849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityReservationGroups:GetGroupsForCapacityReservationResponse' :: Maybe [CapacityReservationGroup]
 </span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AcapacityReservationGroups%3AGetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-var">capacityReservationGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityReservationGroup]
-</span><a href="#local-6989586621681193198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CapacityReservationGroup]
+</span><a href="#local-6989586621681228848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CapacityReservationGroup]
   -&gt; f (Maybe [CapacityReservationGroup]))
  -&gt; GetGroupsForCapacityReservationResponse
  -&gt; f GetGroupsForCapacityReservationResponse)
@@ -871,8 +871,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [CapacityReservationGroup]
   [CapacityReservationGroup]
   [CapacityReservationGroup]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-264"></span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#getGroupsForCapacityReservationResponse_httpStatus"><span class="hs-identifier hs-type">getGroupsForCapacityReservationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -888,18 +888,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681193195"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228845"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetGroupsForCapacityReservationResponse' :: GetGroupsForCapacityReservationResponse -&gt; Int
-</span><a href="#local-6989586621681193195"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681193195"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681193194"><span class="annot"><span class="annottext">s :: GetGroupsForCapacityReservationResponse
-</span><a href="#local-6989586621681193194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681193193"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681193193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservationResponse
-</span><a href="#local-6989586621681193194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupsForCapacityReservationResponse' :: Int
+</span><a href="#local-6989586621681228845"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681228845"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228844"><span class="annot"><span class="annottext">s :: GetGroupsForCapacityReservationResponse
+</span><a href="#local-6989586621681228844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228843"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681228843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsForCapacityReservationResponse
+</span><a href="#local-6989586621681228844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupsForCapacityReservationResponse' :: Int
 </span><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#%24sel%3AhttpStatus%3AGetGroupsForCapacityReservationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681193193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681228843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-268"></span><span>  </span><span id="local-6989586621681193191"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621681228841"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-269"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetGroupsForCapacityReservation.html#GetGroupsForCapacityReservationResponse"><span class="hs-identifier hs-type">GetGroupsForCapacityReservationResponse</span></a></span></span><span>
 </span><span id="line-270"></span></pre></body></html>

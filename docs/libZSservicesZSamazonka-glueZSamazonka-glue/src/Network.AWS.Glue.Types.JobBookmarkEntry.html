@@ -26,30 +26,30 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Defines a point that a job can resume processing.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newJobBookmarkEntry' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679686588"><span id="local-6989586621679686589"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobBookmarkEntry"><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-var">JobBookmarkEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobBookmarkEntry%27"><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-var">JobBookmarkEntry'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The run ID number.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3ArunId%3AJobBookmarkEntry%27"><span class="annot"><span class="annottext">JobBookmarkEntry -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3ArunId%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The bookmark itself.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AjobBookmark%3AJobBookmarkEntry%27"><span class="annot"><span class="annottext">JobBookmarkEntry -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3AjobBookmark%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var hs-var">jobBookmark</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The version of the job.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aversion%3AJobBookmarkEntry%27"><span class="annot"><span class="annottext">JobBookmarkEntry -&gt; Maybe Int
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3Aversion%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The run ID number.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Arun%3AJobBookmarkEntry%27"><span class="annot"><span class="annottext">JobBookmarkEntry -&gt; Maybe Int
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3Arun%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var hs-var">run</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the job in question.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AjobName%3AJobBookmarkEntry%27"><span class="annot"><span class="annottext">JobBookmarkEntry -&gt; Maybe Text
+</span><span id="line-29"></span><span id="local-6989586621679688242"><span id="local-6989586621679688243"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobBookmarkEntry"><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-var">JobBookmarkEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobBookmarkEntry%27"><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-var">JobBookmarkEntry'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the job in question.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AjobName%3AJobBookmarkEntry%27"><span class="annot"><span class="annottext">JobBookmarkEntry -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3AjobName%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The run ID number.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Arun%3AJobBookmarkEntry%27"><span class="annot"><span class="annottext">JobBookmarkEntry -&gt; Maybe Int
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3Arun%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var hs-var">run</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The run ID number.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3ArunId%3AJobBookmarkEntry%27"><span class="annot"><span class="annottext">JobBookmarkEntry -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3ArunId%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The version of the job.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aversion%3AJobBookmarkEntry%27"><span class="annot"><span class="annottext">JobBookmarkEntry -&gt; Maybe Int
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3Aversion%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The unique run identifier associated with the previous job run.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3ApreviousRunId%3AJobBookmarkEntry%27"><span class="annot"><span class="annottext">JobBookmarkEntry -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3ApreviousRunId%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var hs-var">previousRunId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The attempt ID number.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Aattempt%3AJobBookmarkEntry%27"><span class="annot"><span class="annottext">JobBookmarkEntry -&gt; Maybe Int
 </span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3Aattempt%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var hs-var">attempt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The unique run identifier associated with the previous job run.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3ApreviousRunId%3AJobBookmarkEntry%27"><span class="annot"><span class="annottext">JobBookmarkEntry -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3ApreviousRunId%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var hs-var">previousRunId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The bookmark itself.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AjobBookmark%3AJobBookmarkEntry%27"><span class="annot"><span class="annottext">JobBookmarkEntry -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3AjobBookmark%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var hs-var">jobBookmark</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679686576"><span id="local-6989586621679686578"><span class="annot"><span class="annottext">JobBookmarkEntry -&gt; JobBookmarkEntry -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679688230"><span id="local-6989586621679688232"><span class="annot"><span class="annottext">JobBookmarkEntry -&gt; JobBookmarkEntry -&gt; Bool
 (JobBookmarkEntry -&gt; JobBookmarkEntry -&gt; Bool)
 -&gt; (JobBookmarkEntry -&gt; JobBookmarkEntry -&gt; Bool)
 -&gt; Eq JobBookmarkEntry
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JobBookmarkEntry -&gt; JobBookmarkEntry -&gt; Bool
 == :: JobBookmarkEntry -&gt; JobBookmarkEntry -&gt; Bool
 $c== :: JobBookmarkEntry -&gt; JobBookmarkEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679686567"><span id="local-6989586621679686569"><span id="local-6989586621679686571"><span id="local-6989586621679686573"><span class="annot"><span class="annottext">ReadPrec [JobBookmarkEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679688221"><span id="local-6989586621679688223"><span id="local-6989586621679688225"><span id="local-6989586621679688227"><span class="annot"><span class="annottext">ReadPrec [JobBookmarkEntry]
 ReadPrec JobBookmarkEntry
 Int -&gt; ReadS JobBookmarkEntry
 ReadS [JobBookmarkEntry]
@@ -78,7 +78,7 @@ readList :: ReadS [JobBookmarkEntry]
 $creadList :: ReadS [JobBookmarkEntry]
 readsPrec :: Int -&gt; ReadS JobBookmarkEntry
 $creadsPrec :: Int -&gt; ReadS JobBookmarkEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679686560"><span id="local-6989586621679686562"><span id="local-6989586621679686564"><span class="annot"><span class="annottext">Int -&gt; JobBookmarkEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679688214"><span id="local-6989586621679688216"><span id="local-6989586621679688218"><span class="annot"><span class="annottext">Int -&gt; JobBookmarkEntry -&gt; ShowS
 [JobBookmarkEntry] -&gt; ShowS
 JobBookmarkEntry -&gt; String
 (Int -&gt; JobBookmarkEntry -&gt; ShowS)
@@ -112,156 +112,156 @@ $cfrom :: forall x. JobBookmarkEntry -&gt; Rep JobBookmarkEntry x
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'runId', 'jobBookmarkEntry_runId' - The run ID number.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'jobName', 'jobBookmarkEntry_jobName' - The name of the job in question.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'jobBookmark', 'jobBookmarkEntry_jobBookmark' - The bookmark itself.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'run', 'jobBookmarkEntry_run' - The run ID number.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'version', 'jobBookmarkEntry_version' - The version of the job.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'runId', 'jobBookmarkEntry_runId' - The run ID number.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'run', 'jobBookmarkEntry_run' - The run ID number.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'version', 'jobBookmarkEntry_version' - The version of the job.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'jobName', 'jobBookmarkEntry_jobName' - The name of the job in question.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'previousRunId', 'jobBookmarkEntry_previousRunId' - The unique run identifier associated with the previous job run.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- 'attempt', 'jobBookmarkEntry_attempt' - The attempt ID number.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'previousRunId', 'jobBookmarkEntry_previousRunId' - The unique run identifier associated with the previous job run.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'jobBookmark', 'jobBookmarkEntry_jobBookmark' - The bookmark itself.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#newJobBookmarkEntry"><span class="hs-identifier hs-type">newJobBookmarkEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span>
 </span><span id="line-70"></span><span id="newJobBookmarkEntry"><span class="annot"><span class="annottext">newJobBookmarkEntry :: JobBookmarkEntry
 </span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#newJobBookmarkEntry"><span class="hs-identifier hs-var hs-var">newJobBookmarkEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">JobBookmarkEntry' :: Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Int
+-&gt; Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe Text
 -&gt; JobBookmarkEntry
 </span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:runId:JobBookmarkEntry' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3ArunId%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobName:JobBookmarkEntry' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3AjobName%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobBookmark:JobBookmarkEntry' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3AjobBookmark%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">jobBookmark</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:JobBookmarkEntry' :: Maybe Int
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3Aversion%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:run:JobBookmarkEntry' :: Maybe Int
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:run:JobBookmarkEntry' :: Maybe Int
 </span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3Arun%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">run</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobName:JobBookmarkEntry' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3AjobName%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:runId:JobBookmarkEntry' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3ArunId%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:JobBookmarkEntry' :: Maybe Int
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3Aversion%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:previousRunId:JobBookmarkEntry' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3ApreviousRunId%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">previousRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:attempt:JobBookmarkEntry' :: Maybe Int
 </span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3Aattempt%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">attempt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:previousRunId:JobBookmarkEntry' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3ApreviousRunId%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">previousRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobBookmark:JobBookmarkEntry' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3AjobBookmark%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">jobBookmark</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The run ID number.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_runId"><span class="hs-identifier hs-type">jobBookmarkEntry_runId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="jobBookmarkEntry_runId"><span class="annot"><span class="annottext">jobBookmarkEntry_runId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; JobBookmarkEntry -&gt; f JobBookmarkEntry
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_runId"><span class="hs-identifier hs-var hs-var">jobBookmarkEntry_runId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobBookmarkEntry -&gt; Maybe Text)
--&gt; (JobBookmarkEntry -&gt; Maybe Text -&gt; JobBookmarkEntry)
--&gt; Lens JobBookmarkEntry JobBookmarkEntry (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679686551"><span class="annot"><span class="annottext">Maybe Text
-runId :: Maybe Text
-$sel:runId:JobBookmarkEntry' :: JobBookmarkEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679686551"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686551"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679686550"><span class="annot"><span class="annottext">s :: JobBookmarkEntry
-</span><a href="#local-6989586621679686550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679686549"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobBookmarkEntry
-</span><a href="#local-6989586621679686550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:JobBookmarkEntry' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3ArunId%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The bookmark itself.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_jobBookmark"><span class="hs-identifier hs-type">jobBookmarkEntry_jobBookmark</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="jobBookmarkEntry_jobBookmark"><span class="annot"><span class="annottext">jobBookmarkEntry_jobBookmark :: (Maybe Text -&gt; f (Maybe Text))
--&gt; JobBookmarkEntry -&gt; f JobBookmarkEntry
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_jobBookmark"><span class="hs-identifier hs-var hs-var">jobBookmarkEntry_jobBookmark</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobBookmarkEntry -&gt; Maybe Text)
--&gt; (JobBookmarkEntry -&gt; Maybe Text -&gt; JobBookmarkEntry)
--&gt; Lens JobBookmarkEntry JobBookmarkEntry (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679686547"><span class="annot"><span class="annottext">Maybe Text
-jobBookmark :: Maybe Text
-$sel:jobBookmark:JobBookmarkEntry' :: JobBookmarkEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679686547"><span class="hs-identifier hs-var hs-var">jobBookmark</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686547"><span class="hs-identifier hs-var">jobBookmark</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679686546"><span class="annot"><span class="annottext">s :: JobBookmarkEntry
-</span><a href="#local-6989586621679686546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679686545"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobBookmarkEntry
-</span><a href="#local-6989586621679686546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobBookmark:JobBookmarkEntry' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3AjobBookmark%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">jobBookmark</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The version of the job.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_version"><span class="hs-identifier hs-type">jobBookmarkEntry_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="jobBookmarkEntry_version"><span class="annot"><span class="annottext">jobBookmarkEntry_version :: (Maybe Int -&gt; f (Maybe Int))
--&gt; JobBookmarkEntry -&gt; f JobBookmarkEntry
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_version"><span class="hs-identifier hs-var hs-var">jobBookmarkEntry_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobBookmarkEntry -&gt; Maybe Int)
--&gt; (JobBookmarkEntry -&gt; Maybe Int -&gt; JobBookmarkEntry)
--&gt; Lens JobBookmarkEntry JobBookmarkEntry (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679686543"><span class="annot"><span class="annottext">Maybe Int
-version :: Maybe Int
-$sel:version:JobBookmarkEntry' :: JobBookmarkEntry -&gt; Maybe Int
-</span><a href="#local-6989586621679686543"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679686543"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679686542"><span class="annot"><span class="annottext">s :: JobBookmarkEntry
-</span><a href="#local-6989586621679686542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679686541"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679686541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobBookmarkEntry
-</span><a href="#local-6989586621679686542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:JobBookmarkEntry' :: Maybe Int
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3Aversion%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679686541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The run ID number.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_run"><span class="hs-identifier hs-type">jobBookmarkEntry_run</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="jobBookmarkEntry_run"><span class="annot"><span class="annottext">jobBookmarkEntry_run :: (Maybe Int -&gt; f (Maybe Int))
--&gt; JobBookmarkEntry -&gt; f JobBookmarkEntry
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_run"><span class="hs-identifier hs-var hs-var">jobBookmarkEntry_run</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobBookmarkEntry -&gt; Maybe Int)
--&gt; (JobBookmarkEntry -&gt; Maybe Int -&gt; JobBookmarkEntry)
--&gt; Lens JobBookmarkEntry JobBookmarkEntry (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679686539"><span class="annot"><span class="annottext">Maybe Int
-run :: Maybe Int
-$sel:run:JobBookmarkEntry' :: JobBookmarkEntry -&gt; Maybe Int
-</span><a href="#local-6989586621679686539"><span class="hs-identifier hs-var hs-var">run</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679686539"><span class="hs-identifier hs-var">run</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679686538"><span class="annot"><span class="annottext">s :: JobBookmarkEntry
-</span><a href="#local-6989586621679686538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679686537"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679686537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobBookmarkEntry
-</span><a href="#local-6989586621679686538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:run:JobBookmarkEntry' :: Maybe Int
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3Arun%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">run</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679686537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The name of the job in question.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_jobName"><span class="hs-identifier hs-type">jobBookmarkEntry_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="jobBookmarkEntry_jobName"><span class="annot"><span class="annottext">jobBookmarkEntry_jobName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-81"></span><span class="hs-comment">-- | The name of the job in question.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_jobName"><span class="hs-identifier hs-type">jobBookmarkEntry_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="jobBookmarkEntry_jobName"><span class="annot"><span class="annottext">jobBookmarkEntry_jobName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; JobBookmarkEntry -&gt; f JobBookmarkEntry
 </span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_jobName"><span class="hs-identifier hs-var hs-var">jobBookmarkEntry_jobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobBookmarkEntry -&gt; Maybe Text)
 -&gt; (JobBookmarkEntry -&gt; Maybe Text -&gt; JobBookmarkEntry)
 -&gt; Lens JobBookmarkEntry JobBookmarkEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679686535"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688205"><span class="annot"><span class="annottext">Maybe Text
 jobName :: Maybe Text
 $sel:jobName:JobBookmarkEntry' :: JobBookmarkEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679686535"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686535"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679686534"><span class="annot"><span class="annottext">s :: JobBookmarkEntry
-</span><a href="#local-6989586621679686534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679686533"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobBookmarkEntry
-</span><a href="#local-6989586621679686534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:JobBookmarkEntry' :: Maybe Text
+</span><a href="#local-6989586621679688205"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679688205"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688204"><span class="annot"><span class="annottext">s :: JobBookmarkEntry
+</span><a href="#local-6989586621679688204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688203"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679688203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobBookmarkEntry
+</span><a href="#local-6989586621679688204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:JobBookmarkEntry' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3AjobName%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679688203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The run ID number.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_run"><span class="hs-identifier hs-type">jobBookmarkEntry_run</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="jobBookmarkEntry_run"><span class="annot"><span class="annottext">jobBookmarkEntry_run :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; JobBookmarkEntry -&gt; f JobBookmarkEntry
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_run"><span class="hs-identifier hs-var hs-var">jobBookmarkEntry_run</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobBookmarkEntry -&gt; Maybe Int)
+-&gt; (JobBookmarkEntry -&gt; Maybe Int -&gt; JobBookmarkEntry)
+-&gt; Lens JobBookmarkEntry JobBookmarkEntry (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688201"><span class="annot"><span class="annottext">Maybe Int
+run :: Maybe Int
+$sel:run:JobBookmarkEntry' :: JobBookmarkEntry -&gt; Maybe Int
+</span><a href="#local-6989586621679688201"><span class="hs-identifier hs-var hs-var">run</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679688201"><span class="hs-identifier hs-var">run</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688200"><span class="annot"><span class="annottext">s :: JobBookmarkEntry
+</span><a href="#local-6989586621679688200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688199"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679688199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobBookmarkEntry
+</span><a href="#local-6989586621679688200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:run:JobBookmarkEntry' :: Maybe Int
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3Arun%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">run</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679688199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The run ID number.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_runId"><span class="hs-identifier hs-type">jobBookmarkEntry_runId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="jobBookmarkEntry_runId"><span class="annot"><span class="annottext">jobBookmarkEntry_runId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; JobBookmarkEntry -&gt; f JobBookmarkEntry
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_runId"><span class="hs-identifier hs-var hs-var">jobBookmarkEntry_runId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobBookmarkEntry -&gt; Maybe Text)
+-&gt; (JobBookmarkEntry -&gt; Maybe Text -&gt; JobBookmarkEntry)
+-&gt; Lens JobBookmarkEntry JobBookmarkEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688197"><span class="annot"><span class="annottext">Maybe Text
+runId :: Maybe Text
+$sel:runId:JobBookmarkEntry' :: JobBookmarkEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679688197"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679688197"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688196"><span class="annot"><span class="annottext">s :: JobBookmarkEntry
+</span><a href="#local-6989586621679688196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688195"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679688195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobBookmarkEntry
+</span><a href="#local-6989586621679688196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:JobBookmarkEntry' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3ArunId%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679688195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The version of the job.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_version"><span class="hs-identifier hs-type">jobBookmarkEntry_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="jobBookmarkEntry_version"><span class="annot"><span class="annottext">jobBookmarkEntry_version :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; JobBookmarkEntry -&gt; f JobBookmarkEntry
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_version"><span class="hs-identifier hs-var hs-var">jobBookmarkEntry_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobBookmarkEntry -&gt; Maybe Int)
+-&gt; (JobBookmarkEntry -&gt; Maybe Int -&gt; JobBookmarkEntry)
+-&gt; Lens JobBookmarkEntry JobBookmarkEntry (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688193"><span class="annot"><span class="annottext">Maybe Int
+version :: Maybe Int
+$sel:version:JobBookmarkEntry' :: JobBookmarkEntry -&gt; Maybe Int
+</span><a href="#local-6989586621679688193"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679688193"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688192"><span class="annot"><span class="annottext">s :: JobBookmarkEntry
+</span><a href="#local-6989586621679688192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688191"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679688191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobBookmarkEntry
+</span><a href="#local-6989586621679688192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:JobBookmarkEntry' :: Maybe Int
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3Aversion%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679688191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The unique run identifier associated with the previous job run.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_previousRunId"><span class="hs-identifier hs-type">jobBookmarkEntry_previousRunId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="jobBookmarkEntry_previousRunId"><span class="annot"><span class="annottext">jobBookmarkEntry_previousRunId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; JobBookmarkEntry -&gt; f JobBookmarkEntry
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_previousRunId"><span class="hs-identifier hs-var hs-var">jobBookmarkEntry_previousRunId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobBookmarkEntry -&gt; Maybe Text)
+-&gt; (JobBookmarkEntry -&gt; Maybe Text -&gt; JobBookmarkEntry)
+-&gt; Lens JobBookmarkEntry JobBookmarkEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688189"><span class="annot"><span class="annottext">Maybe Text
+previousRunId :: Maybe Text
+$sel:previousRunId:JobBookmarkEntry' :: JobBookmarkEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679688189"><span class="hs-identifier hs-var hs-var">previousRunId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679688189"><span class="hs-identifier hs-var">previousRunId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688188"><span class="annot"><span class="annottext">s :: JobBookmarkEntry
+</span><a href="#local-6989586621679688188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688187"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679688187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobBookmarkEntry
+</span><a href="#local-6989586621679688188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:previousRunId:JobBookmarkEntry' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3ApreviousRunId%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">previousRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679688187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The attempt ID number.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_attempt"><span class="hs-identifier hs-type">jobBookmarkEntry_attempt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -271,38 +271,38 @@ $sel:jobName:JobBookmarkEntry' :: JobBookmarkEntry -&gt; Maybe Text
 -&gt; (JobBookmarkEntry -&gt; Maybe Int -&gt; JobBookmarkEntry)
 -&gt; Lens JobBookmarkEntry JobBookmarkEntry (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679686531"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688185"><span class="annot"><span class="annottext">Maybe Int
 attempt :: Maybe Int
 $sel:attempt:JobBookmarkEntry' :: JobBookmarkEntry -&gt; Maybe Int
-</span><a href="#local-6989586621679686531"><span class="hs-identifier hs-var hs-var">attempt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679686531"><span class="hs-identifier hs-var">attempt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679686530"><span class="annot"><span class="annottext">s :: JobBookmarkEntry
-</span><a href="#local-6989586621679686530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679686529"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679686529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobBookmarkEntry
-</span><a href="#local-6989586621679686530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attempt:JobBookmarkEntry' :: Maybe Int
+</span><a href="#local-6989586621679688185"><span class="hs-identifier hs-var hs-var">attempt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679688185"><span class="hs-identifier hs-var">attempt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688184"><span class="annot"><span class="annottext">s :: JobBookmarkEntry
+</span><a href="#local-6989586621679688184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688183"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679688183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobBookmarkEntry
+</span><a href="#local-6989586621679688184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attempt:JobBookmarkEntry' :: Maybe Int
 </span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3Aattempt%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">attempt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679686529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679688183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The unique run identifier associated with the previous job run.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_previousRunId"><span class="hs-identifier hs-type">jobBookmarkEntry_previousRunId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="jobBookmarkEntry_previousRunId"><span class="annot"><span class="annottext">jobBookmarkEntry_previousRunId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-105"></span><span class="hs-comment">-- | The bookmark itself.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_jobBookmark"><span class="hs-identifier hs-type">jobBookmarkEntry_jobBookmark</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="jobBookmarkEntry_jobBookmark"><span class="annot"><span class="annottext">jobBookmarkEntry_jobBookmark :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; JobBookmarkEntry -&gt; f JobBookmarkEntry
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_previousRunId"><span class="hs-identifier hs-var hs-var">jobBookmarkEntry_previousRunId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobBookmarkEntry -&gt; Maybe Text)
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#jobBookmarkEntry_jobBookmark"><span class="hs-identifier hs-var hs-var">jobBookmarkEntry_jobBookmark</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobBookmarkEntry -&gt; Maybe Text)
 -&gt; (JobBookmarkEntry -&gt; Maybe Text -&gt; JobBookmarkEntry)
 -&gt; Lens JobBookmarkEntry JobBookmarkEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679686527"><span class="annot"><span class="annottext">Maybe Text
-previousRunId :: Maybe Text
-$sel:previousRunId:JobBookmarkEntry' :: JobBookmarkEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679686527"><span class="hs-identifier hs-var hs-var">previousRunId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686527"><span class="hs-identifier hs-var">previousRunId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679686526"><span class="annot"><span class="annottext">s :: JobBookmarkEntry
-</span><a href="#local-6989586621679686526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679686525"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobBookmarkEntry
-</span><a href="#local-6989586621679686526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:previousRunId:JobBookmarkEntry' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3ApreviousRunId%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">previousRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688181"><span class="annot"><span class="annottext">Maybe Text
+jobBookmark :: Maybe Text
+$sel:jobBookmark:JobBookmarkEntry' :: JobBookmarkEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679688181"><span class="hs-identifier hs-var hs-var">jobBookmark</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679688181"><span class="hs-identifier hs-var">jobBookmark</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688180"><span class="annot"><span class="annottext">s :: JobBookmarkEntry
+</span><a href="#local-6989586621679688180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-type">JobBookmarkEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688179"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679688179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobBookmarkEntry
+</span><a href="#local-6989586621679688180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobBookmark:JobBookmarkEntry' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#%24sel%3AjobBookmark%3AJobBookmarkEntry%27"><span class="hs-identifier hs-var">jobBookmark</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679688179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679686522"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679686520"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobBookmarkEntry
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679688176"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679688174"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobBookmarkEntry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JobBookmarkEntry)
@@ -312,11 +312,11 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JobBookmarkEntry&quot;</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679686517"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679686517"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679688171"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679688171"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Int
+-&gt; Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe Text
 -&gt; Maybe Int
@@ -324,8 +324,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; JobBookmarkEntry
 </span><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry%27"><span class="hs-identifier hs-var">JobBookmarkEntry'</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe Int
+ -&gt; Maybe Text
  -&gt; Maybe Int
  -&gt; Maybe Text
  -&gt; Maybe Int
@@ -333,8 +333,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
  -&gt; JobBookmarkEntry)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Int
+     (Maybe Int
+      -&gt; Maybe Text
       -&gt; Maybe Int
       -&gt; Maybe Text
       -&gt; Maybe Int
@@ -342,13 +342,34 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; JobBookmarkEntry)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679686517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679688171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RunId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;JobName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+  (Maybe Int
+   -&gt; Maybe Text
    -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; JobBookmarkEntry)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; JobBookmarkEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679688171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Run&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
    -&gt; Maybe Int
    -&gt; Maybe Text
    -&gt; Maybe Int
@@ -357,34 +378,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Int
-      -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; JobBookmarkEntry)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679686517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;JobBookmark&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; JobBookmarkEntry)
--&gt; Parser (Maybe Int)
--&gt; Parser
-     (Maybe Int
       -&gt; Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; JobBookmarkEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679686517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679688171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;RunId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Int
    -&gt; Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; JobBookmarkEntry)
@@ -393,24 +393,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; JobBookmarkEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679686517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679688171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Run&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; JobBookmarkEntry)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Int -&gt; Maybe Text -&gt; JobBookmarkEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679686517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679688171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;JobName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;PreviousRunId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Text -&gt; JobBookmarkEntry)
 -&gt; Parser (Maybe Int) -&gt; Parser (Maybe Text -&gt; JobBookmarkEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679686517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679688171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attempt&quot;</span></span><span class="hs-special">)</span><span>
@@ -418,13 +418,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser JobBookmarkEntry
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679686517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679688171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PreviousRunId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;JobBookmark&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679686511"><span id="local-6989586621679686513"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679688165"><span id="local-6989586621679688167"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679686508"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679688162"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobBookmarkEntry.html#JobBookmarkEntry"><span class="hs-identifier hs-type">JobBookmarkEntry</span></a></span></span><span>
 </span><span id="line-127"></span></pre></body></html>

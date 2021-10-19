@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621680349988"><span id="local-6989586621680349989"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TransformJobStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStatus.html#TransformJobStatus"><span class="hs-identifier hs-var">TransformJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformJobStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStatus.html#TransformJobStatus%27"><span class="hs-identifier hs-var">TransformJobStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621680351419"><span id="local-6989586621680351420"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TransformJobStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStatus.html#TransformJobStatus"><span class="hs-identifier hs-var">TransformJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformJobStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStatus.html#TransformJobStatus%27"><span class="hs-identifier hs-var">TransformJobStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTransformJobStatus"><span class="annot"><span class="annottext">TransformJobStatus -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.TransformJobStatus.html#fromTransformJobStatus"><span class="hs-identifier hs-var hs-var">fromTransformJobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680349980"><span id="local-6989586621680349982"><span id="local-6989586621680349984"><span class="annot"><span class="annottext">Int -&gt; TransformJobStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680351411"><span id="local-6989586621680351413"><span id="local-6989586621680351415"><span class="annot"><span class="annottext">Int -&gt; TransformJobStatus -&gt; ShowS
 [TransformJobStatus] -&gt; ShowS
 TransformJobStatus -&gt; String
 (Int -&gt; TransformJobStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: TransformJobStatus -&gt; String
 showsPrec :: Int -&gt; TransformJobStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; TransformJobStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680349971"><span id="local-6989586621680349973"><span id="local-6989586621680349975"><span id="local-6989586621680349977"><span class="annot"><span class="annottext">ReadPrec [TransformJobStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680351402"><span id="local-6989586621680351404"><span id="local-6989586621680351406"><span id="local-6989586621680351408"><span class="annot"><span class="annottext">ReadPrec [TransformJobStatus]
 ReadPrec TransformJobStatus
 Int -&gt; ReadS TransformJobStatus
 ReadS [TransformJobStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [TransformJobStatus]
 readsPrec :: Int -&gt; ReadS TransformJobStatus
 $creadsPrec :: Int -&gt; ReadS TransformJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680349966"><span id="local-6989586621680349968"><span class="annot"><span class="annottext">TransformJobStatus -&gt; TransformJobStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680351397"><span id="local-6989586621680351399"><span class="annot"><span class="annottext">TransformJobStatus -&gt; TransformJobStatus -&gt; Bool
 (TransformJobStatus -&gt; TransformJobStatus -&gt; Bool)
 -&gt; (TransformJobStatus -&gt; TransformJobStatus -&gt; Bool)
 -&gt; Eq TransformJobStatus
@@ -85,7 +85,7 @@ $c/= :: TransformJobStatus -&gt; TransformJobStatus -&gt; Bool
 == :: TransformJobStatus -&gt; TransformJobStatus -&gt; Bool
 $c== :: TransformJobStatus -&gt; TransformJobStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680349950"><span id="local-6989586621680349952"><span id="local-6989586621680349954"><span id="local-6989586621680349956"><span id="local-6989586621680349958"><span id="local-6989586621680349960"><span id="local-6989586621680349962"><span class="annot"><span class="annottext">Eq TransformJobStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680351381"><span id="local-6989586621680351383"><span id="local-6989586621680351385"><span id="local-6989586621680351387"><span id="local-6989586621680351389"><span id="local-6989586621680351391"><span id="local-6989586621680351393"><span class="annot"><span class="annottext">Eq TransformJobStatus
 Eq TransformJobStatus
 -&gt; (TransformJobStatus -&gt; TransformJobStatus -&gt; Ordering)
 -&gt; (TransformJobStatus -&gt; TransformJobStatus -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. TransformJobStatus -&gt; Rep TransformJobStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680349942"><span id="local-6989586621680349944"><span class="annot"><span class="annottext">Int -&gt; TransformJobStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680351373"><span id="local-6989586621680351375"><span class="annot"><span class="annottext">Int -&gt; TransformJobStatus -&gt; Int
 TransformJobStatus -&gt; Int
 (Int -&gt; TransformJobStatus -&gt; Int)
 -&gt; (TransformJobStatus -&gt; Int) -&gt; Hashable TransformJobStatus
@@ -146,53 +146,53 @@ $chash :: TransformJobStatus -&gt; Int
 hashWithSalt :: Int -&gt; TransformJobStatus -&gt; Int
 $chashWithSalt :: Int -&gt; TransformJobStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680349939"><span class="annot"><span class="annottext">TransformJobStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680351370"><span class="annot"><span class="annottext">TransformJobStatus -&gt; ()
 (TransformJobStatus -&gt; ()) -&gt; NFData TransformJobStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TransformJobStatus -&gt; ()
 $crnf :: TransformJobStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680349936"><span class="annot"><span class="annottext">Text -&gt; Either String TransformJobStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680351367"><span class="annot"><span class="annottext">Text -&gt; Either String TransformJobStatus
 (Text -&gt; Either String TransformJobStatus)
 -&gt; FromText TransformJobStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TransformJobStatus
 $cfromText :: Text -&gt; Either String TransformJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680349933"><span class="annot"><span class="annottext">TransformJobStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680351364"><span class="annot"><span class="annottext">TransformJobStatus -&gt; Text
 (TransformJobStatus -&gt; Text) -&gt; ToText TransformJobStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TransformJobStatus -&gt; Text
 $ctoText :: TransformJobStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680349930"><span class="annot"><span class="annottext">TransformJobStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680351361"><span class="annot"><span class="annottext">TransformJobStatus -&gt; ByteString
 (TransformJobStatus -&gt; ByteString)
 -&gt; ToByteString TransformJobStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TransformJobStatus -&gt; ByteString
 $ctoBS :: TransformJobStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680349927"><span class="annot"><span class="annottext">TransformJobStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680351358"><span class="annot"><span class="annottext">TransformJobStatus -&gt; ByteStringBuilder
 (TransformJobStatus -&gt; ByteStringBuilder)
 -&gt; ToLog TransformJobStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TransformJobStatus -&gt; ByteStringBuilder
 $cbuild :: TransformJobStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680349924"><span class="annot"><span class="annottext">HeaderName -&gt; TransformJobStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680351355"><span class="annot"><span class="annottext">HeaderName -&gt; TransformJobStatus -&gt; [Header]
 (HeaderName -&gt; TransformJobStatus -&gt; [Header])
 -&gt; ToHeader TransformJobStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TransformJobStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TransformJobStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680349921"><span class="annot"><span class="annottext">TransformJobStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680351352"><span class="annot"><span class="annottext">TransformJobStatus -&gt; QueryString
 (TransformJobStatus -&gt; QueryString) -&gt; ToQuery TransformJobStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TransformJobStatus -&gt; QueryString
 $ctoQuery :: TransformJobStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680349916"><span id="local-6989586621680349918"><span class="annot"><span class="annottext">Value -&gt; Parser [TransformJobStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680351347"><span id="local-6989586621680351349"><span class="annot"><span class="annottext">Value -&gt; Parser [TransformJobStatus]
 Value -&gt; Parser TransformJobStatus
 (Value -&gt; Parser TransformJobStatus)
 -&gt; (Value -&gt; Parser [TransformJobStatus])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [TransformJobStatus]
 parseJSON :: Value -&gt; Parser TransformJobStatus
 $cparseJSON :: Value -&gt; Parser TransformJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680349911"><span id="local-6989586621680349913"><span class="annot"><span class="annottext">FromJSONKeyFunction [TransformJobStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680351342"><span id="local-6989586621680351344"><span class="annot"><span class="annottext">FromJSONKeyFunction [TransformJobStatus]
 FromJSONKeyFunction TransformJobStatus
 FromJSONKeyFunction TransformJobStatus
 -&gt; FromJSONKeyFunction [TransformJobStatus]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TransformJobStatus]
 fromJSONKey :: FromJSONKeyFunction TransformJobStatus
 $cfromJSONKey :: FromJSONKeyFunction TransformJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680349902"><span id="local-6989586621680349904"><span id="local-6989586621680349906"><span id="local-6989586621680349908"><span class="annot"><span class="annottext">[TransformJobStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680351333"><span id="local-6989586621680351335"><span id="local-6989586621680351337"><span id="local-6989586621680351339"><span class="annot"><span class="annottext">[TransformJobStatus] -&gt; Encoding
 [TransformJobStatus] -&gt; Value
 TransformJobStatus -&gt; Encoding
 TransformJobStatus -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: TransformJobStatus -&gt; Encoding
 toJSON :: TransformJobStatus -&gt; Value
 $ctoJSON :: TransformJobStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680349897"><span id="local-6989586621680349899"><span class="annot"><span class="annottext">ToJSONKeyFunction [TransformJobStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680351328"><span id="local-6989586621680351330"><span class="annot"><span class="annottext">ToJSONKeyFunction [TransformJobStatus]
 ToJSONKeyFunction TransformJobStatus
 ToJSONKeyFunction TransformJobStatus
 -&gt; ToJSONKeyFunction [TransformJobStatus]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TransformJobStatus]
 toJSONKey :: ToJSONKeyFunction TransformJobStatus
 $ctoJSONKey :: ToJSONKeyFunction TransformJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680349894"><span class="annot"><span class="annottext">[Node] -&gt; Either String TransformJobStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680351325"><span class="annot"><span class="annottext">[Node] -&gt; Either String TransformJobStatus
 ([Node] -&gt; Either String TransformJobStatus)
 -&gt; FromXML TransformJobStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TransformJobStatus
 $cparseXML :: [Node] -&gt; Either String TransformJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680349891"><span class="annot"><span class="annottext">TransformJobStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680351322"><span class="annot"><span class="annottext">TransformJobStatus -&gt; XML
 (TransformJobStatus -&gt; XML) -&gt; ToXML TransformJobStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TransformJobStatus -&gt; XML

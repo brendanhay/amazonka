@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- accounts and regions in an aggregator.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAggregateComplianceCount' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679395326"><span id="local-6989586621679395327"></span></span><span class="hs-keyword">data</span><span> </span><span id="AggregateComplianceCount"><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount"><span class="hs-identifier hs-var">AggregateComplianceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregateComplianceCount%27"><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount%27"><span class="hs-identifier hs-var">AggregateComplianceCount'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of compliant and noncompliant Config rules.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcomplianceSummary%3AAggregateComplianceCount%27"><span class="annot"><span class="annottext">AggregateComplianceCount -&gt; Maybe ComplianceSummary
-</span><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#%24sel%3AcomplianceSummary%3AAggregateComplianceCount%27"><span class="hs-identifier hs-var hs-var">complianceSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ComplianceSummary.html#ComplianceSummary"><span class="hs-identifier hs-type">ComplianceSummary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The 12-digit account ID or region based on the GroupByKey value.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AgroupName%3AAggregateComplianceCount%27"><span class="annot"><span class="annottext">AggregateComplianceCount -&gt; Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#%24sel%3AgroupName%3AAggregateComplianceCount%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679395904"><span id="local-6989586621679395905"></span></span><span class="hs-keyword">data</span><span> </span><span id="AggregateComplianceCount"><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount"><span class="hs-identifier hs-var">AggregateComplianceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregateComplianceCount%27"><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount%27"><span class="hs-identifier hs-var">AggregateComplianceCount'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The 12-digit account ID or region based on the GroupByKey value.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AgroupName%3AAggregateComplianceCount%27"><span class="annot"><span class="annottext">AggregateComplianceCount -&gt; Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#%24sel%3AgroupName%3AAggregateComplianceCount%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The number of compliant and noncompliant Config rules.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcomplianceSummary%3AAggregateComplianceCount%27"><span class="annot"><span class="annottext">AggregateComplianceCount -&gt; Maybe ComplianceSummary
+</span><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#%24sel%3AcomplianceSummary%3AAggregateComplianceCount%27"><span class="hs-identifier hs-var hs-var">complianceSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ComplianceSummary.html#ComplianceSummary"><span class="hs-identifier hs-type">ComplianceSummary</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395319"><span id="local-6989586621679395321"><span class="annot"><span class="annottext">AggregateComplianceCount -&gt; AggregateComplianceCount -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395897"><span id="local-6989586621679395899"><span class="annot"><span class="annottext">AggregateComplianceCount -&gt; AggregateComplianceCount -&gt; Bool
 (AggregateComplianceCount -&gt; AggregateComplianceCount -&gt; Bool)
 -&gt; (AggregateComplianceCount -&gt; AggregateComplianceCount -&gt; Bool)
 -&gt; Eq AggregateComplianceCount
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AggregateComplianceCount -&gt; AggregateComplianceCount -&gt; Bool
 == :: AggregateComplianceCount -&gt; AggregateComplianceCount -&gt; Bool
 $c== :: AggregateComplianceCount -&gt; AggregateComplianceCount -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395310"><span id="local-6989586621679395312"><span id="local-6989586621679395314"><span id="local-6989586621679395316"><span class="annot"><span class="annottext">ReadPrec [AggregateComplianceCount]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395888"><span id="local-6989586621679395890"><span id="local-6989586621679395892"><span id="local-6989586621679395894"><span class="annot"><span class="annottext">ReadPrec [AggregateComplianceCount]
 ReadPrec AggregateComplianceCount
 Int -&gt; ReadS AggregateComplianceCount
 ReadS [AggregateComplianceCount]
@@ -65,7 +65,7 @@ readList :: ReadS [AggregateComplianceCount]
 $creadList :: ReadS [AggregateComplianceCount]
 readsPrec :: Int -&gt; ReadS AggregateComplianceCount
 $creadsPrec :: Int -&gt; ReadS AggregateComplianceCount
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395303"><span id="local-6989586621679395305"><span id="local-6989586621679395307"><span class="annot"><span class="annottext">Int -&gt; AggregateComplianceCount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395881"><span id="local-6989586621679395883"><span id="local-6989586621679395885"><span class="annot"><span class="annottext">Int -&gt; AggregateComplianceCount -&gt; ShowS
 [AggregateComplianceCount] -&gt; ShowS
 AggregateComplianceCount -&gt; String
 (Int -&gt; AggregateComplianceCount -&gt; ShowS)
@@ -105,53 +105,29 @@ AggregateComplianceCount -&gt; Rep AggregateComplianceCount x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'complianceSummary', 'aggregateComplianceCount_complianceSummary' - The number of compliant and noncompliant Config rules.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'groupName', 'aggregateComplianceCount_groupName' - The 12-digit account ID or region based on the GroupByKey value.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'groupName', 'aggregateComplianceCount_groupName' - The 12-digit account ID or region based on the GroupByKey value.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'complianceSummary', 'aggregateComplianceCount_complianceSummary' - The number of compliant and noncompliant Config rules.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#newAggregateComplianceCount"><span class="hs-identifier hs-type">newAggregateComplianceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount"><span class="hs-identifier hs-type">AggregateComplianceCount</span></a></span><span>
 </span><span id="line-52"></span><span id="newAggregateComplianceCount"><span class="annot"><span class="annottext">newAggregateComplianceCount :: AggregateComplianceCount
 </span><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#newAggregateComplianceCount"><span class="hs-identifier hs-var hs-var">newAggregateComplianceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">AggregateComplianceCount' :: Maybe ComplianceSummary -&gt; Maybe Text -&gt; AggregateComplianceCount
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">AggregateComplianceCount' :: Maybe Text -&gt; Maybe ComplianceSummary -&gt; AggregateComplianceCount
 </span><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount%27"><span class="hs-identifier hs-type">AggregateComplianceCount'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:complianceSummary:AggregateComplianceCount' :: Maybe ComplianceSummary
-</span><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#%24sel%3AcomplianceSummary%3AAggregateComplianceCount%27"><span class="hs-identifier hs-var">complianceSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe ComplianceSummary
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupName:AggregateComplianceCount' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#%24sel%3AgroupName%3AAggregateComplianceCount%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:AggregateComplianceCount' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#%24sel%3AgroupName%3AAggregateComplianceCount%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:complianceSummary:AggregateComplianceCount' :: Maybe ComplianceSummary
+</span><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#%24sel%3AcomplianceSummary%3AAggregateComplianceCount%27"><span class="hs-identifier hs-var">complianceSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceSummary
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | The number of compliant and noncompliant Config rules.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#aggregateComplianceCount_complianceSummary"><span class="hs-identifier hs-type">aggregateComplianceCount_complianceSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount"><span class="hs-identifier hs-type">AggregateComplianceCount</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ComplianceSummary.html#ComplianceSummary"><span class="hs-identifier hs-type">ComplianceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="aggregateComplianceCount_complianceSummary"><span class="annot"><span class="annottext">aggregateComplianceCount_complianceSummary :: (Maybe ComplianceSummary -&gt; f (Maybe ComplianceSummary))
--&gt; AggregateComplianceCount -&gt; f AggregateComplianceCount
-</span><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#aggregateComplianceCount_complianceSummary"><span class="hs-identifier hs-var hs-var">aggregateComplianceCount_complianceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateComplianceCount -&gt; Maybe ComplianceSummary)
--&gt; (AggregateComplianceCount
-    -&gt; Maybe ComplianceSummary -&gt; AggregateComplianceCount)
--&gt; Lens
-     AggregateComplianceCount
-     AggregateComplianceCount
-     (Maybe ComplianceSummary)
-     (Maybe ComplianceSummary)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount%27"><span class="hs-identifier hs-type">AggregateComplianceCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395294"><span class="annot"><span class="annottext">Maybe ComplianceSummary
-complianceSummary :: Maybe ComplianceSummary
-$sel:complianceSummary:AggregateComplianceCount' :: AggregateComplianceCount -&gt; Maybe ComplianceSummary
-</span><a href="#local-6989586621679395294"><span class="hs-identifier hs-var hs-var">complianceSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceSummary
-</span><a href="#local-6989586621679395294"><span class="hs-identifier hs-var">complianceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395293"><span class="annot"><span class="annottext">s :: AggregateComplianceCount
-</span><a href="#local-6989586621679395293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount%27"><span class="hs-identifier hs-type">AggregateComplianceCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395292"><span class="annot"><span class="annottext">Maybe ComplianceSummary
-</span><a href="#local-6989586621679395292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateComplianceCount
-</span><a href="#local-6989586621679395293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceSummary:AggregateComplianceCount' :: Maybe ComplianceSummary
-</span><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#%24sel%3AcomplianceSummary%3AAggregateComplianceCount%27"><span class="hs-identifier hs-var">complianceSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceSummary
-</span><a href="#local-6989586621679395292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount"><span class="hs-identifier hs-type">AggregateComplianceCount</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The 12-digit account ID or region based on the GroupByKey value.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#aggregateComplianceCount_groupName"><span class="hs-identifier hs-type">aggregateComplianceCount_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount"><span class="hs-identifier hs-type">AggregateComplianceCount</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="aggregateComplianceCount_groupName"><span class="annot"><span class="annottext">aggregateComplianceCount_groupName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-59"></span><span class="hs-comment">-- | The 12-digit account ID or region based on the GroupByKey value.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#aggregateComplianceCount_groupName"><span class="hs-identifier hs-type">aggregateComplianceCount_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount"><span class="hs-identifier hs-type">AggregateComplianceCount</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="aggregateComplianceCount_groupName"><span class="annot"><span class="annottext">aggregateComplianceCount_groupName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AggregateComplianceCount -&gt; f AggregateComplianceCount
 </span><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#aggregateComplianceCount_groupName"><span class="hs-identifier hs-var hs-var">aggregateComplianceCount_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateComplianceCount -&gt; Maybe Text)
 -&gt; (AggregateComplianceCount
@@ -162,19 +138,43 @@ $sel:complianceSummary:AggregateComplianceCount' :: AggregateComplianceCount -&g
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount%27"><span class="hs-identifier hs-type">AggregateComplianceCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395290"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount%27"><span class="hs-identifier hs-type">AggregateComplianceCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395872"><span class="annot"><span class="annottext">Maybe Text
 groupName :: Maybe Text
 $sel:groupName:AggregateComplianceCount' :: AggregateComplianceCount -&gt; Maybe Text
-</span><a href="#local-6989586621679395290"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395290"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395289"><span class="annot"><span class="annottext">s :: AggregateComplianceCount
-</span><a href="#local-6989586621679395289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount%27"><span class="hs-identifier hs-type">AggregateComplianceCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395288"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateComplianceCount
-</span><a href="#local-6989586621679395289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:AggregateComplianceCount' :: Maybe Text
+</span><a href="#local-6989586621679395872"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395872"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395871"><span class="annot"><span class="annottext">s :: AggregateComplianceCount
+</span><a href="#local-6989586621679395871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount%27"><span class="hs-identifier hs-type">AggregateComplianceCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395870"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateComplianceCount
+</span><a href="#local-6989586621679395871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:AggregateComplianceCount' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#%24sel%3AgroupName%3AAggregateComplianceCount%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount"><span class="hs-identifier hs-type">AggregateComplianceCount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount"><span class="hs-identifier hs-type">AggregateComplianceCount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The number of compliant and noncompliant Config rules.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#aggregateComplianceCount_complianceSummary"><span class="hs-identifier hs-type">aggregateComplianceCount_complianceSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount"><span class="hs-identifier hs-type">AggregateComplianceCount</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ComplianceSummary.html#ComplianceSummary"><span class="hs-identifier hs-type">ComplianceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="aggregateComplianceCount_complianceSummary"><span class="annot"><span class="annottext">aggregateComplianceCount_complianceSummary :: (Maybe ComplianceSummary -&gt; f (Maybe ComplianceSummary))
+-&gt; AggregateComplianceCount -&gt; f AggregateComplianceCount
+</span><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#aggregateComplianceCount_complianceSummary"><span class="hs-identifier hs-var hs-var">aggregateComplianceCount_complianceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateComplianceCount -&gt; Maybe ComplianceSummary)
+-&gt; (AggregateComplianceCount
+    -&gt; Maybe ComplianceSummary -&gt; AggregateComplianceCount)
+-&gt; Lens
+     AggregateComplianceCount
+     AggregateComplianceCount
+     (Maybe ComplianceSummary)
+     (Maybe ComplianceSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount%27"><span class="hs-identifier hs-type">AggregateComplianceCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395868"><span class="annot"><span class="annottext">Maybe ComplianceSummary
+complianceSummary :: Maybe ComplianceSummary
+$sel:complianceSummary:AggregateComplianceCount' :: AggregateComplianceCount -&gt; Maybe ComplianceSummary
+</span><a href="#local-6989586621679395868"><span class="hs-identifier hs-var hs-var">complianceSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceSummary
+</span><a href="#local-6989586621679395868"><span class="hs-identifier hs-var">complianceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395867"><span class="annot"><span class="annottext">s :: AggregateComplianceCount
+</span><a href="#local-6989586621679395867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount%27"><span class="hs-identifier hs-type">AggregateComplianceCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395866"><span class="annot"><span class="annottext">Maybe ComplianceSummary
+</span><a href="#local-6989586621679395866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateComplianceCount
+</span><a href="#local-6989586621679395867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceSummary:AggregateComplianceCount' :: Maybe ComplianceSummary
+</span><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#%24sel%3AcomplianceSummary%3AAggregateComplianceCount%27"><span class="hs-identifier hs-var">complianceSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceSummary
+</span><a href="#local-6989586621679395866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount"><span class="hs-identifier hs-type">AggregateComplianceCount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395285"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount"><span class="hs-identifier hs-type">AggregateComplianceCount</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679395283"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AggregateComplianceCount
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395863"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount"><span class="hs-identifier hs-type">AggregateComplianceCount</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679395861"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AggregateComplianceCount
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AggregateComplianceCount)
@@ -184,30 +184,31 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AggregateComplianceCount&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395280"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679395280"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe ComplianceSummary -&gt; Maybe Text -&gt; AggregateComplianceCount
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395858"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679395858"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe ComplianceSummary -&gt; AggregateComplianceCount
 </span><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount%27"><span class="hs-identifier hs-var">AggregateComplianceCount'</span></a></span><span>
-</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ComplianceSummary -&gt; Maybe Text -&gt; AggregateComplianceCount)
--&gt; Parser (Maybe ComplianceSummary)
--&gt; Parser (Maybe Text -&gt; AggregateComplianceCount)
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe ComplianceSummary -&gt; AggregateComplianceCount)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ComplianceSummary -&gt; AggregateComplianceCount)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679395280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComplianceSummary)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ComplianceSummary&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AggregateComplianceCount)
--&gt; Parser (Maybe Text) -&gt; Parser AggregateComplianceCount
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679395280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679395858"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ComplianceSummary -&gt; AggregateComplianceCount)
+-&gt; Parser (Maybe ComplianceSummary)
+-&gt; Parser AggregateComplianceCount
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679395858"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComplianceSummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComplianceSummary&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395274"><span id="local-6989586621679395276"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount"><span class="hs-identifier hs-type">AggregateComplianceCount</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395852"><span id="local-6989586621679395854"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount"><span class="hs-identifier hs-type">AggregateComplianceCount</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395271"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount"><span class="hs-identifier hs-type">AggregateComplianceCount</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395849"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceCount.html#AggregateComplianceCount"><span class="hs-identifier hs-type">AggregateComplianceCount</span></a></span></span><span>
 </span><span id="line-80"></span></pre></body></html>

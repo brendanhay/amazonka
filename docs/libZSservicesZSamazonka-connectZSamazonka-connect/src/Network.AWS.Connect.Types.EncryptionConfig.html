@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The encryption configuration.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEncryptionConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679395832"><span id="local-6989586621679395833"></span></span><span class="hs-keyword">data</span><span> </span><span id="EncryptionConfig"><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-var">EncryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionConfig%27"><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-var">EncryptionConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679396112"><span id="local-6989586621679396113"></span></span><span class="hs-keyword">data</span><span> </span><span id="EncryptionConfig"><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-var">EncryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionConfig%27"><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-var">EncryptionConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of encryption.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AencryptionType%3AEncryptionConfig%27"><span class="annot"><span class="annottext">EncryptionConfig -&gt; EncryptionType
 </span><a href="Network.AWS.Connect.Types.EncryptionConfig.html#%24sel%3AencryptionType%3AEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionType.html#EncryptionType"><span class="hs-identifier hs-type">EncryptionType</span></a></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AkeyId%3AEncryptionConfig%27"><span class="annot"><span class="annottext">EncryptionConfig -&gt; Text
 </span><a href="Network.AWS.Connect.Types.EncryptionConfig.html#%24sel%3AkeyId%3AEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395825"><span id="local-6989586621679395827"><span class="annot"><span class="annottext">EncryptionConfig -&gt; EncryptionConfig -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396105"><span id="local-6989586621679396107"><span class="annot"><span class="annottext">EncryptionConfig -&gt; EncryptionConfig -&gt; Bool
 (EncryptionConfig -&gt; EncryptionConfig -&gt; Bool)
 -&gt; (EncryptionConfig -&gt; EncryptionConfig -&gt; Bool)
 -&gt; Eq EncryptionConfig
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EncryptionConfig -&gt; EncryptionConfig -&gt; Bool
 == :: EncryptionConfig -&gt; EncryptionConfig -&gt; Bool
 $c== :: EncryptionConfig -&gt; EncryptionConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395816"><span id="local-6989586621679395818"><span id="local-6989586621679395820"><span id="local-6989586621679395822"><span class="annot"><span class="annottext">ReadPrec [EncryptionConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396096"><span id="local-6989586621679396098"><span id="local-6989586621679396100"><span id="local-6989586621679396102"><span class="annot"><span class="annottext">ReadPrec [EncryptionConfig]
 ReadPrec EncryptionConfig
 Int -&gt; ReadS EncryptionConfig
 ReadS [EncryptionConfig]
@@ -66,7 +66,7 @@ readList :: ReadS [EncryptionConfig]
 $creadList :: ReadS [EncryptionConfig]
 readsPrec :: Int -&gt; ReadS EncryptionConfig
 $creadsPrec :: Int -&gt; ReadS EncryptionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395809"><span id="local-6989586621679395811"><span id="local-6989586621679395813"><span class="annot"><span class="annottext">Int -&gt; EncryptionConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396089"><span id="local-6989586621679396091"><span id="local-6989586621679396093"><span class="annot"><span class="annottext">Int -&gt; EncryptionConfig -&gt; ShowS
 [EncryptionConfig] -&gt; ShowS
 EncryptionConfig -&gt; String
 (Int -&gt; EncryptionConfig -&gt; ShowS)
@@ -112,18 +112,18 @@ $cfrom :: forall x. EncryptionConfig -&gt; Rep EncryptionConfig x
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span>
 </span><span id="line-59"></span><span id="newEncryptionConfig"><span class="annot"><span class="annottext">newEncryptionConfig :: EncryptionType -&gt; Text -&gt; EncryptionConfig
-</span><a href="Network.AWS.Connect.Types.EncryptionConfig.html#newEncryptionConfig"><span class="hs-identifier hs-var hs-var">newEncryptionConfig</span></a></span></span><span> </span><span id="local-6989586621679395803"><span class="annot"><span class="annottext">EncryptionType
-</span><a href="#local-6989586621679395803"><span class="hs-identifier hs-var">pEncryptionType_</span></a></span></span><span> </span><span id="local-6989586621679395802"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395802"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.Types.EncryptionConfig.html#newEncryptionConfig"><span class="hs-identifier hs-var hs-var">newEncryptionConfig</span></a></span></span><span> </span><span id="local-6989586621679396083"><span class="annot"><span class="annottext">EncryptionType
+</span><a href="#local-6989586621679396083"><span class="hs-identifier hs-var">pEncryptionType_</span></a></span></span><span> </span><span id="local-6989586621679396082"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396082"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">EncryptionConfig' :: EncryptionType -&gt; Text -&gt; EncryptionConfig
 </span><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encryptionType:EncryptionConfig' :: EncryptionType
 </span><a href="Network.AWS.Connect.Types.EncryptionConfig.html#%24sel%3AencryptionType%3AEncryptionConfig%27"><span class="hs-identifier hs-var">encryptionType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">EncryptionType
-</span><a href="#local-6989586621679395803"><span class="hs-identifier hs-var">pEncryptionType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396083"><span class="hs-identifier hs-var">pEncryptionType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyId:EncryptionConfig' :: Text
 </span><a href="Network.AWS.Connect.Types.EncryptionConfig.html#%24sel%3AkeyId%3AEncryptionConfig%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395802"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span>
+</span><a href="#local-6989586621679396082"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The type of encryption.</span><span>
@@ -135,16 +135,16 @@ $cfrom :: forall x. EncryptionConfig -&gt; Rep EncryptionConfig x
 -&gt; Lens
      EncryptionConfig EncryptionConfig EncryptionType EncryptionType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395798"><span class="annot"><span class="annottext">EncryptionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396078"><span class="annot"><span class="annottext">EncryptionType
 encryptionType :: EncryptionType
 $sel:encryptionType:EncryptionConfig' :: EncryptionConfig -&gt; EncryptionType
-</span><a href="#local-6989586621679395798"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionType
-</span><a href="#local-6989586621679395798"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395797"><span class="annot"><span class="annottext">s :: EncryptionConfig
-</span><a href="#local-6989586621679395797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395796"><span class="annot"><span class="annottext">EncryptionType
-</span><a href="#local-6989586621679395796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
-</span><a href="#local-6989586621679395797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionType:EncryptionConfig' :: EncryptionType
+</span><a href="#local-6989586621679396078"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionType
+</span><a href="#local-6989586621679396078"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396077"><span class="annot"><span class="annottext">s :: EncryptionConfig
+</span><a href="#local-6989586621679396077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396076"><span class="annot"><span class="annottext">EncryptionType
+</span><a href="#local-6989586621679396076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
+</span><a href="#local-6989586621679396077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionType:EncryptionConfig' :: EncryptionType
 </span><a href="Network.AWS.Connect.Types.EncryptionConfig.html#%24sel%3AencryptionType%3AEncryptionConfig%27"><span class="hs-identifier hs-var">encryptionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EncryptionType
-</span><a href="#local-6989586621679395796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The full ARN of the encryption key.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
@@ -155,19 +155,19 @@ $sel:encryptionType:EncryptionConfig' :: EncryptionConfig -&gt; EncryptionType
 -&gt; (EncryptionConfig -&gt; Text -&gt; EncryptionConfig)
 -&gt; Lens EncryptionConfig EncryptionConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395794"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396074"><span class="annot"><span class="annottext">Text
 keyId :: Text
 $sel:keyId:EncryptionConfig' :: EncryptionConfig -&gt; Text
-</span><a href="#local-6989586621679395794"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395794"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395793"><span class="annot"><span class="annottext">s :: EncryptionConfig
-</span><a href="#local-6989586621679395793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395792"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
-</span><a href="#local-6989586621679395793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:EncryptionConfig' :: Text
+</span><a href="#local-6989586621679396074"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396074"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396073"><span class="annot"><span class="annottext">s :: EncryptionConfig
+</span><a href="#local-6989586621679396073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396072"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
+</span><a href="#local-6989586621679396073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:EncryptionConfig' :: Text
 </span><a href="Network.AWS.Connect.Types.EncryptionConfig.html#%24sel%3AkeyId%3AEncryptionConfig%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395789"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679395787"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EncryptionConfig
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396069"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679396067"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EncryptionConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EncryptionConfig)
@@ -177,15 +177,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EncryptionConfig&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395784"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679395784"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679396064"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679396064"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">EncryptionType -&gt; Text -&gt; EncryptionConfig
 </span><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-var">EncryptionConfig'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(EncryptionType -&gt; Text -&gt; EncryptionConfig)
 -&gt; Parser EncryptionType -&gt; Parser (Text -&gt; EncryptionConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679395784"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EncryptionType
+</span><a href="#local-6989586621679396064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EncryptionType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EncryptionType&quot;</span></span><span class="hs-special">)</span><span>
@@ -193,25 +193,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser EncryptionConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679395784"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679396064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395778"><span id="local-6989586621679395780"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396058"><span id="local-6989586621679396060"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395775"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396055"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395767"><span id="local-6989586621679395769"><span id="local-6989586621679395771"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679395765"><span class="annot"><span class="annottext">toJSON :: EncryptionConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395762"><span id="local-6989586621679395763"><span class="annot"><span class="annottext">Text
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396047"><span id="local-6989586621679396049"><span id="local-6989586621679396051"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679396045"><span class="annot"><span class="annottext">toJSON :: EncryptionConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396042"><span id="local-6989586621679396043"><span class="annot"><span class="annottext">Text
 EncryptionType
 keyId :: Text
 encryptionType :: EncryptionType
 $sel:keyId:EncryptionConfig' :: EncryptionConfig -&gt; Text
 $sel:encryptionType:EncryptionConfig' :: EncryptionConfig -&gt; EncryptionType
-</span><a href="#local-6989586621679395762"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679396042"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -224,14 +224,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;EncryptionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EncryptionType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EncryptionType
-</span><a href="#local-6989586621679395763"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396043"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395762"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396042"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span></pre></body></html>

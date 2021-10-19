@@ -26,18 +26,18 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The timeline of the cluster step lifecycle.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newStepTimeline' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679377326"><span id="local-6989586621679377327"></span></span><span class="hs-keyword">data</span><span> </span><span id="StepTimeline"><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-var">StepTimeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepTimeline%27"><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline%27"><span class="hs-identifier hs-var">StepTimeline'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time when the cluster step execution started.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AstartDateTime%3AStepTimeline%27"><span class="annot"><span class="annottext">StepTimeline -&gt; Maybe POSIX
-</span><a href="Network.AWS.EMR.Types.StepTimeline.html#%24sel%3AstartDateTime%3AStepTimeline%27"><span class="hs-identifier hs-var hs-var">startDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679377682"><span id="local-6989586621679377683"></span></span><span class="hs-keyword">data</span><span> </span><span id="StepTimeline"><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-var">StepTimeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepTimeline%27"><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline%27"><span class="hs-identifier hs-var">StepTimeline'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time when the cluster step was created.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AcreationDateTime%3AStepTimeline%27"><span class="annot"><span class="annottext">StepTimeline -&gt; Maybe POSIX
+</span><a href="Network.AWS.EMR.Types.StepTimeline.html#%24sel%3AcreationDateTime%3AStepTimeline%27"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The date and time when the cluster step execution completed or failed.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AendDateTime%3AStepTimeline%27"><span class="annot"><span class="annottext">StepTimeline -&gt; Maybe POSIX
 </span><a href="Network.AWS.EMR.Types.StepTimeline.html#%24sel%3AendDateTime%3AStepTimeline%27"><span class="hs-identifier hs-var hs-var">endDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The date and time when the cluster step was created.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcreationDateTime%3AStepTimeline%27"><span class="annot"><span class="annottext">StepTimeline -&gt; Maybe POSIX
-</span><a href="Network.AWS.EMR.Types.StepTimeline.html#%24sel%3AcreationDateTime%3AStepTimeline%27"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The date and time when the cluster step execution started.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AstartDateTime%3AStepTimeline%27"><span class="annot"><span class="annottext">StepTimeline -&gt; Maybe POSIX
+</span><a href="Network.AWS.EMR.Types.StepTimeline.html#%24sel%3AstartDateTime%3AStepTimeline%27"><span class="hs-identifier hs-var hs-var">startDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377318"><span id="local-6989586621679377320"><span class="annot"><span class="annottext">StepTimeline -&gt; StepTimeline -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377674"><span id="local-6989586621679377676"><span class="annot"><span class="annottext">StepTimeline -&gt; StepTimeline -&gt; Bool
 (StepTimeline -&gt; StepTimeline -&gt; Bool)
 -&gt; (StepTimeline -&gt; StepTimeline -&gt; Bool) -&gt; Eq StepTimeline
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StepTimeline -&gt; StepTimeline -&gt; Bool
 == :: StepTimeline -&gt; StepTimeline -&gt; Bool
 $c== :: StepTimeline -&gt; StepTimeline -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377309"><span id="local-6989586621679377311"><span id="local-6989586621679377313"><span id="local-6989586621679377315"><span class="annot"><span class="annottext">ReadPrec [StepTimeline]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377665"><span id="local-6989586621679377667"><span id="local-6989586621679377669"><span id="local-6989586621679377671"><span class="annot"><span class="annottext">ReadPrec [StepTimeline]
 ReadPrec StepTimeline
 Int -&gt; ReadS StepTimeline
 ReadS [StepTimeline]
@@ -65,7 +65,7 @@ readList :: ReadS [StepTimeline]
 $creadList :: ReadS [StepTimeline]
 readsPrec :: Int -&gt; ReadS StepTimeline
 $creadsPrec :: Int -&gt; ReadS StepTimeline
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377302"><span id="local-6989586621679377304"><span id="local-6989586621679377306"><span class="annot"><span class="annottext">Int -&gt; StepTimeline -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377658"><span id="local-6989586621679377660"><span id="local-6989586621679377662"><span class="annot"><span class="annottext">Int -&gt; StepTimeline -&gt; ShowS
 [StepTimeline] -&gt; ShowS
 StepTimeline -&gt; String
 (Int -&gt; StepTimeline -&gt; ShowS)
@@ -99,49 +99,49 @@ $cfrom :: forall x. StepTimeline -&gt; Rep StepTimeline x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'startDateTime', 'stepTimeline_startDateTime' - The date and time when the cluster step execution started.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'creationDateTime', 'stepTimeline_creationDateTime' - The date and time when the cluster step was created.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- 'endDateTime', 'stepTimeline_endDateTime' - The date and time when the cluster step execution completed or failed.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'creationDateTime', 'stepTimeline_creationDateTime' - The date and time when the cluster step was created.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'startDateTime', 'stepTimeline_startDateTime' - The date and time when the cluster step execution started.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#newStepTimeline"><span class="hs-identifier hs-type">newStepTimeline</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-type">StepTimeline</span></a></span><span>
 </span><span id="line-54"></span><span id="newStepTimeline"><span class="annot"><span class="annottext">newStepTimeline :: StepTimeline
 </span><a href="Network.AWS.EMR.Types.StepTimeline.html#newStepTimeline"><span class="hs-identifier hs-var hs-var">newStepTimeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">StepTimeline' :: Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; StepTimeline
 </span><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline%27"><span class="hs-identifier hs-type">StepTimeline'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startDateTime:StepTimeline' :: Maybe POSIX
-</span><a href="Network.AWS.EMR.Types.StepTimeline.html#%24sel%3AstartDateTime%3AStepTimeline%27"><span class="hs-identifier hs-var">startDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationDateTime:StepTimeline' :: Maybe POSIX
+</span><a href="Network.AWS.EMR.Types.StepTimeline.html#%24sel%3AcreationDateTime%3AStepTimeline%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:endDateTime:StepTimeline' :: Maybe POSIX
 </span><a href="Network.AWS.EMR.Types.StepTimeline.html#%24sel%3AendDateTime%3AStepTimeline%27"><span class="hs-identifier hs-var">endDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDateTime:StepTimeline' :: Maybe POSIX
-</span><a href="Network.AWS.EMR.Types.StepTimeline.html#%24sel%3AcreationDateTime%3AStepTimeline%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:startDateTime:StepTimeline' :: Maybe POSIX
+</span><a href="Network.AWS.EMR.Types.StepTimeline.html#%24sel%3AstartDateTime%3AStepTimeline%27"><span class="hs-identifier hs-var">startDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The date and time when the cluster step execution started.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#stepTimeline_startDateTime"><span class="hs-identifier hs-type">stepTimeline_startDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-type">StepTimeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="stepTimeline_startDateTime"><span class="annot"><span class="annottext">stepTimeline_startDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-61"></span><span class="hs-comment">-- | The date and time when the cluster step was created.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#stepTimeline_creationDateTime"><span class="hs-identifier hs-type">stepTimeline_creationDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-type">StepTimeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="stepTimeline_creationDateTime"><span class="annot"><span class="annottext">stepTimeline_creationDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; StepTimeline -&gt; f StepTimeline
-</span><a href="Network.AWS.EMR.Types.StepTimeline.html#stepTimeline_startDateTime"><span class="hs-identifier hs-var hs-var">stepTimeline_startDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepTimeline -&gt; Maybe POSIX)
+</span><a href="Network.AWS.EMR.Types.StepTimeline.html#stepTimeline_creationDateTime"><span class="hs-identifier hs-var hs-var">stepTimeline_creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepTimeline -&gt; Maybe POSIX)
 -&gt; (StepTimeline -&gt; Maybe POSIX -&gt; StepTimeline)
 -&gt; Lens StepTimeline StepTimeline (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline%27"><span class="hs-identifier hs-type">StepTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377293"><span class="annot"><span class="annottext">Maybe POSIX
-startDateTime :: Maybe POSIX
-$sel:startDateTime:StepTimeline' :: StepTimeline -&gt; Maybe POSIX
-</span><a href="#local-6989586621679377293"><span class="hs-identifier hs-var hs-var">startDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679377293"><span class="hs-identifier hs-var">startDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377292"><span class="annot"><span class="annottext">s :: StepTimeline
-</span><a href="#local-6989586621679377292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline%27"><span class="hs-identifier hs-type">StepTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377291"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679377291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepTimeline
-</span><a href="#local-6989586621679377292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startDateTime:StepTimeline' :: Maybe POSIX
-</span><a href="Network.AWS.EMR.Types.StepTimeline.html#%24sel%3AstartDateTime%3AStepTimeline%27"><span class="hs-identifier hs-var">startDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679377291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-type">StepTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline%27"><span class="hs-identifier hs-type">StepTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377649"><span class="annot"><span class="annottext">Maybe POSIX
+creationDateTime :: Maybe POSIX
+$sel:creationDateTime:StepTimeline' :: StepTimeline -&gt; Maybe POSIX
+</span><a href="#local-6989586621679377649"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679377649"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377648"><span class="annot"><span class="annottext">s :: StepTimeline
+</span><a href="#local-6989586621679377648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline%27"><span class="hs-identifier hs-type">StepTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377647"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679377647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepTimeline
+</span><a href="#local-6989586621679377648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDateTime:StepTimeline' :: Maybe POSIX
+</span><a href="Network.AWS.EMR.Types.StepTimeline.html#%24sel%3AcreationDateTime%3AStepTimeline%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679377647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-type">StepTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; StepTimeline -&gt; f StepTimeline)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -166,16 +166,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (StepTimeline -&gt; Maybe POSIX -&gt; StepTimeline)
 -&gt; Lens StepTimeline StepTimeline (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline%27"><span class="hs-identifier hs-type">StepTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377286"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline%27"><span class="hs-identifier hs-type">StepTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377642"><span class="annot"><span class="annottext">Maybe POSIX
 endDateTime :: Maybe POSIX
 $sel:endDateTime:StepTimeline' :: StepTimeline -&gt; Maybe POSIX
-</span><a href="#local-6989586621679377286"><span class="hs-identifier hs-var hs-var">endDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679377286"><span class="hs-identifier hs-var">endDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377285"><span class="annot"><span class="annottext">s :: StepTimeline
-</span><a href="#local-6989586621679377285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline%27"><span class="hs-identifier hs-type">StepTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377284"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679377284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepTimeline
-</span><a href="#local-6989586621679377285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDateTime:StepTimeline' :: Maybe POSIX
+</span><a href="#local-6989586621679377642"><span class="hs-identifier hs-var hs-var">endDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679377642"><span class="hs-identifier hs-var">endDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377641"><span class="annot"><span class="annottext">s :: StepTimeline
+</span><a href="#local-6989586621679377641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline%27"><span class="hs-identifier hs-type">StepTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377640"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679377640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepTimeline
+</span><a href="#local-6989586621679377641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDateTime:StepTimeline' :: Maybe POSIX
 </span><a href="Network.AWS.EMR.Types.StepTimeline.html#%24sel%3AendDateTime%3AStepTimeline%27"><span class="hs-identifier hs-var">endDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679377284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-type">StepTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679377640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-type">StepTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; StepTimeline -&gt; f StepTimeline)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -192,24 +192,24 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | The date and time when the cluster step was created.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#stepTimeline_creationDateTime"><span class="hs-identifier hs-type">stepTimeline_creationDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-type">StepTimeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="stepTimeline_creationDateTime"><span class="annot"><span class="annottext">stepTimeline_creationDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-69"></span><span class="hs-comment">-- | The date and time when the cluster step execution started.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#stepTimeline_startDateTime"><span class="hs-identifier hs-type">stepTimeline_startDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-type">StepTimeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="stepTimeline_startDateTime"><span class="annot"><span class="annottext">stepTimeline_startDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; StepTimeline -&gt; f StepTimeline
-</span><a href="Network.AWS.EMR.Types.StepTimeline.html#stepTimeline_creationDateTime"><span class="hs-identifier hs-var hs-var">stepTimeline_creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepTimeline -&gt; Maybe POSIX)
+</span><a href="Network.AWS.EMR.Types.StepTimeline.html#stepTimeline_startDateTime"><span class="hs-identifier hs-var hs-var">stepTimeline_startDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepTimeline -&gt; Maybe POSIX)
 -&gt; (StepTimeline -&gt; Maybe POSIX -&gt; StepTimeline)
 -&gt; Lens StepTimeline StepTimeline (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline%27"><span class="hs-identifier hs-type">StepTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377282"><span class="annot"><span class="annottext">Maybe POSIX
-creationDateTime :: Maybe POSIX
-$sel:creationDateTime:StepTimeline' :: StepTimeline -&gt; Maybe POSIX
-</span><a href="#local-6989586621679377282"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679377282"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377281"><span class="annot"><span class="annottext">s :: StepTimeline
-</span><a href="#local-6989586621679377281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline%27"><span class="hs-identifier hs-type">StepTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377280"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679377280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepTimeline
-</span><a href="#local-6989586621679377281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDateTime:StepTimeline' :: Maybe POSIX
-</span><a href="Network.AWS.EMR.Types.StepTimeline.html#%24sel%3AcreationDateTime%3AStepTimeline%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679377280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-type">StepTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline%27"><span class="hs-identifier hs-type">StepTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377638"><span class="annot"><span class="annottext">Maybe POSIX
+startDateTime :: Maybe POSIX
+$sel:startDateTime:StepTimeline' :: StepTimeline -&gt; Maybe POSIX
+</span><a href="#local-6989586621679377638"><span class="hs-identifier hs-var hs-var">startDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679377638"><span class="hs-identifier hs-var">startDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377637"><span class="annot"><span class="annottext">s :: StepTimeline
+</span><a href="#local-6989586621679377637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline%27"><span class="hs-identifier hs-type">StepTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377636"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679377636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepTimeline
+</span><a href="#local-6989586621679377637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startDateTime:StepTimeline' :: Maybe POSIX
+</span><a href="Network.AWS.EMR.Types.StepTimeline.html#%24sel%3AstartDateTime%3AStepTimeline%27"><span class="hs-identifier hs-var">startDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679377636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-type">StepTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; StepTimeline -&gt; f StepTimeline)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -226,8 +226,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377277"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-type">StepTimeline</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679377275"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StepTimeline
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377633"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-type">StepTimeline</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679377631"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StepTimeline
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StepTimeline) -&gt; Value -&gt; Parser StepTimeline
@@ -235,8 +235,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StepTimeline&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377272"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377272"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377628"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377628"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; StepTimeline
 </span><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline%27"><span class="hs-identifier hs-var">StepTimeline'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; StepTimeline)
@@ -244,15 +244,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; StepTimeline)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679377628"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StartDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;CreationDateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; StepTimeline)
 -&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe POSIX -&gt; StepTimeline)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679377628"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndDateTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -260,13 +260,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser StepTimeline
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679377628"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreationDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;StartDateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377266"><span id="local-6989586621679377268"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-type">StepTimeline</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377622"><span id="local-6989586621679377624"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-type">StepTimeline</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377263"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-type">StepTimeline</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepTimeline.html#StepTimeline"><span class="hs-identifier hs-type">StepTimeline</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

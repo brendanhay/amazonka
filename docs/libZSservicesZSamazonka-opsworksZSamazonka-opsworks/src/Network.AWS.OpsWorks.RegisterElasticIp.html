@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newRegisterElasticIp' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679383810"><span id="local-6989586621679383811"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterElasticIp"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-var">RegisterElasticIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterElasticIp%27"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp%27"><span class="hs-identifier hs-var">RegisterElasticIp'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679384215"><span id="local-6989586621679384216"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterElasticIp"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-var">RegisterElasticIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterElasticIp%27"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp%27"><span class="hs-identifier hs-var">RegisterElasticIp'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Elastic IP address.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AelasticIp%3ARegisterElasticIp%27"><span class="annot"><span class="annottext">RegisterElasticIp -&gt; Text
 </span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#%24sel%3AelasticIp%3ARegisterElasticIp%27"><span class="hs-identifier hs-var hs-var">elasticIp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AstackId%3ARegisterElasticIp%27"><span class="annot"><span class="annottext">RegisterElasticIp -&gt; Text
 </span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#%24sel%3AstackId%3ARegisterElasticIp%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383803"><span id="local-6989586621679383805"><span class="annot"><span class="annottext">RegisterElasticIp -&gt; RegisterElasticIp -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384208"><span id="local-6989586621679384210"><span class="annot"><span class="annottext">RegisterElasticIp -&gt; RegisterElasticIp -&gt; Bool
 (RegisterElasticIp -&gt; RegisterElasticIp -&gt; Bool)
 -&gt; (RegisterElasticIp -&gt; RegisterElasticIp -&gt; Bool)
 -&gt; Eq RegisterElasticIp
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegisterElasticIp -&gt; RegisterElasticIp -&gt; Bool
 == :: RegisterElasticIp -&gt; RegisterElasticIp -&gt; Bool
 $c== :: RegisterElasticIp -&gt; RegisterElasticIp -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383794"><span id="local-6989586621679383796"><span id="local-6989586621679383798"><span id="local-6989586621679383800"><span class="annot"><span class="annottext">ReadPrec [RegisterElasticIp]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384199"><span id="local-6989586621679384201"><span id="local-6989586621679384203"><span id="local-6989586621679384205"><span class="annot"><span class="annottext">ReadPrec [RegisterElasticIp]
 ReadPrec RegisterElasticIp
 Int -&gt; ReadS RegisterElasticIp
 ReadS [RegisterElasticIp]
@@ -95,7 +95,7 @@ readList :: ReadS [RegisterElasticIp]
 $creadList :: ReadS [RegisterElasticIp]
 readsPrec :: Int -&gt; ReadS RegisterElasticIp
 $creadsPrec :: Int -&gt; ReadS RegisterElasticIp
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383787"><span id="local-6989586621679383789"><span id="local-6989586621679383791"><span class="annot"><span class="annottext">Int -&gt; RegisterElasticIp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384192"><span id="local-6989586621679384194"><span id="local-6989586621679384196"><span class="annot"><span class="annottext">Int -&gt; RegisterElasticIp -&gt; ShowS
 [RegisterElasticIp] -&gt; ShowS
 RegisterElasticIp -&gt; String
 (Int -&gt; RegisterElasticIp -&gt; ShowS)
@@ -139,17 +139,17 @@ $cfrom :: forall x. RegisterElasticIp -&gt; Rep RegisterElasticIp x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-type">RegisterElasticIp</span></a></span><span>
 </span><span id="line-86"></span><span id="newRegisterElasticIp"><span class="annot"><span class="annottext">newRegisterElasticIp :: Text -&gt; Text -&gt; RegisterElasticIp
-</span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#newRegisterElasticIp"><span class="hs-identifier hs-var hs-var">newRegisterElasticIp</span></a></span></span><span> </span><span id="local-6989586621679383782"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383782"><span class="hs-identifier hs-var">pElasticIp_</span></a></span></span><span> </span><span id="local-6989586621679383781"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383781"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#newRegisterElasticIp"><span class="hs-identifier hs-var hs-var">newRegisterElasticIp</span></a></span></span><span> </span><span id="local-6989586621679384187"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384187"><span class="hs-identifier hs-var">pElasticIp_</span></a></span></span><span> </span><span id="local-6989586621679384186"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384186"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">RegisterElasticIp' :: Text -&gt; Text -&gt; RegisterElasticIp
 </span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp%27"><span class="hs-identifier hs-type">RegisterElasticIp'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:elasticIp:RegisterElasticIp' :: Text
 </span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#%24sel%3AelasticIp%3ARegisterElasticIp%27"><span class="hs-identifier hs-var">elasticIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383782"><span class="hs-identifier hs-var">pElasticIp_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679384187"><span class="hs-identifier hs-var">pElasticIp_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackId:RegisterElasticIp' :: Text
 </span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#%24sel%3AstackId%3ARegisterElasticIp%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383781"><span class="hs-identifier hs-var">pStackId_</span></a></span><span>
+</span><a href="#local-6989586621679384186"><span class="hs-identifier hs-var">pStackId_</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The Elastic IP address.</span><span>
@@ -159,16 +159,16 @@ $cfrom :: forall x. RegisterElasticIp -&gt; Rep RegisterElasticIp x
 -&gt; (RegisterElasticIp -&gt; Text -&gt; RegisterElasticIp)
 -&gt; Lens RegisterElasticIp RegisterElasticIp Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp%27"><span class="hs-identifier hs-type">RegisterElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383778"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp%27"><span class="hs-identifier hs-type">RegisterElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384183"><span class="annot"><span class="annottext">Text
 elasticIp :: Text
 $sel:elasticIp:RegisterElasticIp' :: RegisterElasticIp -&gt; Text
-</span><a href="#local-6989586621679383778"><span class="hs-identifier hs-var hs-var">elasticIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383778"><span class="hs-identifier hs-var">elasticIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383777"><span class="annot"><span class="annottext">s :: RegisterElasticIp
-</span><a href="#local-6989586621679383777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp%27"><span class="hs-identifier hs-type">RegisterElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383776"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterElasticIp
-</span><a href="#local-6989586621679383777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elasticIp:RegisterElasticIp' :: Text
+</span><a href="#local-6989586621679384183"><span class="hs-identifier hs-var hs-var">elasticIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384183"><span class="hs-identifier hs-var">elasticIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384182"><span class="annot"><span class="annottext">s :: RegisterElasticIp
+</span><a href="#local-6989586621679384182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp%27"><span class="hs-identifier hs-type">RegisterElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384181"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterElasticIp
+</span><a href="#local-6989586621679384182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elasticIp:RegisterElasticIp' :: Text
 </span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#%24sel%3AelasticIp%3ARegisterElasticIp%27"><span class="hs-identifier hs-var">elasticIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-type">RegisterElasticIp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-type">RegisterElasticIp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The stack ID.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#registerElasticIp_stackId"><span class="hs-identifier hs-type">registerElasticIp_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-type">RegisterElasticIp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -177,27 +177,27 @@ $sel:elasticIp:RegisterElasticIp' :: RegisterElasticIp -&gt; Text
 -&gt; (RegisterElasticIp -&gt; Text -&gt; RegisterElasticIp)
 -&gt; Lens RegisterElasticIp RegisterElasticIp Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp%27"><span class="hs-identifier hs-type">RegisterElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383775"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp%27"><span class="hs-identifier hs-type">RegisterElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384180"><span class="annot"><span class="annottext">Text
 stackId :: Text
 $sel:stackId:RegisterElasticIp' :: RegisterElasticIp -&gt; Text
-</span><a href="#local-6989586621679383775"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383775"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383774"><span class="annot"><span class="annottext">s :: RegisterElasticIp
-</span><a href="#local-6989586621679383774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp%27"><span class="hs-identifier hs-type">RegisterElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383773"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterElasticIp
-</span><a href="#local-6989586621679383774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:RegisterElasticIp' :: Text
+</span><a href="#local-6989586621679384180"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384180"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384179"><span class="annot"><span class="annottext">s :: RegisterElasticIp
+</span><a href="#local-6989586621679384179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp%27"><span class="hs-identifier hs-type">RegisterElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384178"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterElasticIp
+</span><a href="#local-6989586621679384179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:RegisterElasticIp' :: Text
 </span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#%24sel%3AstackId%3ARegisterElasticIp%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-type">RegisterElasticIp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-type">RegisterElasticIp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-type">RegisterElasticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-type">RegisterElasticIp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse"><span class="hs-identifier hs-type">RegisterElasticIpResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679383769"><span class="annot"><span class="annottext">request :: RegisterElasticIp -&gt; Request RegisterElasticIp
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679384174"><span class="annot"><span class="annottext">request :: RegisterElasticIp -&gt; Request RegisterElasticIp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RegisterElasticIp -&gt; Request RegisterElasticIp
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679383765"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679384170"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RegisterElasticIp
 -&gt; ClientResponse ClientBody
@@ -223,10 +223,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679383762"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383762"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679383761"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679383761"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679383760"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679383760"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679384167"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384167"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679384166"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679384166"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679384165"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679384165"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; RegisterElasticIpResponse
 </span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse%27"><span class="hs-identifier hs-var">RegisterElasticIpResponse'</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; RegisterElasticIpResponse)
@@ -234,7 +234,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; RegisterElasticIpResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679383760"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679384165"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ElasticIp&quot;</span></span><span class="hs-special">)</span><span>
@@ -246,15 +246,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383762"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384167"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383752"><span id="local-6989586621679383754"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-type">RegisterElasticIp</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384157"><span id="local-6989586621679384159"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-type">RegisterElasticIp</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383749"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-type">RegisterElasticIp</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384154"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-type">RegisterElasticIp</span></a></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-type">RegisterElasticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679383745"><span class="annot"><span class="annottext">toHeaders :: RegisterElasticIp -&gt; ResponseHeaders
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679384150"><span class="annot"><span class="annottext">toHeaders :: RegisterElasticIp -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RegisterElasticIp -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -281,14 +281,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383735"><span id="local-6989586621679383737"><span id="local-6989586621679383739"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-type">RegisterElasticIp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679383733"><span class="annot"><span class="annottext">toJSON :: RegisterElasticIp -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp%27"><span class="hs-identifier hs-type">RegisterElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383730"><span id="local-6989586621679383731"><span class="annot"><span class="annottext">Text
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384140"><span id="local-6989586621679384142"><span id="local-6989586621679384144"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-type">RegisterElasticIp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679384138"><span class="annot"><span class="annottext">toJSON :: RegisterElasticIp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp%27"><span class="hs-identifier hs-type">RegisterElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384135"><span id="local-6989586621679384136"><span class="annot"><span class="annottext">Text
 stackId :: Text
 elasticIp :: Text
 $sel:stackId:RegisterElasticIp' :: RegisterElasticIp -&gt; Text
 $sel:elasticIp:RegisterElasticIp' :: RegisterElasticIp -&gt; Text
-</span><a href="#local-6989586621679383730"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679384135"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -300,26 +300,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ElasticIp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383731"><span class="hs-identifier hs-var">elasticIp</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679384136"><span class="hs-identifier hs-var">elasticIp</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383730"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384135"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-type">RegisterElasticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679383724"><span class="annot"><span class="annottext">toPath :: RegisterElasticIp -&gt; ByteString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679384129"><span class="annot"><span class="annottext">toPath :: RegisterElasticIp -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterElasticIp -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIp"><span class="hs-identifier hs-type">RegisterElasticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679383720"><span class="annot"><span class="annottext">toQuery :: RegisterElasticIp -&gt; QueryString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679384125"><span class="annot"><span class="annottext">toQuery :: RegisterElasticIp -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RegisterElasticIp -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -329,7 +329,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-147"></span><span class="hs-comment">-- | Contains the response to a @RegisterElasticIp@ request.</span><span>
 </span><span id="line-148"></span><span class="hs-comment">--</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- /See:/ 'newRegisterElasticIpResponse' smart constructor.</span><span>
-</span><span id="line-150"></span><span id="local-6989586621679383717"><span id="local-6989586621679383718"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterElasticIpResponse"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse"><span class="hs-identifier hs-var">RegisterElasticIpResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterElasticIpResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse%27"><span class="hs-identifier hs-var">RegisterElasticIpResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span id="local-6989586621679384122"><span id="local-6989586621679384123"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterElasticIpResponse"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse"><span class="hs-identifier hs-var">RegisterElasticIpResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterElasticIpResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse%27"><span class="hs-identifier hs-var">RegisterElasticIpResponse'</span></a></span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Elastic IP address.</span><span>
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AelasticIp%3ARegisterElasticIpResponse%27"><span class="annot"><span class="annottext">RegisterElasticIpResponse -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#%24sel%3AelasticIp%3ARegisterElasticIpResponse%27"><span class="hs-identifier hs-var hs-var">elasticIp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -337,7 +337,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARegisterElasticIpResponse%27"><span class="annot"><span class="annottext">RegisterElasticIpResponse -&gt; Int
 </span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#%24sel%3AhttpStatus%3ARegisterElasticIpResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383711"><span id="local-6989586621679383713"><span class="annot"><span class="annottext">RegisterElasticIpResponse -&gt; RegisterElasticIpResponse -&gt; Bool
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384116"><span id="local-6989586621679384118"><span class="annot"><span class="annottext">RegisterElasticIpResponse -&gt; RegisterElasticIpResponse -&gt; Bool
 (RegisterElasticIpResponse -&gt; RegisterElasticIpResponse -&gt; Bool)
 -&gt; (RegisterElasticIpResponse -&gt; RegisterElasticIpResponse -&gt; Bool)
 -&gt; Eq RegisterElasticIpResponse
@@ -346,7 +346,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegisterElasticIpResponse -&gt; RegisterElasticIpResponse -&gt; Bool
 == :: RegisterElasticIpResponse -&gt; RegisterElasticIpResponse -&gt; Bool
 $c== :: RegisterElasticIpResponse -&gt; RegisterElasticIpResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383703"><span id="local-6989586621679383705"><span id="local-6989586621679383707"><span id="local-6989586621679383709"><span class="annot"><span class="annottext">ReadPrec [RegisterElasticIpResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384108"><span id="local-6989586621679384110"><span id="local-6989586621679384112"><span id="local-6989586621679384114"><span class="annot"><span class="annottext">ReadPrec [RegisterElasticIpResponse]
 ReadPrec RegisterElasticIpResponse
 Int -&gt; ReadS RegisterElasticIpResponse
 ReadS [RegisterElasticIpResponse]
@@ -366,7 +366,7 @@ readList :: ReadS [RegisterElasticIpResponse]
 $creadList :: ReadS [RegisterElasticIpResponse]
 readsPrec :: Int -&gt; ReadS RegisterElasticIpResponse
 $creadsPrec :: Int -&gt; ReadS RegisterElasticIpResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383697"><span id="local-6989586621679383699"><span id="local-6989586621679383701"><span class="annot"><span class="annottext">Int -&gt; RegisterElasticIpResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384102"><span id="local-6989586621679384104"><span id="local-6989586621679384106"><span class="annot"><span class="annottext">Int -&gt; RegisterElasticIpResponse -&gt; ShowS
 [RegisterElasticIpResponse] -&gt; ShowS
 RegisterElasticIpResponse -&gt; String
 (Int -&gt; RegisterElasticIpResponse -&gt; ShowS)
@@ -414,8 +414,8 @@ RegisterElasticIpResponse -&gt; Rep RegisterElasticIpResponse x
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse"><span class="hs-identifier hs-type">RegisterElasticIpResponse</span></a></span><span>
 </span><span id="line-173"></span><span id="newRegisterElasticIpResponse"><span class="annot"><span class="annottext">newRegisterElasticIpResponse :: Int -&gt; RegisterElasticIpResponse
-</span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#newRegisterElasticIpResponse"><span class="hs-identifier hs-var hs-var">newRegisterElasticIpResponse</span></a></span></span><span> </span><span id="local-6989586621679383694"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383694"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#newRegisterElasticIpResponse"><span class="hs-identifier hs-var hs-var">newRegisterElasticIpResponse</span></a></span></span><span> </span><span id="local-6989586621679384099"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384099"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">RegisterElasticIpResponse' :: Maybe Text -&gt; Int -&gt; RegisterElasticIpResponse
 </span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse%27"><span class="hs-identifier hs-type">RegisterElasticIpResponse'</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:elasticIp:RegisterElasticIpResponse' :: Maybe Text
@@ -425,7 +425,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterElasticIpResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#%24sel%3AhttpStatus%3ARegisterElasticIpResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383694"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679384099"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The Elastic IP address.</span><span>
@@ -441,16 +441,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse%27"><span class="hs-identifier hs-type">RegisterElasticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383693"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse%27"><span class="hs-identifier hs-type">RegisterElasticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384098"><span class="annot"><span class="annottext">Maybe Text
 elasticIp :: Maybe Text
 $sel:elasticIp:RegisterElasticIpResponse' :: RegisterElasticIpResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679383693"><span class="hs-identifier hs-var hs-var">elasticIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679383693"><span class="hs-identifier hs-var">elasticIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383692"><span class="annot"><span class="annottext">s :: RegisterElasticIpResponse
-</span><a href="#local-6989586621679383692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse%27"><span class="hs-identifier hs-type">RegisterElasticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383691"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679383691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterElasticIpResponse
-</span><a href="#local-6989586621679383692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elasticIp:RegisterElasticIpResponse' :: Maybe Text
+</span><a href="#local-6989586621679384098"><span class="hs-identifier hs-var hs-var">elasticIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384098"><span class="hs-identifier hs-var">elasticIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384097"><span class="annot"><span class="annottext">s :: RegisterElasticIpResponse
+</span><a href="#local-6989586621679384097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse%27"><span class="hs-identifier hs-type">RegisterElasticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384096"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterElasticIpResponse
+</span><a href="#local-6989586621679384097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elasticIp:RegisterElasticIpResponse' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#%24sel%3AelasticIp%3ARegisterElasticIpResponse%27"><span class="hs-identifier hs-var">elasticIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679383691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse"><span class="hs-identifier hs-type">RegisterElasticIpResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse"><span class="hs-identifier hs-type">RegisterElasticIpResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-185"></span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#registerElasticIpResponse_httpStatus"><span class="hs-identifier hs-type">registerElasticIpResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse"><span class="hs-identifier hs-type">RegisterElasticIpResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -460,16 +460,16 @@ $sel:elasticIp:RegisterElasticIpResponse' :: RegisterElasticIpResponse -&gt; May
 -&gt; (RegisterElasticIpResponse -&gt; Int -&gt; RegisterElasticIpResponse)
 -&gt; Lens RegisterElasticIpResponse RegisterElasticIpResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse%27"><span class="hs-identifier hs-type">RegisterElasticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383690"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse%27"><span class="hs-identifier hs-type">RegisterElasticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384095"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RegisterElasticIpResponse' :: RegisterElasticIpResponse -&gt; Int
-</span><a href="#local-6989586621679383690"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383690"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383689"><span class="annot"><span class="annottext">s :: RegisterElasticIpResponse
-</span><a href="#local-6989586621679383689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse%27"><span class="hs-identifier hs-type">RegisterElasticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383688"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterElasticIpResponse
-</span><a href="#local-6989586621679383689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterElasticIpResponse' :: Int
+</span><a href="#local-6989586621679384095"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384095"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384094"><span class="annot"><span class="annottext">s :: RegisterElasticIpResponse
+</span><a href="#local-6989586621679384094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse%27"><span class="hs-identifier hs-type">RegisterElasticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384093"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterElasticIpResponse
+</span><a href="#local-6989586621679384094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterElasticIpResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#%24sel%3AhttpStatus%3ARegisterElasticIpResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse"><span class="hs-identifier hs-type">RegisterElasticIpResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse"><span class="hs-identifier hs-type">RegisterElasticIpResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse"><span class="hs-identifier hs-type">RegisterElasticIpResponse</span></a></span></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384091"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterElasticIp.html#RegisterElasticIpResponse"><span class="hs-identifier hs-type">RegisterElasticIpResponse</span></a></span></span><span>
 </span><span id="line-189"></span></pre></body></html>

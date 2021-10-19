@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about a logger definition version.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLoggerDefinitionVersion' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679344876"><span id="local-6989586621679344877"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoggerDefinitionVersion"><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion"><span class="hs-identifier hs-var">LoggerDefinitionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoggerDefinitionVersion%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion%27"><span class="hs-identifier hs-var">LoggerDefinitionVersion'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679345131"><span id="local-6989586621679345132"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoggerDefinitionVersion"><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion"><span class="hs-identifier hs-var">LoggerDefinitionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoggerDefinitionVersion%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion%27"><span class="hs-identifier hs-var">LoggerDefinitionVersion'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of loggers.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aloggers%3ALoggerDefinitionVersion%27"><span class="annot"><span class="annottext">LoggerDefinitionVersion -&gt; Maybe [GreengrassLogger]
 </span><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#%24sel%3Aloggers%3ALoggerDefinitionVersion%27"><span class="hs-identifier hs-var hs-var">loggers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Greengrass.Types.GreengrassLogger.html#GreengrassLogger"><span class="hs-identifier hs-type">GreengrassLogger</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344870"><span id="local-6989586621679344872"><span class="annot"><span class="annottext">LoggerDefinitionVersion -&gt; LoggerDefinitionVersion -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345125"><span id="local-6989586621679345127"><span class="annot"><span class="annottext">LoggerDefinitionVersion -&gt; LoggerDefinitionVersion -&gt; Bool
 (LoggerDefinitionVersion -&gt; LoggerDefinitionVersion -&gt; Bool)
 -&gt; (LoggerDefinitionVersion -&gt; LoggerDefinitionVersion -&gt; Bool)
 -&gt; Eq LoggerDefinitionVersion
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LoggerDefinitionVersion -&gt; LoggerDefinitionVersion -&gt; Bool
 == :: LoggerDefinitionVersion -&gt; LoggerDefinitionVersion -&gt; Bool
 $c== :: LoggerDefinitionVersion -&gt; LoggerDefinitionVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344861"><span id="local-6989586621679344863"><span id="local-6989586621679344865"><span id="local-6989586621679344867"><span class="annot"><span class="annottext">ReadPrec [LoggerDefinitionVersion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345116"><span id="local-6989586621679345118"><span id="local-6989586621679345120"><span id="local-6989586621679345122"><span class="annot"><span class="annottext">ReadPrec [LoggerDefinitionVersion]
 ReadPrec LoggerDefinitionVersion
 Int -&gt; ReadS LoggerDefinitionVersion
 ReadS [LoggerDefinitionVersion]
@@ -61,7 +61,7 @@ readList :: ReadS [LoggerDefinitionVersion]
 $creadList :: ReadS [LoggerDefinitionVersion]
 readsPrec :: Int -&gt; ReadS LoggerDefinitionVersion
 $creadsPrec :: Int -&gt; ReadS LoggerDefinitionVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344854"><span id="local-6989586621679344856"><span id="local-6989586621679344858"><span class="annot"><span class="annottext">Int -&gt; LoggerDefinitionVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345109"><span id="local-6989586621679345111"><span id="local-6989586621679345113"><span class="annot"><span class="annottext">Int -&gt; LoggerDefinitionVersion -&gt; ShowS
 [LoggerDefinitionVersion] -&gt; ShowS
 LoggerDefinitionVersion -&gt; String
 (Int -&gt; LoggerDefinitionVersion -&gt; ShowS)
@@ -121,16 +121,16 @@ forall a. Maybe a
      (Maybe [GreengrassLogger])
      (Maybe [GreengrassLogger])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion%27"><span class="hs-identifier hs-type">LoggerDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344845"><span class="annot"><span class="annottext">Maybe [GreengrassLogger]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion%27"><span class="hs-identifier hs-type">LoggerDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345100"><span class="annot"><span class="annottext">Maybe [GreengrassLogger]
 loggers :: Maybe [GreengrassLogger]
 $sel:loggers:LoggerDefinitionVersion' :: LoggerDefinitionVersion -&gt; Maybe [GreengrassLogger]
-</span><a href="#local-6989586621679344845"><span class="hs-identifier hs-var hs-var">loggers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GreengrassLogger]
-</span><a href="#local-6989586621679344845"><span class="hs-identifier hs-var">loggers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344844"><span class="annot"><span class="annottext">s :: LoggerDefinitionVersion
-</span><a href="#local-6989586621679344844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion%27"><span class="hs-identifier hs-type">LoggerDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344843"><span class="annot"><span class="annottext">Maybe [GreengrassLogger]
-</span><a href="#local-6989586621679344843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggerDefinitionVersion
-</span><a href="#local-6989586621679344844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggers:LoggerDefinitionVersion' :: Maybe [GreengrassLogger]
+</span><a href="#local-6989586621679345100"><span class="hs-identifier hs-var hs-var">loggers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GreengrassLogger]
+</span><a href="#local-6989586621679345100"><span class="hs-identifier hs-var">loggers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345099"><span class="annot"><span class="annottext">s :: LoggerDefinitionVersion
+</span><a href="#local-6989586621679345099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion%27"><span class="hs-identifier hs-type">LoggerDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345098"><span class="annot"><span class="annottext">Maybe [GreengrassLogger]
+</span><a href="#local-6989586621679345098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggerDefinitionVersion
+</span><a href="#local-6989586621679345099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggers:LoggerDefinitionVersion' :: Maybe [GreengrassLogger]
 </span><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#%24sel%3Aloggers%3ALoggerDefinitionVersion%27"><span class="hs-identifier hs-var">loggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GreengrassLogger]
-</span><a href="#local-6989586621679344843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion"><span class="hs-identifier hs-type">LoggerDefinitionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GreengrassLogger] -&gt; f (Maybe [GreengrassLogger]))
+</span><a href="#local-6989586621679345098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion"><span class="hs-identifier hs-type">LoggerDefinitionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GreengrassLogger] -&gt; f (Maybe [GreengrassLogger]))
  -&gt; LoggerDefinitionVersion -&gt; f LoggerDefinitionVersion)
 -&gt; ((Maybe [GreengrassLogger] -&gt; f (Maybe [GreengrassLogger]))
     -&gt; Maybe [GreengrassLogger] -&gt; f (Maybe [GreengrassLogger]))
@@ -156,11 +156,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [GreengrassLogger]
   [GreengrassLogger]
   [GreengrassLogger]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344837"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion"><span class="hs-identifier hs-type">LoggerDefinitionVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679344835"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LoggerDefinitionVersion
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345092"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion"><span class="hs-identifier hs-type">LoggerDefinitionVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679345090"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LoggerDefinitionVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LoggerDefinitionVersion)
@@ -170,8 +170,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LoggerDefinitionVersion&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344832"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344832"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679345087"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345087"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe [GreengrassLogger] -&gt; LoggerDefinitionVersion
 </span><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion%27"><span class="hs-identifier hs-var">LoggerDefinitionVersion'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [GreengrassLogger] -&gt; LoggerDefinitionVersion)
@@ -179,7 +179,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser LoggerDefinitionVersion
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344832"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [GreengrassLogger]))
+</span><a href="#local-6989586621679345087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [GreengrassLogger]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Loggers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [GreengrassLogger]))
@@ -190,16 +190,16 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344825"><span id="local-6989586621679344827"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion"><span class="hs-identifier hs-type">LoggerDefinitionVersion</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345080"><span id="local-6989586621679345082"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion"><span class="hs-identifier hs-type">LoggerDefinitionVersion</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344822"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion"><span class="hs-identifier hs-type">LoggerDefinitionVersion</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345077"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion"><span class="hs-identifier hs-type">LoggerDefinitionVersion</span></a></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344814"><span id="local-6989586621679344816"><span id="local-6989586621679344818"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion"><span class="hs-identifier hs-type">LoggerDefinitionVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679344812"><span class="annot"><span class="annottext">toJSON :: LoggerDefinitionVersion -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion%27"><span class="hs-identifier hs-type">LoggerDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344810"><span class="annot"><span class="annottext">Maybe [GreengrassLogger]
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345069"><span id="local-6989586621679345071"><span id="local-6989586621679345073"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion"><span class="hs-identifier hs-type">LoggerDefinitionVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679345067"><span class="annot"><span class="annottext">toJSON :: LoggerDefinitionVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerDefinitionVersion.html#LoggerDefinitionVersion%27"><span class="hs-identifier hs-type">LoggerDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345065"><span class="annot"><span class="annottext">Maybe [GreengrassLogger]
 loggers :: Maybe [GreengrassLogger]
 $sel:loggers:LoggerDefinitionVersion' :: LoggerDefinitionVersion -&gt; Maybe [GreengrassLogger]
-</span><a href="#local-6989586621679344810"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679345065"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -212,6 +212,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [GreengrassLogger] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GreengrassLogger]
-</span><a href="#local-6989586621679344810"><span class="hs-identifier hs-var">loggers</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679345065"><span class="hs-identifier hs-var">loggers</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span></pre></body></html>

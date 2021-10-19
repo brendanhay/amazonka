@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621681051580"><span id="local-6989586621681051581"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AddressStatus"><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus"><span class="hs-identifier hs-var">AddressStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddressStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus%27"><span class="hs-identifier hs-var">AddressStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681084775"><span id="local-6989586621681084776"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AddressStatus"><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus"><span class="hs-identifier hs-var">AddressStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddressStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.AddressStatus.html#AddressStatus%27"><span class="hs-identifier hs-var">AddressStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAddressStatus"><span class="annot"><span class="annottext">AddressStatus -&gt; Text
 </span><a href="Network.AWS.EC2.Types.AddressStatus.html#fromAddressStatus"><span class="hs-identifier hs-var hs-var">fromAddressStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681051572"><span id="local-6989586621681051574"><span id="local-6989586621681051576"><span class="annot"><span class="annottext">Int -&gt; AddressStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681084767"><span id="local-6989586621681084769"><span id="local-6989586621681084771"><span class="annot"><span class="annottext">Int -&gt; AddressStatus -&gt; ShowS
 [AddressStatus] -&gt; ShowS
 AddressStatus -&gt; String
 (Int -&gt; AddressStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: AddressStatus -&gt; String
 showsPrec :: Int -&gt; AddressStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; AddressStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681051563"><span id="local-6989586621681051565"><span id="local-6989586621681051567"><span id="local-6989586621681051569"><span class="annot"><span class="annottext">ReadPrec [AddressStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681084758"><span id="local-6989586621681084760"><span id="local-6989586621681084762"><span id="local-6989586621681084764"><span class="annot"><span class="annottext">ReadPrec [AddressStatus]
 ReadPrec AddressStatus
 Int -&gt; ReadS AddressStatus
 ReadS [AddressStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [AddressStatus]
 readsPrec :: Int -&gt; ReadS AddressStatus
 $creadsPrec :: Int -&gt; ReadS AddressStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681051558"><span id="local-6989586621681051560"><span class="annot"><span class="annottext">AddressStatus -&gt; AddressStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681084753"><span id="local-6989586621681084755"><span class="annot"><span class="annottext">AddressStatus -&gt; AddressStatus -&gt; Bool
 (AddressStatus -&gt; AddressStatus -&gt; Bool)
 -&gt; (AddressStatus -&gt; AddressStatus -&gt; Bool) -&gt; Eq AddressStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: AddressStatus -&gt; AddressStatus -&gt; Bool
 == :: AddressStatus -&gt; AddressStatus -&gt; Bool
 $c== :: AddressStatus -&gt; AddressStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681051542"><span id="local-6989586621681051544"><span id="local-6989586621681051546"><span id="local-6989586621681051548"><span id="local-6989586621681051550"><span id="local-6989586621681051552"><span id="local-6989586621681051554"><span class="annot"><span class="annottext">Eq AddressStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681084737"><span id="local-6989586621681084739"><span id="local-6989586621681084741"><span id="local-6989586621681084743"><span id="local-6989586621681084745"><span id="local-6989586621681084747"><span id="local-6989586621681084749"><span class="annot"><span class="annottext">Eq AddressStatus
 Eq AddressStatus
 -&gt; (AddressStatus -&gt; AddressStatus -&gt; Ordering)
 -&gt; (AddressStatus -&gt; AddressStatus -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. AddressStatus -&gt; Rep AddressStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681051534"><span id="local-6989586621681051536"><span class="annot"><span class="annottext">Int -&gt; AddressStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681084729"><span id="local-6989586621681084731"><span class="annot"><span class="annottext">Int -&gt; AddressStatus -&gt; Int
 AddressStatus -&gt; Int
 (Int -&gt; AddressStatus -&gt; Int)
 -&gt; (AddressStatus -&gt; Int) -&gt; Hashable AddressStatus
@@ -144,49 +144,49 @@ $chash :: AddressStatus -&gt; Int
 hashWithSalt :: Int -&gt; AddressStatus -&gt; Int
 $chashWithSalt :: Int -&gt; AddressStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681051531"><span class="annot"><span class="annottext">AddressStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681084726"><span class="annot"><span class="annottext">AddressStatus -&gt; ()
 (AddressStatus -&gt; ()) -&gt; NFData AddressStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AddressStatus -&gt; ()
 $crnf :: AddressStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681051528"><span class="annot"><span class="annottext">Text -&gt; Either String AddressStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681084723"><span class="annot"><span class="annottext">Text -&gt; Either String AddressStatus
 (Text -&gt; Either String AddressStatus) -&gt; FromText AddressStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AddressStatus
 $cfromText :: Text -&gt; Either String AddressStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681051525"><span class="annot"><span class="annottext">AddressStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681084720"><span class="annot"><span class="annottext">AddressStatus -&gt; Text
 (AddressStatus -&gt; Text) -&gt; ToText AddressStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AddressStatus -&gt; Text
 $ctoText :: AddressStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681051522"><span class="annot"><span class="annottext">AddressStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681084717"><span class="annot"><span class="annottext">AddressStatus -&gt; ByteString
 (AddressStatus -&gt; ByteString) -&gt; ToByteString AddressStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AddressStatus -&gt; ByteString
 $ctoBS :: AddressStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681051519"><span class="annot"><span class="annottext">AddressStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681084714"><span class="annot"><span class="annottext">AddressStatus -&gt; ByteStringBuilder
 (AddressStatus -&gt; ByteStringBuilder) -&gt; ToLog AddressStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AddressStatus -&gt; ByteStringBuilder
 $cbuild :: AddressStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681051516"><span class="annot"><span class="annottext">HeaderName -&gt; AddressStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681084711"><span class="annot"><span class="annottext">HeaderName -&gt; AddressStatus -&gt; [Header]
 (HeaderName -&gt; AddressStatus -&gt; [Header]) -&gt; ToHeader AddressStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AddressStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AddressStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681051513"><span class="annot"><span class="annottext">AddressStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681084708"><span class="annot"><span class="annottext">AddressStatus -&gt; QueryString
 (AddressStatus -&gt; QueryString) -&gt; ToQuery AddressStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AddressStatus -&gt; QueryString
 $ctoQuery :: AddressStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681051508"><span id="local-6989586621681051510"><span class="annot"><span class="annottext">Value -&gt; Parser [AddressStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681084703"><span id="local-6989586621681084705"><span class="annot"><span class="annottext">Value -&gt; Parser [AddressStatus]
 Value -&gt; Parser AddressStatus
 (Value -&gt; Parser AddressStatus)
 -&gt; (Value -&gt; Parser [AddressStatus]) -&gt; FromJSON AddressStatus
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [AddressStatus]
 parseJSON :: Value -&gt; Parser AddressStatus
 $cparseJSON :: Value -&gt; Parser AddressStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681051503"><span id="local-6989586621681051505"><span class="annot"><span class="annottext">FromJSONKeyFunction [AddressStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681084698"><span id="local-6989586621681084700"><span class="annot"><span class="annottext">FromJSONKeyFunction [AddressStatus]
 FromJSONKeyFunction AddressStatus
 FromJSONKeyFunction AddressStatus
 -&gt; FromJSONKeyFunction [AddressStatus] -&gt; FromJSONKey AddressStatus
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AddressStatus]
 fromJSONKey :: FromJSONKeyFunction AddressStatus
 $cfromJSONKey :: FromJSONKeyFunction AddressStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681051494"><span id="local-6989586621681051496"><span id="local-6989586621681051498"><span id="local-6989586621681051500"><span class="annot"><span class="annottext">[AddressStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681084689"><span id="local-6989586621681084691"><span id="local-6989586621681084693"><span id="local-6989586621681084695"><span class="annot"><span class="annottext">[AddressStatus] -&gt; Encoding
 [AddressStatus] -&gt; Value
 AddressStatus -&gt; Encoding
 AddressStatus -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: AddressStatus -&gt; Encoding
 toJSON :: AddressStatus -&gt; Value
 $ctoJSON :: AddressStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681051489"><span id="local-6989586621681051491"><span class="annot"><span class="annottext">ToJSONKeyFunction [AddressStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681084684"><span id="local-6989586621681084686"><span class="annot"><span class="annottext">ToJSONKeyFunction [AddressStatus]
 ToJSONKeyFunction AddressStatus
 ToJSONKeyFunction AddressStatus
 -&gt; ToJSONKeyFunction [AddressStatus] -&gt; ToJSONKey AddressStatus
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AddressStatus]
 toJSONKey :: ToJSONKeyFunction AddressStatus
 $ctoJSONKey :: ToJSONKeyFunction AddressStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681051486"><span class="annot"><span class="annottext">[Node] -&gt; Either String AddressStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681084681"><span class="annot"><span class="annottext">[Node] -&gt; Either String AddressStatus
 ([Node] -&gt; Either String AddressStatus) -&gt; FromXML AddressStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AddressStatus
 $cparseXML :: [Node] -&gt; Either String AddressStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681051483"><span class="annot"><span class="annottext">AddressStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681084678"><span class="annot"><span class="annottext">AddressStatus -&gt; XML
 (AddressStatus -&gt; XML) -&gt; ToXML AddressStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AddressStatus -&gt; XML

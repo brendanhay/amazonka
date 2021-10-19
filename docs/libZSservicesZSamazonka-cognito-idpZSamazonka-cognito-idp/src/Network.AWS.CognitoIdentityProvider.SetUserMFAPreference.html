@@ -37,8 +37,8 @@
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#newSetUserMFAPreference"><span class="hs-identifier">newSetUserMFAPreference</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#setUserMFAPreference_softwareTokenMfaSettings"><span class="hs-identifier">setUserMFAPreference_softwareTokenMfaSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#setUserMFAPreference_sMSMfaSettings"><span class="hs-identifier">setUserMFAPreference_sMSMfaSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#setUserMFAPreference_sMSMfaSettings"><span class="hs-identifier">setUserMFAPreference_sMSMfaSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#setUserMFAPreference_softwareTokenMfaSettings"><span class="hs-identifier">setUserMFAPreference_softwareTokenMfaSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#setUserMFAPreference_accessToken"><span class="hs-identifier">setUserMFAPreference_accessToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -58,18 +58,18 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newSetUserMFAPreference' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679440411"><span id="local-6989586621679440412"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetUserMFAPreference"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-var">SetUserMFAPreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetUserMFAPreference%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference%27"><span class="hs-identifier hs-var">SetUserMFAPreference'</span></a></span></span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time-based one-time password software token MFA settings.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AsoftwareTokenMfaSettings%3ASetUserMFAPreference%27"><span class="annot"><span class="annottext">SetUserMFAPreference -&gt; Maybe SoftwareTokenMfaSettingsType
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#%24sel%3AsoftwareTokenMfaSettings%3ASetUserMFAPreference%27"><span class="hs-identifier hs-var hs-var">softwareTokenMfaSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaSettingsType.html#SoftwareTokenMfaSettingsType"><span class="hs-identifier hs-type">SoftwareTokenMfaSettingsType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The SMS text message multi-factor authentication (MFA) settings.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AsMSMfaSettings%3ASetUserMFAPreference%27"><span class="annot"><span class="annottext">SetUserMFAPreference -&gt; Maybe SMSMfaSettingsType
+</span><span id="line-61"></span><span id="local-6989586621679440887"><span id="local-6989586621679440888"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetUserMFAPreference"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-var">SetUserMFAPreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetUserMFAPreference%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference%27"><span class="hs-identifier hs-var">SetUserMFAPreference'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The SMS text message multi-factor authentication (MFA) settings.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AsMSMfaSettings%3ASetUserMFAPreference%27"><span class="annot"><span class="annottext">SetUserMFAPreference -&gt; Maybe SMSMfaSettingsType
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#%24sel%3AsMSMfaSettings%3ASetUserMFAPreference%27"><span class="hs-identifier hs-var hs-var">sMSMfaSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SMSMfaSettingsType.html#SMSMfaSettingsType"><span class="hs-identifier hs-type">SMSMfaSettingsType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The time-based one-time password software token MFA settings.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AsoftwareTokenMfaSettings%3ASetUserMFAPreference%27"><span class="annot"><span class="annottext">SetUserMFAPreference -&gt; Maybe SoftwareTokenMfaSettingsType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#%24sel%3AsoftwareTokenMfaSettings%3ASetUserMFAPreference%27"><span class="hs-identifier hs-var hs-var">softwareTokenMfaSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaSettingsType.html#SoftwareTokenMfaSettingsType"><span class="hs-identifier hs-type">SoftwareTokenMfaSettingsType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The access token for the user.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AaccessToken%3ASetUserMFAPreference%27"><span class="annot"><span class="annottext">SetUserMFAPreference -&gt; Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#%24sel%3AaccessToken%3ASetUserMFAPreference%27"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440403"><span id="local-6989586621679440405"><span class="annot"><span class="annottext">SetUserMFAPreference -&gt; SetUserMFAPreference -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440879"><span id="local-6989586621679440881"><span class="annot"><span class="annottext">SetUserMFAPreference -&gt; SetUserMFAPreference -&gt; Bool
 (SetUserMFAPreference -&gt; SetUserMFAPreference -&gt; Bool)
 -&gt; (SetUserMFAPreference -&gt; SetUserMFAPreference -&gt; Bool)
 -&gt; Eq SetUserMFAPreference
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetUserMFAPreference -&gt; SetUserMFAPreference -&gt; Bool
 == :: SetUserMFAPreference -&gt; SetUserMFAPreference -&gt; Bool
 $c== :: SetUserMFAPreference -&gt; SetUserMFAPreference -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440396"><span id="local-6989586621679440398"><span id="local-6989586621679440400"><span class="annot"><span class="annottext">Int -&gt; SetUserMFAPreference -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440872"><span id="local-6989586621679440874"><span id="local-6989586621679440876"><span class="annot"><span class="annottext">Int -&gt; SetUserMFAPreference -&gt; ShowS
 [SetUserMFAPreference] -&gt; ShowS
 SetUserMFAPreference -&gt; String
 (Int -&gt; SetUserMFAPreference -&gt; ShowS)
@@ -112,9 +112,9 @@ $cfrom :: forall x. SetUserMFAPreference -&gt; Rep SetUserMFAPreference x
 </span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'softwareTokenMfaSettings', 'setUserMFAPreference_softwareTokenMfaSettings' - The time-based one-time password software token MFA settings.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'sMSMfaSettings', 'setUserMFAPreference_sMSMfaSettings' - The SMS text message multi-factor authentication (MFA) settings.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'sMSMfaSettings', 'setUserMFAPreference_sMSMfaSettings' - The SMS text message multi-factor authentication (MFA) settings.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'softwareTokenMfaSettings', 'setUserMFAPreference_softwareTokenMfaSettings' - The time-based one-time password software token MFA settings.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- 'accessToken', 'setUserMFAPreference_accessToken' - The access token for the user.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#newSetUserMFAPreference"><span class="hs-identifier hs-type">newSetUserMFAPreference</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -122,20 +122,20 @@ $cfrom :: forall x. SetUserMFAPreference -&gt; Rep SetUserMFAPreference x
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span><span>
 </span><span id="line-88"></span><span id="newSetUserMFAPreference"><span class="annot"><span class="annottext">newSetUserMFAPreference :: Text -&gt; SetUserMFAPreference
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#newSetUserMFAPreference"><span class="hs-identifier hs-var hs-var">newSetUserMFAPreference</span></a></span></span><span> </span><span id="local-6989586621679440391"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679440391"><span class="hs-identifier hs-var">pAccessToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">SetUserMFAPreference' :: Maybe SoftwareTokenMfaSettingsType
--&gt; Maybe SMSMfaSettingsType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#newSetUserMFAPreference"><span class="hs-identifier hs-var hs-var">newSetUserMFAPreference</span></a></span></span><span> </span><span id="local-6989586621679440867"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440867"><span class="hs-identifier hs-var">pAccessToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">SetUserMFAPreference' :: Maybe SMSMfaSettingsType
+-&gt; Maybe SoftwareTokenMfaSettingsType
 -&gt; Sensitive Text
 -&gt; SetUserMFAPreference
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference%27"><span class="hs-identifier hs-type">SetUserMFAPreference'</span></a></span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:softwareTokenMfaSettings:SetUserMFAPreference' :: Maybe SoftwareTokenMfaSettingsType
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#%24sel%3AsoftwareTokenMfaSettings%3ASetUserMFAPreference%27"><span class="hs-identifier hs-var">softwareTokenMfaSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaSettingsType
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sMSMfaSettings:SetUserMFAPreference' :: Maybe SMSMfaSettingsType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#%24sel%3AsMSMfaSettings%3ASetUserMFAPreference%27"><span class="hs-identifier hs-var">sMSMfaSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Maybe SMSMfaSettingsType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:sMSMfaSettings:SetUserMFAPreference' :: Maybe SMSMfaSettingsType
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#%24sel%3AsMSMfaSettings%3ASetUserMFAPreference%27"><span class="hs-identifier hs-var">sMSMfaSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SMSMfaSettingsType
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:softwareTokenMfaSettings:SetUserMFAPreference' :: Maybe SoftwareTokenMfaSettingsType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#%24sel%3AsoftwareTokenMfaSettings%3ASetUserMFAPreference%27"><span class="hs-identifier hs-var">softwareTokenMfaSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaSettingsType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessToken:SetUserMFAPreference' :: Sensitive Text
@@ -147,12 +147,36 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679440391"><span class="hs-identifier hs-var">pAccessToken_</span></a></span><span>
+</span><a href="#local-6989586621679440867"><span class="hs-identifier hs-var">pAccessToken_</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The time-based one-time password software token MFA settings.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#setUserMFAPreference_softwareTokenMfaSettings"><span class="hs-identifier hs-type">setUserMFAPreference_softwareTokenMfaSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaSettingsType.html#SoftwareTokenMfaSettingsType"><span class="hs-identifier hs-type">SoftwareTokenMfaSettingsType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="setUserMFAPreference_softwareTokenMfaSettings"><span class="annot"><span class="annottext">setUserMFAPreference_softwareTokenMfaSettings :: (Maybe SoftwareTokenMfaSettingsType
+</span><span id="line-96"></span><span class="hs-comment">-- | The SMS text message multi-factor authentication (MFA) settings.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#setUserMFAPreference_sMSMfaSettings"><span class="hs-identifier hs-type">setUserMFAPreference_sMSMfaSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SMSMfaSettingsType.html#SMSMfaSettingsType"><span class="hs-identifier hs-type">SMSMfaSettingsType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="setUserMFAPreference_sMSMfaSettings"><span class="annot"><span class="annottext">setUserMFAPreference_sMSMfaSettings :: (Maybe SMSMfaSettingsType -&gt; f (Maybe SMSMfaSettingsType))
+-&gt; SetUserMFAPreference -&gt; f SetUserMFAPreference
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#setUserMFAPreference_sMSMfaSettings"><span class="hs-identifier hs-var hs-var">setUserMFAPreference_sMSMfaSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetUserMFAPreference -&gt; Maybe SMSMfaSettingsType)
+-&gt; (SetUserMFAPreference
+    -&gt; Maybe SMSMfaSettingsType -&gt; SetUserMFAPreference)
+-&gt; Lens
+     SetUserMFAPreference
+     SetUserMFAPreference
+     (Maybe SMSMfaSettingsType)
+     (Maybe SMSMfaSettingsType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference%27"><span class="hs-identifier hs-type">SetUserMFAPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440862"><span class="annot"><span class="annottext">Maybe SMSMfaSettingsType
+sMSMfaSettings :: Maybe SMSMfaSettingsType
+$sel:sMSMfaSettings:SetUserMFAPreference' :: SetUserMFAPreference -&gt; Maybe SMSMfaSettingsType
+</span><a href="#local-6989586621679440862"><span class="hs-identifier hs-var hs-var">sMSMfaSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SMSMfaSettingsType
+</span><a href="#local-6989586621679440862"><span class="hs-identifier hs-var">sMSMfaSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440861"><span class="annot"><span class="annottext">s :: SetUserMFAPreference
+</span><a href="#local-6989586621679440861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference%27"><span class="hs-identifier hs-type">SetUserMFAPreference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440860"><span class="annot"><span class="annottext">Maybe SMSMfaSettingsType
+</span><a href="#local-6989586621679440860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserMFAPreference
+</span><a href="#local-6989586621679440861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sMSMfaSettings:SetUserMFAPreference' :: Maybe SMSMfaSettingsType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#%24sel%3AsMSMfaSettings%3ASetUserMFAPreference%27"><span class="hs-identifier hs-var">sMSMfaSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SMSMfaSettingsType
+</span><a href="#local-6989586621679440860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The time-based one-time password software token MFA settings.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#setUserMFAPreference_softwareTokenMfaSettings"><span class="hs-identifier hs-type">setUserMFAPreference_softwareTokenMfaSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaSettingsType.html#SoftwareTokenMfaSettingsType"><span class="hs-identifier hs-type">SoftwareTokenMfaSettingsType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="setUserMFAPreference_softwareTokenMfaSettings"><span class="annot"><span class="annottext">setUserMFAPreference_softwareTokenMfaSettings :: (Maybe SoftwareTokenMfaSettingsType
  -&gt; f (Maybe SoftwareTokenMfaSettingsType))
 -&gt; SetUserMFAPreference -&gt; f SetUserMFAPreference
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#setUserMFAPreference_softwareTokenMfaSettings"><span class="hs-identifier hs-var hs-var">setUserMFAPreference_softwareTokenMfaSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetUserMFAPreference -&gt; Maybe SoftwareTokenMfaSettingsType)
@@ -164,40 +188,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe SoftwareTokenMfaSettingsType)
      (Maybe SoftwareTokenMfaSettingsType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference%27"><span class="hs-identifier hs-type">SetUserMFAPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440386"><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaSettingsType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference%27"><span class="hs-identifier hs-type">SetUserMFAPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440859"><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaSettingsType
 softwareTokenMfaSettings :: Maybe SoftwareTokenMfaSettingsType
 $sel:softwareTokenMfaSettings:SetUserMFAPreference' :: SetUserMFAPreference -&gt; Maybe SoftwareTokenMfaSettingsType
-</span><a href="#local-6989586621679440386"><span class="hs-identifier hs-var hs-var">softwareTokenMfaSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaSettingsType
-</span><a href="#local-6989586621679440386"><span class="hs-identifier hs-var">softwareTokenMfaSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440385"><span class="annot"><span class="annottext">s :: SetUserMFAPreference
-</span><a href="#local-6989586621679440385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference%27"><span class="hs-identifier hs-type">SetUserMFAPreference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440384"><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaSettingsType
-</span><a href="#local-6989586621679440384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserMFAPreference
-</span><a href="#local-6989586621679440385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:softwareTokenMfaSettings:SetUserMFAPreference' :: Maybe SoftwareTokenMfaSettingsType
+</span><a href="#local-6989586621679440859"><span class="hs-identifier hs-var hs-var">softwareTokenMfaSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaSettingsType
+</span><a href="#local-6989586621679440859"><span class="hs-identifier hs-var">softwareTokenMfaSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440858"><span class="annot"><span class="annottext">s :: SetUserMFAPreference
+</span><a href="#local-6989586621679440858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference%27"><span class="hs-identifier hs-type">SetUserMFAPreference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440857"><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaSettingsType
+</span><a href="#local-6989586621679440857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserMFAPreference
+</span><a href="#local-6989586621679440858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:softwareTokenMfaSettings:SetUserMFAPreference' :: Maybe SoftwareTokenMfaSettingsType
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#%24sel%3AsoftwareTokenMfaSettings%3ASetUserMFAPreference%27"><span class="hs-identifier hs-var">softwareTokenMfaSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaSettingsType
-</span><a href="#local-6989586621679440384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The SMS text message multi-factor authentication (MFA) settings.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#setUserMFAPreference_sMSMfaSettings"><span class="hs-identifier hs-type">setUserMFAPreference_sMSMfaSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SMSMfaSettingsType.html#SMSMfaSettingsType"><span class="hs-identifier hs-type">SMSMfaSettingsType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="setUserMFAPreference_sMSMfaSettings"><span class="annot"><span class="annottext">setUserMFAPreference_sMSMfaSettings :: (Maybe SMSMfaSettingsType -&gt; f (Maybe SMSMfaSettingsType))
--&gt; SetUserMFAPreference -&gt; f SetUserMFAPreference
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#setUserMFAPreference_sMSMfaSettings"><span class="hs-identifier hs-var hs-var">setUserMFAPreference_sMSMfaSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetUserMFAPreference -&gt; Maybe SMSMfaSettingsType)
--&gt; (SetUserMFAPreference
-    -&gt; Maybe SMSMfaSettingsType -&gt; SetUserMFAPreference)
--&gt; Lens
-     SetUserMFAPreference
-     SetUserMFAPreference
-     (Maybe SMSMfaSettingsType)
-     (Maybe SMSMfaSettingsType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference%27"><span class="hs-identifier hs-type">SetUserMFAPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440383"><span class="annot"><span class="annottext">Maybe SMSMfaSettingsType
-sMSMfaSettings :: Maybe SMSMfaSettingsType
-$sel:sMSMfaSettings:SetUserMFAPreference' :: SetUserMFAPreference -&gt; Maybe SMSMfaSettingsType
-</span><a href="#local-6989586621679440383"><span class="hs-identifier hs-var hs-var">sMSMfaSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SMSMfaSettingsType
-</span><a href="#local-6989586621679440383"><span class="hs-identifier hs-var">sMSMfaSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440382"><span class="annot"><span class="annottext">s :: SetUserMFAPreference
-</span><a href="#local-6989586621679440382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference%27"><span class="hs-identifier hs-type">SetUserMFAPreference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440381"><span class="annot"><span class="annottext">Maybe SMSMfaSettingsType
-</span><a href="#local-6989586621679440381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserMFAPreference
-</span><a href="#local-6989586621679440382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sMSMfaSettings:SetUserMFAPreference' :: Maybe SMSMfaSettingsType
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#%24sel%3AsMSMfaSettings%3ASetUserMFAPreference%27"><span class="hs-identifier hs-var">sMSMfaSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SMSMfaSettingsType
-</span><a href="#local-6989586621679440381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The access token for the user.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#setUserMFAPreference_accessToken"><span class="hs-identifier hs-type">setUserMFAPreference_accessToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -210,16 +210,16 @@ $sel:sMSMfaSettings:SetUserMFAPreference' :: SetUserMFAPreference -&gt; Maybe SM
      (Sensitive Text)
      (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference%27"><span class="hs-identifier hs-type">SetUserMFAPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440380"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference%27"><span class="hs-identifier hs-type">SetUserMFAPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440856"><span class="annot"><span class="annottext">Sensitive Text
 accessToken :: Sensitive Text
 $sel:accessToken:SetUserMFAPreference' :: SetUserMFAPreference -&gt; Sensitive Text
-</span><a href="#local-6989586621679440380"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679440380"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440379"><span class="annot"><span class="annottext">s :: SetUserMFAPreference
-</span><a href="#local-6989586621679440379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference%27"><span class="hs-identifier hs-type">SetUserMFAPreference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440378"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679440378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserMFAPreference
-</span><a href="#local-6989586621679440379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:SetUserMFAPreference' :: Sensitive Text
+</span><a href="#local-6989586621679440856"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679440856"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440855"><span class="annot"><span class="annottext">s :: SetUserMFAPreference
+</span><a href="#local-6989586621679440855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference%27"><span class="hs-identifier hs-type">SetUserMFAPreference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440854"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679440854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserMFAPreference
+</span><a href="#local-6989586621679440855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:SetUserMFAPreference' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#%24sel%3AaccessToken%3ASetUserMFAPreference%27"><span class="hs-identifier hs-var">accessToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679440378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679440854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; SetUserMFAPreference -&gt; f SetUserMFAPreference)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -234,12 +234,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-110"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreferenceResponse"><span class="hs-identifier hs-type">SetUserMFAPreferenceResponse</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679440373"><span class="annot"><span class="annottext">request :: SetUserMFAPreference -&gt; Request SetUserMFAPreference
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679440849"><span class="annot"><span class="annottext">request :: SetUserMFAPreference -&gt; Request SetUserMFAPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetUserMFAPreference -&gt; Request SetUserMFAPreference
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679440369"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679440845"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetUserMFAPreference
 -&gt; ClientResponse ClientBody
@@ -265,10 +265,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440366"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440366"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679440365"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679440365"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679440364"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679440364"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440842"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440842"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679440841"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679440841"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679440840"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679440840"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; SetUserMFAPreferenceResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreferenceResponse%27"><span class="hs-identifier hs-var">SetUserMFAPreferenceResponse'</span></a></span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; SetUserMFAPreferenceResponse)
@@ -279,15 +279,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440366"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440842"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440357"><span id="local-6989586621679440359"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440833"><span id="local-6989586621679440835"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440354"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679440350"><span class="annot"><span class="annottext">toHeaders :: SetUserMFAPreference -&gt; ResponseHeaders
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679440826"><span class="annot"><span class="annottext">toHeaders :: SetUserMFAPreference -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SetUserMFAPreference -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -314,60 +314,60 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440340"><span id="local-6989586621679440342"><span id="local-6989586621679440344"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679440338"><span class="annot"><span class="annottext">toJSON :: SetUserMFAPreference -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference%27"><span class="hs-identifier hs-type">SetUserMFAPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440334"><span id="local-6989586621679440335"><span id="local-6989586621679440336"><span class="annot"><span class="annottext">Maybe SMSMfaSettingsType
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440816"><span id="local-6989586621679440818"><span id="local-6989586621679440820"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679440814"><span class="annot"><span class="annottext">toJSON :: SetUserMFAPreference -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference%27"><span class="hs-identifier hs-type">SetUserMFAPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440810"><span id="local-6989586621679440811"><span id="local-6989586621679440812"><span class="annot"><span class="annottext">Maybe SMSMfaSettingsType
 Maybe SoftwareTokenMfaSettingsType
 Sensitive Text
 accessToken :: Sensitive Text
-sMSMfaSettings :: Maybe SMSMfaSettingsType
 softwareTokenMfaSettings :: Maybe SoftwareTokenMfaSettingsType
+sMSMfaSettings :: Maybe SMSMfaSettingsType
 $sel:accessToken:SetUserMFAPreference' :: SetUserMFAPreference -&gt; Sensitive Text
-$sel:sMSMfaSettings:SetUserMFAPreference' :: SetUserMFAPreference -&gt; Maybe SMSMfaSettingsType
 $sel:softwareTokenMfaSettings:SetUserMFAPreference' :: SetUserMFAPreference -&gt; Maybe SoftwareTokenMfaSettingsType
-</span><a href="#local-6989586621679440334"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:sMSMfaSettings:SetUserMFAPreference' :: SetUserMFAPreference -&gt; Maybe SMSMfaSettingsType
+</span><a href="#local-6989586621679440810"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-143"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SoftwareTokenMfaSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SoftwareTokenMfaSettingsType -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">(SoftwareTokenMfaSettingsType -&gt; Pair)
--&gt; Maybe SoftwareTokenMfaSettingsType -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaSettingsType
-</span><a href="#local-6989586621679440336"><span class="hs-identifier hs-var">softwareTokenMfaSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SMSMfaSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SMSMfaSettingsType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">(SMSMfaSettingsType -&gt; Pair)
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">(SMSMfaSettingsType -&gt; Pair)
 -&gt; Maybe SMSMfaSettingsType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SMSMfaSettingsType
-</span><a href="#local-6989586621679440335"><span class="hs-identifier hs-var">sMSMfaSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440812"><span class="hs-identifier hs-var">sMSMfaSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SoftwareTokenMfaSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SoftwareTokenMfaSettingsType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">(SoftwareTokenMfaSettingsType -&gt; Pair)
+-&gt; Maybe SoftwareTokenMfaSettingsType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaSettingsType
+</span><a href="#local-6989586621679440811"><span class="hs-identifier hs-var">softwareTokenMfaSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccessToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679440334"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440810"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679440328"><span class="annot"><span class="annottext">toPath :: SetUserMFAPreference -&gt; ByteString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679440804"><span class="annot"><span class="annottext">toPath :: SetUserMFAPreference -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetUserMFAPreference -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreference"><span class="hs-identifier hs-type">SetUserMFAPreference</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679440324"><span class="annot"><span class="annottext">toQuery :: SetUserMFAPreference -&gt; QueryString
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679440800"><span class="annot"><span class="annottext">toQuery :: SetUserMFAPreference -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SetUserMFAPreference -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -375,12 +375,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newSetUserMFAPreferenceResponse' smart constructor.</span><span>
-</span><span id="line-158"></span><span id="local-6989586621679440321"><span id="local-6989586621679440322"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetUserMFAPreferenceResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreferenceResponse"><span class="hs-identifier hs-var">SetUserMFAPreferenceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetUserMFAPreferenceResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreferenceResponse%27"><span class="hs-identifier hs-var">SetUserMFAPreferenceResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span id="local-6989586621679440797"><span id="local-6989586621679440798"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetUserMFAPreferenceResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreferenceResponse"><span class="hs-identifier hs-var">SetUserMFAPreferenceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetUserMFAPreferenceResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreferenceResponse%27"><span class="hs-identifier hs-var">SetUserMFAPreferenceResponse'</span></a></span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASetUserMFAPreferenceResponse%27"><span class="annot"><span class="annottext">SetUserMFAPreferenceResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#%24sel%3AhttpStatus%3ASetUserMFAPreferenceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440316"><span id="local-6989586621679440318"><span class="annot"><span class="annottext">SetUserMFAPreferenceResponse
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440792"><span id="local-6989586621679440794"><span class="annot"><span class="annottext">SetUserMFAPreferenceResponse
 -&gt; SetUserMFAPreferenceResponse -&gt; Bool
 (SetUserMFAPreferenceResponse
  -&gt; SetUserMFAPreferenceResponse -&gt; Bool)
@@ -396,7 +396,7 @@ $c/= :: SetUserMFAPreferenceResponse
 -&gt; SetUserMFAPreferenceResponse -&gt; Bool
 $c== :: SetUserMFAPreferenceResponse
 -&gt; SetUserMFAPreferenceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440308"><span id="local-6989586621679440310"><span id="local-6989586621679440312"><span id="local-6989586621679440314"><span class="annot"><span class="annottext">ReadPrec [SetUserMFAPreferenceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440784"><span id="local-6989586621679440786"><span id="local-6989586621679440788"><span id="local-6989586621679440790"><span class="annot"><span class="annottext">ReadPrec [SetUserMFAPreferenceResponse]
 ReadPrec SetUserMFAPreferenceResponse
 Int -&gt; ReadS SetUserMFAPreferenceResponse
 ReadS [SetUserMFAPreferenceResponse]
@@ -416,7 +416,7 @@ readList :: ReadS [SetUserMFAPreferenceResponse]
 $creadList :: ReadS [SetUserMFAPreferenceResponse]
 readsPrec :: Int -&gt; ReadS SetUserMFAPreferenceResponse
 $creadsPrec :: Int -&gt; ReadS SetUserMFAPreferenceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440301"><span id="local-6989586621679440303"><span id="local-6989586621679440305"><span class="annot"><span class="annottext">Int -&gt; SetUserMFAPreferenceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440777"><span id="local-6989586621679440779"><span id="local-6989586621679440781"><span class="annot"><span class="annottext">Int -&gt; SetUserMFAPreferenceResponse -&gt; ShowS
 [SetUserMFAPreferenceResponse] -&gt; ShowS
 SetUserMFAPreferenceResponse -&gt; String
 (Int -&gt; SetUserMFAPreferenceResponse -&gt; ShowS)
@@ -462,14 +462,14 @@ SetUserMFAPreferenceResponse -&gt; Rep SetUserMFAPreferenceResponse x
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreferenceResponse"><span class="hs-identifier hs-type">SetUserMFAPreferenceResponse</span></a></span><span>
 </span><span id="line-177"></span><span id="newSetUserMFAPreferenceResponse"><span class="annot"><span class="annottext">newSetUserMFAPreferenceResponse :: Int -&gt; SetUserMFAPreferenceResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#newSetUserMFAPreferenceResponse"><span class="hs-identifier hs-var hs-var">newSetUserMFAPreferenceResponse</span></a></span></span><span> </span><span id="local-6989586621679440298"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440298"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#newSetUserMFAPreferenceResponse"><span class="hs-identifier hs-var hs-var">newSetUserMFAPreferenceResponse</span></a></span></span><span> </span><span id="local-6989586621679440774"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440774"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">SetUserMFAPreferenceResponse' :: Int -&gt; SetUserMFAPreferenceResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreferenceResponse%27"><span class="hs-identifier hs-type">SetUserMFAPreferenceResponse'</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:SetUserMFAPreferenceResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#%24sel%3AhttpStatus%3ASetUserMFAPreferenceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440298"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679440774"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -482,16 +482,16 @@ SetUserMFAPreferenceResponse -&gt; Rep SetUserMFAPreferenceResponse x
 -&gt; Lens
      SetUserMFAPreferenceResponse SetUserMFAPreferenceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreferenceResponse%27"><span class="hs-identifier hs-type">SetUserMFAPreferenceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440297"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreferenceResponse%27"><span class="hs-identifier hs-type">SetUserMFAPreferenceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440773"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SetUserMFAPreferenceResponse' :: SetUserMFAPreferenceResponse -&gt; Int
-</span><a href="#local-6989586621679440297"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440297"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440296"><span class="annot"><span class="annottext">s :: SetUserMFAPreferenceResponse
-</span><a href="#local-6989586621679440296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreferenceResponse%27"><span class="hs-identifier hs-type">SetUserMFAPreferenceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440295"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserMFAPreferenceResponse
-</span><a href="#local-6989586621679440296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetUserMFAPreferenceResponse' :: Int
+</span><a href="#local-6989586621679440773"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440773"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440772"><span class="annot"><span class="annottext">s :: SetUserMFAPreferenceResponse
+</span><a href="#local-6989586621679440772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreferenceResponse%27"><span class="hs-identifier hs-type">SetUserMFAPreferenceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440771"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserMFAPreferenceResponse
+</span><a href="#local-6989586621679440772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetUserMFAPreferenceResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#%24sel%3AhttpStatus%3ASetUserMFAPreferenceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreferenceResponse"><span class="hs-identifier hs-type">SetUserMFAPreferenceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreferenceResponse"><span class="hs-identifier hs-type">SetUserMFAPreferenceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreferenceResponse"><span class="hs-identifier hs-type">SetUserMFAPreferenceResponse</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440769"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserMFAPreference.html#SetUserMFAPreferenceResponse"><span class="hs-identifier hs-type">SetUserMFAPreferenceResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

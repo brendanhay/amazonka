@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-mobileZSamazonka-mobile
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.Mobile.Types.Platform
@@ -45,13 +45,13 @@ module Network.AWS.Mobile.Types.BundleDetails
 --   
 --   <i>See:</i> <a>newBundleDetails</a> smart constructor.
 data BundleDetails
-BundleDetails' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe [Platform] -> BundleDetails
+BundleDetails' :: Maybe [Platform] -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> BundleDetails
+[$sel:availablePlatforms:BundleDetails'] :: BundleDetails -> Maybe [Platform]
 [$sel:bundleId:BundleDetails'] :: BundleDetails -> Maybe Text
+[$sel:version:BundleDetails'] :: BundleDetails -> Maybe Text
 [$sel:iconUrl:BundleDetails'] :: BundleDetails -> Maybe Text
 [$sel:title:BundleDetails'] :: BundleDetails -> Maybe Text
-[$sel:version:BundleDetails'] :: BundleDetails -> Maybe Text
 [$sel:description:BundleDetails'] :: BundleDetails -> Maybe Text
-[$sel:availablePlatforms:BundleDetails'] :: BundleDetails -> Maybe [Platform]
 
 -- | Create a value of <a>BundleDetails</a> with all optional fields
 --   omitted.
@@ -62,7 +62,13 @@ BundleDetails' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:availablePlatforms:BundleDetails'</a>,
+--   <a>bundleDetails_availablePlatforms</a> - Undocumented member.
+--   
 --   <a>$sel:bundleId:BundleDetails'</a>, <a>bundleDetails_bundleId</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:version:BundleDetails'</a>, <a>bundleDetails_version</a> -
 --   Undocumented member.
 --   
 --   <a>$sel:iconUrl:BundleDetails'</a>, <a>bundleDetails_iconUrl</a> -
@@ -71,18 +77,18 @@ BundleDetails' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe 
 --   <a>$sel:title:BundleDetails'</a>, <a>bundleDetails_title</a> -
 --   Undocumented member.
 --   
---   <a>$sel:version:BundleDetails'</a>, <a>bundleDetails_version</a> -
---   Undocumented member.
---   
 --   <a>$sel:description:BundleDetails'</a>,
 --   <a>bundleDetails_description</a> - Undocumented member.
---   
---   <a>$sel:availablePlatforms:BundleDetails'</a>,
---   <a>bundleDetails_availablePlatforms</a> - Undocumented member.
 newBundleDetails :: BundleDetails
 
 -- | Undocumented member.
+bundleDetails_availablePlatforms :: Lens' BundleDetails (Maybe [Platform])
+
+-- | Undocumented member.
 bundleDetails_bundleId :: Lens' BundleDetails (Maybe Text)
+
+-- | Undocumented member.
+bundleDetails_version :: Lens' BundleDetails (Maybe Text)
 
 -- | Undocumented member.
 bundleDetails_iconUrl :: Lens' BundleDetails (Maybe Text)
@@ -91,13 +97,7 @@ bundleDetails_iconUrl :: Lens' BundleDetails (Maybe Text)
 bundleDetails_title :: Lens' BundleDetails (Maybe Text)
 
 -- | Undocumented member.
-bundleDetails_version :: Lens' BundleDetails (Maybe Text)
-
--- | Undocumented member.
 bundleDetails_description :: Lens' BundleDetails (Maybe Text)
-
--- | Undocumented member.
-bundleDetails_availablePlatforms :: Lens' BundleDetails (Maybe [Platform])
 instance GHC.Generics.Generic Network.AWS.Mobile.Types.BundleDetails.BundleDetails
 instance GHC.Show.Show Network.AWS.Mobile.Types.BundleDetails.BundleDetails
 instance GHC.Read.Read Network.AWS.Mobile.Types.BundleDetails.BundleDetails
@@ -145,11 +145,11 @@ module Network.AWS.Mobile.Types.ProjectSummary
 data ProjectSummary
 ProjectSummary' :: Maybe Text -> Maybe Text -> ProjectSummary
 
--- | Unique project identifier.
-[$sel:projectId:ProjectSummary'] :: ProjectSummary -> Maybe Text
-
 -- | Name of the project.
 [$sel:name:ProjectSummary'] :: ProjectSummary -> Maybe Text
+
+-- | Unique project identifier.
+[$sel:projectId:ProjectSummary'] :: ProjectSummary -> Maybe Text
 
 -- | Create a value of <a>ProjectSummary</a> with all optional fields
 --   omitted.
@@ -160,18 +160,18 @@ ProjectSummary' :: Maybe Text -> Maybe Text -> ProjectSummary
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:projectId:ProjectSummary'</a>, <a>projectSummary_projectId</a>
---   - Unique project identifier.
---   
 --   <a>$sel:name:ProjectSummary'</a>, <a>projectSummary_name</a> - Name of
 --   the project.
+--   
+--   <a>$sel:projectId:ProjectSummary'</a>, <a>projectSummary_projectId</a>
+--   - Unique project identifier.
 newProjectSummary :: ProjectSummary
-
--- | Unique project identifier.
-projectSummary_projectId :: Lens' ProjectSummary (Maybe Text)
 
 -- | Name of the project.
 projectSummary_name :: Lens' ProjectSummary (Maybe Text)
+
+-- | Unique project identifier.
+projectSummary_projectId :: Lens' ProjectSummary (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.Mobile.Types.ProjectSummary.ProjectSummary
 instance GHC.Show.Show Network.AWS.Mobile.Types.ProjectSummary.ProjectSummary
 instance GHC.Read.Read Network.AWS.Mobile.Types.ProjectSummary.ProjectSummary
@@ -188,11 +188,11 @@ module Network.AWS.Mobile.Types.Resource
 --   
 --   <i>See:</i> <a>newResource</a> smart constructor.
 data Resource
-Resource' :: Maybe Text -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe Text -> Maybe Text -> Resource
+Resource' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe Text -> Resource
+[$sel:feature:Resource'] :: Resource -> Maybe Text
 [$sel:arn:Resource'] :: Resource -> Maybe Text
 [$sel:name:Resource'] :: Resource -> Maybe Text
 [$sel:attributes:Resource'] :: Resource -> Maybe (HashMap Text Text)
-[$sel:feature:Resource'] :: Resource -> Maybe Text
 [$sel:type':Resource'] :: Resource -> Maybe Text
 
 -- | Create a value of <a>Resource</a> with all optional fields omitted.
@@ -203,6 +203,9 @@ Resource' :: Maybe Text -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe Text
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:feature:Resource'</a>, <a>resource_feature</a> - Undocumented
+--   member.
+--   
 --   <a>$sel:arn:Resource'</a>, <a>resource_arn</a> - Undocumented member.
 --   
 --   <a>$sel:name:Resource'</a>, <a>resource_name</a> - Undocumented
@@ -211,12 +214,12 @@ Resource' :: Maybe Text -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe Text
 --   <a>$sel:attributes:Resource'</a>, <a>resource_attributes</a> -
 --   Undocumented member.
 --   
---   <a>$sel:feature:Resource'</a>, <a>resource_feature</a> - Undocumented
---   member.
---   
 --   <a>$sel:type':Resource'</a>, <a>resource_type</a> - Undocumented
 --   member.
 newResource :: Resource
+
+-- | Undocumented member.
+resource_feature :: Lens' Resource (Maybe Text)
 
 -- | Undocumented member.
 resource_arn :: Lens' Resource (Maybe Text)
@@ -226,9 +229,6 @@ resource_name :: Lens' Resource (Maybe Text)
 
 -- | Undocumented member.
 resource_attributes :: Lens' Resource (Maybe (HashMap Text Text))
-
--- | Undocumented member.
-resource_feature :: Lens' Resource (Maybe Text)
 
 -- | Undocumented member.
 resource_type :: Lens' Resource (Maybe Text)
@@ -247,21 +247,21 @@ module Network.AWS.Mobile.Types.ProjectDetails
 --   
 --   <i>See:</i> <a>newProjectDetails</a> smart constructor.
 data ProjectDetails
-ProjectDetails' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe ProjectState -> Maybe Text -> Maybe Text -> Maybe [Resource] -> Maybe Text -> ProjectDetails
+ProjectDetails' :: Maybe ProjectState -> Maybe [Resource] -> Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe POSIX -> ProjectDetails
+[$sel:state:ProjectDetails'] :: ProjectDetails -> Maybe ProjectState
+[$sel:resources:ProjectDetails'] :: ProjectDetails -> Maybe [Resource]
 
 -- | Date the project was created.
 [$sel:createdDate:ProjectDetails'] :: ProjectDetails -> Maybe POSIX
 
--- | Date of the last modification of the project.
-[$sel:lastUpdatedDate:ProjectDetails'] :: ProjectDetails -> Maybe POSIX
-[$sel:projectId:ProjectDetails'] :: ProjectDetails -> Maybe Text
-[$sel:state:ProjectDetails'] :: ProjectDetails -> Maybe ProjectState
-[$sel:name:ProjectDetails'] :: ProjectDetails -> Maybe Text
-
 -- | Website URL for this project in the AWS Mobile Hub console.
 [$sel:consoleUrl:ProjectDetails'] :: ProjectDetails -> Maybe Text
-[$sel:resources:ProjectDetails'] :: ProjectDetails -> Maybe [Resource]
+[$sel:name:ProjectDetails'] :: ProjectDetails -> Maybe Text
 [$sel:region:ProjectDetails'] :: ProjectDetails -> Maybe Text
+[$sel:projectId:ProjectDetails'] :: ProjectDetails -> Maybe Text
+
+-- | Date of the last modification of the project.
+[$sel:lastUpdatedDate:ProjectDetails'] :: ProjectDetails -> Maybe POSIX
 
 -- | Create a value of <a>ProjectDetails</a> with all optional fields
 --   omitted.
@@ -272,56 +272,56 @@ ProjectDetails' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe ProjectStat
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:createdDate:ProjectDetails'</a>,
---   <a>projectDetails_createdDate</a> - Date the project was created.
---   
---   <a>$sel:lastUpdatedDate:ProjectDetails'</a>,
---   <a>projectDetails_lastUpdatedDate</a> - Date of the last modification
---   of the project.
---   
---   <a>$sel:projectId:ProjectDetails'</a>, <a>projectDetails_projectId</a>
---   - Undocumented member.
---   
 --   <a>$sel:state:ProjectDetails'</a>, <a>projectDetails_state</a> -
 --   Undocumented member.
 --   
---   <a>$sel:name:ProjectDetails'</a>, <a>projectDetails_name</a> -
---   Undocumented member.
+--   <a>$sel:resources:ProjectDetails'</a>, <a>projectDetails_resources</a>
+--   - Undocumented member.
+--   
+--   <a>$sel:createdDate:ProjectDetails'</a>,
+--   <a>projectDetails_createdDate</a> - Date the project was created.
 --   
 --   <a>$sel:consoleUrl:ProjectDetails'</a>,
 --   <a>projectDetails_consoleUrl</a> - Website URL for this project in the
 --   AWS Mobile Hub console.
 --   
---   <a>$sel:resources:ProjectDetails'</a>, <a>projectDetails_resources</a>
---   - Undocumented member.
+--   <a>$sel:name:ProjectDetails'</a>, <a>projectDetails_name</a> -
+--   Undocumented member.
 --   
 --   <a>$sel:region:ProjectDetails'</a>, <a>projectDetails_region</a> -
 --   Undocumented member.
+--   
+--   <a>$sel:projectId:ProjectDetails'</a>, <a>projectDetails_projectId</a>
+--   - Undocumented member.
+--   
+--   <a>$sel:lastUpdatedDate:ProjectDetails'</a>,
+--   <a>projectDetails_lastUpdatedDate</a> - Date of the last modification
+--   of the project.
 newProjectDetails :: ProjectDetails
-
--- | Date the project was created.
-projectDetails_createdDate :: Lens' ProjectDetails (Maybe UTCTime)
-
--- | Date of the last modification of the project.
-projectDetails_lastUpdatedDate :: Lens' ProjectDetails (Maybe UTCTime)
-
--- | Undocumented member.
-projectDetails_projectId :: Lens' ProjectDetails (Maybe Text)
 
 -- | Undocumented member.
 projectDetails_state :: Lens' ProjectDetails (Maybe ProjectState)
 
 -- | Undocumented member.
-projectDetails_name :: Lens' ProjectDetails (Maybe Text)
+projectDetails_resources :: Lens' ProjectDetails (Maybe [Resource])
+
+-- | Date the project was created.
+projectDetails_createdDate :: Lens' ProjectDetails (Maybe UTCTime)
 
 -- | Website URL for this project in the AWS Mobile Hub console.
 projectDetails_consoleUrl :: Lens' ProjectDetails (Maybe Text)
 
 -- | Undocumented member.
-projectDetails_resources :: Lens' ProjectDetails (Maybe [Resource])
+projectDetails_name :: Lens' ProjectDetails (Maybe Text)
 
 -- | Undocumented member.
 projectDetails_region :: Lens' ProjectDetails (Maybe Text)
+
+-- | Undocumented member.
+projectDetails_projectId :: Lens' ProjectDetails (Maybe Text)
+
+-- | Date of the last modification of the project.
+projectDetails_lastUpdatedDate :: Lens' ProjectDetails (Maybe UTCTime)
 instance GHC.Generics.Generic Network.AWS.Mobile.Types.ProjectDetails.ProjectDetails
 instance GHC.Show.Show Network.AWS.Mobile.Types.ProjectDetails.ProjectDetails
 instance GHC.Read.Read Network.AWS.Mobile.Types.ProjectDetails.ProjectDetails
@@ -340,16 +340,24 @@ defaultService :: Service
 -- | No entity can be found with the specified identifier.
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The request cannot be processed because some parameter is not valid or
---   the project state prevents the operation from being performed.
-_BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Too many requests have been received for this AWS account in too short
+--   a time. The request should be retried after some time delay.
+_TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Credentials of the caller are insufficient to authorize the request.
-_UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The service has encountered an unexpected error condition which
+--   prevents it from servicing the request.
+_InternalFailureException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The service is temporarily unavailable. The request should be retried
 --   after some time delay.
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Credentials of the caller are insufficient to authorize the request.
+_UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The request cannot be processed because some parameter is not valid or
+--   the project state prevents the operation from being performed.
+_BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | There are too many AWS Mobile Hub projects in the account or the
 --   account has exceeded the maximum number of resources in some AWS
@@ -359,14 +367,6 @@ _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceEr
 
 -- | Account Action is required in order to continue the request.
 _AccountActionRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The service has encountered an unexpected error condition which
---   prevents it from servicing the request.
-_InternalFailureException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Too many requests have been received for this AWS account in too short
---   a time. The request should be retried after some time delay.
-_TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Developer desktop or target mobile app or website platform.
 newtype Platform
@@ -392,13 +392,13 @@ pattern ProjectState_SYNCING :: ProjectState
 --   
 --   <i>See:</i> <a>newBundleDetails</a> smart constructor.
 data BundleDetails
-BundleDetails' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe [Platform] -> BundleDetails
+BundleDetails' :: Maybe [Platform] -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> BundleDetails
+[$sel:availablePlatforms:BundleDetails'] :: BundleDetails -> Maybe [Platform]
 [$sel:bundleId:BundleDetails'] :: BundleDetails -> Maybe Text
+[$sel:version:BundleDetails'] :: BundleDetails -> Maybe Text
 [$sel:iconUrl:BundleDetails'] :: BundleDetails -> Maybe Text
 [$sel:title:BundleDetails'] :: BundleDetails -> Maybe Text
-[$sel:version:BundleDetails'] :: BundleDetails -> Maybe Text
 [$sel:description:BundleDetails'] :: BundleDetails -> Maybe Text
-[$sel:availablePlatforms:BundleDetails'] :: BundleDetails -> Maybe [Platform]
 
 -- | Create a value of <a>BundleDetails</a> with all optional fields
 --   omitted.
@@ -409,7 +409,13 @@ BundleDetails' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:availablePlatforms:BundleDetails'</a>,
+--   <a>bundleDetails_availablePlatforms</a> - Undocumented member.
+--   
 --   <a>$sel:bundleId:BundleDetails'</a>, <a>bundleDetails_bundleId</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:version:BundleDetails'</a>, <a>bundleDetails_version</a> -
 --   Undocumented member.
 --   
 --   <a>$sel:iconUrl:BundleDetails'</a>, <a>bundleDetails_iconUrl</a> -
@@ -418,18 +424,18 @@ BundleDetails' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe 
 --   <a>$sel:title:BundleDetails'</a>, <a>bundleDetails_title</a> -
 --   Undocumented member.
 --   
---   <a>$sel:version:BundleDetails'</a>, <a>bundleDetails_version</a> -
---   Undocumented member.
---   
 --   <a>$sel:description:BundleDetails'</a>,
 --   <a>bundleDetails_description</a> - Undocumented member.
---   
---   <a>$sel:availablePlatforms:BundleDetails'</a>,
---   <a>bundleDetails_availablePlatforms</a> - Undocumented member.
 newBundleDetails :: BundleDetails
 
 -- | Undocumented member.
+bundleDetails_availablePlatforms :: Lens' BundleDetails (Maybe [Platform])
+
+-- | Undocumented member.
 bundleDetails_bundleId :: Lens' BundleDetails (Maybe Text)
+
+-- | Undocumented member.
+bundleDetails_version :: Lens' BundleDetails (Maybe Text)
 
 -- | Undocumented member.
 bundleDetails_iconUrl :: Lens' BundleDetails (Maybe Text)
@@ -438,33 +444,27 @@ bundleDetails_iconUrl :: Lens' BundleDetails (Maybe Text)
 bundleDetails_title :: Lens' BundleDetails (Maybe Text)
 
 -- | Undocumented member.
-bundleDetails_version :: Lens' BundleDetails (Maybe Text)
-
--- | Undocumented member.
 bundleDetails_description :: Lens' BundleDetails (Maybe Text)
-
--- | Undocumented member.
-bundleDetails_availablePlatforms :: Lens' BundleDetails (Maybe [Platform])
 
 -- | Detailed information about an AWS Mobile Hub project.
 --   
 --   <i>See:</i> <a>newProjectDetails</a> smart constructor.
 data ProjectDetails
-ProjectDetails' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe ProjectState -> Maybe Text -> Maybe Text -> Maybe [Resource] -> Maybe Text -> ProjectDetails
+ProjectDetails' :: Maybe ProjectState -> Maybe [Resource] -> Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe POSIX -> ProjectDetails
+[$sel:state:ProjectDetails'] :: ProjectDetails -> Maybe ProjectState
+[$sel:resources:ProjectDetails'] :: ProjectDetails -> Maybe [Resource]
 
 -- | Date the project was created.
 [$sel:createdDate:ProjectDetails'] :: ProjectDetails -> Maybe POSIX
 
--- | Date of the last modification of the project.
-[$sel:lastUpdatedDate:ProjectDetails'] :: ProjectDetails -> Maybe POSIX
-[$sel:projectId:ProjectDetails'] :: ProjectDetails -> Maybe Text
-[$sel:state:ProjectDetails'] :: ProjectDetails -> Maybe ProjectState
-[$sel:name:ProjectDetails'] :: ProjectDetails -> Maybe Text
-
 -- | Website URL for this project in the AWS Mobile Hub console.
 [$sel:consoleUrl:ProjectDetails'] :: ProjectDetails -> Maybe Text
-[$sel:resources:ProjectDetails'] :: ProjectDetails -> Maybe [Resource]
+[$sel:name:ProjectDetails'] :: ProjectDetails -> Maybe Text
 [$sel:region:ProjectDetails'] :: ProjectDetails -> Maybe Text
+[$sel:projectId:ProjectDetails'] :: ProjectDetails -> Maybe Text
+
+-- | Date of the last modification of the project.
+[$sel:lastUpdatedDate:ProjectDetails'] :: ProjectDetails -> Maybe POSIX
 
 -- | Create a value of <a>ProjectDetails</a> with all optional fields
 --   omitted.
@@ -475,56 +475,56 @@ ProjectDetails' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe ProjectStat
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:createdDate:ProjectDetails'</a>,
---   <a>projectDetails_createdDate</a> - Date the project was created.
---   
---   <a>$sel:lastUpdatedDate:ProjectDetails'</a>,
---   <a>projectDetails_lastUpdatedDate</a> - Date of the last modification
---   of the project.
---   
---   <a>$sel:projectId:ProjectDetails'</a>, <a>projectDetails_projectId</a>
---   - Undocumented member.
---   
 --   <a>$sel:state:ProjectDetails'</a>, <a>projectDetails_state</a> -
 --   Undocumented member.
 --   
---   <a>$sel:name:ProjectDetails'</a>, <a>projectDetails_name</a> -
---   Undocumented member.
+--   <a>$sel:resources:ProjectDetails'</a>, <a>projectDetails_resources</a>
+--   - Undocumented member.
+--   
+--   <a>$sel:createdDate:ProjectDetails'</a>,
+--   <a>projectDetails_createdDate</a> - Date the project was created.
 --   
 --   <a>$sel:consoleUrl:ProjectDetails'</a>,
 --   <a>projectDetails_consoleUrl</a> - Website URL for this project in the
 --   AWS Mobile Hub console.
 --   
---   <a>$sel:resources:ProjectDetails'</a>, <a>projectDetails_resources</a>
---   - Undocumented member.
+--   <a>$sel:name:ProjectDetails'</a>, <a>projectDetails_name</a> -
+--   Undocumented member.
 --   
 --   <a>$sel:region:ProjectDetails'</a>, <a>projectDetails_region</a> -
 --   Undocumented member.
+--   
+--   <a>$sel:projectId:ProjectDetails'</a>, <a>projectDetails_projectId</a>
+--   - Undocumented member.
+--   
+--   <a>$sel:lastUpdatedDate:ProjectDetails'</a>,
+--   <a>projectDetails_lastUpdatedDate</a> - Date of the last modification
+--   of the project.
 newProjectDetails :: ProjectDetails
-
--- | Date the project was created.
-projectDetails_createdDate :: Lens' ProjectDetails (Maybe UTCTime)
-
--- | Date of the last modification of the project.
-projectDetails_lastUpdatedDate :: Lens' ProjectDetails (Maybe UTCTime)
-
--- | Undocumented member.
-projectDetails_projectId :: Lens' ProjectDetails (Maybe Text)
 
 -- | Undocumented member.
 projectDetails_state :: Lens' ProjectDetails (Maybe ProjectState)
 
 -- | Undocumented member.
-projectDetails_name :: Lens' ProjectDetails (Maybe Text)
+projectDetails_resources :: Lens' ProjectDetails (Maybe [Resource])
+
+-- | Date the project was created.
+projectDetails_createdDate :: Lens' ProjectDetails (Maybe UTCTime)
 
 -- | Website URL for this project in the AWS Mobile Hub console.
 projectDetails_consoleUrl :: Lens' ProjectDetails (Maybe Text)
 
 -- | Undocumented member.
-projectDetails_resources :: Lens' ProjectDetails (Maybe [Resource])
+projectDetails_name :: Lens' ProjectDetails (Maybe Text)
 
 -- | Undocumented member.
 projectDetails_region :: Lens' ProjectDetails (Maybe Text)
+
+-- | Undocumented member.
+projectDetails_projectId :: Lens' ProjectDetails (Maybe Text)
+
+-- | Date of the last modification of the project.
+projectDetails_lastUpdatedDate :: Lens' ProjectDetails (Maybe UTCTime)
 
 -- | Summary information about an AWS Mobile Hub project.
 --   
@@ -532,11 +532,11 @@ projectDetails_region :: Lens' ProjectDetails (Maybe Text)
 data ProjectSummary
 ProjectSummary' :: Maybe Text -> Maybe Text -> ProjectSummary
 
--- | Unique project identifier.
-[$sel:projectId:ProjectSummary'] :: ProjectSummary -> Maybe Text
-
 -- | Name of the project.
 [$sel:name:ProjectSummary'] :: ProjectSummary -> Maybe Text
+
+-- | Unique project identifier.
+[$sel:projectId:ProjectSummary'] :: ProjectSummary -> Maybe Text
 
 -- | Create a value of <a>ProjectSummary</a> with all optional fields
 --   omitted.
@@ -547,29 +547,29 @@ ProjectSummary' :: Maybe Text -> Maybe Text -> ProjectSummary
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:projectId:ProjectSummary'</a>, <a>projectSummary_projectId</a>
---   - Unique project identifier.
---   
 --   <a>$sel:name:ProjectSummary'</a>, <a>projectSummary_name</a> - Name of
 --   the project.
+--   
+--   <a>$sel:projectId:ProjectSummary'</a>, <a>projectSummary_projectId</a>
+--   - Unique project identifier.
 newProjectSummary :: ProjectSummary
-
--- | Unique project identifier.
-projectSummary_projectId :: Lens' ProjectSummary (Maybe Text)
 
 -- | Name of the project.
 projectSummary_name :: Lens' ProjectSummary (Maybe Text)
+
+-- | Unique project identifier.
+projectSummary_projectId :: Lens' ProjectSummary (Maybe Text)
 
 -- | Information about an instance of an AWS resource associated with a
 --   project.
 --   
 --   <i>See:</i> <a>newResource</a> smart constructor.
 data Resource
-Resource' :: Maybe Text -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe Text -> Maybe Text -> Resource
+Resource' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe Text -> Resource
+[$sel:feature:Resource'] :: Resource -> Maybe Text
 [$sel:arn:Resource'] :: Resource -> Maybe Text
 [$sel:name:Resource'] :: Resource -> Maybe Text
 [$sel:attributes:Resource'] :: Resource -> Maybe (HashMap Text Text)
-[$sel:feature:Resource'] :: Resource -> Maybe Text
 [$sel:type':Resource'] :: Resource -> Maybe Text
 
 -- | Create a value of <a>Resource</a> with all optional fields omitted.
@@ -580,6 +580,9 @@ Resource' :: Maybe Text -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe Text
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:feature:Resource'</a>, <a>resource_feature</a> - Undocumented
+--   member.
+--   
 --   <a>$sel:arn:Resource'</a>, <a>resource_arn</a> - Undocumented member.
 --   
 --   <a>$sel:name:Resource'</a>, <a>resource_name</a> - Undocumented
@@ -588,12 +591,12 @@ Resource' :: Maybe Text -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe Text
 --   <a>$sel:attributes:Resource'</a>, <a>resource_attributes</a> -
 --   Undocumented member.
 --   
---   <a>$sel:feature:Resource'</a>, <a>resource_feature</a> - Undocumented
---   member.
---   
 --   <a>$sel:type':Resource'</a>, <a>resource_type</a> - Undocumented
 --   member.
 newResource :: Resource
+
+-- | Undocumented member.
+resource_feature :: Lens' Resource (Maybe Text)
 
 -- | Undocumented member.
 resource_arn :: Lens' Resource (Maybe Text)
@@ -603,9 +606,6 @@ resource_name :: Lens' Resource (Maybe Text)
 
 -- | Undocumented member.
 resource_attributes :: Lens' Resource (Maybe (HashMap Text Text))
-
--- | Undocumented member.
-resource_feature :: Lens' Resource (Maybe Text)
 
 -- | Undocumented member.
 resource_type :: Lens' Resource (Maybe Text)
@@ -762,14 +762,14 @@ listBundles_maxResults :: Lens' ListBundles (Maybe Int)
 --   
 --   <i>See:</i> <a>newListBundlesResponse</a> smart constructor.
 data ListBundlesResponse
-ListBundlesResponse' :: Maybe Text -> Maybe [BundleDetails] -> Int -> ListBundlesResponse
+ListBundlesResponse' :: Maybe [BundleDetails] -> Maybe Text -> Int -> ListBundlesResponse
+
+-- | A list of bundles.
+[$sel:bundleList:ListBundlesResponse'] :: ListBundlesResponse -> Maybe [BundleDetails]
 
 -- | Pagination token. If non-null pagination token is returned in a
 --   result, then pass its value in another request to fetch more entries.
 [$sel:nextToken:ListBundlesResponse'] :: ListBundlesResponse -> Maybe Text
-
--- | A list of bundles.
-[$sel:bundleList:ListBundlesResponse'] :: ListBundlesResponse -> Maybe [BundleDetails]
 
 -- | The response's http status code.
 [$sel:httpStatus:ListBundlesResponse'] :: ListBundlesResponse -> Int
@@ -783,25 +783,25 @@ ListBundlesResponse' :: Maybe Text -> Maybe [BundleDetails] -> Int -> ListBundle
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:bundleList:ListBundlesResponse'</a>,
+--   <a>listBundlesResponse_bundleList</a> - A list of bundles.
+--   
 --   <a>$sel:nextToken:ListBundles'</a>,
 --   <a>listBundlesResponse_nextToken</a> - Pagination token. If non-null
 --   pagination token is returned in a result, then pass its value in
 --   another request to fetch more entries.
---   
---   <a>$sel:bundleList:ListBundlesResponse'</a>,
---   <a>listBundlesResponse_bundleList</a> - A list of bundles.
 --   
 --   <a>$sel:httpStatus:ListBundlesResponse'</a>,
 --   <a>listBundlesResponse_httpStatus</a> - The response's http status
 --   code.
 newListBundlesResponse :: Int -> ListBundlesResponse
 
+-- | A list of bundles.
+listBundlesResponse_bundleList :: Lens' ListBundlesResponse (Maybe [BundleDetails])
+
 -- | Pagination token. If non-null pagination token is returned in a
 --   result, then pass its value in another request to fetch more entries.
 listBundlesResponse_nextToken :: Lens' ListBundlesResponse (Maybe Text)
-
--- | A list of bundles.
-listBundlesResponse_bundleList :: Lens' ListBundlesResponse (Maybe [BundleDetails])
 
 -- | The response's http status code.
 listBundlesResponse_httpStatus :: Lens' ListBundlesResponse Int
@@ -862,14 +862,6 @@ exportProject_projectId :: Lens' ExportProject Text
 data ExportProjectResponse
 ExportProjectResponse' :: Maybe Text -> Maybe Text -> Maybe Text -> Int -> ExportProjectResponse
 
--- | URL which can be used to download the exported project configuation
---   file(s).
-[$sel:downloadUrl:ExportProjectResponse'] :: ExportProjectResponse -> Maybe Text
-
--- | Unique identifier for the exported snapshot of the project
---   configuration. This snapshot identifier is included in the share URL.
-[$sel:snapshotId:ExportProjectResponse'] :: ExportProjectResponse -> Maybe Text
-
 -- | URL which can be shared to allow other AWS users to create their own
 --   project in AWS Mobile Hub with the same configuration as the specified
 --   project. This URL pertains to a snapshot in time of the project
@@ -877,6 +869,14 @@ ExportProjectResponse' :: Maybe Text -> Maybe Text -> Maybe Text -> Int -> Expor
 --   share additional changes to your project configuration, then you will
 --   need to create and share a new snapshot by calling this method again.
 [$sel:shareUrl:ExportProjectResponse'] :: ExportProjectResponse -> Maybe Text
+
+-- | URL which can be used to download the exported project configuation
+--   file(s).
+[$sel:downloadUrl:ExportProjectResponse'] :: ExportProjectResponse -> Maybe Text
+
+-- | Unique identifier for the exported snapshot of the project
+--   configuration. This snapshot identifier is included in the share URL.
+[$sel:snapshotId:ExportProjectResponse'] :: ExportProjectResponse -> Maybe Text
 
 -- | The response's http status code.
 [$sel:httpStatus:ExportProjectResponse'] :: ExportProjectResponse -> Int
@@ -890,15 +890,6 @@ ExportProjectResponse' :: Maybe Text -> Maybe Text -> Maybe Text -> Int -> Expor
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:downloadUrl:ExportProjectResponse'</a>,
---   <a>exportProjectResponse_downloadUrl</a> - URL which can be used to
---   download the exported project configuation file(s).
---   
---   <a>$sel:snapshotId:ExportProjectResponse'</a>,
---   <a>exportProjectResponse_snapshotId</a> - Unique identifier for the
---   exported snapshot of the project configuration. This snapshot
---   identifier is included in the share URL.
---   
 --   <a>$sel:shareUrl:ExportProjectResponse'</a>,
 --   <a>exportProjectResponse_shareUrl</a> - URL which can be shared to
 --   allow other AWS users to create their own project in AWS Mobile Hub
@@ -908,18 +899,19 @@ ExportProjectResponse' :: Maybe Text -> Maybe Text -> Maybe Text -> Int -> Expor
 --   changes to your project configuration, then you will need to create
 --   and share a new snapshot by calling this method again.
 --   
+--   <a>$sel:downloadUrl:ExportProjectResponse'</a>,
+--   <a>exportProjectResponse_downloadUrl</a> - URL which can be used to
+--   download the exported project configuation file(s).
+--   
+--   <a>$sel:snapshotId:ExportProjectResponse'</a>,
+--   <a>exportProjectResponse_snapshotId</a> - Unique identifier for the
+--   exported snapshot of the project configuration. This snapshot
+--   identifier is included in the share URL.
+--   
 --   <a>$sel:httpStatus:ExportProjectResponse'</a>,
 --   <a>exportProjectResponse_httpStatus</a> - The response's http status
 --   code.
 newExportProjectResponse :: Int -> ExportProjectResponse
-
--- | URL which can be used to download the exported project configuation
---   file(s).
-exportProjectResponse_downloadUrl :: Lens' ExportProjectResponse (Maybe Text)
-
--- | Unique identifier for the exported snapshot of the project
---   configuration. This snapshot identifier is included in the share URL.
-exportProjectResponse_snapshotId :: Lens' ExportProjectResponse (Maybe Text)
 
 -- | URL which can be shared to allow other AWS users to create their own
 --   project in AWS Mobile Hub with the same configuration as the specified
@@ -928,6 +920,14 @@ exportProjectResponse_snapshotId :: Lens' ExportProjectResponse (Maybe Text)
 --   share additional changes to your project configuration, then you will
 --   need to create and share a new snapshot by calling this method again.
 exportProjectResponse_shareUrl :: Lens' ExportProjectResponse (Maybe Text)
+
+-- | URL which can be used to download the exported project configuation
+--   file(s).
+exportProjectResponse_downloadUrl :: Lens' ExportProjectResponse (Maybe Text)
+
+-- | Unique identifier for the exported snapshot of the project
+--   configuration. This snapshot identifier is included in the share URL.
+exportProjectResponse_snapshotId :: Lens' ExportProjectResponse (Maybe Text)
 
 -- | The response's http status code.
 exportProjectResponse_httpStatus :: Lens' ExportProjectResponse Int
@@ -1342,13 +1342,13 @@ CreateProject' :: Maybe ByteString -> Maybe Text -> Maybe Text -> Maybe Text -> 
 -- | Name of the project.
 [$sel:name:CreateProject'] :: CreateProject -> Maybe Text
 
+-- | Default region where project resources should be created.
+[$sel:region:CreateProject'] :: CreateProject -> Maybe Text
+
 -- | Unique identifier for an exported snapshot of project configuration.
 --   This snapshot identifier is included in the share URL when a project
 --   is exported.
 [$sel:snapshotId:CreateProject'] :: CreateProject -> Maybe Text
-
--- | Default region where project resources should be created.
-[$sel:region:CreateProject'] :: CreateProject -> Maybe Text
 
 -- | Create a value of <a>CreateProject</a> with all optional fields
 --   omitted.
@@ -1367,13 +1367,13 @@ CreateProject' :: Maybe ByteString -> Maybe Text -> Maybe Text -> Maybe Text -> 
 --   <a>$sel:name:CreateProject'</a>, <a>createProject_name</a> - Name of
 --   the project.
 --   
+--   <a>$sel:region:CreateProject'</a>, <a>createProject_region</a> -
+--   Default region where project resources should be created.
+--   
 --   <a>$sel:snapshotId:CreateProject'</a>, <a>createProject_snapshotId</a>
 --   - Unique identifier for an exported snapshot of project configuration.
 --   This snapshot identifier is included in the share URL when a project
 --   is exported.
---   
---   <a>$sel:region:CreateProject'</a>, <a>createProject_region</a> -
---   Default region where project resources should be created.
 newCreateProject :: CreateProject
 
 -- | ZIP or YAML file which contains configuration settings to be used when
@@ -1384,13 +1384,13 @@ createProject_contents :: Lens' CreateProject (Maybe ByteString)
 -- | Name of the project.
 createProject_name :: Lens' CreateProject (Maybe Text)
 
+-- | Default region where project resources should be created.
+createProject_region :: Lens' CreateProject (Maybe Text)
+
 -- | Unique identifier for an exported snapshot of project configuration.
 --   This snapshot identifier is included in the share URL when a project
 --   is exported.
 createProject_snapshotId :: Lens' CreateProject (Maybe Text)
-
--- | Default region where project resources should be created.
-createProject_region :: Lens' CreateProject (Maybe Text)
 
 -- | Result structure used in response to a request to create a project.
 --   
@@ -1560,54 +1560,18 @@ listProjectsResponse_projects :: Lens' ListProjectsResponse (Maybe [ProjectSumma
 -- | The response's http status code.
 listProjectsResponse_httpStatus :: Lens' ListProjectsResponse Int
 
--- | ZIP or YAML file which contains configuration settings to be used when
---   creating the project. This may be the contents of the file downloaded
---   from the URL provided in an export project operation.
-createProject_contents :: Lens' CreateProject (Maybe ByteString)
+-- | Unique project identifier.
+deleteProject_projectId :: Lens' DeleteProject Text
 
--- | Name of the project.
-createProject_name :: Lens' CreateProject (Maybe Text)
+-- | Resources which were deleted.
+deleteProjectResponse_deletedResources :: Lens' DeleteProjectResponse (Maybe [Resource])
 
--- | Unique identifier for an exported snapshot of project configuration.
---   This snapshot identifier is included in the share URL when a project
---   is exported.
-createProject_snapshotId :: Lens' CreateProject (Maybe Text)
-
--- | Default region where project resources should be created.
-createProject_region :: Lens' CreateProject (Maybe Text)
-
--- | Detailed information about the created AWS Mobile Hub project.
-createProjectResponse_details :: Lens' CreateProjectResponse (Maybe ProjectDetails)
+-- | Resources which were not deleted, due to a risk of losing potentially
+--   important data or files.
+deleteProjectResponse_orphanedResources :: Lens' DeleteProjectResponse (Maybe [Resource])
 
 -- | The response's http status code.
-createProjectResponse_httpStatus :: Lens' CreateProjectResponse Int
-
--- | Unique bundle identifier.
-describeBundle_bundleId :: Lens' DescribeBundle Text
-
--- | The details of the bundle.
-describeBundleResponse_details :: Lens' DescribeBundleResponse (Maybe BundleDetails)
-
--- | The response's http status code.
-describeBundleResponse_httpStatus :: Lens' DescribeBundleResponse Int
-
--- | Pagination token. Set to null to start listing bundles from start. If
---   non-null pagination token is returned in a result, then pass its value
---   in here in another request to list more bundles.
-listBundles_nextToken :: Lens' ListBundles (Maybe Text)
-
--- | Maximum number of records to list in a single response.
-listBundles_maxResults :: Lens' ListBundles (Maybe Int)
-
--- | Pagination token. If non-null pagination token is returned in a
---   result, then pass its value in another request to fetch more entries.
-listBundlesResponse_nextToken :: Lens' ListBundlesResponse (Maybe Text)
-
--- | A list of bundles.
-listBundlesResponse_bundleList :: Lens' ListBundlesResponse (Maybe [BundleDetails])
-
--- | The response's http status code.
-listBundlesResponse_httpStatus :: Lens' ListBundlesResponse Int
+deleteProjectResponse_httpStatus :: Lens' DeleteProjectResponse Int
 
 -- | ZIP or YAML file which contains project configuration to be updated.
 --   This should be the contents of the file downloaded from the URL
@@ -1623,40 +1587,23 @@ updateProjectResponse_details :: Lens' UpdateProjectResponse (Maybe ProjectDetai
 -- | The response's http status code.
 updateProjectResponse_httpStatus :: Lens' UpdateProjectResponse Int
 
--- | Unique project identifier.
-deleteProject_projectId :: Lens' DeleteProject Text
+-- | Pagination token. Set to null to start listing bundles from start. If
+--   non-null pagination token is returned in a result, then pass its value
+--   in here in another request to list more bundles.
+listBundles_nextToken :: Lens' ListBundles (Maybe Text)
 
--- | Resources which were deleted.
-deleteProjectResponse_deletedResources :: Lens' DeleteProjectResponse (Maybe [Resource])
+-- | Maximum number of records to list in a single response.
+listBundles_maxResults :: Lens' ListBundles (Maybe Int)
 
--- | Resources which were not deleted, due to a risk of losing potentially
---   important data or files.
-deleteProjectResponse_orphanedResources :: Lens' DeleteProjectResponse (Maybe [Resource])
+-- | A list of bundles.
+listBundlesResponse_bundleList :: Lens' ListBundlesResponse (Maybe [BundleDetails])
 
--- | The response's http status code.
-deleteProjectResponse_httpStatus :: Lens' DeleteProjectResponse Int
-
--- | Unique project identifier.
-exportProject_projectId :: Lens' ExportProject Text
-
--- | URL which can be used to download the exported project configuation
---   file(s).
-exportProjectResponse_downloadUrl :: Lens' ExportProjectResponse (Maybe Text)
-
--- | Unique identifier for the exported snapshot of the project
---   configuration. This snapshot identifier is included in the share URL.
-exportProjectResponse_snapshotId :: Lens' ExportProjectResponse (Maybe Text)
-
--- | URL which can be shared to allow other AWS users to create their own
---   project in AWS Mobile Hub with the same configuration as the specified
---   project. This URL pertains to a snapshot in time of the project
---   configuration that is created when this API is called. If you want to
---   share additional changes to your project configuration, then you will
---   need to create and share a new snapshot by calling this method again.
-exportProjectResponse_shareUrl :: Lens' ExportProjectResponse (Maybe Text)
+-- | Pagination token. If non-null pagination token is returned in a
+--   result, then pass its value in another request to fetch more entries.
+listBundlesResponse_nextToken :: Lens' ListBundlesResponse (Maybe Text)
 
 -- | The response's http status code.
-exportProjectResponse_httpStatus :: Lens' ExportProjectResponse Int
+listBundlesResponse_httpStatus :: Lens' ListBundlesResponse Int
 
 -- | If set to true, causes AWS Mobile Hub to synchronize information from
 --   other services, e.g., update state of AWS CloudFormation stacks in the
@@ -1671,6 +1618,37 @@ describeProjectResponse_details :: Lens' DescribeProjectResponse (Maybe ProjectD
 
 -- | The response's http status code.
 describeProjectResponse_httpStatus :: Lens' DescribeProjectResponse Int
+
+-- | Unique project identifier.
+exportProject_projectId :: Lens' ExportProject Text
+
+-- | URL which can be shared to allow other AWS users to create their own
+--   project in AWS Mobile Hub with the same configuration as the specified
+--   project. This URL pertains to a snapshot in time of the project
+--   configuration that is created when this API is called. If you want to
+--   share additional changes to your project configuration, then you will
+--   need to create and share a new snapshot by calling this method again.
+exportProjectResponse_shareUrl :: Lens' ExportProjectResponse (Maybe Text)
+
+-- | URL which can be used to download the exported project configuation
+--   file(s).
+exportProjectResponse_downloadUrl :: Lens' ExportProjectResponse (Maybe Text)
+
+-- | Unique identifier for the exported snapshot of the project
+--   configuration. This snapshot identifier is included in the share URL.
+exportProjectResponse_snapshotId :: Lens' ExportProjectResponse (Maybe Text)
+
+-- | The response's http status code.
+exportProjectResponse_httpStatus :: Lens' ExportProjectResponse Int
+
+-- | Unique bundle identifier.
+describeBundle_bundleId :: Lens' DescribeBundle Text
+
+-- | The details of the bundle.
+describeBundleResponse_details :: Lens' DescribeBundleResponse (Maybe BundleDetails)
+
+-- | The response's http status code.
+describeBundleResponse_httpStatus :: Lens' DescribeBundleResponse Int
 
 -- | Developer desktop or target application platform.
 exportBundle_platform :: Lens' ExportBundle (Maybe Platform)
@@ -1689,8 +1667,36 @@ exportBundleResponse_downloadUrl :: Lens' ExportBundleResponse (Maybe Text)
 -- | The response's http status code.
 exportBundleResponse_httpStatus :: Lens' ExportBundleResponse Int
 
+-- | ZIP or YAML file which contains configuration settings to be used when
+--   creating the project. This may be the contents of the file downloaded
+--   from the URL provided in an export project operation.
+createProject_contents :: Lens' CreateProject (Maybe ByteString)
+
+-- | Name of the project.
+createProject_name :: Lens' CreateProject (Maybe Text)
+
+-- | Default region where project resources should be created.
+createProject_region :: Lens' CreateProject (Maybe Text)
+
+-- | Unique identifier for an exported snapshot of project configuration.
+--   This snapshot identifier is included in the share URL when a project
+--   is exported.
+createProject_snapshotId :: Lens' CreateProject (Maybe Text)
+
+-- | Detailed information about the created AWS Mobile Hub project.
+createProjectResponse_details :: Lens' CreateProjectResponse (Maybe ProjectDetails)
+
+-- | The response's http status code.
+createProjectResponse_httpStatus :: Lens' CreateProjectResponse Int
+
+-- | Undocumented member.
+bundleDetails_availablePlatforms :: Lens' BundleDetails (Maybe [Platform])
+
 -- | Undocumented member.
 bundleDetails_bundleId :: Lens' BundleDetails (Maybe Text)
+
+-- | Undocumented member.
+bundleDetails_version :: Lens' BundleDetails (Maybe Text)
 
 -- | Undocumented member.
 bundleDetails_iconUrl :: Lens' BundleDetails (Maybe Text)
@@ -1699,43 +1705,40 @@ bundleDetails_iconUrl :: Lens' BundleDetails (Maybe Text)
 bundleDetails_title :: Lens' BundleDetails (Maybe Text)
 
 -- | Undocumented member.
-bundleDetails_version :: Lens' BundleDetails (Maybe Text)
-
--- | Undocumented member.
 bundleDetails_description :: Lens' BundleDetails (Maybe Text)
-
--- | Undocumented member.
-bundleDetails_availablePlatforms :: Lens' BundleDetails (Maybe [Platform])
-
--- | Date the project was created.
-projectDetails_createdDate :: Lens' ProjectDetails (Maybe UTCTime)
-
--- | Date of the last modification of the project.
-projectDetails_lastUpdatedDate :: Lens' ProjectDetails (Maybe UTCTime)
-
--- | Undocumented member.
-projectDetails_projectId :: Lens' ProjectDetails (Maybe Text)
 
 -- | Undocumented member.
 projectDetails_state :: Lens' ProjectDetails (Maybe ProjectState)
 
 -- | Undocumented member.
-projectDetails_name :: Lens' ProjectDetails (Maybe Text)
+projectDetails_resources :: Lens' ProjectDetails (Maybe [Resource])
+
+-- | Date the project was created.
+projectDetails_createdDate :: Lens' ProjectDetails (Maybe UTCTime)
 
 -- | Website URL for this project in the AWS Mobile Hub console.
 projectDetails_consoleUrl :: Lens' ProjectDetails (Maybe Text)
 
 -- | Undocumented member.
-projectDetails_resources :: Lens' ProjectDetails (Maybe [Resource])
+projectDetails_name :: Lens' ProjectDetails (Maybe Text)
 
 -- | Undocumented member.
 projectDetails_region :: Lens' ProjectDetails (Maybe Text)
 
--- | Unique project identifier.
-projectSummary_projectId :: Lens' ProjectSummary (Maybe Text)
+-- | Undocumented member.
+projectDetails_projectId :: Lens' ProjectDetails (Maybe Text)
+
+-- | Date of the last modification of the project.
+projectDetails_lastUpdatedDate :: Lens' ProjectDetails (Maybe UTCTime)
 
 -- | Name of the project.
 projectSummary_name :: Lens' ProjectSummary (Maybe Text)
+
+-- | Unique project identifier.
+projectSummary_projectId :: Lens' ProjectSummary (Maybe Text)
+
+-- | Undocumented member.
+resource_feature :: Lens' Resource (Maybe Text)
 
 -- | Undocumented member.
 resource_arn :: Lens' Resource (Maybe Text)
@@ -1745,9 +1748,6 @@ resource_name :: Lens' Resource (Maybe Text)
 
 -- | Undocumented member.
 resource_attributes :: Lens' Resource (Maybe (HashMap Text Text))
-
--- | Undocumented member.
-resource_feature :: Lens' Resource (Maybe Text)
 
 -- | Undocumented member.
 resource_type :: Lens' Resource (Maybe Text)
@@ -1772,16 +1772,24 @@ defaultService :: Service
 -- | No entity can be found with the specified identifier.
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The request cannot be processed because some parameter is not valid or
---   the project state prevents the operation from being performed.
-_BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Too many requests have been received for this AWS account in too short
+--   a time. The request should be retried after some time delay.
+_TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Credentials of the caller are insufficient to authorize the request.
-_UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The service has encountered an unexpected error condition which
+--   prevents it from servicing the request.
+_InternalFailureException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The service is temporarily unavailable. The request should be retried
 --   after some time delay.
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Credentials of the caller are insufficient to authorize the request.
+_UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The request cannot be processed because some parameter is not valid or
+--   the project state prevents the operation from being performed.
+_BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | There are too many AWS Mobile Hub projects in the account or the
 --   account has exceeded the maximum number of resources in some AWS
@@ -1791,14 +1799,6 @@ _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceEr
 
 -- | Account Action is required in order to continue the request.
 _AccountActionRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The service has encountered an unexpected error condition which
---   prevents it from servicing the request.
-_InternalFailureException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Too many requests have been received for this AWS account in too short
---   a time. The request should be retried after some time delay.
-_TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Request structure used to request projects list in AWS Mobile Hub.
 --   
@@ -1850,13 +1850,13 @@ ListProjectsResponse' :: Maybe Text -> Maybe [ProjectSummary] -> Int -> ListProj
 --   code.
 newListProjectsResponse :: Int -> ListProjectsResponse
 
--- | Request structure used to request a project be created.
+-- | Request structure used to request a project be deleted.
 --   
---   <i>See:</i> <a>newCreateProject</a> smart constructor.
-data CreateProject
-CreateProject' :: Maybe ByteString -> Maybe Text -> Maybe Text -> Maybe Text -> CreateProject
+--   <i>See:</i> <a>newDeleteProject</a> smart constructor.
+data DeleteProject
+DeleteProject' :: Text -> DeleteProject
 
--- | Create a value of <a>CreateProject</a> with all optional fields
+-- | Create a value of <a>DeleteProject</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -1865,30 +1865,17 @@ CreateProject' :: Maybe ByteString -> Maybe Text -> Maybe Text -> Maybe Text -> 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:contents:CreateProject'</a>, <a>createProject_contents</a> -
---   ZIP or YAML file which contains configuration settings to be used when
---   creating the project. This may be the contents of the file downloaded
---   from the URL provided in an export project operation.
---   
---   <a>$sel:name:CreateProject'</a>, <a>createProject_name</a> - Name of
---   the project.
---   
---   <a>$sel:snapshotId:CreateProject'</a>, <a>createProject_snapshotId</a>
---   - Unique identifier for an exported snapshot of project configuration.
---   This snapshot identifier is included in the share URL when a project
---   is exported.
---   
---   <a>$sel:region:CreateProject'</a>, <a>createProject_region</a> -
---   Default region where project resources should be created.
-newCreateProject :: CreateProject
+--   <a>$sel:projectId:DeleteProject'</a>, <a>deleteProject_projectId</a> -
+--   Unique project identifier.
+newDeleteProject :: Text -> DeleteProject
 
--- | Result structure used in response to a request to create a project.
+-- | Result structure used in response to request to delete a project.
 --   
---   <i>See:</i> <a>newCreateProjectResponse</a> smart constructor.
-data CreateProjectResponse
-CreateProjectResponse' :: Maybe ProjectDetails -> Int -> CreateProjectResponse
+--   <i>See:</i> <a>newDeleteProjectResponse</a> smart constructor.
+data DeleteProjectResponse
+DeleteProjectResponse' :: Maybe [Resource] -> Maybe [Resource] -> Int -> DeleteProjectResponse
 
--- | Create a value of <a>CreateProjectResponse</a> with all optional
+-- | Create a value of <a>DeleteProjectResponse</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -1897,108 +1884,19 @@ CreateProjectResponse' :: Maybe ProjectDetails -> Int -> CreateProjectResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:details:CreateProjectResponse'</a>,
---   <a>createProjectResponse_details</a> - Detailed information about the
---   created AWS Mobile Hub project.
+--   <a>$sel:deletedResources:DeleteProjectResponse'</a>,
+--   <a>deleteProjectResponse_deletedResources</a> - Resources which were
+--   deleted.
 --   
---   <a>$sel:httpStatus:CreateProjectResponse'</a>,
---   <a>createProjectResponse_httpStatus</a> - The response's http status
+--   <a>$sel:orphanedResources:DeleteProjectResponse'</a>,
+--   <a>deleteProjectResponse_orphanedResources</a> - Resources which were
+--   not deleted, due to a risk of losing potentially important data or
+--   files.
+--   
+--   <a>$sel:httpStatus:DeleteProjectResponse'</a>,
+--   <a>deleteProjectResponse_httpStatus</a> - The response's http status
 --   code.
-newCreateProjectResponse :: Int -> CreateProjectResponse
-
--- | Request structure to request the details of a specific bundle.
---   
---   <i>See:</i> <a>newDescribeBundle</a> smart constructor.
-data DescribeBundle
-DescribeBundle' :: Text -> DescribeBundle
-
--- | Create a value of <a>DescribeBundle</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:bundleId:DescribeBundle'</a>, <a>describeBundle_bundleId</a> -
---   Unique bundle identifier.
-newDescribeBundle :: Text -> DescribeBundle
-
--- | Result structure contains the details of the bundle.
---   
---   <i>See:</i> <a>newDescribeBundleResponse</a> smart constructor.
-data DescribeBundleResponse
-DescribeBundleResponse' :: Maybe BundleDetails -> Int -> DescribeBundleResponse
-
--- | Create a value of <a>DescribeBundleResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:details:DescribeBundleResponse'</a>,
---   <a>describeBundleResponse_details</a> - The details of the bundle.
---   
---   <a>$sel:httpStatus:DescribeBundleResponse'</a>,
---   <a>describeBundleResponse_httpStatus</a> - The response's http status
---   code.
-newDescribeBundleResponse :: Int -> DescribeBundleResponse
-
--- | Request structure to request all available bundles.
---   
---   <i>See:</i> <a>newListBundles</a> smart constructor.
-data ListBundles
-ListBundles' :: Maybe Text -> Maybe Int -> ListBundles
-
--- | Create a value of <a>ListBundles</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListBundles'</a>, <a>listBundles_nextToken</a> -
---   Pagination token. Set to null to start listing bundles from start. If
---   non-null pagination token is returned in a result, then pass its value
---   in here in another request to list more bundles.
---   
---   <a>$sel:maxResults:ListBundles'</a>, <a>listBundles_maxResults</a> -
---   Maximum number of records to list in a single response.
-newListBundles :: ListBundles
-
--- | Result structure contains a list of all available bundles with
---   details.
---   
---   <i>See:</i> <a>newListBundlesResponse</a> smart constructor.
-data ListBundlesResponse
-ListBundlesResponse' :: Maybe Text -> Maybe [BundleDetails] -> Int -> ListBundlesResponse
-
--- | Create a value of <a>ListBundlesResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListBundles'</a>,
---   <a>listBundlesResponse_nextToken</a> - Pagination token. If non-null
---   pagination token is returned in a result, then pass its value in
---   another request to fetch more entries.
---   
---   <a>$sel:bundleList:ListBundlesResponse'</a>,
---   <a>listBundlesResponse_bundleList</a> - A list of bundles.
---   
---   <a>$sel:httpStatus:ListBundlesResponse'</a>,
---   <a>listBundlesResponse_httpStatus</a> - The response's http status
---   code.
-newListBundlesResponse :: Int -> ListBundlesResponse
+newDeleteProjectResponse :: Int -> DeleteProjectResponse
 
 -- | Request structure used for requests to update project configuration.
 --   
@@ -2048,13 +1946,37 @@ UpdateProjectResponse' :: Maybe ProjectDetails -> Int -> UpdateProjectResponse
 --   code.
 newUpdateProjectResponse :: Int -> UpdateProjectResponse
 
--- | Request structure used to request a project be deleted.
+-- | Request structure to request all available bundles.
 --   
---   <i>See:</i> <a>newDeleteProject</a> smart constructor.
-data DeleteProject
-DeleteProject' :: Text -> DeleteProject
+--   <i>See:</i> <a>newListBundles</a> smart constructor.
+data ListBundles
+ListBundles' :: Maybe Text -> Maybe Int -> ListBundles
 
--- | Create a value of <a>DeleteProject</a> with all optional fields
+-- | Create a value of <a>ListBundles</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListBundles'</a>, <a>listBundles_nextToken</a> -
+--   Pagination token. Set to null to start listing bundles from start. If
+--   non-null pagination token is returned in a result, then pass its value
+--   in here in another request to list more bundles.
+--   
+--   <a>$sel:maxResults:ListBundles'</a>, <a>listBundles_maxResults</a> -
+--   Maximum number of records to list in a single response.
+newListBundles :: ListBundles
+
+-- | Result structure contains a list of all available bundles with
+--   details.
+--   
+--   <i>See:</i> <a>newListBundlesResponse</a> smart constructor.
+data ListBundlesResponse
+ListBundlesResponse' :: Maybe [BundleDetails] -> Maybe Text -> Int -> ListBundlesResponse
+
+-- | Create a value of <a>ListBundlesResponse</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -2063,97 +1985,18 @@ DeleteProject' :: Text -> DeleteProject
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:projectId:DeleteProject'</a>, <a>deleteProject_projectId</a> -
---   Unique project identifier.
-newDeleteProject :: Text -> DeleteProject
-
--- | Result structure used in response to request to delete a project.
+--   <a>$sel:bundleList:ListBundlesResponse'</a>,
+--   <a>listBundlesResponse_bundleList</a> - A list of bundles.
 --   
---   <i>See:</i> <a>newDeleteProjectResponse</a> smart constructor.
-data DeleteProjectResponse
-DeleteProjectResponse' :: Maybe [Resource] -> Maybe [Resource] -> Int -> DeleteProjectResponse
-
--- | Create a value of <a>DeleteProjectResponse</a> with all optional
---   fields omitted.
+--   <a>$sel:nextToken:ListBundles'</a>,
+--   <a>listBundlesResponse_nextToken</a> - Pagination token. If non-null
+--   pagination token is returned in a result, then pass its value in
+--   another request to fetch more entries.
 --   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:deletedResources:DeleteProjectResponse'</a>,
---   <a>deleteProjectResponse_deletedResources</a> - Resources which were
---   deleted.
---   
---   <a>$sel:orphanedResources:DeleteProjectResponse'</a>,
---   <a>deleteProjectResponse_orphanedResources</a> - Resources which were
---   not deleted, due to a risk of losing potentially important data or
---   files.
---   
---   <a>$sel:httpStatus:DeleteProjectResponse'</a>,
---   <a>deleteProjectResponse_httpStatus</a> - The response's http status
+--   <a>$sel:httpStatus:ListBundlesResponse'</a>,
+--   <a>listBundlesResponse_httpStatus</a> - The response's http status
 --   code.
-newDeleteProjectResponse :: Int -> DeleteProjectResponse
-
--- | Request structure used in requests to export project configuration
---   details.
---   
---   <i>See:</i> <a>newExportProject</a> smart constructor.
-data ExportProject
-ExportProject' :: Text -> ExportProject
-
--- | Create a value of <a>ExportProject</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:projectId:ExportProject'</a>, <a>exportProject_projectId</a> -
---   Unique project identifier.
-newExportProject :: Text -> ExportProject
-
--- | Result structure used for requests to export project configuration
---   details.
---   
---   <i>See:</i> <a>newExportProjectResponse</a> smart constructor.
-data ExportProjectResponse
-ExportProjectResponse' :: Maybe Text -> Maybe Text -> Maybe Text -> Int -> ExportProjectResponse
-
--- | Create a value of <a>ExportProjectResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:downloadUrl:ExportProjectResponse'</a>,
---   <a>exportProjectResponse_downloadUrl</a> - URL which can be used to
---   download the exported project configuation file(s).
---   
---   <a>$sel:snapshotId:ExportProjectResponse'</a>,
---   <a>exportProjectResponse_snapshotId</a> - Unique identifier for the
---   exported snapshot of the project configuration. This snapshot
---   identifier is included in the share URL.
---   
---   <a>$sel:shareUrl:ExportProjectResponse'</a>,
---   <a>exportProjectResponse_shareUrl</a> - URL which can be shared to
---   allow other AWS users to create their own project in AWS Mobile Hub
---   with the same configuration as the specified project. This URL
---   pertains to a snapshot in time of the project configuration that is
---   created when this API is called. If you want to share additional
---   changes to your project configuration, then you will need to create
---   and share a new snapshot by calling this method again.
---   
---   <a>$sel:httpStatus:ExportProjectResponse'</a>,
---   <a>exportProjectResponse_httpStatus</a> - The response's http status
---   code.
-newExportProjectResponse :: Int -> ExportProjectResponse
+newListBundlesResponse :: Int -> ListBundlesResponse
 
 -- | Request structure used to request details about a project.
 --   
@@ -2202,6 +2045,107 @@ DescribeProjectResponse' :: Maybe ProjectDetails -> Int -> DescribeProjectRespon
 --   <a>describeProjectResponse_httpStatus</a> - The response's http status
 --   code.
 newDescribeProjectResponse :: Int -> DescribeProjectResponse
+
+-- | Request structure used in requests to export project configuration
+--   details.
+--   
+--   <i>See:</i> <a>newExportProject</a> smart constructor.
+data ExportProject
+ExportProject' :: Text -> ExportProject
+
+-- | Create a value of <a>ExportProject</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:projectId:ExportProject'</a>, <a>exportProject_projectId</a> -
+--   Unique project identifier.
+newExportProject :: Text -> ExportProject
+
+-- | Result structure used for requests to export project configuration
+--   details.
+--   
+--   <i>See:</i> <a>newExportProjectResponse</a> smart constructor.
+data ExportProjectResponse
+ExportProjectResponse' :: Maybe Text -> Maybe Text -> Maybe Text -> Int -> ExportProjectResponse
+
+-- | Create a value of <a>ExportProjectResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:shareUrl:ExportProjectResponse'</a>,
+--   <a>exportProjectResponse_shareUrl</a> - URL which can be shared to
+--   allow other AWS users to create their own project in AWS Mobile Hub
+--   with the same configuration as the specified project. This URL
+--   pertains to a snapshot in time of the project configuration that is
+--   created when this API is called. If you want to share additional
+--   changes to your project configuration, then you will need to create
+--   and share a new snapshot by calling this method again.
+--   
+--   <a>$sel:downloadUrl:ExportProjectResponse'</a>,
+--   <a>exportProjectResponse_downloadUrl</a> - URL which can be used to
+--   download the exported project configuation file(s).
+--   
+--   <a>$sel:snapshotId:ExportProjectResponse'</a>,
+--   <a>exportProjectResponse_snapshotId</a> - Unique identifier for the
+--   exported snapshot of the project configuration. This snapshot
+--   identifier is included in the share URL.
+--   
+--   <a>$sel:httpStatus:ExportProjectResponse'</a>,
+--   <a>exportProjectResponse_httpStatus</a> - The response's http status
+--   code.
+newExportProjectResponse :: Int -> ExportProjectResponse
+
+-- | Request structure to request the details of a specific bundle.
+--   
+--   <i>See:</i> <a>newDescribeBundle</a> smart constructor.
+data DescribeBundle
+DescribeBundle' :: Text -> DescribeBundle
+
+-- | Create a value of <a>DescribeBundle</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:bundleId:DescribeBundle'</a>, <a>describeBundle_bundleId</a> -
+--   Unique bundle identifier.
+newDescribeBundle :: Text -> DescribeBundle
+
+-- | Result structure contains the details of the bundle.
+--   
+--   <i>See:</i> <a>newDescribeBundleResponse</a> smart constructor.
+data DescribeBundleResponse
+DescribeBundleResponse' :: Maybe BundleDetails -> Int -> DescribeBundleResponse
+
+-- | Create a value of <a>DescribeBundleResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:details:DescribeBundleResponse'</a>,
+--   <a>describeBundleResponse_details</a> - The details of the bundle.
+--   
+--   <a>$sel:httpStatus:DescribeBundleResponse'</a>,
+--   <a>describeBundleResponse_httpStatus</a> - The response's http status
+--   code.
+newDescribeBundleResponse :: Int -> DescribeBundleResponse
 
 -- | Request structure used to request generation of custom SDK and tool
 --   packages required to integrate mobile web or app clients with backed
@@ -2258,6 +2202,62 @@ ExportBundleResponse' :: Maybe Text -> Int -> ExportBundleResponse
 --   code.
 newExportBundleResponse :: Int -> ExportBundleResponse
 
+-- | Request structure used to request a project be created.
+--   
+--   <i>See:</i> <a>newCreateProject</a> smart constructor.
+data CreateProject
+CreateProject' :: Maybe ByteString -> Maybe Text -> Maybe Text -> Maybe Text -> CreateProject
+
+-- | Create a value of <a>CreateProject</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:contents:CreateProject'</a>, <a>createProject_contents</a> -
+--   ZIP or YAML file which contains configuration settings to be used when
+--   creating the project. This may be the contents of the file downloaded
+--   from the URL provided in an export project operation.
+--   
+--   <a>$sel:name:CreateProject'</a>, <a>createProject_name</a> - Name of
+--   the project.
+--   
+--   <a>$sel:region:CreateProject'</a>, <a>createProject_region</a> -
+--   Default region where project resources should be created.
+--   
+--   <a>$sel:snapshotId:CreateProject'</a>, <a>createProject_snapshotId</a>
+--   - Unique identifier for an exported snapshot of project configuration.
+--   This snapshot identifier is included in the share URL when a project
+--   is exported.
+newCreateProject :: CreateProject
+
+-- | Result structure used in response to a request to create a project.
+--   
+--   <i>See:</i> <a>newCreateProjectResponse</a> smart constructor.
+data CreateProjectResponse
+CreateProjectResponse' :: Maybe ProjectDetails -> Int -> CreateProjectResponse
+
+-- | Create a value of <a>CreateProjectResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:details:CreateProjectResponse'</a>,
+--   <a>createProjectResponse_details</a> - Detailed information about the
+--   created AWS Mobile Hub project.
+--   
+--   <a>$sel:httpStatus:CreateProjectResponse'</a>,
+--   <a>createProjectResponse_httpStatus</a> - The response's http status
+--   code.
+newCreateProjectResponse :: Int -> CreateProjectResponse
+
 -- | Developer desktop or target mobile app or website platform.
 newtype Platform
 Platform' :: Text -> Platform
@@ -2282,7 +2282,7 @@ pattern ProjectState_SYNCING :: ProjectState
 --   
 --   <i>See:</i> <a>newBundleDetails</a> smart constructor.
 data BundleDetails
-BundleDetails' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe [Platform] -> BundleDetails
+BundleDetails' :: Maybe [Platform] -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> BundleDetails
 
 -- | Create a value of <a>BundleDetails</a> with all optional fields
 --   omitted.
@@ -2293,7 +2293,13 @@ BundleDetails' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:availablePlatforms:BundleDetails'</a>,
+--   <a>bundleDetails_availablePlatforms</a> - Undocumented member.
+--   
 --   <a>$sel:bundleId:BundleDetails'</a>, <a>bundleDetails_bundleId</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:version:BundleDetails'</a>, <a>bundleDetails_version</a> -
 --   Undocumented member.
 --   
 --   <a>$sel:iconUrl:BundleDetails'</a>, <a>bundleDetails_iconUrl</a> -
@@ -2302,21 +2308,15 @@ BundleDetails' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe 
 --   <a>$sel:title:BundleDetails'</a>, <a>bundleDetails_title</a> -
 --   Undocumented member.
 --   
---   <a>$sel:version:BundleDetails'</a>, <a>bundleDetails_version</a> -
---   Undocumented member.
---   
 --   <a>$sel:description:BundleDetails'</a>,
 --   <a>bundleDetails_description</a> - Undocumented member.
---   
---   <a>$sel:availablePlatforms:BundleDetails'</a>,
---   <a>bundleDetails_availablePlatforms</a> - Undocumented member.
 newBundleDetails :: BundleDetails
 
 -- | Detailed information about an AWS Mobile Hub project.
 --   
 --   <i>See:</i> <a>newProjectDetails</a> smart constructor.
 data ProjectDetails
-ProjectDetails' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe ProjectState -> Maybe Text -> Maybe Text -> Maybe [Resource] -> Maybe Text -> ProjectDetails
+ProjectDetails' :: Maybe ProjectState -> Maybe [Resource] -> Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe POSIX -> ProjectDetails
 
 -- | Create a value of <a>ProjectDetails</a> with all optional fields
 --   omitted.
@@ -2327,31 +2327,31 @@ ProjectDetails' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe ProjectStat
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:createdDate:ProjectDetails'</a>,
---   <a>projectDetails_createdDate</a> - Date the project was created.
---   
---   <a>$sel:lastUpdatedDate:ProjectDetails'</a>,
---   <a>projectDetails_lastUpdatedDate</a> - Date of the last modification
---   of the project.
---   
---   <a>$sel:projectId:ProjectDetails'</a>, <a>projectDetails_projectId</a>
---   - Undocumented member.
---   
 --   <a>$sel:state:ProjectDetails'</a>, <a>projectDetails_state</a> -
 --   Undocumented member.
 --   
---   <a>$sel:name:ProjectDetails'</a>, <a>projectDetails_name</a> -
---   Undocumented member.
+--   <a>$sel:resources:ProjectDetails'</a>, <a>projectDetails_resources</a>
+--   - Undocumented member.
+--   
+--   <a>$sel:createdDate:ProjectDetails'</a>,
+--   <a>projectDetails_createdDate</a> - Date the project was created.
 --   
 --   <a>$sel:consoleUrl:ProjectDetails'</a>,
 --   <a>projectDetails_consoleUrl</a> - Website URL for this project in the
 --   AWS Mobile Hub console.
 --   
---   <a>$sel:resources:ProjectDetails'</a>, <a>projectDetails_resources</a>
---   - Undocumented member.
+--   <a>$sel:name:ProjectDetails'</a>, <a>projectDetails_name</a> -
+--   Undocumented member.
 --   
 --   <a>$sel:region:ProjectDetails'</a>, <a>projectDetails_region</a> -
 --   Undocumented member.
+--   
+--   <a>$sel:projectId:ProjectDetails'</a>, <a>projectDetails_projectId</a>
+--   - Undocumented member.
+--   
+--   <a>$sel:lastUpdatedDate:ProjectDetails'</a>,
+--   <a>projectDetails_lastUpdatedDate</a> - Date of the last modification
+--   of the project.
 newProjectDetails :: ProjectDetails
 
 -- | Summary information about an AWS Mobile Hub project.
@@ -2369,11 +2369,11 @@ ProjectSummary' :: Maybe Text -> Maybe Text -> ProjectSummary
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:projectId:ProjectSummary'</a>, <a>projectSummary_projectId</a>
---   - Unique project identifier.
---   
 --   <a>$sel:name:ProjectSummary'</a>, <a>projectSummary_name</a> - Name of
 --   the project.
+--   
+--   <a>$sel:projectId:ProjectSummary'</a>, <a>projectSummary_projectId</a>
+--   - Unique project identifier.
 newProjectSummary :: ProjectSummary
 
 -- | Information about an instance of an AWS resource associated with a
@@ -2381,7 +2381,7 @@ newProjectSummary :: ProjectSummary
 --   
 --   <i>See:</i> <a>newResource</a> smart constructor.
 data Resource
-Resource' :: Maybe Text -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe Text -> Maybe Text -> Resource
+Resource' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe Text -> Resource
 
 -- | Create a value of <a>Resource</a> with all optional fields omitted.
 --   
@@ -2391,6 +2391,9 @@ Resource' :: Maybe Text -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe Text
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:feature:Resource'</a>, <a>resource_feature</a> - Undocumented
+--   member.
+--   
 --   <a>$sel:arn:Resource'</a>, <a>resource_arn</a> - Undocumented member.
 --   
 --   <a>$sel:name:Resource'</a>, <a>resource_name</a> - Undocumented
@@ -2398,9 +2401,6 @@ Resource' :: Maybe Text -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe Text
 --   
 --   <a>$sel:attributes:Resource'</a>, <a>resource_attributes</a> -
 --   Undocumented member.
---   
---   <a>$sel:feature:Resource'</a>, <a>resource_feature</a> - Undocumented
---   member.
 --   
 --   <a>$sel:type':Resource'</a>, <a>resource_type</a> - Undocumented
 --   member.

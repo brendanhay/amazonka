@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-comment">-- | A request to change your account\'s suppression preferences.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- /See:/ 'newPutAccountSuppressionAttributes' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679338398"><span id="local-6989586621679338399"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAccountSuppressionAttributes"><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes"><span class="hs-identifier hs-var">PutAccountSuppressionAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAccountSuppressionAttributes%27"><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes%27"><span class="hs-identifier hs-var">PutAccountSuppressionAttributes'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679340939"><span id="local-6989586621679340940"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAccountSuppressionAttributes"><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes"><span class="hs-identifier hs-var">PutAccountSuppressionAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAccountSuppressionAttributes%27"><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes%27"><span class="hs-identifier hs-var">PutAccountSuppressionAttributes'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list that contains the reasons that email addresses will be</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- automatically added to the suppression list for your account. This list</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- can contain any or all of the following:</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AsuppressedReasons%3APutAccountSuppressionAttributes%27"><span class="annot"><span class="annottext">PutAccountSuppressionAttributes -&gt; Maybe [SuppressionListReason]
 </span><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#%24sel%3AsuppressedReasons%3APutAccountSuppressionAttributes%27"><span class="hs-identifier hs-var hs-var">suppressedReasons</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason"><span class="hs-identifier hs-type">SuppressionListReason</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338392"><span id="local-6989586621679338394"><span class="annot"><span class="annottext">PutAccountSuppressionAttributes
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340933"><span id="local-6989586621679340935"><span class="annot"><span class="annottext">PutAccountSuppressionAttributes
 -&gt; PutAccountSuppressionAttributes -&gt; Bool
 (PutAccountSuppressionAttributes
  -&gt; PutAccountSuppressionAttributes -&gt; Bool)
@@ -79,7 +79,7 @@ $c/= :: PutAccountSuppressionAttributes
 -&gt; PutAccountSuppressionAttributes -&gt; Bool
 $c== :: PutAccountSuppressionAttributes
 -&gt; PutAccountSuppressionAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338383"><span id="local-6989586621679338385"><span id="local-6989586621679338387"><span id="local-6989586621679338389"><span class="annot"><span class="annottext">ReadPrec [PutAccountSuppressionAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340924"><span id="local-6989586621679340926"><span id="local-6989586621679340928"><span id="local-6989586621679340930"><span class="annot"><span class="annottext">ReadPrec [PutAccountSuppressionAttributes]
 ReadPrec PutAccountSuppressionAttributes
 Int -&gt; ReadS PutAccountSuppressionAttributes
 ReadS [PutAccountSuppressionAttributes]
@@ -99,7 +99,7 @@ readList :: ReadS [PutAccountSuppressionAttributes]
 $creadList :: ReadS [PutAccountSuppressionAttributes]
 readsPrec :: Int -&gt; ReadS PutAccountSuppressionAttributes
 $creadsPrec :: Int -&gt; ReadS PutAccountSuppressionAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338376"><span id="local-6989586621679338378"><span id="local-6989586621679338380"><span class="annot"><span class="annottext">Int -&gt; PutAccountSuppressionAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340917"><span id="local-6989586621679340919"><span id="local-6989586621679340921"><span class="annot"><span class="annottext">Int -&gt; PutAccountSuppressionAttributes -&gt; ShowS
 [PutAccountSuppressionAttributes] -&gt; ShowS
 PutAccountSuppressionAttributes -&gt; String
 (Int -&gt; PutAccountSuppressionAttributes -&gt; ShowS)
@@ -195,16 +195,16 @@ forall a. Maybe a
      (Maybe [SuppressionListReason])
      (Maybe [SuppressionListReason])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes%27"><span class="hs-identifier hs-type">PutAccountSuppressionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338369"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes%27"><span class="hs-identifier hs-type">PutAccountSuppressionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340910"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
 suppressedReasons :: Maybe [SuppressionListReason]
 $sel:suppressedReasons:PutAccountSuppressionAttributes' :: PutAccountSuppressionAttributes -&gt; Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679338369"><span class="hs-identifier hs-var hs-var">suppressedReasons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679338369"><span class="hs-identifier hs-var">suppressedReasons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338368"><span class="annot"><span class="annottext">s :: PutAccountSuppressionAttributes
-</span><a href="#local-6989586621679338368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes%27"><span class="hs-identifier hs-type">PutAccountSuppressionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338367"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679338367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccountSuppressionAttributes
-</span><a href="#local-6989586621679338368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suppressedReasons:PutAccountSuppressionAttributes' :: Maybe [SuppressionListReason]
+</span><a href="#local-6989586621679340910"><span class="hs-identifier hs-var hs-var">suppressedReasons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
+</span><a href="#local-6989586621679340910"><span class="hs-identifier hs-var">suppressedReasons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340909"><span class="annot"><span class="annottext">s :: PutAccountSuppressionAttributes
+</span><a href="#local-6989586621679340909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes%27"><span class="hs-identifier hs-type">PutAccountSuppressionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340908"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
+</span><a href="#local-6989586621679340908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccountSuppressionAttributes
+</span><a href="#local-6989586621679340909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suppressedReasons:PutAccountSuppressionAttributes' :: Maybe [SuppressionListReason]
 </span><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#%24sel%3AsuppressedReasons%3APutAccountSuppressionAttributes%27"><span class="hs-identifier hs-var">suppressedReasons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679338367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes"><span class="hs-identifier hs-type">PutAccountSuppressionAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SuppressionListReason]
+</span><a href="#local-6989586621679340908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes"><span class="hs-identifier hs-type">PutAccountSuppressionAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SuppressionListReason]
   -&gt; f (Maybe [SuppressionListReason]))
  -&gt; PutAccountSuppressionAttributes
  -&gt; f PutAccountSuppressionAttributes)
@@ -235,8 +235,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [SuppressionListReason]
   [SuppressionListReason]
   [SuppressionListReason]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -245,7 +245,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 </span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes"><span class="hs-identifier hs-type">PutAccountSuppressionAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributesResponse"><span class="hs-identifier hs-type">PutAccountSuppressionAttributesResponse</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679338360"><span class="annot"><span class="annottext">request :: PutAccountSuppressionAttributes
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679340901"><span class="annot"><span class="annottext">request :: PutAccountSuppressionAttributes
 -&gt; Request PutAccountSuppressionAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; PutAccountSuppressionAttributes
@@ -253,7 +253,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679338356"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679340897"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutAccountSuppressionAttributes
 -&gt; ClientResponse ClientBody
@@ -281,10 +281,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338353"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679338353"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679338352"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679338352"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679338351"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679338351"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679340894"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679340894"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679340893"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679340893"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679340892"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679340892"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutAccountSuppressionAttributesResponse
 </span><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributesResponse%27"><span class="hs-identifier hs-var">PutAccountSuppressionAttributesResponse'</span></a></span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutAccountSuppressionAttributesResponse)
@@ -296,22 +296,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679338353"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340894"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679338344"><span id="local-6989586621679338346"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679340885"><span id="local-6989586621679340887"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes"><span class="hs-identifier hs-type">PutAccountSuppressionAttributes</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679338341"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679340882"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes"><span class="hs-identifier hs-type">PutAccountSuppressionAttributes</span></a></span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes"><span class="hs-identifier hs-type">PutAccountSuppressionAttributes</span></a></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679338337"><span class="annot"><span class="annottext">toHeaders :: PutAccountSuppressionAttributes -&gt; ResponseHeaders
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679340878"><span class="annot"><span class="annottext">toHeaders :: PutAccountSuppressionAttributes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; PutAccountSuppressionAttributes -&gt; ResponseHeaders
@@ -331,12 +331,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338327"><span id="local-6989586621679338329"><span id="local-6989586621679338331"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes"><span class="hs-identifier hs-type">PutAccountSuppressionAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679338325"><span class="annot"><span class="annottext">toJSON :: PutAccountSuppressionAttributes -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes%27"><span class="hs-identifier hs-type">PutAccountSuppressionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338323"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340868"><span id="local-6989586621679340870"><span id="local-6989586621679340872"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes"><span class="hs-identifier hs-type">PutAccountSuppressionAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679340866"><span class="annot"><span class="annottext">toJSON :: PutAccountSuppressionAttributes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes%27"><span class="hs-identifier hs-type">PutAccountSuppressionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340864"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
 suppressedReasons :: Maybe [SuppressionListReason]
 $sel:suppressedReasons:PutAccountSuppressionAttributes' :: PutAccountSuppressionAttributes -&gt; Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679338323"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679340864"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -350,12 +350,12 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [SuppressionListReason] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679338323"><span class="hs-identifier hs-var">suppressedReasons</span></a></span><span>
+</span><a href="#local-6989586621679340864"><span class="hs-identifier hs-var">suppressedReasons</span></a></span><span>
 </span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes"><span class="hs-identifier hs-type">PutAccountSuppressionAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679338317"><span class="annot"><span class="annottext">toPath :: PutAccountSuppressionAttributes -&gt; ByteString
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679340858"><span class="annot"><span class="annottext">toPath :: PutAccountSuppressionAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; PutAccountSuppressionAttributes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -363,7 +363,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/v2/email/account/suppression&quot;</span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributes"><span class="hs-identifier hs-type">PutAccountSuppressionAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679338313"><span class="annot"><span class="annottext">toQuery :: PutAccountSuppressionAttributes -&gt; QueryString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679340854"><span class="annot"><span class="annottext">toQuery :: PutAccountSuppressionAttributes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutAccountSuppressionAttributes -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -374,12 +374,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-162"></span><span class="hs-comment">-- request fails.</span><span>
 </span><span id="line-163"></span><span class="hs-comment">--</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- /See:/ 'newPutAccountSuppressionAttributesResponse' smart constructor.</span><span>
-</span><span id="line-165"></span><span id="local-6989586621679338310"><span id="local-6989586621679338311"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAccountSuppressionAttributesResponse"><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributesResponse"><span class="hs-identifier hs-var">PutAccountSuppressionAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAccountSuppressionAttributesResponse%27"><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributesResponse%27"><span class="hs-identifier hs-var">PutAccountSuppressionAttributesResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span id="local-6989586621679340851"><span id="local-6989586621679340852"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAccountSuppressionAttributesResponse"><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributesResponse"><span class="hs-identifier hs-var">PutAccountSuppressionAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAccountSuppressionAttributesResponse%27"><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributesResponse%27"><span class="hs-identifier hs-var">PutAccountSuppressionAttributesResponse'</span></a></span></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-167"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutAccountSuppressionAttributesResponse%27"><span class="annot"><span class="annottext">PutAccountSuppressionAttributesResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#%24sel%3AhttpStatus%3APutAccountSuppressionAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338305"><span id="local-6989586621679338307"><span class="annot"><span class="annottext">PutAccountSuppressionAttributesResponse
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340846"><span id="local-6989586621679340848"><span class="annot"><span class="annottext">PutAccountSuppressionAttributesResponse
 -&gt; PutAccountSuppressionAttributesResponse -&gt; Bool
 (PutAccountSuppressionAttributesResponse
  -&gt; PutAccountSuppressionAttributesResponse -&gt; Bool)
@@ -395,7 +395,7 @@ $c/= :: PutAccountSuppressionAttributesResponse
 -&gt; PutAccountSuppressionAttributesResponse -&gt; Bool
 $c== :: PutAccountSuppressionAttributesResponse
 -&gt; PutAccountSuppressionAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338297"><span id="local-6989586621679338299"><span id="local-6989586621679338301"><span id="local-6989586621679338303"><span class="annot"><span class="annottext">ReadPrec [PutAccountSuppressionAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340838"><span id="local-6989586621679340840"><span id="local-6989586621679340842"><span id="local-6989586621679340844"><span class="annot"><span class="annottext">ReadPrec [PutAccountSuppressionAttributesResponse]
 ReadPrec PutAccountSuppressionAttributesResponse
 Int -&gt; ReadS PutAccountSuppressionAttributesResponse
 ReadS [PutAccountSuppressionAttributesResponse]
@@ -415,7 +415,7 @@ readList :: ReadS [PutAccountSuppressionAttributesResponse]
 $creadList :: ReadS [PutAccountSuppressionAttributesResponse]
 readsPrec :: Int -&gt; ReadS PutAccountSuppressionAttributesResponse
 $creadsPrec :: Int -&gt; ReadS PutAccountSuppressionAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338291"><span id="local-6989586621679338293"><span id="local-6989586621679338295"><span class="annot"><span class="annottext">Int -&gt; PutAccountSuppressionAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340832"><span id="local-6989586621679340834"><span id="local-6989586621679340836"><span class="annot"><span class="annottext">Int -&gt; PutAccountSuppressionAttributesResponse -&gt; ShowS
 [PutAccountSuppressionAttributesResponse] -&gt; ShowS
 PutAccountSuppressionAttributesResponse -&gt; String
 (Int -&gt; PutAccountSuppressionAttributesResponse -&gt; ShowS)
@@ -468,14 +468,14 @@ PutAccountSuppressionAttributesResponse
 </span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributesResponse"><span class="hs-identifier hs-type">PutAccountSuppressionAttributesResponse</span></a></span><span>
 </span><span id="line-184"></span><span id="newPutAccountSuppressionAttributesResponse"><span class="annot"><span class="annottext">newPutAccountSuppressionAttributesResponse :: Int -&gt; PutAccountSuppressionAttributesResponse
 </span><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#newPutAccountSuppressionAttributesResponse"><span class="hs-identifier hs-var hs-var">newPutAccountSuppressionAttributesResponse</span></a></span></span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679338288"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679338288"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679340829"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679340829"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">PutAccountSuppressionAttributesResponse' :: Int -&gt; PutAccountSuppressionAttributesResponse
 </span><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributesResponse%27"><span class="hs-identifier hs-type">PutAccountSuppressionAttributesResponse'</span></a></span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutAccountSuppressionAttributesResponse' :: Int
 </span><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#%24sel%3AhttpStatus%3APutAccountSuppressionAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679338288"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679340829"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -492,18 +492,18 @@ PutAccountSuppressionAttributesResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributesResponse%27"><span class="hs-identifier hs-type">PutAccountSuppressionAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338287"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributesResponse%27"><span class="hs-identifier hs-type">PutAccountSuppressionAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340828"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutAccountSuppressionAttributesResponse' :: PutAccountSuppressionAttributesResponse -&gt; Int
-</span><a href="#local-6989586621679338287"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679338287"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338286"><span class="annot"><span class="annottext">s :: PutAccountSuppressionAttributesResponse
-</span><a href="#local-6989586621679338286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributesResponse%27"><span class="hs-identifier hs-type">PutAccountSuppressionAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338285"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679338285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccountSuppressionAttributesResponse
-</span><a href="#local-6989586621679338286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutAccountSuppressionAttributesResponse' :: Int
+</span><a href="#local-6989586621679340828"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679340828"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340827"><span class="annot"><span class="annottext">s :: PutAccountSuppressionAttributesResponse
+</span><a href="#local-6989586621679340827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributesResponse%27"><span class="hs-identifier hs-type">PutAccountSuppressionAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340826"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679340826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccountSuppressionAttributesResponse
+</span><a href="#local-6989586621679340827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutAccountSuppressionAttributesResponse' :: Int
 </span><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#%24sel%3AhttpStatus%3APutAccountSuppressionAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679338285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributesResponse"><span class="hs-identifier hs-type">PutAccountSuppressionAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributesResponse"><span class="hs-identifier hs-type">PutAccountSuppressionAttributesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679338283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679340824"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutAccountSuppressionAttributes.html#PutAccountSuppressionAttributesResponse"><span class="hs-identifier hs-type">PutAccountSuppressionAttributesResponse</span></a></span></span><span>
 </span><span id="line-198"></span></pre></body></html>

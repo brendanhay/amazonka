@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCreateGroup' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679459605"><span id="local-6989586621679459606"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGroup"><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-var">CreateGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGroup%27"><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-var">CreateGroup'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679460239"><span id="local-6989586621679460240"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGroup"><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-var">CreateGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGroup%27"><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-var">CreateGroup'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path to the group. For more information about paths, see</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers&gt;</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
@@ -77,7 +77,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AgroupName%3ACreateGroup%27"><span class="annot"><span class="annottext">CreateGroup -&gt; Text
 </span><a href="Network.AWS.IAM.CreateGroup.html#%24sel%3AgroupName%3ACreateGroup%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459598"><span id="local-6989586621679459600"><span class="annot"><span class="annottext">CreateGroup -&gt; CreateGroup -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679460232"><span id="local-6989586621679460234"><span class="annot"><span class="annottext">CreateGroup -&gt; CreateGroup -&gt; Bool
 (CreateGroup -&gt; CreateGroup -&gt; Bool)
 -&gt; (CreateGroup -&gt; CreateGroup -&gt; Bool) -&gt; Eq CreateGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateGroup -&gt; CreateGroup -&gt; Bool
 == :: CreateGroup -&gt; CreateGroup -&gt; Bool
 $c== :: CreateGroup -&gt; CreateGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459589"><span id="local-6989586621679459591"><span id="local-6989586621679459593"><span id="local-6989586621679459595"><span class="annot"><span class="annottext">ReadPrec [CreateGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460223"><span id="local-6989586621679460225"><span id="local-6989586621679460227"><span id="local-6989586621679460229"><span class="annot"><span class="annottext">ReadPrec [CreateGroup]
 ReadPrec CreateGroup
 Int -&gt; ReadS CreateGroup
 ReadS [CreateGroup]
@@ -105,7 +105,7 @@ readList :: ReadS [CreateGroup]
 $creadList :: ReadS [CreateGroup]
 readsPrec :: Int -&gt; ReadS CreateGroup
 $creadsPrec :: Int -&gt; ReadS CreateGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459582"><span id="local-6989586621679459584"><span id="local-6989586621679459586"><span class="annot"><span class="annottext">Int -&gt; CreateGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460216"><span id="local-6989586621679460218"><span id="local-6989586621679460220"><span class="annot"><span class="annottext">Int -&gt; CreateGroup -&gt; ShowS
 [CreateGroup] -&gt; ShowS
 CreateGroup -&gt; String
 (Int -&gt; CreateGroup -&gt; ShowS)
@@ -164,8 +164,8 @@ $cfrom :: forall x. CreateGroup -&gt; Rep CreateGroup x
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span>
 </span><span id="line-112"></span><span id="newCreateGroup"><span class="annot"><span class="annottext">newCreateGroup :: Text -&gt; CreateGroup
-</span><a href="Network.AWS.IAM.CreateGroup.html#newCreateGroup"><span class="hs-identifier hs-var hs-var">newCreateGroup</span></a></span></span><span> </span><span id="local-6989586621679459577"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459577"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.CreateGroup.html#newCreateGroup"><span class="hs-identifier hs-var hs-var">newCreateGroup</span></a></span></span><span> </span><span id="local-6989586621679460211"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460211"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">CreateGroup' :: Maybe Text -&gt; Text -&gt; CreateGroup
 </span><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:path:CreateGroup' :: Maybe Text
@@ -174,7 +174,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:CreateGroup' :: Text
 </span><a href="Network.AWS.IAM.CreateGroup.html#%24sel%3AgroupName%3ACreateGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459577"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679460211"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The path to the group. For more information about paths, see</span><span>
@@ -197,16 +197,16 @@ forall a. Maybe a
 -&gt; (CreateGroup -&gt; Maybe Text -&gt; CreateGroup)
 -&gt; Lens CreateGroup CreateGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459574"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460208"><span class="annot"><span class="annottext">Maybe Text
 path :: Maybe Text
 $sel:path:CreateGroup' :: CreateGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679459574"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459574"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459573"><span class="annot"><span class="annottext">s :: CreateGroup
-</span><a href="#local-6989586621679459573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459572"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroup
-</span><a href="#local-6989586621679459573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:CreateGroup' :: Maybe Text
+</span><a href="#local-6989586621679460208"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679460208"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460207"><span class="annot"><span class="annottext">s :: CreateGroup
+</span><a href="#local-6989586621679460207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460206"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679460206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroup
+</span><a href="#local-6989586621679460207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:CreateGroup' :: Maybe Text
 </span><a href="Network.AWS.IAM.CreateGroup.html#%24sel%3Apath%3ACreateGroup%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The name of the group to create. Do not include the path in this value.</span><span>
 </span><span id="line-136"></span><span class="hs-comment">--</span><span>
@@ -219,25 +219,25 @@ $sel:path:CreateGroup' :: CreateGroup -&gt; Maybe Text
 -&gt; (CreateGroup -&gt; Text -&gt; CreateGroup)
 -&gt; Lens CreateGroup CreateGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459571"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460205"><span class="annot"><span class="annottext">Text
 groupName :: Text
 $sel:groupName:CreateGroup' :: CreateGroup -&gt; Text
-</span><a href="#local-6989586621679459571"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459571"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459570"><span class="annot"><span class="annottext">s :: CreateGroup
-</span><a href="#local-6989586621679459570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459569"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroup
-</span><a href="#local-6989586621679459570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:CreateGroup' :: Text
+</span><a href="#local-6989586621679460205"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460205"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460204"><span class="annot"><span class="annottext">s :: CreateGroup
+</span><a href="#local-6989586621679460204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460203"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroup
+</span><a href="#local-6989586621679460204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:CreateGroup' :: Text
 </span><a href="Network.AWS.IAM.CreateGroup.html#%24sel%3AgroupName%3ACreateGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679459565"><span class="annot"><span class="annottext">request :: CreateGroup -&gt; Request CreateGroup
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679460199"><span class="annot"><span class="annottext">request :: CreateGroup -&gt; Request CreateGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateGroup -&gt; Request CreateGroup
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679459561"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679460195"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateGroup
 -&gt; ClientResponse ClientBody
@@ -266,10 +266,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateGroupResult&quot;</span></span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679459558"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459558"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679459557"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679459557"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679459556"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679459556"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679460192"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679460192"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679460191"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679460191"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679460190"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679460190"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Group -&gt; CreateGroupResponse
 </span><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-var">CreateGroupResponse'</span></a></span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Group -&gt; CreateGroupResponse)
@@ -281,23 +281,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459558"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460192"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either String (Group -&gt; CreateGroupResponse)
 -&gt; Either String Group -&gt; Either String CreateGroupResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679459556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Group
+</span><a href="#local-6989586621679460190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Group
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Group&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459548"><span id="local-6989586621679459550"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460182"><span id="local-6989586621679460184"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span></span></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459545"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460179"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679459541"><span class="annot"><span class="annottext">toHeaders :: CreateGroup -&gt; ResponseHeaders
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679460175"><span class="annot"><span class="annottext">toHeaders :: CreateGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -305,21 +305,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679459536"><span class="annot"><span class="annottext">toPath :: CreateGroup -&gt; ByteString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679460170"><span class="annot"><span class="annottext">toPath :: CreateGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup"><span class="hs-identifier hs-type">CreateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679459532"><span class="annot"><span class="annottext">toQuery :: CreateGroup -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459529"><span id="local-6989586621679459530"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679460166"><span class="annot"><span class="annottext">toQuery :: CreateGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroup%27"><span class="hs-identifier hs-type">CreateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460163"><span id="local-6989586621679460164"><span class="annot"><span class="annottext">Maybe Text
 Text
 groupName :: Text
 path :: Maybe Text
 $sel:groupName:CreateGroup' :: CreateGroup -&gt; Text
 $sel:path:CreateGroup' :: CreateGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679459529"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679460163"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -339,18 +339,18 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Path&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459530"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679460164"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459529"><span class="hs-identifier hs-var">groupName</span></a></span><span>
+</span><a href="#local-6989586621679460163"><span class="hs-identifier hs-var">groupName</span></a></span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | Contains the response to a successful CreateGroup request.</span><span>
 </span><span id="line-177"></span><span class="hs-comment">--</span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- /See:/ 'newCreateGroupResponse' smart constructor.</span><span>
-</span><span id="line-179"></span><span id="local-6989586621679459526"><span id="local-6989586621679459527"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGroupResponse"><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-var">CreateGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGroupResponse%27"><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-var">CreateGroupResponse'</span></a></span></span><span>
+</span><span id="line-179"></span><span id="local-6989586621679460160"><span id="local-6989586621679460161"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGroupResponse"><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-var">CreateGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGroupResponse%27"><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-var">CreateGroupResponse'</span></a></span></span><span>
 </span><span id="line-180"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateGroupResponse%27"><span class="annot"><span class="annottext">CreateGroupResponse -&gt; Int
 </span><a href="Network.AWS.IAM.CreateGroup.html#%24sel%3AhttpStatus%3ACreateGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -358,7 +358,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-183"></span><span>    </span><span id="%24sel%3Agroup%27%3ACreateGroupResponse%27"><span class="annot"><span class="annottext">CreateGroupResponse -&gt; Group
 </span><a href="Network.AWS.IAM.CreateGroup.html#%24sel%3Agroup%27%3ACreateGroupResponse%27"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459520"><span id="local-6989586621679459522"><span class="annot"><span class="annottext">CreateGroupResponse -&gt; CreateGroupResponse -&gt; Bool
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679460154"><span id="local-6989586621679460156"><span class="annot"><span class="annottext">CreateGroupResponse -&gt; CreateGroupResponse -&gt; Bool
 (CreateGroupResponse -&gt; CreateGroupResponse -&gt; Bool)
 -&gt; (CreateGroupResponse -&gt; CreateGroupResponse -&gt; Bool)
 -&gt; Eq CreateGroupResponse
@@ -367,7 +367,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateGroupResponse -&gt; CreateGroupResponse -&gt; Bool
 == :: CreateGroupResponse -&gt; CreateGroupResponse -&gt; Bool
 $c== :: CreateGroupResponse -&gt; CreateGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459512"><span id="local-6989586621679459514"><span id="local-6989586621679459516"><span id="local-6989586621679459518"><span class="annot"><span class="annottext">ReadPrec [CreateGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460146"><span id="local-6989586621679460148"><span id="local-6989586621679460150"><span id="local-6989586621679460152"><span class="annot"><span class="annottext">ReadPrec [CreateGroupResponse]
 ReadPrec CreateGroupResponse
 Int -&gt; ReadS CreateGroupResponse
 ReadS [CreateGroupResponse]
@@ -387,7 +387,7 @@ readList :: ReadS [CreateGroupResponse]
 $creadList :: ReadS [CreateGroupResponse]
 readsPrec :: Int -&gt; ReadS CreateGroupResponse
 $creadsPrec :: Int -&gt; ReadS CreateGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459506"><span id="local-6989586621679459508"><span id="local-6989586621679459510"><span class="annot"><span class="annottext">Int -&gt; CreateGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460140"><span id="local-6989586621679460142"><span id="local-6989586621679460144"><span class="annot"><span class="annottext">Int -&gt; CreateGroupResponse -&gt; ShowS
 [CreateGroupResponse] -&gt; ShowS
 CreateGroupResponse -&gt; String
 (Int -&gt; CreateGroupResponse -&gt; ShowS)
@@ -431,17 +431,17 @@ $cfrom :: forall x. CreateGroupResponse -&gt; Rep CreateGroupResponse x
 </span><span id="line-202"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-203"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span>
 </span><span id="line-204"></span><span id="newCreateGroupResponse"><span class="annot"><span class="annottext">newCreateGroupResponse :: Int -&gt; Group -&gt; CreateGroupResponse
-</span><a href="Network.AWS.IAM.CreateGroup.html#newCreateGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679459503"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459503"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679459502"><span class="annot"><span class="annottext">Group
-</span><a href="#local-6989586621679459502"><span class="hs-identifier hs-var">pGroup_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.CreateGroup.html#newCreateGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679460137"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679460137"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679460136"><span class="annot"><span class="annottext">Group
+</span><a href="#local-6989586621679460136"><span class="hs-identifier hs-var">pGroup_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-205"></span><span>  </span><span class="annot"><span class="annottext">CreateGroupResponse' :: Int -&gt; Group -&gt; CreateGroupResponse
 </span><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span>
 </span><span id="line-206"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGroupResponse' :: Int
 </span><a href="Network.AWS.IAM.CreateGroup.html#%24sel%3AhttpStatus%3ACreateGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459503"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679460137"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:group':CreateGroupResponse' :: Group
 </span><a href="Network.AWS.IAM.CreateGroup.html#%24sel%3Agroup%27%3ACreateGroupResponse%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Group
-</span><a href="#local-6989586621679459502"><span class="hs-identifier hs-var">pGroup_</span></a></span><span>
+</span><a href="#local-6989586621679460136"><span class="hs-identifier hs-var">pGroup_</span></a></span><span>
 </span><span id="line-208"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -451,16 +451,16 @@ $cfrom :: forall x. CreateGroupResponse -&gt; Rep CreateGroupResponse x
 -&gt; (CreateGroupResponse -&gt; Int -&gt; CreateGroupResponse)
 -&gt; Lens CreateGroupResponse CreateGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459501"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460135"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateGroupResponse' :: CreateGroupResponse -&gt; Int
-</span><a href="#local-6989586621679459501"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459501"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459500"><span class="annot"><span class="annottext">s :: CreateGroupResponse
-</span><a href="#local-6989586621679459500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459499"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroupResponse
-</span><a href="#local-6989586621679459500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGroupResponse' :: Int
+</span><a href="#local-6989586621679460135"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679460135"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460134"><span class="annot"><span class="annottext">s :: CreateGroupResponse
+</span><a href="#local-6989586621679460134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460133"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679460133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroupResponse
+</span><a href="#local-6989586621679460134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGroupResponse' :: Int
 </span><a href="Network.AWS.IAM.CreateGroup.html#%24sel%3AhttpStatus%3ACreateGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | A structure containing details about the new group.</span><span>
 </span><span id="line-215"></span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#createGroupResponse_group"><span class="hs-identifier hs-type">createGroupResponse_group</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span>
@@ -469,16 +469,16 @@ $sel:httpStatus:CreateGroupResponse' :: CreateGroupResponse -&gt; Int
 -&gt; (CreateGroupResponse -&gt; Group -&gt; CreateGroupResponse)
 -&gt; Lens CreateGroupResponse CreateGroupResponse Group Group
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459498"><span class="annot"><span class="annottext">Group
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460132"><span class="annot"><span class="annottext">Group
 group' :: Group
 $sel:group':CreateGroupResponse' :: CreateGroupResponse -&gt; Group
-</span><a href="#local-6989586621679459498"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
-</span><a href="#local-6989586621679459498"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459497"><span class="annot"><span class="annottext">s :: CreateGroupResponse
-</span><a href="#local-6989586621679459497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459496"><span class="annot"><span class="annottext">Group
-</span><a href="#local-6989586621679459496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroupResponse
-</span><a href="#local-6989586621679459497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':CreateGroupResponse' :: Group
+</span><a href="#local-6989586621679460132"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
+</span><a href="#local-6989586621679460132"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460131"><span class="annot"><span class="annottext">s :: CreateGroupResponse
+</span><a href="#local-6989586621679460131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse%27"><span class="hs-identifier hs-type">CreateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460130"><span class="annot"><span class="annottext">Group
+</span><a href="#local-6989586621679460130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGroupResponse
+</span><a href="#local-6989586621679460131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':CreateGroupResponse' :: Group
 </span><a href="Network.AWS.IAM.CreateGroup.html#%24sel%3Agroup%27%3ACreateGroupResponse%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Group
-</span><a href="#local-6989586621679459496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459494"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460128"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateGroup.html#CreateGroupResponse"><span class="hs-identifier hs-type">CreateGroupResponse</span></a></span></span><span>
 </span><span id="line-219"></span></pre></body></html>

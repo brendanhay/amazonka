@@ -34,10 +34,10 @@
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#newDataShare"><span class="hs-identifier">newDataShare</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#dataShare_dataShareAssociations"><span class="hs-identifier">dataShare_dataShareAssociations</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#dataShare_allowPubliclyAccessibleConsumers"><span class="hs-identifier">dataShare_allowPubliclyAccessibleConsumers</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#dataShare_producerArn"><span class="hs-identifier">dataShare_producerArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#dataShare_dataShareArn"><span class="hs-identifier">dataShare_dataShareArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#dataShare_producerArn"><span class="hs-identifier">dataShare_producerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#dataShare_dataShareAssociations"><span class="hs-identifier">dataShare_dataShareAssociations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#dataShare_dataShareArn"><span class="hs-identifier">dataShare_dataShareArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#dataShare_allowPubliclyAccessibleConsumers"><span class="hs-identifier">dataShare_allowPubliclyAccessibleConsumers</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span class="hs-keyword">where</span><span>
 </span><span id="line-43"></span><span>
@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newRejectDataShare' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679506475"><span id="local-6989586621679506476"></span></span><span class="hs-keyword">data</span><span> </span><span id="RejectDataShare"><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare"><span class="hs-identifier hs-var">RejectDataShare</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RejectDataShare%27"><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare%27"><span class="hs-identifier hs-var">RejectDataShare'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679507160"><span id="local-6989586621679507161"></span></span><span class="hs-keyword">data</span><span> </span><span id="RejectDataShare"><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare"><span class="hs-identifier hs-var">RejectDataShare</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RejectDataShare%27"><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare%27"><span class="hs-identifier hs-var">RejectDataShare'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the datashare to reject.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AdataShareArn%3ARejectDataShare%27"><span class="annot"><span class="annottext">RejectDataShare -&gt; Text
 </span><a href="Network.AWS.Redshift.RejectDataShare.html#%24sel%3AdataShareArn%3ARejectDataShare%27"><span class="hs-identifier hs-var hs-var">dataShareArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679506469"><span id="local-6989586621679506471"><span class="annot"><span class="annottext">RejectDataShare -&gt; RejectDataShare -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679507154"><span id="local-6989586621679507156"><span class="annot"><span class="annottext">RejectDataShare -&gt; RejectDataShare -&gt; Bool
 (RejectDataShare -&gt; RejectDataShare -&gt; Bool)
 -&gt; (RejectDataShare -&gt; RejectDataShare -&gt; Bool)
 -&gt; Eq RejectDataShare
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RejectDataShare -&gt; RejectDataShare -&gt; Bool
 == :: RejectDataShare -&gt; RejectDataShare -&gt; Bool
 $c== :: RejectDataShare -&gt; RejectDataShare -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679506460"><span id="local-6989586621679506462"><span id="local-6989586621679506464"><span id="local-6989586621679506466"><span class="annot"><span class="annottext">ReadPrec [RejectDataShare]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679507145"><span id="local-6989586621679507147"><span id="local-6989586621679507149"><span id="local-6989586621679507151"><span class="annot"><span class="annottext">ReadPrec [RejectDataShare]
 ReadPrec RejectDataShare
 Int -&gt; ReadS RejectDataShare
 ReadS [RejectDataShare]
@@ -83,7 +83,7 @@ readList :: ReadS [RejectDataShare]
 $creadList :: ReadS [RejectDataShare]
 readsPrec :: Int -&gt; ReadS RejectDataShare
 $creadsPrec :: Int -&gt; ReadS RejectDataShare
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679506453"><span id="local-6989586621679506455"><span id="local-6989586621679506457"><span class="annot"><span class="annottext">Int -&gt; RejectDataShare -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679507138"><span id="local-6989586621679507140"><span id="local-6989586621679507142"><span class="annot"><span class="annottext">Int -&gt; RejectDataShare -&gt; ShowS
 [RejectDataShare] -&gt; ShowS
 RejectDataShare -&gt; String
 (Int -&gt; RejectDataShare -&gt; ShowS)
@@ -123,12 +123,12 @@ $cfrom :: forall x. RejectDataShare -&gt; Rep RejectDataShare x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare"><span class="hs-identifier hs-type">RejectDataShare</span></a></span><span>
 </span><span id="line-71"></span><span id="newRejectDataShare"><span class="annot"><span class="annottext">newRejectDataShare :: Text -&gt; RejectDataShare
-</span><a href="Network.AWS.Redshift.RejectDataShare.html#newRejectDataShare"><span class="hs-identifier hs-var hs-var">newRejectDataShare</span></a></span></span><span> </span><span id="local-6989586621679506448"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506448"><span class="hs-identifier hs-var">pDataShareArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.RejectDataShare.html#newRejectDataShare"><span class="hs-identifier hs-var hs-var">newRejectDataShare</span></a></span></span><span> </span><span id="local-6989586621679507133"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679507133"><span class="hs-identifier hs-var">pDataShareArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">RejectDataShare' :: Text -&gt; RejectDataShare
 </span><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare%27"><span class="hs-identifier hs-type">RejectDataShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataShareArn:RejectDataShare' :: Text
 </span><a href="Network.AWS.Redshift.RejectDataShare.html#%24sel%3AdataShareArn%3ARejectDataShare%27"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506448"><span class="hs-identifier hs-var">pDataShareArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679507133"><span class="hs-identifier hs-var">pDataShareArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the datashare to reject.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#rejectDataShare_dataShareArn"><span class="hs-identifier hs-type">rejectDataShare_dataShareArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare"><span class="hs-identifier hs-type">RejectDataShare</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -137,25 +137,25 @@ $cfrom :: forall x. RejectDataShare -&gt; Rep RejectDataShare x
 -&gt; (RejectDataShare -&gt; Text -&gt; RejectDataShare)
 -&gt; Lens RejectDataShare RejectDataShare Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare%27"><span class="hs-identifier hs-type">RejectDataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506445"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare%27"><span class="hs-identifier hs-type">RejectDataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679507130"><span class="annot"><span class="annottext">Text
 dataShareArn :: Text
 $sel:dataShareArn:RejectDataShare' :: RejectDataShare -&gt; Text
-</span><a href="#local-6989586621679506445"><span class="hs-identifier hs-var hs-var">dataShareArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506445"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506444"><span class="annot"><span class="annottext">s :: RejectDataShare
-</span><a href="#local-6989586621679506444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare%27"><span class="hs-identifier hs-type">RejectDataShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506443"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectDataShare
-</span><a href="#local-6989586621679506444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataShareArn:RejectDataShare' :: Text
+</span><a href="#local-6989586621679507130"><span class="hs-identifier hs-var hs-var">dataShareArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679507130"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679507129"><span class="annot"><span class="annottext">s :: RejectDataShare
+</span><a href="#local-6989586621679507129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare%27"><span class="hs-identifier hs-type">RejectDataShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679507128"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679507128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectDataShare
+</span><a href="#local-6989586621679507129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataShareArn:RejectDataShare' :: Text
 </span><a href="Network.AWS.Redshift.RejectDataShare.html#%24sel%3AdataShareArn%3ARejectDataShare%27"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare"><span class="hs-identifier hs-type">RejectDataShare</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679507128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare"><span class="hs-identifier hs-type">RejectDataShare</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare"><span class="hs-identifier hs-type">RejectDataShare</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare"><span class="hs-identifier hs-type">RejectDataShare</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-type">DataShare</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679506439"><span class="annot"><span class="annottext">request :: RejectDataShare -&gt; Request RejectDataShare
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679507124"><span class="annot"><span class="annottext">request :: RejectDataShare -&gt; Request RejectDataShare
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RejectDataShare -&gt; Request RejectDataShare
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679506435"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679507120"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RejectDataShare
 -&gt; ClientResponse ClientBody
@@ -184,20 +184,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RejectDataShareResult&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506432"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679506432"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679506431"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679506431"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679506430"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679506430"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String DataShare
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679507117"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679507117"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679507116"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679507116"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679507115"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679507115"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String DataShare
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679506430"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679507115"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679506425"><span id="local-6989586621679506427"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare"><span class="hs-identifier hs-type">RejectDataShare</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679507110"><span id="local-6989586621679507112"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare"><span class="hs-identifier hs-type">RejectDataShare</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679506422"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare"><span class="hs-identifier hs-type">RejectDataShare</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679507107"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare"><span class="hs-identifier hs-type">RejectDataShare</span></a></span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare"><span class="hs-identifier hs-type">RejectDataShare</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679506418"><span class="annot"><span class="annottext">toHeaders :: RejectDataShare -&gt; ResponseHeaders
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679507103"><span class="annot"><span class="annottext">toHeaders :: RejectDataShare -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RejectDataShare -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -205,18 +205,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare"><span class="hs-identifier hs-type">RejectDataShare</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679506413"><span class="annot"><span class="annottext">toPath :: RejectDataShare -&gt; ByteString
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679507098"><span class="annot"><span class="annottext">toPath :: RejectDataShare -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RejectDataShare -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare"><span class="hs-identifier hs-type">RejectDataShare</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679506409"><span class="annot"><span class="annottext">toQuery :: RejectDataShare -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare%27"><span class="hs-identifier hs-type">RejectDataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506407"><span class="annot"><span class="annottext">Text
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679507094"><span class="annot"><span class="annottext">toQuery :: RejectDataShare -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RejectDataShare.html#RejectDataShare%27"><span class="hs-identifier hs-type">RejectDataShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679507092"><span class="annot"><span class="annottext">Text
 dataShareArn :: Text
 $sel:dataShareArn:RejectDataShare' :: RejectDataShare -&gt; Text
-</span><a href="#local-6989586621679506407"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679507092"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -236,6 +236,6 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;DataShareArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506407"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span>
+</span><a href="#local-6989586621679507092"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span></pre></body></html>

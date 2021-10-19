@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679426900"><span id="local-6989586621679426901"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TemplateStage"><span class="annot"><a href="Network.AWS.CloudFormation.Types.TemplateStage.html#TemplateStage"><span class="hs-identifier hs-var">TemplateStage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TemplateStage%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.TemplateStage.html#TemplateStage%27"><span class="hs-identifier hs-var">TemplateStage'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679427315"><span id="local-6989586621679427316"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TemplateStage"><span class="annot"><a href="Network.AWS.CloudFormation.Types.TemplateStage.html#TemplateStage"><span class="hs-identifier hs-var">TemplateStage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TemplateStage%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.TemplateStage.html#TemplateStage%27"><span class="hs-identifier hs-var">TemplateStage'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTemplateStage"><span class="annot"><span class="annottext">TemplateStage -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.TemplateStage.html#fromTemplateStage"><span class="hs-identifier hs-var hs-var">fromTemplateStage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679426892"><span id="local-6989586621679426894"><span id="local-6989586621679426896"><span class="annot"><span class="annottext">Int -&gt; TemplateStage -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427307"><span id="local-6989586621679427309"><span id="local-6989586621679427311"><span class="annot"><span class="annottext">Int -&gt; TemplateStage -&gt; ShowS
 [TemplateStage] -&gt; ShowS
 TemplateStage -&gt; String
 (Int -&gt; TemplateStage -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: TemplateStage -&gt; String
 showsPrec :: Int -&gt; TemplateStage -&gt; ShowS
 $cshowsPrec :: Int -&gt; TemplateStage -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679426883"><span id="local-6989586621679426885"><span id="local-6989586621679426887"><span id="local-6989586621679426889"><span class="annot"><span class="annottext">ReadPrec [TemplateStage]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679427298"><span id="local-6989586621679427300"><span id="local-6989586621679427302"><span id="local-6989586621679427304"><span class="annot"><span class="annottext">ReadPrec [TemplateStage]
 ReadPrec TemplateStage
 Int -&gt; ReadS TemplateStage
 ReadS [TemplateStage]
@@ -72,7 +72,7 @@ $creadList :: ReadS [TemplateStage]
 readsPrec :: Int -&gt; ReadS TemplateStage
 $creadsPrec :: Int -&gt; ReadS TemplateStage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679426878"><span id="local-6989586621679426880"><span class="annot"><span class="annottext">TemplateStage -&gt; TemplateStage -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679427293"><span id="local-6989586621679427295"><span class="annot"><span class="annottext">TemplateStage -&gt; TemplateStage -&gt; Bool
 (TemplateStage -&gt; TemplateStage -&gt; Bool)
 -&gt; (TemplateStage -&gt; TemplateStage -&gt; Bool) -&gt; Eq TemplateStage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: TemplateStage -&gt; TemplateStage -&gt; Bool
 == :: TemplateStage -&gt; TemplateStage -&gt; Bool
 $c== :: TemplateStage -&gt; TemplateStage -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679426862"><span id="local-6989586621679426864"><span id="local-6989586621679426866"><span id="local-6989586621679426868"><span id="local-6989586621679426870"><span id="local-6989586621679426872"><span id="local-6989586621679426874"><span class="annot"><span class="annottext">Eq TemplateStage
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679427277"><span id="local-6989586621679427279"><span id="local-6989586621679427281"><span id="local-6989586621679427283"><span id="local-6989586621679427285"><span id="local-6989586621679427287"><span id="local-6989586621679427289"><span class="annot"><span class="annottext">Eq TemplateStage
 Eq TemplateStage
 -&gt; (TemplateStage -&gt; TemplateStage -&gt; Ordering)
 -&gt; (TemplateStage -&gt; TemplateStage -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. TemplateStage -&gt; Rep TemplateStage x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679426854"><span id="local-6989586621679426856"><span class="annot"><span class="annottext">Int -&gt; TemplateStage -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427269"><span id="local-6989586621679427271"><span class="annot"><span class="annottext">Int -&gt; TemplateStage -&gt; Int
 TemplateStage -&gt; Int
 (Int -&gt; TemplateStage -&gt; Int)
 -&gt; (TemplateStage -&gt; Int) -&gt; Hashable TemplateStage
@@ -142,49 +142,49 @@ $chash :: TemplateStage -&gt; Int
 hashWithSalt :: Int -&gt; TemplateStage -&gt; Int
 $chashWithSalt :: Int -&gt; TemplateStage -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679426851"><span class="annot"><span class="annottext">TemplateStage -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679427266"><span class="annot"><span class="annottext">TemplateStage -&gt; ()
 (TemplateStage -&gt; ()) -&gt; NFData TemplateStage
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TemplateStage -&gt; ()
 $crnf :: TemplateStage -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679426848"><span class="annot"><span class="annottext">Text -&gt; Either String TemplateStage
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679427263"><span class="annot"><span class="annottext">Text -&gt; Either String TemplateStage
 (Text -&gt; Either String TemplateStage) -&gt; FromText TemplateStage
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TemplateStage
 $cfromText :: Text -&gt; Either String TemplateStage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679426845"><span class="annot"><span class="annottext">TemplateStage -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679427260"><span class="annot"><span class="annottext">TemplateStage -&gt; Text
 (TemplateStage -&gt; Text) -&gt; ToText TemplateStage
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TemplateStage -&gt; Text
 $ctoText :: TemplateStage -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679426842"><span class="annot"><span class="annottext">TemplateStage -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679427257"><span class="annot"><span class="annottext">TemplateStage -&gt; ByteString
 (TemplateStage -&gt; ByteString) -&gt; ToByteString TemplateStage
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TemplateStage -&gt; ByteString
 $ctoBS :: TemplateStage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679426839"><span class="annot"><span class="annottext">TemplateStage -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679427254"><span class="annot"><span class="annottext">TemplateStage -&gt; ByteStringBuilder
 (TemplateStage -&gt; ByteStringBuilder) -&gt; ToLog TemplateStage
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TemplateStage -&gt; ByteStringBuilder
 $cbuild :: TemplateStage -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679426836"><span class="annot"><span class="annottext">HeaderName -&gt; TemplateStage -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679427251"><span class="annot"><span class="annottext">HeaderName -&gt; TemplateStage -&gt; [Header]
 (HeaderName -&gt; TemplateStage -&gt; [Header]) -&gt; ToHeader TemplateStage
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TemplateStage -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TemplateStage -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679426833"><span class="annot"><span class="annottext">TemplateStage -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679427248"><span class="annot"><span class="annottext">TemplateStage -&gt; QueryString
 (TemplateStage -&gt; QueryString) -&gt; ToQuery TemplateStage
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TemplateStage -&gt; QueryString
 $ctoQuery :: TemplateStage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679426828"><span id="local-6989586621679426830"><span class="annot"><span class="annottext">Value -&gt; Parser [TemplateStage]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679427243"><span id="local-6989586621679427245"><span class="annot"><span class="annottext">Value -&gt; Parser [TemplateStage]
 Value -&gt; Parser TemplateStage
 (Value -&gt; Parser TemplateStage)
 -&gt; (Value -&gt; Parser [TemplateStage]) -&gt; FromJSON TemplateStage
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [TemplateStage]
 parseJSON :: Value -&gt; Parser TemplateStage
 $cparseJSON :: Value -&gt; Parser TemplateStage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679426823"><span id="local-6989586621679426825"><span class="annot"><span class="annottext">FromJSONKeyFunction [TemplateStage]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679427238"><span id="local-6989586621679427240"><span class="annot"><span class="annottext">FromJSONKeyFunction [TemplateStage]
 FromJSONKeyFunction TemplateStage
 FromJSONKeyFunction TemplateStage
 -&gt; FromJSONKeyFunction [TemplateStage] -&gt; FromJSONKey TemplateStage
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TemplateStage]
 fromJSONKey :: FromJSONKeyFunction TemplateStage
 $cfromJSONKey :: FromJSONKeyFunction TemplateStage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679426814"><span id="local-6989586621679426816"><span id="local-6989586621679426818"><span id="local-6989586621679426820"><span class="annot"><span class="annottext">[TemplateStage] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679427229"><span id="local-6989586621679427231"><span id="local-6989586621679427233"><span id="local-6989586621679427235"><span class="annot"><span class="annottext">[TemplateStage] -&gt; Encoding
 [TemplateStage] -&gt; Value
 TemplateStage -&gt; Encoding
 TemplateStage -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: TemplateStage -&gt; Encoding
 toJSON :: TemplateStage -&gt; Value
 $ctoJSON :: TemplateStage -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679426809"><span id="local-6989586621679426811"><span class="annot"><span class="annottext">ToJSONKeyFunction [TemplateStage]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679427224"><span id="local-6989586621679427226"><span class="annot"><span class="annottext">ToJSONKeyFunction [TemplateStage]
 ToJSONKeyFunction TemplateStage
 ToJSONKeyFunction TemplateStage
 -&gt; ToJSONKeyFunction [TemplateStage] -&gt; ToJSONKey TemplateStage
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TemplateStage]
 toJSONKey :: ToJSONKeyFunction TemplateStage
 $ctoJSONKey :: ToJSONKeyFunction TemplateStage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679426806"><span class="annot"><span class="annottext">[Node] -&gt; Either String TemplateStage
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679427221"><span class="annot"><span class="annottext">[Node] -&gt; Either String TemplateStage
 ([Node] -&gt; Either String TemplateStage) -&gt; FromXML TemplateStage
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TemplateStage
 $cparseXML :: [Node] -&gt; Either String TemplateStage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679426803"><span class="annot"><span class="annottext">TemplateStage -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679427218"><span class="annot"><span class="annottext">TemplateStage -&gt; XML
 (TemplateStage -&gt; XML) -&gt; ToXML TemplateStage
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TemplateStage -&gt; XML

@@ -28,27 +28,27 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the share results of a resource.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newShareResult' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679263720"><span id="local-6989586621679263721"></span></span><span class="hs-keyword">data</span><span> </span><span id="ShareResult"><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-var">ShareResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShareResult%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-var">ShareResult'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status message.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AstatusMessage%3AShareResult%27"><span class="annot"><span class="annottext">ShareResult -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AstatusMessage%3AShareResult%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The status.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astatus%3AShareResult%27"><span class="annot"><span class="annottext">ShareResult -&gt; Maybe ShareStatusType
+</span><span id="line-31"></span><span id="local-6989586621679263846"><span id="local-6989586621679263847"></span></span><span class="hs-keyword">data</span><span> </span><span id="ShareResult"><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-var">ShareResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShareResult%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-var">ShareResult'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3AShareResult%27"><span class="annot"><span class="annottext">ShareResult -&gt; Maybe ShareStatusType
 </span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3Astatus%3AShareResult%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareStatusType.html#ShareStatusType"><span class="hs-identifier hs-type">ShareStatusType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the principal.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AprincipalId%3AShareResult%27"><span class="annot"><span class="annottext">ShareResult -&gt; Maybe Text
+</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AprincipalId%3AShareResult%27"><span class="hs-identifier hs-var hs-var">principalId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ID of the invited user.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AinviteePrincipalId%3AShareResult%27"><span class="annot"><span class="annottext">ShareResult -&gt; Maybe Text
 </span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AinviteePrincipalId%3AShareResult%27"><span class="hs-identifier hs-var hs-var">inviteePrincipalId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ID of the resource that was shared.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AshareId%3AShareResult%27"><span class="annot"><span class="annottext">ShareResult -&gt; Maybe Text
-</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AshareId%3AShareResult%27"><span class="hs-identifier hs-var hs-var">shareId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The ID of the principal.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AprincipalId%3AShareResult%27"><span class="annot"><span class="annottext">ShareResult -&gt; Maybe Text
-</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AprincipalId%3AShareResult%27"><span class="hs-identifier hs-var hs-var">principalId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The role.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Arole%27%3AShareResult%27"><span class="annot"><span class="annottext">ShareResult -&gt; Maybe RoleType
-</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3Arole%27%3AShareResult%27"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.RoleType.html#RoleType"><span class="hs-identifier hs-type">RoleType</span></a></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The role.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Arole%27%3AShareResult%27"><span class="annot"><span class="annottext">ShareResult -&gt; Maybe RoleType
+</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3Arole%27%3AShareResult%27"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.RoleType.html#RoleType"><span class="hs-identifier hs-type">RoleType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The status message.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AstatusMessage%3AShareResult%27"><span class="annot"><span class="annottext">ShareResult -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AstatusMessage%3AShareResult%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The ID of the resource that was shared.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AshareId%3AShareResult%27"><span class="annot"><span class="annottext">ShareResult -&gt; Maybe Text
+</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AshareId%3AShareResult%27"><span class="hs-identifier hs-var hs-var">shareId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263709"><span id="local-6989586621679263711"><span class="annot"><span class="annottext">ShareResult -&gt; ShareResult -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263835"><span id="local-6989586621679263837"><span class="annot"><span class="annottext">ShareResult -&gt; ShareResult -&gt; Bool
 (ShareResult -&gt; ShareResult -&gt; Bool)
 -&gt; (ShareResult -&gt; ShareResult -&gt; Bool) -&gt; Eq ShareResult
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ShareResult -&gt; ShareResult -&gt; Bool
 == :: ShareResult -&gt; ShareResult -&gt; Bool
 $c== :: ShareResult -&gt; ShareResult -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263702"><span id="local-6989586621679263704"><span id="local-6989586621679263706"><span class="annot"><span class="annottext">Int -&gt; ShareResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263828"><span id="local-6989586621679263830"><span id="local-6989586621679263832"><span class="annot"><span class="annottext">Int -&gt; ShareResult -&gt; ShowS
 [ShareResult] -&gt; ShowS
 ShareResult -&gt; String
 (Int -&gt; ShareResult -&gt; ShowS)
@@ -90,58 +90,136 @@ $cfrom :: forall x. ShareResult -&gt; Rep ShareResult x
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'statusMessage', 'shareResult_statusMessage' - The status message.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'status', 'shareResult_status' - The status.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'status', 'shareResult_status' - The status.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'principalId', 'shareResult_principalId' - The ID of the principal.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- 'inviteePrincipalId', 'shareResult_inviteePrincipalId' - The ID of the invited user.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'shareId', 'shareResult_shareId' - The ID of the resource that was shared.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'role'', 'shareResult_role' - The role.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'principalId', 'shareResult_principalId' - The ID of the principal.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'statusMessage', 'shareResult_statusMessage' - The status message.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'role'', 'shareResult_role' - The role.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'shareId', 'shareResult_shareId' - The ID of the resource that was shared.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#newShareResult"><span class="hs-identifier hs-type">newShareResult</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span>
 </span><span id="line-68"></span><span id="newShareResult"><span class="annot"><span class="annottext">newShareResult :: ShareResult
 </span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#newShareResult"><span class="hs-identifier hs-var hs-var">newShareResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">ShareResult' :: Maybe (Sensitive Text)
--&gt; Maybe ShareStatusType
--&gt; Maybe Text
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">ShareResult' :: Maybe ShareStatusType
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe RoleType
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
 -&gt; ShareResult
 </span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statusMessage:ShareResult' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AstatusMessage%3AShareResult%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ShareResult' :: Maybe ShareStatusType
+</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3Astatus%3AShareResult%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShareStatusType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ShareResult' :: Maybe ShareStatusType
-</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3Astatus%3AShareResult%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShareStatusType
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:principalId:ShareResult' :: Maybe Text
+</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AprincipalId%3AShareResult%27"><span class="hs-identifier hs-var">principalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:inviteePrincipalId:ShareResult' :: Maybe Text
 </span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AinviteePrincipalId%3AShareResult%27"><span class="hs-identifier hs-var">inviteePrincipalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:shareId:ShareResult' :: Maybe Text
-</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AshareId%3AShareResult%27"><span class="hs-identifier hs-var">shareId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:principalId:ShareResult' :: Maybe Text
-</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AprincipalId%3AShareResult%27"><span class="hs-identifier hs-var">principalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:role':ShareResult' :: Maybe RoleType
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:role':ShareResult' :: Maybe RoleType
 </span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3Arole%27%3AShareResult%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RoleType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusMessage:ShareResult' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AstatusMessage%3AShareResult%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:shareId:ShareResult' :: Maybe Text
+</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AshareId%3AShareResult%27"><span class="hs-identifier hs-var">shareId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The status message.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_statusMessage"><span class="hs-identifier hs-type">shareResult_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="shareResult_statusMessage"><span class="annot"><span class="annottext">shareResult_statusMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ShareResult -&gt; f ShareResult
+</span><span id="line-78"></span><span class="hs-comment">-- | The status.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_status"><span class="hs-identifier hs-type">shareResult_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareStatusType.html#ShareStatusType"><span class="hs-identifier hs-type">ShareStatusType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="shareResult_status"><span class="annot"><span class="annottext">shareResult_status :: (Maybe ShareStatusType -&gt; f (Maybe ShareStatusType))
+-&gt; ShareResult -&gt; f ShareResult
+</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_status"><span class="hs-identifier hs-var hs-var">shareResult_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ShareResult -&gt; Maybe ShareStatusType)
+-&gt; (ShareResult -&gt; Maybe ShareStatusType -&gt; ShareResult)
+-&gt; Lens
+     ShareResult
+     ShareResult
+     (Maybe ShareStatusType)
+     (Maybe ShareStatusType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263819"><span class="annot"><span class="annottext">Maybe ShareStatusType
+status :: Maybe ShareStatusType
+$sel:status:ShareResult' :: ShareResult -&gt; Maybe ShareStatusType
+</span><a href="#local-6989586621679263819"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ShareStatusType
+</span><a href="#local-6989586621679263819"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263818"><span class="annot"><span class="annottext">s :: ShareResult
+</span><a href="#local-6989586621679263818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263817"><span class="annot"><span class="annottext">Maybe ShareStatusType
+</span><a href="#local-6989586621679263817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShareResult
+</span><a href="#local-6989586621679263818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ShareResult' :: Maybe ShareStatusType
+</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3Astatus%3AShareResult%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShareStatusType
+</span><a href="#local-6989586621679263817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The ID of the principal.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_principalId"><span class="hs-identifier hs-type">shareResult_principalId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="shareResult_principalId"><span class="annot"><span class="annottext">shareResult_principalId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ShareResult -&gt; f ShareResult
+</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_principalId"><span class="hs-identifier hs-var hs-var">shareResult_principalId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ShareResult -&gt; Maybe Text)
+-&gt; (ShareResult -&gt; Maybe Text -&gt; ShareResult)
+-&gt; Lens ShareResult ShareResult (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263815"><span class="annot"><span class="annottext">Maybe Text
+principalId :: Maybe Text
+$sel:principalId:ShareResult' :: ShareResult -&gt; Maybe Text
+</span><a href="#local-6989586621679263815"><span class="hs-identifier hs-var hs-var">principalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263815"><span class="hs-identifier hs-var">principalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263814"><span class="annot"><span class="annottext">s :: ShareResult
+</span><a href="#local-6989586621679263814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263813"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShareResult
+</span><a href="#local-6989586621679263814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalId:ShareResult' :: Maybe Text
+</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AprincipalId%3AShareResult%27"><span class="hs-identifier hs-var">principalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The ID of the invited user.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_inviteePrincipalId"><span class="hs-identifier hs-type">shareResult_inviteePrincipalId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="shareResult_inviteePrincipalId"><span class="annot"><span class="annottext">shareResult_inviteePrincipalId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ShareResult -&gt; f ShareResult
+</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_inviteePrincipalId"><span class="hs-identifier hs-var hs-var">shareResult_inviteePrincipalId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ShareResult -&gt; Maybe Text)
+-&gt; (ShareResult -&gt; Maybe Text -&gt; ShareResult)
+-&gt; Lens ShareResult ShareResult (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263811"><span class="annot"><span class="annottext">Maybe Text
+inviteePrincipalId :: Maybe Text
+$sel:inviteePrincipalId:ShareResult' :: ShareResult -&gt; Maybe Text
+</span><a href="#local-6989586621679263811"><span class="hs-identifier hs-var hs-var">inviteePrincipalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263811"><span class="hs-identifier hs-var">inviteePrincipalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263810"><span class="annot"><span class="annottext">s :: ShareResult
+</span><a href="#local-6989586621679263810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263809"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShareResult
+</span><a href="#local-6989586621679263810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inviteePrincipalId:ShareResult' :: Maybe Text
+</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AinviteePrincipalId%3AShareResult%27"><span class="hs-identifier hs-var">inviteePrincipalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The role.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_role"><span class="hs-identifier hs-type">shareResult_role</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.RoleType.html#RoleType"><span class="hs-identifier hs-type">RoleType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="shareResult_role"><span class="annot"><span class="annottext">shareResult_role :: (Maybe RoleType -&gt; f (Maybe RoleType))
+-&gt; ShareResult -&gt; f ShareResult
+</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_role"><span class="hs-identifier hs-var hs-var">shareResult_role</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ShareResult -&gt; Maybe RoleType)
+-&gt; (ShareResult -&gt; Maybe RoleType -&gt; ShareResult)
+-&gt; Lens ShareResult ShareResult (Maybe RoleType) (Maybe RoleType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263807"><span class="annot"><span class="annottext">Maybe RoleType
+role' :: Maybe RoleType
+$sel:role':ShareResult' :: ShareResult -&gt; Maybe RoleType
+</span><a href="#local-6989586621679263807"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RoleType
+</span><a href="#local-6989586621679263807"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263806"><span class="annot"><span class="annottext">s :: ShareResult
+</span><a href="#local-6989586621679263806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263805"><span class="annot"><span class="annottext">Maybe RoleType
+</span><a href="#local-6989586621679263805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShareResult
+</span><a href="#local-6989586621679263806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:role':ShareResult' :: Maybe RoleType
+</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3Arole%27%3AShareResult%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RoleType
+</span><a href="#local-6989586621679263805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The status message.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_statusMessage"><span class="hs-identifier hs-type">shareResult_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="shareResult_statusMessage"><span class="annot"><span class="annottext">shareResult_statusMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ShareResult -&gt; f ShareResult
 </span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_statusMessage"><span class="hs-identifier hs-var hs-var">shareResult_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ShareResult -&gt; Maybe (Sensitive Text))
 -&gt; (ShareResult -&gt; Maybe (Sensitive Text) -&gt; ShareResult)
 -&gt; Lens
@@ -150,16 +228,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263693"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263803"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 statusMessage :: Maybe (Sensitive Text)
 $sel:statusMessage:ShareResult' :: ShareResult -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679263693"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679263693"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263692"><span class="annot"><span class="annottext">s :: ShareResult
-</span><a href="#local-6989586621679263692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263691"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679263691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShareResult
-</span><a href="#local-6989586621679263692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:ShareResult' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679263803"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679263803"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263802"><span class="annot"><span class="annottext">s :: ShareResult
+</span><a href="#local-6989586621679263802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263801"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679263801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShareResult
+</span><a href="#local-6989586621679263802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:ShareResult' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AstatusMessage%3AShareResult%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679263691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679263801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; ShareResult -&gt; f ShareResult)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -179,105 +257,27 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | The status.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_status"><span class="hs-identifier hs-type">shareResult_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareStatusType.html#ShareStatusType"><span class="hs-identifier hs-type">ShareStatusType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="shareResult_status"><span class="annot"><span class="annottext">shareResult_status :: (Maybe ShareStatusType -&gt; f (Maybe ShareStatusType))
--&gt; ShareResult -&gt; f ShareResult
-</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_status"><span class="hs-identifier hs-var hs-var">shareResult_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ShareResult -&gt; Maybe ShareStatusType)
--&gt; (ShareResult -&gt; Maybe ShareStatusType -&gt; ShareResult)
--&gt; Lens
-     ShareResult
-     ShareResult
-     (Maybe ShareStatusType)
-     (Maybe ShareStatusType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263686"><span class="annot"><span class="annottext">Maybe ShareStatusType
-status :: Maybe ShareStatusType
-$sel:status:ShareResult' :: ShareResult -&gt; Maybe ShareStatusType
-</span><a href="#local-6989586621679263686"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ShareStatusType
-</span><a href="#local-6989586621679263686"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263685"><span class="annot"><span class="annottext">s :: ShareResult
-</span><a href="#local-6989586621679263685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263684"><span class="annot"><span class="annottext">Maybe ShareStatusType
-</span><a href="#local-6989586621679263684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShareResult
-</span><a href="#local-6989586621679263685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ShareResult' :: Maybe ShareStatusType
-</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3Astatus%3AShareResult%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShareStatusType
-</span><a href="#local-6989586621679263684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | The ID of the invited user.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_inviteePrincipalId"><span class="hs-identifier hs-type">shareResult_inviteePrincipalId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="shareResult_inviteePrincipalId"><span class="annot"><span class="annottext">shareResult_inviteePrincipalId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ShareResult -&gt; f ShareResult
-</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_inviteePrincipalId"><span class="hs-identifier hs-var hs-var">shareResult_inviteePrincipalId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ShareResult -&gt; Maybe Text)
--&gt; (ShareResult -&gt; Maybe Text -&gt; ShareResult)
--&gt; Lens ShareResult ShareResult (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263682"><span class="annot"><span class="annottext">Maybe Text
-inviteePrincipalId :: Maybe Text
-$sel:inviteePrincipalId:ShareResult' :: ShareResult -&gt; Maybe Text
-</span><a href="#local-6989586621679263682"><span class="hs-identifier hs-var hs-var">inviteePrincipalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263682"><span class="hs-identifier hs-var">inviteePrincipalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263681"><span class="annot"><span class="annottext">s :: ShareResult
-</span><a href="#local-6989586621679263681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263680"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShareResult
-</span><a href="#local-6989586621679263681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inviteePrincipalId:ShareResult' :: Maybe Text
-</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AinviteePrincipalId%3AShareResult%27"><span class="hs-identifier hs-var">inviteePrincipalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The ID of the resource that was shared.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_shareId"><span class="hs-identifier hs-type">shareResult_shareId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="shareResult_shareId"><span class="annot"><span class="annottext">shareResult_shareId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ShareResult -&gt; f ShareResult
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The ID of the resource that was shared.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_shareId"><span class="hs-identifier hs-type">shareResult_shareId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="shareResult_shareId"><span class="annot"><span class="annottext">shareResult_shareId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ShareResult -&gt; f ShareResult
 </span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_shareId"><span class="hs-identifier hs-var hs-var">shareResult_shareId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ShareResult -&gt; Maybe Text)
 -&gt; (ShareResult -&gt; Maybe Text -&gt; ShareResult)
 -&gt; Lens ShareResult ShareResult (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263678"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263796"><span class="annot"><span class="annottext">Maybe Text
 shareId :: Maybe Text
 $sel:shareId:ShareResult' :: ShareResult -&gt; Maybe Text
-</span><a href="#local-6989586621679263678"><span class="hs-identifier hs-var hs-var">shareId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263678"><span class="hs-identifier hs-var">shareId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263677"><span class="annot"><span class="annottext">s :: ShareResult
-</span><a href="#local-6989586621679263677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263676"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShareResult
-</span><a href="#local-6989586621679263677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shareId:ShareResult' :: Maybe Text
+</span><a href="#local-6989586621679263796"><span class="hs-identifier hs-var hs-var">shareId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263796"><span class="hs-identifier hs-var">shareId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263795"><span class="annot"><span class="annottext">s :: ShareResult
+</span><a href="#local-6989586621679263795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263794"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShareResult
+</span><a href="#local-6989586621679263795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shareId:ShareResult' :: Maybe Text
 </span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AshareId%3AShareResult%27"><span class="hs-identifier hs-var">shareId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The ID of the principal.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_principalId"><span class="hs-identifier hs-type">shareResult_principalId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="shareResult_principalId"><span class="annot"><span class="annottext">shareResult_principalId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ShareResult -&gt; f ShareResult
-</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_principalId"><span class="hs-identifier hs-var hs-var">shareResult_principalId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ShareResult -&gt; Maybe Text)
--&gt; (ShareResult -&gt; Maybe Text -&gt; ShareResult)
--&gt; Lens ShareResult ShareResult (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263674"><span class="annot"><span class="annottext">Maybe Text
-principalId :: Maybe Text
-$sel:principalId:ShareResult' :: ShareResult -&gt; Maybe Text
-</span><a href="#local-6989586621679263674"><span class="hs-identifier hs-var hs-var">principalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263674"><span class="hs-identifier hs-var">principalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263673"><span class="annot"><span class="annottext">s :: ShareResult
-</span><a href="#local-6989586621679263673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263672"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShareResult
-</span><a href="#local-6989586621679263673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalId:ShareResult' :: Maybe Text
-</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3AprincipalId%3AShareResult%27"><span class="hs-identifier hs-var">principalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The role.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_role"><span class="hs-identifier hs-type">shareResult_role</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.RoleType.html#RoleType"><span class="hs-identifier hs-type">RoleType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="shareResult_role"><span class="annot"><span class="annottext">shareResult_role :: (Maybe RoleType -&gt; f (Maybe RoleType))
--&gt; ShareResult -&gt; f ShareResult
-</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#shareResult_role"><span class="hs-identifier hs-var hs-var">shareResult_role</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ShareResult -&gt; Maybe RoleType)
--&gt; (ShareResult -&gt; Maybe RoleType -&gt; ShareResult)
--&gt; Lens ShareResult ShareResult (Maybe RoleType) (Maybe RoleType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263670"><span class="annot"><span class="annottext">Maybe RoleType
-role' :: Maybe RoleType
-$sel:role':ShareResult' :: ShareResult -&gt; Maybe RoleType
-</span><a href="#local-6989586621679263670"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RoleType
-</span><a href="#local-6989586621679263670"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263669"><span class="annot"><span class="annottext">s :: ShareResult
-</span><a href="#local-6989586621679263669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-type">ShareResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263668"><span class="annot"><span class="annottext">Maybe RoleType
-</span><a href="#local-6989586621679263668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShareResult
-</span><a href="#local-6989586621679263669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:role':ShareResult' :: Maybe RoleType
-</span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#%24sel%3Arole%27%3AShareResult%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RoleType
-</span><a href="#local-6989586621679263668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679263794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263665"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679263663"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ShareResult
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263791"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679263789"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ShareResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ShareResult) -&gt; Value -&gt; Parser ShareResult
@@ -285,94 +285,104 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ShareResult&quot;</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679263660"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263660"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
--&gt; Maybe ShareStatusType
--&gt; Maybe Text
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679263786"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263786"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe ShareStatusType
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe RoleType
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
 -&gt; ShareResult
 </span><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult%27"><span class="hs-identifier hs-var">ShareResult'</span></a></span><span>
-</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (Sensitive Text)
- -&gt; Maybe ShareStatusType
- -&gt; Maybe Text
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ShareStatusType
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe RoleType
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe Text
  -&gt; ShareResult)
--&gt; Parser (Maybe (Sensitive Text))
--&gt; Parser
-     (Maybe ShareStatusType
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe RoleType
-      -&gt; ShareResult)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ShareStatusType
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe RoleType
-   -&gt; ShareResult)
 -&gt; Parser (Maybe ShareStatusType)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe RoleType -&gt; ShareResult)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ShareStatusType)
+      -&gt; Maybe Text
+      -&gt; Maybe RoleType
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; ShareResult)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ShareStatusType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe RoleType -&gt; ShareResult)
+   -&gt; Maybe Text
+   -&gt; Maybe RoleType
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; ShareResult)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text -&gt; Maybe Text -&gt; Maybe RoleType -&gt; ShareResult)
+     (Maybe Text
+      -&gt; Maybe RoleType
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; ShareResult)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InviteePrincipalId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe RoleType -&gt; ShareResult)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe RoleType -&gt; ShareResult)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ShareId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe RoleType -&gt; ShareResult)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe RoleType -&gt; ShareResult)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679263786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PrincipalId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe RoleType -&gt; ShareResult)
--&gt; Parser (Maybe RoleType) -&gt; Parser ShareResult
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe RoleType
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; ShareResult)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe RoleType
+      -&gt; Maybe (Sensitive Text) -&gt; Maybe Text -&gt; ShareResult)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RoleType)
+</span><a href="#local-6989586621679263786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InviteePrincipalId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RoleType
+   -&gt; Maybe (Sensitive Text) -&gt; Maybe Text -&gt; ShareResult)
+-&gt; Parser (Maybe RoleType)
+-&gt; Parser (Maybe (Sensitive Text) -&gt; Maybe Text -&gt; ShareResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RoleType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Role&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (Sensitive Text) -&gt; Maybe Text -&gt; ShareResult)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser (Maybe Text -&gt; ShareResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ShareResult)
+-&gt; Parser (Maybe Text) -&gt; Parser ShareResult
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ShareId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263654"><span id="local-6989586621679263656"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263780"><span id="local-6989586621679263782"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263651"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ShareResult.html#ShareResult"><span class="hs-identifier hs-type">ShareResult</span></a></span></span><span>
 </span><span id="line-119"></span></pre></body></html>

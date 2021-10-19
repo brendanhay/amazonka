@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- Required settings: You must also set Framerate to 25. In your JSON job</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- specification, set (framerateControl) to (SPECIFIED),</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- (framerateNumerator) to 25 and (framerateDenominator) to 1.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679968291"><span id="local-6989586621679968292"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265SlowPal"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SlowPal.html#H265SlowPal"><span class="hs-identifier hs-var">H265SlowPal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265SlowPal%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SlowPal.html#H265SlowPal%27"><span class="hs-identifier hs-var">H265SlowPal'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679972915"><span id="local-6989586621679972916"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265SlowPal"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SlowPal.html#H265SlowPal"><span class="hs-identifier hs-var">H265SlowPal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265SlowPal%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SlowPal.html#H265SlowPal%27"><span class="hs-identifier hs-var">H265SlowPal'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265SlowPal"><span class="annot"><span class="annottext">H265SlowPal -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.H265SlowPal.html#fromH265SlowPal"><span class="hs-identifier hs-var hs-var">fromH265SlowPal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679968283"><span id="local-6989586621679968285"><span id="local-6989586621679968287"><span class="annot"><span class="annottext">Int -&gt; H265SlowPal -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679972907"><span id="local-6989586621679972909"><span id="local-6989586621679972911"><span class="annot"><span class="annottext">Int -&gt; H265SlowPal -&gt; ShowS
 [H265SlowPal] -&gt; ShowS
 H265SlowPal -&gt; String
 (Int -&gt; H265SlowPal -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: H265SlowPal -&gt; String
 showsPrec :: Int -&gt; H265SlowPal -&gt; ShowS
 $cshowsPrec :: Int -&gt; H265SlowPal -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679968274"><span id="local-6989586621679968276"><span id="local-6989586621679968278"><span id="local-6989586621679968280"><span class="annot"><span class="annottext">ReadPrec [H265SlowPal]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679972898"><span id="local-6989586621679972900"><span id="local-6989586621679972902"><span id="local-6989586621679972904"><span class="annot"><span class="annottext">ReadPrec [H265SlowPal]
 ReadPrec H265SlowPal
 Int -&gt; ReadS H265SlowPal
 ReadS [H265SlowPal]
@@ -80,7 +80,7 @@ $creadList :: ReadS [H265SlowPal]
 readsPrec :: Int -&gt; ReadS H265SlowPal
 $creadsPrec :: Int -&gt; ReadS H265SlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679968269"><span id="local-6989586621679968271"><span class="annot"><span class="annottext">H265SlowPal -&gt; H265SlowPal -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679972893"><span id="local-6989586621679972895"><span class="annot"><span class="annottext">H265SlowPal -&gt; H265SlowPal -&gt; Bool
 (H265SlowPal -&gt; H265SlowPal -&gt; Bool)
 -&gt; (H265SlowPal -&gt; H265SlowPal -&gt; Bool) -&gt; Eq H265SlowPal
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ $c/= :: H265SlowPal -&gt; H265SlowPal -&gt; Bool
 == :: H265SlowPal -&gt; H265SlowPal -&gt; Bool
 $c== :: H265SlowPal -&gt; H265SlowPal -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679968253"><span id="local-6989586621679968255"><span id="local-6989586621679968257"><span id="local-6989586621679968259"><span id="local-6989586621679968261"><span id="local-6989586621679968263"><span id="local-6989586621679968265"><span class="annot"><span class="annottext">Eq H265SlowPal
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679972877"><span id="local-6989586621679972879"><span id="local-6989586621679972881"><span id="local-6989586621679972883"><span id="local-6989586621679972885"><span id="local-6989586621679972887"><span id="local-6989586621679972889"><span class="annot"><span class="annottext">Eq H265SlowPal
 Eq H265SlowPal
 -&gt; (H265SlowPal -&gt; H265SlowPal -&gt; Ordering)
 -&gt; (H265SlowPal -&gt; H265SlowPal -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. H265SlowPal -&gt; Rep H265SlowPal x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679968245"><span id="local-6989586621679968247"><span class="annot"><span class="annottext">Int -&gt; H265SlowPal -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679972869"><span id="local-6989586621679972871"><span class="annot"><span class="annottext">Int -&gt; H265SlowPal -&gt; Int
 H265SlowPal -&gt; Int
 (Int -&gt; H265SlowPal -&gt; Int)
 -&gt; (H265SlowPal -&gt; Int) -&gt; Hashable H265SlowPal
@@ -150,49 +150,49 @@ $chash :: H265SlowPal -&gt; Int
 hashWithSalt :: Int -&gt; H265SlowPal -&gt; Int
 $chashWithSalt :: Int -&gt; H265SlowPal -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679968242"><span class="annot"><span class="annottext">H265SlowPal -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679972866"><span class="annot"><span class="annottext">H265SlowPal -&gt; ()
 (H265SlowPal -&gt; ()) -&gt; NFData H265SlowPal
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H265SlowPal -&gt; ()
 $crnf :: H265SlowPal -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679968239"><span class="annot"><span class="annottext">Text -&gt; Either String H265SlowPal
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679972863"><span class="annot"><span class="annottext">Text -&gt; Either String H265SlowPal
 (Text -&gt; Either String H265SlowPal) -&gt; FromText H265SlowPal
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H265SlowPal
 $cfromText :: Text -&gt; Either String H265SlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679968236"><span class="annot"><span class="annottext">H265SlowPal -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679972860"><span class="annot"><span class="annottext">H265SlowPal -&gt; Text
 (H265SlowPal -&gt; Text) -&gt; ToText H265SlowPal
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H265SlowPal -&gt; Text
 $ctoText :: H265SlowPal -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679968233"><span class="annot"><span class="annottext">H265SlowPal -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679972857"><span class="annot"><span class="annottext">H265SlowPal -&gt; ByteString
 (H265SlowPal -&gt; ByteString) -&gt; ToByteString H265SlowPal
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H265SlowPal -&gt; ByteString
 $ctoBS :: H265SlowPal -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679968230"><span class="annot"><span class="annottext">H265SlowPal -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679972854"><span class="annot"><span class="annottext">H265SlowPal -&gt; ByteStringBuilder
 (H265SlowPal -&gt; ByteStringBuilder) -&gt; ToLog H265SlowPal
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H265SlowPal -&gt; ByteStringBuilder
 $cbuild :: H265SlowPal -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679968227"><span class="annot"><span class="annottext">HeaderName -&gt; H265SlowPal -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679972851"><span class="annot"><span class="annottext">HeaderName -&gt; H265SlowPal -&gt; [Header]
 (HeaderName -&gt; H265SlowPal -&gt; [Header]) -&gt; ToHeader H265SlowPal
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H265SlowPal -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H265SlowPal -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679968224"><span class="annot"><span class="annottext">H265SlowPal -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679972848"><span class="annot"><span class="annottext">H265SlowPal -&gt; QueryString
 (H265SlowPal -&gt; QueryString) -&gt; ToQuery H265SlowPal
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H265SlowPal -&gt; QueryString
 $ctoQuery :: H265SlowPal -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679968219"><span id="local-6989586621679968221"><span class="annot"><span class="annottext">Value -&gt; Parser [H265SlowPal]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679972843"><span id="local-6989586621679972845"><span class="annot"><span class="annottext">Value -&gt; Parser [H265SlowPal]
 Value -&gt; Parser H265SlowPal
 (Value -&gt; Parser H265SlowPal)
 -&gt; (Value -&gt; Parser [H265SlowPal]) -&gt; FromJSON H265SlowPal
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [H265SlowPal]
 parseJSON :: Value -&gt; Parser H265SlowPal
 $cparseJSON :: Value -&gt; Parser H265SlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679968214"><span id="local-6989586621679968216"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265SlowPal]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679972838"><span id="local-6989586621679972840"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265SlowPal]
 FromJSONKeyFunction H265SlowPal
 FromJSONKeyFunction H265SlowPal
 -&gt; FromJSONKeyFunction [H265SlowPal] -&gt; FromJSONKey H265SlowPal
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H265SlowPal]
 fromJSONKey :: FromJSONKeyFunction H265SlowPal
 $cfromJSONKey :: FromJSONKeyFunction H265SlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679968205"><span id="local-6989586621679968207"><span id="local-6989586621679968209"><span id="local-6989586621679968211"><span class="annot"><span class="annottext">[H265SlowPal] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679972829"><span id="local-6989586621679972831"><span id="local-6989586621679972833"><span id="local-6989586621679972835"><span class="annot"><span class="annottext">[H265SlowPal] -&gt; Encoding
 [H265SlowPal] -&gt; Value
 H265SlowPal -&gt; Encoding
 H265SlowPal -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: H265SlowPal -&gt; Encoding
 toJSON :: H265SlowPal -&gt; Value
 $ctoJSON :: H265SlowPal -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679968200"><span id="local-6989586621679968202"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265SlowPal]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679972824"><span id="local-6989586621679972826"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265SlowPal]
 ToJSONKeyFunction H265SlowPal
 ToJSONKeyFunction H265SlowPal
 -&gt; ToJSONKeyFunction [H265SlowPal] -&gt; ToJSONKey H265SlowPal
@@ -249,13 +249,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H265SlowPal]
 toJSONKey :: ToJSONKeyFunction H265SlowPal
 $ctoJSONKey :: ToJSONKeyFunction H265SlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679968197"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265SlowPal
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679972821"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265SlowPal
 ([Node] -&gt; Either String H265SlowPal) -&gt; FromXML H265SlowPal
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H265SlowPal
 $cparseXML :: [Node] -&gt; Either String H265SlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679968194"><span class="annot"><span class="annottext">H265SlowPal -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679972818"><span class="annot"><span class="annottext">H265SlowPal -&gt; XML
 (H265SlowPal -&gt; XML) -&gt; ToXML H265SlowPal
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H265SlowPal -&gt; XML

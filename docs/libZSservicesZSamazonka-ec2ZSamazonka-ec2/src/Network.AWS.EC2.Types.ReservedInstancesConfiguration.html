@@ -30,28 +30,28 @@
 </span><span id="line-30"></span><span class="hs-comment">-- Instances.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newReservedInstancesConfiguration' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621681113808"><span id="local-6989586621681113809"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReservedInstancesConfiguration"><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-var">ReservedInstancesConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservedInstancesConfiguration%27"><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">ReservedInstancesConfiguration'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681148652"><span id="local-6989586621681148653"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReservedInstancesConfiguration"><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-var">ReservedInstancesConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservedInstancesConfiguration%27"><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">ReservedInstancesConfiguration'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The network platform of the modified Reserved Instances, which is either</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- EC2-Classic or EC2-VPC.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aplatform%3AReservedInstancesConfiguration%27"><span class="annot"><span class="annottext">ReservedInstancesConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3Aplatform%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The instance type for the modified Reserved Instances.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AinstanceType%3AReservedInstancesConfiguration%27"><span class="annot"><span class="annottext">ReservedInstancesConfiguration -&gt; Maybe InstanceType
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The number of modified Reserved Instances.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- This is a required field for a request.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AinstanceCount%3AReservedInstancesConfiguration%27"><span class="annot"><span class="annottext">ReservedInstancesConfiguration -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3AinstanceCount%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The instance type for the modified Reserved Instances.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AinstanceType%3AReservedInstancesConfiguration%27"><span class="annot"><span class="annottext">ReservedInstancesConfiguration -&gt; Maybe InstanceType
 </span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3AinstanceType%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceType.html#InstanceType"><span class="hs-identifier hs-type">InstanceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Whether the Reserved Instance is applied to instances in a Region or</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- instances in a specific Availability Zone.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Ascope%3AReservedInstancesConfiguration%27"><span class="annot"><span class="annottext">ReservedInstancesConfiguration -&gt; Maybe Scope
-</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3Ascope%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var hs-var">scope</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Availability Zone for the modified Reserved Instances.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AavailabilityZone%3AReservedInstancesConfiguration%27"><span class="annot"><span class="annottext">ReservedInstancesConfiguration -&gt; Maybe Text
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The Availability Zone for the modified Reserved Instances.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AavailabilityZone%3AReservedInstancesConfiguration%27"><span class="annot"><span class="annottext">ReservedInstancesConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3AavailabilityZone%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The number of modified Reserved Instances.</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- This is a required field for a request.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AinstanceCount%3AReservedInstancesConfiguration%27"><span class="annot"><span class="annottext">ReservedInstancesConfiguration -&gt; Maybe Int
-</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3AinstanceCount%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Whether the Reserved Instance is applied to instances in a Region or</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- instances in a specific Availability Zone.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Ascope%3AReservedInstancesConfiguration%27"><span class="annot"><span class="annottext">ReservedInstancesConfiguration -&gt; Maybe Scope
+</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3Ascope%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var hs-var">scope</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681113798"><span id="local-6989586621681113800"><span class="annot"><span class="annottext">ReservedInstancesConfiguration
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681148642"><span id="local-6989586621681148644"><span class="annot"><span class="annottext">ReservedInstancesConfiguration
 -&gt; ReservedInstancesConfiguration -&gt; Bool
 (ReservedInstancesConfiguration
  -&gt; ReservedInstancesConfiguration -&gt; Bool)
@@ -67,7 +67,7 @@ $c/= :: ReservedInstancesConfiguration
 -&gt; ReservedInstancesConfiguration -&gt; Bool
 $c== :: ReservedInstancesConfiguration
 -&gt; ReservedInstancesConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681113789"><span id="local-6989586621681113791"><span id="local-6989586621681113793"><span id="local-6989586621681113795"><span class="annot"><span class="annottext">ReadPrec [ReservedInstancesConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681148633"><span id="local-6989586621681148635"><span id="local-6989586621681148637"><span id="local-6989586621681148639"><span class="annot"><span class="annottext">ReadPrec [ReservedInstancesConfiguration]
 ReadPrec ReservedInstancesConfiguration
 Int -&gt; ReadS ReservedInstancesConfiguration
 ReadS [ReservedInstancesConfiguration]
@@ -87,7 +87,7 @@ readList :: ReadS [ReservedInstancesConfiguration]
 $creadList :: ReadS [ReservedInstancesConfiguration]
 readsPrec :: Int -&gt; ReadS ReservedInstancesConfiguration
 $creadsPrec :: Int -&gt; ReadS ReservedInstancesConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681113782"><span id="local-6989586621681113784"><span id="local-6989586621681113786"><span class="annot"><span class="annottext">Int -&gt; ReservedInstancesConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681148626"><span id="local-6989586621681148628"><span id="local-6989586621681148630"><span class="annot"><span class="annottext">Int -&gt; ReservedInstancesConfiguration -&gt; ShowS
 [ReservedInstancesConfiguration] -&gt; ShowS
 ReservedInstancesConfiguration -&gt; String
 (Int -&gt; ReservedInstancesConfiguration -&gt; ShowS)
@@ -136,25 +136,25 @@ ReservedInstancesConfiguration
 </span><span id="line-59"></span><span class="hs-comment">-- 'platform', 'reservedInstancesConfiguration_platform' - The network platform of the modified Reserved Instances, which is either</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- EC2-Classic or EC2-VPC.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'instanceType', 'reservedInstancesConfiguration_instanceType' - The instance type for the modified Reserved Instances.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'instanceCount', 'reservedInstancesConfiguration_instanceCount' - The number of modified Reserved Instances.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'scope', 'reservedInstancesConfiguration_scope' - Whether the Reserved Instance is applied to instances in a Region or</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- instances in a specific Availability Zone.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'availabilityZone', 'reservedInstancesConfiguration_availabilityZone' - The Availability Zone for the modified Reserved Instances.</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'instanceCount', 'reservedInstancesConfiguration_instanceCount' - The number of modified Reserved Instances.</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- This is a required field for a request.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- This is a required field for a request.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'instanceType', 'reservedInstancesConfiguration_instanceType' - The instance type for the modified Reserved Instances.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'availabilityZone', 'reservedInstancesConfiguration_availabilityZone' - The Availability Zone for the modified Reserved Instances.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'scope', 'reservedInstancesConfiguration_scope' - Whether the Reserved Instance is applied to instances in a Region or</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- instances in a specific Availability Zone.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#newReservedInstancesConfiguration"><span class="hs-identifier hs-type">newReservedInstancesConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span>
 </span><span id="line-74"></span><span id="newReservedInstancesConfiguration"><span class="annot"><span class="annottext">newReservedInstancesConfiguration :: ReservedInstancesConfiguration
 </span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#newReservedInstancesConfiguration"><span class="hs-identifier hs-var hs-var">newReservedInstancesConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">ReservedInstancesConfiguration' :: Maybe Text
--&gt; Maybe InstanceType
--&gt; Maybe Scope
--&gt; Maybe Text
 -&gt; Maybe Int
+-&gt; Maybe InstanceType
+-&gt; Maybe Text
+-&gt; Maybe Scope
 -&gt; ReservedInstancesConfiguration
 </span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:platform:ReservedInstancesConfiguration' :: Maybe Text
@@ -162,20 +162,20 @@ ReservedInstancesConfiguration
 </span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:ReservedInstancesConfiguration' :: Maybe InstanceType
-</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3AinstanceType%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceCount:ReservedInstancesConfiguration' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3AinstanceCount%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:scope:ReservedInstancesConfiguration' :: Maybe Scope
-</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3Ascope%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">scope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scope
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:ReservedInstancesConfiguration' :: Maybe InstanceType
+</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3AinstanceType%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:ReservedInstancesConfiguration' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3AavailabilityZone%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceCount:ReservedInstancesConfiguration' :: Maybe Int
-</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3AinstanceCount%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:scope:ReservedInstancesConfiguration' :: Maybe Scope
+</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3Ascope%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">scope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scope
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
@@ -195,98 +195,22 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681113773"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681148617"><span class="annot"><span class="annottext">Maybe Text
 platform :: Maybe Text
 $sel:platform:ReservedInstancesConfiguration' :: ReservedInstancesConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621681113773"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681113773"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681113772"><span class="annot"><span class="annottext">s :: ReservedInstancesConfiguration
-</span><a href="#local-6989586621681113772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681113771"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681113771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedInstancesConfiguration
-</span><a href="#local-6989586621681113772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platform:ReservedInstancesConfiguration' :: Maybe Text
+</span><a href="#local-6989586621681148617"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681148617"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681148616"><span class="annot"><span class="annottext">s :: ReservedInstancesConfiguration
+</span><a href="#local-6989586621681148616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681148615"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681148615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedInstancesConfiguration
+</span><a href="#local-6989586621681148616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platform:ReservedInstancesConfiguration' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3Aplatform%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681113771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681148615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The instance type for the modified Reserved Instances.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#reservedInstancesConfiguration_instanceType"><span class="hs-identifier hs-type">reservedInstancesConfiguration_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceType.html#InstanceType"><span class="hs-identifier hs-type">InstanceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="reservedInstancesConfiguration_instanceType"><span class="annot"><span class="annottext">reservedInstancesConfiguration_instanceType :: (Maybe InstanceType -&gt; f (Maybe InstanceType))
--&gt; ReservedInstancesConfiguration
--&gt; f ReservedInstancesConfiguration
-</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#reservedInstancesConfiguration_instanceType"><span class="hs-identifier hs-var hs-var">reservedInstancesConfiguration_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedInstancesConfiguration -&gt; Maybe InstanceType)
--&gt; (ReservedInstancesConfiguration
-    -&gt; Maybe InstanceType -&gt; ReservedInstancesConfiguration)
--&gt; Lens
-     ReservedInstancesConfiguration
-     ReservedInstancesConfiguration
-     (Maybe InstanceType)
-     (Maybe InstanceType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681113769"><span class="annot"><span class="annottext">Maybe InstanceType
-instanceType :: Maybe InstanceType
-$sel:instanceType:ReservedInstancesConfiguration' :: ReservedInstancesConfiguration -&gt; Maybe InstanceType
-</span><a href="#local-6989586621681113769"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
-</span><a href="#local-6989586621681113769"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681113768"><span class="annot"><span class="annottext">s :: ReservedInstancesConfiguration
-</span><a href="#local-6989586621681113768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681113767"><span class="annot"><span class="annottext">Maybe InstanceType
-</span><a href="#local-6989586621681113767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedInstancesConfiguration
-</span><a href="#local-6989586621681113768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:ReservedInstancesConfiguration' :: Maybe InstanceType
-</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3AinstanceType%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
-</span><a href="#local-6989586621681113767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | Whether the Reserved Instance is applied to instances in a Region or</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- instances in a specific Availability Zone.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#reservedInstancesConfiguration_scope"><span class="hs-identifier hs-type">reservedInstancesConfiguration_scope</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="reservedInstancesConfiguration_scope"><span class="annot"><span class="annottext">reservedInstancesConfiguration_scope :: (Maybe Scope -&gt; f (Maybe Scope))
--&gt; ReservedInstancesConfiguration
--&gt; f ReservedInstancesConfiguration
-</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#reservedInstancesConfiguration_scope"><span class="hs-identifier hs-var hs-var">reservedInstancesConfiguration_scope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedInstancesConfiguration -&gt; Maybe Scope)
--&gt; (ReservedInstancesConfiguration
-    -&gt; Maybe Scope -&gt; ReservedInstancesConfiguration)
--&gt; Lens
-     ReservedInstancesConfiguration
-     ReservedInstancesConfiguration
-     (Maybe Scope)
-     (Maybe Scope)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681113765"><span class="annot"><span class="annottext">Maybe Scope
-scope :: Maybe Scope
-$sel:scope:ReservedInstancesConfiguration' :: ReservedInstancesConfiguration -&gt; Maybe Scope
-</span><a href="#local-6989586621681113765"><span class="hs-identifier hs-var hs-var">scope</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scope
-</span><a href="#local-6989586621681113765"><span class="hs-identifier hs-var">scope</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681113764"><span class="annot"><span class="annottext">s :: ReservedInstancesConfiguration
-</span><a href="#local-6989586621681113764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681113763"><span class="annot"><span class="annottext">Maybe Scope
-</span><a href="#local-6989586621681113763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedInstancesConfiguration
-</span><a href="#local-6989586621681113764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scope:ReservedInstancesConfiguration' :: Maybe Scope
-</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3Ascope%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">scope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scope
-</span><a href="#local-6989586621681113763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The Availability Zone for the modified Reserved Instances.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#reservedInstancesConfiguration_availabilityZone"><span class="hs-identifier hs-type">reservedInstancesConfiguration_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="reservedInstancesConfiguration_availabilityZone"><span class="annot"><span class="annottext">reservedInstancesConfiguration_availabilityZone :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReservedInstancesConfiguration
--&gt; f ReservedInstancesConfiguration
-</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#reservedInstancesConfiguration_availabilityZone"><span class="hs-identifier hs-var hs-var">reservedInstancesConfiguration_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedInstancesConfiguration -&gt; Maybe Text)
--&gt; (ReservedInstancesConfiguration
-    -&gt; Maybe Text -&gt; ReservedInstancesConfiguration)
--&gt; Lens
-     ReservedInstancesConfiguration
-     ReservedInstancesConfiguration
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681113761"><span class="annot"><span class="annottext">Maybe Text
-availabilityZone :: Maybe Text
-$sel:availabilityZone:ReservedInstancesConfiguration' :: ReservedInstancesConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621681113761"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681113761"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681113760"><span class="annot"><span class="annottext">s :: ReservedInstancesConfiguration
-</span><a href="#local-6989586621681113760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681113759"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681113759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedInstancesConfiguration
-</span><a href="#local-6989586621681113760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:ReservedInstancesConfiguration' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3AavailabilityZone%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681113759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | The number of modified Reserved Instances.</span><span>
-</span><span id="line-103"></span><span class="hs-comment">--</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- This is a required field for a request.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#reservedInstancesConfiguration_instanceCount"><span class="hs-identifier hs-type">reservedInstancesConfiguration_instanceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="reservedInstancesConfiguration_instanceCount"><span class="annot"><span class="annottext">reservedInstancesConfiguration_instanceCount :: (Maybe Int -&gt; f (Maybe Int))
+</span><span id="line-89"></span><span class="hs-comment">-- | The number of modified Reserved Instances.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- This is a required field for a request.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#reservedInstancesConfiguration_instanceCount"><span class="hs-identifier hs-type">reservedInstancesConfiguration_instanceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="reservedInstancesConfiguration_instanceCount"><span class="annot"><span class="annottext">reservedInstancesConfiguration_instanceCount :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; ReservedInstancesConfiguration
 -&gt; f ReservedInstancesConfiguration
 </span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#reservedInstancesConfiguration_instanceCount"><span class="hs-identifier hs-var hs-var">reservedInstancesConfiguration_instanceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedInstancesConfiguration -&gt; Maybe Int)
@@ -298,124 +222,202 @@ $sel:availabilityZone:ReservedInstancesConfiguration' :: ReservedInstancesConfig
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681113757"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681148613"><span class="annot"><span class="annottext">Maybe Int
 instanceCount :: Maybe Int
 $sel:instanceCount:ReservedInstancesConfiguration' :: ReservedInstancesConfiguration -&gt; Maybe Int
-</span><a href="#local-6989586621681113757"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681113757"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681113756"><span class="annot"><span class="annottext">s :: ReservedInstancesConfiguration
-</span><a href="#local-6989586621681113756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681113755"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681113755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedInstancesConfiguration
-</span><a href="#local-6989586621681113756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCount:ReservedInstancesConfiguration' :: Maybe Int
+</span><a href="#local-6989586621681148613"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681148613"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681148612"><span class="annot"><span class="annottext">s :: ReservedInstancesConfiguration
+</span><a href="#local-6989586621681148612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681148611"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681148611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedInstancesConfiguration
+</span><a href="#local-6989586621681148612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCount:ReservedInstancesConfiguration' :: Maybe Int
 </span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3AinstanceCount%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681113755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681148611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The instance type for the modified Reserved Instances.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#reservedInstancesConfiguration_instanceType"><span class="hs-identifier hs-type">reservedInstancesConfiguration_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceType.html#InstanceType"><span class="hs-identifier hs-type">InstanceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="reservedInstancesConfiguration_instanceType"><span class="annot"><span class="annottext">reservedInstancesConfiguration_instanceType :: (Maybe InstanceType -&gt; f (Maybe InstanceType))
+-&gt; ReservedInstancesConfiguration
+-&gt; f ReservedInstancesConfiguration
+</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#reservedInstancesConfiguration_instanceType"><span class="hs-identifier hs-var hs-var">reservedInstancesConfiguration_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedInstancesConfiguration -&gt; Maybe InstanceType)
+-&gt; (ReservedInstancesConfiguration
+    -&gt; Maybe InstanceType -&gt; ReservedInstancesConfiguration)
+-&gt; Lens
+     ReservedInstancesConfiguration
+     ReservedInstancesConfiguration
+     (Maybe InstanceType)
+     (Maybe InstanceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681148609"><span class="annot"><span class="annottext">Maybe InstanceType
+instanceType :: Maybe InstanceType
+$sel:instanceType:ReservedInstancesConfiguration' :: ReservedInstancesConfiguration -&gt; Maybe InstanceType
+</span><a href="#local-6989586621681148609"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
+</span><a href="#local-6989586621681148609"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681148608"><span class="annot"><span class="annottext">s :: ReservedInstancesConfiguration
+</span><a href="#local-6989586621681148608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681148607"><span class="annot"><span class="annottext">Maybe InstanceType
+</span><a href="#local-6989586621681148607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedInstancesConfiguration
+</span><a href="#local-6989586621681148608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:ReservedInstancesConfiguration' :: Maybe InstanceType
+</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3AinstanceType%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
+</span><a href="#local-6989586621681148607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The Availability Zone for the modified Reserved Instances.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#reservedInstancesConfiguration_availabilityZone"><span class="hs-identifier hs-type">reservedInstancesConfiguration_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="reservedInstancesConfiguration_availabilityZone"><span class="annot"><span class="annottext">reservedInstancesConfiguration_availabilityZone :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReservedInstancesConfiguration
+-&gt; f ReservedInstancesConfiguration
+</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#reservedInstancesConfiguration_availabilityZone"><span class="hs-identifier hs-var hs-var">reservedInstancesConfiguration_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedInstancesConfiguration -&gt; Maybe Text)
+-&gt; (ReservedInstancesConfiguration
+    -&gt; Maybe Text -&gt; ReservedInstancesConfiguration)
+-&gt; Lens
+     ReservedInstancesConfiguration
+     ReservedInstancesConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681148605"><span class="annot"><span class="annottext">Maybe Text
+availabilityZone :: Maybe Text
+$sel:availabilityZone:ReservedInstancesConfiguration' :: ReservedInstancesConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621681148605"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681148605"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681148604"><span class="annot"><span class="annottext">s :: ReservedInstancesConfiguration
+</span><a href="#local-6989586621681148604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681148603"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681148603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedInstancesConfiguration
+</span><a href="#local-6989586621681148604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:ReservedInstancesConfiguration' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3AavailabilityZone%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681148603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | Whether the Reserved Instance is applied to instances in a Region or</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- instances in a specific Availability Zone.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#reservedInstancesConfiguration_scope"><span class="hs-identifier hs-type">reservedInstancesConfiguration_scope</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="reservedInstancesConfiguration_scope"><span class="annot"><span class="annottext">reservedInstancesConfiguration_scope :: (Maybe Scope -&gt; f (Maybe Scope))
+-&gt; ReservedInstancesConfiguration
+-&gt; f ReservedInstancesConfiguration
+</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#reservedInstancesConfiguration_scope"><span class="hs-identifier hs-var hs-var">reservedInstancesConfiguration_scope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedInstancesConfiguration -&gt; Maybe Scope)
+-&gt; (ReservedInstancesConfiguration
+    -&gt; Maybe Scope -&gt; ReservedInstancesConfiguration)
+-&gt; Lens
+     ReservedInstancesConfiguration
+     ReservedInstancesConfiguration
+     (Maybe Scope)
+     (Maybe Scope)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681148601"><span class="annot"><span class="annottext">Maybe Scope
+scope :: Maybe Scope
+$sel:scope:ReservedInstancesConfiguration' :: ReservedInstancesConfiguration -&gt; Maybe Scope
+</span><a href="#local-6989586621681148601"><span class="hs-identifier hs-var hs-var">scope</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scope
+</span><a href="#local-6989586621681148601"><span class="hs-identifier hs-var">scope</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681148600"><span class="annot"><span class="annottext">s :: ReservedInstancesConfiguration
+</span><a href="#local-6989586621681148600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681148599"><span class="annot"><span class="annottext">Maybe Scope
+</span><a href="#local-6989586621681148599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedInstancesConfiguration
+</span><a href="#local-6989586621681148600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scope:ReservedInstancesConfiguration' :: Maybe Scope
+</span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#%24sel%3Ascope%3AReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">scope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scope
+</span><a href="#local-6989586621681148599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621681113752"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReservedInstancesConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681113750"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681113750"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621681148596"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReservedInstancesConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681148594"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681148594"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe InstanceType
--&gt; Maybe Scope
--&gt; Maybe Text
 -&gt; Maybe Int
+-&gt; Maybe InstanceType
+-&gt; Maybe Text
+-&gt; Maybe Scope
 -&gt; ReservedInstancesConfiguration
 </span><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-var">ReservedInstancesConfiguration'</span></a></span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe InstanceType
- -&gt; Maybe Scope
- -&gt; Maybe Text
  -&gt; Maybe Int
+ -&gt; Maybe InstanceType
+ -&gt; Maybe Text
+ -&gt; Maybe Scope
  -&gt; ReservedInstancesConfiguration)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe InstanceType
-      -&gt; Maybe Scope
+     (Maybe Int
+      -&gt; Maybe InstanceType
       -&gt; Maybe Text
-      -&gt; Maybe Int
+      -&gt; Maybe Scope
       -&gt; ReservedInstancesConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681113750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681148594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;platform&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe InstanceType
-   -&gt; Maybe Scope
+  (Maybe Int
+   -&gt; Maybe InstanceType
    -&gt; Maybe Text
-   -&gt; Maybe Int
+   -&gt; Maybe Scope
    -&gt; ReservedInstancesConfiguration)
--&gt; Either String (Maybe InstanceType)
+-&gt; Either String (Maybe Int)
 -&gt; Either
      String
-     (Maybe Scope
-      -&gt; Maybe Text -&gt; Maybe Int -&gt; ReservedInstancesConfiguration)
+     (Maybe InstanceType
+      -&gt; Maybe Text -&gt; Maybe Scope -&gt; ReservedInstancesConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681113750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InstanceType)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;instanceType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Scope
-   -&gt; Maybe Text -&gt; Maybe Int -&gt; ReservedInstancesConfiguration)
--&gt; Either String (Maybe Scope)
--&gt; Either
-     String (Maybe Text -&gt; Maybe Int -&gt; ReservedInstancesConfiguration)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681113750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Scope)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;scope&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Maybe Int -&gt; ReservedInstancesConfiguration)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Int -&gt; ReservedInstancesConfiguration)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681113750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;availabilityZone&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; ReservedInstancesConfiguration)
--&gt; Either String (Maybe Int)
--&gt; Either String ReservedInstancesConfiguration
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681113750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621681148594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe InstanceType
+   -&gt; Maybe Text -&gt; Maybe Scope -&gt; ReservedInstancesConfiguration)
+-&gt; Either String (Maybe InstanceType)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Scope -&gt; ReservedInstancesConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681148594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InstanceType)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Scope -&gt; ReservedInstancesConfiguration)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Scope -&gt; ReservedInstancesConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681148594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;availabilityZone&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Scope -&gt; ReservedInstancesConfiguration)
+-&gt; Either String (Maybe Scope)
+-&gt; Either String ReservedInstancesConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681148594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Scope)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scope&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621681113744"><span id="local-6989586621681113746"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621681148588"><span id="local-6989586621681148590"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621681113741"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621681148585"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621681113737"><span class="annot"><span class="annottext">toQuery :: ReservedInstancesConfiguration -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681113731"><span id="local-6989586621681113732"><span id="local-6989586621681113733"><span id="local-6989586621681113734"><span id="local-6989586621681113735"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621681148581"><span class="annot"><span class="annottext">toQuery :: ReservedInstancesConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration%27"><span class="hs-identifier hs-type">ReservedInstancesConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681148575"><span id="local-6989586621681148576"><span id="local-6989586621681148577"><span id="local-6989586621681148578"><span id="local-6989586621681148579"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Maybe InstanceType
 Maybe Scope
-instanceCount :: Maybe Int
-availabilityZone :: Maybe Text
 scope :: Maybe Scope
+availabilityZone :: Maybe Text
 instanceType :: Maybe InstanceType
+instanceCount :: Maybe Int
 platform :: Maybe Text
-$sel:instanceCount:ReservedInstancesConfiguration' :: ReservedInstancesConfiguration -&gt; Maybe Int
-$sel:availabilityZone:ReservedInstancesConfiguration' :: ReservedInstancesConfiguration -&gt; Maybe Text
 $sel:scope:ReservedInstancesConfiguration' :: ReservedInstancesConfiguration -&gt; Maybe Scope
+$sel:availabilityZone:ReservedInstancesConfiguration' :: ReservedInstancesConfiguration -&gt; Maybe Text
 $sel:instanceType:ReservedInstancesConfiguration' :: ReservedInstancesConfiguration -&gt; Maybe InstanceType
+$sel:instanceCount:ReservedInstancesConfiguration' :: ReservedInstancesConfiguration -&gt; Maybe Int
 $sel:platform:ReservedInstancesConfiguration' :: ReservedInstancesConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621681113731"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681148575"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -423,26 +425,26 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Platform&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681113735"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681148579"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InstanceCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681148578"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;InstanceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe InstanceType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
-</span><a href="#local-6989586621681113734"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Scope&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Scope -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Scope
-</span><a href="#local-6989586621681113733"><span class="hs-identifier hs-var">scope</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681148577"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681113732"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681148576"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;InstanceCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+</span><span class="hs-string">&quot;Scope&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Scope -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681113731"><span class="hs-identifier hs-var">instanceCount</span></a></span><span>
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Scope
+</span><a href="#local-6989586621681148575"><span class="hs-identifier hs-var">scope</span></a></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span></pre></body></html>

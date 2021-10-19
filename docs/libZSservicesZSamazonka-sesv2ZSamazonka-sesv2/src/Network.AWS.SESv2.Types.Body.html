@@ -27,26 +27,26 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents the body of the email message.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBody' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679323186"><span id="local-6989586621679323187"></span></span><span class="hs-keyword">data</span><span> </span><span id="Body"><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body"><span class="hs-identifier hs-var">Body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Body%27"><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body%27"><span class="hs-identifier hs-var">Body'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679325485"><span id="local-6989586621679325486"></span></span><span class="hs-keyword">data</span><span> </span><span id="Body"><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body"><span class="hs-identifier hs-var">Body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Body%27"><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body%27"><span class="hs-identifier hs-var">Body'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that represents the version of the message that is displayed</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- in email clients that support HTML. HTML messages can include formatted</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- text, hyperlinks, images, and more.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Ahtml%3ABody%27"><span class="annot"><span class="annottext">Body -&gt; Maybe Content
-</span><a href="Network.AWS.SESv2.Types.Body.html#%24sel%3Ahtml%3ABody%27"><span class="hs-identifier hs-var hs-var">html</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- in email clients that don\'t support HTML, or clients where the</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- recipient has disabled HTML rendering.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Atext%3ABody%27"><span class="annot"><span class="annottext">Body -&gt; Maybe Content
+</span><a href="Network.AWS.SESv2.Types.Body.html#%24sel%3Atext%3ABody%27"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | An object that represents the version of the message that is displayed</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- in email clients that don\'t support HTML, or clients where the</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- recipient has disabled HTML rendering.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Atext%3ABody%27"><span class="annot"><span class="annottext">Body -&gt; Maybe Content
-</span><a href="Network.AWS.SESv2.Types.Body.html#%24sel%3Atext%3ABody%27"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- in email clients that support HTML. HTML messages can include formatted</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- text, hyperlinks, images, and more.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Ahtml%3ABody%27"><span class="annot"><span class="annottext">Body -&gt; Maybe Content
+</span><a href="Network.AWS.SESv2.Types.Body.html#%24sel%3Ahtml%3ABody%27"><span class="hs-identifier hs-var hs-var">html</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323179"><span id="local-6989586621679323181"><span class="annot"><span class="annottext">Body -&gt; Body -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325478"><span id="local-6989586621679325480"><span class="annot"><span class="annottext">Body -&gt; Body -&gt; Bool
 (Body -&gt; Body -&gt; Bool) -&gt; (Body -&gt; Body -&gt; Bool) -&gt; Eq Body
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Body -&gt; Body -&gt; Bool
 $c/= :: Body -&gt; Body -&gt; Bool
 == :: Body -&gt; Body -&gt; Bool
 $c== :: Body -&gt; Body -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323170"><span id="local-6989586621679323172"><span id="local-6989586621679323174"><span id="local-6989586621679323176"><span class="annot"><span class="annottext">ReadPrec [Body]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325469"><span id="local-6989586621679325471"><span id="local-6989586621679325473"><span id="local-6989586621679325475"><span class="annot"><span class="annottext">ReadPrec [Body]
 ReadPrec Body
 Int -&gt; ReadS Body
 ReadS [Body]
@@ -63,7 +63,7 @@ readList :: ReadS [Body]
 $creadList :: ReadS [Body]
 readsPrec :: Int -&gt; ReadS Body
 $creadsPrec :: Int -&gt; ReadS Body
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323163"><span id="local-6989586621679323165"><span id="local-6989586621679323167"><span class="annot"><span class="annottext">Int -&gt; Body -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325462"><span id="local-6989586621679325464"><span id="local-6989586621679325466"><span class="annot"><span class="annottext">Int -&gt; Body -&gt; ShowS
 [Body] -&gt; ShowS
 Body -&gt; String
 (Int -&gt; Body -&gt; ShowS)
@@ -94,100 +94,100 @@ $cfrom :: forall x. Body -&gt; Rep Body x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'html', 'body_html' - An object that represents the version of the message that is displayed</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- in email clients that support HTML. HTML messages can include formatted</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- text, hyperlinks, images, and more.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'text', 'body_text' - An object that represents the version of the message that is displayed</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- in email clients that don\'t support HTML, or clients where the</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- recipient has disabled HTML rendering.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'text', 'body_text' - An object that represents the version of the message that is displayed</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- in email clients that don\'t support HTML, or clients where the</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- recipient has disabled HTML rendering.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'html', 'body_html' - An object that represents the version of the message that is displayed</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- in email clients that support HTML. HTML messages can include formatted</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- text, hyperlinks, images, and more.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#newBody"><span class="hs-identifier hs-type">newBody</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span><span>
 </span><span id="line-59"></span><span id="newBody"><span class="annot"><span class="annottext">newBody :: Body
 </span><a href="Network.AWS.SESv2.Types.Body.html#newBody"><span class="hs-identifier hs-var hs-var">newBody</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">Body' :: Maybe Content -&gt; Maybe Content -&gt; Body
 </span><a href="Network.AWS.SESv2.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:html:Body' :: Maybe Content
-</span><a href="Network.AWS.SESv2.Types.Body.html#%24sel%3Ahtml%3ABody%27"><span class="hs-identifier hs-var">html</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Content
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:text:Body' :: Maybe Content
+</span><a href="Network.AWS.SESv2.Types.Body.html#%24sel%3Atext%3ABody%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Content
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:text:Body' :: Maybe Content
-</span><a href="Network.AWS.SESv2.Types.Body.html#%24sel%3Atext%3ABody%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Content
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:html:Body' :: Maybe Content
+</span><a href="Network.AWS.SESv2.Types.Body.html#%24sel%3Ahtml%3ABody%27"><span class="hs-identifier hs-var">html</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Content
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | An object that represents the version of the message that is displayed</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- in email clients that support HTML. HTML messages can include formatted</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- text, hyperlinks, images, and more.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#body_html"><span class="hs-identifier hs-type">body_html</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="body_html"><span class="annot"><span class="annottext">body_html :: (Maybe Content -&gt; f (Maybe Content)) -&gt; Body -&gt; f Body
-</span><a href="Network.AWS.SESv2.Types.Body.html#body_html"><span class="hs-identifier hs-var hs-var">body_html</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Body -&gt; Maybe Content)
--&gt; (Body -&gt; Maybe Content -&gt; Body)
--&gt; Lens Body Body (Maybe Content) (Maybe Content)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323154"><span class="annot"><span class="annottext">Maybe Content
-html :: Maybe Content
-$sel:html:Body' :: Body -&gt; Maybe Content
-</span><a href="#local-6989586621679323154"><span class="hs-identifier hs-var hs-var">html</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Content
-</span><a href="#local-6989586621679323154"><span class="hs-identifier hs-var">html</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323153"><span class="annot"><span class="annottext">s :: Body
-</span><a href="#local-6989586621679323153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323152"><span class="annot"><span class="annottext">Maybe Content
-</span><a href="#local-6989586621679323152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Body
-</span><a href="#local-6989586621679323153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:html:Body' :: Maybe Content
-</span><a href="Network.AWS.SESv2.Types.Body.html#%24sel%3Ahtml%3ABody%27"><span class="hs-identifier hs-var">html</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Content
-</span><a href="#local-6989586621679323152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | An object that represents the version of the message that is displayed</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- in email clients that don\'t support HTML, or clients where the</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- recipient has disabled HTML rendering.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#body_text"><span class="hs-identifier hs-type">body_text</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="body_text"><span class="annot"><span class="annottext">body_text :: (Maybe Content -&gt; f (Maybe Content)) -&gt; Body -&gt; f Body
+</span><span id="line-66"></span><span class="hs-comment">-- in email clients that don\'t support HTML, or clients where the</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- recipient has disabled HTML rendering.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#body_text"><span class="hs-identifier hs-type">body_text</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="body_text"><span class="annot"><span class="annottext">body_text :: (Maybe Content -&gt; f (Maybe Content)) -&gt; Body -&gt; f Body
 </span><a href="Network.AWS.SESv2.Types.Body.html#body_text"><span class="hs-identifier hs-var hs-var">body_text</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Body -&gt; Maybe Content)
 -&gt; (Body -&gt; Maybe Content -&gt; Body)
 -&gt; Lens Body Body (Maybe Content) (Maybe Content)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323150"><span class="annot"><span class="annottext">Maybe Content
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325453"><span class="annot"><span class="annottext">Maybe Content
 text :: Maybe Content
 $sel:text:Body' :: Body -&gt; Maybe Content
-</span><a href="#local-6989586621679323150"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Content
-</span><a href="#local-6989586621679323150"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323149"><span class="annot"><span class="annottext">s :: Body
-</span><a href="#local-6989586621679323149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323148"><span class="annot"><span class="annottext">Maybe Content
-</span><a href="#local-6989586621679323148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Body
-</span><a href="#local-6989586621679323149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:Body' :: Maybe Content
+</span><a href="#local-6989586621679325453"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Content
+</span><a href="#local-6989586621679325453"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325452"><span class="annot"><span class="annottext">s :: Body
+</span><a href="#local-6989586621679325452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325451"><span class="annot"><span class="annottext">Maybe Content
+</span><a href="#local-6989586621679325451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Body
+</span><a href="#local-6989586621679325452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:Body' :: Maybe Content
 </span><a href="Network.AWS.SESv2.Types.Body.html#%24sel%3Atext%3ABody%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Content
-</span><a href="#local-6989586621679323148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323144"><span id="local-6989586621679323146"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span></span></span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span></span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323133"><span id="local-6989586621679323135"><span id="local-6989586621679323137"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679323131"><span class="annot"><span class="annottext">toJSON :: Body -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323128"><span id="local-6989586621679323129"><span class="annot"><span class="annottext">Maybe Content
-text :: Maybe Content
+</span><a href="#local-6989586621679325451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | An object that represents the version of the message that is displayed</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- in email clients that support HTML. HTML messages can include formatted</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- text, hyperlinks, images, and more.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#body_html"><span class="hs-identifier hs-type">body_html</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="body_html"><span class="annot"><span class="annottext">body_html :: (Maybe Content -&gt; f (Maybe Content)) -&gt; Body -&gt; f Body
+</span><a href="Network.AWS.SESv2.Types.Body.html#body_html"><span class="hs-identifier hs-var hs-var">body_html</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Body -&gt; Maybe Content)
+-&gt; (Body -&gt; Maybe Content -&gt; Body)
+-&gt; Lens Body Body (Maybe Content) (Maybe Content)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325449"><span class="annot"><span class="annottext">Maybe Content
 html :: Maybe Content
-$sel:text:Body' :: Body -&gt; Maybe Content
 $sel:html:Body' :: Body -&gt; Maybe Content
-</span><a href="#local-6989586621679323128"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679325449"><span class="hs-identifier hs-var hs-var">html</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Content
+</span><a href="#local-6989586621679325449"><span class="hs-identifier hs-var">html</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325448"><span class="annot"><span class="annottext">s :: Body
+</span><a href="#local-6989586621679325448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325447"><span class="annot"><span class="annottext">Maybe Content
+</span><a href="#local-6989586621679325447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Body
+</span><a href="#local-6989586621679325448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:html:Body' :: Maybe Content
+</span><a href="Network.AWS.SESv2.Types.Body.html#%24sel%3Ahtml%3ABody%27"><span class="hs-identifier hs-var">html</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Content
+</span><a href="#local-6989586621679325447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325443"><span id="local-6989586621679325445"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span></span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325440"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325432"><span id="local-6989586621679325434"><span id="local-6989586621679325436"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679325430"><span class="annot"><span class="annottext">toJSON :: Body -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325427"><span id="local-6989586621679325428"><span class="annot"><span class="annottext">Maybe Content
+html :: Maybe Content
+text :: Maybe Content
+$sel:html:Body' :: Body -&gt; Maybe Content
+$sel:text:Body' :: Body -&gt; Maybe Content
+</span><a href="#local-6989586621679325427"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-85"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Html&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Content -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Content -&gt; Pair) -&gt; Maybe Content -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Content
-</span><a href="#local-6989586621679323129"><span class="hs-identifier hs-var">html</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Text&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Content -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Content -&gt; Pair) -&gt; Maybe Content -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Content
-</span><a href="#local-6989586621679323128"><span class="hs-identifier hs-var">text</span></a></span><span>
+</span><a href="#local-6989586621679325428"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Html&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Content -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Content -&gt; Pair) -&gt; Maybe Content -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Content
+</span><a href="#local-6989586621679325427"><span class="hs-identifier hs-var">html</span></a></span><span>
 </span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span></pre></body></html>

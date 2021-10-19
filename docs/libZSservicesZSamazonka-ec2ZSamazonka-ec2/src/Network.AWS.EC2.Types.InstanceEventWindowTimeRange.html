@@ -29,21 +29,21 @@
 </span><span id="line-29"></span><span class="hs-comment">-- UTC.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newInstanceEventWindowTimeRange' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681156899"><span id="local-6989586621681156900"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceEventWindowTimeRange"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-var">InstanceEventWindowTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceEventWindowTimeRange%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var">InstanceEventWindowTimeRange'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The hour when the time range begins.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AstartHour%3AInstanceEventWindowTimeRange%27"><span class="annot"><span class="annottext">InstanceEventWindowTimeRange -&gt; Maybe Natural
-</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AstartHour%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var hs-var">startHour</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span id="local-6989586621681192101"><span id="local-6989586621681192102"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceEventWindowTimeRange"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-var">InstanceEventWindowTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceEventWindowTimeRange%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var">InstanceEventWindowTimeRange'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The hour when the time range ends.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AendHour%3AInstanceEventWindowTimeRange%27"><span class="annot"><span class="annottext">InstanceEventWindowTimeRange -&gt; Maybe Natural
+</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AendHour%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var hs-var">endHour</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The day on which the time range ends.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AendWeekDay%3AInstanceEventWindowTimeRange%27"><span class="annot"><span class="annottext">InstanceEventWindowTimeRange -&gt; Maybe WeekDay
 </span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AendWeekDay%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var hs-var">endWeekDay</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.WeekDay.html#WeekDay"><span class="hs-identifier hs-type">WeekDay</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The hour when the time range ends.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AendHour%3AInstanceEventWindowTimeRange%27"><span class="annot"><span class="annottext">InstanceEventWindowTimeRange -&gt; Maybe Natural
-</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AendHour%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var hs-var">endHour</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The day on which the time range begins.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AstartWeekDay%3AInstanceEventWindowTimeRange%27"><span class="annot"><span class="annottext">InstanceEventWindowTimeRange -&gt; Maybe WeekDay
-</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AstartWeekDay%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var hs-var">startWeekDay</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.WeekDay.html#WeekDay"><span class="hs-identifier hs-type">WeekDay</span></a></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The day on which the time range begins.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstartWeekDay%3AInstanceEventWindowTimeRange%27"><span class="annot"><span class="annottext">InstanceEventWindowTimeRange -&gt; Maybe WeekDay
+</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AstartWeekDay%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var hs-var">startWeekDay</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.WeekDay.html#WeekDay"><span class="hs-identifier hs-type">WeekDay</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The hour when the time range begins.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AstartHour%3AInstanceEventWindowTimeRange%27"><span class="annot"><span class="annottext">InstanceEventWindowTimeRange -&gt; Maybe Natural
+</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AstartHour%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var hs-var">startHour</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681156890"><span id="local-6989586621681156892"><span class="annot"><span class="annottext">InstanceEventWindowTimeRange
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681192092"><span id="local-6989586621681192094"><span class="annot"><span class="annottext">InstanceEventWindowTimeRange
 -&gt; InstanceEventWindowTimeRange -&gt; Bool
 (InstanceEventWindowTimeRange
  -&gt; InstanceEventWindowTimeRange -&gt; Bool)
@@ -59,7 +59,7 @@ $c/= :: InstanceEventWindowTimeRange
 -&gt; InstanceEventWindowTimeRange -&gt; Bool
 $c== :: InstanceEventWindowTimeRange
 -&gt; InstanceEventWindowTimeRange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681156881"><span id="local-6989586621681156883"><span id="local-6989586621681156885"><span id="local-6989586621681156887"><span class="annot"><span class="annottext">ReadPrec [InstanceEventWindowTimeRange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681192083"><span id="local-6989586621681192085"><span id="local-6989586621681192087"><span id="local-6989586621681192089"><span class="annot"><span class="annottext">ReadPrec [InstanceEventWindowTimeRange]
 ReadPrec InstanceEventWindowTimeRange
 Int -&gt; ReadS InstanceEventWindowTimeRange
 ReadS [InstanceEventWindowTimeRange]
@@ -79,7 +79,7 @@ readList :: ReadS [InstanceEventWindowTimeRange]
 $creadList :: ReadS [InstanceEventWindowTimeRange]
 readsPrec :: Int -&gt; ReadS InstanceEventWindowTimeRange
 $creadsPrec :: Int -&gt; ReadS InstanceEventWindowTimeRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681156874"><span id="local-6989586621681156876"><span id="local-6989586621681156878"><span class="annot"><span class="annottext">Int -&gt; InstanceEventWindowTimeRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681192076"><span id="local-6989586621681192078"><span id="local-6989586621681192080"><span class="annot"><span class="annottext">Int -&gt; InstanceEventWindowTimeRange -&gt; ShowS
 [InstanceEventWindowTimeRange] -&gt; ShowS
 InstanceEventWindowTimeRange -&gt; String
 (Int -&gt; InstanceEventWindowTimeRange -&gt; ShowS)
@@ -119,25 +119,25 @@ InstanceEventWindowTimeRange -&gt; Rep InstanceEventWindowTimeRange x
 </span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'startHour', 'instanceEventWindowTimeRange_startHour' - The hour when the time range begins.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'endHour', 'instanceEventWindowTimeRange_endHour' - The hour when the time range ends.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- 'endWeekDay', 'instanceEventWindowTimeRange_endWeekDay' - The day on which the time range ends.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'endHour', 'instanceEventWindowTimeRange_endHour' - The hour when the time range ends.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'startWeekDay', 'instanceEventWindowTimeRange_startWeekDay' - The day on which the time range begins.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'startWeekDay', 'instanceEventWindowTimeRange_startWeekDay' - The day on which the time range begins.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'startHour', 'instanceEventWindowTimeRange_startHour' - The hour when the time range begins.</span><span>
 </span><span id="line-59"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#newInstanceEventWindowTimeRange"><span class="hs-identifier hs-type">newInstanceEventWindowTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span><span>
 </span><span id="line-61"></span><span id="newInstanceEventWindowTimeRange"><span class="annot"><span class="annottext">newInstanceEventWindowTimeRange :: InstanceEventWindowTimeRange
 </span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#newInstanceEventWindowTimeRange"><span class="hs-identifier hs-var hs-var">newInstanceEventWindowTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">InstanceEventWindowTimeRange' :: Maybe Natural
 -&gt; Maybe WeekDay
--&gt; Maybe Natural
 -&gt; Maybe WeekDay
+-&gt; Maybe Natural
 -&gt; InstanceEventWindowTimeRange
 </span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange'</span></a></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startHour:InstanceEventWindowTimeRange' :: Maybe Natural
-</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AstartHour%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var">startHour</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endHour:InstanceEventWindowTimeRange' :: Maybe Natural
+</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AendHour%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var">endHour</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
@@ -145,21 +145,21 @@ forall a. Maybe a
 </span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AendWeekDay%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var">endWeekDay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WeekDay
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:endHour:InstanceEventWindowTimeRange' :: Maybe Natural
-</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AendHour%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var">endHour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:startWeekDay:InstanceEventWindowTimeRange' :: Maybe WeekDay
+</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AstartWeekDay%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var">startWeekDay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WeekDay
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:startWeekDay:InstanceEventWindowTimeRange' :: Maybe WeekDay
-</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AstartWeekDay%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var">startWeekDay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WeekDay
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:startHour:InstanceEventWindowTimeRange' :: Maybe Natural
+</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AstartHour%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var">startHour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The hour when the time range begins.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#instanceEventWindowTimeRange_startHour"><span class="hs-identifier hs-type">instanceEventWindowTimeRange_startHour</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="instanceEventWindowTimeRange_startHour"><span class="annot"><span class="annottext">instanceEventWindowTimeRange_startHour :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-70"></span><span class="hs-comment">-- | The hour when the time range ends.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#instanceEventWindowTimeRange_endHour"><span class="hs-identifier hs-type">instanceEventWindowTimeRange_endHour</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="instanceEventWindowTimeRange_endHour"><span class="annot"><span class="annottext">instanceEventWindowTimeRange_endHour :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; InstanceEventWindowTimeRange -&gt; f InstanceEventWindowTimeRange
-</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#instanceEventWindowTimeRange_startHour"><span class="hs-identifier hs-var hs-var">instanceEventWindowTimeRange_startHour</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceEventWindowTimeRange -&gt; Maybe Natural)
+</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#instanceEventWindowTimeRange_endHour"><span class="hs-identifier hs-var hs-var">instanceEventWindowTimeRange_endHour</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceEventWindowTimeRange -&gt; Maybe Natural)
 -&gt; (InstanceEventWindowTimeRange
     -&gt; Maybe Natural -&gt; InstanceEventWindowTimeRange)
 -&gt; Lens
@@ -168,16 +168,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681156865"><span class="annot"><span class="annottext">Maybe Natural
-startHour :: Maybe Natural
-$sel:startHour:InstanceEventWindowTimeRange' :: InstanceEventWindowTimeRange -&gt; Maybe Natural
-</span><a href="#local-6989586621681156865"><span class="hs-identifier hs-var hs-var">startHour</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681156865"><span class="hs-identifier hs-var">startHour</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681156864"><span class="annot"><span class="annottext">s :: InstanceEventWindowTimeRange
-</span><a href="#local-6989586621681156864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681156863"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681156863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEventWindowTimeRange
-</span><a href="#local-6989586621681156864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startHour:InstanceEventWindowTimeRange' :: Maybe Natural
-</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AstartHour%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var">startHour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681156863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681192067"><span class="annot"><span class="annottext">Maybe Natural
+endHour :: Maybe Natural
+$sel:endHour:InstanceEventWindowTimeRange' :: InstanceEventWindowTimeRange -&gt; Maybe Natural
+</span><a href="#local-6989586621681192067"><span class="hs-identifier hs-var hs-var">endHour</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681192067"><span class="hs-identifier hs-var">endHour</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681192066"><span class="annot"><span class="annottext">s :: InstanceEventWindowTimeRange
+</span><a href="#local-6989586621681192066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681192065"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681192065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEventWindowTimeRange
+</span><a href="#local-6989586621681192066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endHour:InstanceEventWindowTimeRange' :: Maybe Natural
+</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AendHour%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var">endHour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681192065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The day on which the time range ends.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#instanceEventWindowTimeRange_endWeekDay"><span class="hs-identifier hs-type">instanceEventWindowTimeRange_endWeekDay</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.WeekDay.html#WeekDay"><span class="hs-identifier hs-type">WeekDay</span></a></span><span class="hs-special">)</span><span>
@@ -192,44 +192,20 @@ $sel:startHour:InstanceEventWindowTimeRange' :: InstanceEventWindowTimeRange -&g
      (Maybe WeekDay)
      (Maybe WeekDay)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681156861"><span class="annot"><span class="annottext">Maybe WeekDay
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681192063"><span class="annot"><span class="annottext">Maybe WeekDay
 endWeekDay :: Maybe WeekDay
 $sel:endWeekDay:InstanceEventWindowTimeRange' :: InstanceEventWindowTimeRange -&gt; Maybe WeekDay
-</span><a href="#local-6989586621681156861"><span class="hs-identifier hs-var hs-var">endWeekDay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WeekDay
-</span><a href="#local-6989586621681156861"><span class="hs-identifier hs-var">endWeekDay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681156860"><span class="annot"><span class="annottext">s :: InstanceEventWindowTimeRange
-</span><a href="#local-6989586621681156860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681156859"><span class="annot"><span class="annottext">Maybe WeekDay
-</span><a href="#local-6989586621681156859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEventWindowTimeRange
-</span><a href="#local-6989586621681156860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endWeekDay:InstanceEventWindowTimeRange' :: Maybe WeekDay
+</span><a href="#local-6989586621681192063"><span class="hs-identifier hs-var hs-var">endWeekDay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WeekDay
+</span><a href="#local-6989586621681192063"><span class="hs-identifier hs-var">endWeekDay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681192062"><span class="annot"><span class="annottext">s :: InstanceEventWindowTimeRange
+</span><a href="#local-6989586621681192062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681192061"><span class="annot"><span class="annottext">Maybe WeekDay
+</span><a href="#local-6989586621681192061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEventWindowTimeRange
+</span><a href="#local-6989586621681192062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endWeekDay:InstanceEventWindowTimeRange' :: Maybe WeekDay
 </span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AendWeekDay%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var">endWeekDay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WeekDay
-</span><a href="#local-6989586621681156859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681192061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The hour when the time range ends.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#instanceEventWindowTimeRange_endHour"><span class="hs-identifier hs-type">instanceEventWindowTimeRange_endHour</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="instanceEventWindowTimeRange_endHour"><span class="annot"><span class="annottext">instanceEventWindowTimeRange_endHour :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; InstanceEventWindowTimeRange -&gt; f InstanceEventWindowTimeRange
-</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#instanceEventWindowTimeRange_endHour"><span class="hs-identifier hs-var hs-var">instanceEventWindowTimeRange_endHour</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceEventWindowTimeRange -&gt; Maybe Natural)
--&gt; (InstanceEventWindowTimeRange
-    -&gt; Maybe Natural -&gt; InstanceEventWindowTimeRange)
--&gt; Lens
-     InstanceEventWindowTimeRange
-     InstanceEventWindowTimeRange
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681156857"><span class="annot"><span class="annottext">Maybe Natural
-endHour :: Maybe Natural
-$sel:endHour:InstanceEventWindowTimeRange' :: InstanceEventWindowTimeRange -&gt; Maybe Natural
-</span><a href="#local-6989586621681156857"><span class="hs-identifier hs-var hs-var">endHour</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681156857"><span class="hs-identifier hs-var">endHour</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681156856"><span class="annot"><span class="annottext">s :: InstanceEventWindowTimeRange
-</span><a href="#local-6989586621681156856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681156855"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681156855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEventWindowTimeRange
-</span><a href="#local-6989586621681156856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endHour:InstanceEventWindowTimeRange' :: Maybe Natural
-</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AendHour%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var">endHour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681156855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | The day on which the time range begins.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#instanceEventWindowTimeRange_startWeekDay"><span class="hs-identifier hs-type">instanceEventWindowTimeRange_startWeekDay</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.WeekDay.html#WeekDay"><span class="hs-identifier hs-type">WeekDay</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="instanceEventWindowTimeRange_startWeekDay"><span class="annot"><span class="annottext">instanceEventWindowTimeRange_startWeekDay :: (Maybe WeekDay -&gt; f (Maybe WeekDay))
+</span><span id="line-78"></span><span class="hs-comment">-- | The day on which the time range begins.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#instanceEventWindowTimeRange_startWeekDay"><span class="hs-identifier hs-type">instanceEventWindowTimeRange_startWeekDay</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.WeekDay.html#WeekDay"><span class="hs-identifier hs-type">WeekDay</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="instanceEventWindowTimeRange_startWeekDay"><span class="annot"><span class="annottext">instanceEventWindowTimeRange_startWeekDay :: (Maybe WeekDay -&gt; f (Maybe WeekDay))
 -&gt; InstanceEventWindowTimeRange -&gt; f InstanceEventWindowTimeRange
 </span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#instanceEventWindowTimeRange_startWeekDay"><span class="hs-identifier hs-var hs-var">instanceEventWindowTimeRange_startWeekDay</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceEventWindowTimeRange -&gt; Maybe WeekDay)
 -&gt; (InstanceEventWindowTimeRange
@@ -240,81 +216,105 @@ $sel:endHour:InstanceEventWindowTimeRange' :: InstanceEventWindowTimeRange -&gt;
      (Maybe WeekDay)
      (Maybe WeekDay)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681156853"><span class="annot"><span class="annottext">Maybe WeekDay
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681192059"><span class="annot"><span class="annottext">Maybe WeekDay
 startWeekDay :: Maybe WeekDay
 $sel:startWeekDay:InstanceEventWindowTimeRange' :: InstanceEventWindowTimeRange -&gt; Maybe WeekDay
-</span><a href="#local-6989586621681156853"><span class="hs-identifier hs-var hs-var">startWeekDay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WeekDay
-</span><a href="#local-6989586621681156853"><span class="hs-identifier hs-var">startWeekDay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681156852"><span class="annot"><span class="annottext">s :: InstanceEventWindowTimeRange
-</span><a href="#local-6989586621681156852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681156851"><span class="annot"><span class="annottext">Maybe WeekDay
-</span><a href="#local-6989586621681156851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEventWindowTimeRange
-</span><a href="#local-6989586621681156852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startWeekDay:InstanceEventWindowTimeRange' :: Maybe WeekDay
+</span><a href="#local-6989586621681192059"><span class="hs-identifier hs-var hs-var">startWeekDay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WeekDay
+</span><a href="#local-6989586621681192059"><span class="hs-identifier hs-var">startWeekDay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681192058"><span class="annot"><span class="annottext">s :: InstanceEventWindowTimeRange
+</span><a href="#local-6989586621681192058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681192057"><span class="annot"><span class="annottext">Maybe WeekDay
+</span><a href="#local-6989586621681192057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEventWindowTimeRange
+</span><a href="#local-6989586621681192058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startWeekDay:InstanceEventWindowTimeRange' :: Maybe WeekDay
 </span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AstartWeekDay%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var">startWeekDay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WeekDay
-</span><a href="#local-6989586621681156851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681192057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The hour when the time range begins.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#instanceEventWindowTimeRange_startHour"><span class="hs-identifier hs-type">instanceEventWindowTimeRange_startHour</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="instanceEventWindowTimeRange_startHour"><span class="annot"><span class="annottext">instanceEventWindowTimeRange_startHour :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InstanceEventWindowTimeRange -&gt; f InstanceEventWindowTimeRange
+</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#instanceEventWindowTimeRange_startHour"><span class="hs-identifier hs-var hs-var">instanceEventWindowTimeRange_startHour</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceEventWindowTimeRange -&gt; Maybe Natural)
+-&gt; (InstanceEventWindowTimeRange
+    -&gt; Maybe Natural -&gt; InstanceEventWindowTimeRange)
+-&gt; Lens
+     InstanceEventWindowTimeRange
+     InstanceEventWindowTimeRange
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681192055"><span class="annot"><span class="annottext">Maybe Natural
+startHour :: Maybe Natural
+$sel:startHour:InstanceEventWindowTimeRange' :: InstanceEventWindowTimeRange -&gt; Maybe Natural
+</span><a href="#local-6989586621681192055"><span class="hs-identifier hs-var hs-var">startHour</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681192055"><span class="hs-identifier hs-var">startHour</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681192054"><span class="annot"><span class="annottext">s :: InstanceEventWindowTimeRange
+</span><a href="#local-6989586621681192054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681192053"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681192053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEventWindowTimeRange
+</span><a href="#local-6989586621681192054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startHour:InstanceEventWindowTimeRange' :: Maybe Natural
+</span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#%24sel%3AstartHour%3AInstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var">startHour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681192053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621681156848"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceEventWindowTimeRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681156846"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681156846"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621681192050"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceEventWindowTimeRange
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681192048"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681192048"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe WeekDay
--&gt; Maybe Natural
 -&gt; Maybe WeekDay
+-&gt; Maybe Natural
 -&gt; InstanceEventWindowTimeRange
 </span><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange%27"><span class="hs-identifier hs-var">InstanceEventWindowTimeRange'</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Natural
  -&gt; Maybe WeekDay
- -&gt; Maybe Natural
  -&gt; Maybe WeekDay
+ -&gt; Maybe Natural
  -&gt; InstanceEventWindowTimeRange)
 -&gt; Either String (Maybe Natural)
 -&gt; Either
      String
      (Maybe WeekDay
-      -&gt; Maybe Natural -&gt; Maybe WeekDay -&gt; InstanceEventWindowTimeRange)
+      -&gt; Maybe WeekDay -&gt; Maybe Natural -&gt; InstanceEventWindowTimeRange)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681156846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621681192048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;startHour&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;endHour&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe WeekDay
-   -&gt; Maybe Natural -&gt; Maybe WeekDay -&gt; InstanceEventWindowTimeRange)
+   -&gt; Maybe WeekDay -&gt; Maybe Natural -&gt; InstanceEventWindowTimeRange)
 -&gt; Either String (Maybe WeekDay)
 -&gt; Either
      String
-     (Maybe Natural -&gt; Maybe WeekDay -&gt; InstanceEventWindowTimeRange)
+     (Maybe WeekDay -&gt; Maybe Natural -&gt; InstanceEventWindowTimeRange)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681156846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe WeekDay)
+</span><a href="#local-6989586621681192048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe WeekDay)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;endWeekDay&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Natural -&gt; Maybe WeekDay -&gt; InstanceEventWindowTimeRange)
--&gt; Either String (Maybe Natural)
--&gt; Either String (Maybe WeekDay -&gt; InstanceEventWindowTimeRange)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681156846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;endHour&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe WeekDay -&gt; InstanceEventWindowTimeRange)
+  (Maybe WeekDay -&gt; Maybe Natural -&gt; InstanceEventWindowTimeRange)
 -&gt; Either String (Maybe WeekDay)
--&gt; Either String InstanceEventWindowTimeRange
+-&gt; Either String (Maybe Natural -&gt; InstanceEventWindowTimeRange)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681156846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe WeekDay)
+</span><a href="#local-6989586621681192048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe WeekDay)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startWeekDay&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Natural -&gt; InstanceEventWindowTimeRange)
+-&gt; Either String (Maybe Natural)
+-&gt; Either String InstanceEventWindowTimeRange
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681192048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startHour&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621681156840"><span id="local-6989586621681156842"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621681192042"><span id="local-6989586621681192044"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681156837"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681192039"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowTimeRange.html#InstanceEventWindowTimeRange"><span class="hs-identifier hs-type">InstanceEventWindowTimeRange</span></a></span></span><span>
 </span><span id="line-99"></span></pre></body></html>

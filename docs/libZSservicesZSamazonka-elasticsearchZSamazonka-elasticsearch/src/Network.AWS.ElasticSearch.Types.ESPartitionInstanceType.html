@@ -85,13 +85,13 @@
 </span><span id="line-85"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span id="local-6989586621679295029"><span id="local-6989586621679295030"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ESPartitionInstanceType"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ESPartitionInstanceType.html#ESPartitionInstanceType"><span class="hs-identifier hs-var">ESPartitionInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ESPartitionInstanceType%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ESPartitionInstanceType.html#ESPartitionInstanceType%27"><span class="hs-identifier hs-var">ESPartitionInstanceType'</span></a></span></span><span>
+</span><span id="line-88"></span><span id="local-6989586621679295231"><span id="local-6989586621679295232"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ESPartitionInstanceType"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ESPartitionInstanceType.html#ESPartitionInstanceType"><span class="hs-identifier hs-var">ESPartitionInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ESPartitionInstanceType%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ESPartitionInstanceType.html#ESPartitionInstanceType%27"><span class="hs-identifier hs-var">ESPartitionInstanceType'</span></a></span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromESPartitionInstanceType"><span class="annot"><span class="annottext">ESPartitionInstanceType -&gt; Text
 </span><a href="Network.AWS.ElasticSearch.Types.ESPartitionInstanceType.html#fromESPartitionInstanceType"><span class="hs-identifier hs-var hs-var">fromESPartitionInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295021"><span id="local-6989586621679295023"><span id="local-6989586621679295025"><span class="annot"><span class="annottext">Int -&gt; ESPartitionInstanceType -&gt; ShowS
+</span><span id="line-93"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295223"><span id="local-6989586621679295225"><span id="local-6989586621679295227"><span class="annot"><span class="annottext">Int -&gt; ESPartitionInstanceType -&gt; ShowS
 [ESPartitionInstanceType] -&gt; ShowS
 ESPartitionInstanceType -&gt; String
 (Int -&gt; ESPartitionInstanceType -&gt; ShowS)
@@ -107,7 +107,7 @@ $cshow :: ESPartitionInstanceType -&gt; String
 showsPrec :: Int -&gt; ESPartitionInstanceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ESPartitionInstanceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span id="local-6989586621679295012"><span id="local-6989586621679295014"><span id="local-6989586621679295016"><span id="local-6989586621679295018"><span class="annot"><span class="annottext">ReadPrec [ESPartitionInstanceType]
+</span><span id="line-94"></span><span>      </span><span id="local-6989586621679295214"><span id="local-6989586621679295216"><span id="local-6989586621679295218"><span id="local-6989586621679295220"><span class="annot"><span class="annottext">ReadPrec [ESPartitionInstanceType]
 ReadPrec ESPartitionInstanceType
 Int -&gt; ReadS ESPartitionInstanceType
 ReadS [ESPartitionInstanceType]
@@ -128,7 +128,7 @@ $creadList :: ReadS [ESPartitionInstanceType]
 readsPrec :: Int -&gt; ReadS ESPartitionInstanceType
 $creadsPrec :: Int -&gt; ReadS ESPartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span id="local-6989586621679295007"><span id="local-6989586621679295009"><span class="annot"><span class="annottext">ESPartitionInstanceType -&gt; ESPartitionInstanceType -&gt; Bool
+</span><span id="line-95"></span><span>      </span><span id="local-6989586621679295209"><span id="local-6989586621679295211"><span class="annot"><span class="annottext">ESPartitionInstanceType -&gt; ESPartitionInstanceType -&gt; Bool
 (ESPartitionInstanceType -&gt; ESPartitionInstanceType -&gt; Bool)
 -&gt; (ESPartitionInstanceType -&gt; ESPartitionInstanceType -&gt; Bool)
 -&gt; Eq ESPartitionInstanceType
@@ -138,7 +138,7 @@ $c/= :: ESPartitionInstanceType -&gt; ESPartitionInstanceType -&gt; Bool
 == :: ESPartitionInstanceType -&gt; ESPartitionInstanceType -&gt; Bool
 $c== :: ESPartitionInstanceType -&gt; ESPartitionInstanceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span id="local-6989586621679294991"><span id="local-6989586621679294993"><span id="local-6989586621679294995"><span id="local-6989586621679294997"><span id="local-6989586621679294999"><span id="local-6989586621679295001"><span id="local-6989586621679295003"><span class="annot"><span class="annottext">Eq ESPartitionInstanceType
+</span><span id="line-96"></span><span>      </span><span id="local-6989586621679295193"><span id="local-6989586621679295195"><span id="local-6989586621679295197"><span id="local-6989586621679295199"><span id="local-6989586621679295201"><span id="local-6989586621679295203"><span id="local-6989586621679295205"><span class="annot"><span class="annottext">Eq ESPartitionInstanceType
 Eq ESPartitionInstanceType
 -&gt; (ESPartitionInstanceType -&gt; ESPartitionInstanceType -&gt; Ordering)
 -&gt; (ESPartitionInstanceType -&gt; ESPartitionInstanceType -&gt; Bool)
@@ -198,7 +198,7 @@ $cfrom :: forall x. ESPartitionInstanceType -&gt; Rep ESPartitionInstanceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294983"><span id="local-6989586621679294985"><span class="annot"><span class="annottext">Int -&gt; ESPartitionInstanceType -&gt; Int
+</span><span id="line-100"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295185"><span id="local-6989586621679295187"><span class="annot"><span class="annottext">Int -&gt; ESPartitionInstanceType -&gt; Int
 ESPartitionInstanceType -&gt; Int
 (Int -&gt; ESPartitionInstanceType -&gt; Int)
 -&gt; (ESPartitionInstanceType -&gt; Int)
@@ -209,54 +209,54 @@ $chash :: ESPartitionInstanceType -&gt; Int
 hashWithSalt :: Int -&gt; ESPartitionInstanceType -&gt; Int
 $chashWithSalt :: Int -&gt; ESPartitionInstanceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span id="local-6989586621679294980"><span class="annot"><span class="annottext">ESPartitionInstanceType -&gt; ()
+</span><span id="line-101"></span><span>      </span><span id="local-6989586621679295182"><span class="annot"><span class="annottext">ESPartitionInstanceType -&gt; ()
 (ESPartitionInstanceType -&gt; ()) -&gt; NFData ESPartitionInstanceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ESPartitionInstanceType -&gt; ()
 $crnf :: ESPartitionInstanceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span id="local-6989586621679294977"><span class="annot"><span class="annottext">Text -&gt; Either String ESPartitionInstanceType
+</span><span id="line-102"></span><span>      </span><span id="local-6989586621679295179"><span class="annot"><span class="annottext">Text -&gt; Either String ESPartitionInstanceType
 (Text -&gt; Either String ESPartitionInstanceType)
 -&gt; FromText ESPartitionInstanceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ESPartitionInstanceType
 $cfromText :: Text -&gt; Either String ESPartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span id="local-6989586621679294974"><span class="annot"><span class="annottext">ESPartitionInstanceType -&gt; Text
+</span><span id="line-103"></span><span>      </span><span id="local-6989586621679295176"><span class="annot"><span class="annottext">ESPartitionInstanceType -&gt; Text
 (ESPartitionInstanceType -&gt; Text) -&gt; ToText ESPartitionInstanceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ESPartitionInstanceType -&gt; Text
 $ctoText :: ESPartitionInstanceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span id="local-6989586621679294971"><span class="annot"><span class="annottext">ESPartitionInstanceType -&gt; ByteString
+</span><span id="line-104"></span><span>      </span><span id="local-6989586621679295173"><span class="annot"><span class="annottext">ESPartitionInstanceType -&gt; ByteString
 (ESPartitionInstanceType -&gt; ByteString)
 -&gt; ToByteString ESPartitionInstanceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ESPartitionInstanceType -&gt; ByteString
 $ctoBS :: ESPartitionInstanceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span id="local-6989586621679294968"><span class="annot"><span class="annottext">ESPartitionInstanceType -&gt; ByteStringBuilder
+</span><span id="line-105"></span><span>      </span><span id="local-6989586621679295170"><span class="annot"><span class="annottext">ESPartitionInstanceType -&gt; ByteStringBuilder
 (ESPartitionInstanceType -&gt; ByteStringBuilder)
 -&gt; ToLog ESPartitionInstanceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ESPartitionInstanceType -&gt; ByteStringBuilder
 $cbuild :: ESPartitionInstanceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span id="local-6989586621679294965"><span class="annot"><span class="annottext">HeaderName -&gt; ESPartitionInstanceType -&gt; [Header]
+</span><span id="line-106"></span><span>      </span><span id="local-6989586621679295167"><span class="annot"><span class="annottext">HeaderName -&gt; ESPartitionInstanceType -&gt; [Header]
 (HeaderName -&gt; ESPartitionInstanceType -&gt; [Header])
 -&gt; ToHeader ESPartitionInstanceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ESPartitionInstanceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ESPartitionInstanceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span id="local-6989586621679294962"><span class="annot"><span class="annottext">ESPartitionInstanceType -&gt; QueryString
+</span><span id="line-107"></span><span>      </span><span id="local-6989586621679295164"><span class="annot"><span class="annottext">ESPartitionInstanceType -&gt; QueryString
 (ESPartitionInstanceType -&gt; QueryString)
 -&gt; ToQuery ESPartitionInstanceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ESPartitionInstanceType -&gt; QueryString
 $ctoQuery :: ESPartitionInstanceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span id="local-6989586621679294957"><span id="local-6989586621679294959"><span class="annot"><span class="annottext">Value -&gt; Parser [ESPartitionInstanceType]
+</span><span id="line-108"></span><span>      </span><span id="local-6989586621679295159"><span id="local-6989586621679295161"><span class="annot"><span class="annottext">Value -&gt; Parser [ESPartitionInstanceType]
 Value -&gt; Parser ESPartitionInstanceType
 (Value -&gt; Parser ESPartitionInstanceType)
 -&gt; (Value -&gt; Parser [ESPartitionInstanceType])
@@ -268,7 +268,7 @@ $cparseJSONList :: Value -&gt; Parser [ESPartitionInstanceType]
 parseJSON :: Value -&gt; Parser ESPartitionInstanceType
 $cparseJSON :: Value -&gt; Parser ESPartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span id="local-6989586621679294952"><span id="local-6989586621679294954"><span class="annot"><span class="annottext">FromJSONKeyFunction [ESPartitionInstanceType]
+</span><span id="line-109"></span><span>      </span><span id="local-6989586621679295154"><span id="local-6989586621679295156"><span class="annot"><span class="annottext">FromJSONKeyFunction [ESPartitionInstanceType]
 FromJSONKeyFunction ESPartitionInstanceType
 FromJSONKeyFunction ESPartitionInstanceType
 -&gt; FromJSONKeyFunction [ESPartitionInstanceType]
@@ -280,7 +280,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ESPartitionInstanceType]
 fromJSONKey :: FromJSONKeyFunction ESPartitionInstanceType
 $cfromJSONKey :: FromJSONKeyFunction ESPartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span id="local-6989586621679294943"><span id="local-6989586621679294945"><span id="local-6989586621679294947"><span id="local-6989586621679294949"><span class="annot"><span class="annottext">[ESPartitionInstanceType] -&gt; Encoding
+</span><span id="line-110"></span><span>      </span><span id="local-6989586621679295145"><span id="local-6989586621679295147"><span id="local-6989586621679295149"><span id="local-6989586621679295151"><span class="annot"><span class="annottext">[ESPartitionInstanceType] -&gt; Encoding
 [ESPartitionInstanceType] -&gt; Value
 ESPartitionInstanceType -&gt; Encoding
 ESPartitionInstanceType -&gt; Value
@@ -304,7 +304,7 @@ $ctoEncoding :: ESPartitionInstanceType -&gt; Encoding
 toJSON :: ESPartitionInstanceType -&gt; Value
 $ctoJSON :: ESPartitionInstanceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span id="local-6989586621679294938"><span id="local-6989586621679294940"><span class="annot"><span class="annottext">ToJSONKeyFunction [ESPartitionInstanceType]
+</span><span id="line-111"></span><span>      </span><span id="local-6989586621679295140"><span id="local-6989586621679295142"><span class="annot"><span class="annottext">ToJSONKeyFunction [ESPartitionInstanceType]
 ToJSONKeyFunction ESPartitionInstanceType
 ToJSONKeyFunction ESPartitionInstanceType
 -&gt; ToJSONKeyFunction [ESPartitionInstanceType]
@@ -316,14 +316,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ESPartitionInstanceType]
 toJSONKey :: ToJSONKeyFunction ESPartitionInstanceType
 $ctoJSONKey :: ToJSONKeyFunction ESPartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span id="local-6989586621679294935"><span class="annot"><span class="annottext">[Node] -&gt; Either String ESPartitionInstanceType
+</span><span id="line-112"></span><span>      </span><span id="local-6989586621679295137"><span class="annot"><span class="annottext">[Node] -&gt; Either String ESPartitionInstanceType
 ([Node] -&gt; Either String ESPartitionInstanceType)
 -&gt; FromXML ESPartitionInstanceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ESPartitionInstanceType
 $cparseXML :: [Node] -&gt; Either String ESPartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span id="local-6989586621679294932"><span class="annot"><span class="annottext">ESPartitionInstanceType -&gt; XML
+</span><span id="line-113"></span><span>      </span><span id="local-6989586621679295134"><span class="annot"><span class="annottext">ESPartitionInstanceType -&gt; XML
 (ESPartitionInstanceType -&gt; XML) -&gt; ToXML ESPartitionInstanceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ESPartitionInstanceType -&gt; XML

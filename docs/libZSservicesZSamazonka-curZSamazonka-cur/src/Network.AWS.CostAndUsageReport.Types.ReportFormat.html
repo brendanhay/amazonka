@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | The format that AWS saves the report in.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679150764"><span id="local-6989586621679150765"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReportFormat"><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportFormat.html#ReportFormat"><span class="hs-identifier hs-var">ReportFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportFormat%27"><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportFormat.html#ReportFormat%27"><span class="hs-identifier hs-var">ReportFormat'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679150775"><span id="local-6989586621679150776"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReportFormat"><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportFormat.html#ReportFormat"><span class="hs-identifier hs-var">ReportFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportFormat%27"><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportFormat.html#ReportFormat%27"><span class="hs-identifier hs-var">ReportFormat'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReportFormat"><span class="annot"><span class="annottext">ReportFormat -&gt; Text
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportFormat.html#fromReportFormat"><span class="hs-identifier hs-var hs-var">fromReportFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679150756"><span id="local-6989586621679150758"><span id="local-6989586621679150760"><span class="annot"><span class="annottext">Int -&gt; ReportFormat -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679150767"><span id="local-6989586621679150769"><span id="local-6989586621679150771"><span class="annot"><span class="annottext">Int -&gt; ReportFormat -&gt; ShowS
 [ReportFormat] -&gt; ShowS
 ReportFormat -&gt; String
 (Int -&gt; ReportFormat -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ReportFormat -&gt; String
 showsPrec :: Int -&gt; ReportFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReportFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679150747"><span id="local-6989586621679150749"><span id="local-6989586621679150751"><span id="local-6989586621679150753"><span class="annot"><span class="annottext">ReadPrec [ReportFormat]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679150758"><span id="local-6989586621679150760"><span id="local-6989586621679150762"><span id="local-6989586621679150764"><span class="annot"><span class="annottext">ReadPrec [ReportFormat]
 ReadPrec ReportFormat
 Int -&gt; ReadS ReportFormat
 ReadS [ReportFormat]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ReportFormat]
 readsPrec :: Int -&gt; ReadS ReportFormat
 $creadsPrec :: Int -&gt; ReadS ReportFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679150742"><span id="local-6989586621679150744"><span class="annot"><span class="annottext">ReportFormat -&gt; ReportFormat -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679150753"><span id="local-6989586621679150755"><span class="annot"><span class="annottext">ReportFormat -&gt; ReportFormat -&gt; Bool
 (ReportFormat -&gt; ReportFormat -&gt; Bool)
 -&gt; (ReportFormat -&gt; ReportFormat -&gt; Bool) -&gt; Eq ReportFormat
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: ReportFormat -&gt; ReportFormat -&gt; Bool
 == :: ReportFormat -&gt; ReportFormat -&gt; Bool
 $c== :: ReportFormat -&gt; ReportFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679150726"><span id="local-6989586621679150728"><span id="local-6989586621679150730"><span id="local-6989586621679150732"><span id="local-6989586621679150734"><span id="local-6989586621679150736"><span id="local-6989586621679150738"><span class="annot"><span class="annottext">Eq ReportFormat
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679150737"><span id="local-6989586621679150739"><span id="local-6989586621679150741"><span id="local-6989586621679150743"><span id="local-6989586621679150745"><span id="local-6989586621679150747"><span id="local-6989586621679150749"><span class="annot"><span class="annottext">Eq ReportFormat
 Eq ReportFormat
 -&gt; (ReportFormat -&gt; ReportFormat -&gt; Ordering)
 -&gt; (ReportFormat -&gt; ReportFormat -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ReportFormat -&gt; Rep ReportFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679150718"><span id="local-6989586621679150720"><span class="annot"><span class="annottext">Int -&gt; ReportFormat -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679150729"><span id="local-6989586621679150731"><span class="annot"><span class="annottext">Int -&gt; ReportFormat -&gt; Int
 ReportFormat -&gt; Int
 (Int -&gt; ReportFormat -&gt; Int)
 -&gt; (ReportFormat -&gt; Int) -&gt; Hashable ReportFormat
@@ -143,49 +143,49 @@ $chash :: ReportFormat -&gt; Int
 hashWithSalt :: Int -&gt; ReportFormat -&gt; Int
 $chashWithSalt :: Int -&gt; ReportFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679150715"><span class="annot"><span class="annottext">ReportFormat -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679150726"><span class="annot"><span class="annottext">ReportFormat -&gt; ()
 (ReportFormat -&gt; ()) -&gt; NFData ReportFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReportFormat -&gt; ()
 $crnf :: ReportFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679150712"><span class="annot"><span class="annottext">Text -&gt; Either String ReportFormat
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679150723"><span class="annot"><span class="annottext">Text -&gt; Either String ReportFormat
 (Text -&gt; Either String ReportFormat) -&gt; FromText ReportFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReportFormat
 $cfromText :: Text -&gt; Either String ReportFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679150709"><span class="annot"><span class="annottext">ReportFormat -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679150720"><span class="annot"><span class="annottext">ReportFormat -&gt; Text
 (ReportFormat -&gt; Text) -&gt; ToText ReportFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReportFormat -&gt; Text
 $ctoText :: ReportFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679150706"><span class="annot"><span class="annottext">ReportFormat -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679150717"><span class="annot"><span class="annottext">ReportFormat -&gt; ByteString
 (ReportFormat -&gt; ByteString) -&gt; ToByteString ReportFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReportFormat -&gt; ByteString
 $ctoBS :: ReportFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679150703"><span class="annot"><span class="annottext">ReportFormat -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679150714"><span class="annot"><span class="annottext">ReportFormat -&gt; ByteStringBuilder
 (ReportFormat -&gt; ByteStringBuilder) -&gt; ToLog ReportFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReportFormat -&gt; ByteStringBuilder
 $cbuild :: ReportFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679150700"><span class="annot"><span class="annottext">HeaderName -&gt; ReportFormat -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679150711"><span class="annot"><span class="annottext">HeaderName -&gt; ReportFormat -&gt; [Header]
 (HeaderName -&gt; ReportFormat -&gt; [Header]) -&gt; ToHeader ReportFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReportFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReportFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679150697"><span class="annot"><span class="annottext">ReportFormat -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679150708"><span class="annot"><span class="annottext">ReportFormat -&gt; QueryString
 (ReportFormat -&gt; QueryString) -&gt; ToQuery ReportFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReportFormat -&gt; QueryString
 $ctoQuery :: ReportFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679150692"><span id="local-6989586621679150694"><span class="annot"><span class="annottext">Value -&gt; Parser [ReportFormat]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679150703"><span id="local-6989586621679150705"><span class="annot"><span class="annottext">Value -&gt; Parser [ReportFormat]
 Value -&gt; Parser ReportFormat
 (Value -&gt; Parser ReportFormat)
 -&gt; (Value -&gt; Parser [ReportFormat]) -&gt; FromJSON ReportFormat
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [ReportFormat]
 parseJSON :: Value -&gt; Parser ReportFormat
 $cparseJSON :: Value -&gt; Parser ReportFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679150687"><span id="local-6989586621679150689"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReportFormat]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679150698"><span id="local-6989586621679150700"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReportFormat]
 FromJSONKeyFunction ReportFormat
 FromJSONKeyFunction ReportFormat
 -&gt; FromJSONKeyFunction [ReportFormat] -&gt; FromJSONKey ReportFormat
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReportFormat]
 fromJSONKey :: FromJSONKeyFunction ReportFormat
 $cfromJSONKey :: FromJSONKeyFunction ReportFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679150678"><span id="local-6989586621679150680"><span id="local-6989586621679150682"><span id="local-6989586621679150684"><span class="annot"><span class="annottext">[ReportFormat] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679150689"><span id="local-6989586621679150691"><span id="local-6989586621679150693"><span id="local-6989586621679150695"><span class="annot"><span class="annottext">[ReportFormat] -&gt; Encoding
 [ReportFormat] -&gt; Value
 ReportFormat -&gt; Encoding
 ReportFormat -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: ReportFormat -&gt; Encoding
 toJSON :: ReportFormat -&gt; Value
 $ctoJSON :: ReportFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679150673"><span id="local-6989586621679150675"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReportFormat]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679150684"><span id="local-6989586621679150686"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReportFormat]
 ToJSONKeyFunction ReportFormat
 ToJSONKeyFunction ReportFormat
 -&gt; ToJSONKeyFunction [ReportFormat] -&gt; ToJSONKey ReportFormat
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReportFormat]
 toJSONKey :: ToJSONKeyFunction ReportFormat
 $ctoJSONKey :: ToJSONKeyFunction ReportFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679150670"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReportFormat
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679150681"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReportFormat
 ([Node] -&gt; Either String ReportFormat) -&gt; FromXML ReportFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReportFormat
 $cparseXML :: [Node] -&gt; Either String ReportFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679150667"><span class="annot"><span class="annottext">ReportFormat -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679150678"><span class="annot"><span class="annottext">ReportFormat -&gt; XML
 (ReportFormat -&gt; XML) -&gt; ToXML ReportFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReportFormat -&gt; XML

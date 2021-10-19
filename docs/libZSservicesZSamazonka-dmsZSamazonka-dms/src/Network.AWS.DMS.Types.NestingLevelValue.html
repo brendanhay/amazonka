@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679433622"><span id="local-6989586621679433623"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NestingLevelValue"><span class="annot"><a href="Network.AWS.DMS.Types.NestingLevelValue.html#NestingLevelValue"><span class="hs-identifier hs-var">NestingLevelValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NestingLevelValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.NestingLevelValue.html#NestingLevelValue%27"><span class="hs-identifier hs-var">NestingLevelValue'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679433898"><span id="local-6989586621679433899"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NestingLevelValue"><span class="annot"><a href="Network.AWS.DMS.Types.NestingLevelValue.html#NestingLevelValue"><span class="hs-identifier hs-var">NestingLevelValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NestingLevelValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.NestingLevelValue.html#NestingLevelValue%27"><span class="hs-identifier hs-var">NestingLevelValue'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNestingLevelValue"><span class="annot"><span class="annottext">NestingLevelValue -&gt; Text
 </span><a href="Network.AWS.DMS.Types.NestingLevelValue.html#fromNestingLevelValue"><span class="hs-identifier hs-var hs-var">fromNestingLevelValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679433614"><span id="local-6989586621679433616"><span id="local-6989586621679433618"><span class="annot"><span class="annottext">Int -&gt; NestingLevelValue -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679433890"><span id="local-6989586621679433892"><span id="local-6989586621679433894"><span class="annot"><span class="annottext">Int -&gt; NestingLevelValue -&gt; ShowS
 [NestingLevelValue] -&gt; ShowS
 NestingLevelValue -&gt; String
 (Int -&gt; NestingLevelValue -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: NestingLevelValue -&gt; String
 showsPrec :: Int -&gt; NestingLevelValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; NestingLevelValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679433605"><span id="local-6989586621679433607"><span id="local-6989586621679433609"><span id="local-6989586621679433611"><span class="annot"><span class="annottext">ReadPrec [NestingLevelValue]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679433881"><span id="local-6989586621679433883"><span id="local-6989586621679433885"><span id="local-6989586621679433887"><span class="annot"><span class="annottext">ReadPrec [NestingLevelValue]
 ReadPrec NestingLevelValue
 Int -&gt; ReadS NestingLevelValue
 ReadS [NestingLevelValue]
@@ -72,7 +72,7 @@ $creadList :: ReadS [NestingLevelValue]
 readsPrec :: Int -&gt; ReadS NestingLevelValue
 $creadsPrec :: Int -&gt; ReadS NestingLevelValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679433600"><span id="local-6989586621679433602"><span class="annot"><span class="annottext">NestingLevelValue -&gt; NestingLevelValue -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679433876"><span id="local-6989586621679433878"><span class="annot"><span class="annottext">NestingLevelValue -&gt; NestingLevelValue -&gt; Bool
 (NestingLevelValue -&gt; NestingLevelValue -&gt; Bool)
 -&gt; (NestingLevelValue -&gt; NestingLevelValue -&gt; Bool)
 -&gt; Eq NestingLevelValue
@@ -82,7 +82,7 @@ $c/= :: NestingLevelValue -&gt; NestingLevelValue -&gt; Bool
 == :: NestingLevelValue -&gt; NestingLevelValue -&gt; Bool
 $c== :: NestingLevelValue -&gt; NestingLevelValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679433584"><span id="local-6989586621679433586"><span id="local-6989586621679433588"><span id="local-6989586621679433590"><span id="local-6989586621679433592"><span id="local-6989586621679433594"><span id="local-6989586621679433596"><span class="annot"><span class="annottext">Eq NestingLevelValue
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679433860"><span id="local-6989586621679433862"><span id="local-6989586621679433864"><span id="local-6989586621679433866"><span id="local-6989586621679433868"><span id="local-6989586621679433870"><span id="local-6989586621679433872"><span class="annot"><span class="annottext">Eq NestingLevelValue
 Eq NestingLevelValue
 -&gt; (NestingLevelValue -&gt; NestingLevelValue -&gt; Ordering)
 -&gt; (NestingLevelValue -&gt; NestingLevelValue -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. NestingLevelValue -&gt; Rep NestingLevelValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679433576"><span id="local-6989586621679433578"><span class="annot"><span class="annottext">Int -&gt; NestingLevelValue -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679433852"><span id="local-6989586621679433854"><span class="annot"><span class="annottext">Int -&gt; NestingLevelValue -&gt; Int
 NestingLevelValue -&gt; Int
 (Int -&gt; NestingLevelValue -&gt; Int)
 -&gt; (NestingLevelValue -&gt; Int) -&gt; Hashable NestingLevelValue
@@ -143,51 +143,51 @@ $chash :: NestingLevelValue -&gt; Int
 hashWithSalt :: Int -&gt; NestingLevelValue -&gt; Int
 $chashWithSalt :: Int -&gt; NestingLevelValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679433573"><span class="annot"><span class="annottext">NestingLevelValue -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679433849"><span class="annot"><span class="annottext">NestingLevelValue -&gt; ()
 (NestingLevelValue -&gt; ()) -&gt; NFData NestingLevelValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NestingLevelValue -&gt; ()
 $crnf :: NestingLevelValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679433570"><span class="annot"><span class="annottext">Text -&gt; Either String NestingLevelValue
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679433846"><span class="annot"><span class="annottext">Text -&gt; Either String NestingLevelValue
 (Text -&gt; Either String NestingLevelValue)
 -&gt; FromText NestingLevelValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NestingLevelValue
 $cfromText :: Text -&gt; Either String NestingLevelValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679433567"><span class="annot"><span class="annottext">NestingLevelValue -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679433843"><span class="annot"><span class="annottext">NestingLevelValue -&gt; Text
 (NestingLevelValue -&gt; Text) -&gt; ToText NestingLevelValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NestingLevelValue -&gt; Text
 $ctoText :: NestingLevelValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679433564"><span class="annot"><span class="annottext">NestingLevelValue -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679433840"><span class="annot"><span class="annottext">NestingLevelValue -&gt; ByteString
 (NestingLevelValue -&gt; ByteString) -&gt; ToByteString NestingLevelValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NestingLevelValue -&gt; ByteString
 $ctoBS :: NestingLevelValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679433561"><span class="annot"><span class="annottext">NestingLevelValue -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679433837"><span class="annot"><span class="annottext">NestingLevelValue -&gt; ByteStringBuilder
 (NestingLevelValue -&gt; ByteStringBuilder) -&gt; ToLog NestingLevelValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NestingLevelValue -&gt; ByteStringBuilder
 $cbuild :: NestingLevelValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679433558"><span class="annot"><span class="annottext">HeaderName -&gt; NestingLevelValue -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679433834"><span class="annot"><span class="annottext">HeaderName -&gt; NestingLevelValue -&gt; [Header]
 (HeaderName -&gt; NestingLevelValue -&gt; [Header])
 -&gt; ToHeader NestingLevelValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NestingLevelValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NestingLevelValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679433555"><span class="annot"><span class="annottext">NestingLevelValue -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679433831"><span class="annot"><span class="annottext">NestingLevelValue -&gt; QueryString
 (NestingLevelValue -&gt; QueryString) -&gt; ToQuery NestingLevelValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NestingLevelValue -&gt; QueryString
 $ctoQuery :: NestingLevelValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679433550"><span id="local-6989586621679433552"><span class="annot"><span class="annottext">Value -&gt; Parser [NestingLevelValue]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679433826"><span id="local-6989586621679433828"><span class="annot"><span class="annottext">Value -&gt; Parser [NestingLevelValue]
 Value -&gt; Parser NestingLevelValue
 (Value -&gt; Parser NestingLevelValue)
 -&gt; (Value -&gt; Parser [NestingLevelValue])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [NestingLevelValue]
 parseJSON :: Value -&gt; Parser NestingLevelValue
 $cparseJSON :: Value -&gt; Parser NestingLevelValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679433545"><span id="local-6989586621679433547"><span class="annot"><span class="annottext">FromJSONKeyFunction [NestingLevelValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679433821"><span id="local-6989586621679433823"><span class="annot"><span class="annottext">FromJSONKeyFunction [NestingLevelValue]
 FromJSONKeyFunction NestingLevelValue
 FromJSONKeyFunction NestingLevelValue
 -&gt; FromJSONKeyFunction [NestingLevelValue]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NestingLevelValue]
 fromJSONKey :: FromJSONKeyFunction NestingLevelValue
 $cfromJSONKey :: FromJSONKeyFunction NestingLevelValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679433536"><span id="local-6989586621679433538"><span id="local-6989586621679433540"><span id="local-6989586621679433542"><span class="annot"><span class="annottext">[NestingLevelValue] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679433812"><span id="local-6989586621679433814"><span id="local-6989586621679433816"><span id="local-6989586621679433818"><span class="annot"><span class="annottext">[NestingLevelValue] -&gt; Encoding
 [NestingLevelValue] -&gt; Value
 NestingLevelValue -&gt; Encoding
 NestingLevelValue -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: NestingLevelValue -&gt; Encoding
 toJSON :: NestingLevelValue -&gt; Value
 $ctoJSON :: NestingLevelValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679433531"><span id="local-6989586621679433533"><span class="annot"><span class="annottext">ToJSONKeyFunction [NestingLevelValue]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679433807"><span id="local-6989586621679433809"><span class="annot"><span class="annottext">ToJSONKeyFunction [NestingLevelValue]
 ToJSONKeyFunction NestingLevelValue
 ToJSONKeyFunction NestingLevelValue
 -&gt; ToJSONKeyFunction [NestingLevelValue]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NestingLevelValue]
 toJSONKey :: ToJSONKeyFunction NestingLevelValue
 $ctoJSONKey :: ToJSONKeyFunction NestingLevelValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679433528"><span class="annot"><span class="annottext">[Node] -&gt; Either String NestingLevelValue
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679433804"><span class="annot"><span class="annottext">[Node] -&gt; Either String NestingLevelValue
 ([Node] -&gt; Either String NestingLevelValue)
 -&gt; FromXML NestingLevelValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NestingLevelValue
 $cparseXML :: [Node] -&gt; Either String NestingLevelValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679433525"><span class="annot"><span class="annottext">NestingLevelValue -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679433801"><span class="annot"><span class="annottext">NestingLevelValue -&gt; XML
 (NestingLevelValue -&gt; XML) -&gt; ToXML NestingLevelValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NestingLevelValue -&gt; XML

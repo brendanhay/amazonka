@@ -31,18 +31,18 @@
 </span><span id="line-31"></span><span class="hs-comment">-- versions 4.8.0 and later, excluding 5.0.x versions.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newInstanceFleetTimeline' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679369133"><span id="local-6989586621679369134"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceFleetTimeline"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-var">InstanceFleetTimeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceFleetTimeline%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline%27"><span class="hs-identifier hs-var">InstanceFleetTimeline'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time and date the instance fleet terminated.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AendDateTime%3AInstanceFleetTimeline%27"><span class="annot"><span class="annottext">InstanceFleetTimeline -&gt; Maybe POSIX
-</span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#%24sel%3AendDateTime%3AInstanceFleetTimeline%27"><span class="hs-identifier hs-var hs-var">endDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679369482"><span id="local-6989586621679369483"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceFleetTimeline"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-var">InstanceFleetTimeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceFleetTimeline%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline%27"><span class="hs-identifier hs-var">InstanceFleetTimeline'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time and date the instance fleet was ready to run jobs.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AreadyDateTime%3AInstanceFleetTimeline%27"><span class="annot"><span class="annottext">InstanceFleetTimeline -&gt; Maybe POSIX
+</span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#%24sel%3AreadyDateTime%3AInstanceFleetTimeline%27"><span class="hs-identifier hs-var hs-var">readyDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The time and date the instance fleet was created.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AcreationDateTime%3AInstanceFleetTimeline%27"><span class="annot"><span class="annottext">InstanceFleetTimeline -&gt; Maybe POSIX
 </span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#%24sel%3AcreationDateTime%3AInstanceFleetTimeline%27"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The time and date the instance fleet was ready to run jobs.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AreadyDateTime%3AInstanceFleetTimeline%27"><span class="annot"><span class="annottext">InstanceFleetTimeline -&gt; Maybe POSIX
-</span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#%24sel%3AreadyDateTime%3AInstanceFleetTimeline%27"><span class="hs-identifier hs-var hs-var">readyDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The time and date the instance fleet terminated.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AendDateTime%3AInstanceFleetTimeline%27"><span class="annot"><span class="annottext">InstanceFleetTimeline -&gt; Maybe POSIX
+</span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#%24sel%3AendDateTime%3AInstanceFleetTimeline%27"><span class="hs-identifier hs-var hs-var">endDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369125"><span id="local-6989586621679369127"><span class="annot"><span class="annottext">InstanceFleetTimeline -&gt; InstanceFleetTimeline -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369474"><span id="local-6989586621679369476"><span class="annot"><span class="annottext">InstanceFleetTimeline -&gt; InstanceFleetTimeline -&gt; Bool
 (InstanceFleetTimeline -&gt; InstanceFleetTimeline -&gt; Bool)
 -&gt; (InstanceFleetTimeline -&gt; InstanceFleetTimeline -&gt; Bool)
 -&gt; Eq InstanceFleetTimeline
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceFleetTimeline -&gt; InstanceFleetTimeline -&gt; Bool
 == :: InstanceFleetTimeline -&gt; InstanceFleetTimeline -&gt; Bool
 $c== :: InstanceFleetTimeline -&gt; InstanceFleetTimeline -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369116"><span id="local-6989586621679369118"><span id="local-6989586621679369120"><span id="local-6989586621679369122"><span class="annot"><span class="annottext">ReadPrec [InstanceFleetTimeline]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369465"><span id="local-6989586621679369467"><span id="local-6989586621679369469"><span id="local-6989586621679369471"><span class="annot"><span class="annottext">ReadPrec [InstanceFleetTimeline]
 ReadPrec InstanceFleetTimeline
 Int -&gt; ReadS InstanceFleetTimeline
 ReadS [InstanceFleetTimeline]
@@ -71,7 +71,7 @@ readList :: ReadS [InstanceFleetTimeline]
 $creadList :: ReadS [InstanceFleetTimeline]
 readsPrec :: Int -&gt; ReadS InstanceFleetTimeline
 $creadsPrec :: Int -&gt; ReadS InstanceFleetTimeline
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369109"><span id="local-6989586621679369111"><span id="local-6989586621679369113"><span class="annot"><span class="annottext">Int -&gt; InstanceFleetTimeline -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369458"><span id="local-6989586621679369460"><span id="local-6989586621679369462"><span class="annot"><span class="annottext">Int -&gt; InstanceFleetTimeline -&gt; ShowS
 [InstanceFleetTimeline] -&gt; ShowS
 InstanceFleetTimeline -&gt; String
 (Int -&gt; InstanceFleetTimeline -&gt; ShowS)
@@ -105,19 +105,19 @@ $cfrom :: forall x. InstanceFleetTimeline -&gt; Rep InstanceFleetTimeline x
 </span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'endDateTime', 'instanceFleetTimeline_endDateTime' - The time and date the instance fleet terminated.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'readyDateTime', 'instanceFleetTimeline_readyDateTime' - The time and date the instance fleet was ready to run jobs.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- 'creationDateTime', 'instanceFleetTimeline_creationDateTime' - The time and date the instance fleet was created.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'readyDateTime', 'instanceFleetTimeline_readyDateTime' - The time and date the instance fleet was ready to run jobs.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'endDateTime', 'instanceFleetTimeline_endDateTime' - The time and date the instance fleet terminated.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#newInstanceFleetTimeline"><span class="hs-identifier hs-type">newInstanceFleetTimeline</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span><span>
 </span><span id="line-59"></span><span id="newInstanceFleetTimeline"><span class="annot"><span class="annottext">newInstanceFleetTimeline :: InstanceFleetTimeline
 </span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#newInstanceFleetTimeline"><span class="hs-identifier hs-var hs-var">newInstanceFleetTimeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">InstanceFleetTimeline' :: Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; InstanceFleetTimeline
 </span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline%27"><span class="hs-identifier hs-type">InstanceFleetTimeline'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endDateTime:InstanceFleetTimeline' :: Maybe POSIX
-</span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#%24sel%3AendDateTime%3AInstanceFleetTimeline%27"><span class="hs-identifier hs-var">endDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:readyDateTime:InstanceFleetTimeline' :: Maybe POSIX
+</span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#%24sel%3AreadyDateTime%3AInstanceFleetTimeline%27"><span class="hs-identifier hs-var">readyDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
@@ -125,17 +125,17 @@ forall a. Maybe a
 </span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#%24sel%3AcreationDateTime%3AInstanceFleetTimeline%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:readyDateTime:InstanceFleetTimeline' :: Maybe POSIX
-</span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#%24sel%3AreadyDateTime%3AInstanceFleetTimeline%27"><span class="hs-identifier hs-var">readyDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:endDateTime:InstanceFleetTimeline' :: Maybe POSIX
+</span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#%24sel%3AendDateTime%3AInstanceFleetTimeline%27"><span class="hs-identifier hs-var">endDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The time and date the instance fleet terminated.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#instanceFleetTimeline_endDateTime"><span class="hs-identifier hs-type">instanceFleetTimeline_endDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="instanceFleetTimeline_endDateTime"><span class="annot"><span class="annottext">instanceFleetTimeline_endDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-67"></span><span class="hs-comment">-- | The time and date the instance fleet was ready to run jobs.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#instanceFleetTimeline_readyDateTime"><span class="hs-identifier hs-type">instanceFleetTimeline_readyDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="instanceFleetTimeline_readyDateTime"><span class="annot"><span class="annottext">instanceFleetTimeline_readyDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; InstanceFleetTimeline -&gt; f InstanceFleetTimeline
-</span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#instanceFleetTimeline_endDateTime"><span class="hs-identifier hs-var hs-var">instanceFleetTimeline_endDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleetTimeline -&gt; Maybe POSIX)
+</span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#instanceFleetTimeline_readyDateTime"><span class="hs-identifier hs-var hs-var">instanceFleetTimeline_readyDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleetTimeline -&gt; Maybe POSIX)
 -&gt; (InstanceFleetTimeline -&gt; Maybe POSIX -&gt; InstanceFleetTimeline)
 -&gt; Lens
      InstanceFleetTimeline
@@ -143,16 +143,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline%27"><span class="hs-identifier hs-type">InstanceFleetTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369100"><span class="annot"><span class="annottext">Maybe POSIX
-endDateTime :: Maybe POSIX
-$sel:endDateTime:InstanceFleetTimeline' :: InstanceFleetTimeline -&gt; Maybe POSIX
-</span><a href="#local-6989586621679369100"><span class="hs-identifier hs-var hs-var">endDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679369100"><span class="hs-identifier hs-var">endDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369099"><span class="annot"><span class="annottext">s :: InstanceFleetTimeline
-</span><a href="#local-6989586621679369099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline%27"><span class="hs-identifier hs-type">InstanceFleetTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369098"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679369098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleetTimeline
-</span><a href="#local-6989586621679369099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDateTime:InstanceFleetTimeline' :: Maybe POSIX
-</span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#%24sel%3AendDateTime%3AInstanceFleetTimeline%27"><span class="hs-identifier hs-var">endDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679369098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline%27"><span class="hs-identifier hs-type">InstanceFleetTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369449"><span class="annot"><span class="annottext">Maybe POSIX
+readyDateTime :: Maybe POSIX
+$sel:readyDateTime:InstanceFleetTimeline' :: InstanceFleetTimeline -&gt; Maybe POSIX
+</span><a href="#local-6989586621679369449"><span class="hs-identifier hs-var hs-var">readyDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369449"><span class="hs-identifier hs-var">readyDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369448"><span class="annot"><span class="annottext">s :: InstanceFleetTimeline
+</span><a href="#local-6989586621679369448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline%27"><span class="hs-identifier hs-type">InstanceFleetTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369447"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleetTimeline
+</span><a href="#local-6989586621679369448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readyDateTime:InstanceFleetTimeline' :: Maybe POSIX
+</span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#%24sel%3AreadyDateTime%3AInstanceFleetTimeline%27"><span class="hs-identifier hs-var">readyDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; InstanceFleetTimeline -&gt; f InstanceFleetTimeline)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -181,16 +181,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline%27"><span class="hs-identifier hs-type">InstanceFleetTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369093"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline%27"><span class="hs-identifier hs-type">InstanceFleetTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369442"><span class="annot"><span class="annottext">Maybe POSIX
 creationDateTime :: Maybe POSIX
 $sel:creationDateTime:InstanceFleetTimeline' :: InstanceFleetTimeline -&gt; Maybe POSIX
-</span><a href="#local-6989586621679369093"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679369093"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369092"><span class="annot"><span class="annottext">s :: InstanceFleetTimeline
-</span><a href="#local-6989586621679369092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline%27"><span class="hs-identifier hs-type">InstanceFleetTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369091"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679369091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleetTimeline
-</span><a href="#local-6989586621679369092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDateTime:InstanceFleetTimeline' :: Maybe POSIX
+</span><a href="#local-6989586621679369442"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369442"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369441"><span class="annot"><span class="annottext">s :: InstanceFleetTimeline
+</span><a href="#local-6989586621679369441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline%27"><span class="hs-identifier hs-type">InstanceFleetTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369440"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleetTimeline
+</span><a href="#local-6989586621679369441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDateTime:InstanceFleetTimeline' :: Maybe POSIX
 </span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#%24sel%3AcreationDateTime%3AInstanceFleetTimeline%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679369091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679369440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; InstanceFleetTimeline -&gt; f InstanceFleetTimeline)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -207,11 +207,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | The time and date the instance fleet was ready to run jobs.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#instanceFleetTimeline_readyDateTime"><span class="hs-identifier hs-type">instanceFleetTimeline_readyDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="instanceFleetTimeline_readyDateTime"><span class="annot"><span class="annottext">instanceFleetTimeline_readyDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-75"></span><span class="hs-comment">-- | The time and date the instance fleet terminated.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#instanceFleetTimeline_endDateTime"><span class="hs-identifier hs-type">instanceFleetTimeline_endDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="instanceFleetTimeline_endDateTime"><span class="annot"><span class="annottext">instanceFleetTimeline_endDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; InstanceFleetTimeline -&gt; f InstanceFleetTimeline
-</span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#instanceFleetTimeline_readyDateTime"><span class="hs-identifier hs-var hs-var">instanceFleetTimeline_readyDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleetTimeline -&gt; Maybe POSIX)
+</span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#instanceFleetTimeline_endDateTime"><span class="hs-identifier hs-var hs-var">instanceFleetTimeline_endDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleetTimeline -&gt; Maybe POSIX)
 -&gt; (InstanceFleetTimeline -&gt; Maybe POSIX -&gt; InstanceFleetTimeline)
 -&gt; Lens
      InstanceFleetTimeline
@@ -219,16 +219,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline%27"><span class="hs-identifier hs-type">InstanceFleetTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369089"><span class="annot"><span class="annottext">Maybe POSIX
-readyDateTime :: Maybe POSIX
-$sel:readyDateTime:InstanceFleetTimeline' :: InstanceFleetTimeline -&gt; Maybe POSIX
-</span><a href="#local-6989586621679369089"><span class="hs-identifier hs-var hs-var">readyDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679369089"><span class="hs-identifier hs-var">readyDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369088"><span class="annot"><span class="annottext">s :: InstanceFleetTimeline
-</span><a href="#local-6989586621679369088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline%27"><span class="hs-identifier hs-type">InstanceFleetTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369087"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679369087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleetTimeline
-</span><a href="#local-6989586621679369088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readyDateTime:InstanceFleetTimeline' :: Maybe POSIX
-</span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#%24sel%3AreadyDateTime%3AInstanceFleetTimeline%27"><span class="hs-identifier hs-var">readyDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679369087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline%27"><span class="hs-identifier hs-type">InstanceFleetTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369438"><span class="annot"><span class="annottext">Maybe POSIX
+endDateTime :: Maybe POSIX
+$sel:endDateTime:InstanceFleetTimeline' :: InstanceFleetTimeline -&gt; Maybe POSIX
+</span><a href="#local-6989586621679369438"><span class="hs-identifier hs-var hs-var">endDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369438"><span class="hs-identifier hs-var">endDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369437"><span class="annot"><span class="annottext">s :: InstanceFleetTimeline
+</span><a href="#local-6989586621679369437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline%27"><span class="hs-identifier hs-type">InstanceFleetTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369436"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleetTimeline
+</span><a href="#local-6989586621679369437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDateTime:InstanceFleetTimeline' :: Maybe POSIX
+</span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#%24sel%3AendDateTime%3AInstanceFleetTimeline%27"><span class="hs-identifier hs-var">endDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; InstanceFleetTimeline -&gt; f InstanceFleetTimeline)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -245,8 +245,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369084"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679369082"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceFleetTimeline
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369433"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679369431"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceFleetTimeline
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InstanceFleetTimeline)
@@ -256,8 +256,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InstanceFleetTimeline&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369079"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369079"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369428"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369428"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; InstanceFleetTimeline
 </span><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline%27"><span class="hs-identifier hs-var">InstanceFleetTimeline'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
@@ -266,16 +266,16 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; InstanceFleetTimeline)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679369428"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EndDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ReadyDateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; InstanceFleetTimeline)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser (Maybe POSIX -&gt; InstanceFleetTimeline)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679369428"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationDateTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -283,13 +283,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser InstanceFleetTimeline
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679369428"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReadyDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;EndDateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369073"><span id="local-6989586621679369075"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369422"><span id="local-6989586621679369424"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369070"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369419"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span></span><span>
 </span><span id="line-93"></span></pre></body></html>

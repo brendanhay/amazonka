@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679401849"><span id="local-6989586621679401850"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProvisionedProductStatus"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductStatus.html#ProvisionedProductStatus"><span class="hs-identifier hs-var">ProvisionedProductStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisionedProductStatus%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductStatus.html#ProvisionedProductStatus%27"><span class="hs-identifier hs-var">ProvisionedProductStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679402295"><span id="local-6989586621679402296"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProvisionedProductStatus"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductStatus.html#ProvisionedProductStatus"><span class="hs-identifier hs-var">ProvisionedProductStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisionedProductStatus%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductStatus.html#ProvisionedProductStatus%27"><span class="hs-identifier hs-var">ProvisionedProductStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProvisionedProductStatus"><span class="annot"><span class="annottext">ProvisionedProductStatus -&gt; Text
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductStatus.html#fromProvisionedProductStatus"><span class="hs-identifier hs-var hs-var">fromProvisionedProductStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401841"><span id="local-6989586621679401843"><span id="local-6989586621679401845"><span class="annot"><span class="annottext">Int -&gt; ProvisionedProductStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679402287"><span id="local-6989586621679402289"><span id="local-6989586621679402291"><span class="annot"><span class="annottext">Int -&gt; ProvisionedProductStatus -&gt; ShowS
 [ProvisionedProductStatus] -&gt; ShowS
 ProvisionedProductStatus -&gt; String
 (Int -&gt; ProvisionedProductStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ProvisionedProductStatus -&gt; String
 showsPrec :: Int -&gt; ProvisionedProductStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProvisionedProductStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679401832"><span id="local-6989586621679401834"><span id="local-6989586621679401836"><span id="local-6989586621679401838"><span class="annot"><span class="annottext">ReadPrec [ProvisionedProductStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679402278"><span id="local-6989586621679402280"><span id="local-6989586621679402282"><span id="local-6989586621679402284"><span class="annot"><span class="annottext">ReadPrec [ProvisionedProductStatus]
 ReadPrec ProvisionedProductStatus
 Int -&gt; ReadS ProvisionedProductStatus
 ReadS [ProvisionedProductStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ProvisionedProductStatus]
 readsPrec :: Int -&gt; ReadS ProvisionedProductStatus
 $creadsPrec :: Int -&gt; ReadS ProvisionedProductStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679401827"><span id="local-6989586621679401829"><span class="annot"><span class="annottext">ProvisionedProductStatus -&gt; ProvisionedProductStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679402273"><span id="local-6989586621679402275"><span class="annot"><span class="annottext">ProvisionedProductStatus -&gt; ProvisionedProductStatus -&gt; Bool
 (ProvisionedProductStatus -&gt; ProvisionedProductStatus -&gt; Bool)
 -&gt; (ProvisionedProductStatus -&gt; ProvisionedProductStatus -&gt; Bool)
 -&gt; Eq ProvisionedProductStatus
@@ -85,7 +85,7 @@ $c/= :: ProvisionedProductStatus -&gt; ProvisionedProductStatus -&gt; Bool
 == :: ProvisionedProductStatus -&gt; ProvisionedProductStatus -&gt; Bool
 $c== :: ProvisionedProductStatus -&gt; ProvisionedProductStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679401811"><span id="local-6989586621679401813"><span id="local-6989586621679401815"><span id="local-6989586621679401817"><span id="local-6989586621679401819"><span id="local-6989586621679401821"><span id="local-6989586621679401823"><span class="annot"><span class="annottext">Eq ProvisionedProductStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679402257"><span id="local-6989586621679402259"><span id="local-6989586621679402261"><span id="local-6989586621679402263"><span id="local-6989586621679402265"><span id="local-6989586621679402267"><span id="local-6989586621679402269"><span class="annot"><span class="annottext">Eq ProvisionedProductStatus
 Eq ProvisionedProductStatus
 -&gt; (ProvisionedProductStatus
     -&gt; ProvisionedProductStatus -&gt; Ordering)
@@ -150,7 +150,7 @@ ProvisionedProductStatus -&gt; Rep ProvisionedProductStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401803"><span id="local-6989586621679401805"><span class="annot"><span class="annottext">Int -&gt; ProvisionedProductStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679402249"><span id="local-6989586621679402251"><span class="annot"><span class="annottext">Int -&gt; ProvisionedProductStatus -&gt; Int
 ProvisionedProductStatus -&gt; Int
 (Int -&gt; ProvisionedProductStatus -&gt; Int)
 -&gt; (ProvisionedProductStatus -&gt; Int)
@@ -161,55 +161,55 @@ $chash :: ProvisionedProductStatus -&gt; Int
 hashWithSalt :: Int -&gt; ProvisionedProductStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ProvisionedProductStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679401800"><span class="annot"><span class="annottext">ProvisionedProductStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679402246"><span class="annot"><span class="annottext">ProvisionedProductStatus -&gt; ()
 (ProvisionedProductStatus -&gt; ()) -&gt; NFData ProvisionedProductStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProvisionedProductStatus -&gt; ()
 $crnf :: ProvisionedProductStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679401797"><span class="annot"><span class="annottext">Text -&gt; Either String ProvisionedProductStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679402243"><span class="annot"><span class="annottext">Text -&gt; Either String ProvisionedProductStatus
 (Text -&gt; Either String ProvisionedProductStatus)
 -&gt; FromText ProvisionedProductStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProvisionedProductStatus
 $cfromText :: Text -&gt; Either String ProvisionedProductStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679401794"><span class="annot"><span class="annottext">ProvisionedProductStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679402240"><span class="annot"><span class="annottext">ProvisionedProductStatus -&gt; Text
 (ProvisionedProductStatus -&gt; Text)
 -&gt; ToText ProvisionedProductStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProvisionedProductStatus -&gt; Text
 $ctoText :: ProvisionedProductStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679401791"><span class="annot"><span class="annottext">ProvisionedProductStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679402237"><span class="annot"><span class="annottext">ProvisionedProductStatus -&gt; ByteString
 (ProvisionedProductStatus -&gt; ByteString)
 -&gt; ToByteString ProvisionedProductStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProvisionedProductStatus -&gt; ByteString
 $ctoBS :: ProvisionedProductStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679401788"><span class="annot"><span class="annottext">ProvisionedProductStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679402234"><span class="annot"><span class="annottext">ProvisionedProductStatus -&gt; ByteStringBuilder
 (ProvisionedProductStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ProvisionedProductStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProvisionedProductStatus -&gt; ByteStringBuilder
 $cbuild :: ProvisionedProductStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679401785"><span class="annot"><span class="annottext">HeaderName -&gt; ProvisionedProductStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679402231"><span class="annot"><span class="annottext">HeaderName -&gt; ProvisionedProductStatus -&gt; [Header]
 (HeaderName -&gt; ProvisionedProductStatus -&gt; [Header])
 -&gt; ToHeader ProvisionedProductStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProvisionedProductStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProvisionedProductStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679401782"><span class="annot"><span class="annottext">ProvisionedProductStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679402228"><span class="annot"><span class="annottext">ProvisionedProductStatus -&gt; QueryString
 (ProvisionedProductStatus -&gt; QueryString)
 -&gt; ToQuery ProvisionedProductStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProvisionedProductStatus -&gt; QueryString
 $ctoQuery :: ProvisionedProductStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679401777"><span id="local-6989586621679401779"><span class="annot"><span class="annottext">Value -&gt; Parser [ProvisionedProductStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679402223"><span id="local-6989586621679402225"><span class="annot"><span class="annottext">Value -&gt; Parser [ProvisionedProductStatus]
 Value -&gt; Parser ProvisionedProductStatus
 (Value -&gt; Parser ProvisionedProductStatus)
 -&gt; (Value -&gt; Parser [ProvisionedProductStatus])
@@ -221,7 +221,7 @@ $cparseJSONList :: Value -&gt; Parser [ProvisionedProductStatus]
 parseJSON :: Value -&gt; Parser ProvisionedProductStatus
 $cparseJSON :: Value -&gt; Parser ProvisionedProductStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679401772"><span id="local-6989586621679401774"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProvisionedProductStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679402218"><span id="local-6989586621679402220"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProvisionedProductStatus]
 FromJSONKeyFunction ProvisionedProductStatus
 FromJSONKeyFunction ProvisionedProductStatus
 -&gt; FromJSONKeyFunction [ProvisionedProductStatus]
@@ -233,7 +233,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProvisionedProductStatus]
 fromJSONKey :: FromJSONKeyFunction ProvisionedProductStatus
 $cfromJSONKey :: FromJSONKeyFunction ProvisionedProductStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679401763"><span id="local-6989586621679401765"><span id="local-6989586621679401767"><span id="local-6989586621679401769"><span class="annot"><span class="annottext">[ProvisionedProductStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679402209"><span id="local-6989586621679402211"><span id="local-6989586621679402213"><span id="local-6989586621679402215"><span class="annot"><span class="annottext">[ProvisionedProductStatus] -&gt; Encoding
 [ProvisionedProductStatus] -&gt; Value
 ProvisionedProductStatus -&gt; Encoding
 ProvisionedProductStatus -&gt; Value
@@ -257,7 +257,7 @@ $ctoEncoding :: ProvisionedProductStatus -&gt; Encoding
 toJSON :: ProvisionedProductStatus -&gt; Value
 $ctoJSON :: ProvisionedProductStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679401758"><span id="local-6989586621679401760"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProvisionedProductStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679402204"><span id="local-6989586621679402206"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProvisionedProductStatus]
 ToJSONKeyFunction ProvisionedProductStatus
 ToJSONKeyFunction ProvisionedProductStatus
 -&gt; ToJSONKeyFunction [ProvisionedProductStatus]
@@ -269,14 +269,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProvisionedProductStatus]
 toJSONKey :: ToJSONKeyFunction ProvisionedProductStatus
 $ctoJSONKey :: ToJSONKeyFunction ProvisionedProductStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679401755"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProvisionedProductStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679402201"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProvisionedProductStatus
 ([Node] -&gt; Either String ProvisionedProductStatus)
 -&gt; FromXML ProvisionedProductStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProvisionedProductStatus
 $cparseXML :: [Node] -&gt; Either String ProvisionedProductStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679401752"><span class="annot"><span class="annottext">ProvisionedProductStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679402198"><span class="annot"><span class="annottext">ProvisionedProductStatus -&gt; XML
 (ProvisionedProductStatus -&gt; XML) -&gt; ToXML ProvisionedProductStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ProvisionedProductStatus -&gt; XML

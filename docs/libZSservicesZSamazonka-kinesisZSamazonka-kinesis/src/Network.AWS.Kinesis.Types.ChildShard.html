@@ -25,7 +25,7 @@
 </span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-26"></span><span>
 </span><span id="line-27"></span><span class="hs-comment">-- | /See:/ 'newChildShard' smart constructor.</span><span>
-</span><span id="line-28"></span><span id="local-6989586621679196894"><span id="local-6989586621679196895"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChildShard"><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-var">ChildShard</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChildShard%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard%27"><span class="hs-identifier hs-var">ChildShard'</span></a></span></span><span>
+</span><span id="line-28"></span><span id="local-6989586621679196985"><span id="local-6989586621679196986"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChildShard"><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-var">ChildShard</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChildShard%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard%27"><span class="hs-identifier hs-var">ChildShard'</span></a></span></span><span>
 </span><span id="line-29"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AshardId%3AChildShard%27"><span class="annot"><span class="annottext">ChildShard -&gt; Text
 </span><a href="Network.AWS.Kinesis.Types.ChildShard.html#%24sel%3AshardId%3AChildShard%27"><span class="hs-identifier hs-var hs-var">shardId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>    </span><span id="%24sel%3AparentShards%3AChildShard%27"><span class="annot"><span class="annottext">ChildShard -&gt; [Text]
@@ -33,7 +33,7 @@
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AhashKeyRange%3AChildShard%27"><span class="annot"><span class="annottext">ChildShard -&gt; HashKeyRange
 </span><a href="Network.AWS.Kinesis.Types.ChildShard.html#%24sel%3AhashKeyRange%3AChildShard%27"><span class="hs-identifier hs-var hs-var">hashKeyRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196886"><span id="local-6989586621679196888"><span class="annot"><span class="annottext">ChildShard -&gt; ChildShard -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196977"><span id="local-6989586621679196979"><span class="annot"><span class="annottext">ChildShard -&gt; ChildShard -&gt; Bool
 (ChildShard -&gt; ChildShard -&gt; Bool)
 -&gt; (ChildShard -&gt; ChildShard -&gt; Bool) -&gt; Eq ChildShard
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ChildShard -&gt; ChildShard -&gt; Bool
 == :: ChildShard -&gt; ChildShard -&gt; Bool
 $c== :: ChildShard -&gt; ChildShard -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196877"><span id="local-6989586621679196879"><span id="local-6989586621679196881"><span id="local-6989586621679196883"><span class="annot"><span class="annottext">ReadPrec [ChildShard]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196968"><span id="local-6989586621679196970"><span id="local-6989586621679196972"><span id="local-6989586621679196974"><span class="annot"><span class="annottext">ReadPrec [ChildShard]
 ReadPrec ChildShard
 Int -&gt; ReadS ChildShard
 ReadS [ChildShard]
@@ -61,7 +61,7 @@ readList :: ReadS [ChildShard]
 $creadList :: ReadS [ChildShard]
 readsPrec :: Int -&gt; ReadS ChildShard
 $creadsPrec :: Int -&gt; ReadS ChildShard
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196870"><span id="local-6989586621679196872"><span id="local-6989586621679196874"><span class="annot"><span class="annottext">Int -&gt; ChildShard -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196961"><span id="local-6989586621679196963"><span id="local-6989586621679196965"><span class="annot"><span class="annottext">Int -&gt; ChildShard -&gt; ShowS
 [ChildShard] -&gt; ShowS
 ChildShard -&gt; String
 (Int -&gt; ChildShard -&gt; ShowS)
@@ -106,21 +106,21 @@ $cfrom :: forall x. ChildShard -&gt; Rep ChildShard x
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-type">ChildShard</span></a></span><span>
 </span><span id="line-54"></span><span id="newChildShard"><span class="annot"><span class="annottext">newChildShard :: Text -&gt; HashKeyRange -&gt; ChildShard
-</span><a href="Network.AWS.Kinesis.Types.ChildShard.html#newChildShard"><span class="hs-identifier hs-var hs-var">newChildShard</span></a></span></span><span> </span><span id="local-6989586621679196864"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196864"><span class="hs-identifier hs-var">pShardId_</span></a></span></span><span> </span><span id="local-6989586621679196863"><span class="annot"><span class="annottext">HashKeyRange
-</span><a href="#local-6989586621679196863"><span class="hs-identifier hs-var">pHashKeyRange_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Kinesis.Types.ChildShard.html#newChildShard"><span class="hs-identifier hs-var hs-var">newChildShard</span></a></span></span><span> </span><span id="local-6989586621679196955"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196955"><span class="hs-identifier hs-var">pShardId_</span></a></span></span><span> </span><span id="local-6989586621679196954"><span class="annot"><span class="annottext">HashKeyRange
+</span><a href="#local-6989586621679196954"><span class="hs-identifier hs-var">pHashKeyRange_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">ChildShard' :: Text -&gt; [Text] -&gt; HashKeyRange -&gt; ChildShard
 </span><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard%27"><span class="hs-identifier hs-type">ChildShard'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:shardId:ChildShard' :: Text
 </span><a href="Network.AWS.Kinesis.Types.ChildShard.html#%24sel%3AshardId%3AChildShard%27"><span class="hs-identifier hs-var">shardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196864"><span class="hs-identifier hs-var">pShardId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196955"><span class="hs-identifier hs-var">pShardId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:parentShards:ChildShard' :: [Text]
 </span><a href="Network.AWS.Kinesis.Types.ChildShard.html#%24sel%3AparentShards%3AChildShard%27"><span class="hs-identifier hs-var">parentShards</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:hashKeyRange:ChildShard' :: HashKeyRange
 </span><a href="Network.AWS.Kinesis.Types.ChildShard.html#%24sel%3AhashKeyRange%3AChildShard%27"><span class="hs-identifier hs-var">hashKeyRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashKeyRange
-</span><a href="#local-6989586621679196863"><span class="hs-identifier hs-var">pHashKeyRange_</span></a></span><span>
+</span><a href="#local-6989586621679196954"><span class="hs-identifier hs-var">pHashKeyRange_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -130,16 +130,16 @@ forall a. Monoid a =&gt; a
 -&gt; (ChildShard -&gt; Text -&gt; ChildShard)
 -&gt; Lens ChildShard ChildShard Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard%27"><span class="hs-identifier hs-type">ChildShard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196859"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard%27"><span class="hs-identifier hs-type">ChildShard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196950"><span class="annot"><span class="annottext">Text
 shardId :: Text
 $sel:shardId:ChildShard' :: ChildShard -&gt; Text
-</span><a href="#local-6989586621679196859"><span class="hs-identifier hs-var hs-var">shardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196859"><span class="hs-identifier hs-var">shardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196858"><span class="annot"><span class="annottext">s :: ChildShard
-</span><a href="#local-6989586621679196858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard%27"><span class="hs-identifier hs-type">ChildShard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196857"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildShard
-</span><a href="#local-6989586621679196858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardId:ChildShard' :: Text
+</span><a href="#local-6989586621679196950"><span class="hs-identifier hs-var hs-var">shardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196950"><span class="hs-identifier hs-var">shardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196949"><span class="annot"><span class="annottext">s :: ChildShard
+</span><a href="#local-6989586621679196949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard%27"><span class="hs-identifier hs-type">ChildShard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196948"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildShard
+</span><a href="#local-6989586621679196949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardId:ChildShard' :: Text
 </span><a href="Network.AWS.Kinesis.Types.ChildShard.html#%24sel%3AshardId%3AChildShard%27"><span class="hs-identifier hs-var">shardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-type">ChildShard</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-type">ChildShard</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#childShard_parentShards"><span class="hs-identifier hs-type">childShard_parentShards</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-type">ChildShard</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -148,24 +148,24 @@ $sel:shardId:ChildShard' :: ChildShard -&gt; Text
 -&gt; (ChildShard -&gt; [Text] -&gt; ChildShard)
 -&gt; Lens ChildShard ChildShard [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard%27"><span class="hs-identifier hs-type">ChildShard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196855"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard%27"><span class="hs-identifier hs-type">ChildShard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196946"><span class="annot"><span class="annottext">[Text]
 parentShards :: [Text]
 $sel:parentShards:ChildShard' :: ChildShard -&gt; [Text]
-</span><a href="#local-6989586621679196855"><span class="hs-identifier hs-var hs-var">parentShards</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679196855"><span class="hs-identifier hs-var">parentShards</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196854"><span class="annot"><span class="annottext">s :: ChildShard
-</span><a href="#local-6989586621679196854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard%27"><span class="hs-identifier hs-type">ChildShard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196853"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679196853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildShard
-</span><a href="#local-6989586621679196854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentShards:ChildShard' :: [Text]
+</span><a href="#local-6989586621679196946"><span class="hs-identifier hs-var hs-var">parentShards</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679196946"><span class="hs-identifier hs-var">parentShards</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196945"><span class="annot"><span class="annottext">s :: ChildShard
+</span><a href="#local-6989586621679196945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard%27"><span class="hs-identifier hs-type">ChildShard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196944"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679196944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildShard
+</span><a href="#local-6989586621679196945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentShards:ChildShard' :: [Text]
 </span><a href="Network.AWS.Kinesis.Types.ChildShard.html#%24sel%3AparentShards%3AChildShard%27"><span class="hs-identifier hs-var">parentShards</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679196853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-type">ChildShard</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; ChildShard -&gt; f ChildShard)
+</span><a href="#local-6989586621679196944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-type">ChildShard</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; ChildShard -&gt; f ChildShard)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; ChildShard
 -&gt; f ChildShard
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#childShard_hashKeyRange"><span class="hs-identifier hs-type">childShard_hashKeyRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-type">ChildShard</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span><span>
@@ -174,19 +174,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ChildShard -&gt; HashKeyRange -&gt; ChildShard)
 -&gt; Lens ChildShard ChildShard HashKeyRange HashKeyRange
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard%27"><span class="hs-identifier hs-type">ChildShard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196849"><span class="annot"><span class="annottext">HashKeyRange
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard%27"><span class="hs-identifier hs-type">ChildShard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196940"><span class="annot"><span class="annottext">HashKeyRange
 hashKeyRange :: HashKeyRange
 $sel:hashKeyRange:ChildShard' :: ChildShard -&gt; HashKeyRange
-</span><a href="#local-6989586621679196849"><span class="hs-identifier hs-var hs-var">hashKeyRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashKeyRange
-</span><a href="#local-6989586621679196849"><span class="hs-identifier hs-var">hashKeyRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196848"><span class="annot"><span class="annottext">s :: ChildShard
-</span><a href="#local-6989586621679196848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard%27"><span class="hs-identifier hs-type">ChildShard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196847"><span class="annot"><span class="annottext">HashKeyRange
-</span><a href="#local-6989586621679196847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildShard
-</span><a href="#local-6989586621679196848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hashKeyRange:ChildShard' :: HashKeyRange
+</span><a href="#local-6989586621679196940"><span class="hs-identifier hs-var hs-var">hashKeyRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashKeyRange
+</span><a href="#local-6989586621679196940"><span class="hs-identifier hs-var">hashKeyRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196939"><span class="annot"><span class="annottext">s :: ChildShard
+</span><a href="#local-6989586621679196939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard%27"><span class="hs-identifier hs-type">ChildShard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196938"><span class="annot"><span class="annottext">HashKeyRange
+</span><a href="#local-6989586621679196938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildShard
+</span><a href="#local-6989586621679196939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hashKeyRange:ChildShard' :: HashKeyRange
 </span><a href="Network.AWS.Kinesis.Types.ChildShard.html#%24sel%3AhashKeyRange%3AChildShard%27"><span class="hs-identifier hs-var">hashKeyRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashKeyRange
-</span><a href="#local-6989586621679196847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-type">ChildShard</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-type">ChildShard</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196844"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-type">ChildShard</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679196842"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChildShard
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196935"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-type">ChildShard</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679196933"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChildShard
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ChildShard) -&gt; Value -&gt; Parser ChildShard
@@ -194,15 +194,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ChildShard&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679196839"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196839"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679196930"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679196930"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; HashKeyRange -&gt; ChildShard
 </span><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard%27"><span class="hs-identifier hs-var">ChildShard'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; [Text] -&gt; HashKeyRange -&gt; ChildShard)
 -&gt; Parser Text -&gt; Parser ([Text] -&gt; HashKeyRange -&gt; ChildShard)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679196930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ShardId&quot;</span></span><span class="hs-special">)</span><span>
@@ -210,7 +210,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser [Text] -&gt; Parser (HashKeyRange -&gt; ChildShard)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+</span><a href="#local-6989586621679196930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ParentShards&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
@@ -222,13 +222,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser HashKeyRange -&gt; Parser ChildShard
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser HashKeyRange
+</span><a href="#local-6989586621679196930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser HashKeyRange
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HashKeyRange&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196831"><span id="local-6989586621679196833"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-type">ChildShard</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196922"><span id="local-6989586621679196924"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-type">ChildShard</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-type">ChildShard</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-type">ChildShard</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

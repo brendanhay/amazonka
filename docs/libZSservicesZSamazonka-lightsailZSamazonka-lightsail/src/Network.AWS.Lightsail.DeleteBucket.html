@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDeleteBucket' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679654672"><span id="local-6989586621679654673"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucket"><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-var">DeleteBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucket%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket%27"><span class="hs-identifier hs-var">DeleteBucket'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679655703"><span id="local-6989586621679655704"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucket"><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-var">DeleteBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucket%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket%27"><span class="hs-identifier hs-var">DeleteBucket'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A Boolean value that indicates whether to force delete the bucket.</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- You must force delete the bucket if it has one of the following</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AbucketName%3ADeleteBucket%27"><span class="annot"><span class="annottext">DeleteBucket -&gt; Text
 </span><a href="Network.AWS.Lightsail.DeleteBucket.html#%24sel%3AbucketName%3ADeleteBucket%27"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679654665"><span id="local-6989586621679654667"><span class="annot"><span class="annottext">DeleteBucket -&gt; DeleteBucket -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679655696"><span id="local-6989586621679655698"><span class="annot"><span class="annottext">DeleteBucket -&gt; DeleteBucket -&gt; Bool
 (DeleteBucket -&gt; DeleteBucket -&gt; Bool)
 -&gt; (DeleteBucket -&gt; DeleteBucket -&gt; Bool) -&gt; Eq DeleteBucket
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBucket -&gt; DeleteBucket -&gt; Bool
 == :: DeleteBucket -&gt; DeleteBucket -&gt; Bool
 $c== :: DeleteBucket -&gt; DeleteBucket -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654656"><span id="local-6989586621679654658"><span id="local-6989586621679654660"><span id="local-6989586621679654662"><span class="annot"><span class="annottext">ReadPrec [DeleteBucket]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679655687"><span id="local-6989586621679655689"><span id="local-6989586621679655691"><span id="local-6989586621679655693"><span class="annot"><span class="annottext">ReadPrec [DeleteBucket]
 ReadPrec DeleteBucket
 Int -&gt; ReadS DeleteBucket
 ReadS [DeleteBucket]
@@ -106,7 +106,7 @@ readList :: ReadS [DeleteBucket]
 $creadList :: ReadS [DeleteBucket]
 readsPrec :: Int -&gt; ReadS DeleteBucket
 $creadsPrec :: Int -&gt; ReadS DeleteBucket
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654649"><span id="local-6989586621679654651"><span id="local-6989586621679654653"><span class="annot"><span class="annottext">Int -&gt; DeleteBucket -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679655680"><span id="local-6989586621679655682"><span id="local-6989586621679655684"><span class="annot"><span class="annottext">Int -&gt; DeleteBucket -&gt; ShowS
 [DeleteBucket] -&gt; ShowS
 DeleteBucket -&gt; String
 (Int -&gt; DeleteBucket -&gt; ShowS)
@@ -167,8 +167,8 @@ $cfrom :: forall x. DeleteBucket -&gt; Rep DeleteBucket x
 </span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-type">DeleteBucket</span></a></span><span>
 </span><span id="line-115"></span><span id="newDeleteBucket"><span class="annot"><span class="annottext">newDeleteBucket :: Text -&gt; DeleteBucket
-</span><a href="Network.AWS.Lightsail.DeleteBucket.html#newDeleteBucket"><span class="hs-identifier hs-var hs-var">newDeleteBucket</span></a></span></span><span> </span><span id="local-6989586621679654644"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679654644"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteBucket.html#newDeleteBucket"><span class="hs-identifier hs-var hs-var">newDeleteBucket</span></a></span></span><span> </span><span id="local-6989586621679655675"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655675"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">DeleteBucket' :: Maybe Bool -&gt; Text -&gt; DeleteBucket
 </span><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket%27"><span class="hs-identifier hs-type">DeleteBucket'</span></a></span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:forceDelete:DeleteBucket' :: Maybe Bool
@@ -177,7 +177,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketName:DeleteBucket' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteBucket.html#%24sel%3AbucketName%3ADeleteBucket%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679654644"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span>
+</span><a href="#local-6989586621679655675"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | A Boolean value that indicates whether to force delete the bucket.</span><span>
@@ -203,16 +203,16 @@ forall a. Maybe a
 -&gt; (DeleteBucket -&gt; Maybe Bool -&gt; DeleteBucket)
 -&gt; Lens DeleteBucket DeleteBucket (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket%27"><span class="hs-identifier hs-type">DeleteBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654641"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket%27"><span class="hs-identifier hs-type">DeleteBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655672"><span class="annot"><span class="annottext">Maybe Bool
 forceDelete :: Maybe Bool
 $sel:forceDelete:DeleteBucket' :: DeleteBucket -&gt; Maybe Bool
-</span><a href="#local-6989586621679654641"><span class="hs-identifier hs-var hs-var">forceDelete</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679654641"><span class="hs-identifier hs-var">forceDelete</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679654640"><span class="annot"><span class="annottext">s :: DeleteBucket
-</span><a href="#local-6989586621679654640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket%27"><span class="hs-identifier hs-type">DeleteBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679654639"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679654639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucket
-</span><a href="#local-6989586621679654640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forceDelete:DeleteBucket' :: Maybe Bool
+</span><a href="#local-6989586621679655672"><span class="hs-identifier hs-var hs-var">forceDelete</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679655672"><span class="hs-identifier hs-var">forceDelete</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679655671"><span class="annot"><span class="annottext">s :: DeleteBucket
+</span><a href="#local-6989586621679655671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket%27"><span class="hs-identifier hs-type">DeleteBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679655670"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679655670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucket
+</span><a href="#local-6989586621679655671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forceDelete:DeleteBucket' :: Maybe Bool
 </span><a href="Network.AWS.Lightsail.DeleteBucket.html#%24sel%3AforceDelete%3ADeleteBucket%27"><span class="hs-identifier hs-var">forceDelete</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679654639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-type">DeleteBucket</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679655670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-type">DeleteBucket</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The name of the bucket to delete.</span><span>
 </span><span id="line-142"></span><span class="hs-comment">--</span><span>
@@ -224,25 +224,25 @@ $sel:forceDelete:DeleteBucket' :: DeleteBucket -&gt; Maybe Bool
 -&gt; (DeleteBucket -&gt; Text -&gt; DeleteBucket)
 -&gt; Lens DeleteBucket DeleteBucket Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket%27"><span class="hs-identifier hs-type">DeleteBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654638"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket%27"><span class="hs-identifier hs-type">DeleteBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655669"><span class="annot"><span class="annottext">Text
 bucketName :: Text
 $sel:bucketName:DeleteBucket' :: DeleteBucket -&gt; Text
-</span><a href="#local-6989586621679654638"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679654638"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679654637"><span class="annot"><span class="annottext">s :: DeleteBucket
-</span><a href="#local-6989586621679654637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket%27"><span class="hs-identifier hs-type">DeleteBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679654636"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679654636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucket
-</span><a href="#local-6989586621679654637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:DeleteBucket' :: Text
+</span><a href="#local-6989586621679655669"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655669"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679655668"><span class="annot"><span class="annottext">s :: DeleteBucket
+</span><a href="#local-6989586621679655668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket%27"><span class="hs-identifier hs-type">DeleteBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679655667"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucket
+</span><a href="#local-6989586621679655668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:DeleteBucket' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteBucket.html#%24sel%3AbucketName%3ADeleteBucket%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679654636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-type">DeleteBucket</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679655667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-type">DeleteBucket</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-type">DeleteBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-type">DeleteBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse"><span class="hs-identifier hs-type">DeleteBucketResponse</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679654632"><span class="annot"><span class="annottext">request :: DeleteBucket -&gt; Request DeleteBucket
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679655663"><span class="annot"><span class="annottext">request :: DeleteBucket -&gt; Request DeleteBucket
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteBucket -&gt; Request DeleteBucket
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679654628"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679655659"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteBucket
 -&gt; ClientResponse ClientBody
@@ -266,10 +266,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679654625"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679654625"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679654624"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679654624"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679654623"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679654623"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679655656"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679655656"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679655655"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679655655"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679655654"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679655654"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; DeleteBucketResponse
 </span><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse%27"><span class="hs-identifier hs-var">DeleteBucketResponse'</span></a></span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; DeleteBucketResponse)
@@ -277,7 +277,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteBucketResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679654623"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679655654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -294,15 +294,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679654625"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679655656"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654614"><span id="local-6989586621679654616"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-type">DeleteBucket</span></a></span></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679655645"><span id="local-6989586621679655647"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-type">DeleteBucket</span></a></span></span></span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654611"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-type">DeleteBucket</span></a></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679655642"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-type">DeleteBucket</span></a></span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-type">DeleteBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679654607"><span class="annot"><span class="annottext">toHeaders :: DeleteBucket -&gt; ResponseHeaders
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679655638"><span class="annot"><span class="annottext">toHeaders :: DeleteBucket -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteBucket -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -329,15 +329,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-175"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654597"><span id="local-6989586621679654599"><span id="local-6989586621679654601"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-type">DeleteBucket</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679654595"><span class="annot"><span class="annottext">toJSON :: DeleteBucket -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket%27"><span class="hs-identifier hs-type">DeleteBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654592"><span id="local-6989586621679654593"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679655628"><span id="local-6989586621679655630"><span id="local-6989586621679655632"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-type">DeleteBucket</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679655626"><span class="annot"><span class="annottext">toJSON :: DeleteBucket -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket%27"><span class="hs-identifier hs-type">DeleteBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655623"><span id="local-6989586621679655624"><span class="annot"><span class="annottext">Maybe Bool
 Text
 bucketName :: Text
 forceDelete :: Maybe Bool
 $sel:bucketName:DeleteBucket' :: DeleteBucket -&gt; Text
 $sel:forceDelete:DeleteBucket' :: DeleteBucket -&gt; Maybe Bool
-</span><a href="#local-6989586621679654592"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679655623"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -349,26 +349,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679654593"><span class="hs-identifier hs-var">forceDelete</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679655624"><span class="hs-identifier hs-var">forceDelete</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679654592"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679655623"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-type">DeleteBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679654586"><span class="annot"><span class="annottext">toPath :: DeleteBucket -&gt; ByteString
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679655617"><span class="annot"><span class="annottext">toPath :: DeleteBucket -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteBucket -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucket"><span class="hs-identifier hs-type">DeleteBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679654582"><span class="annot"><span class="annottext">toQuery :: DeleteBucket -&gt; QueryString
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679655613"><span class="annot"><span class="annottext">toQuery :: DeleteBucket -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteBucket -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -376,7 +376,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | /See:/ 'newDeleteBucketResponse' smart constructor.</span><span>
-</span><span id="line-194"></span><span id="local-6989586621679654579"><span id="local-6989586621679654580"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse"><span class="hs-identifier hs-var">DeleteBucketResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse%27"><span class="hs-identifier hs-var">DeleteBucketResponse'</span></a></span></span><span>
+</span><span id="line-194"></span><span id="local-6989586621679655610"><span id="local-6989586621679655611"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse"><span class="hs-identifier hs-var">DeleteBucketResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse%27"><span class="hs-identifier hs-var">DeleteBucketResponse'</span></a></span></span><span>
 </span><span id="line-195"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-197"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -386,7 +386,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-200"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteBucketResponse%27"><span class="annot"><span class="annottext">DeleteBucketResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.DeleteBucket.html#%24sel%3AhttpStatus%3ADeleteBucketResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-201"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679654573"><span id="local-6989586621679654575"><span class="annot"><span class="annottext">DeleteBucketResponse -&gt; DeleteBucketResponse -&gt; Bool
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679655604"><span id="local-6989586621679655606"><span class="annot"><span class="annottext">DeleteBucketResponse -&gt; DeleteBucketResponse -&gt; Bool
 (DeleteBucketResponse -&gt; DeleteBucketResponse -&gt; Bool)
 -&gt; (DeleteBucketResponse -&gt; DeleteBucketResponse -&gt; Bool)
 -&gt; Eq DeleteBucketResponse
@@ -395,7 +395,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBucketResponse -&gt; DeleteBucketResponse -&gt; Bool
 == :: DeleteBucketResponse -&gt; DeleteBucketResponse -&gt; Bool
 $c== :: DeleteBucketResponse -&gt; DeleteBucketResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654565"><span id="local-6989586621679654567"><span id="local-6989586621679654569"><span id="local-6989586621679654571"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679655596"><span id="local-6989586621679655598"><span id="local-6989586621679655600"><span id="local-6989586621679655602"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketResponse]
 ReadPrec DeleteBucketResponse
 Int -&gt; ReadS DeleteBucketResponse
 ReadS [DeleteBucketResponse]
@@ -415,7 +415,7 @@ readList :: ReadS [DeleteBucketResponse]
 $creadList :: ReadS [DeleteBucketResponse]
 readsPrec :: Int -&gt; ReadS DeleteBucketResponse
 $creadsPrec :: Int -&gt; ReadS DeleteBucketResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654559"><span id="local-6989586621679654561"><span id="local-6989586621679654563"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679655590"><span id="local-6989586621679655592"><span id="local-6989586621679655594"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketResponse -&gt; ShowS
 [DeleteBucketResponse] -&gt; ShowS
 DeleteBucketResponse -&gt; String
 (Int -&gt; DeleteBucketResponse -&gt; ShowS)
@@ -459,8 +459,8 @@ $cfrom :: forall x. DeleteBucketResponse -&gt; Rep DeleteBucketResponse x
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-220"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse"><span class="hs-identifier hs-type">DeleteBucketResponse</span></a></span><span>
 </span><span id="line-221"></span><span id="newDeleteBucketResponse"><span class="annot"><span class="annottext">newDeleteBucketResponse :: Int -&gt; DeleteBucketResponse
-</span><a href="Network.AWS.Lightsail.DeleteBucket.html#newDeleteBucketResponse"><span class="hs-identifier hs-var hs-var">newDeleteBucketResponse</span></a></span></span><span> </span><span id="local-6989586621679654556"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679654556"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteBucket.html#newDeleteBucketResponse"><span class="hs-identifier hs-var hs-var">newDeleteBucketResponse</span></a></span></span><span> </span><span id="local-6989586621679655587"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679655587"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-222"></span><span>  </span><span class="annot"><span class="annottext">DeleteBucketResponse' :: Maybe [Operation] -&gt; Int -&gt; DeleteBucketResponse
 </span><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse%27"><span class="hs-identifier hs-type">DeleteBucketResponse'</span></a></span><span>
 </span><span id="line-223"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:DeleteBucketResponse' :: Maybe [Operation]
@@ -469,7 +469,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBucketResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteBucket.html#%24sel%3AhttpStatus%3ADeleteBucketResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679654556"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679655587"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-225"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -487,16 +487,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse%27"><span class="hs-identifier hs-type">DeleteBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654555"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse%27"><span class="hs-identifier hs-type">DeleteBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655586"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:DeleteBucketResponse' :: DeleteBucketResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679654555"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679654555"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679654554"><span class="annot"><span class="annottext">s :: DeleteBucketResponse
-</span><a href="#local-6989586621679654554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse%27"><span class="hs-identifier hs-type">DeleteBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679654553"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679654553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketResponse
-</span><a href="#local-6989586621679654554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DeleteBucketResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679655586"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679655586"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679655585"><span class="annot"><span class="annottext">s :: DeleteBucketResponse
+</span><a href="#local-6989586621679655585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse%27"><span class="hs-identifier hs-type">DeleteBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679655584"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679655584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketResponse
+</span><a href="#local-6989586621679655585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DeleteBucketResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.DeleteBucket.html#%24sel%3Aoperations%3ADeleteBucketResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679654553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse"><span class="hs-identifier hs-type">DeleteBucketResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679655584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse"><span class="hs-identifier hs-type">DeleteBucketResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; DeleteBucketResponse -&gt; f DeleteBucketResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
     -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -514,8 +514,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Operation] [Operation] [Operation] [Operation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-234"></span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#deleteBucketResponse_httpStatus"><span class="hs-identifier hs-type">deleteBucketResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse"><span class="hs-identifier hs-type">DeleteBucketResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -524,16 +524,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (DeleteBucketResponse -&gt; Int -&gt; DeleteBucketResponse)
 -&gt; Lens DeleteBucketResponse DeleteBucketResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse%27"><span class="hs-identifier hs-type">DeleteBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654549"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse%27"><span class="hs-identifier hs-type">DeleteBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655580"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteBucketResponse' :: DeleteBucketResponse -&gt; Int
-</span><a href="#local-6989586621679654549"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679654549"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679654548"><span class="annot"><span class="annottext">s :: DeleteBucketResponse
-</span><a href="#local-6989586621679654548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse%27"><span class="hs-identifier hs-type">DeleteBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679654547"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679654547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketResponse
-</span><a href="#local-6989586621679654548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBucketResponse' :: Int
+</span><a href="#local-6989586621679655580"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679655580"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679655579"><span class="annot"><span class="annottext">s :: DeleteBucketResponse
+</span><a href="#local-6989586621679655579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse%27"><span class="hs-identifier hs-type">DeleteBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679655578"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679655578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketResponse
+</span><a href="#local-6989586621679655579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBucketResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteBucket.html#%24sel%3AhttpStatus%3ADeleteBucketResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679654547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse"><span class="hs-identifier hs-type">DeleteBucketResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679655578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse"><span class="hs-identifier hs-type">DeleteBucketResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
-</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654545"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse"><span class="hs-identifier hs-type">DeleteBucketResponse</span></a></span></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679655576"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucket.html#DeleteBucketResponse"><span class="hs-identifier hs-type">DeleteBucketResponse</span></a></span></span><span>
 </span><span id="line-238"></span></pre></body></html>

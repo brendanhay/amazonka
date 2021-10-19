@@ -45,7 +45,7 @@
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newUpdateChannel' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679270301"><span id="local-6989586621679270302"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateChannel"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-var">UpdateChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateChannel%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-var">UpdateChannel'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679270540"><span id="local-6989586621679270541"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateChannel"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-var">UpdateChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateChannel%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-var">UpdateChannel'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | How long, in days, message data is kept for the channel. The retention</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">-- period can\'t be updated if the channel\'s Amazon S3 storage is</span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">-- customer-managed.</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AchannelName%3AUpdateChannel%27"><span class="annot"><span class="annottext">UpdateChannel -&gt; Text
 </span><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#%24sel%3AchannelName%3AUpdateChannel%27"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270293"><span id="local-6989586621679270295"><span class="annot"><span class="annottext">UpdateChannel -&gt; UpdateChannel -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270532"><span id="local-6989586621679270534"><span class="annot"><span class="annottext">UpdateChannel -&gt; UpdateChannel -&gt; Bool
 (UpdateChannel -&gt; UpdateChannel -&gt; Bool)
 -&gt; (UpdateChannel -&gt; UpdateChannel -&gt; Bool) -&gt; Eq UpdateChannel
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateChannel -&gt; UpdateChannel -&gt; Bool
 == :: UpdateChannel -&gt; UpdateChannel -&gt; Bool
 $c== :: UpdateChannel -&gt; UpdateChannel -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270284"><span id="local-6989586621679270286"><span id="local-6989586621679270288"><span id="local-6989586621679270290"><span class="annot"><span class="annottext">ReadPrec [UpdateChannel]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270523"><span id="local-6989586621679270525"><span id="local-6989586621679270527"><span id="local-6989586621679270529"><span class="annot"><span class="annottext">ReadPrec [UpdateChannel]
 ReadPrec UpdateChannel
 Int -&gt; ReadS UpdateChannel
 ReadS [UpdateChannel]
@@ -89,7 +89,7 @@ readList :: ReadS [UpdateChannel]
 $creadList :: ReadS [UpdateChannel]
 readsPrec :: Int -&gt; ReadS UpdateChannel
 $creadsPrec :: Int -&gt; ReadS UpdateChannel
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270277"><span id="local-6989586621679270279"><span id="local-6989586621679270281"><span class="annot"><span class="annottext">Int -&gt; UpdateChannel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270516"><span id="local-6989586621679270518"><span id="local-6989586621679270520"><span class="annot"><span class="annottext">Int -&gt; UpdateChannel -&gt; ShowS
 [UpdateChannel] -&gt; ShowS
 UpdateChannel -&gt; String
 (Int -&gt; UpdateChannel -&gt; ShowS)
@@ -138,8 +138,8 @@ $cfrom :: forall x. UpdateChannel -&gt; Rep UpdateChannel x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span><span>
 </span><span id="line-85"></span><span id="newUpdateChannel"><span class="annot"><span class="annottext">newUpdateChannel :: Text -&gt; UpdateChannel
-</span><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#newUpdateChannel"><span class="hs-identifier hs-var hs-var">newUpdateChannel</span></a></span></span><span> </span><span id="local-6989586621679270272"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270272"><span class="hs-identifier hs-var">pChannelName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#newUpdateChannel"><span class="hs-identifier hs-var hs-var">newUpdateChannel</span></a></span></span><span> </span><span id="local-6989586621679270511"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270511"><span class="hs-identifier hs-var">pChannelName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">UpdateChannel' :: Maybe RetentionPeriod
 -&gt; Maybe ChannelStorage -&gt; Text -&gt; UpdateChannel
 </span><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-type">UpdateChannel'</span></a></span><span>
@@ -153,7 +153,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelName:UpdateChannel' :: Text
 </span><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#%24sel%3AchannelName%3AUpdateChannel%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270272"><span class="hs-identifier hs-var">pChannelName_</span></a></span><span>
+</span><a href="#local-6989586621679270511"><span class="hs-identifier hs-var">pChannelName_</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | How long, in days, message data is kept for the channel. The retention</span><span>
@@ -170,16 +170,16 @@ forall a. Maybe a
      (Maybe RetentionPeriod)
      (Maybe RetentionPeriod)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-type">UpdateChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270269"><span class="annot"><span class="annottext">Maybe RetentionPeriod
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-type">UpdateChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270508"><span class="annot"><span class="annottext">Maybe RetentionPeriod
 retentionPeriod :: Maybe RetentionPeriod
 $sel:retentionPeriod:UpdateChannel' :: UpdateChannel -&gt; Maybe RetentionPeriod
-</span><a href="#local-6989586621679270269"><span class="hs-identifier hs-var hs-var">retentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionPeriod
-</span><a href="#local-6989586621679270269"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270268"><span class="annot"><span class="annottext">s :: UpdateChannel
-</span><a href="#local-6989586621679270268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-type">UpdateChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270267"><span class="annot"><span class="annottext">Maybe RetentionPeriod
-</span><a href="#local-6989586621679270267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateChannel
-</span><a href="#local-6989586621679270268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionPeriod:UpdateChannel' :: Maybe RetentionPeriod
+</span><a href="#local-6989586621679270508"><span class="hs-identifier hs-var hs-var">retentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionPeriod
+</span><a href="#local-6989586621679270508"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270507"><span class="annot"><span class="annottext">s :: UpdateChannel
+</span><a href="#local-6989586621679270507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-type">UpdateChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270506"><span class="annot"><span class="annottext">Maybe RetentionPeriod
+</span><a href="#local-6989586621679270506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateChannel
+</span><a href="#local-6989586621679270507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionPeriod:UpdateChannel' :: Maybe RetentionPeriod
 </span><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#%24sel%3AretentionPeriod%3AUpdateChannel%27"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionPeriod
-</span><a href="#local-6989586621679270267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | Where channel data is stored. You can choose one of @serviceManagedS3@</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- or @customerManagedS3@ storage. If not specified, the default is</span><span>
@@ -196,16 +196,16 @@ $sel:retentionPeriod:UpdateChannel' :: UpdateChannel -&gt; Maybe RetentionPeriod
      (Maybe ChannelStorage)
      (Maybe ChannelStorage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-type">UpdateChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270266"><span class="annot"><span class="annottext">Maybe ChannelStorage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-type">UpdateChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270505"><span class="annot"><span class="annottext">Maybe ChannelStorage
 channelStorage :: Maybe ChannelStorage
 $sel:channelStorage:UpdateChannel' :: UpdateChannel -&gt; Maybe ChannelStorage
-</span><a href="#local-6989586621679270266"><span class="hs-identifier hs-var hs-var">channelStorage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelStorage
-</span><a href="#local-6989586621679270266"><span class="hs-identifier hs-var">channelStorage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270265"><span class="annot"><span class="annottext">s :: UpdateChannel
-</span><a href="#local-6989586621679270265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-type">UpdateChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270264"><span class="annot"><span class="annottext">Maybe ChannelStorage
-</span><a href="#local-6989586621679270264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateChannel
-</span><a href="#local-6989586621679270265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelStorage:UpdateChannel' :: Maybe ChannelStorage
+</span><a href="#local-6989586621679270505"><span class="hs-identifier hs-var hs-var">channelStorage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelStorage
+</span><a href="#local-6989586621679270505"><span class="hs-identifier hs-var">channelStorage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270504"><span class="annot"><span class="annottext">s :: UpdateChannel
+</span><a href="#local-6989586621679270504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-type">UpdateChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270503"><span class="annot"><span class="annottext">Maybe ChannelStorage
+</span><a href="#local-6989586621679270503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateChannel
+</span><a href="#local-6989586621679270504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelStorage:UpdateChannel' :: Maybe ChannelStorage
 </span><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#%24sel%3AchannelStorage%3AUpdateChannel%27"><span class="hs-identifier hs-var">channelStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelStorage
-</span><a href="#local-6989586621679270264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The name of the channel to be updated.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#updateChannel_channelName"><span class="hs-identifier hs-type">updateChannel_channelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -214,27 +214,27 @@ $sel:channelStorage:UpdateChannel' :: UpdateChannel -&gt; Maybe ChannelStorage
 -&gt; (UpdateChannel -&gt; Text -&gt; UpdateChannel)
 -&gt; Lens UpdateChannel UpdateChannel Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-type">UpdateChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270263"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-type">UpdateChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270502"><span class="annot"><span class="annottext">Text
 channelName :: Text
 $sel:channelName:UpdateChannel' :: UpdateChannel -&gt; Text
-</span><a href="#local-6989586621679270263"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270263"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270262"><span class="annot"><span class="annottext">s :: UpdateChannel
-</span><a href="#local-6989586621679270262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-type">UpdateChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270261"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateChannel
-</span><a href="#local-6989586621679270262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelName:UpdateChannel' :: Text
+</span><a href="#local-6989586621679270502"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270502"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270501"><span class="annot"><span class="annottext">s :: UpdateChannel
+</span><a href="#local-6989586621679270501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-type">UpdateChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270500"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateChannel
+</span><a href="#local-6989586621679270501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelName:UpdateChannel' :: Text
 </span><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#%24sel%3AchannelName%3AUpdateChannel%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-111"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannelResponse"><span class="hs-identifier hs-type">UpdateChannelResponse</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679270257"><span class="annot"><span class="annottext">request :: UpdateChannel -&gt; Request UpdateChannel
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679270496"><span class="annot"><span class="annottext">request :: UpdateChannel -&gt; Request UpdateChannel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateChannel -&gt; Request UpdateChannel
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679270253"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679270492"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateChannel
 -&gt; ClientResponse ClientBody
@@ -258,21 +258,21 @@ AWSResponse a
 UpdateChannelResponse
 </span><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannelResponse%27"><span class="hs-identifier hs-var">UpdateChannelResponse'</span></a></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270246"><span id="local-6989586621679270248"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270485"><span id="local-6989586621679270487"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270243"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270482"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679270239"><span class="annot"><span class="annottext">toHeaders :: UpdateChannel -&gt; [Header]
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679270478"><span class="annot"><span class="annottext">toHeaders :: UpdateChannel -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateChannel -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270230"><span id="local-6989586621679270232"><span id="local-6989586621679270234"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679270228"><span class="annot"><span class="annottext">toJSON :: UpdateChannel -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-type">UpdateChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270224"><span id="local-6989586621679270225"><span id="local-6989586621679270226"><span class="annot"><span class="annottext">Maybe RetentionPeriod
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270469"><span id="local-6989586621679270471"><span id="local-6989586621679270473"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679270467"><span class="annot"><span class="annottext">toJSON :: UpdateChannel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-type">UpdateChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270463"><span id="local-6989586621679270464"><span id="local-6989586621679270465"><span class="annot"><span class="annottext">Maybe RetentionPeriod
 Maybe ChannelStorage
 Text
 channelName :: Text
@@ -281,7 +281,7 @@ retentionPeriod :: Maybe RetentionPeriod
 $sel:channelName:UpdateChannel' :: UpdateChannel -&gt; Text
 $sel:channelStorage:UpdateChannel' :: UpdateChannel -&gt; Maybe ChannelStorage
 $sel:retentionPeriod:UpdateChannel' :: UpdateChannel -&gt; Maybe RetentionPeriod
-</span><a href="#local-6989586621679270224"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679270463"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -294,7 +294,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">(RetentionPeriod -&gt; Pair) -&gt; Maybe RetentionPeriod -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RetentionPeriod
-</span><a href="#local-6989586621679270226"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270465"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;channelStorage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ChannelStorage -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -302,13 +302,13 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">(ChannelStorage -&gt; Pair) -&gt; Maybe ChannelStorage -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ChannelStorage
-</span><a href="#local-6989586621679270225"><span class="hs-identifier hs-var">channelStorage</span></a></span><span>
+</span><a href="#local-6989586621679270464"><span class="hs-identifier hs-var">channelStorage</span></a></span><span>
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679270217"><span class="annot"><span class="annottext">toPath :: UpdateChannel -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-type">UpdateChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270213"><span id="local-6989586621679270214"><span id="local-6989586621679270215"><span class="annot"><span class="annottext">Maybe RetentionPeriod
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679270456"><span class="annot"><span class="annottext">toPath :: UpdateChannel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel%27"><span class="hs-identifier hs-type">UpdateChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270452"><span id="local-6989586621679270453"><span id="local-6989586621679270454"><span class="annot"><span class="annottext">Maybe RetentionPeriod
 Maybe ChannelStorage
 Text
 channelName :: Text
@@ -317,7 +317,7 @@ retentionPeriod :: Maybe RetentionPeriod
 $sel:channelName:UpdateChannel' :: UpdateChannel -&gt; Text
 $sel:channelStorage:UpdateChannel' :: UpdateChannel -&gt; Maybe ChannelStorage
 $sel:retentionPeriod:UpdateChannel' :: UpdateChannel -&gt; Maybe RetentionPeriod
-</span><a href="#local-6989586621679270213"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679270452"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -325,10 +325,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/channels/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270213"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679270452"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannel"><span class="hs-identifier hs-type">UpdateChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679270209"><span class="annot"><span class="annottext">toQuery :: UpdateChannel -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679270448"><span class="annot"><span class="annottext">toQuery :: UpdateChannel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateChannel -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -336,10 +336,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newUpdateChannelResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679270206"><span id="local-6989586621679270207"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateChannelResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannelResponse"><span class="hs-identifier hs-var">UpdateChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateChannelResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannelResponse%27"><span class="hs-identifier hs-var">UpdateChannelResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679270445"><span id="local-6989586621679270446"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateChannelResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannelResponse"><span class="hs-identifier hs-var">UpdateChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateChannelResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannelResponse%27"><span class="hs-identifier hs-var">UpdateChannelResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270202"><span id="local-6989586621679270204"><span class="annot"><span class="annottext">UpdateChannelResponse -&gt; UpdateChannelResponse -&gt; Bool
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270441"><span id="local-6989586621679270443"><span class="annot"><span class="annottext">UpdateChannelResponse -&gt; UpdateChannelResponse -&gt; Bool
 (UpdateChannelResponse -&gt; UpdateChannelResponse -&gt; Bool)
 -&gt; (UpdateChannelResponse -&gt; UpdateChannelResponse -&gt; Bool)
 -&gt; Eq UpdateChannelResponse
@@ -348,7 +348,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateChannelResponse -&gt; UpdateChannelResponse -&gt; Bool
 == :: UpdateChannelResponse -&gt; UpdateChannelResponse -&gt; Bool
 $c== :: UpdateChannelResponse -&gt; UpdateChannelResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270194"><span id="local-6989586621679270196"><span id="local-6989586621679270198"><span id="local-6989586621679270200"><span class="annot"><span class="annottext">ReadPrec [UpdateChannelResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270433"><span id="local-6989586621679270435"><span id="local-6989586621679270437"><span id="local-6989586621679270439"><span class="annot"><span class="annottext">ReadPrec [UpdateChannelResponse]
 ReadPrec UpdateChannelResponse
 Int -&gt; ReadS UpdateChannelResponse
 ReadS [UpdateChannelResponse]
@@ -368,7 +368,7 @@ readList :: ReadS [UpdateChannelResponse]
 $creadList :: ReadS [UpdateChannelResponse]
 readsPrec :: Int -&gt; ReadS UpdateChannelResponse
 $creadsPrec :: Int -&gt; ReadS UpdateChannelResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270188"><span id="local-6989586621679270190"><span id="local-6989586621679270192"><span class="annot"><span class="annottext">Int -&gt; UpdateChannelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270427"><span id="local-6989586621679270429"><span id="local-6989586621679270431"><span class="annot"><span class="annottext">Int -&gt; UpdateChannelResponse -&gt; ShowS
 [UpdateChannelResponse] -&gt; ShowS
 UpdateChannelResponse -&gt; String
 (Int -&gt; UpdateChannelResponse -&gt; ShowS)
@@ -404,5 +404,5 @@ $cfrom :: forall x. UpdateChannelResponse -&gt; Rep UpdateChannelResponse x
 </span><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#newUpdateChannelResponse"><span class="hs-identifier hs-var hs-var">newUpdateChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateChannelResponse
 </span><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannelResponse%27"><span class="hs-identifier hs-var">UpdateChannelResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270184"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannelResponse"><span class="hs-identifier hs-type">UpdateChannelResponse</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270423"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateChannel.html#UpdateChannelResponse"><span class="hs-identifier hs-type">UpdateChannelResponse</span></a></span></span><span>
 </span><span id="line-158"></span></pre></body></html>

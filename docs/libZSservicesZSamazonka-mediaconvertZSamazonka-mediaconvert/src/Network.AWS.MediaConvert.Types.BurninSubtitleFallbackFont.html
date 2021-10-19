@@ -41,13 +41,13 @@
 </span><span id="line-41"></span><span class="hs-comment">-- each font with the supported font that matches best. When you explicitly</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- choose a replacement font, MediaConvert uses that font to replace all</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- unsupported fonts from your input.</span><span>
-</span><span id="line-44"></span><span id="local-6989586621679941028"><span id="local-6989586621679941029"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BurninSubtitleFallbackFont"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleFallbackFont.html#BurninSubtitleFallbackFont"><span class="hs-identifier hs-var">BurninSubtitleFallbackFont</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BurninSubtitleFallbackFont%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleFallbackFont.html#BurninSubtitleFallbackFont%27"><span class="hs-identifier hs-var">BurninSubtitleFallbackFont'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679945650"><span id="local-6989586621679945651"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BurninSubtitleFallbackFont"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleFallbackFont.html#BurninSubtitleFallbackFont"><span class="hs-identifier hs-var">BurninSubtitleFallbackFont</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BurninSubtitleFallbackFont%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.BurninSubtitleFallbackFont.html#BurninSubtitleFallbackFont%27"><span class="hs-identifier hs-var">BurninSubtitleFallbackFont'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBurninSubtitleFallbackFont"><span class="annot"><span class="annottext">BurninSubtitleFallbackFont -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.BurninSubtitleFallbackFont.html#fromBurninSubtitleFallbackFont"><span class="hs-identifier hs-var hs-var">fromBurninSubtitleFallbackFont</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679941020"><span id="local-6989586621679941022"><span id="local-6989586621679941024"><span class="annot"><span class="annottext">Int -&gt; BurninSubtitleFallbackFont -&gt; ShowS
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679945642"><span id="local-6989586621679945644"><span id="local-6989586621679945646"><span class="annot"><span class="annottext">Int -&gt; BurninSubtitleFallbackFont -&gt; ShowS
 [BurninSubtitleFallbackFont] -&gt; ShowS
 BurninSubtitleFallbackFont -&gt; String
 (Int -&gt; BurninSubtitleFallbackFont -&gt; ShowS)
@@ -63,7 +63,7 @@ $cshow :: BurninSubtitleFallbackFont -&gt; String
 showsPrec :: Int -&gt; BurninSubtitleFallbackFont -&gt; ShowS
 $cshowsPrec :: Int -&gt; BurninSubtitleFallbackFont -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679941011"><span id="local-6989586621679941013"><span id="local-6989586621679941015"><span id="local-6989586621679941017"><span class="annot"><span class="annottext">ReadPrec [BurninSubtitleFallbackFont]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679945633"><span id="local-6989586621679945635"><span id="local-6989586621679945637"><span id="local-6989586621679945639"><span class="annot"><span class="annottext">ReadPrec [BurninSubtitleFallbackFont]
 ReadPrec BurninSubtitleFallbackFont
 Int -&gt; ReadS BurninSubtitleFallbackFont
 ReadS [BurninSubtitleFallbackFont]
@@ -84,7 +84,7 @@ $creadList :: ReadS [BurninSubtitleFallbackFont]
 readsPrec :: Int -&gt; ReadS BurninSubtitleFallbackFont
 $creadsPrec :: Int -&gt; ReadS BurninSubtitleFallbackFont
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679941006"><span id="local-6989586621679941008"><span class="annot"><span class="annottext">BurninSubtitleFallbackFont -&gt; BurninSubtitleFallbackFont -&gt; Bool
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679945628"><span id="local-6989586621679945630"><span class="annot"><span class="annottext">BurninSubtitleFallbackFont -&gt; BurninSubtitleFallbackFont -&gt; Bool
 (BurninSubtitleFallbackFont -&gt; BurninSubtitleFallbackFont -&gt; Bool)
 -&gt; (BurninSubtitleFallbackFont
     -&gt; BurninSubtitleFallbackFont -&gt; Bool)
@@ -95,7 +95,7 @@ $c/= :: BurninSubtitleFallbackFont -&gt; BurninSubtitleFallbackFont -&gt; Bool
 == :: BurninSubtitleFallbackFont -&gt; BurninSubtitleFallbackFont -&gt; Bool
 $c== :: BurninSubtitleFallbackFont -&gt; BurninSubtitleFallbackFont -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679940990"><span id="local-6989586621679940992"><span id="local-6989586621679940994"><span id="local-6989586621679940996"><span id="local-6989586621679940998"><span id="local-6989586621679941000"><span id="local-6989586621679941002"><span class="annot"><span class="annottext">Eq BurninSubtitleFallbackFont
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679945612"><span id="local-6989586621679945614"><span id="local-6989586621679945616"><span id="local-6989586621679945618"><span id="local-6989586621679945620"><span id="local-6989586621679945622"><span id="local-6989586621679945624"><span class="annot"><span class="annottext">Eq BurninSubtitleFallbackFont
 Eq BurninSubtitleFallbackFont
 -&gt; (BurninSubtitleFallbackFont
     -&gt; BurninSubtitleFallbackFont -&gt; Ordering)
@@ -167,7 +167,7 @@ BurninSubtitleFallbackFont -&gt; Rep BurninSubtitleFallbackFont x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679940982"><span id="local-6989586621679940984"><span class="annot"><span class="annottext">Int -&gt; BurninSubtitleFallbackFont -&gt; Int
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679945604"><span id="local-6989586621679945606"><span class="annot"><span class="annottext">Int -&gt; BurninSubtitleFallbackFont -&gt; Int
 BurninSubtitleFallbackFont -&gt; Int
 (Int -&gt; BurninSubtitleFallbackFont -&gt; Int)
 -&gt; (BurninSubtitleFallbackFont -&gt; Int)
@@ -178,56 +178,56 @@ $chash :: BurninSubtitleFallbackFont -&gt; Int
 hashWithSalt :: Int -&gt; BurninSubtitleFallbackFont -&gt; Int
 $chashWithSalt :: Int -&gt; BurninSubtitleFallbackFont -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679940979"><span class="annot"><span class="annottext">BurninSubtitleFallbackFont -&gt; ()
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679945601"><span class="annot"><span class="annottext">BurninSubtitleFallbackFont -&gt; ()
 (BurninSubtitleFallbackFont -&gt; ())
 -&gt; NFData BurninSubtitleFallbackFont
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BurninSubtitleFallbackFont -&gt; ()
 $crnf :: BurninSubtitleFallbackFont -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679940976"><span class="annot"><span class="annottext">Text -&gt; Either String BurninSubtitleFallbackFont
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679945598"><span class="annot"><span class="annottext">Text -&gt; Either String BurninSubtitleFallbackFont
 (Text -&gt; Either String BurninSubtitleFallbackFont)
 -&gt; FromText BurninSubtitleFallbackFont
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BurninSubtitleFallbackFont
 $cfromText :: Text -&gt; Either String BurninSubtitleFallbackFont
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679940973"><span class="annot"><span class="annottext">BurninSubtitleFallbackFont -&gt; Text
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679945595"><span class="annot"><span class="annottext">BurninSubtitleFallbackFont -&gt; Text
 (BurninSubtitleFallbackFont -&gt; Text)
 -&gt; ToText BurninSubtitleFallbackFont
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BurninSubtitleFallbackFont -&gt; Text
 $ctoText :: BurninSubtitleFallbackFont -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679940970"><span class="annot"><span class="annottext">BurninSubtitleFallbackFont -&gt; ByteString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679945592"><span class="annot"><span class="annottext">BurninSubtitleFallbackFont -&gt; ByteString
 (BurninSubtitleFallbackFont -&gt; ByteString)
 -&gt; ToByteString BurninSubtitleFallbackFont
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BurninSubtitleFallbackFont -&gt; ByteString
 $ctoBS :: BurninSubtitleFallbackFont -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679940967"><span class="annot"><span class="annottext">BurninSubtitleFallbackFont -&gt; ByteStringBuilder
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679945589"><span class="annot"><span class="annottext">BurninSubtitleFallbackFont -&gt; ByteStringBuilder
 (BurninSubtitleFallbackFont -&gt; ByteStringBuilder)
 -&gt; ToLog BurninSubtitleFallbackFont
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BurninSubtitleFallbackFont -&gt; ByteStringBuilder
 $cbuild :: BurninSubtitleFallbackFont -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679940964"><span class="annot"><span class="annottext">HeaderName -&gt; BurninSubtitleFallbackFont -&gt; [Header]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679945586"><span class="annot"><span class="annottext">HeaderName -&gt; BurninSubtitleFallbackFont -&gt; [Header]
 (HeaderName -&gt; BurninSubtitleFallbackFont -&gt; [Header])
 -&gt; ToHeader BurninSubtitleFallbackFont
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BurninSubtitleFallbackFont -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BurninSubtitleFallbackFont -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679940961"><span class="annot"><span class="annottext">BurninSubtitleFallbackFont -&gt; QueryString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679945583"><span class="annot"><span class="annottext">BurninSubtitleFallbackFont -&gt; QueryString
 (BurninSubtitleFallbackFont -&gt; QueryString)
 -&gt; ToQuery BurninSubtitleFallbackFont
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BurninSubtitleFallbackFont -&gt; QueryString
 $ctoQuery :: BurninSubtitleFallbackFont -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679940956"><span id="local-6989586621679940958"><span class="annot"><span class="annottext">Value -&gt; Parser [BurninSubtitleFallbackFont]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679945578"><span id="local-6989586621679945580"><span class="annot"><span class="annottext">Value -&gt; Parser [BurninSubtitleFallbackFont]
 Value -&gt; Parser BurninSubtitleFallbackFont
 (Value -&gt; Parser BurninSubtitleFallbackFont)
 -&gt; (Value -&gt; Parser [BurninSubtitleFallbackFont])
@@ -239,7 +239,7 @@ $cparseJSONList :: Value -&gt; Parser [BurninSubtitleFallbackFont]
 parseJSON :: Value -&gt; Parser BurninSubtitleFallbackFont
 $cparseJSON :: Value -&gt; Parser BurninSubtitleFallbackFont
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679940951"><span id="local-6989586621679940953"><span class="annot"><span class="annottext">FromJSONKeyFunction [BurninSubtitleFallbackFont]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679945573"><span id="local-6989586621679945575"><span class="annot"><span class="annottext">FromJSONKeyFunction [BurninSubtitleFallbackFont]
 FromJSONKeyFunction BurninSubtitleFallbackFont
 FromJSONKeyFunction BurninSubtitleFallbackFont
 -&gt; FromJSONKeyFunction [BurninSubtitleFallbackFont]
@@ -251,7 +251,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BurninSubtitleFallbackFont]
 fromJSONKey :: FromJSONKeyFunction BurninSubtitleFallbackFont
 $cfromJSONKey :: FromJSONKeyFunction BurninSubtitleFallbackFont
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679940942"><span id="local-6989586621679940944"><span id="local-6989586621679940946"><span id="local-6989586621679940948"><span class="annot"><span class="annottext">[BurninSubtitleFallbackFont] -&gt; Encoding
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679945564"><span id="local-6989586621679945566"><span id="local-6989586621679945568"><span id="local-6989586621679945570"><span class="annot"><span class="annottext">[BurninSubtitleFallbackFont] -&gt; Encoding
 [BurninSubtitleFallbackFont] -&gt; Value
 BurninSubtitleFallbackFont -&gt; Encoding
 BurninSubtitleFallbackFont -&gt; Value
@@ -275,7 +275,7 @@ $ctoEncoding :: BurninSubtitleFallbackFont -&gt; Encoding
 toJSON :: BurninSubtitleFallbackFont -&gt; Value
 $ctoJSON :: BurninSubtitleFallbackFont -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679940937"><span id="local-6989586621679940939"><span class="annot"><span class="annottext">ToJSONKeyFunction [BurninSubtitleFallbackFont]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679945559"><span id="local-6989586621679945561"><span class="annot"><span class="annottext">ToJSONKeyFunction [BurninSubtitleFallbackFont]
 ToJSONKeyFunction BurninSubtitleFallbackFont
 ToJSONKeyFunction BurninSubtitleFallbackFont
 -&gt; ToJSONKeyFunction [BurninSubtitleFallbackFont]
@@ -287,14 +287,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BurninSubtitleFallbackFont]
 toJSONKey :: ToJSONKeyFunction BurninSubtitleFallbackFont
 $ctoJSONKey :: ToJSONKeyFunction BurninSubtitleFallbackFont
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679940934"><span class="annot"><span class="annottext">[Node] -&gt; Either String BurninSubtitleFallbackFont
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679945556"><span class="annot"><span class="annottext">[Node] -&gt; Either String BurninSubtitleFallbackFont
 ([Node] -&gt; Either String BurninSubtitleFallbackFont)
 -&gt; FromXML BurninSubtitleFallbackFont
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BurninSubtitleFallbackFont
 $cparseXML :: [Node] -&gt; Either String BurninSubtitleFallbackFont
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679940931"><span class="annot"><span class="annottext">BurninSubtitleFallbackFont -&gt; XML
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679945553"><span class="annot"><span class="annottext">BurninSubtitleFallbackFont -&gt; XML
 (BurninSubtitleFallbackFont -&gt; XML)
 -&gt; ToXML BurninSubtitleFallbackFont
 forall a. (a -&gt; XML) -&gt; ToXML a

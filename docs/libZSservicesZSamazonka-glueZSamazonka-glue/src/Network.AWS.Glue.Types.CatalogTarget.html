@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies an Glue Data Catalog target.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCatalogTarget' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679678436"><span id="local-6989586621679678437"></span></span><span class="hs-keyword">data</span><span> </span><span id="CatalogTarget"><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-var">CatalogTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CatalogTarget%27"><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget%27"><span class="hs-identifier hs-var">CatalogTarget'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679680076"><span id="local-6989586621679680077"></span></span><span class="hs-keyword">data</span><span> </span><span id="CatalogTarget"><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-var">CatalogTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CatalogTarget%27"><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget%27"><span class="hs-identifier hs-var">CatalogTarget'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the database to be synchronized.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AdatabaseName%3ACatalogTarget%27"><span class="annot"><span class="annottext">CatalogTarget -&gt; Text
 </span><a href="Network.AWS.Glue.Types.CatalogTarget.html#%24sel%3AdatabaseName%3ACatalogTarget%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Atables%3ACatalogTarget%27"><span class="annot"><span class="annottext">CatalogTarget -&gt; NonEmpty Text
 </span><a href="Network.AWS.Glue.Types.CatalogTarget.html#%24sel%3Atables%3ACatalogTarget%27"><span class="hs-identifier hs-var hs-var">tables</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679678429"><span id="local-6989586621679678431"><span class="annot"><span class="annottext">CatalogTarget -&gt; CatalogTarget -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679680069"><span id="local-6989586621679680071"><span class="annot"><span class="annottext">CatalogTarget -&gt; CatalogTarget -&gt; Bool
 (CatalogTarget -&gt; CatalogTarget -&gt; Bool)
 -&gt; (CatalogTarget -&gt; CatalogTarget -&gt; Bool) -&gt; Eq CatalogTarget
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CatalogTarget -&gt; CatalogTarget -&gt; Bool
 == :: CatalogTarget -&gt; CatalogTarget -&gt; Bool
 $c== :: CatalogTarget -&gt; CatalogTarget -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679678420"><span id="local-6989586621679678422"><span id="local-6989586621679678424"><span id="local-6989586621679678426"><span class="annot"><span class="annottext">ReadPrec [CatalogTarget]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679680060"><span id="local-6989586621679680062"><span id="local-6989586621679680064"><span id="local-6989586621679680066"><span class="annot"><span class="annottext">ReadPrec [CatalogTarget]
 ReadPrec CatalogTarget
 Int -&gt; ReadS CatalogTarget
 ReadS [CatalogTarget]
@@ -62,7 +62,7 @@ readList :: ReadS [CatalogTarget]
 $creadList :: ReadS [CatalogTarget]
 readsPrec :: Int -&gt; ReadS CatalogTarget
 $creadsPrec :: Int -&gt; ReadS CatalogTarget
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679678413"><span id="local-6989586621679678415"><span id="local-6989586621679678417"><span class="annot"><span class="annottext">Int -&gt; CatalogTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679680053"><span id="local-6989586621679680055"><span id="local-6989586621679680057"><span class="annot"><span class="annottext">Int -&gt; CatalogTarget -&gt; ShowS
 [CatalogTarget] -&gt; ShowS
 CatalogTarget -&gt; String
 (Int -&gt; CatalogTarget -&gt; ShowS)
@@ -106,24 +106,24 @@ $cfrom :: forall x. CatalogTarget -&gt; Rep CatalogTarget x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span><span>
 </span><span id="line-54"></span><span id="newCatalogTarget"><span class="annot"><span class="annottext">newCatalogTarget :: Text -&gt; NonEmpty Text -&gt; CatalogTarget
-</span><a href="Network.AWS.Glue.Types.CatalogTarget.html#newCatalogTarget"><span class="hs-identifier hs-var hs-var">newCatalogTarget</span></a></span></span><span> </span><span id="local-6989586621679678407"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679678407"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span id="local-6989586621679678406"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679678406"><span class="hs-identifier hs-var">pTables_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.Types.CatalogTarget.html#newCatalogTarget"><span class="hs-identifier hs-var hs-var">newCatalogTarget</span></a></span></span><span> </span><span id="local-6989586621679680047"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679680047"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span id="local-6989586621679680046"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679680046"><span class="hs-identifier hs-var">pTables_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">CatalogTarget' :: Text -&gt; NonEmpty Text -&gt; CatalogTarget
 </span><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget%27"><span class="hs-identifier hs-type">CatalogTarget'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:databaseName:CatalogTarget' :: Text
 </span><a href="Network.AWS.Glue.Types.CatalogTarget.html#%24sel%3AdatabaseName%3ACatalogTarget%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679678407"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679680047"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:tables:CatalogTarget' :: NonEmpty Text
 </span><a href="Network.AWS.Glue.Types.CatalogTarget.html#%24sel%3Atables%3ACatalogTarget%27"><span class="hs-identifier hs-var">tables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679678406"><span class="hs-identifier hs-var">pTables_</span></a></span><span>
+</span><a href="#local-6989586621679680046"><span class="hs-identifier hs-var">pTables_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The name of the database to be synchronized.</span><span>
@@ -133,16 +133,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (CatalogTarget -&gt; Text -&gt; CatalogTarget)
 -&gt; Lens CatalogTarget CatalogTarget Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget%27"><span class="hs-identifier hs-type">CatalogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678400"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget%27"><span class="hs-identifier hs-type">CatalogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680040"><span class="annot"><span class="annottext">Text
 databaseName :: Text
 $sel:databaseName:CatalogTarget' :: CatalogTarget -&gt; Text
-</span><a href="#local-6989586621679678400"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679678400"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678399"><span class="annot"><span class="annottext">s :: CatalogTarget
-</span><a href="#local-6989586621679678399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget%27"><span class="hs-identifier hs-type">CatalogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678398"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679678398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CatalogTarget
-</span><a href="#local-6989586621679678399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:CatalogTarget' :: Text
+</span><a href="#local-6989586621679680040"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679680040"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679680039"><span class="annot"><span class="annottext">s :: CatalogTarget
+</span><a href="#local-6989586621679680039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget%27"><span class="hs-identifier hs-type">CatalogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679680038"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679680038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CatalogTarget
+</span><a href="#local-6989586621679680039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:CatalogTarget' :: Text
 </span><a href="Network.AWS.Glue.Types.CatalogTarget.html#%24sel%3AdatabaseName%3ACatalogTarget%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679678398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679680038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | A list of the tables to be synchronized.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#catalogTarget_tables"><span class="hs-identifier hs-type">catalogTarget_tables</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -152,16 +152,16 @@ $sel:databaseName:CatalogTarget' :: CatalogTarget -&gt; Text
 -&gt; (CatalogTarget -&gt; NonEmpty Text -&gt; CatalogTarget)
 -&gt; Lens CatalogTarget CatalogTarget (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget%27"><span class="hs-identifier hs-type">CatalogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678396"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget%27"><span class="hs-identifier hs-type">CatalogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680036"><span class="annot"><span class="annottext">NonEmpty Text
 tables :: NonEmpty Text
 $sel:tables:CatalogTarget' :: CatalogTarget -&gt; NonEmpty Text
-</span><a href="#local-6989586621679678396"><span class="hs-identifier hs-var hs-var">tables</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679678396"><span class="hs-identifier hs-var">tables</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678395"><span class="annot"><span class="annottext">s :: CatalogTarget
-</span><a href="#local-6989586621679678395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget%27"><span class="hs-identifier hs-type">CatalogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678394"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679678394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CatalogTarget
-</span><a href="#local-6989586621679678395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tables:CatalogTarget' :: NonEmpty Text
+</span><a href="#local-6989586621679680036"><span class="hs-identifier hs-var hs-var">tables</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679680036"><span class="hs-identifier hs-var">tables</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679680035"><span class="annot"><span class="annottext">s :: CatalogTarget
+</span><a href="#local-6989586621679680035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget%27"><span class="hs-identifier hs-type">CatalogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679680034"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679680034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CatalogTarget
+</span><a href="#local-6989586621679680035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tables:CatalogTarget' :: NonEmpty Text
 </span><a href="Network.AWS.Glue.Types.CatalogTarget.html#%24sel%3Atables%3ACatalogTarget%27"><span class="hs-identifier hs-var">tables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679678394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679680034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; CatalogTarget -&gt; f CatalogTarget)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -171,11 +171,11 @@ $sel:tables:CatalogTarget' :: CatalogTarget -&gt; NonEmpty Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678390"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679678388"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CatalogTarget
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680030"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679680028"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CatalogTarget
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CatalogTarget)
@@ -185,15 +185,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CatalogTarget&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679678385"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679678385"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679680025"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679680025"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; CatalogTarget
 </span><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget%27"><span class="hs-identifier hs-var">CatalogTarget'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; NonEmpty Text -&gt; CatalogTarget)
 -&gt; Parser Text -&gt; Parser (NonEmpty Text -&gt; CatalogTarget)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679678385"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679680025"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span class="hs-special">)</span><span>
@@ -201,25 +201,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (NonEmpty Text) -&gt; Parser CatalogTarget
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679678385"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
+</span><a href="#local-6989586621679680025"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tables&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678379"><span id="local-6989586621679678381"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680019"><span id="local-6989586621679680021"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678376"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680016"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678368"><span id="local-6989586621679678370"><span id="local-6989586621679678372"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679678366"><span class="annot"><span class="annottext">toJSON :: CatalogTarget -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget%27"><span class="hs-identifier hs-type">CatalogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678363"><span id="local-6989586621679678364"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680008"><span id="local-6989586621679680010"><span id="local-6989586621679680012"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679680006"><span class="annot"><span class="annottext">toJSON :: CatalogTarget -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget%27"><span class="hs-identifier hs-type">CatalogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680003"><span id="local-6989586621679680004"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 tables :: NonEmpty Text
 databaseName :: Text
 $sel:tables:CatalogTarget' :: CatalogTarget -&gt; NonEmpty Text
 $sel:databaseName:CatalogTarget' :: CatalogTarget -&gt; Text
-</span><a href="#local-6989586621679678363"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679680003"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -231,14 +231,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679678364"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679680004"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tables&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679678363"><span class="hs-identifier hs-var">tables</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679680003"><span class="hs-identifier hs-var">tables</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

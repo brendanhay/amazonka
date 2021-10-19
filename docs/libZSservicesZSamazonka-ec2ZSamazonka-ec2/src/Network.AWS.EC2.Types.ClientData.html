@@ -27,21 +27,21 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the client-specific data.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newClientData' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681060031"><span id="local-6989586621681060032"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClientData"><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-var">ClientData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientData%27"><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-var">ClientData'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time that the disk upload ends.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AuploadEnd%3AClientData%27"><span class="annot"><span class="annottext">ClientData -&gt; Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3AuploadEnd%3AClientData%27"><span class="hs-identifier hs-var hs-var">uploadEnd</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | A user-defined comment about the disk upload.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Acomment%3AClientData%27"><span class="annot"><span class="annottext">ClientData -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3Acomment%3AClientData%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The size of the uploaded disk image, in GiB.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AuploadSize%3AClientData%27"><span class="annot"><span class="annottext">ClientData -&gt; Maybe Double
+</span><span id="line-30"></span><span id="local-6989586621681093604"><span id="local-6989586621681093605"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClientData"><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-var">ClientData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientData%27"><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-var">ClientData'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time that the disk upload starts.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AuploadStart%3AClientData%27"><span class="annot"><span class="annottext">ClientData -&gt; Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3AuploadStart%3AClientData%27"><span class="hs-identifier hs-var hs-var">uploadStart</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The size of the uploaded disk image, in GiB.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AuploadSize%3AClientData%27"><span class="annot"><span class="annottext">ClientData -&gt; Maybe Double
 </span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3AuploadSize%3AClientData%27"><span class="hs-identifier hs-var hs-var">uploadSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The time that the disk upload starts.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AuploadStart%3AClientData%27"><span class="annot"><span class="annottext">ClientData -&gt; Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3AuploadStart%3AClientData%27"><span class="hs-identifier hs-var hs-var">uploadStart</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time that the disk upload ends.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AuploadEnd%3AClientData%27"><span class="annot"><span class="annottext">ClientData -&gt; Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3AuploadEnd%3AClientData%27"><span class="hs-identifier hs-var hs-var">uploadEnd</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A user-defined comment about the disk upload.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Acomment%3AClientData%27"><span class="annot"><span class="annottext">ClientData -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3Acomment%3AClientData%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681060022"><span id="local-6989586621681060024"><span class="annot"><span class="annottext">ClientData -&gt; ClientData -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681093595"><span id="local-6989586621681093597"><span class="annot"><span class="annottext">ClientData -&gt; ClientData -&gt; Bool
 (ClientData -&gt; ClientData -&gt; Bool)
 -&gt; (ClientData -&gt; ClientData -&gt; Bool) -&gt; Eq ClientData
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ClientData -&gt; ClientData -&gt; Bool
 == :: ClientData -&gt; ClientData -&gt; Bool
 $c== :: ClientData -&gt; ClientData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681060013"><span id="local-6989586621681060015"><span id="local-6989586621681060017"><span id="local-6989586621681060019"><span class="annot"><span class="annottext">ReadPrec [ClientData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681093586"><span id="local-6989586621681093588"><span id="local-6989586621681093590"><span id="local-6989586621681093592"><span class="annot"><span class="annottext">ReadPrec [ClientData]
 ReadPrec ClientData
 Int -&gt; ReadS ClientData
 ReadS [ClientData]
@@ -69,7 +69,7 @@ readList :: ReadS [ClientData]
 $creadList :: ReadS [ClientData]
 readsPrec :: Int -&gt; ReadS ClientData
 $creadsPrec :: Int -&gt; ReadS ClientData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681060006"><span id="local-6989586621681060008"><span id="local-6989586621681060010"><span class="annot"><span class="annottext">Int -&gt; ClientData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681093579"><span id="local-6989586621681093581"><span id="local-6989586621681093583"><span class="annot"><span class="annottext">Int -&gt; ClientData -&gt; ShowS
 [ClientData] -&gt; ShowS
 ClientData -&gt; String
 (Int -&gt; ClientData -&gt; ShowS)
@@ -102,55 +102,55 @@ $cfrom :: forall x. ClientData -&gt; Rep ClientData x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'uploadEnd', 'clientData_uploadEnd' - The time that the disk upload ends.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'uploadStart', 'clientData_uploadStart' - The time that the disk upload starts.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'comment', 'clientData_comment' - A user-defined comment about the disk upload.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'uploadSize', 'clientData_uploadSize' - The size of the uploaded disk image, in GiB.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'uploadSize', 'clientData_uploadSize' - The size of the uploaded disk image, in GiB.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'uploadEnd', 'clientData_uploadEnd' - The time that the disk upload ends.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'uploadStart', 'clientData_uploadStart' - The time that the disk upload starts.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'comment', 'clientData_comment' - A user-defined comment about the disk upload.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#newClientData"><span class="hs-identifier hs-type">newClientData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span>
 </span><span id="line-59"></span><span id="newClientData"><span class="annot"><span class="annottext">newClientData :: ClientData
 </span><a href="Network.AWS.EC2.Types.ClientData.html#newClientData"><span class="hs-identifier hs-var hs-var">newClientData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">ClientData' :: Maybe ISO8601
--&gt; Maybe Text -&gt; Maybe Double -&gt; Maybe ISO8601 -&gt; ClientData
+-&gt; Maybe Double -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; ClientData
 </span><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:uploadEnd:ClientData' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3AuploadEnd%3AClientData%27"><span class="hs-identifier hs-var">uploadEnd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:uploadStart:ClientData' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3AuploadStart%3AClientData%27"><span class="hs-identifier hs-var">uploadStart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:comment:ClientData' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3Acomment%3AClientData%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:uploadSize:ClientData' :: Maybe Double
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:uploadSize:ClientData' :: Maybe Double
 </span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3AuploadSize%3AClientData%27"><span class="hs-identifier hs-var">uploadSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:uploadStart:ClientData' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3AuploadStart%3AClientData%27"><span class="hs-identifier hs-var">uploadStart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:uploadEnd:ClientData' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3AuploadEnd%3AClientData%27"><span class="hs-identifier hs-var">uploadEnd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:comment:ClientData' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3Acomment%3AClientData%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The time that the disk upload ends.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#clientData_uploadEnd"><span class="hs-identifier hs-type">clientData_uploadEnd</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="clientData_uploadEnd"><span class="annot"><span class="annottext">clientData_uploadEnd :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; ClientData -&gt; f ClientData
-</span><a href="Network.AWS.EC2.Types.ClientData.html#clientData_uploadEnd"><span class="hs-identifier hs-var hs-var">clientData_uploadEnd</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientData -&gt; Maybe ISO8601)
+</span><span id="line-67"></span><span class="hs-comment">-- | The time that the disk upload starts.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#clientData_uploadStart"><span class="hs-identifier hs-type">clientData_uploadStart</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="clientData_uploadStart"><span class="annot"><span class="annottext">clientData_uploadStart :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; ClientData -&gt; f ClientData
+</span><a href="Network.AWS.EC2.Types.ClientData.html#clientData_uploadStart"><span class="hs-identifier hs-var hs-var">clientData_uploadStart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientData -&gt; Maybe ISO8601)
 -&gt; (ClientData -&gt; Maybe ISO8601 -&gt; ClientData)
 -&gt; Lens ClientData ClientData (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681059997"><span class="annot"><span class="annottext">Maybe ISO8601
-uploadEnd :: Maybe ISO8601
-$sel:uploadEnd:ClientData' :: ClientData -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681059997"><span class="hs-identifier hs-var hs-var">uploadEnd</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681059997"><span class="hs-identifier hs-var">uploadEnd</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681059996"><span class="annot"><span class="annottext">s :: ClientData
-</span><a href="#local-6989586621681059996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681059995"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681059995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientData
-</span><a href="#local-6989586621681059996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadEnd:ClientData' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3AuploadEnd%3AClientData%27"><span class="hs-identifier hs-var">uploadEnd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681059995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681093570"><span class="annot"><span class="annottext">Maybe ISO8601
+uploadStart :: Maybe ISO8601
+$sel:uploadStart:ClientData' :: ClientData -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681093570"><span class="hs-identifier hs-var hs-var">uploadStart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681093570"><span class="hs-identifier hs-var">uploadStart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681093569"><span class="annot"><span class="annottext">s :: ClientData
+</span><a href="#local-6989586621681093569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681093568"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681093568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientData
+</span><a href="#local-6989586621681093569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadStart:ClientData' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3AuploadStart%3AClientData%27"><span class="hs-identifier hs-var">uploadStart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681093568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; ClientData -&gt; f ClientData)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -168,59 +168,41 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | A user-defined comment about the disk upload.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#clientData_comment"><span class="hs-identifier hs-type">clientData_comment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="clientData_comment"><span class="annot"><span class="annottext">clientData_comment :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ClientData -&gt; f ClientData
-</span><a href="Network.AWS.EC2.Types.ClientData.html#clientData_comment"><span class="hs-identifier hs-var hs-var">clientData_comment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientData -&gt; Maybe Text)
--&gt; (ClientData -&gt; Maybe Text -&gt; ClientData)
--&gt; Lens ClientData ClientData (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681059990"><span class="annot"><span class="annottext">Maybe Text
-comment :: Maybe Text
-$sel:comment:ClientData' :: ClientData -&gt; Maybe Text
-</span><a href="#local-6989586621681059990"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681059990"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681059989"><span class="annot"><span class="annottext">s :: ClientData
-</span><a href="#local-6989586621681059989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681059988"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681059988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientData
-</span><a href="#local-6989586621681059989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:ClientData' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3Acomment%3AClientData%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681059988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | The size of the uploaded disk image, in GiB.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#clientData_uploadSize"><span class="hs-identifier hs-type">clientData_uploadSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="clientData_uploadSize"><span class="annot"><span class="annottext">clientData_uploadSize :: (Maybe Double -&gt; f (Maybe Double)) -&gt; ClientData -&gt; f ClientData
+</span><span id="line-71"></span><span class="hs-comment">-- | The size of the uploaded disk image, in GiB.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#clientData_uploadSize"><span class="hs-identifier hs-type">clientData_uploadSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="clientData_uploadSize"><span class="annot"><span class="annottext">clientData_uploadSize :: (Maybe Double -&gt; f (Maybe Double)) -&gt; ClientData -&gt; f ClientData
 </span><a href="Network.AWS.EC2.Types.ClientData.html#clientData_uploadSize"><span class="hs-identifier hs-var hs-var">clientData_uploadSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientData -&gt; Maybe Double)
 -&gt; (ClientData -&gt; Maybe Double -&gt; ClientData)
 -&gt; Lens ClientData ClientData (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681059986"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681093563"><span class="annot"><span class="annottext">Maybe Double
 uploadSize :: Maybe Double
 $sel:uploadSize:ClientData' :: ClientData -&gt; Maybe Double
-</span><a href="#local-6989586621681059986"><span class="hs-identifier hs-var hs-var">uploadSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621681059986"><span class="hs-identifier hs-var">uploadSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681059985"><span class="annot"><span class="annottext">s :: ClientData
-</span><a href="#local-6989586621681059985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681059984"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621681059984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientData
-</span><a href="#local-6989586621681059985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadSize:ClientData' :: Maybe Double
+</span><a href="#local-6989586621681093563"><span class="hs-identifier hs-var hs-var">uploadSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621681093563"><span class="hs-identifier hs-var">uploadSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681093562"><span class="annot"><span class="annottext">s :: ClientData
+</span><a href="#local-6989586621681093562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681093561"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621681093561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientData
+</span><a href="#local-6989586621681093562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadSize:ClientData' :: Maybe Double
 </span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3AuploadSize%3AClientData%27"><span class="hs-identifier hs-var">uploadSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621681059984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | The time that the disk upload starts.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#clientData_uploadStart"><span class="hs-identifier hs-type">clientData_uploadStart</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="clientData_uploadStart"><span class="annot"><span class="annottext">clientData_uploadStart :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; ClientData -&gt; f ClientData
-</span><a href="Network.AWS.EC2.Types.ClientData.html#clientData_uploadStart"><span class="hs-identifier hs-var hs-var">clientData_uploadStart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientData -&gt; Maybe ISO8601)
+</span><a href="#local-6989586621681093561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The time that the disk upload ends.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#clientData_uploadEnd"><span class="hs-identifier hs-type">clientData_uploadEnd</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="clientData_uploadEnd"><span class="annot"><span class="annottext">clientData_uploadEnd :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; ClientData -&gt; f ClientData
+</span><a href="Network.AWS.EC2.Types.ClientData.html#clientData_uploadEnd"><span class="hs-identifier hs-var hs-var">clientData_uploadEnd</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientData -&gt; Maybe ISO8601)
 -&gt; (ClientData -&gt; Maybe ISO8601 -&gt; ClientData)
 -&gt; Lens ClientData ClientData (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681059982"><span class="annot"><span class="annottext">Maybe ISO8601
-uploadStart :: Maybe ISO8601
-$sel:uploadStart:ClientData' :: ClientData -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681059982"><span class="hs-identifier hs-var hs-var">uploadStart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681059982"><span class="hs-identifier hs-var">uploadStart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681059981"><span class="annot"><span class="annottext">s :: ClientData
-</span><a href="#local-6989586621681059981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681059980"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681059980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientData
-</span><a href="#local-6989586621681059981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadStart:ClientData' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3AuploadStart%3AClientData%27"><span class="hs-identifier hs-var">uploadStart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681059980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681093559"><span class="annot"><span class="annottext">Maybe ISO8601
+uploadEnd :: Maybe ISO8601
+$sel:uploadEnd:ClientData' :: ClientData -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681093559"><span class="hs-identifier hs-var hs-var">uploadEnd</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681093559"><span class="hs-identifier hs-var">uploadEnd</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681093558"><span class="annot"><span class="annottext">s :: ClientData
+</span><a href="#local-6989586621681093558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681093557"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681093557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientData
+</span><a href="#local-6989586621681093558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadEnd:ClientData' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3AuploadEnd%3AClientData%27"><span class="hs-identifier hs-var">uploadEnd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681093557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; ClientData -&gt; f ClientData)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -237,47 +219,65 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | A user-defined comment about the disk upload.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#clientData_comment"><span class="hs-identifier hs-type">clientData_comment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="clientData_comment"><span class="annot"><span class="annottext">clientData_comment :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ClientData -&gt; f ClientData
+</span><a href="Network.AWS.EC2.Types.ClientData.html#clientData_comment"><span class="hs-identifier hs-var hs-var">clientData_comment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientData -&gt; Maybe Text)
+-&gt; (ClientData -&gt; Maybe Text -&gt; ClientData)
+-&gt; Lens ClientData ClientData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681093555"><span class="annot"><span class="annottext">Maybe Text
+comment :: Maybe Text
+$sel:comment:ClientData' :: ClientData -&gt; Maybe Text
+</span><a href="#local-6989586621681093555"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681093555"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681093554"><span class="annot"><span class="annottext">s :: ClientData
+</span><a href="#local-6989586621681093554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681093553"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681093553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientData
+</span><a href="#local-6989586621681093554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:ClientData' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ClientData.html#%24sel%3Acomment%3AClientData%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681093553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681059976"><span id="local-6989586621681059978"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681093549"><span id="local-6989586621681093551"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681059973"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681093546"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData"><span class="hs-identifier hs-type">ClientData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621681059969"><span class="annot"><span class="annottext">toQuery :: ClientData -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681059964"><span id="local-6989586621681059965"><span id="local-6989586621681059966"><span id="local-6989586621681059967"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621681093542"><span class="annot"><span class="annottext">toQuery :: ClientData -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientData.html#ClientData%27"><span class="hs-identifier hs-type">ClientData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681093537"><span id="local-6989586621681093538"><span id="local-6989586621681093539"><span id="local-6989586621681093540"><span class="annot"><span class="annottext">Maybe Double
 Maybe Text
 Maybe ISO8601
-uploadStart :: Maybe ISO8601
-uploadSize :: Maybe Double
 comment :: Maybe Text
 uploadEnd :: Maybe ISO8601
-$sel:uploadStart:ClientData' :: ClientData -&gt; Maybe ISO8601
-$sel:uploadSize:ClientData' :: ClientData -&gt; Maybe Double
+uploadSize :: Maybe Double
+uploadStart :: Maybe ISO8601
 $sel:comment:ClientData' :: ClientData -&gt; Maybe Text
 $sel:uploadEnd:ClientData' :: ClientData -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681059964"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:uploadSize:ClientData' :: ClientData -&gt; Maybe Double
+$sel:uploadStart:ClientData' :: ClientData -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681093537"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;UploadEnd&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ISO8601 -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681059967"><span class="hs-identifier hs-var">uploadEnd</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Comment&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681059966"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;UploadSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Double -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621681059965"><span class="hs-identifier hs-var">uploadSize</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;UploadStart&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ISO8601 -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681059964"><span class="hs-identifier hs-var">uploadStart</span></a></span><span>
+</span><a href="#local-6989586621681093540"><span class="hs-identifier hs-var">uploadStart</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;UploadSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Double -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621681093539"><span class="hs-identifier hs-var">uploadSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;UploadEnd&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ISO8601 -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681093538"><span class="hs-identifier hs-var">uploadEnd</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Comment&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681093537"><span class="hs-identifier hs-var">comment</span></a></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-95"></span></pre></body></html>

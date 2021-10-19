@@ -34,52 +34,52 @@
 </span><span id="line-34"></span><span class="hs-comment">-- | Describes the configuration of the HTTP endpoint destination.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newHttpEndpointDestinationConfiguration' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679262289"><span id="local-6989586621679262290"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpEndpointDestinationConfiguration"><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-var">HttpEndpointDestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpEndpointDestinationConfiguration%27"><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">HttpEndpointDestinationConfiguration'</span></a></span></span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Kinesis Data Firehose uses this IAM role for all the permissions that</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the delivery stream needs.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AroleARN%3AHttpEndpointDestinationConfiguration%27"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration -&gt; Maybe Text
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AroleARN%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AprocessingConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
--&gt; Maybe ProcessingConfiguration
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AprocessingConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcloudWatchLoggingOptions%3AHttpEndpointDestinationConfiguration%27"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
--&gt; Maybe CloudWatchLoggingOptions
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AcloudWatchLoggingOptions%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The configuration of the requeste sent to the HTTP endpoint specified as</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- the destination.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3ArequestConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
--&gt; Maybe HttpEndpointRequestConfiguration
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3ArequestConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">requestConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRequestConfiguration.html#HttpEndpointRequestConfiguration"><span class="hs-identifier hs-type">HttpEndpointRequestConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The buffering options that can be used before data is delivered to the</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- specified destination. Kinesis Data Firehose treats these options as</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- hints, and it might choose to use more optimal values. The @SizeInMBs@</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- and @IntervalInSeconds@ parameters are optional. However, if you specify</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- a value for one of them, you must also provide a value for the other.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AbufferingHints%3AHttpEndpointDestinationConfiguration%27"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
--&gt; Maybe HttpEndpointBufferingHints
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AbufferingHints%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">bufferingHints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointBufferingHints.html#HttpEndpointBufferingHints"><span class="hs-identifier hs-type">HttpEndpointBufferingHints</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Describes the retry behavior in case Kinesis Data Firehose is unable to</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- deliver data to the specified HTTP endpoint destination, or if it</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- doesn\'t receive a valid acknowledgment of receipt from the specified</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- HTTP endpoint destination.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AretryOptions%3AHttpEndpointDestinationConfiguration%27"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
--&gt; Maybe HttpEndpointRetryOptions
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AretryOptions%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions"><span class="hs-identifier hs-type">HttpEndpointRetryOptions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Describes the S3 bucket backup options for the data that Kinesis Data</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Firehose delivers to the HTTP endpoint destination. You can back up all</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- documents (@AllData@) or only the documents that Kinesis Data Firehose</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- could not deliver to the specified HTTP endpoint destination</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- (@FailedDataOnly@).</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3As3BackupMode%3AHttpEndpointDestinationConfiguration%27"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
+</span><span id="line-37"></span><span id="local-6989586621679276517"><span id="local-6989586621679276518"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpEndpointDestinationConfiguration"><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-var">HttpEndpointDestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpEndpointDestinationConfiguration%27"><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">HttpEndpointDestinationConfiguration'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the S3 bucket backup options for the data that Kinesis Data</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Firehose delivers to the HTTP endpoint destination. You can back up all</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- documents (@AllData@) or only the documents that Kinesis Data Firehose</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- could not deliver to the specified HTTP endpoint destination</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- (@FailedDataOnly@).</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3As3BackupMode%3AHttpEndpointDestinationConfiguration%27"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
 -&gt; Maybe HttpEndpointS3BackupMode
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3As3BackupMode%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">s3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#HttpEndpointS3BackupMode"><span class="hs-identifier hs-type">HttpEndpointS3BackupMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcloudWatchLoggingOptions%3AHttpEndpointDestinationConfiguration%27"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
+-&gt; Maybe CloudWatchLoggingOptions
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AcloudWatchLoggingOptions%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The buffering options that can be used before data is delivered to the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- specified destination. Kinesis Data Firehose treats these options as</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- hints, and it might choose to use more optimal values. The @SizeInMBs@</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- and @IntervalInSeconds@ parameters are optional. However, if you specify</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- a value for one of them, you must also provide a value for the other.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AbufferingHints%3AHttpEndpointDestinationConfiguration%27"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
+-&gt; Maybe HttpEndpointBufferingHints
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AbufferingHints%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">bufferingHints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointBufferingHints.html#HttpEndpointBufferingHints"><span class="hs-identifier hs-type">HttpEndpointBufferingHints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Describes the retry behavior in case Kinesis Data Firehose is unable to</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- deliver data to the specified HTTP endpoint destination, or if it</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- doesn\'t receive a valid acknowledgment of receipt from the specified</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- HTTP endpoint destination.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AretryOptions%3AHttpEndpointDestinationConfiguration%27"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
+-&gt; Maybe HttpEndpointRetryOptions
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AretryOptions%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions"><span class="hs-identifier hs-type">HttpEndpointRetryOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AprocessingConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
+-&gt; Maybe ProcessingConfiguration
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AprocessingConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The configuration of the requeste sent to the HTTP endpoint specified as</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the destination.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3ArequestConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
+-&gt; Maybe HttpEndpointRequestConfiguration
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3ArequestConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">requestConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRequestConfiguration.html#HttpEndpointRequestConfiguration"><span class="hs-identifier hs-type">HttpEndpointRequestConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Kinesis Data Firehose uses this IAM role for all the permissions that</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the delivery stream needs.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AroleARN%3AHttpEndpointDestinationConfiguration%27"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AroleARN%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The configuration of the HTTP endpoint selected as the destination.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AendpointConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration -&gt; HttpEndpointConfiguration
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AendpointConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">endpointConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointConfiguration.html#HttpEndpointConfiguration"><span class="hs-identifier hs-type">HttpEndpointConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3As3Configuration%3AHttpEndpointDestinationConfiguration%27"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration -&gt; S3DestinationConfiguration
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3As3Configuration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">s3Configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262275"><span id="local-6989586621679262277"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276503"><span id="local-6989586621679276505"><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
 -&gt; HttpEndpointDestinationConfiguration -&gt; Bool
 (HttpEndpointDestinationConfiguration
  -&gt; HttpEndpointDestinationConfiguration -&gt; Bool)
@@ -95,7 +95,7 @@ $c/= :: HttpEndpointDestinationConfiguration
 -&gt; HttpEndpointDestinationConfiguration -&gt; Bool
 $c== :: HttpEndpointDestinationConfiguration
 -&gt; HttpEndpointDestinationConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262268"><span id="local-6989586621679262270"><span id="local-6989586621679262272"><span class="annot"><span class="annottext">Int -&gt; HttpEndpointDestinationConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276496"><span id="local-6989586621679276498"><span id="local-6989586621679276500"><span class="annot"><span class="annottext">Int -&gt; HttpEndpointDestinationConfiguration -&gt; ShowS
 [HttpEndpointDestinationConfiguration] -&gt; ShowS
 HttpEndpointDestinationConfiguration -&gt; String
 (Int -&gt; HttpEndpointDestinationConfiguration -&gt; ShowS)
@@ -141,32 +141,32 @@ HttpEndpointDestinationConfiguration
 </span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'roleARN', 'httpEndpointDestinationConfiguration_roleARN' - Kinesis Data Firehose uses this IAM role for all the permissions that</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- the delivery stream needs.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'processingConfiguration', 'httpEndpointDestinationConfiguration_processingConfiguration' - Undocumented member.</span><span>
-</span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'cloudWatchLoggingOptions', 'httpEndpointDestinationConfiguration_cloudWatchLoggingOptions' - Undocumented member.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'requestConfiguration', 'httpEndpointDestinationConfiguration_requestConfiguration' - The configuration of the requeste sent to the HTTP endpoint specified as</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- the destination.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'bufferingHints', 'httpEndpointDestinationConfiguration_bufferingHints' - The buffering options that can be used before data is delivered to the</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- specified destination. Kinesis Data Firehose treats these options as</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- hints, and it might choose to use more optimal values. The @SizeInMBs@</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- and @IntervalInSeconds@ parameters are optional. However, if you specify</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- a value for one of them, you must also provide a value for the other.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'retryOptions', 'httpEndpointDestinationConfiguration_retryOptions' - Describes the retry behavior in case Kinesis Data Firehose is unable to</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- deliver data to the specified HTTP endpoint destination, or if it</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- doesn\'t receive a valid acknowledgment of receipt from the specified</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- HTTP endpoint destination.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 's3BackupMode', 'httpEndpointDestinationConfiguration_s3BackupMode' - Describes the S3 bucket backup options for the data that Kinesis Data</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Firehose delivers to the HTTP endpoint destination. You can back up all</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- documents (@AllData@) or only the documents that Kinesis Data Firehose</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- could not deliver to the specified HTTP endpoint destination</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- (@FailedDataOnly@).</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'cloudWatchLoggingOptions', 'httpEndpointDestinationConfiguration_cloudWatchLoggingOptions' - Undocumented member.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'bufferingHints', 'httpEndpointDestinationConfiguration_bufferingHints' - The buffering options that can be used before data is delivered to the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- specified destination. Kinesis Data Firehose treats these options as</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- hints, and it might choose to use more optimal values. The @SizeInMBs@</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- and @IntervalInSeconds@ parameters are optional. However, if you specify</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- a value for one of them, you must also provide a value for the other.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'retryOptions', 'httpEndpointDestinationConfiguration_retryOptions' - Describes the retry behavior in case Kinesis Data Firehose is unable to</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- deliver data to the specified HTTP endpoint destination, or if it</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- doesn\'t receive a valid acknowledgment of receipt from the specified</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- HTTP endpoint destination.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'processingConfiguration', 'httpEndpointDestinationConfiguration_processingConfiguration' - Undocumented member.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 's3BackupMode', 'httpEndpointDestinationConfiguration_s3BackupMode' - Describes the S3 bucket backup options for the data that Kinesis Data</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- Firehose delivers to the HTTP endpoint destination. You can back up all</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- documents (@AllData@) or only the documents that Kinesis Data Firehose</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- could not deliver to the specified HTTP endpoint destination</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- (@FailedDataOnly@).</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'requestConfiguration', 'httpEndpointDestinationConfiguration_requestConfiguration' - The configuration of the requeste sent to the HTTP endpoint specified as</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- the destination.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'roleARN', 'httpEndpointDestinationConfiguration_roleARN' - Kinesis Data Firehose uses this IAM role for all the permissions that</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- the delivery stream needs.</span><span>
 </span><span id="line-103"></span><span class="hs-comment">--</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- 'endpointConfiguration', 'httpEndpointDestinationConfiguration_endpointConfiguration' - The configuration of the HTTP endpoint selected as the destination.</span><span>
 </span><span id="line-105"></span><span class="hs-comment">--</span><span>
@@ -181,248 +181,69 @@ HttpEndpointDestinationConfiguration
 -&gt; S3DestinationConfiguration
 -&gt; HttpEndpointDestinationConfiguration
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#newHttpEndpointDestinationConfiguration"><span class="hs-identifier hs-var hs-var">newHttpEndpointDestinationConfiguration</span></a></span></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679262262"><span class="annot"><span class="annottext">HttpEndpointConfiguration
-</span><a href="#local-6989586621679262262"><span class="hs-identifier hs-var">pEndpointConfiguration_</span></a></span></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679262261"><span class="annot"><span class="annottext">S3DestinationConfiguration
-</span><a href="#local-6989586621679262261"><span class="hs-identifier hs-var">pS3Configuration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration' :: Maybe Text
--&gt; Maybe ProcessingConfiguration
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679276490"><span class="annot"><span class="annottext">HttpEndpointConfiguration
+</span><a href="#local-6989586621679276490"><span class="hs-identifier hs-var">pEndpointConfiguration_</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679276489"><span class="annot"><span class="annottext">S3DestinationConfiguration
+</span><a href="#local-6989586621679276489"><span class="hs-identifier hs-var">pS3Configuration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration' :: Maybe HttpEndpointS3BackupMode
 -&gt; Maybe CloudWatchLoggingOptions
--&gt; Maybe HttpEndpointRequestConfiguration
 -&gt; Maybe HttpEndpointBufferingHints
 -&gt; Maybe HttpEndpointRetryOptions
--&gt; Maybe HttpEndpointS3BackupMode
+-&gt; Maybe ProcessingConfiguration
+-&gt; Maybe HttpEndpointRequestConfiguration
+-&gt; Maybe Text
 -&gt; HttpEndpointConfiguration
 -&gt; S3DestinationConfiguration
 -&gt; HttpEndpointDestinationConfiguration
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleARN:HttpEndpointDestinationConfiguration' :: Maybe Text
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AroleARN%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-117"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3BackupMode:HttpEndpointDestinationConfiguration' :: Maybe HttpEndpointS3BackupMode
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3As3BackupMode%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe HttpEndpointS3BackupMode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:processingConfiguration:HttpEndpointDestinationConfiguration' :: Maybe ProcessingConfiguration
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AprocessingConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:HttpEndpointDestinationConfiguration' :: Maybe CloudWatchLoggingOptions
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:HttpEndpointDestinationConfiguration' :: Maybe CloudWatchLoggingOptions
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AcloudWatchLoggingOptions%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:requestConfiguration:HttpEndpointDestinationConfiguration' :: Maybe HttpEndpointRequestConfiguration
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3ArequestConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">requestConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe HttpEndpointRequestConfiguration
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:bufferingHints:HttpEndpointDestinationConfiguration' :: Maybe HttpEndpointBufferingHints
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:bufferingHints:HttpEndpointDestinationConfiguration' :: Maybe HttpEndpointBufferingHints
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AbufferingHints%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointBufferingHints
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:retryOptions:HttpEndpointDestinationConfiguration' :: Maybe HttpEndpointRetryOptions
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:retryOptions:HttpEndpointDestinationConfiguration' :: Maybe HttpEndpointRetryOptions
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AretryOptions%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">retryOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointRetryOptions
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3BackupMode:HttpEndpointDestinationConfiguration' :: Maybe HttpEndpointS3BackupMode
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3As3BackupMode%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointS3BackupMode
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:processingConfiguration:HttpEndpointDestinationConfiguration' :: Maybe ProcessingConfiguration
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AprocessingConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:requestConfiguration:HttpEndpointDestinationConfiguration' :: Maybe HttpEndpointRequestConfiguration
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3ArequestConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">requestConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe HttpEndpointRequestConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleARN:HttpEndpointDestinationConfiguration' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AroleARN%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:endpointConfiguration:HttpEndpointDestinationConfiguration' :: HttpEndpointConfiguration
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AendpointConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">endpointConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">HttpEndpointConfiguration
-</span><a href="#local-6989586621679262262"><span class="hs-identifier hs-var">pEndpointConfiguration_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276490"><span class="hs-identifier hs-var">pEndpointConfiguration_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3Configuration:HttpEndpointDestinationConfiguration' :: S3DestinationConfiguration
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3As3Configuration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">s3Configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
-</span><a href="#local-6989586621679262261"><span class="hs-identifier hs-var">pS3Configuration_</span></a></span><span>
+</span><a href="#local-6989586621679276489"><span class="hs-identifier hs-var">pS3Configuration_</span></a></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | Kinesis Data Firehose uses this IAM role for all the permissions that</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- the delivery stream needs.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_roleARN"><span class="hs-identifier hs-type">httpEndpointDestinationConfiguration_roleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="httpEndpointDestinationConfiguration_roleARN"><span class="annot"><span class="annottext">httpEndpointDestinationConfiguration_roleARN :: (Maybe Text -&gt; f (Maybe Text))
--&gt; HttpEndpointDestinationConfiguration
--&gt; f HttpEndpointDestinationConfiguration
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_roleARN"><span class="hs-identifier hs-var hs-var">httpEndpointDestinationConfiguration_roleARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointDestinationConfiguration -&gt; Maybe Text)
--&gt; (HttpEndpointDestinationConfiguration
-    -&gt; Maybe Text -&gt; HttpEndpointDestinationConfiguration)
--&gt; Lens
-     HttpEndpointDestinationConfiguration
-     HttpEndpointDestinationConfiguration
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262257"><span class="annot"><span class="annottext">Maybe Text
-roleARN :: Maybe Text
-$sel:roleARN:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679262257"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262257"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262256"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262255"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:HttpEndpointDestinationConfiguration' :: Maybe Text
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AroleARN%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_processingConfiguration"><span class="hs-identifier hs-type">httpEndpointDestinationConfiguration_processingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="httpEndpointDestinationConfiguration_processingConfiguration"><span class="annot"><span class="annottext">httpEndpointDestinationConfiguration_processingConfiguration :: (Maybe ProcessingConfiguration
- -&gt; f (Maybe ProcessingConfiguration))
--&gt; HttpEndpointDestinationConfiguration
--&gt; f HttpEndpointDestinationConfiguration
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_processingConfiguration"><span class="hs-identifier hs-var hs-var">httpEndpointDestinationConfiguration_processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointDestinationConfiguration
- -&gt; Maybe ProcessingConfiguration)
--&gt; (HttpEndpointDestinationConfiguration
-    -&gt; Maybe ProcessingConfiguration
-    -&gt; HttpEndpointDestinationConfiguration)
--&gt; Lens
-     HttpEndpointDestinationConfiguration
-     HttpEndpointDestinationConfiguration
-     (Maybe ProcessingConfiguration)
-     (Maybe ProcessingConfiguration)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262253"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
-processingConfiguration :: Maybe ProcessingConfiguration
-$sel:processingConfiguration:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
--&gt; Maybe ProcessingConfiguration
-</span><a href="#local-6989586621679262253"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
-</span><a href="#local-6989586621679262253"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262252"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262251"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
-</span><a href="#local-6989586621679262251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingConfiguration:HttpEndpointDestinationConfiguration' :: Maybe ProcessingConfiguration
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AprocessingConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
-</span><a href="#local-6989586621679262251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_cloudWatchLoggingOptions"><span class="hs-identifier hs-type">httpEndpointDestinationConfiguration_cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="httpEndpointDestinationConfiguration_cloudWatchLoggingOptions"><span class="annot"><span class="annottext">httpEndpointDestinationConfiguration_cloudWatchLoggingOptions :: (Maybe CloudWatchLoggingOptions
- -&gt; f (Maybe CloudWatchLoggingOptions))
--&gt; HttpEndpointDestinationConfiguration
--&gt; f HttpEndpointDestinationConfiguration
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_cloudWatchLoggingOptions"><span class="hs-identifier hs-var hs-var">httpEndpointDestinationConfiguration_cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointDestinationConfiguration
- -&gt; Maybe CloudWatchLoggingOptions)
--&gt; (HttpEndpointDestinationConfiguration
-    -&gt; Maybe CloudWatchLoggingOptions
-    -&gt; HttpEndpointDestinationConfiguration)
--&gt; Lens
-     HttpEndpointDestinationConfiguration
-     HttpEndpointDestinationConfiguration
-     (Maybe CloudWatchLoggingOptions)
-     (Maybe CloudWatchLoggingOptions)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262249"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
-cloudWatchLoggingOptions :: Maybe CloudWatchLoggingOptions
-$sel:cloudWatchLoggingOptions:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
--&gt; Maybe CloudWatchLoggingOptions
-</span><a href="#local-6989586621679262249"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
-</span><a href="#local-6989586621679262249"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262248"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262247"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
-</span><a href="#local-6989586621679262247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:HttpEndpointDestinationConfiguration' :: Maybe CloudWatchLoggingOptions
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AcloudWatchLoggingOptions%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
-</span><a href="#local-6989586621679262247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- | The configuration of the requeste sent to the HTTP endpoint specified as</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- the destination.</span><span>
-</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_requestConfiguration"><span class="hs-identifier hs-type">httpEndpointDestinationConfiguration_requestConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRequestConfiguration.html#HttpEndpointRequestConfiguration"><span class="hs-identifier hs-type">HttpEndpointRequestConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span id="httpEndpointDestinationConfiguration_requestConfiguration"><span class="annot"><span class="annottext">httpEndpointDestinationConfiguration_requestConfiguration :: (Maybe HttpEndpointRequestConfiguration
- -&gt; f (Maybe HttpEndpointRequestConfiguration))
--&gt; HttpEndpointDestinationConfiguration
--&gt; f HttpEndpointDestinationConfiguration
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_requestConfiguration"><span class="hs-identifier hs-var hs-var">httpEndpointDestinationConfiguration_requestConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointDestinationConfiguration
- -&gt; Maybe HttpEndpointRequestConfiguration)
--&gt; (HttpEndpointDestinationConfiguration
-    -&gt; Maybe HttpEndpointRequestConfiguration
-    -&gt; HttpEndpointDestinationConfiguration)
--&gt; Lens
-     HttpEndpointDestinationConfiguration
-     HttpEndpointDestinationConfiguration
-     (Maybe HttpEndpointRequestConfiguration)
-     (Maybe HttpEndpointRequestConfiguration)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262245"><span class="annot"><span class="annottext">Maybe HttpEndpointRequestConfiguration
-requestConfiguration :: Maybe HttpEndpointRequestConfiguration
-$sel:requestConfiguration:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
--&gt; Maybe HttpEndpointRequestConfiguration
-</span><a href="#local-6989586621679262245"><span class="hs-identifier hs-var hs-var">requestConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointRequestConfiguration
-</span><a href="#local-6989586621679262245"><span class="hs-identifier hs-var">requestConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262244"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262243"><span class="annot"><span class="annottext">Maybe HttpEndpointRequestConfiguration
-</span><a href="#local-6989586621679262243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestConfiguration:HttpEndpointDestinationConfiguration' :: Maybe HttpEndpointRequestConfiguration
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3ArequestConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">requestConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointRequestConfiguration
-</span><a href="#local-6989586621679262243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- | The buffering options that can be used before data is delivered to the</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- specified destination. Kinesis Data Firehose treats these options as</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- hints, and it might choose to use more optimal values. The @SizeInMBs@</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- and @IntervalInSeconds@ parameters are optional. However, if you specify</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- a value for one of them, you must also provide a value for the other.</span><span>
-</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_bufferingHints"><span class="hs-identifier hs-type">httpEndpointDestinationConfiguration_bufferingHints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointBufferingHints.html#HttpEndpointBufferingHints"><span class="hs-identifier hs-type">HttpEndpointBufferingHints</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span id="httpEndpointDestinationConfiguration_bufferingHints"><span class="annot"><span class="annottext">httpEndpointDestinationConfiguration_bufferingHints :: (Maybe HttpEndpointBufferingHints
- -&gt; f (Maybe HttpEndpointBufferingHints))
--&gt; HttpEndpointDestinationConfiguration
--&gt; f HttpEndpointDestinationConfiguration
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_bufferingHints"><span class="hs-identifier hs-var hs-var">httpEndpointDestinationConfiguration_bufferingHints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointDestinationConfiguration
- -&gt; Maybe HttpEndpointBufferingHints)
--&gt; (HttpEndpointDestinationConfiguration
-    -&gt; Maybe HttpEndpointBufferingHints
-    -&gt; HttpEndpointDestinationConfiguration)
--&gt; Lens
-     HttpEndpointDestinationConfiguration
-     HttpEndpointDestinationConfiguration
-     (Maybe HttpEndpointBufferingHints)
-     (Maybe HttpEndpointBufferingHints)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262241"><span class="annot"><span class="annottext">Maybe HttpEndpointBufferingHints
-bufferingHints :: Maybe HttpEndpointBufferingHints
-$sel:bufferingHints:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
--&gt; Maybe HttpEndpointBufferingHints
-</span><a href="#local-6989586621679262241"><span class="hs-identifier hs-var hs-var">bufferingHints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointBufferingHints
-</span><a href="#local-6989586621679262241"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262240"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262239"><span class="annot"><span class="annottext">Maybe HttpEndpointBufferingHints
-</span><a href="#local-6989586621679262239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bufferingHints:HttpEndpointDestinationConfiguration' :: Maybe HttpEndpointBufferingHints
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AbufferingHints%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointBufferingHints
-</span><a href="#local-6989586621679262239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | Describes the retry behavior in case Kinesis Data Firehose is unable to</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- deliver data to the specified HTTP endpoint destination, or if it</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- doesn\'t receive a valid acknowledgment of receipt from the specified</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- HTTP endpoint destination.</span><span>
-</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_retryOptions"><span class="hs-identifier hs-type">httpEndpointDestinationConfiguration_retryOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions"><span class="hs-identifier hs-type">HttpEndpointRetryOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span id="httpEndpointDestinationConfiguration_retryOptions"><span class="annot"><span class="annottext">httpEndpointDestinationConfiguration_retryOptions :: (Maybe HttpEndpointRetryOptions
- -&gt; f (Maybe HttpEndpointRetryOptions))
--&gt; HttpEndpointDestinationConfiguration
--&gt; f HttpEndpointDestinationConfiguration
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_retryOptions"><span class="hs-identifier hs-var hs-var">httpEndpointDestinationConfiguration_retryOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointDestinationConfiguration
- -&gt; Maybe HttpEndpointRetryOptions)
--&gt; (HttpEndpointDestinationConfiguration
-    -&gt; Maybe HttpEndpointRetryOptions
-    -&gt; HttpEndpointDestinationConfiguration)
--&gt; Lens
-     HttpEndpointDestinationConfiguration
-     HttpEndpointDestinationConfiguration
-     (Maybe HttpEndpointRetryOptions)
-     (Maybe HttpEndpointRetryOptions)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262237"><span class="annot"><span class="annottext">Maybe HttpEndpointRetryOptions
-retryOptions :: Maybe HttpEndpointRetryOptions
-$sel:retryOptions:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
--&gt; Maybe HttpEndpointRetryOptions
-</span><a href="#local-6989586621679262237"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointRetryOptions
-</span><a href="#local-6989586621679262237"><span class="hs-identifier hs-var">retryOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262236"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262235"><span class="annot"><span class="annottext">Maybe HttpEndpointRetryOptions
-</span><a href="#local-6989586621679262235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryOptions:HttpEndpointDestinationConfiguration' :: Maybe HttpEndpointRetryOptions
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AretryOptions%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">retryOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointRetryOptions
-</span><a href="#local-6989586621679262235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- | Describes the S3 bucket backup options for the data that Kinesis Data</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- Firehose delivers to the HTTP endpoint destination. You can back up all</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- documents (@AllData@) or only the documents that Kinesis Data Firehose</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- could not deliver to the specified HTTP endpoint destination</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- (@FailedDataOnly@).</span><span>
-</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_s3BackupMode"><span class="hs-identifier hs-type">httpEndpointDestinationConfiguration_s3BackupMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#HttpEndpointS3BackupMode"><span class="hs-identifier hs-type">HttpEndpointS3BackupMode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span id="httpEndpointDestinationConfiguration_s3BackupMode"><span class="annot"><span class="annottext">httpEndpointDestinationConfiguration_s3BackupMode :: (Maybe HttpEndpointS3BackupMode
+</span><span id="line-133"></span><span class="hs-comment">-- | Describes the S3 bucket backup options for the data that Kinesis Data</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Firehose delivers to the HTTP endpoint destination. You can back up all</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- documents (@AllData@) or only the documents that Kinesis Data Firehose</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- could not deliver to the specified HTTP endpoint destination</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- (@FailedDataOnly@).</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_s3BackupMode"><span class="hs-identifier hs-type">httpEndpointDestinationConfiguration_s3BackupMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#HttpEndpointS3BackupMode"><span class="hs-identifier hs-type">HttpEndpointS3BackupMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="httpEndpointDestinationConfiguration_s3BackupMode"><span class="annot"><span class="annottext">httpEndpointDestinationConfiguration_s3BackupMode :: (Maybe HttpEndpointS3BackupMode
  -&gt; f (Maybe HttpEndpointS3BackupMode))
 -&gt; HttpEndpointDestinationConfiguration
 -&gt; f HttpEndpointDestinationConfiguration
@@ -437,17 +258,196 @@ $sel:retryOptions:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinati
      (Maybe HttpEndpointS3BackupMode)
      (Maybe HttpEndpointS3BackupMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262233"><span class="annot"><span class="annottext">Maybe HttpEndpointS3BackupMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276485"><span class="annot"><span class="annottext">Maybe HttpEndpointS3BackupMode
 s3BackupMode :: Maybe HttpEndpointS3BackupMode
 $sel:s3BackupMode:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
 -&gt; Maybe HttpEndpointS3BackupMode
-</span><a href="#local-6989586621679262233"><span class="hs-identifier hs-var hs-var">s3BackupMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointS3BackupMode
-</span><a href="#local-6989586621679262233"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262232"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262231"><span class="annot"><span class="annottext">Maybe HttpEndpointS3BackupMode
-</span><a href="#local-6989586621679262231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BackupMode:HttpEndpointDestinationConfiguration' :: Maybe HttpEndpointS3BackupMode
+</span><a href="#local-6989586621679276485"><span class="hs-identifier hs-var hs-var">s3BackupMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointS3BackupMode
+</span><a href="#local-6989586621679276485"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276484"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276483"><span class="annot"><span class="annottext">Maybe HttpEndpointS3BackupMode
+</span><a href="#local-6989586621679276483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BackupMode:HttpEndpointDestinationConfiguration' :: Maybe HttpEndpointS3BackupMode
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3As3BackupMode%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointS3BackupMode
-</span><a href="#local-6989586621679262231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_cloudWatchLoggingOptions"><span class="hs-identifier hs-type">httpEndpointDestinationConfiguration_cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="httpEndpointDestinationConfiguration_cloudWatchLoggingOptions"><span class="annot"><span class="annottext">httpEndpointDestinationConfiguration_cloudWatchLoggingOptions :: (Maybe CloudWatchLoggingOptions
+ -&gt; f (Maybe CloudWatchLoggingOptions))
+-&gt; HttpEndpointDestinationConfiguration
+-&gt; f HttpEndpointDestinationConfiguration
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_cloudWatchLoggingOptions"><span class="hs-identifier hs-var hs-var">httpEndpointDestinationConfiguration_cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointDestinationConfiguration
+ -&gt; Maybe CloudWatchLoggingOptions)
+-&gt; (HttpEndpointDestinationConfiguration
+    -&gt; Maybe CloudWatchLoggingOptions
+    -&gt; HttpEndpointDestinationConfiguration)
+-&gt; Lens
+     HttpEndpointDestinationConfiguration
+     HttpEndpointDestinationConfiguration
+     (Maybe CloudWatchLoggingOptions)
+     (Maybe CloudWatchLoggingOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276481"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+cloudWatchLoggingOptions :: Maybe CloudWatchLoggingOptions
+$sel:cloudWatchLoggingOptions:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
+-&gt; Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679276481"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679276481"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276480"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276479"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679276479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:HttpEndpointDestinationConfiguration' :: Maybe CloudWatchLoggingOptions
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AcloudWatchLoggingOptions%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679276479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The buffering options that can be used before data is delivered to the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- specified destination. Kinesis Data Firehose treats these options as</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- hints, and it might choose to use more optimal values. The @SizeInMBs@</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- and @IntervalInSeconds@ parameters are optional. However, if you specify</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- a value for one of them, you must also provide a value for the other.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_bufferingHints"><span class="hs-identifier hs-type">httpEndpointDestinationConfiguration_bufferingHints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointBufferingHints.html#HttpEndpointBufferingHints"><span class="hs-identifier hs-type">HttpEndpointBufferingHints</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="httpEndpointDestinationConfiguration_bufferingHints"><span class="annot"><span class="annottext">httpEndpointDestinationConfiguration_bufferingHints :: (Maybe HttpEndpointBufferingHints
+ -&gt; f (Maybe HttpEndpointBufferingHints))
+-&gt; HttpEndpointDestinationConfiguration
+-&gt; f HttpEndpointDestinationConfiguration
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_bufferingHints"><span class="hs-identifier hs-var hs-var">httpEndpointDestinationConfiguration_bufferingHints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointDestinationConfiguration
+ -&gt; Maybe HttpEndpointBufferingHints)
+-&gt; (HttpEndpointDestinationConfiguration
+    -&gt; Maybe HttpEndpointBufferingHints
+    -&gt; HttpEndpointDestinationConfiguration)
+-&gt; Lens
+     HttpEndpointDestinationConfiguration
+     HttpEndpointDestinationConfiguration
+     (Maybe HttpEndpointBufferingHints)
+     (Maybe HttpEndpointBufferingHints)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276477"><span class="annot"><span class="annottext">Maybe HttpEndpointBufferingHints
+bufferingHints :: Maybe HttpEndpointBufferingHints
+$sel:bufferingHints:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
+-&gt; Maybe HttpEndpointBufferingHints
+</span><a href="#local-6989586621679276477"><span class="hs-identifier hs-var hs-var">bufferingHints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointBufferingHints
+</span><a href="#local-6989586621679276477"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276476"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276475"><span class="annot"><span class="annottext">Maybe HttpEndpointBufferingHints
+</span><a href="#local-6989586621679276475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bufferingHints:HttpEndpointDestinationConfiguration' :: Maybe HttpEndpointBufferingHints
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AbufferingHints%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointBufferingHints
+</span><a href="#local-6989586621679276475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Describes the retry behavior in case Kinesis Data Firehose is unable to</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- deliver data to the specified HTTP endpoint destination, or if it</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- doesn\'t receive a valid acknowledgment of receipt from the specified</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- HTTP endpoint destination.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_retryOptions"><span class="hs-identifier hs-type">httpEndpointDestinationConfiguration_retryOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions"><span class="hs-identifier hs-type">HttpEndpointRetryOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="httpEndpointDestinationConfiguration_retryOptions"><span class="annot"><span class="annottext">httpEndpointDestinationConfiguration_retryOptions :: (Maybe HttpEndpointRetryOptions
+ -&gt; f (Maybe HttpEndpointRetryOptions))
+-&gt; HttpEndpointDestinationConfiguration
+-&gt; f HttpEndpointDestinationConfiguration
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_retryOptions"><span class="hs-identifier hs-var hs-var">httpEndpointDestinationConfiguration_retryOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointDestinationConfiguration
+ -&gt; Maybe HttpEndpointRetryOptions)
+-&gt; (HttpEndpointDestinationConfiguration
+    -&gt; Maybe HttpEndpointRetryOptions
+    -&gt; HttpEndpointDestinationConfiguration)
+-&gt; Lens
+     HttpEndpointDestinationConfiguration
+     HttpEndpointDestinationConfiguration
+     (Maybe HttpEndpointRetryOptions)
+     (Maybe HttpEndpointRetryOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276473"><span class="annot"><span class="annottext">Maybe HttpEndpointRetryOptions
+retryOptions :: Maybe HttpEndpointRetryOptions
+$sel:retryOptions:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
+-&gt; Maybe HttpEndpointRetryOptions
+</span><a href="#local-6989586621679276473"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointRetryOptions
+</span><a href="#local-6989586621679276473"><span class="hs-identifier hs-var">retryOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276472"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276471"><span class="annot"><span class="annottext">Maybe HttpEndpointRetryOptions
+</span><a href="#local-6989586621679276471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryOptions:HttpEndpointDestinationConfiguration' :: Maybe HttpEndpointRetryOptions
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AretryOptions%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">retryOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointRetryOptions
+</span><a href="#local-6989586621679276471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_processingConfiguration"><span class="hs-identifier hs-type">httpEndpointDestinationConfiguration_processingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="httpEndpointDestinationConfiguration_processingConfiguration"><span class="annot"><span class="annottext">httpEndpointDestinationConfiguration_processingConfiguration :: (Maybe ProcessingConfiguration
+ -&gt; f (Maybe ProcessingConfiguration))
+-&gt; HttpEndpointDestinationConfiguration
+-&gt; f HttpEndpointDestinationConfiguration
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_processingConfiguration"><span class="hs-identifier hs-var hs-var">httpEndpointDestinationConfiguration_processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointDestinationConfiguration
+ -&gt; Maybe ProcessingConfiguration)
+-&gt; (HttpEndpointDestinationConfiguration
+    -&gt; Maybe ProcessingConfiguration
+    -&gt; HttpEndpointDestinationConfiguration)
+-&gt; Lens
+     HttpEndpointDestinationConfiguration
+     HttpEndpointDestinationConfiguration
+     (Maybe ProcessingConfiguration)
+     (Maybe ProcessingConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276469"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+processingConfiguration :: Maybe ProcessingConfiguration
+$sel:processingConfiguration:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
+-&gt; Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679276469"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679276469"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276468"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276467"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679276467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingConfiguration:HttpEndpointDestinationConfiguration' :: Maybe ProcessingConfiguration
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AprocessingConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679276467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The configuration of the requeste sent to the HTTP endpoint specified as</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- the destination.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_requestConfiguration"><span class="hs-identifier hs-type">httpEndpointDestinationConfiguration_requestConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRequestConfiguration.html#HttpEndpointRequestConfiguration"><span class="hs-identifier hs-type">HttpEndpointRequestConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="httpEndpointDestinationConfiguration_requestConfiguration"><span class="annot"><span class="annottext">httpEndpointDestinationConfiguration_requestConfiguration :: (Maybe HttpEndpointRequestConfiguration
+ -&gt; f (Maybe HttpEndpointRequestConfiguration))
+-&gt; HttpEndpointDestinationConfiguration
+-&gt; f HttpEndpointDestinationConfiguration
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_requestConfiguration"><span class="hs-identifier hs-var hs-var">httpEndpointDestinationConfiguration_requestConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointDestinationConfiguration
+ -&gt; Maybe HttpEndpointRequestConfiguration)
+-&gt; (HttpEndpointDestinationConfiguration
+    -&gt; Maybe HttpEndpointRequestConfiguration
+    -&gt; HttpEndpointDestinationConfiguration)
+-&gt; Lens
+     HttpEndpointDestinationConfiguration
+     HttpEndpointDestinationConfiguration
+     (Maybe HttpEndpointRequestConfiguration)
+     (Maybe HttpEndpointRequestConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276465"><span class="annot"><span class="annottext">Maybe HttpEndpointRequestConfiguration
+requestConfiguration :: Maybe HttpEndpointRequestConfiguration
+$sel:requestConfiguration:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
+-&gt; Maybe HttpEndpointRequestConfiguration
+</span><a href="#local-6989586621679276465"><span class="hs-identifier hs-var hs-var">requestConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointRequestConfiguration
+</span><a href="#local-6989586621679276465"><span class="hs-identifier hs-var">requestConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276464"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276463"><span class="annot"><span class="annottext">Maybe HttpEndpointRequestConfiguration
+</span><a href="#local-6989586621679276463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestConfiguration:HttpEndpointDestinationConfiguration' :: Maybe HttpEndpointRequestConfiguration
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3ArequestConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">requestConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointRequestConfiguration
+</span><a href="#local-6989586621679276463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | Kinesis Data Firehose uses this IAM role for all the permissions that</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- the delivery stream needs.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_roleARN"><span class="hs-identifier hs-type">httpEndpointDestinationConfiguration_roleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="httpEndpointDestinationConfiguration_roleARN"><span class="annot"><span class="annottext">httpEndpointDestinationConfiguration_roleARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; HttpEndpointDestinationConfiguration
+-&gt; f HttpEndpointDestinationConfiguration
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_roleARN"><span class="hs-identifier hs-var hs-var">httpEndpointDestinationConfiguration_roleARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointDestinationConfiguration -&gt; Maybe Text)
+-&gt; (HttpEndpointDestinationConfiguration
+    -&gt; Maybe Text -&gt; HttpEndpointDestinationConfiguration)
+-&gt; Lens
+     HttpEndpointDestinationConfiguration
+     HttpEndpointDestinationConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276461"><span class="annot"><span class="annottext">Maybe Text
+roleARN :: Maybe Text
+$sel:roleARN:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679276461"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276461"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276460"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276459"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:HttpEndpointDestinationConfiguration' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AroleARN%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The configuration of the HTTP endpoint selected as the destination.</span><span>
 </span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_endpointConfiguration"><span class="hs-identifier hs-type">httpEndpointDestinationConfiguration_endpointConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointConfiguration.html#HttpEndpointConfiguration"><span class="hs-identifier hs-type">HttpEndpointConfiguration</span></a></span><span>
@@ -464,16 +464,16 @@ $sel:s3BackupMode:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinati
      HttpEndpointConfiguration
      HttpEndpointConfiguration
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262229"><span class="annot"><span class="annottext">HttpEndpointConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276457"><span class="annot"><span class="annottext">HttpEndpointConfiguration
 endpointConfiguration :: HttpEndpointConfiguration
 $sel:endpointConfiguration:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration -&gt; HttpEndpointConfiguration
-</span><a href="#local-6989586621679262229"><span class="hs-identifier hs-var hs-var">endpointConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointConfiguration
-</span><a href="#local-6989586621679262229"><span class="hs-identifier hs-var">endpointConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262228"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262227"><span class="annot"><span class="annottext">HttpEndpointConfiguration
-</span><a href="#local-6989586621679262227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointConfiguration:HttpEndpointDestinationConfiguration' :: HttpEndpointConfiguration
+</span><a href="#local-6989586621679276457"><span class="hs-identifier hs-var hs-var">endpointConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointConfiguration
+</span><a href="#local-6989586621679276457"><span class="hs-identifier hs-var">endpointConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276456"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276455"><span class="annot"><span class="annottext">HttpEndpointConfiguration
+</span><a href="#local-6989586621679276455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointConfiguration:HttpEndpointDestinationConfiguration' :: HttpEndpointConfiguration
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3AendpointConfiguration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">endpointConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HttpEndpointConfiguration
-</span><a href="#local-6989586621679262227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#httpEndpointDestinationConfiguration_s3Configuration"><span class="hs-identifier hs-type">httpEndpointDestinationConfiguration_s3Configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span>
@@ -491,31 +491,31 @@ $sel:endpointConfiguration:HttpEndpointDestinationConfiguration' :: HttpEndpoint
      S3DestinationConfiguration
      S3DestinationConfiguration
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262225"><span class="annot"><span class="annottext">S3DestinationConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276453"><span class="annot"><span class="annottext">S3DestinationConfiguration
 s3Configuration :: S3DestinationConfiguration
 $sel:s3Configuration:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration -&gt; S3DestinationConfiguration
-</span><a href="#local-6989586621679262225"><span class="hs-identifier hs-var hs-var">s3Configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
-</span><a href="#local-6989586621679262225"><span class="hs-identifier hs-var">s3Configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262224"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262223"><span class="annot"><span class="annottext">S3DestinationConfiguration
-</span><a href="#local-6989586621679262223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
-</span><a href="#local-6989586621679262224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Configuration:HttpEndpointDestinationConfiguration' :: S3DestinationConfiguration
+</span><a href="#local-6989586621679276453"><span class="hs-identifier hs-var hs-var">s3Configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
+</span><a href="#local-6989586621679276453"><span class="hs-identifier hs-var">s3Configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276452"><span class="annot"><span class="annottext">s :: HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276451"><span class="annot"><span class="annottext">S3DestinationConfiguration
+</span><a href="#local-6989586621679276451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDestinationConfiguration
+</span><a href="#local-6989586621679276452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Configuration:HttpEndpointDestinationConfiguration' :: S3DestinationConfiguration
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#%24sel%3As3Configuration%3AHttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-var">s3Configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
-</span><a href="#local-6989586621679262223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679262219"><span id="local-6989586621679262221"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679276447"><span id="local-6989586621679276449"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span></span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679262216"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679276444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span></span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679262208"><span id="local-6989586621679262210"><span id="local-6989586621679262212"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679276436"><span id="local-6989586621679276438"><span id="local-6989586621679276440"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration</span></a></span></span></span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679262206"><span class="annot"><span class="annottext">toJSON :: HttpEndpointDestinationConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262196"><span id="local-6989586621679262197"><span id="local-6989586621679262198"><span id="local-6989586621679262199"><span id="local-6989586621679262200"><span id="local-6989586621679262201"><span id="local-6989586621679262202"><span id="local-6989586621679262203"><span id="local-6989586621679262204"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679276434"><span class="annot"><span class="annottext">toJSON :: HttpEndpointDestinationConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration.html#HttpEndpointDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpEndpointDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276424"><span id="local-6989586621679276425"><span id="local-6989586621679276426"><span id="local-6989586621679276427"><span id="local-6989586621679276428"><span id="local-6989586621679276429"><span id="local-6989586621679276430"><span id="local-6989586621679276431"><span id="local-6989586621679276432"><span class="annot"><span class="annottext">Maybe Text
 Maybe CloudWatchLoggingOptions
 Maybe HttpEndpointBufferingHints
 Maybe HttpEndpointRequestConfiguration
@@ -526,93 +526,93 @@ HttpEndpointConfiguration
 S3DestinationConfiguration
 s3Configuration :: S3DestinationConfiguration
 endpointConfiguration :: HttpEndpointConfiguration
-s3BackupMode :: Maybe HttpEndpointS3BackupMode
+roleARN :: Maybe Text
+requestConfiguration :: Maybe HttpEndpointRequestConfiguration
+processingConfiguration :: Maybe ProcessingConfiguration
 retryOptions :: Maybe HttpEndpointRetryOptions
 bufferingHints :: Maybe HttpEndpointBufferingHints
-requestConfiguration :: Maybe HttpEndpointRequestConfiguration
 cloudWatchLoggingOptions :: Maybe CloudWatchLoggingOptions
-processingConfiguration :: Maybe ProcessingConfiguration
-roleARN :: Maybe Text
+s3BackupMode :: Maybe HttpEndpointS3BackupMode
 $sel:s3Configuration:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration -&gt; S3DestinationConfiguration
 $sel:endpointConfiguration:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration -&gt; HttpEndpointConfiguration
-$sel:s3BackupMode:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
--&gt; Maybe HttpEndpointS3BackupMode
+$sel:roleARN:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration -&gt; Maybe Text
+$sel:requestConfiguration:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
+-&gt; Maybe HttpEndpointRequestConfiguration
+$sel:processingConfiguration:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
+-&gt; Maybe ProcessingConfiguration
 $sel:retryOptions:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
 -&gt; Maybe HttpEndpointRetryOptions
 $sel:bufferingHints:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
 -&gt; Maybe HttpEndpointBufferingHints
-$sel:requestConfiguration:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
--&gt; Maybe HttpEndpointRequestConfiguration
 $sel:cloudWatchLoggingOptions:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
 -&gt; Maybe CloudWatchLoggingOptions
-$sel:processingConfiguration:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
--&gt; Maybe ProcessingConfiguration
-$sel:roleARN:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679262196"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:s3BackupMode:HttpEndpointDestinationConfiguration' :: HttpEndpointDestinationConfiguration
+-&gt; Maybe HttpEndpointS3BackupMode
+</span><a href="#local-6989586621679276424"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-197"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RoleARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262204"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProcessingConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProcessingConfiguration -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span>              </span><span class="annot"><span class="annottext">(ProcessingConfiguration -&gt; Pair)
--&gt; Maybe ProcessingConfiguration -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
-</span><a href="#local-6989586621679262203"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CloudWatchLoggingOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CloudWatchLoggingOptions -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-201"></span><span>              </span><span class="annot"><span class="annottext">(CloudWatchLoggingOptions -&gt; Pair)
--&gt; Maybe CloudWatchLoggingOptions -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
-</span><a href="#local-6989586621679262202"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RequestConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpEndpointRequestConfiguration -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-203"></span><span>              </span><span class="annot"><span class="annottext">(HttpEndpointRequestConfiguration -&gt; Pair)
--&gt; Maybe HttpEndpointRequestConfiguration -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointRequestConfiguration
-</span><a href="#local-6989586621679262201"><span class="hs-identifier hs-var">requestConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BufferingHints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpEndpointBufferingHints -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">(HttpEndpointBufferingHints -&gt; Pair)
--&gt; Maybe HttpEndpointBufferingHints -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointBufferingHints
-</span><a href="#local-6989586621679262200"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RetryOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpEndpointRetryOptions -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointRetryOptions -&gt; Pair)
--&gt; Maybe HttpEndpointRetryOptions -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointRetryOptions
-</span><a href="#local-6989586621679262199"><span class="hs-identifier hs-var">retryOptions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3BackupMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpEndpointS3BackupMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointS3BackupMode -&gt; Pair)
 -&gt; Maybe HttpEndpointS3BackupMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointS3BackupMode
-</span><a href="#local-6989586621679262198"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276432"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudWatchLoggingOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CloudWatchLoggingOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>              </span><span class="annot"><span class="annottext">(CloudWatchLoggingOptions -&gt; Pair)
+-&gt; Maybe CloudWatchLoggingOptions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679276431"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BufferingHints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpEndpointBufferingHints -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>              </span><span class="annot"><span class="annottext">(HttpEndpointBufferingHints -&gt; Pair)
+-&gt; Maybe HttpEndpointBufferingHints -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointBufferingHints
+</span><a href="#local-6989586621679276430"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetryOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpEndpointRetryOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointRetryOptions -&gt; Pair)
+-&gt; Maybe HttpEndpointRetryOptions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointRetryOptions
+</span><a href="#local-6989586621679276429"><span class="hs-identifier hs-var">retryOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProcessingConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProcessingConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>              </span><span class="annot"><span class="annottext">(ProcessingConfiguration -&gt; Pair)
+-&gt; Maybe ProcessingConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679276428"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpEndpointRequestConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">(HttpEndpointRequestConfiguration -&gt; Pair)
+-&gt; Maybe HttpEndpointRequestConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpEndpointRequestConfiguration
+</span><a href="#local-6989586621679276427"><span class="hs-identifier hs-var">requestConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276426"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -621,7 +621,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-210"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; HttpEndpointConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HttpEndpointConfiguration
-</span><a href="#local-6989586621679262197"><span class="hs-identifier hs-var">endpointConfiguration</span></a></span><span>
+</span><a href="#local-6989586621679276425"><span class="hs-identifier hs-var">endpointConfiguration</span></a></span><span>
 </span><span id="line-211"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -630,7 +630,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;S3Configuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3DestinationConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
-</span><a href="#local-6989586621679262196"><span class="hs-identifier hs-var">s3Configuration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276424"><span class="hs-identifier hs-var">s3Configuration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-215"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span></pre></body></html>

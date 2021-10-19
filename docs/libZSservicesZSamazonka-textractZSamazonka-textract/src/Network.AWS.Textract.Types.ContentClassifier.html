@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679174815"><span id="local-6989586621679174816"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContentClassifier"><span class="annot"><a href="Network.AWS.Textract.Types.ContentClassifier.html#ContentClassifier"><span class="hs-identifier hs-var">ContentClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContentClassifier%27"><span class="annot"><a href="Network.AWS.Textract.Types.ContentClassifier.html#ContentClassifier%27"><span class="hs-identifier hs-var">ContentClassifier'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679174896"><span id="local-6989586621679174897"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContentClassifier"><span class="annot"><a href="Network.AWS.Textract.Types.ContentClassifier.html#ContentClassifier"><span class="hs-identifier hs-var">ContentClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContentClassifier%27"><span class="annot"><a href="Network.AWS.Textract.Types.ContentClassifier.html#ContentClassifier%27"><span class="hs-identifier hs-var">ContentClassifier'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContentClassifier"><span class="annot"><span class="annottext">ContentClassifier -&gt; Text
 </span><a href="Network.AWS.Textract.Types.ContentClassifier.html#fromContentClassifier"><span class="hs-identifier hs-var hs-var">fromContentClassifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679174807"><span id="local-6989586621679174809"><span id="local-6989586621679174811"><span class="annot"><span class="annottext">Int -&gt; ContentClassifier -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679174888"><span id="local-6989586621679174890"><span id="local-6989586621679174892"><span class="annot"><span class="annottext">Int -&gt; ContentClassifier -&gt; ShowS
 [ContentClassifier] -&gt; ShowS
 ContentClassifier -&gt; String
 (Int -&gt; ContentClassifier -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ContentClassifier -&gt; String
 showsPrec :: Int -&gt; ContentClassifier -&gt; ShowS
 $cshowsPrec :: Int -&gt; ContentClassifier -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679174798"><span id="local-6989586621679174800"><span id="local-6989586621679174802"><span id="local-6989586621679174804"><span class="annot"><span class="annottext">ReadPrec [ContentClassifier]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679174879"><span id="local-6989586621679174881"><span id="local-6989586621679174883"><span id="local-6989586621679174885"><span class="annot"><span class="annottext">ReadPrec [ContentClassifier]
 ReadPrec ContentClassifier
 Int -&gt; ReadS ContentClassifier
 ReadS [ContentClassifier]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ContentClassifier]
 readsPrec :: Int -&gt; ReadS ContentClassifier
 $creadsPrec :: Int -&gt; ReadS ContentClassifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679174793"><span id="local-6989586621679174795"><span class="annot"><span class="annottext">ContentClassifier -&gt; ContentClassifier -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679174874"><span id="local-6989586621679174876"><span class="annot"><span class="annottext">ContentClassifier -&gt; ContentClassifier -&gt; Bool
 (ContentClassifier -&gt; ContentClassifier -&gt; Bool)
 -&gt; (ContentClassifier -&gt; ContentClassifier -&gt; Bool)
 -&gt; Eq ContentClassifier
@@ -82,7 +82,7 @@ $c/= :: ContentClassifier -&gt; ContentClassifier -&gt; Bool
 == :: ContentClassifier -&gt; ContentClassifier -&gt; Bool
 $c== :: ContentClassifier -&gt; ContentClassifier -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679174777"><span id="local-6989586621679174779"><span id="local-6989586621679174781"><span id="local-6989586621679174783"><span id="local-6989586621679174785"><span id="local-6989586621679174787"><span id="local-6989586621679174789"><span class="annot"><span class="annottext">Eq ContentClassifier
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679174858"><span id="local-6989586621679174860"><span id="local-6989586621679174862"><span id="local-6989586621679174864"><span id="local-6989586621679174866"><span id="local-6989586621679174868"><span id="local-6989586621679174870"><span class="annot"><span class="annottext">Eq ContentClassifier
 Eq ContentClassifier
 -&gt; (ContentClassifier -&gt; ContentClassifier -&gt; Ordering)
 -&gt; (ContentClassifier -&gt; ContentClassifier -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ContentClassifier -&gt; Rep ContentClassifier x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679174769"><span id="local-6989586621679174771"><span class="annot"><span class="annottext">Int -&gt; ContentClassifier -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679174850"><span id="local-6989586621679174852"><span class="annot"><span class="annottext">Int -&gt; ContentClassifier -&gt; Int
 ContentClassifier -&gt; Int
 (Int -&gt; ContentClassifier -&gt; Int)
 -&gt; (ContentClassifier -&gt; Int) -&gt; Hashable ContentClassifier
@@ -143,51 +143,51 @@ $chash :: ContentClassifier -&gt; Int
 hashWithSalt :: Int -&gt; ContentClassifier -&gt; Int
 $chashWithSalt :: Int -&gt; ContentClassifier -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679174766"><span class="annot"><span class="annottext">ContentClassifier -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679174847"><span class="annot"><span class="annottext">ContentClassifier -&gt; ()
 (ContentClassifier -&gt; ()) -&gt; NFData ContentClassifier
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ContentClassifier -&gt; ()
 $crnf :: ContentClassifier -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679174763"><span class="annot"><span class="annottext">Text -&gt; Either String ContentClassifier
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679174844"><span class="annot"><span class="annottext">Text -&gt; Either String ContentClassifier
 (Text -&gt; Either String ContentClassifier)
 -&gt; FromText ContentClassifier
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ContentClassifier
 $cfromText :: Text -&gt; Either String ContentClassifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679174760"><span class="annot"><span class="annottext">ContentClassifier -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679174841"><span class="annot"><span class="annottext">ContentClassifier -&gt; Text
 (ContentClassifier -&gt; Text) -&gt; ToText ContentClassifier
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ContentClassifier -&gt; Text
 $ctoText :: ContentClassifier -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679174757"><span class="annot"><span class="annottext">ContentClassifier -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679174838"><span class="annot"><span class="annottext">ContentClassifier -&gt; ByteString
 (ContentClassifier -&gt; ByteString) -&gt; ToByteString ContentClassifier
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ContentClassifier -&gt; ByteString
 $ctoBS :: ContentClassifier -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679174754"><span class="annot"><span class="annottext">ContentClassifier -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679174835"><span class="annot"><span class="annottext">ContentClassifier -&gt; ByteStringBuilder
 (ContentClassifier -&gt; ByteStringBuilder) -&gt; ToLog ContentClassifier
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ContentClassifier -&gt; ByteStringBuilder
 $cbuild :: ContentClassifier -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679174751"><span class="annot"><span class="annottext">HeaderName -&gt; ContentClassifier -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679174832"><span class="annot"><span class="annottext">HeaderName -&gt; ContentClassifier -&gt; [Header]
 (HeaderName -&gt; ContentClassifier -&gt; [Header])
 -&gt; ToHeader ContentClassifier
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ContentClassifier -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ContentClassifier -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679174748"><span class="annot"><span class="annottext">ContentClassifier -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679174829"><span class="annot"><span class="annottext">ContentClassifier -&gt; QueryString
 (ContentClassifier -&gt; QueryString) -&gt; ToQuery ContentClassifier
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ContentClassifier -&gt; QueryString
 $ctoQuery :: ContentClassifier -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679174743"><span id="local-6989586621679174745"><span class="annot"><span class="annottext">Value -&gt; Parser [ContentClassifier]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679174824"><span id="local-6989586621679174826"><span class="annot"><span class="annottext">Value -&gt; Parser [ContentClassifier]
 Value -&gt; Parser ContentClassifier
 (Value -&gt; Parser ContentClassifier)
 -&gt; (Value -&gt; Parser [ContentClassifier])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ContentClassifier]
 parseJSON :: Value -&gt; Parser ContentClassifier
 $cparseJSON :: Value -&gt; Parser ContentClassifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679174738"><span id="local-6989586621679174740"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContentClassifier]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679174819"><span id="local-6989586621679174821"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContentClassifier]
 FromJSONKeyFunction ContentClassifier
 FromJSONKeyFunction ContentClassifier
 -&gt; FromJSONKeyFunction [ContentClassifier]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ContentClassifier]
 fromJSONKey :: FromJSONKeyFunction ContentClassifier
 $cfromJSONKey :: FromJSONKeyFunction ContentClassifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679174729"><span id="local-6989586621679174731"><span id="local-6989586621679174733"><span id="local-6989586621679174735"><span class="annot"><span class="annottext">[ContentClassifier] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679174810"><span id="local-6989586621679174812"><span id="local-6989586621679174814"><span id="local-6989586621679174816"><span class="annot"><span class="annottext">[ContentClassifier] -&gt; Encoding
 [ContentClassifier] -&gt; Value
 ContentClassifier -&gt; Encoding
 ContentClassifier -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: ContentClassifier -&gt; Encoding
 toJSON :: ContentClassifier -&gt; Value
 $ctoJSON :: ContentClassifier -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679174724"><span id="local-6989586621679174726"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContentClassifier]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679174805"><span id="local-6989586621679174807"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContentClassifier]
 ToJSONKeyFunction ContentClassifier
 ToJSONKeyFunction ContentClassifier
 -&gt; ToJSONKeyFunction [ContentClassifier]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ContentClassifier]
 toJSONKey :: ToJSONKeyFunction ContentClassifier
 $ctoJSONKey :: ToJSONKeyFunction ContentClassifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679174721"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContentClassifier
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679174802"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContentClassifier
 ([Node] -&gt; Either String ContentClassifier)
 -&gt; FromXML ContentClassifier
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ContentClassifier
 $cparseXML :: [Node] -&gt; Either String ContentClassifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679174718"><span class="annot"><span class="annottext">ContentClassifier -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679174799"><span class="annot"><span class="annottext">ContentClassifier -&gt; XML
 (ContentClassifier -&gt; XML) -&gt; ToXML ContentClassifier
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ContentClassifier -&gt; XML

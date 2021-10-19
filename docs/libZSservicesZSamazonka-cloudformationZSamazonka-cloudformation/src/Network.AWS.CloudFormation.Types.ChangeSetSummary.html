@@ -29,52 +29,52 @@
 </span><span id="line-29"></span><span class="hs-comment">-- the stack with which it\'s associated.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newChangeSetSummary' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679416292"><span id="local-6989586621679416293"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChangeSetSummary"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-var">ChangeSetSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeSetSummary%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-var">ChangeSetSummary'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The root change set ID.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3ArootChangeSetId%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3ArootChangeSetId%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">rootChangeSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The start time when the change set was created, in UTC.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreationTime%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe ISO8601
+</span><span id="line-32"></span><span id="local-6989586621679416692"><span id="local-6989586621679416693"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChangeSetSummary"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-var">ChangeSetSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeSetSummary%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-var">ChangeSetSummary'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The start time when the change set was created, in UTC.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcreationTime%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe ISO8601
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AcreationTime%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The state of the change set, such as @CREATE_IN_PROGRESS@,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @CREATE_COMPLETE@, or @FAILED@.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Astatus%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe ChangeSetStatus
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The state of the change set, such as @CREATE_IN_PROGRESS@,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @CREATE_COMPLETE@, or @FAILED@.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Astatus%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe ChangeSetStatus
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3Astatus%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetStatus.html#ChangeSetStatus"><span class="hs-identifier hs-type">ChangeSetStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Specifies the current setting of @IncludeNestedStacks@ for the change</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- set.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AincludeNestedStacks%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Bool
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AincludeNestedStacks%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">includeNestedStacks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the stack with which the change set is associated.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AstackName%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AstackName%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | If the change set execution status is @AVAILABLE@, you can execute the</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- change set. If you can&#8217;t execute the change set, the status indicates</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- why. For example, a change set might be in an @UNAVAILABLE@ state</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- because CloudFormation is still creating it or in an @OBSOLETE@ state</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- because the stack was already updated.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AexecutionStatus%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe ExecutionStatus
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AexecutionStatus%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">executionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The ID of the stack with which the change set is associated.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AstackId%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AstackId%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The parent change set ID.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AparentChangeSetId%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Text
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The parent change set ID.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AparentChangeSetId%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AparentChangeSetId%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">parentChangeSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The ID of the change set.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AchangeSetId%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AchangeSetId%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">changeSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Descriptive information about the change set.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3Adescription%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3Adescription%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of the change set.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AchangeSetName%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Text
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the change set.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AchangeSetName%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AchangeSetName%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">changeSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | A description of the change set\'s status. For example, if your change</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- set is in the @FAILED@ state, CloudFormation shows the error message.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AstatusReason%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AstatusReason%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | If the change set execution status is @AVAILABLE@, you can execute the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- change set. If you can&#8217;t execute the change set, the status indicates</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- why. For example, a change set might be in an @UNAVAILABLE@ state</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- because CloudFormation is still creating it or in an @OBSOLETE@ state</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- because the stack was already updated.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AexecutionStatus%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe ExecutionStatus
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AexecutionStatus%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">executionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The ID of the change set.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AchangeSetId%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AchangeSetId%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">changeSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Specifies the current setting of @IncludeNestedStacks@ for the change</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- set.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AincludeNestedStacks%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Bool
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AincludeNestedStacks%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">includeNestedStacks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The root change set ID.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3ArootChangeSetId%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3ArootChangeSetId%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">rootChangeSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | A description of the change set\'s status. For example, if your change</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- set is in the @FAILED@ state, CloudFormation shows the error message.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AstatusReason%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AstatusReason%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ID of the stack with which the change set is associated.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AstackId%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AstackId%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Descriptive information about the change set.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Adescription%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3Adescription%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The name of the stack with which the change set is associated.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AstackName%3AChangeSetSummary%27"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AstackName%3AChangeSetSummary%27"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416275"><span id="local-6989586621679416277"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; ChangeSetSummary -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416675"><span id="local-6989586621679416677"><span class="annot"><span class="annottext">ChangeSetSummary -&gt; ChangeSetSummary -&gt; Bool
 (ChangeSetSummary -&gt; ChangeSetSummary -&gt; Bool)
 -&gt; (ChangeSetSummary -&gt; ChangeSetSummary -&gt; Bool)
 -&gt; Eq ChangeSetSummary
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ChangeSetSummary -&gt; ChangeSetSummary -&gt; Bool
 == :: ChangeSetSummary -&gt; ChangeSetSummary -&gt; Bool
 $c== :: ChangeSetSummary -&gt; ChangeSetSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416266"><span id="local-6989586621679416268"><span id="local-6989586621679416270"><span id="local-6989586621679416272"><span class="annot"><span class="annottext">ReadPrec [ChangeSetSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416666"><span id="local-6989586621679416668"><span id="local-6989586621679416670"><span id="local-6989586621679416672"><span class="annot"><span class="annottext">ReadPrec [ChangeSetSummary]
 ReadPrec ChangeSetSummary
 Int -&gt; ReadS ChangeSetSummary
 ReadS [ChangeSetSummary]
@@ -103,7 +103,7 @@ readList :: ReadS [ChangeSetSummary]
 $creadList :: ReadS [ChangeSetSummary]
 readsPrec :: Int -&gt; ReadS ChangeSetSummary
 $creadsPrec :: Int -&gt; ReadS ChangeSetSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416259"><span id="local-6989586621679416261"><span id="local-6989586621679416263"><span class="annot"><span class="annottext">Int -&gt; ChangeSetSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416659"><span id="local-6989586621679416661"><span id="local-6989586621679416663"><span class="annot"><span class="annottext">Int -&gt; ChangeSetSummary -&gt; ShowS
 [ChangeSetSummary] -&gt; ShowS
 ChangeSetSummary -&gt; String
 (Int -&gt; ChangeSetSummary -&gt; ShowS)
@@ -137,47 +137,47 @@ $cfrom :: forall x. ChangeSetSummary -&gt; Rep ChangeSetSummary x
 </span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'rootChangeSetId', 'changeSetSummary_rootChangeSetId' - The root change set ID.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'creationTime', 'changeSetSummary_creationTime' - The start time when the change set was created, in UTC.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'creationTime', 'changeSetSummary_creationTime' - The start time when the change set was created, in UTC.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'status', 'changeSetSummary_status' - The state of the change set, such as @CREATE_IN_PROGRESS@,</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- @CREATE_COMPLETE@, or @FAILED@.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'status', 'changeSetSummary_status' - The state of the change set, such as @CREATE_IN_PROGRESS@,</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- @CREATE_COMPLETE@, or @FAILED@.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'parentChangeSetId', 'changeSetSummary_parentChangeSetId' - The parent change set ID.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'includeNestedStacks', 'changeSetSummary_includeNestedStacks' - Specifies the current setting of @IncludeNestedStacks@ for the change</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- set.</span><span>
-</span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'stackName', 'changeSetSummary_stackName' - The name of the stack with which the change set is associated.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'executionStatus', 'changeSetSummary_executionStatus' - If the change set execution status is @AVAILABLE@, you can execute the</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- change set. If you can&#8217;t execute the change set, the status indicates</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- why. For example, a change set might be in an @UNAVAILABLE@ state</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- because CloudFormation is still creating it or in an @OBSOLETE@ state</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- because the stack was already updated.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'stackId', 'changeSetSummary_stackId' - The ID of the stack with which the change set is associated.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'changeSetName', 'changeSetSummary_changeSetName' - The name of the change set.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'executionStatus', 'changeSetSummary_executionStatus' - If the change set execution status is @AVAILABLE@, you can execute the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- change set. If you can&#8217;t execute the change set, the status indicates</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- why. For example, a change set might be in an @UNAVAILABLE@ state</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- because CloudFormation is still creating it or in an @OBSOLETE@ state</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- because the stack was already updated.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'changeSetId', 'changeSetSummary_changeSetId' - The ID of the change set.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'includeNestedStacks', 'changeSetSummary_includeNestedStacks' - Specifies the current setting of @IncludeNestedStacks@ for the change</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- set.</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'parentChangeSetId', 'changeSetSummary_parentChangeSetId' - The parent change set ID.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'rootChangeSetId', 'changeSetSummary_rootChangeSetId' - The root change set ID.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'changeSetId', 'changeSetSummary_changeSetId' - The ID of the change set.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'description', 'changeSetSummary_description' - Descriptive information about the change set.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'changeSetName', 'changeSetSummary_changeSetName' - The name of the change set.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'statusReason', 'changeSetSummary_statusReason' - A description of the change set\'s status. For example, if your change</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- set is in the @FAILED@ state, CloudFormation shows the error message.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'statusReason', 'changeSetSummary_statusReason' - A description of the change set\'s status. For example, if your change</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- set is in the @FAILED@ state, CloudFormation shows the error message.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'stackId', 'changeSetSummary_stackId' - The ID of the stack with which the change set is associated.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'description', 'changeSetSummary_description' - Descriptive information about the change set.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'stackName', 'changeSetSummary_stackName' - The name of the stack with which the change set is associated.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#newChangeSetSummary"><span class="hs-identifier hs-type">newChangeSetSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span>
 </span><span id="line-107"></span><span id="newChangeSetSummary"><span class="annot"><span class="annottext">newChangeSetSummary :: ChangeSetSummary
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#newChangeSetSummary"><span class="hs-identifier hs-var hs-var">newChangeSetSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">ChangeSetSummary' :: Maybe Text
--&gt; Maybe ISO8601
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">ChangeSetSummary' :: Maybe ISO8601
 -&gt; Maybe ChangeSetStatus
--&gt; Maybe Bool
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe ExecutionStatus
 -&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -185,95 +185,75 @@ $cfrom :: forall x. ChangeSetSummary -&gt; Rep ChangeSetSummary x
 -&gt; Maybe Text
 -&gt; ChangeSetSummary
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rootChangeSetId:ChangeSetSummary' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3ArootChangeSetId%3AChangeSetSummary%27"><span class="hs-identifier hs-var">rootChangeSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTime:ChangeSetSummary' :: Maybe ISO8601
+</span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:ChangeSetSummary' :: Maybe ISO8601
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AcreationTime%3AChangeSetSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ChangeSetSummary' :: Maybe ChangeSetStatus
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ChangeSetSummary' :: Maybe ChangeSetStatus
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3Astatus%3AChangeSetSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeSetStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:includeNestedStacks:ChangeSetSummary' :: Maybe Bool
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AincludeNestedStacks%3AChangeSetSummary%27"><span class="hs-identifier hs-var">includeNestedStacks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackName:ChangeSetSummary' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AstackName%3AChangeSetSummary%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:executionStatus:ChangeSetSummary' :: Maybe ExecutionStatus
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AexecutionStatus%3AChangeSetSummary%27"><span class="hs-identifier hs-var">executionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackId:ChangeSetSummary' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AstackId%3AChangeSetSummary%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:parentChangeSetId:ChangeSetSummary' :: Maybe Text
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:parentChangeSetId:ChangeSetSummary' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AparentChangeSetId%3AChangeSetSummary%27"><span class="hs-identifier hs-var">parentChangeSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeSetId:ChangeSetSummary' :: Maybe Text
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeSetName:ChangeSetSummary' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AchangeSetName%3AChangeSetSummary%27"><span class="hs-identifier hs-var">changeSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:executionStatus:ChangeSetSummary' :: Maybe ExecutionStatus
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AexecutionStatus%3AChangeSetSummary%27"><span class="hs-identifier hs-var">executionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeSetId:ChangeSetSummary' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AchangeSetId%3AChangeSetSummary%27"><span class="hs-identifier hs-var">changeSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:includeNestedStacks:ChangeSetSummary' :: Maybe Bool
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AincludeNestedStacks%3AChangeSetSummary%27"><span class="hs-identifier hs-var">includeNestedStacks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:rootChangeSetId:ChangeSetSummary' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3ArootChangeSetId%3AChangeSetSummary%27"><span class="hs-identifier hs-var">rootChangeSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusReason:ChangeSetSummary' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AstatusReason%3AChangeSetSummary%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackId:ChangeSetSummary' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AstackId%3AChangeSetSummary%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ChangeSetSummary' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3Adescription%3AChangeSetSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeSetName:ChangeSetSummary' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AchangeSetName%3AChangeSetSummary%27"><span class="hs-identifier hs-var">changeSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusReason:ChangeSetSummary' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AstatusReason%3AChangeSetSummary%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackName:ChangeSetSummary' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AstackName%3AChangeSetSummary%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | The root change set ID.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_rootChangeSetId"><span class="hs-identifier hs-type">changeSetSummary_rootChangeSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="changeSetSummary_rootChangeSetId"><span class="annot"><span class="annottext">changeSetSummary_rootChangeSetId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ChangeSetSummary -&gt; f ChangeSetSummary
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_rootChangeSetId"><span class="hs-identifier hs-var hs-var">changeSetSummary_rootChangeSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe Text)
--&gt; (ChangeSetSummary -&gt; Maybe Text -&gt; ChangeSetSummary)
--&gt; Lens ChangeSetSummary ChangeSetSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416250"><span class="annot"><span class="annottext">Maybe Text
-rootChangeSetId :: Maybe Text
-$sel:rootChangeSetId:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679416250"><span class="hs-identifier hs-var hs-var">rootChangeSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416250"><span class="hs-identifier hs-var">rootChangeSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416249"><span class="annot"><span class="annottext">s :: ChangeSetSummary
-</span><a href="#local-6989586621679416249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416248"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
-</span><a href="#local-6989586621679416249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rootChangeSetId:ChangeSetSummary' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3ArootChangeSetId%3AChangeSetSummary%27"><span class="hs-identifier hs-var">rootChangeSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The start time when the change set was created, in UTC.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_creationTime"><span class="hs-identifier hs-type">changeSetSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="changeSetSummary_creationTime"><span class="annot"><span class="annottext">changeSetSummary_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-121"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The start time when the change set was created, in UTC.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_creationTime"><span class="hs-identifier hs-type">changeSetSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="changeSetSummary_creationTime"><span class="annot"><span class="annottext">changeSetSummary_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ChangeSetSummary -&gt; f ChangeSetSummary
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_creationTime"><span class="hs-identifier hs-var hs-var">changeSetSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe ISO8601)
 -&gt; (ChangeSetSummary -&gt; Maybe ISO8601 -&gt; ChangeSetSummary)
 -&gt; Lens
      ChangeSetSummary ChangeSetSummary (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416246"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416650"><span class="annot"><span class="annottext">Maybe ISO8601
 creationTime :: Maybe ISO8601
 $sel:creationTime:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679416246"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679416246"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416245"><span class="annot"><span class="annottext">s :: ChangeSetSummary
-</span><a href="#local-6989586621679416245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416244"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679416244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
-</span><a href="#local-6989586621679416245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ChangeSetSummary' :: Maybe ISO8601
+</span><a href="#local-6989586621679416650"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679416650"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416649"><span class="annot"><span class="annottext">s :: ChangeSetSummary
+</span><a href="#local-6989586621679416649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416648"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679416648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
+</span><a href="#local-6989586621679416649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ChangeSetSummary' :: Maybe ISO8601
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AcreationTime%3AChangeSetSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679416244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679416648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; ChangeSetSummary -&gt; f ChangeSetSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -290,11 +270,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | The state of the change set, such as @CREATE_IN_PROGRESS@,</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- @CREATE_COMPLETE@, or @FAILED@.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_status"><span class="hs-identifier hs-type">changeSetSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetStatus.html#ChangeSetStatus"><span class="hs-identifier hs-type">ChangeSetStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="changeSetSummary_status"><span class="annot"><span class="annottext">changeSetSummary_status :: (Maybe ChangeSetStatus -&gt; f (Maybe ChangeSetStatus))
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The state of the change set, such as @CREATE_IN_PROGRESS@,</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- @CREATE_COMPLETE@, or @FAILED@.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_status"><span class="hs-identifier hs-type">changeSetSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetStatus.html#ChangeSetStatus"><span class="hs-identifier hs-type">ChangeSetStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="changeSetSummary_status"><span class="annot"><span class="annottext">changeSetSummary_status :: (Maybe ChangeSetStatus -&gt; f (Maybe ChangeSetStatus))
 -&gt; ChangeSetSummary -&gt; f ChangeSetSummary
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_status"><span class="hs-identifier hs-var hs-var">changeSetSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe ChangeSetStatus)
 -&gt; (ChangeSetSummary -&gt; Maybe ChangeSetStatus -&gt; ChangeSetSummary)
@@ -304,63 +284,62 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe ChangeSetStatus)
      (Maybe ChangeSetStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416239"><span class="annot"><span class="annottext">Maybe ChangeSetStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416643"><span class="annot"><span class="annottext">Maybe ChangeSetStatus
 status :: Maybe ChangeSetStatus
 $sel:status:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe ChangeSetStatus
-</span><a href="#local-6989586621679416239"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeSetStatus
-</span><a href="#local-6989586621679416239"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416238"><span class="annot"><span class="annottext">s :: ChangeSetSummary
-</span><a href="#local-6989586621679416238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416237"><span class="annot"><span class="annottext">Maybe ChangeSetStatus
-</span><a href="#local-6989586621679416237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
-</span><a href="#local-6989586621679416238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ChangeSetSummary' :: Maybe ChangeSetStatus
+</span><a href="#local-6989586621679416643"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeSetStatus
+</span><a href="#local-6989586621679416643"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416642"><span class="annot"><span class="annottext">s :: ChangeSetSummary
+</span><a href="#local-6989586621679416642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416641"><span class="annot"><span class="annottext">Maybe ChangeSetStatus
+</span><a href="#local-6989586621679416641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
+</span><a href="#local-6989586621679416642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ChangeSetSummary' :: Maybe ChangeSetStatus
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3Astatus%3AChangeSetSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeSetStatus
-</span><a href="#local-6989586621679416237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | Specifies the current setting of @IncludeNestedStacks@ for the change</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- set.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_includeNestedStacks"><span class="hs-identifier hs-type">changeSetSummary_includeNestedStacks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="changeSetSummary_includeNestedStacks"><span class="annot"><span class="annottext">changeSetSummary_includeNestedStacks :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><a href="#local-6989586621679416641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The parent change set ID.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_parentChangeSetId"><span class="hs-identifier hs-type">changeSetSummary_parentChangeSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="changeSetSummary_parentChangeSetId"><span class="annot"><span class="annottext">changeSetSummary_parentChangeSetId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ChangeSetSummary -&gt; f ChangeSetSummary
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_includeNestedStacks"><span class="hs-identifier hs-var hs-var">changeSetSummary_includeNestedStacks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe Bool)
--&gt; (ChangeSetSummary -&gt; Maybe Bool -&gt; ChangeSetSummary)
--&gt; Lens ChangeSetSummary ChangeSetSummary (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416235"><span class="annot"><span class="annottext">Maybe Bool
-includeNestedStacks :: Maybe Bool
-$sel:includeNestedStacks:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Bool
-</span><a href="#local-6989586621679416235"><span class="hs-identifier hs-var hs-var">includeNestedStacks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679416235"><span class="hs-identifier hs-var">includeNestedStacks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416234"><span class="annot"><span class="annottext">s :: ChangeSetSummary
-</span><a href="#local-6989586621679416234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416233"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679416233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
-</span><a href="#local-6989586621679416234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeNestedStacks:ChangeSetSummary' :: Maybe Bool
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AincludeNestedStacks%3AChangeSetSummary%27"><span class="hs-identifier hs-var">includeNestedStacks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679416233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | The name of the stack with which the change set is associated.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_stackName"><span class="hs-identifier hs-type">changeSetSummary_stackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="changeSetSummary_stackName"><span class="annot"><span class="annottext">changeSetSummary_stackName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ChangeSetSummary -&gt; f ChangeSetSummary
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_stackName"><span class="hs-identifier hs-var hs-var">changeSetSummary_stackName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe Text)
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_parentChangeSetId"><span class="hs-identifier hs-var hs-var">changeSetSummary_parentChangeSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe Text)
 -&gt; (ChangeSetSummary -&gt; Maybe Text -&gt; ChangeSetSummary)
 -&gt; Lens ChangeSetSummary ChangeSetSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416231"><span class="annot"><span class="annottext">Maybe Text
-stackName :: Maybe Text
-$sel:stackName:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679416231"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416231"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416230"><span class="annot"><span class="annottext">s :: ChangeSetSummary
-</span><a href="#local-6989586621679416230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416229"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
-</span><a href="#local-6989586621679416230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:ChangeSetSummary' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AstackName%3AChangeSetSummary%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- | If the change set execution status is @AVAILABLE@, you can execute the</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- change set. If you can&#8217;t execute the change set, the status indicates</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- why. For example, a change set might be in an @UNAVAILABLE@ state</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- because CloudFormation is still creating it or in an @OBSOLETE@ state</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- because the stack was already updated.</span><span>
-</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_executionStatus"><span class="hs-identifier hs-type">changeSetSummary_executionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span id="changeSetSummary_executionStatus"><span class="annot"><span class="annottext">changeSetSummary_executionStatus :: (Maybe ExecutionStatus -&gt; f (Maybe ExecutionStatus))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416639"><span class="annot"><span class="annottext">Maybe Text
+parentChangeSetId :: Maybe Text
+$sel:parentChangeSetId:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679416639"><span class="hs-identifier hs-var hs-var">parentChangeSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416639"><span class="hs-identifier hs-var">parentChangeSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416638"><span class="annot"><span class="annottext">s :: ChangeSetSummary
+</span><a href="#local-6989586621679416638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416637"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
+</span><a href="#local-6989586621679416638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentChangeSetId:ChangeSetSummary' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AparentChangeSetId%3AChangeSetSummary%27"><span class="hs-identifier hs-var">parentChangeSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The name of the change set.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_changeSetName"><span class="hs-identifier hs-type">changeSetSummary_changeSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="changeSetSummary_changeSetName"><span class="annot"><span class="annottext">changeSetSummary_changeSetName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChangeSetSummary -&gt; f ChangeSetSummary
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_changeSetName"><span class="hs-identifier hs-var hs-var">changeSetSummary_changeSetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe Text)
+-&gt; (ChangeSetSummary -&gt; Maybe Text -&gt; ChangeSetSummary)
+-&gt; Lens ChangeSetSummary ChangeSetSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416635"><span class="annot"><span class="annottext">Maybe Text
+changeSetName :: Maybe Text
+$sel:changeSetName:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679416635"><span class="hs-identifier hs-var hs-var">changeSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416635"><span class="hs-identifier hs-var">changeSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416634"><span class="annot"><span class="annottext">s :: ChangeSetSummary
+</span><a href="#local-6989586621679416634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416633"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
+</span><a href="#local-6989586621679416634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeSetName:ChangeSetSummary' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AchangeSetName%3AChangeSetSummary%27"><span class="hs-identifier hs-var">changeSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | If the change set execution status is @AVAILABLE@, you can execute the</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- change set. If you can&#8217;t execute the change set, the status indicates</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- why. For example, a change set might be in an @UNAVAILABLE@ state</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- because CloudFormation is still creating it or in an @OBSOLETE@ state</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- because the stack was already updated.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_executionStatus"><span class="hs-identifier hs-type">changeSetSummary_executionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="changeSetSummary_executionStatus"><span class="annot"><span class="annottext">changeSetSummary_executionStatus :: (Maybe ExecutionStatus -&gt; f (Maybe ExecutionStatus))
 -&gt; ChangeSetSummary -&gt; f ChangeSetSummary
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_executionStatus"><span class="hs-identifier hs-var hs-var">changeSetSummary_executionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe ExecutionStatus)
 -&gt; (ChangeSetSummary -&gt; Maybe ExecutionStatus -&gt; ChangeSetSummary)
@@ -370,143 +349,163 @@ $sel:stackName:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Text
      (Maybe ExecutionStatus)
      (Maybe ExecutionStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416227"><span class="annot"><span class="annottext">Maybe ExecutionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416631"><span class="annot"><span class="annottext">Maybe ExecutionStatus
 executionStatus :: Maybe ExecutionStatus
 $sel:executionStatus:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe ExecutionStatus
-</span><a href="#local-6989586621679416227"><span class="hs-identifier hs-var hs-var">executionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
-</span><a href="#local-6989586621679416227"><span class="hs-identifier hs-var">executionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416226"><span class="annot"><span class="annottext">s :: ChangeSetSummary
-</span><a href="#local-6989586621679416226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416225"><span class="annot"><span class="annottext">Maybe ExecutionStatus
-</span><a href="#local-6989586621679416225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
-</span><a href="#local-6989586621679416226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionStatus:ChangeSetSummary' :: Maybe ExecutionStatus
+</span><a href="#local-6989586621679416631"><span class="hs-identifier hs-var hs-var">executionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
+</span><a href="#local-6989586621679416631"><span class="hs-identifier hs-var">executionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416630"><span class="annot"><span class="annottext">s :: ChangeSetSummary
+</span><a href="#local-6989586621679416630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416629"><span class="annot"><span class="annottext">Maybe ExecutionStatus
+</span><a href="#local-6989586621679416629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
+</span><a href="#local-6989586621679416630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionStatus:ChangeSetSummary' :: Maybe ExecutionStatus
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AexecutionStatus%3AChangeSetSummary%27"><span class="hs-identifier hs-var">executionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
-</span><a href="#local-6989586621679416225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- | The ID of the stack with which the change set is associated.</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_stackId"><span class="hs-identifier hs-type">changeSetSummary_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="changeSetSummary_stackId"><span class="annot"><span class="annottext">changeSetSummary_stackId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ChangeSetSummary -&gt; f ChangeSetSummary
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_stackId"><span class="hs-identifier hs-var hs-var">changeSetSummary_stackId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe Text)
--&gt; (ChangeSetSummary -&gt; Maybe Text -&gt; ChangeSetSummary)
--&gt; Lens ChangeSetSummary ChangeSetSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416223"><span class="annot"><span class="annottext">Maybe Text
-stackId :: Maybe Text
-$sel:stackId:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679416223"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416223"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416222"><span class="annot"><span class="annottext">s :: ChangeSetSummary
-</span><a href="#local-6989586621679416222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416221"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
-</span><a href="#local-6989586621679416222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:ChangeSetSummary' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AstackId%3AChangeSetSummary%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- | The parent change set ID.</span><span>
-</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_parentChangeSetId"><span class="hs-identifier hs-type">changeSetSummary_parentChangeSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span id="changeSetSummary_parentChangeSetId"><span class="annot"><span class="annottext">changeSetSummary_parentChangeSetId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ChangeSetSummary -&gt; f ChangeSetSummary
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_parentChangeSetId"><span class="hs-identifier hs-var hs-var">changeSetSummary_parentChangeSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe Text)
--&gt; (ChangeSetSummary -&gt; Maybe Text -&gt; ChangeSetSummary)
--&gt; Lens ChangeSetSummary ChangeSetSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416219"><span class="annot"><span class="annottext">Maybe Text
-parentChangeSetId :: Maybe Text
-$sel:parentChangeSetId:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679416219"><span class="hs-identifier hs-var hs-var">parentChangeSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416219"><span class="hs-identifier hs-var">parentChangeSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416218"><span class="annot"><span class="annottext">s :: ChangeSetSummary
-</span><a href="#local-6989586621679416218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416217"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
-</span><a href="#local-6989586621679416218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentChangeSetId:ChangeSetSummary' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AparentChangeSetId%3AChangeSetSummary%27"><span class="hs-identifier hs-var">parentChangeSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- | The ID of the change set.</span><span>
-</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_changeSetId"><span class="hs-identifier hs-type">changeSetSummary_changeSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span id="changeSetSummary_changeSetId"><span class="annot"><span class="annottext">changeSetSummary_changeSetId :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679416629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The ID of the change set.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_changeSetId"><span class="hs-identifier hs-type">changeSetSummary_changeSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="changeSetSummary_changeSetId"><span class="annot"><span class="annottext">changeSetSummary_changeSetId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ChangeSetSummary -&gt; f ChangeSetSummary
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_changeSetId"><span class="hs-identifier hs-var hs-var">changeSetSummary_changeSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe Text)
 -&gt; (ChangeSetSummary -&gt; Maybe Text -&gt; ChangeSetSummary)
 -&gt; Lens ChangeSetSummary ChangeSetSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416215"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416627"><span class="annot"><span class="annottext">Maybe Text
 changeSetId :: Maybe Text
 $sel:changeSetId:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679416215"><span class="hs-identifier hs-var hs-var">changeSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416215"><span class="hs-identifier hs-var">changeSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416214"><span class="annot"><span class="annottext">s :: ChangeSetSummary
-</span><a href="#local-6989586621679416214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416213"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
-</span><a href="#local-6989586621679416214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeSetId:ChangeSetSummary' :: Maybe Text
+</span><a href="#local-6989586621679416627"><span class="hs-identifier hs-var hs-var">changeSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416627"><span class="hs-identifier hs-var">changeSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416626"><span class="annot"><span class="annottext">s :: ChangeSetSummary
+</span><a href="#local-6989586621679416626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416625"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
+</span><a href="#local-6989586621679416626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeSetId:ChangeSetSummary' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AchangeSetId%3AChangeSetSummary%27"><span class="hs-identifier hs-var">changeSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- | Descriptive information about the change set.</span><span>
-</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_description"><span class="hs-identifier hs-type">changeSetSummary_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span id="changeSetSummary_description"><span class="annot"><span class="annottext">changeSetSummary_description :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679416625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Specifies the current setting of @IncludeNestedStacks@ for the change</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- set.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_includeNestedStacks"><span class="hs-identifier hs-type">changeSetSummary_includeNestedStacks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="changeSetSummary_includeNestedStacks"><span class="annot"><span class="annottext">changeSetSummary_includeNestedStacks :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; ChangeSetSummary -&gt; f ChangeSetSummary
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_description"><span class="hs-identifier hs-var hs-var">changeSetSummary_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe Text)
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_includeNestedStacks"><span class="hs-identifier hs-var hs-var">changeSetSummary_includeNestedStacks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe Bool)
+-&gt; (ChangeSetSummary -&gt; Maybe Bool -&gt; ChangeSetSummary)
+-&gt; Lens ChangeSetSummary ChangeSetSummary (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416623"><span class="annot"><span class="annottext">Maybe Bool
+includeNestedStacks :: Maybe Bool
+$sel:includeNestedStacks:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Bool
+</span><a href="#local-6989586621679416623"><span class="hs-identifier hs-var hs-var">includeNestedStacks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679416623"><span class="hs-identifier hs-var">includeNestedStacks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416622"><span class="annot"><span class="annottext">s :: ChangeSetSummary
+</span><a href="#local-6989586621679416622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416621"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679416621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
+</span><a href="#local-6989586621679416622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeNestedStacks:ChangeSetSummary' :: Maybe Bool
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AincludeNestedStacks%3AChangeSetSummary%27"><span class="hs-identifier hs-var">includeNestedStacks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679416621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The root change set ID.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_rootChangeSetId"><span class="hs-identifier hs-type">changeSetSummary_rootChangeSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="changeSetSummary_rootChangeSetId"><span class="annot"><span class="annottext">changeSetSummary_rootChangeSetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChangeSetSummary -&gt; f ChangeSetSummary
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_rootChangeSetId"><span class="hs-identifier hs-var hs-var">changeSetSummary_rootChangeSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe Text)
 -&gt; (ChangeSetSummary -&gt; Maybe Text -&gt; ChangeSetSummary)
 -&gt; Lens ChangeSetSummary ChangeSetSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416211"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679416211"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416211"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416210"><span class="annot"><span class="annottext">s :: ChangeSetSummary
-</span><a href="#local-6989586621679416210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416209"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
-</span><a href="#local-6989586621679416210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ChangeSetSummary' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3Adescription%3AChangeSetSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- | The name of the change set.</span><span>
-</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_changeSetName"><span class="hs-identifier hs-type">changeSetSummary_changeSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span id="changeSetSummary_changeSetName"><span class="annot"><span class="annottext">changeSetSummary_changeSetName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ChangeSetSummary -&gt; f ChangeSetSummary
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_changeSetName"><span class="hs-identifier hs-var hs-var">changeSetSummary_changeSetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe Text)
--&gt; (ChangeSetSummary -&gt; Maybe Text -&gt; ChangeSetSummary)
--&gt; Lens ChangeSetSummary ChangeSetSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416207"><span class="annot"><span class="annottext">Maybe Text
-changeSetName :: Maybe Text
-$sel:changeSetName:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679416207"><span class="hs-identifier hs-var hs-var">changeSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416207"><span class="hs-identifier hs-var">changeSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416206"><span class="annot"><span class="annottext">s :: ChangeSetSummary
-</span><a href="#local-6989586621679416206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416205"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
-</span><a href="#local-6989586621679416206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeSetName:ChangeSetSummary' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AchangeSetName%3AChangeSetSummary%27"><span class="hs-identifier hs-var">changeSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- | A description of the change set\'s status. For example, if your change</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- set is in the @FAILED@ state, CloudFormation shows the error message.</span><span>
-</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_statusReason"><span class="hs-identifier hs-type">changeSetSummary_statusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span id="changeSetSummary_statusReason"><span class="annot"><span class="annottext">changeSetSummary_statusReason :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416619"><span class="annot"><span class="annottext">Maybe Text
+rootChangeSetId :: Maybe Text
+$sel:rootChangeSetId:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679416619"><span class="hs-identifier hs-var hs-var">rootChangeSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416619"><span class="hs-identifier hs-var">rootChangeSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416618"><span class="annot"><span class="annottext">s :: ChangeSetSummary
+</span><a href="#local-6989586621679416618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416617"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
+</span><a href="#local-6989586621679416618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rootChangeSetId:ChangeSetSummary' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3ArootChangeSetId%3AChangeSetSummary%27"><span class="hs-identifier hs-var">rootChangeSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | A description of the change set\'s status. For example, if your change</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- set is in the @FAILED@ state, CloudFormation shows the error message.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_statusReason"><span class="hs-identifier hs-type">changeSetSummary_statusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="changeSetSummary_statusReason"><span class="annot"><span class="annottext">changeSetSummary_statusReason :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ChangeSetSummary -&gt; f ChangeSetSummary
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_statusReason"><span class="hs-identifier hs-var hs-var">changeSetSummary_statusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe Text)
 -&gt; (ChangeSetSummary -&gt; Maybe Text -&gt; ChangeSetSummary)
 -&gt; Lens ChangeSetSummary ChangeSetSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416203"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416615"><span class="annot"><span class="annottext">Maybe Text
 statusReason :: Maybe Text
 $sel:statusReason:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679416203"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416203"><span class="hs-identifier hs-var">statusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416202"><span class="annot"><span class="annottext">s :: ChangeSetSummary
-</span><a href="#local-6989586621679416202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416201"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
-</span><a href="#local-6989586621679416202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReason:ChangeSetSummary' :: Maybe Text
+</span><a href="#local-6989586621679416615"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416615"><span class="hs-identifier hs-var">statusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416614"><span class="annot"><span class="annottext">s :: ChangeSetSummary
+</span><a href="#local-6989586621679416614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416613"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
+</span><a href="#local-6989586621679416614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReason:ChangeSetSummary' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AstatusReason%3AChangeSetSummary%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679416198"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ChangeSetSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679416196"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416196"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe ISO8601
+</span><a href="#local-6989586621679416613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The ID of the stack with which the change set is associated.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_stackId"><span class="hs-identifier hs-type">changeSetSummary_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="changeSetSummary_stackId"><span class="annot"><span class="annottext">changeSetSummary_stackId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChangeSetSummary -&gt; f ChangeSetSummary
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_stackId"><span class="hs-identifier hs-var hs-var">changeSetSummary_stackId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe Text)
+-&gt; (ChangeSetSummary -&gt; Maybe Text -&gt; ChangeSetSummary)
+-&gt; Lens ChangeSetSummary ChangeSetSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416611"><span class="annot"><span class="annottext">Maybe Text
+stackId :: Maybe Text
+$sel:stackId:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679416611"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416611"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416610"><span class="annot"><span class="annottext">s :: ChangeSetSummary
+</span><a href="#local-6989586621679416610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416609"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
+</span><a href="#local-6989586621679416610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:ChangeSetSummary' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AstackId%3AChangeSetSummary%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | Descriptive information about the change set.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_description"><span class="hs-identifier hs-type">changeSetSummary_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="changeSetSummary_description"><span class="annot"><span class="annottext">changeSetSummary_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChangeSetSummary -&gt; f ChangeSetSummary
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_description"><span class="hs-identifier hs-var hs-var">changeSetSummary_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe Text)
+-&gt; (ChangeSetSummary -&gt; Maybe Text -&gt; ChangeSetSummary)
+-&gt; Lens ChangeSetSummary ChangeSetSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416607"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679416607"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416607"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416606"><span class="annot"><span class="annottext">s :: ChangeSetSummary
+</span><a href="#local-6989586621679416606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416605"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
+</span><a href="#local-6989586621679416606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ChangeSetSummary' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3Adescription%3AChangeSetSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The name of the stack with which the change set is associated.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_stackName"><span class="hs-identifier hs-type">changeSetSummary_stackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="changeSetSummary_stackName"><span class="annot"><span class="annottext">changeSetSummary_stackName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChangeSetSummary -&gt; f ChangeSetSummary
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#changeSetSummary_stackName"><span class="hs-identifier hs-var hs-var">changeSetSummary_stackName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeSetSummary -&gt; Maybe Text)
+-&gt; (ChangeSetSummary -&gt; Maybe Text -&gt; ChangeSetSummary)
+-&gt; Lens ChangeSetSummary ChangeSetSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416603"><span class="annot"><span class="annottext">Maybe Text
+stackName :: Maybe Text
+$sel:stackName:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679416603"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416603"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416602"><span class="annot"><span class="annottext">s :: ChangeSetSummary
+</span><a href="#local-6989586621679416602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-type">ChangeSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416601"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeSetSummary
+</span><a href="#local-6989586621679416602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:ChangeSetSummary' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#%24sel%3AstackName%3AChangeSetSummary%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679416598"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ChangeSetSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679416596"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679416596"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
 -&gt; Maybe ChangeSetStatus
--&gt; Maybe Bool
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe ExecutionStatus
 -&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -514,28 +513,28 @@ $sel:statusReason:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; ChangeSetSummary
 </span><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary%27"><span class="hs-identifier hs-var">ChangeSetSummary'</span></a></span><span>
-</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe ISO8601
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601
  -&gt; Maybe ChangeSetStatus
- -&gt; Maybe Bool
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe ExecutionStatus
  -&gt; Maybe Text
+ -&gt; Maybe Bool
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; ChangeSetSummary)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe ISO8601)
 -&gt; Either
      String
-     (Maybe ISO8601
-      -&gt; Maybe ChangeSetStatus
-      -&gt; Maybe Bool
+     (Maybe ChangeSetStatus
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe ExecutionStatus
       -&gt; Maybe Text
+      -&gt; Maybe Bool
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
@@ -544,51 +543,18 @@ $sel:statusReason:ChangeSetSummary' :: ChangeSetSummary -&gt; Maybe Text
       -&gt; ChangeSetSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RootChangeSetId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ISO8601
-   -&gt; Maybe ChangeSetStatus
-   -&gt; Maybe Bool
-   -&gt; Maybe Text
-   -&gt; Maybe ExecutionStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; ChangeSetSummary)
--&gt; Either String (Maybe ISO8601)
--&gt; Either
-     String
-     (Maybe ChangeSetStatus
-      -&gt; Maybe Bool
-      -&gt; Maybe Text
-      -&gt; Maybe ExecutionStatus
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; ChangeSetSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679416596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe ChangeSetStatus
-   -&gt; Maybe Bool
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe ExecutionStatus
    -&gt; Maybe Text
+   -&gt; Maybe Bool
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
@@ -598,10 +564,11 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe ChangeSetStatus)
 -&gt; Either
      String
-     (Maybe Bool
+     (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe ExecutionStatus
       -&gt; Maybe Text
+      -&gt; Maybe Bool
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
@@ -610,28 +577,30 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ChangeSetSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ChangeSetStatus)
+</span><a href="#local-6989586621679416596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ChangeSetStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Bool
+  (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe ExecutionStatus
    -&gt; Maybe Text
+   -&gt; Maybe Bool
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; ChangeSetSummary)
--&gt; Either String (Maybe Bool)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe Text
       -&gt; Maybe ExecutionStatus
       -&gt; Maybe Text
+      -&gt; Maybe Bool
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
@@ -640,15 +609,16 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ChangeSetSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679416596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IncludeNestedStacks&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;ParentChangeSetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe ExecutionStatus
    -&gt; Maybe Text
+   -&gt; Maybe Bool
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
@@ -660,6 +630,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String
      (Maybe ExecutionStatus
       -&gt; Maybe Text
+      -&gt; Maybe Bool
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
@@ -668,14 +639,15 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ChangeSetSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679416596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StackName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;ChangeSetName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe ExecutionStatus
    -&gt; Maybe Text
+   -&gt; Maybe Bool
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
@@ -686,6 +658,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either
      String
      (Maybe Text
+      -&gt; Maybe Bool
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
@@ -694,13 +667,14 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ChangeSetSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ExecutionStatus)
+</span><a href="#local-6989586621679416596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ExecutionStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExecutionStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
+   -&gt; Maybe Bool
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
@@ -708,6 +682,31 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
    -&gt; Maybe Text
    -&gt; ChangeSetSummary)
 -&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ChangeSetSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679416596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChangeSetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ChangeSetSummary)
+-&gt; Either String (Maybe Bool)
 -&gt; Either
      String
      (Maybe Text
@@ -718,11 +717,11 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ChangeSetSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679416596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StackId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;IncludeNestedStacks&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Text
@@ -737,11 +736,11 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ChangeSetSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679416596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ParentChangeSetId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;RootChangeSetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ChangeSetSummary)
@@ -750,39 +749,39 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ChangeSetSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679416596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ChangeSetId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;StatusReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">Either
   String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ChangeSetSummary)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; ChangeSetSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679416596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; ChangeSetSummary)
+</span><span class="hs-string">&quot;StackId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; ChangeSetSummary)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; ChangeSetSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679416596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ChangeSetName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ChangeSetSummary)
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ChangeSetSummary)
 -&gt; Either String (Maybe Text) -&gt; Either String ChangeSetSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679416596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StatusReason&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416190"><span id="local-6989586621679416192"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span></span></span><span>
-</span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416187"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span></span><span>
-</span><span id="line-198"></span></pre></body></html>
+</span><span class="hs-string">&quot;StackName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416590"><span id="local-6989586621679416592"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span></span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416587"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeSetSummary.html#ChangeSetSummary"><span class="hs-identifier hs-type">ChangeSetSummary</span></a></span></span><span>
+</span><span id="line-197"></span></pre></body></html>

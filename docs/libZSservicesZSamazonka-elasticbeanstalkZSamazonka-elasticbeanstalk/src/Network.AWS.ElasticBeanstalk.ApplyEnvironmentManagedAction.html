@@ -29,8 +29,8 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#newApplyEnvironmentManagedAction"><span class="hs-identifier">newApplyEnvironmentManagedAction</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedAction_environmentId"><span class="hs-identifier">applyEnvironmentManagedAction_environmentId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedAction_environmentName"><span class="hs-identifier">applyEnvironmentManagedAction_environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedAction_environmentName"><span class="hs-identifier">applyEnvironmentManagedAction_environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedAction_environmentId"><span class="hs-identifier">applyEnvironmentManagedAction_environmentId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedAction_actionId"><span class="hs-identifier">applyEnvironmentManagedAction_actionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -39,9 +39,9 @@
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_status"><span class="hs-identifier">applyEnvironmentManagedActionResponse_status</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_actionType"><span class="hs-identifier">applyEnvironmentManagedActionResponse_actionType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_actionId"><span class="hs-identifier">applyEnvironmentManagedActionResponse_actionId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_actionDescription"><span class="hs-identifier">applyEnvironmentManagedActionResponse_actionDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_actionId"><span class="hs-identifier">applyEnvironmentManagedActionResponse_actionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_actionDescription"><span class="hs-identifier">applyEnvironmentManagedActionResponse_actionDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_actionType"><span class="hs-identifier">applyEnvironmentManagedActionResponse_actionType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_httpStatus"><span class="hs-identifier">applyEnvironmentManagedActionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span class="hs-keyword">where</span><span>
@@ -56,18 +56,18 @@
 </span><span id="line-56"></span><span class="hs-comment">-- | Request to execute a scheduled managed action immediately.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newApplyEnvironmentManagedAction' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679317582"><span id="local-6989586621679317583"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplyEnvironmentManagedAction"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-var">ApplyEnvironmentManagedAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplyEnvironmentManagedAction%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-var">ApplyEnvironmentManagedAction'</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The environment ID of the target environment.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AenvironmentId%3AApplyEnvironmentManagedAction%27"><span class="annot"><span class="annottext">ApplyEnvironmentManagedAction -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AenvironmentId%3AApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The name of the target environment.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AenvironmentName%3AApplyEnvironmentManagedAction%27"><span class="annot"><span class="annottext">ApplyEnvironmentManagedAction -&gt; Maybe Text
+</span><span id="line-59"></span><span id="local-6989586621679317904"><span id="local-6989586621679317905"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplyEnvironmentManagedAction"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-var">ApplyEnvironmentManagedAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplyEnvironmentManagedAction%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-var">ApplyEnvironmentManagedAction'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the target environment.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AenvironmentName%3AApplyEnvironmentManagedAction%27"><span class="annot"><span class="annottext">ApplyEnvironmentManagedAction -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AenvironmentName%3AApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The environment ID of the target environment.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AenvironmentId%3AApplyEnvironmentManagedAction%27"><span class="annot"><span class="annottext">ApplyEnvironmentManagedAction -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AenvironmentId%3AApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The action ID of the scheduled managed action to execute.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AactionId%3AApplyEnvironmentManagedAction%27"><span class="annot"><span class="annottext">ApplyEnvironmentManagedAction -&gt; Text
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AactionId%3AApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317574"><span id="local-6989586621679317576"><span class="annot"><span class="annottext">ApplyEnvironmentManagedAction
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317896"><span id="local-6989586621679317898"><span class="annot"><span class="annottext">ApplyEnvironmentManagedAction
 -&gt; ApplyEnvironmentManagedAction -&gt; Bool
 (ApplyEnvironmentManagedAction
  -&gt; ApplyEnvironmentManagedAction -&gt; Bool)
@@ -83,7 +83,7 @@ $c/= :: ApplyEnvironmentManagedAction
 -&gt; ApplyEnvironmentManagedAction -&gt; Bool
 $c== :: ApplyEnvironmentManagedAction
 -&gt; ApplyEnvironmentManagedAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317565"><span id="local-6989586621679317567"><span id="local-6989586621679317569"><span id="local-6989586621679317571"><span class="annot"><span class="annottext">ReadPrec [ApplyEnvironmentManagedAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317887"><span id="local-6989586621679317889"><span id="local-6989586621679317891"><span id="local-6989586621679317893"><span class="annot"><span class="annottext">ReadPrec [ApplyEnvironmentManagedAction]
 ReadPrec ApplyEnvironmentManagedAction
 Int -&gt; ReadS ApplyEnvironmentManagedAction
 ReadS [ApplyEnvironmentManagedAction]
@@ -103,7 +103,7 @@ readList :: ReadS [ApplyEnvironmentManagedAction]
 $creadList :: ReadS [ApplyEnvironmentManagedAction]
 readsPrec :: Int -&gt; ReadS ApplyEnvironmentManagedAction
 $creadsPrec :: Int -&gt; ReadS ApplyEnvironmentManagedAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317558"><span id="local-6989586621679317560"><span id="local-6989586621679317562"><span class="annot"><span class="annottext">Int -&gt; ApplyEnvironmentManagedAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317880"><span id="local-6989586621679317882"><span id="local-6989586621679317884"><span class="annot"><span class="annottext">Int -&gt; ApplyEnvironmentManagedAction -&gt; ShowS
 [ApplyEnvironmentManagedAction] -&gt; ShowS
 ApplyEnvironmentManagedAction -&gt; String
 (Int -&gt; ApplyEnvironmentManagedAction -&gt; ShowS)
@@ -149,9 +149,9 @@ ApplyEnvironmentManagedAction
 </span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'environmentId', 'applyEnvironmentManagedAction_environmentId' - The environment ID of the target environment.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'environmentName', 'applyEnvironmentManagedAction_environmentName' - The name of the target environment.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'environmentName', 'applyEnvironmentManagedAction_environmentName' - The name of the target environment.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'environmentId', 'applyEnvironmentManagedAction_environmentId' - The environment ID of the target environment.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- 'actionId', 'applyEnvironmentManagedAction_actionId' - The action ID of the scheduled managed action to execute.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#newApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">newApplyEnvironmentManagedAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -159,51 +159,27 @@ ApplyEnvironmentManagedAction
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span><span>
 </span><span id="line-86"></span><span id="newApplyEnvironmentManagedAction"><span class="annot"><span class="annottext">newApplyEnvironmentManagedAction :: Text -&gt; ApplyEnvironmentManagedAction
-</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#newApplyEnvironmentManagedAction"><span class="hs-identifier hs-var hs-var">newApplyEnvironmentManagedAction</span></a></span></span><span> </span><span id="local-6989586621679317553"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317553"><span class="hs-identifier hs-var">pActionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#newApplyEnvironmentManagedAction"><span class="hs-identifier hs-var hs-var">newApplyEnvironmentManagedAction</span></a></span></span><span> </span><span id="local-6989586621679317875"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317875"><span class="hs-identifier hs-var">pActionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedAction' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ApplyEnvironmentManagedAction
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction'</span></a></span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:environmentId:ApplyEnvironmentManagedAction' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AenvironmentId%3AApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:environmentName:ApplyEnvironmentManagedAction' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AenvironmentName%3AApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentName:ApplyEnvironmentManagedAction' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AenvironmentName%3AApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentId:ApplyEnvironmentManagedAction' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AenvironmentId%3AApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionId:ApplyEnvironmentManagedAction' :: Text
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AactionId%3AApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317553"><span class="hs-identifier hs-var">pActionId_</span></a></span><span>
+</span><a href="#local-6989586621679317875"><span class="hs-identifier hs-var">pActionId_</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The environment ID of the target environment.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedAction_environmentId"><span class="hs-identifier hs-type">applyEnvironmentManagedAction_environmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="applyEnvironmentManagedAction_environmentId"><span class="annot"><span class="annottext">applyEnvironmentManagedAction_environmentId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ApplyEnvironmentManagedAction -&gt; f ApplyEnvironmentManagedAction
-</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedAction_environmentId"><span class="hs-identifier hs-var hs-var">applyEnvironmentManagedAction_environmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplyEnvironmentManagedAction -&gt; Maybe Text)
--&gt; (ApplyEnvironmentManagedAction
-    -&gt; Maybe Text -&gt; ApplyEnvironmentManagedAction)
--&gt; Lens
-     ApplyEnvironmentManagedAction
-     ApplyEnvironmentManagedAction
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317550"><span class="annot"><span class="annottext">Maybe Text
-environmentId :: Maybe Text
-$sel:environmentId:ApplyEnvironmentManagedAction' :: ApplyEnvironmentManagedAction -&gt; Maybe Text
-</span><a href="#local-6989586621679317550"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317550"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317549"><span class="annot"><span class="annottext">s :: ApplyEnvironmentManagedAction
-</span><a href="#local-6989586621679317549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317548"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedAction
-</span><a href="#local-6989586621679317549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentId:ApplyEnvironmentManagedAction' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AenvironmentId%3AApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The name of the target environment.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedAction_environmentName"><span class="hs-identifier hs-type">applyEnvironmentManagedAction_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="applyEnvironmentManagedAction_environmentName"><span class="annot"><span class="annottext">applyEnvironmentManagedAction_environmentName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-94"></span><span class="hs-comment">-- | The name of the target environment.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedAction_environmentName"><span class="hs-identifier hs-type">applyEnvironmentManagedAction_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="applyEnvironmentManagedAction_environmentName"><span class="annot"><span class="annottext">applyEnvironmentManagedAction_environmentName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ApplyEnvironmentManagedAction -&gt; f ApplyEnvironmentManagedAction
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedAction_environmentName"><span class="hs-identifier hs-var hs-var">applyEnvironmentManagedAction_environmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplyEnvironmentManagedAction -&gt; Maybe Text)
 -&gt; (ApplyEnvironmentManagedAction
@@ -214,16 +190,40 @@ $sel:environmentId:ApplyEnvironmentManagedAction' :: ApplyEnvironmentManagedActi
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317547"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317872"><span class="annot"><span class="annottext">Maybe Text
 environmentName :: Maybe Text
 $sel:environmentName:ApplyEnvironmentManagedAction' :: ApplyEnvironmentManagedAction -&gt; Maybe Text
-</span><a href="#local-6989586621679317547"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317547"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317546"><span class="annot"><span class="annottext">s :: ApplyEnvironmentManagedAction
-</span><a href="#local-6989586621679317546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317545"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedAction
-</span><a href="#local-6989586621679317546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:ApplyEnvironmentManagedAction' :: Maybe Text
+</span><a href="#local-6989586621679317872"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317872"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317871"><span class="annot"><span class="annottext">s :: ApplyEnvironmentManagedAction
+</span><a href="#local-6989586621679317871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317870"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedAction
+</span><a href="#local-6989586621679317871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:ApplyEnvironmentManagedAction' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AenvironmentName%3AApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The environment ID of the target environment.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedAction_environmentId"><span class="hs-identifier hs-type">applyEnvironmentManagedAction_environmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="applyEnvironmentManagedAction_environmentId"><span class="annot"><span class="annottext">applyEnvironmentManagedAction_environmentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplyEnvironmentManagedAction -&gt; f ApplyEnvironmentManagedAction
+</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedAction_environmentId"><span class="hs-identifier hs-var hs-var">applyEnvironmentManagedAction_environmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplyEnvironmentManagedAction -&gt; Maybe Text)
+-&gt; (ApplyEnvironmentManagedAction
+    -&gt; Maybe Text -&gt; ApplyEnvironmentManagedAction)
+-&gt; Lens
+     ApplyEnvironmentManagedAction
+     ApplyEnvironmentManagedAction
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317869"><span class="annot"><span class="annottext">Maybe Text
+environmentId :: Maybe Text
+$sel:environmentId:ApplyEnvironmentManagedAction' :: ApplyEnvironmentManagedAction -&gt; Maybe Text
+</span><a href="#local-6989586621679317869"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317869"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317868"><span class="annot"><span class="annottext">s :: ApplyEnvironmentManagedAction
+</span><a href="#local-6989586621679317868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317867"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedAction
+</span><a href="#local-6989586621679317868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentId:ApplyEnvironmentManagedAction' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AenvironmentId%3AApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The action ID of the scheduled managed action to execute.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedAction_actionId"><span class="hs-identifier hs-type">applyEnvironmentManagedAction_actionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -238,16 +238,16 @@ $sel:environmentName:ApplyEnvironmentManagedAction' :: ApplyEnvironmentManagedAc
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317544"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317866"><span class="annot"><span class="annottext">Text
 actionId :: Text
 $sel:actionId:ApplyEnvironmentManagedAction' :: ApplyEnvironmentManagedAction -&gt; Text
-</span><a href="#local-6989586621679317544"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317544"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317543"><span class="annot"><span class="annottext">s :: ApplyEnvironmentManagedAction
-</span><a href="#local-6989586621679317543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317542"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedAction
-</span><a href="#local-6989586621679317543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionId:ApplyEnvironmentManagedAction' :: Text
+</span><a href="#local-6989586621679317866"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317866"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317865"><span class="annot"><span class="annottext">s :: ApplyEnvironmentManagedAction
+</span><a href="#local-6989586621679317865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317864"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedAction
+</span><a href="#local-6989586621679317865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionId:ApplyEnvironmentManagedAction' :: Text
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AactionId%3AApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -256,7 +256,7 @@ $sel:actionId:ApplyEnvironmentManagedAction' :: ApplyEnvironmentManagedAction -&
 </span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-111"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679317538"><span class="annot"><span class="annottext">request :: ApplyEnvironmentManagedAction
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679317860"><span class="annot"><span class="annottext">request :: ApplyEnvironmentManagedAction
 -&gt; Request ApplyEnvironmentManagedAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ApplyEnvironmentManagedAction
@@ -264,7 +264,7 @@ $sel:actionId:ApplyEnvironmentManagedAction' :: ApplyEnvironmentManagedAction -&
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElasticBeanstalk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679317534"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679317856"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ApplyEnvironmentManagedAction
 -&gt; ClientResponse ClientBody
@@ -295,78 +295,84 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ApplyEnvironmentManagedActionResult&quot;</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317531"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317531"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317530"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679317530"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317529"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679317529"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317853"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317853"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317852"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679317852"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317851"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679317851"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe ActionType
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Int
 -&gt; ApplyEnvironmentManagedActionResponse
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var">ApplyEnvironmentManagedActionResponse'</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe ActionType
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Int
  -&gt; ApplyEnvironmentManagedActionResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe ActionType
+     (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
+      -&gt; Maybe ActionType
       -&gt; Int
       -&gt; ApplyEnvironmentManagedActionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679317529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679317851"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe ActionType
+  (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Text
+   -&gt; Maybe ActionType
    -&gt; Int
    -&gt; ApplyEnvironmentManagedActionResponse)
--&gt; Either String (Maybe ActionType)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe Text -&gt; Int -&gt; ApplyEnvironmentManagedActionResponse)
+      -&gt; Maybe ActionType
+      -&gt; Int
+      -&gt; ApplyEnvironmentManagedActionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679317529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ActionType)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ActionType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Int -&gt; ApplyEnvironmentManagedActionResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe Text -&gt; Int -&gt; ApplyEnvironmentManagedActionResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679317529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679317851"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ActionId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Int -&gt; ApplyEnvironmentManagedActionResponse)
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ActionType
+   -&gt; Int
+   -&gt; ApplyEnvironmentManagedActionResponse)
 -&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; ApplyEnvironmentManagedActionResponse)
+-&gt; Either
+     String
+     (Maybe ActionType -&gt; Int -&gt; ApplyEnvironmentManagedActionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679317529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679317851"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ActionDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ActionType -&gt; Int -&gt; ApplyEnvironmentManagedActionResponse)
+-&gt; Either String (Maybe ActionType)
+-&gt; Either String (Int -&gt; ApplyEnvironmentManagedActionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679317851"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ActionType)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActionType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ApplyEnvironmentManagedActionResponse)
 -&gt; Either String Int
 -&gt; Either String ApplyEnvironmentManagedActionResponse
@@ -376,17 +382,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317531"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317853"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679317521"><span id="local-6989586621679317523"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679317843"><span id="local-6989586621679317845"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317518"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317840"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679317514"><span class="annot"><span class="annottext">toHeaders :: ApplyEnvironmentManagedAction -&gt; ResponseHeaders
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679317836"><span class="annot"><span class="annottext">toHeaders :: ApplyEnvironmentManagedAction -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ApplyEnvironmentManagedAction -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -394,23 +400,23 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679317509"><span class="annot"><span class="annottext">toPath :: ApplyEnvironmentManagedAction -&gt; ByteString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679317831"><span class="annot"><span class="annottext">toPath :: ApplyEnvironmentManagedAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ApplyEnvironmentManagedAction -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679317505"><span class="annot"><span class="annottext">toQuery :: ApplyEnvironmentManagedAction -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317501"><span id="local-6989586621679317502"><span id="local-6989586621679317503"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679317827"><span class="annot"><span class="annottext">toQuery :: ApplyEnvironmentManagedAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedAction%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317823"><span id="local-6989586621679317824"><span id="local-6989586621679317825"><span class="annot"><span class="annottext">Maybe Text
 Text
 actionId :: Text
-environmentName :: Maybe Text
 environmentId :: Maybe Text
+environmentName :: Maybe Text
 $sel:actionId:ApplyEnvironmentManagedAction' :: ApplyEnvironmentManagedAction -&gt; Text
-$sel:environmentName:ApplyEnvironmentManagedAction' :: ApplyEnvironmentManagedAction -&gt; Maybe Text
 $sel:environmentId:ApplyEnvironmentManagedAction' :: ApplyEnvironmentManagedAction -&gt; Maybe Text
-</span><a href="#local-6989586621679317501"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:environmentName:ApplyEnvironmentManagedAction' :: ApplyEnvironmentManagedAction -&gt; Maybe Text
+</span><a href="#local-6989586621679317823"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -429,43 +435,43 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;EnvironmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317503"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;EnvironmentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317502"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679317825"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnvironmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317824"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ActionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317501"><span class="hs-identifier hs-var">actionId</span></a></span><span>
+</span><a href="#local-6989586621679317823"><span class="hs-identifier hs-var">actionId</span></a></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The result message containing information about the managed action.</span><span>
 </span><span id="line-153"></span><span class="hs-comment">--</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- /See:/ 'newApplyEnvironmentManagedActionResponse' smart constructor.</span><span>
-</span><span id="line-155"></span><span id="local-6989586621679317498"><span id="local-6989586621679317499"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplyEnvironmentManagedActionResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-var">ApplyEnvironmentManagedActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplyEnvironmentManagedActionResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var">ApplyEnvironmentManagedActionResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span id="local-6989586621679317820"><span id="local-6989586621679317821"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplyEnvironmentManagedActionResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-var">ApplyEnvironmentManagedActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplyEnvironmentManagedActionResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var">ApplyEnvironmentManagedActionResponse'</span></a></span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the managed action.</span><span>
 </span><span id="line-157"></span><span>    </span><span id="%24sel%3Astatus%3AApplyEnvironmentManagedActionResponse%27"><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3Astatus%3AApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The type of managed action.</span><span>
-</span><span id="line-159"></span><span>    </span><span id="%24sel%3AactionType%3AApplyEnvironmentManagedActionResponse%27"><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse -&gt; Maybe ActionType
-</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AactionType%3AApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | The action ID of the managed action.</span><span>
-</span><span id="line-161"></span><span>    </span><span id="%24sel%3AactionId%3AApplyEnvironmentManagedActionResponse%27"><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse -&gt; Maybe Text
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The action ID of the managed action.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AactionId%3AApplyEnvironmentManagedActionResponse%27"><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AactionId%3AApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | A description of the managed action.</span><span>
-</span><span id="line-163"></span><span>    </span><span id="%24sel%3AactionDescription%3AApplyEnvironmentManagedActionResponse%27"><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse -&gt; Maybe Text
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | A description of the managed action.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AactionDescription%3AApplyEnvironmentManagedActionResponse%27"><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AactionDescription%3AApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var hs-var">actionDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The type of managed action.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AactionType%3AApplyEnvironmentManagedActionResponse%27"><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse -&gt; Maybe ActionType
+</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AactionType%3AApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-165"></span><span>    </span><span id="%24sel%3AhttpStatus%3AApplyEnvironmentManagedActionResponse%27"><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse -&gt; Int
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AhttpStatus%3AApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-167"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317489"><span id="local-6989586621679317491"><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse
+</span><span id="line-167"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317811"><span id="local-6989586621679317813"><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse
 -&gt; ApplyEnvironmentManagedActionResponse -&gt; Bool
 (ApplyEnvironmentManagedActionResponse
  -&gt; ApplyEnvironmentManagedActionResponse -&gt; Bool)
@@ -481,7 +487,7 @@ $c/= :: ApplyEnvironmentManagedActionResponse
 -&gt; ApplyEnvironmentManagedActionResponse -&gt; Bool
 $c== :: ApplyEnvironmentManagedActionResponse
 -&gt; ApplyEnvironmentManagedActionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317481"><span id="local-6989586621679317483"><span id="local-6989586621679317485"><span id="local-6989586621679317487"><span class="annot"><span class="annottext">ReadPrec [ApplyEnvironmentManagedActionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317803"><span id="local-6989586621679317805"><span id="local-6989586621679317807"><span id="local-6989586621679317809"><span class="annot"><span class="annottext">ReadPrec [ApplyEnvironmentManagedActionResponse]
 ReadPrec ApplyEnvironmentManagedActionResponse
 Int -&gt; ReadS ApplyEnvironmentManagedActionResponse
 ReadS [ApplyEnvironmentManagedActionResponse]
@@ -501,7 +507,7 @@ readList :: ReadS [ApplyEnvironmentManagedActionResponse]
 $creadList :: ReadS [ApplyEnvironmentManagedActionResponse]
 readsPrec :: Int -&gt; ReadS ApplyEnvironmentManagedActionResponse
 $creadsPrec :: Int -&gt; ReadS ApplyEnvironmentManagedActionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317475"><span id="local-6989586621679317477"><span id="local-6989586621679317479"><span class="annot"><span class="annottext">Int -&gt; ApplyEnvironmentManagedActionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317797"><span id="local-6989586621679317799"><span id="local-6989586621679317801"><span class="annot"><span class="annottext">Int -&gt; ApplyEnvironmentManagedActionResponse -&gt; ShowS
 [ApplyEnvironmentManagedActionResponse] -&gt; ShowS
 ApplyEnvironmentManagedActionResponse -&gt; String
 (Int -&gt; ApplyEnvironmentManagedActionResponse -&gt; ShowS)
@@ -549,11 +555,11 @@ ApplyEnvironmentManagedActionResponse
 </span><span id="line-176"></span><span class="hs-comment">--</span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- 'status', 'applyEnvironmentManagedActionResponse_status' - The status of the managed action.</span><span>
 </span><span id="line-178"></span><span class="hs-comment">--</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- 'actionType', 'applyEnvironmentManagedActionResponse_actionType' - The type of managed action.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'actionId', 'applyEnvironmentManagedActionResponse_actionId' - The action ID of the managed action.</span><span>
 </span><span id="line-180"></span><span class="hs-comment">--</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- 'actionId', 'applyEnvironmentManagedActionResponse_actionId' - The action ID of the managed action.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'actionDescription', 'applyEnvironmentManagedActionResponse_actionDescription' - A description of the managed action.</span><span>
 </span><span id="line-182"></span><span class="hs-comment">--</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- 'actionDescription', 'applyEnvironmentManagedActionResponse_actionDescription' - A description of the managed action.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'actionType', 'applyEnvironmentManagedActionResponse_actionType' - The type of managed action.</span><span>
 </span><span id="line-184"></span><span class="hs-comment">--</span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- 'httpStatus', 'applyEnvironmentManagedActionResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#newApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">newApplyEnvironmentManagedActionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -561,12 +567,12 @@ ApplyEnvironmentManagedActionResponse
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-189"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span>
 </span><span id="line-190"></span><span id="newApplyEnvironmentManagedActionResponse"><span class="annot"><span class="annottext">newApplyEnvironmentManagedActionResponse :: Int -&gt; ApplyEnvironmentManagedActionResponse
-</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#newApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-var hs-var">newApplyEnvironmentManagedActionResponse</span></a></span></span><span> </span><span id="local-6989586621679317472"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317472"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#newApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-var hs-var">newApplyEnvironmentManagedActionResponse</span></a></span></span><span> </span><span id="local-6989586621679317794"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317794"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe ActionType
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Int
 -&gt; ApplyEnvironmentManagedActionResponse
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span>
@@ -575,21 +581,21 @@ ApplyEnvironmentManagedActionResponse
 </span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionType:ApplyEnvironmentManagedActionResponse' :: Maybe ActionType
-</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AactionType%3AApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionType
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionId:ApplyEnvironmentManagedActionResponse' :: Maybe Text
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionId:ApplyEnvironmentManagedActionResponse' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AactionId%3AApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionDescription:ApplyEnvironmentManagedActionResponse' :: Maybe Text
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionDescription:ApplyEnvironmentManagedActionResponse' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AactionDescription%3AApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var">actionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionType:ApplyEnvironmentManagedActionResponse' :: Maybe ActionType
+</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AactionType%3AApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ApplyEnvironmentManagedActionResponse' :: Int
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AhttpStatus%3AApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317472"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679317794"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-198"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | The status of the managed action.</span><span>
@@ -606,45 +612,20 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317471"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317793"><span class="annot"><span class="annottext">Maybe Text
 status :: Maybe Text
 $sel:status:ApplyEnvironmentManagedActionResponse' :: ApplyEnvironmentManagedActionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679317471"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317471"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317470"><span class="annot"><span class="annottext">s :: ApplyEnvironmentManagedActionResponse
-</span><a href="#local-6989586621679317470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317469"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse
-</span><a href="#local-6989586621679317470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ApplyEnvironmentManagedActionResponse' :: Maybe Text
+</span><a href="#local-6989586621679317793"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317793"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317792"><span class="annot"><span class="annottext">s :: ApplyEnvironmentManagedActionResponse
+</span><a href="#local-6989586621679317792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317791"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse
+</span><a href="#local-6989586621679317792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ApplyEnvironmentManagedActionResponse' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3Astatus%3AApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- | The type of managed action.</span><span>
-</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_actionType"><span class="hs-identifier hs-type">applyEnvironmentManagedActionResponse_actionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-206"></span><span id="applyEnvironmentManagedActionResponse_actionType"><span class="annot"><span class="annottext">applyEnvironmentManagedActionResponse_actionType :: (Maybe ActionType -&gt; f (Maybe ActionType))
--&gt; ApplyEnvironmentManagedActionResponse
--&gt; f ApplyEnvironmentManagedActionResponse
-</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_actionType"><span class="hs-identifier hs-var hs-var">applyEnvironmentManagedActionResponse_actionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplyEnvironmentManagedActionResponse -&gt; Maybe ActionType)
--&gt; (ApplyEnvironmentManagedActionResponse
-    -&gt; Maybe ActionType -&gt; ApplyEnvironmentManagedActionResponse)
--&gt; Lens
-     ApplyEnvironmentManagedActionResponse
-     ApplyEnvironmentManagedActionResponse
-     (Maybe ActionType)
-     (Maybe ActionType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317468"><span class="annot"><span class="annottext">Maybe ActionType
-actionType :: Maybe ActionType
-$sel:actionType:ApplyEnvironmentManagedActionResponse' :: ApplyEnvironmentManagedActionResponse -&gt; Maybe ActionType
-</span><a href="#local-6989586621679317468"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionType
-</span><a href="#local-6989586621679317468"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317467"><span class="annot"><span class="annottext">s :: ApplyEnvironmentManagedActionResponse
-</span><a href="#local-6989586621679317467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317466"><span class="annot"><span class="annottext">Maybe ActionType
-</span><a href="#local-6989586621679317466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse
-</span><a href="#local-6989586621679317467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionType:ApplyEnvironmentManagedActionResponse' :: Maybe ActionType
-</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AactionType%3AApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionType
-</span><a href="#local-6989586621679317466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- | The action ID of the managed action.</span><span>
-</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_actionId"><span class="hs-identifier hs-type">applyEnvironmentManagedActionResponse_actionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-210"></span><span id="applyEnvironmentManagedActionResponse_actionId"><span class="annot"><span class="annottext">applyEnvironmentManagedActionResponse_actionId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-204"></span><span class="hs-comment">-- | The action ID of the managed action.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_actionId"><span class="hs-identifier hs-type">applyEnvironmentManagedActionResponse_actionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="applyEnvironmentManagedActionResponse_actionId"><span class="annot"><span class="annottext">applyEnvironmentManagedActionResponse_actionId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ApplyEnvironmentManagedActionResponse
 -&gt; f ApplyEnvironmentManagedActionResponse
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_actionId"><span class="hs-identifier hs-var hs-var">applyEnvironmentManagedActionResponse_actionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplyEnvironmentManagedActionResponse -&gt; Maybe Text)
@@ -656,20 +637,20 @@ $sel:actionType:ApplyEnvironmentManagedActionResponse' :: ApplyEnvironmentManage
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317465"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317790"><span class="annot"><span class="annottext">Maybe Text
 actionId :: Maybe Text
 $sel:actionId:ApplyEnvironmentManagedActionResponse' :: ApplyEnvironmentManagedActionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679317465"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317465"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317464"><span class="annot"><span class="annottext">s :: ApplyEnvironmentManagedActionResponse
-</span><a href="#local-6989586621679317464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317463"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse
-</span><a href="#local-6989586621679317464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionId:ApplyEnvironmentManagedActionResponse' :: Maybe Text
+</span><a href="#local-6989586621679317790"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317790"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317789"><span class="annot"><span class="annottext">s :: ApplyEnvironmentManagedActionResponse
+</span><a href="#local-6989586621679317789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317788"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse
+</span><a href="#local-6989586621679317789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionId:ApplyEnvironmentManagedActionResponse' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AactionId%3AApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- | A description of the managed action.</span><span>
-</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_actionDescription"><span class="hs-identifier hs-type">applyEnvironmentManagedActionResponse_actionDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-214"></span><span id="applyEnvironmentManagedActionResponse_actionDescription"><span class="annot"><span class="annottext">applyEnvironmentManagedActionResponse_actionDescription :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679317788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | A description of the managed action.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_actionDescription"><span class="hs-identifier hs-type">applyEnvironmentManagedActionResponse_actionDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="applyEnvironmentManagedActionResponse_actionDescription"><span class="annot"><span class="annottext">applyEnvironmentManagedActionResponse_actionDescription :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ApplyEnvironmentManagedActionResponse
 -&gt; f ApplyEnvironmentManagedActionResponse
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_actionDescription"><span class="hs-identifier hs-var hs-var">applyEnvironmentManagedActionResponse_actionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplyEnvironmentManagedActionResponse -&gt; Maybe Text)
@@ -681,16 +662,41 @@ $sel:actionId:ApplyEnvironmentManagedActionResponse' :: ApplyEnvironmentManagedA
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317462"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317787"><span class="annot"><span class="annottext">Maybe Text
 actionDescription :: Maybe Text
 $sel:actionDescription:ApplyEnvironmentManagedActionResponse' :: ApplyEnvironmentManagedActionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679317462"><span class="hs-identifier hs-var hs-var">actionDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317462"><span class="hs-identifier hs-var">actionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317461"><span class="annot"><span class="annottext">s :: ApplyEnvironmentManagedActionResponse
-</span><a href="#local-6989586621679317461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317460"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse
-</span><a href="#local-6989586621679317461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionDescription:ApplyEnvironmentManagedActionResponse' :: Maybe Text
+</span><a href="#local-6989586621679317787"><span class="hs-identifier hs-var hs-var">actionDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317787"><span class="hs-identifier hs-var">actionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317786"><span class="annot"><span class="annottext">s :: ApplyEnvironmentManagedActionResponse
+</span><a href="#local-6989586621679317786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317785"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse
+</span><a href="#local-6989586621679317786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionDescription:ApplyEnvironmentManagedActionResponse' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AactionDescription%3AApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var">actionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The type of managed action.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_actionType"><span class="hs-identifier hs-type">applyEnvironmentManagedActionResponse_actionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="applyEnvironmentManagedActionResponse_actionType"><span class="annot"><span class="annottext">applyEnvironmentManagedActionResponse_actionType :: (Maybe ActionType -&gt; f (Maybe ActionType))
+-&gt; ApplyEnvironmentManagedActionResponse
+-&gt; f ApplyEnvironmentManagedActionResponse
+</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_actionType"><span class="hs-identifier hs-var hs-var">applyEnvironmentManagedActionResponse_actionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplyEnvironmentManagedActionResponse -&gt; Maybe ActionType)
+-&gt; (ApplyEnvironmentManagedActionResponse
+    -&gt; Maybe ActionType -&gt; ApplyEnvironmentManagedActionResponse)
+-&gt; Lens
+     ApplyEnvironmentManagedActionResponse
+     ApplyEnvironmentManagedActionResponse
+     (Maybe ActionType)
+     (Maybe ActionType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317784"><span class="annot"><span class="annottext">Maybe ActionType
+actionType :: Maybe ActionType
+$sel:actionType:ApplyEnvironmentManagedActionResponse' :: ApplyEnvironmentManagedActionResponse -&gt; Maybe ActionType
+</span><a href="#local-6989586621679317784"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionType
+</span><a href="#local-6989586621679317784"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317783"><span class="annot"><span class="annottext">s :: ApplyEnvironmentManagedActionResponse
+</span><a href="#local-6989586621679317783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317782"><span class="annot"><span class="annottext">Maybe ActionType
+</span><a href="#local-6989586621679317782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse
+</span><a href="#local-6989586621679317783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionType:ApplyEnvironmentManagedActionResponse' :: Maybe ActionType
+</span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AactionType%3AApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionType
+</span><a href="#local-6989586621679317782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-217"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#applyEnvironmentManagedActionResponse_httpStatus"><span class="hs-identifier hs-type">applyEnvironmentManagedActionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -706,18 +712,18 @@ $sel:actionDescription:ApplyEnvironmentManagedActionResponse' :: ApplyEnvironmen
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317459"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317781"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ApplyEnvironmentManagedActionResponse' :: ApplyEnvironmentManagedActionResponse -&gt; Int
-</span><a href="#local-6989586621679317459"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317459"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317458"><span class="annot"><span class="annottext">s :: ApplyEnvironmentManagedActionResponse
-</span><a href="#local-6989586621679317458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317457"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse
-</span><a href="#local-6989586621679317458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ApplyEnvironmentManagedActionResponse' :: Int
+</span><a href="#local-6989586621679317781"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317781"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317780"><span class="annot"><span class="annottext">s :: ApplyEnvironmentManagedActionResponse
+</span><a href="#local-6989586621679317780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317779"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplyEnvironmentManagedActionResponse
+</span><a href="#local-6989586621679317780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ApplyEnvironmentManagedActionResponse' :: Int
 </span><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#%24sel%3AhttpStatus%3AApplyEnvironmentManagedActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-221"></span><span>  </span><span id="local-6989586621679317455"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679317777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-222"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction.html#ApplyEnvironmentManagedActionResponse"><span class="hs-identifier hs-type">ApplyEnvironmentManagedActionResponse</span></a></span></span><span>
 </span><span id="line-223"></span></pre></body></html>

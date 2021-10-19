@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newSetInstanceProtection' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679335426"><span id="local-6989586621679335427"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetInstanceProtection"><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-var">SetInstanceProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetInstanceProtection%27"><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection%27"><span class="hs-identifier hs-var">SetInstanceProtection'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679336093"><span id="local-6989586621679336094"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetInstanceProtection"><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-var">SetInstanceProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetInstanceProtection%27"><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection%27"><span class="hs-identifier hs-var">SetInstanceProtection'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more instance IDs. You can specify up to 50 instances.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AinstanceIds%3ASetInstanceProtection%27"><span class="annot"><span class="annottext">SetInstanceProtection -&gt; [Text]
 </span><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#%24sel%3AinstanceIds%3ASetInstanceProtection%27"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -69,7 +69,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AprotectedFromScaleIn%3ASetInstanceProtection%27"><span class="annot"><span class="annottext">SetInstanceProtection -&gt; Bool
 </span><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#%24sel%3AprotectedFromScaleIn%3ASetInstanceProtection%27"><span class="hs-identifier hs-var hs-var">protectedFromScaleIn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335418"><span id="local-6989586621679335420"><span class="annot"><span class="annottext">SetInstanceProtection -&gt; SetInstanceProtection -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336085"><span id="local-6989586621679336087"><span class="annot"><span class="annottext">SetInstanceProtection -&gt; SetInstanceProtection -&gt; Bool
 (SetInstanceProtection -&gt; SetInstanceProtection -&gt; Bool)
 -&gt; (SetInstanceProtection -&gt; SetInstanceProtection -&gt; Bool)
 -&gt; Eq SetInstanceProtection
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetInstanceProtection -&gt; SetInstanceProtection -&gt; Bool
 == :: SetInstanceProtection -&gt; SetInstanceProtection -&gt; Bool
 $c== :: SetInstanceProtection -&gt; SetInstanceProtection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335409"><span id="local-6989586621679335411"><span id="local-6989586621679335413"><span id="local-6989586621679335415"><span class="annot"><span class="annottext">ReadPrec [SetInstanceProtection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336076"><span id="local-6989586621679336078"><span id="local-6989586621679336080"><span id="local-6989586621679336082"><span class="annot"><span class="annottext">ReadPrec [SetInstanceProtection]
 ReadPrec SetInstanceProtection
 Int -&gt; ReadS SetInstanceProtection
 ReadS [SetInstanceProtection]
@@ -98,7 +98,7 @@ readList :: ReadS [SetInstanceProtection]
 $creadList :: ReadS [SetInstanceProtection]
 readsPrec :: Int -&gt; ReadS SetInstanceProtection
 $creadsPrec :: Int -&gt; ReadS SetInstanceProtection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335402"><span id="local-6989586621679335404"><span id="local-6989586621679335406"><span class="annot"><span class="annottext">Int -&gt; SetInstanceProtection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336069"><span id="local-6989586621679336071"><span id="local-6989586621679336073"><span class="annot"><span class="annottext">Int -&gt; SetInstanceProtection -&gt; ShowS
 [SetInstanceProtection] -&gt; ShowS
 SetInstanceProtection -&gt; String
 (Int -&gt; SetInstanceProtection -&gt; ShowS)
@@ -146,10 +146,10 @@ $cfrom :: forall x. SetInstanceProtection -&gt; Rep SetInstanceProtection x
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-type">SetInstanceProtection</span></a></span><span>
 </span><span id="line-91"></span><span id="newSetInstanceProtection"><span class="annot"><span class="annottext">newSetInstanceProtection :: Text -&gt; Bool -&gt; SetInstanceProtection
 </span><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#newSetInstanceProtection"><span class="hs-identifier hs-var hs-var">newSetInstanceProtection</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679335397"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335397"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679335396"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679335396"><span class="hs-identifier hs-var">pProtectedFromScaleIn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679336064"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336064"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679336063"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679336063"><span class="hs-identifier hs-var">pProtectedFromScaleIn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">SetInstanceProtection' :: [Text] -&gt; Text -&gt; Bool -&gt; SetInstanceProtection
 </span><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection%27"><span class="hs-identifier hs-type">SetInstanceProtection'</span></a></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceIds:SetInstanceProtection' :: [Text]
@@ -159,10 +159,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:SetInstanceProtection' :: Text
 </span><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#%24sel%3AautoScalingGroupName%3ASetInstanceProtection%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335397"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679336064"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:protectedFromScaleIn:SetInstanceProtection' :: Bool
 </span><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#%24sel%3AprotectedFromScaleIn%3ASetInstanceProtection%27"><span class="hs-identifier hs-var">protectedFromScaleIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679335396"><span class="hs-identifier hs-var">pProtectedFromScaleIn_</span></a></span><span>
+</span><a href="#local-6989586621679336063"><span class="hs-identifier hs-var">pProtectedFromScaleIn_</span></a></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | One or more instance IDs. You can specify up to 50 instances.</span><span>
@@ -173,16 +173,16 @@ forall a. Monoid a =&gt; a
 -&gt; (SetInstanceProtection -&gt; [Text] -&gt; SetInstanceProtection)
 -&gt; Lens SetInstanceProtection SetInstanceProtection [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection%27"><span class="hs-identifier hs-type">SetInstanceProtection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335393"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection%27"><span class="hs-identifier hs-type">SetInstanceProtection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336060"><span class="annot"><span class="annottext">[Text]
 instanceIds :: [Text]
 $sel:instanceIds:SetInstanceProtection' :: SetInstanceProtection -&gt; [Text]
-</span><a href="#local-6989586621679335393"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679335393"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335392"><span class="annot"><span class="annottext">s :: SetInstanceProtection
-</span><a href="#local-6989586621679335392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection%27"><span class="hs-identifier hs-type">SetInstanceProtection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335391"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679335391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetInstanceProtection
-</span><a href="#local-6989586621679335392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIds:SetInstanceProtection' :: [Text]
+</span><a href="#local-6989586621679336060"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679336060"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336059"><span class="annot"><span class="annottext">s :: SetInstanceProtection
+</span><a href="#local-6989586621679336059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection%27"><span class="hs-identifier hs-type">SetInstanceProtection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336058"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679336058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetInstanceProtection
+</span><a href="#local-6989586621679336059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIds:SetInstanceProtection' :: [Text]
 </span><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#%24sel%3AinstanceIds%3ASetInstanceProtection%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679335391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-type">SetInstanceProtection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679336058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-type">SetInstanceProtection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; SetInstanceProtection -&gt; f SetInstanceProtection)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -190,8 +190,8 @@ $sel:instanceIds:SetInstanceProtection' :: SetInstanceProtection -&gt; [Text]
 -&gt; f SetInstanceProtection
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#setInstanceProtection_autoScalingGroupName"><span class="hs-identifier hs-type">setInstanceProtection_autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-type">SetInstanceProtection</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -201,16 +201,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (SetInstanceProtection -&gt; Text -&gt; SetInstanceProtection)
 -&gt; Lens SetInstanceProtection SetInstanceProtection Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection%27"><span class="hs-identifier hs-type">SetInstanceProtection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335388"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection%27"><span class="hs-identifier hs-type">SetInstanceProtection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336055"><span class="annot"><span class="annottext">Text
 autoScalingGroupName :: Text
 $sel:autoScalingGroupName:SetInstanceProtection' :: SetInstanceProtection -&gt; Text
-</span><a href="#local-6989586621679335388"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335388"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335387"><span class="annot"><span class="annottext">s :: SetInstanceProtection
-</span><a href="#local-6989586621679335387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection%27"><span class="hs-identifier hs-type">SetInstanceProtection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335386"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetInstanceProtection
-</span><a href="#local-6989586621679335387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:SetInstanceProtection' :: Text
+</span><a href="#local-6989586621679336055"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336055"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336054"><span class="annot"><span class="annottext">s :: SetInstanceProtection
+</span><a href="#local-6989586621679336054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection%27"><span class="hs-identifier hs-type">SetInstanceProtection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336053"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetInstanceProtection
+</span><a href="#local-6989586621679336054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:SetInstanceProtection' :: Text
 </span><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#%24sel%3AautoScalingGroupName%3ASetInstanceProtection%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-type">SetInstanceProtection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-type">SetInstanceProtection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | Indicates whether the instance is protected from termination by Amazon</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- EC2 Auto Scaling when scaling in.</span><span>
@@ -221,27 +221,27 @@ $sel:autoScalingGroupName:SetInstanceProtection' :: SetInstanceProtection -&gt; 
 -&gt; (SetInstanceProtection -&gt; Bool -&gt; SetInstanceProtection)
 -&gt; Lens SetInstanceProtection SetInstanceProtection Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection%27"><span class="hs-identifier hs-type">SetInstanceProtection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335385"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection%27"><span class="hs-identifier hs-type">SetInstanceProtection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336052"><span class="annot"><span class="annottext">Bool
 protectedFromScaleIn :: Bool
 $sel:protectedFromScaleIn:SetInstanceProtection' :: SetInstanceProtection -&gt; Bool
-</span><a href="#local-6989586621679335385"><span class="hs-identifier hs-var hs-var">protectedFromScaleIn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679335385"><span class="hs-identifier hs-var">protectedFromScaleIn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335384"><span class="annot"><span class="annottext">s :: SetInstanceProtection
-</span><a href="#local-6989586621679335384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection%27"><span class="hs-identifier hs-type">SetInstanceProtection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335383"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679335383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetInstanceProtection
-</span><a href="#local-6989586621679335384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protectedFromScaleIn:SetInstanceProtection' :: Bool
+</span><a href="#local-6989586621679336052"><span class="hs-identifier hs-var hs-var">protectedFromScaleIn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679336052"><span class="hs-identifier hs-var">protectedFromScaleIn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336051"><span class="annot"><span class="annottext">s :: SetInstanceProtection
+</span><a href="#local-6989586621679336051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection%27"><span class="hs-identifier hs-type">SetInstanceProtection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336050"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679336050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetInstanceProtection
+</span><a href="#local-6989586621679336051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protectedFromScaleIn:SetInstanceProtection' :: Bool
 </span><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#%24sel%3AprotectedFromScaleIn%3ASetInstanceProtection%27"><span class="hs-identifier hs-var">protectedFromScaleIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679335383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-type">SetInstanceProtection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-type">SetInstanceProtection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-type">SetInstanceProtection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-116"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-type">SetInstanceProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtectionResponse"><span class="hs-identifier hs-type">SetInstanceProtectionResponse</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679335379"><span class="annot"><span class="annottext">request :: SetInstanceProtection -&gt; Request SetInstanceProtection
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679336046"><span class="annot"><span class="annottext">request :: SetInstanceProtection -&gt; Request SetInstanceProtection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetInstanceProtection -&gt; Request SetInstanceProtection
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679335375"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679336042"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetInstanceProtection
 -&gt; ClientResponse ClientBody
@@ -272,10 +272,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SetInstanceProtectionResult&quot;</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679335372"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335372"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679335371"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679335371"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679335370"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679335370"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679336039"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336039"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679336038"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679336038"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679336037"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679336037"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; SetInstanceProtectionResponse
 </span><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtectionResponse%27"><span class="hs-identifier hs-var">SetInstanceProtectionResponse'</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; SetInstanceProtectionResponse)
@@ -286,15 +286,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335372"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336039"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335363"><span id="local-6989586621679335365"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-type">SetInstanceProtection</span></a></span></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336030"><span id="local-6989586621679336032"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-type">SetInstanceProtection</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335360"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-type">SetInstanceProtection</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336027"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-type">SetInstanceProtection</span></a></span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-type">SetInstanceProtection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679335356"><span class="annot"><span class="annottext">toHeaders :: SetInstanceProtection -&gt; ResponseHeaders
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679336023"><span class="annot"><span class="annottext">toHeaders :: SetInstanceProtection -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SetInstanceProtection -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -302,15 +302,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-type">SetInstanceProtection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679335351"><span class="annot"><span class="annottext">toPath :: SetInstanceProtection -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679336018"><span class="annot"><span class="annottext">toPath :: SetInstanceProtection -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetInstanceProtection -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection"><span class="hs-identifier hs-type">SetInstanceProtection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679335347"><span class="annot"><span class="annottext">toQuery :: SetInstanceProtection -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection%27"><span class="hs-identifier hs-type">SetInstanceProtection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335343"><span id="local-6989586621679335344"><span id="local-6989586621679335345"><span class="annot"><span class="annottext">Bool
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679336014"><span class="annot"><span class="annottext">toQuery :: SetInstanceProtection -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtection%27"><span class="hs-identifier hs-type">SetInstanceProtection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336010"><span id="local-6989586621679336011"><span id="local-6989586621679336012"><span class="annot"><span class="annottext">Bool
 [Text]
 Text
 protectedFromScaleIn :: Bool
@@ -319,7 +319,7 @@ instanceIds :: [Text]
 $sel:protectedFromScaleIn:SetInstanceProtection' :: SetInstanceProtection -&gt; Bool
 $sel:autoScalingGroupName:SetInstanceProtection' :: SetInstanceProtection -&gt; Text
 $sel:instanceIds:SetInstanceProtection' :: SetInstanceProtection -&gt; [Text]
-</span><a href="#local-6989586621679335343"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679336010"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -345,26 +345,26 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679335345"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679336012"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AutoScalingGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335344"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679336011"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ProtectedFromScaleIn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679335343"><span class="hs-identifier hs-var">protectedFromScaleIn</span></a></span><span>
+</span><a href="#local-6989586621679336010"><span class="hs-identifier hs-var">protectedFromScaleIn</span></a></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newSetInstanceProtectionResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679335339"><span id="local-6989586621679335340"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetInstanceProtectionResponse"><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtectionResponse"><span class="hs-identifier hs-var">SetInstanceProtectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetInstanceProtectionResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtectionResponse%27"><span class="hs-identifier hs-var">SetInstanceProtectionResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679336006"><span id="local-6989586621679336007"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetInstanceProtectionResponse"><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtectionResponse"><span class="hs-identifier hs-var">SetInstanceProtectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetInstanceProtectionResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtectionResponse%27"><span class="hs-identifier hs-var">SetInstanceProtectionResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASetInstanceProtectionResponse%27"><span class="annot"><span class="annottext">SetInstanceProtectionResponse -&gt; Int
 </span><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#%24sel%3AhttpStatus%3ASetInstanceProtectionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335334"><span id="local-6989586621679335336"><span class="annot"><span class="annottext">SetInstanceProtectionResponse
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336001"><span id="local-6989586621679336003"><span class="annot"><span class="annottext">SetInstanceProtectionResponse
 -&gt; SetInstanceProtectionResponse -&gt; Bool
 (SetInstanceProtectionResponse
  -&gt; SetInstanceProtectionResponse -&gt; Bool)
@@ -380,7 +380,7 @@ $c/= :: SetInstanceProtectionResponse
 -&gt; SetInstanceProtectionResponse -&gt; Bool
 $c== :: SetInstanceProtectionResponse
 -&gt; SetInstanceProtectionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335326"><span id="local-6989586621679335328"><span id="local-6989586621679335330"><span id="local-6989586621679335332"><span class="annot"><span class="annottext">ReadPrec [SetInstanceProtectionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335993"><span id="local-6989586621679335995"><span id="local-6989586621679335997"><span id="local-6989586621679335999"><span class="annot"><span class="annottext">ReadPrec [SetInstanceProtectionResponse]
 ReadPrec SetInstanceProtectionResponse
 Int -&gt; ReadS SetInstanceProtectionResponse
 ReadS [SetInstanceProtectionResponse]
@@ -400,7 +400,7 @@ readList :: ReadS [SetInstanceProtectionResponse]
 $creadList :: ReadS [SetInstanceProtectionResponse]
 readsPrec :: Int -&gt; ReadS SetInstanceProtectionResponse
 $creadsPrec :: Int -&gt; ReadS SetInstanceProtectionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335320"><span id="local-6989586621679335322"><span id="local-6989586621679335324"><span class="annot"><span class="annottext">Int -&gt; SetInstanceProtectionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335987"><span id="local-6989586621679335989"><span id="local-6989586621679335991"><span class="annot"><span class="annottext">Int -&gt; SetInstanceProtectionResponse -&gt; ShowS
 [SetInstanceProtectionResponse] -&gt; ShowS
 SetInstanceProtectionResponse -&gt; String
 (Int -&gt; SetInstanceProtectionResponse -&gt; ShowS)
@@ -452,14 +452,14 @@ SetInstanceProtectionResponse
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtectionResponse"><span class="hs-identifier hs-type">SetInstanceProtectionResponse</span></a></span><span>
 </span><span id="line-170"></span><span id="newSetInstanceProtectionResponse"><span class="annot"><span class="annottext">newSetInstanceProtectionResponse :: Int -&gt; SetInstanceProtectionResponse
-</span><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#newSetInstanceProtectionResponse"><span class="hs-identifier hs-var hs-var">newSetInstanceProtectionResponse</span></a></span></span><span> </span><span id="local-6989586621679335317"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335317"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#newSetInstanceProtectionResponse"><span class="hs-identifier hs-var hs-var">newSetInstanceProtectionResponse</span></a></span></span><span> </span><span id="local-6989586621679335984"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335984"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">SetInstanceProtectionResponse' :: Int -&gt; SetInstanceProtectionResponse
 </span><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtectionResponse%27"><span class="hs-identifier hs-type">SetInstanceProtectionResponse'</span></a></span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:SetInstanceProtectionResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#%24sel%3AhttpStatus%3ASetInstanceProtectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335317"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679335984"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -472,16 +472,16 @@ SetInstanceProtectionResponse
 -&gt; Lens
      SetInstanceProtectionResponse SetInstanceProtectionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtectionResponse%27"><span class="hs-identifier hs-type">SetInstanceProtectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335316"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtectionResponse%27"><span class="hs-identifier hs-type">SetInstanceProtectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335983"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SetInstanceProtectionResponse' :: SetInstanceProtectionResponse -&gt; Int
-</span><a href="#local-6989586621679335316"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335316"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335315"><span class="annot"><span class="annottext">s :: SetInstanceProtectionResponse
-</span><a href="#local-6989586621679335315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtectionResponse%27"><span class="hs-identifier hs-type">SetInstanceProtectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335314"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetInstanceProtectionResponse
-</span><a href="#local-6989586621679335315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetInstanceProtectionResponse' :: Int
+</span><a href="#local-6989586621679335983"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335983"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335982"><span class="annot"><span class="annottext">s :: SetInstanceProtectionResponse
+</span><a href="#local-6989586621679335982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtectionResponse%27"><span class="hs-identifier hs-type">SetInstanceProtectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335981"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetInstanceProtectionResponse
+</span><a href="#local-6989586621679335982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetInstanceProtectionResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#%24sel%3AhttpStatus%3ASetInstanceProtectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtectionResponse"><span class="hs-identifier hs-type">SetInstanceProtectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679335981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtectionResponse"><span class="hs-identifier hs-type">SetInstanceProtectionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335312"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtectionResponse"><span class="hs-identifier hs-type">SetInstanceProtectionResponse</span></a></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335979"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceProtection.html#SetInstanceProtectionResponse"><span class="hs-identifier hs-type">SetInstanceProtectionResponse</span></a></span></span><span>
 </span><span id="line-181"></span></pre></body></html>

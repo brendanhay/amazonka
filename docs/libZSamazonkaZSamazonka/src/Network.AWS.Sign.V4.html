@@ -32,24 +32,24 @@
 </span><a href="Network.AWS.Sign.V4.html#sign"><span class="hs-identifier hs-var">sign</span></a></span><span> </span><span class="annot"><span class="annottext">forall a. Seconds -&gt; Algorithm a
 </span><a href="Network.AWS.Sign.V4.html#presign"><span class="hs-identifier hs-var">presign</span></a></span><span>
 </span><span id="line-29"></span><span>
-</span><span id="line-30"></span><span id="local-6989586621679203002"><span class="annot"><a href="Network.AWS.Sign.V4.html#presign"><span class="hs-identifier hs-type">presign</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Seconds"><span class="hs-identifier hs-type">Seconds</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Algorithm"><span class="hs-identifier hs-type">Algorithm</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203002"><span class="hs-identifier hs-type">a</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679202929"><span class="annot"><a href="Network.AWS.Sign.V4.html#presign"><span class="hs-identifier hs-type">presign</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Seconds"><span class="hs-identifier hs-type">Seconds</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Algorithm"><span class="hs-identifier hs-type">Algorithm</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679202929"><span class="hs-identifier hs-type">a</span></a></span></span><span>
 </span><span id="line-31"></span><span id="presign"><span class="annot"><span class="annottext">presign :: Seconds -&gt; Algorithm a
-</span><a href="Network.AWS.Sign.V4.html#presign"><span class="hs-identifier hs-var hs-var">presign</span></a></span></span><span> </span><span id="local-6989586621679203001"><span class="annot"><span class="annottext">Seconds
-</span><a href="#local-6989586621679203001"><span class="hs-identifier hs-var">ex</span></a></span></span><span> </span><span id="local-6989586621679203000"><span class="annot"><span class="annottext">Request a
-</span><a href="#local-6989586621679203000"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679202999"><span class="annot"><span class="annottext">AuthEnv
-</span><a href="#local-6989586621679202999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679202998"><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679202998"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span id="local-6989586621679202997"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679202997"><span class="hs-identifier hs-var">ts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">V4 -&gt; RequestBody -&gt; (ClientRequest -&gt; ClientRequest) -&gt; Signed a
+</span><a href="Network.AWS.Sign.V4.html#presign"><span class="hs-identifier hs-var hs-var">presign</span></a></span></span><span> </span><span id="local-6989586621679202928"><span class="annot"><span class="annottext">Seconds
+</span><a href="#local-6989586621679202928"><span class="hs-identifier hs-var">ex</span></a></span></span><span> </span><span id="local-6989586621679202927"><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202927"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679202926"><span class="annot"><span class="annottext">AuthEnv
+</span><a href="#local-6989586621679202926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679202925"><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679202925"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span id="local-6989586621679202924"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202924"><span class="hs-identifier hs-var">ts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">V4 -&gt; RequestBody -&gt; (ClientRequest -&gt; ClientRequest) -&gt; Signed a
 forall a.
 V4 -&gt; RequestBody -&gt; (ClientRequest -&gt; ClientRequest) -&gt; Signed a
 </span><a href="Network.AWS.Sign.V4.Base.html#signRequest"><span class="hs-identifier hs-var">signRequest</span></a></span><span> </span><span class="annot"><span class="annottext">V4
-</span><a href="#local-6989586621679202995"><span class="hs-identifier hs-var">meta</span></a></span><span> </span><span class="annot"><span class="annottext">RequestBody
+</span><a href="#local-6989586621679202922"><span class="hs-identifier hs-var">meta</span></a></span><span> </span><span class="annot"><span class="annottext">RequestBody
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">mempty</span></span><span> </span><span class="annot"><span class="annottext">ClientRequest -&gt; ClientRequest
-</span><a href="#local-6989586621679202994"><span class="hs-identifier hs-var">auth</span></a></span><span>
+</span><a href="#local-6989586621679202921"><span class="hs-identifier hs-var">auth</span></a></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-33"></span><span>    </span><span id="local-6989586621679202994"><span class="annot"><span class="annottext">auth :: ClientRequest -&gt; ClientRequest
-</span><a href="#local-6989586621679202994"><span class="hs-identifier hs-var hs-var">auth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; Identity ByteString)
+</span><span id="line-33"></span><span>    </span><span id="local-6989586621679202921"><span class="annot"><span class="annottext">auth :: ClientRequest -&gt; ClientRequest
+</span><a href="#local-6989586621679202921"><span class="hs-identifier hs-var hs-var">auth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; Identity ByteString)
 -&gt; ClientRequest -&gt; Identity ClientRequest
 Lens' ClientRequest ByteString
 </span><a href="Network.AWS.Request.html#clientRequestQuery"><span class="hs-identifier hs-var">clientRequestQuery</span></a></span><span> </span><span class="annot"><span class="annottext">((ByteString -&gt; Identity ByteString)
@@ -63,10 +63,10 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">V4 -&gt; Signature
 </span><a href="Network.AWS.Sign.V4.Base.html#%24sel%3AmetaSignature%3AV4"><span class="hs-identifier hs-var hs-var">metaSignature</span></a></span><span> </span><span class="annot"><span class="annottext">V4
-</span><a href="#local-6989586621679202995"><span class="hs-identifier hs-var">meta</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202922"><span class="hs-identifier hs-var">meta</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span>    </span><span id="local-6989586621679202995"><span class="annot"><span class="annottext">meta :: V4
-</span><a href="#local-6989586621679202995"><span class="hs-identifier hs-var hs-var">meta</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AuthEnv
+</span><span id="line-35"></span><span>    </span><span id="local-6989586621679202922"><span class="annot"><span class="annottext">meta :: V4
+</span><a href="#local-6989586621679202922"><span class="hs-identifier hs-var hs-var">meta</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AuthEnv
 -&gt; Region
 -&gt; UTCTime
 -&gt; (Credential -&gt; SignedHeaders -&gt; QueryString -&gt; QueryString)
@@ -82,19 +82,19 @@ AuthEnv
 -&gt; Request a
 -&gt; V4
 </span><a href="Network.AWS.Sign.V4.Base.html#signMetadata"><span class="hs-identifier hs-var">signMetadata</span></a></span><span> </span><span class="annot"><span class="annottext">AuthEnv
-</span><a href="#local-6989586621679202999"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679202998"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679202997"><span class="hs-identifier hs-var">ts</span></a></span><span> </span><span class="annot"><span class="annottext">Credential -&gt; SignedHeaders -&gt; QueryString -&gt; QueryString
-</span><a href="#local-6989586621679202989"><span class="hs-identifier hs-var">presigner</span></a></span><span> </span><span class="annot"><span class="annottext">Hash
+</span><a href="#local-6989586621679202926"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679202925"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202924"><span class="hs-identifier hs-var">ts</span></a></span><span> </span><span class="annot"><span class="annottext">Credential -&gt; SignedHeaders -&gt; QueryString -&gt; QueryString
+</span><a href="#local-6989586621679202916"><span class="hs-identifier hs-var">presigner</span></a></span><span> </span><span class="annot"><span class="annottext">Hash
 forall (s :: Symbol). Tag s ByteString
-</span><a href="#local-6989586621679202988"><span class="hs-identifier hs-var">digest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request a -&gt; Request a
-</span><a href="#local-6989586621679202987"><span class="hs-identifier hs-var">prepare</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
-</span><a href="#local-6989586621679203000"><span class="hs-identifier hs-var">rq</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202915"><span class="hs-identifier hs-var">digest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request a -&gt; Request a
+</span><a href="#local-6989586621679202914"><span class="hs-identifier hs-var">prepare</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202927"><span class="hs-identifier hs-var">rq</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span>    </span><span id="local-6989586621679202989"><span class="annot"><span class="annottext">presigner :: Credential -&gt; SignedHeaders -&gt; QueryString -&gt; QueryString
-</span><a href="#local-6989586621679202989"><span class="hs-identifier hs-var hs-var">presigner</span></a></span></span><span> </span><span id="local-6989586621679202986"><span class="annot"><span class="annottext">Credential
-</span><a href="#local-6989586621679202986"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span id="local-6989586621679202985"><span class="annot"><span class="annottext">SignedHeaders
-</span><a href="#local-6989586621679202985"><span class="hs-identifier hs-var">shs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-37"></span><span>    </span><span id="local-6989586621679202916"><span class="annot"><span class="annottext">presigner :: Credential -&gt; SignedHeaders -&gt; QueryString -&gt; QueryString
+</span><a href="#local-6989586621679202916"><span class="hs-identifier hs-var hs-var">presigner</span></a></span></span><span> </span><span id="local-6989586621679202913"><span class="annot"><span class="annottext">Credential
+</span><a href="#local-6989586621679202913"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span id="local-6989586621679202912"><span class="annot"><span class="annottext">SignedHeaders
+</span><a href="#local-6989586621679202912"><span class="hs-identifier hs-var">shs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString -&gt; QueryString
 forall a.
 ToQuery a =&gt;
@@ -117,7 +117,7 @@ forall s. CI s -&gt; s
 </span><a href="Network.AWS.Data.Headers.html#hAMZCredential"><span class="hs-identifier hs-var">hAMZCredential</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Credential -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">Credential
-</span><a href="#local-6989586621679202986"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202913"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-40"></span><span>        </span><span class="annot"><span class="annottext">(QueryString -&gt; QueryString)
 -&gt; (QueryString -&gt; QueryString) -&gt; QueryString -&gt; QueryString
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -131,7 +131,7 @@ forall s. CI s -&gt; s
 </span><a href="Network.AWS.Data.Headers.html#hAMZDate"><span class="hs-identifier hs-var">hAMZDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">UTCTime -&gt; AWSTime
 forall (a :: Format). UTCTime -&gt; Time a
 </span><a href="Network.AWS.Data.Time.html#Time"><span class="hs-identifier hs-var">Time</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679202997"><span class="hs-identifier hs-var">ts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Data.Time.html#AWSTime"><span class="hs-identifier hs-type">AWSTime</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202924"><span class="hs-identifier hs-var">ts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Data.Time.html#AWSTime"><span class="hs-identifier hs-type">AWSTime</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-41"></span><span>        </span><span class="annot"><span class="annottext">(QueryString -&gt; QueryString)
 -&gt; (QueryString -&gt; QueryString) -&gt; QueryString -&gt; QueryString
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -143,7 +143,7 @@ ByteString -&gt; a -&gt; QueryString -&gt; QueryString
 forall s. CI s -&gt; s
 </span><span class="hs-identifier hs-var hs-var">CI.original</span></span><span> </span><span class="annot"><span class="annottext">CI ByteString
 </span><a href="Network.AWS.Data.Headers.html#hAMZExpires"><span class="hs-identifier hs-var">hAMZExpires</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Seconds
-</span><a href="#local-6989586621679203001"><span class="hs-identifier hs-var">ex</span></a></span><span>
+</span><a href="#local-6989586621679202928"><span class="hs-identifier hs-var">ex</span></a></span><span>
 </span><span id="line-42"></span><span>        </span><span class="annot"><span class="annottext">(QueryString -&gt; QueryString)
 -&gt; (QueryString -&gt; QueryString) -&gt; QueryString -&gt; QueryString
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -157,7 +157,7 @@ forall s. CI s -&gt; s
 </span><a href="Network.AWS.Data.Headers.html#hAMZSignedHeaders"><span class="hs-identifier hs-var">hAMZSignedHeaders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">SignedHeaders -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">SignedHeaders
-</span><a href="#local-6989586621679202985"><span class="hs-identifier hs-var">shs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202912"><span class="hs-identifier hs-var">shs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>        </span><span class="annot"><span class="annottext">(QueryString -&gt; QueryString)
 -&gt; (QueryString -&gt; QueryString) -&gt; QueryString -&gt; QueryString
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -175,16 +175,16 @@ forall a. ToByteString a =&gt; a -&gt; ByteString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">AuthEnv -&gt; Maybe (Sensitive SessionToken)
 </span><a href="Network.AWS.Types.html#%24sel%3A_authSessionToken%3AAuthEnv"><span class="hs-identifier hs-var hs-var">_authSessionToken</span></a></span><span> </span><span class="annot"><span class="annottext">AuthEnv
-</span><a href="#local-6989586621679202999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>
-</span><span id="line-45"></span><span>    </span><span id="local-6989586621679202988"><span class="annot"><span class="annottext">digest :: Tag s ByteString
-</span><a href="#local-6989586621679202988"><span class="hs-identifier hs-var hs-var">digest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Tag s ByteString
+</span><span id="line-45"></span><span>    </span><span id="local-6989586621679202915"><span class="annot"><span class="annottext">digest :: Tag s ByteString
+</span><a href="#local-6989586621679202915"><span class="hs-identifier hs-var hs-var">digest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Tag s ByteString
 forall (s :: Symbol) a. a -&gt; Tag s a
 </span><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;UNSIGNED-PAYLOAD&quot;</span></span><span>
 </span><span id="line-46"></span><span>
-</span><span id="line-47"></span><span>    </span><span id="local-6989586621679202987"><span class="annot"><span class="annottext">prepare :: Request a -&gt; Request a
-</span><a href="#local-6989586621679202987"><span class="hs-identifier hs-var hs-var">prepare</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">([Header] -&gt; Identity [Header])
+</span><span id="line-47"></span><span>    </span><span id="local-6989586621679202914"><span class="annot"><span class="annottext">prepare :: Request a -&gt; Request a
+</span><a href="#local-6989586621679202914"><span class="hs-identifier hs-var hs-var">prepare</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">([Header] -&gt; Identity [Header])
 -&gt; Request a -&gt; Identity (Request a)
 forall a. Lens' (Request a) [Header]
 </span><a href="Network.AWS.Types.html#requestHeaders"><span class="hs-identifier hs-var">requestHeaders</span></a></span><span> </span><span class="annot"><span class="annottext">(([Header] -&gt; Identity [Header])
@@ -194,30 +194,30 @@ forall s t a b. ASetter s t a b -&gt; (a -&gt; b) -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">%~</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">CI ByteString -&gt; ByteString -&gt; [Header] -&gt; [Header]
 </span><a href="Network.AWS.Data.Headers.html#hdr"><span class="hs-identifier hs-var">hdr</span></a></span><span> </span><span class="annot"><span class="annottext">CI ByteString
 </span><a href="Network.AWS.Data.Headers.html#hHost"><span class="hs-identifier hs-var">hHost</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679202967"><span class="hs-identifier hs-var">host</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202894"><span class="hs-identifier hs-var">host</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>
-</span><span id="line-49"></span><span>    </span><span id="local-6989586621679202967"><span class="annot"><span class="annottext">host :: ByteString
-</span><a href="#local-6989586621679202967"><span class="hs-identifier hs-var hs-var">host</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-49"></span><span>    </span><span id="local-6989586621679202894"><span class="annot"><span class="annottext">host :: ByteString
+</span><a href="#local-6989586621679202894"><span class="hs-identifier hs-var hs-var">host</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-50"></span><span>      </span><span class="hs-keyword">case</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Endpoint -&gt; Bool
 </span><a href="Network.AWS.Types.html#%24sel%3A_endpointSecure%3AEndpoint"><span class="hs-identifier hs-var hs-var">_endpointSecure</span></a></span><span> </span><span class="annot"><span class="annottext">Endpoint
-</span><a href="#local-6989586621679202965"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Endpoint -&gt; Int
+</span><a href="#local-6989586621679202892"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Endpoint -&gt; Int
 </span><a href="Network.AWS.Types.html#%24sel%3A_endpointPort%3AEndpoint"><span class="hs-identifier hs-var hs-var">_endpointPort</span></a></span><span> </span><span class="annot"><span class="annottext">Endpoint
-</span><a href="#local-6989586621679202965"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">of</span><span>
+</span><a href="#local-6989586621679202892"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">of</span><span>
 </span><span id="line-51"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">False</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">80</span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint -&gt; ByteString
 </span><a href="Network.AWS.Types.html#%24sel%3A_endpointHost%3AEndpoint"><span class="hs-identifier hs-var hs-var">_endpointHost</span></a></span><span> </span><span class="annot"><span class="annottext">Endpoint
-</span><a href="#local-6989586621679202965"><span class="hs-identifier hs-var">end</span></a></span><span>
+</span><a href="#local-6989586621679202892"><span class="hs-identifier hs-var">end</span></a></span><span>
 </span><span id="line-52"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">True</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">443</span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint -&gt; ByteString
 </span><a href="Network.AWS.Types.html#%24sel%3A_endpointHost%3AEndpoint"><span class="hs-identifier hs-var hs-var">_endpointHost</span></a></span><span> </span><span class="annot"><span class="annottext">Endpoint
-</span><a href="#local-6989586621679202965"><span class="hs-identifier hs-var">end</span></a></span><span>
+</span><a href="#local-6989586621679202892"><span class="hs-identifier hs-var">end</span></a></span><span>
 </span><span id="line-53"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Bool
-</span><span class="hs-identifier">_</span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202962"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202962"><span class="hs-identifier hs-var">port</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint -&gt; ByteString
+</span><span class="hs-identifier">_</span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202889"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202889"><span class="hs-identifier hs-var">port</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint -&gt; ByteString
 </span><a href="Network.AWS.Types.html#%24sel%3A_endpointHost%3AEndpoint"><span class="hs-identifier hs-var hs-var">_endpointHost</span></a></span><span> </span><span class="annot"><span class="annottext">Endpoint
-</span><a href="#local-6989586621679202965"><span class="hs-identifier hs-var">end</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+</span><a href="#local-6989586621679202892"><span class="hs-identifier hs-var">end</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;:&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
@@ -225,57 +225,57 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202962"><span class="hs-identifier hs-var">port</span></a></span><span>
+</span><a href="#local-6989586621679202889"><span class="hs-identifier hs-var">port</span></a></span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span>    </span><span id="local-6989586621679202965"><span class="annot"><span class="annottext">end :: Endpoint
-</span><a href="#local-6989586621679202965"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span id="line-55"></span><span>    </span><span id="local-6989586621679202892"><span class="annot"><span class="annottext">end :: Endpoint
+</span><a href="#local-6989586621679202892"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
 </span><a href="Network.AWS.Types.html#%24sel%3A_serviceEndpoint%3AService"><span class="hs-identifier hs-var hs-var">_serviceEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request a -&gt; Service
 forall a. Request a -&gt; Service
 </span><a href="Network.AWS.Types.html#%24sel%3A_requestService%3ARequest"><span class="hs-identifier hs-var hs-var">_requestService</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
-</span><a href="#local-6989586621679203000"><span class="hs-identifier hs-var">rq</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679202998"><span class="hs-identifier hs-var">r</span></a></span><span>
+</span><a href="#local-6989586621679202927"><span class="hs-identifier hs-var">rq</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679202925"><span class="hs-identifier hs-var">r</span></a></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span id="local-6989586621679202959"><span class="annot"><a href="Network.AWS.Sign.V4.html#sign"><span class="hs-identifier hs-type">sign</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Algorithm"><span class="hs-identifier hs-type">Algorithm</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679202959"><span class="hs-identifier hs-type">a</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679202886"><span class="annot"><a href="Network.AWS.Sign.V4.html#sign"><span class="hs-identifier hs-type">sign</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Algorithm"><span class="hs-identifier hs-type">Algorithm</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679202886"><span class="hs-identifier hs-type">a</span></a></span></span><span>
 </span><span id="line-58"></span><span id="sign"><span class="annot"><span class="annottext">sign :: Algorithm a
-</span><a href="Network.AWS.Sign.V4.html#sign"><span class="hs-identifier hs-var hs-var">sign</span></a></span></span><span> </span><span id="local-6989586621679202958"><span class="annot"><span class="annottext">Request a
-</span><a href="#local-6989586621679202958"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679202957"><span class="annot"><span class="annottext">AuthEnv
-</span><a href="#local-6989586621679202957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679202956"><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679202956"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span id="local-6989586621679202955"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679202955"><span class="hs-identifier hs-var">ts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Sign.V4.html#sign"><span class="hs-identifier hs-var hs-var">sign</span></a></span></span><span> </span><span id="local-6989586621679202885"><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202885"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679202884"><span class="annot"><span class="annottext">AuthEnv
+</span><a href="#local-6989586621679202884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679202883"><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679202883"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span id="local-6989586621679202882"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202882"><span class="hs-identifier hs-var">ts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">Request a -&gt; RequestBody
 forall a. Request a -&gt; RequestBody
 </span><a href="Network.AWS.Types.html#%24sel%3A_requestBody%3ARequest"><span class="hs-identifier hs-var hs-var">_requestBody</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
-</span><a href="#local-6989586621679202958"><span class="hs-identifier hs-var">rq</span></a></span><span> </span><span class="hs-keyword">of</span><span>
-</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.Data.Body.html#Chunked"><span class="hs-identifier hs-type">Chunked</span></a></span><span> </span><span id="local-6989586621679202952"><span class="annot"><span class="annottext">ChunkedBody
-</span><a href="#local-6989586621679202952"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChunkedBody -&gt; Algorithm a
+</span><a href="#local-6989586621679202885"><span class="hs-identifier hs-var">rq</span></a></span><span> </span><span class="hs-keyword">of</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.Data.Body.html#Chunked"><span class="hs-identifier hs-type">Chunked</span></a></span><span> </span><span id="local-6989586621679202879"><span class="annot"><span class="annottext">ChunkedBody
+</span><a href="#local-6989586621679202879"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChunkedBody -&gt; Algorithm a
 forall a. ChunkedBody -&gt; Algorithm a
 </span><a href="Network.AWS.Sign.V4.Chunked.html#chunked"><span class="hs-identifier hs-var">chunked</span></a></span><span> </span><span class="annot"><span class="annottext">ChunkedBody
-</span><a href="#local-6989586621679202952"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
-</span><a href="#local-6989586621679202958"><span class="hs-identifier hs-var">rq</span></a></span><span> </span><span class="annot"><span class="annottext">AuthEnv
-</span><a href="#local-6989586621679202957"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679202956"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679202955"><span class="hs-identifier hs-var">ts</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.Data.Body.html#Hashed"><span class="hs-identifier hs-type">Hashed</span></a></span><span> </span><span id="local-6989586621679202949"><span class="annot"><span class="annottext">HashedBody
-</span><a href="#local-6989586621679202949"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashedBody -&gt; Algorithm a
+</span><a href="#local-6989586621679202879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202885"><span class="hs-identifier hs-var">rq</span></a></span><span> </span><span class="annot"><span class="annottext">AuthEnv
+</span><a href="#local-6989586621679202884"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679202883"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202882"><span class="hs-identifier hs-var">ts</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.Data.Body.html#Hashed"><span class="hs-identifier hs-type">Hashed</span></a></span><span> </span><span id="local-6989586621679202876"><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679202876"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashedBody -&gt; Algorithm a
 forall a. HashedBody -&gt; Algorithm a
 </span><a href="Network.AWS.Sign.V4.html#hashed"><span class="hs-identifier hs-var">hashed</span></a></span><span> </span><span class="annot"><span class="annottext">HashedBody
-</span><a href="#local-6989586621679202949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
-</span><a href="#local-6989586621679202958"><span class="hs-identifier hs-var">rq</span></a></span><span> </span><span class="annot"><span class="annottext">AuthEnv
-</span><a href="#local-6989586621679202957"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679202956"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679202955"><span class="hs-identifier hs-var">ts</span></a></span><span>
+</span><a href="#local-6989586621679202876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202885"><span class="hs-identifier hs-var">rq</span></a></span><span> </span><span class="annot"><span class="annottext">AuthEnv
+</span><a href="#local-6989586621679202884"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679202883"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202882"><span class="hs-identifier hs-var">ts</span></a></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span id="local-6989586621679203011"><span class="annot"><a href="Network.AWS.Sign.V4.html#hashed"><span class="hs-identifier hs-type">hashed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Data.Body.html#HashedBody"><span class="hs-identifier hs-type">HashedBody</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Algorithm"><span class="hs-identifier hs-type">Algorithm</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203011"><span class="hs-identifier hs-type">a</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679202938"><span class="annot"><a href="Network.AWS.Sign.V4.html#hashed"><span class="hs-identifier hs-type">hashed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Data.Body.html#HashedBody"><span class="hs-identifier hs-type">HashedBody</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Algorithm"><span class="hs-identifier hs-type">Algorithm</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679202938"><span class="hs-identifier hs-type">a</span></a></span></span><span>
 </span><span id="line-64"></span><span id="hashed"><span class="annot"><span class="annottext">hashed :: HashedBody -&gt; Algorithm a
-</span><a href="Network.AWS.Sign.V4.html#hashed"><span class="hs-identifier hs-var hs-var">hashed</span></a></span></span><span> </span><span id="local-6989586621679202947"><span class="annot"><span class="annottext">HashedBody
-</span><a href="#local-6989586621679202947"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span id="local-6989586621679202946"><span class="annot"><span class="annottext">Request a
-</span><a href="#local-6989586621679202946"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679202945"><span class="annot"><span class="annottext">AuthEnv
-</span><a href="#local-6989586621679202945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679202944"><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679202944"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span id="local-6989586621679202943"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679202943"><span class="hs-identifier hs-var">ts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">let</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202942"><span class="annot"><span class="annottext">V4
-</span><a href="#local-6989586621679202942"><span class="hs-identifier hs-var">meta</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202941"><span class="annot"><span class="annottext">ClientRequest -&gt; ClientRequest
-</span><a href="#local-6989586621679202941"><span class="hs-identifier hs-var">auth</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Hash
+</span><a href="Network.AWS.Sign.V4.html#hashed"><span class="hs-identifier hs-var hs-var">hashed</span></a></span></span><span> </span><span id="local-6989586621679202874"><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679202874"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span id="local-6989586621679202873"><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202873"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679202872"><span class="annot"><span class="annottext">AuthEnv
+</span><a href="#local-6989586621679202872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679202871"><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679202871"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span id="local-6989586621679202870"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202870"><span class="hs-identifier hs-var">ts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">let</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202869"><span class="annot"><span class="annottext">V4
+</span><a href="#local-6989586621679202869"><span class="hs-identifier hs-var">meta</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202868"><span class="annot"><span class="annottext">ClientRequest -&gt; ClientRequest
+</span><a href="#local-6989586621679202868"><span class="hs-identifier hs-var">auth</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Hash
 -&gt; Request a
 -&gt; AuthEnv
 -&gt; Region
@@ -292,18 +292,18 @@ Hash
 forall (s :: Symbol) a. a -&gt; Tag s a
 </span><a href="Network.AWS.Sign.V4.Base.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HashedBody -&gt; ByteString
 </span><a href="Network.AWS.Data.Body.html#sha256Base16"><span class="hs-identifier hs-var">sha256Base16</span></a></span><span> </span><span class="annot"><span class="annottext">HashedBody
-</span><a href="#local-6989586621679202947"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Request a
-</span><a href="#local-6989586621679202946"><span class="hs-identifier hs-var">rq</span></a></span><span> </span><span class="annot"><span class="annottext">AuthEnv
-</span><a href="#local-6989586621679202945"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679202944"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679202943"><span class="hs-identifier hs-var">ts</span></a></span><span>
+</span><a href="#local-6989586621679202874"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Request a
+</span><a href="#local-6989586621679202873"><span class="hs-identifier hs-var">rq</span></a></span><span> </span><span class="annot"><span class="annottext">AuthEnv
+</span><a href="#local-6989586621679202872"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679202871"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202870"><span class="hs-identifier hs-var">ts</span></a></span><span>
 </span><span id="line-66"></span><span>   </span><span class="hs-keyword">in</span><span> </span><span class="annot"><span class="annottext">V4 -&gt; RequestBody -&gt; (ClientRequest -&gt; ClientRequest) -&gt; Signed a
 forall a.
 V4 -&gt; RequestBody -&gt; (ClientRequest -&gt; ClientRequest) -&gt; Signed a
 </span><a href="Network.AWS.Sign.V4.Base.html#signRequest"><span class="hs-identifier hs-var">signRequest</span></a></span><span> </span><span class="annot"><span class="annottext">V4
-</span><a href="#local-6989586621679202942"><span class="hs-identifier hs-var">meta</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">RequestBody -&gt; RequestBody
+</span><a href="#local-6989586621679202869"><span class="hs-identifier hs-var">meta</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">RequestBody -&gt; RequestBody
 </span><a href="Network.AWS.Data.Body.html#toRequestBody"><span class="hs-identifier hs-var">toRequestBody</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HashedBody -&gt; RequestBody
 </span><a href="Network.AWS.Data.Body.html#Hashed"><span class="hs-identifier hs-var">Hashed</span></a></span><span> </span><span class="annot"><span class="annottext">HashedBody
-</span><a href="#local-6989586621679202947"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ClientRequest -&gt; ClientRequest
-</span><a href="#local-6989586621679202941"><span class="hs-identifier hs-var">auth</span></a></span><span>
+</span><a href="#local-6989586621679202874"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ClientRequest -&gt; ClientRequest
+</span><a href="#local-6989586621679202868"><span class="hs-identifier hs-var">auth</span></a></span><span>
 </span><span id="line-67"></span></pre></body></html>

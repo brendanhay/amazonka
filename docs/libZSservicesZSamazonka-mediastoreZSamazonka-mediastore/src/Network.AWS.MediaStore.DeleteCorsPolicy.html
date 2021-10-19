@@ -51,12 +51,12 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDeleteCorsPolicy' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679167939"><span id="local-6989586621679167940"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCorsPolicy"><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy"><span class="hs-identifier hs-var">DeleteCorsPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCorsPolicy%27"><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy%27"><span class="hs-identifier hs-var">DeleteCorsPolicy'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679168007"><span id="local-6989586621679168008"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCorsPolicy"><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy"><span class="hs-identifier hs-var">DeleteCorsPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCorsPolicy%27"><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy%27"><span class="hs-identifier hs-var">DeleteCorsPolicy'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the container to remove the policy from.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AcontainerName%3ADeleteCorsPolicy%27"><span class="annot"><span class="annottext">DeleteCorsPolicy -&gt; Text
 </span><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#%24sel%3AcontainerName%3ADeleteCorsPolicy%27"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679167933"><span id="local-6989586621679167935"><span class="annot"><span class="annottext">DeleteCorsPolicy -&gt; DeleteCorsPolicy -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679168001"><span id="local-6989586621679168003"><span class="annot"><span class="annottext">DeleteCorsPolicy -&gt; DeleteCorsPolicy -&gt; Bool
 (DeleteCorsPolicy -&gt; DeleteCorsPolicy -&gt; Bool)
 -&gt; (DeleteCorsPolicy -&gt; DeleteCorsPolicy -&gt; Bool)
 -&gt; Eq DeleteCorsPolicy
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteCorsPolicy -&gt; DeleteCorsPolicy -&gt; Bool
 == :: DeleteCorsPolicy -&gt; DeleteCorsPolicy -&gt; Bool
 $c== :: DeleteCorsPolicy -&gt; DeleteCorsPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167924"><span id="local-6989586621679167926"><span id="local-6989586621679167928"><span id="local-6989586621679167930"><span class="annot"><span class="annottext">ReadPrec [DeleteCorsPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167992"><span id="local-6989586621679167994"><span id="local-6989586621679167996"><span id="local-6989586621679167998"><span class="annot"><span class="annottext">ReadPrec [DeleteCorsPolicy]
 ReadPrec DeleteCorsPolicy
 Int -&gt; ReadS DeleteCorsPolicy
 ReadS [DeleteCorsPolicy]
@@ -85,7 +85,7 @@ readList :: ReadS [DeleteCorsPolicy]
 $creadList :: ReadS [DeleteCorsPolicy]
 readsPrec :: Int -&gt; ReadS DeleteCorsPolicy
 $creadsPrec :: Int -&gt; ReadS DeleteCorsPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167917"><span id="local-6989586621679167919"><span id="local-6989586621679167921"><span class="annot"><span class="annottext">Int -&gt; DeleteCorsPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167985"><span id="local-6989586621679167987"><span id="local-6989586621679167989"><span class="annot"><span class="annottext">Int -&gt; DeleteCorsPolicy -&gt; ShowS
 [DeleteCorsPolicy] -&gt; ShowS
 DeleteCorsPolicy -&gt; String
 (Int -&gt; DeleteCorsPolicy -&gt; ShowS)
@@ -125,12 +125,12 @@ $cfrom :: forall x. DeleteCorsPolicy -&gt; Rep DeleteCorsPolicy x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy"><span class="hs-identifier hs-type">DeleteCorsPolicy</span></a></span><span>
 </span><span id="line-73"></span><span id="newDeleteCorsPolicy"><span class="annot"><span class="annottext">newDeleteCorsPolicy :: Text -&gt; DeleteCorsPolicy
-</span><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#newDeleteCorsPolicy"><span class="hs-identifier hs-var hs-var">newDeleteCorsPolicy</span></a></span></span><span> </span><span id="local-6989586621679167912"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167912"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#newDeleteCorsPolicy"><span class="hs-identifier hs-var hs-var">newDeleteCorsPolicy</span></a></span></span><span> </span><span id="local-6989586621679167980"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167980"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DeleteCorsPolicy' :: Text -&gt; DeleteCorsPolicy
 </span><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy%27"><span class="hs-identifier hs-type">DeleteCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:DeleteCorsPolicy' :: Text
 </span><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#%24sel%3AcontainerName%3ADeleteCorsPolicy%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167912"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679167980"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The name of the container to remove the policy from.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#deleteCorsPolicy_containerName"><span class="hs-identifier hs-type">deleteCorsPolicy_containerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy"><span class="hs-identifier hs-type">DeleteCorsPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -139,27 +139,27 @@ $cfrom :: forall x. DeleteCorsPolicy -&gt; Rep DeleteCorsPolicy x
 -&gt; (DeleteCorsPolicy -&gt; Text -&gt; DeleteCorsPolicy)
 -&gt; Lens DeleteCorsPolicy DeleteCorsPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy%27"><span class="hs-identifier hs-type">DeleteCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167909"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy%27"><span class="hs-identifier hs-type">DeleteCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167977"><span class="annot"><span class="annottext">Text
 containerName :: Text
 $sel:containerName:DeleteCorsPolicy' :: DeleteCorsPolicy -&gt; Text
-</span><a href="#local-6989586621679167909"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167909"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167908"><span class="annot"><span class="annottext">s :: DeleteCorsPolicy
-</span><a href="#local-6989586621679167908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy%27"><span class="hs-identifier hs-type">DeleteCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167907"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCorsPolicy
-</span><a href="#local-6989586621679167908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:DeleteCorsPolicy' :: Text
+</span><a href="#local-6989586621679167977"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167977"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167976"><span class="annot"><span class="annottext">s :: DeleteCorsPolicy
+</span><a href="#local-6989586621679167976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy%27"><span class="hs-identifier hs-type">DeleteCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167975"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCorsPolicy
+</span><a href="#local-6989586621679167976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:DeleteCorsPolicy' :: Text
 </span><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#%24sel%3AcontainerName%3ADeleteCorsPolicy%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy"><span class="hs-identifier hs-type">DeleteCorsPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy"><span class="hs-identifier hs-type">DeleteCorsPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy"><span class="hs-identifier hs-type">DeleteCorsPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy"><span class="hs-identifier hs-type">DeleteCorsPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicyResponse"><span class="hs-identifier hs-type">DeleteCorsPolicyResponse</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679167903"><span class="annot"><span class="annottext">request :: DeleteCorsPolicy -&gt; Request DeleteCorsPolicy
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679167971"><span class="annot"><span class="annottext">request :: DeleteCorsPolicy -&gt; Request DeleteCorsPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteCorsPolicy -&gt; Request DeleteCorsPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaStore.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679167899"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679167967"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteCorsPolicy
 -&gt; ClientResponse ClientBody
@@ -183,10 +183,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679167896"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167896"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679167895"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679167895"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679167894"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679167894"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679167964"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679167964"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679167963"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679167963"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679167962"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679167962"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteCorsPolicyResponse
 </span><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicyResponse%27"><span class="hs-identifier hs-var">DeleteCorsPolicyResponse'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteCorsPolicyResponse)
@@ -197,15 +197,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167896"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167964"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167887"><span id="local-6989586621679167889"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy"><span class="hs-identifier hs-type">DeleteCorsPolicy</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167955"><span id="local-6989586621679167957"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy"><span class="hs-identifier hs-type">DeleteCorsPolicy</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167884"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy"><span class="hs-identifier hs-type">DeleteCorsPolicy</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167952"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy"><span class="hs-identifier hs-type">DeleteCorsPolicy</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy"><span class="hs-identifier hs-type">DeleteCorsPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679167880"><span class="annot"><span class="annottext">toHeaders :: DeleteCorsPolicy -&gt; ResponseHeaders
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679167948"><span class="annot"><span class="annottext">toHeaders :: DeleteCorsPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteCorsPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -232,12 +232,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167870"><span id="local-6989586621679167872"><span id="local-6989586621679167874"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy"><span class="hs-identifier hs-type">DeleteCorsPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679167868"><span class="annot"><span class="annottext">toJSON :: DeleteCorsPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy%27"><span class="hs-identifier hs-type">DeleteCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167866"><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167938"><span id="local-6989586621679167940"><span id="local-6989586621679167942"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy"><span class="hs-identifier hs-type">DeleteCorsPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679167936"><span class="annot"><span class="annottext">toJSON :: DeleteCorsPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy%27"><span class="hs-identifier hs-type">DeleteCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167934"><span class="annot"><span class="annottext">Text
 containerName :: Text
 $sel:containerName:DeleteCorsPolicy' :: DeleteCorsPolicy -&gt; Text
-</span><a href="#local-6989586621679167866"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679167934"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -250,19 +250,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ContainerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167866"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167934"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy"><span class="hs-identifier hs-type">DeleteCorsPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679167860"><span class="annot"><span class="annottext">toPath :: DeleteCorsPolicy -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679167928"><span class="annot"><span class="annottext">toPath :: DeleteCorsPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteCorsPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicy"><span class="hs-identifier hs-type">DeleteCorsPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679167856"><span class="annot"><span class="annottext">toQuery :: DeleteCorsPolicy -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679167924"><span class="annot"><span class="annottext">toQuery :: DeleteCorsPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteCorsPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -270,12 +270,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newDeleteCorsPolicyResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679167853"><span id="local-6989586621679167854"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCorsPolicyResponse"><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicyResponse"><span class="hs-identifier hs-var">DeleteCorsPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCorsPolicyResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicyResponse%27"><span class="hs-identifier hs-var">DeleteCorsPolicyResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679167921"><span id="local-6989586621679167922"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCorsPolicyResponse"><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicyResponse"><span class="hs-identifier hs-var">DeleteCorsPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCorsPolicyResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicyResponse%27"><span class="hs-identifier hs-var">DeleteCorsPolicyResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteCorsPolicyResponse%27"><span class="annot"><span class="annottext">DeleteCorsPolicyResponse -&gt; Int
 </span><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#%24sel%3AhttpStatus%3ADeleteCorsPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679167848"><span id="local-6989586621679167850"><span class="annot"><span class="annottext">DeleteCorsPolicyResponse -&gt; DeleteCorsPolicyResponse -&gt; Bool
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679167916"><span id="local-6989586621679167918"><span class="annot"><span class="annottext">DeleteCorsPolicyResponse -&gt; DeleteCorsPolicyResponse -&gt; Bool
 (DeleteCorsPolicyResponse -&gt; DeleteCorsPolicyResponse -&gt; Bool)
 -&gt; (DeleteCorsPolicyResponse -&gt; DeleteCorsPolicyResponse -&gt; Bool)
 -&gt; Eq DeleteCorsPolicyResponse
@@ -284,7 +284,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteCorsPolicyResponse -&gt; DeleteCorsPolicyResponse -&gt; Bool
 == :: DeleteCorsPolicyResponse -&gt; DeleteCorsPolicyResponse -&gt; Bool
 $c== :: DeleteCorsPolicyResponse -&gt; DeleteCorsPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167840"><span id="local-6989586621679167842"><span id="local-6989586621679167844"><span id="local-6989586621679167846"><span class="annot"><span class="annottext">ReadPrec [DeleteCorsPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167908"><span id="local-6989586621679167910"><span id="local-6989586621679167912"><span id="local-6989586621679167914"><span class="annot"><span class="annottext">ReadPrec [DeleteCorsPolicyResponse]
 ReadPrec DeleteCorsPolicyResponse
 Int -&gt; ReadS DeleteCorsPolicyResponse
 ReadS [DeleteCorsPolicyResponse]
@@ -304,7 +304,7 @@ readList :: ReadS [DeleteCorsPolicyResponse]
 $creadList :: ReadS [DeleteCorsPolicyResponse]
 readsPrec :: Int -&gt; ReadS DeleteCorsPolicyResponse
 $creadsPrec :: Int -&gt; ReadS DeleteCorsPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167834"><span id="local-6989586621679167836"><span id="local-6989586621679167838"><span class="annot"><span class="annottext">Int -&gt; DeleteCorsPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167902"><span id="local-6989586621679167904"><span id="local-6989586621679167906"><span class="annot"><span class="annottext">Int -&gt; DeleteCorsPolicyResponse -&gt; ShowS
 [DeleteCorsPolicyResponse] -&gt; ShowS
 DeleteCorsPolicyResponse -&gt; String
 (Int -&gt; DeleteCorsPolicyResponse -&gt; ShowS)
@@ -350,14 +350,14 @@ DeleteCorsPolicyResponse -&gt; Rep DeleteCorsPolicyResponse x
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicyResponse"><span class="hs-identifier hs-type">DeleteCorsPolicyResponse</span></a></span><span>
 </span><span id="line-146"></span><span id="newDeleteCorsPolicyResponse"><span class="annot"><span class="annottext">newDeleteCorsPolicyResponse :: Int -&gt; DeleteCorsPolicyResponse
-</span><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#newDeleteCorsPolicyResponse"><span class="hs-identifier hs-var hs-var">newDeleteCorsPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679167831"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167831"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#newDeleteCorsPolicyResponse"><span class="hs-identifier hs-var hs-var">newDeleteCorsPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679167899"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679167899"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">DeleteCorsPolicyResponse' :: Int -&gt; DeleteCorsPolicyResponse
 </span><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicyResponse%27"><span class="hs-identifier hs-type">DeleteCorsPolicyResponse'</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCorsPolicyResponse' :: Int
 </span><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#%24sel%3AhttpStatus%3ADeleteCorsPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167831"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679167899"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -368,16 +368,16 @@ DeleteCorsPolicyResponse -&gt; Rep DeleteCorsPolicyResponse x
 -&gt; (DeleteCorsPolicyResponse -&gt; Int -&gt; DeleteCorsPolicyResponse)
 -&gt; Lens DeleteCorsPolicyResponse DeleteCorsPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicyResponse%27"><span class="hs-identifier hs-type">DeleteCorsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167830"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicyResponse%27"><span class="hs-identifier hs-type">DeleteCorsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167898"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteCorsPolicyResponse' :: DeleteCorsPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679167830"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167830"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167829"><span class="annot"><span class="annottext">s :: DeleteCorsPolicyResponse
-</span><a href="#local-6989586621679167829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicyResponse%27"><span class="hs-identifier hs-type">DeleteCorsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167828"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCorsPolicyResponse
-</span><a href="#local-6989586621679167829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCorsPolicyResponse' :: Int
+</span><a href="#local-6989586621679167898"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679167898"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167897"><span class="annot"><span class="annottext">s :: DeleteCorsPolicyResponse
+</span><a href="#local-6989586621679167897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicyResponse%27"><span class="hs-identifier hs-type">DeleteCorsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167896"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679167896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCorsPolicyResponse
+</span><a href="#local-6989586621679167897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCorsPolicyResponse' :: Int
 </span><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#%24sel%3AhttpStatus%3ADeleteCorsPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicyResponse"><span class="hs-identifier hs-type">DeleteCorsPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicyResponse"><span class="hs-identifier hs-type">DeleteCorsPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167826"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicyResponse"><span class="hs-identifier hs-type">DeleteCorsPolicyResponse</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167894"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#DeleteCorsPolicyResponse"><span class="hs-identifier hs-type">DeleteCorsPolicyResponse</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

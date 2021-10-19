@@ -27,18 +27,18 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A StreamSelection configuration.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStreamSelection' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679238822"><span id="local-6989586621679238823"></span></span><span class="hs-keyword">data</span><span> </span><span id="StreamSelection"><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-var">StreamSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamSelection%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-var">StreamSelection'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The minimum video bitrate (bps) to include in output.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AminVideoBitsPerSecond%3AStreamSelection%27"><span class="annot"><span class="annottext">StreamSelection -&gt; Maybe Int
+</span><span id="line-30"></span><span id="local-6989586621679238951"><span id="local-6989586621679238952"></span></span><span class="hs-keyword">data</span><span> </span><span id="StreamSelection"><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-var">StreamSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamSelection%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-var">StreamSelection'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A directive that determines the order of streams in the output.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AstreamOrder%3AStreamSelection%27"><span class="annot"><span class="annottext">StreamSelection -&gt; Maybe StreamOrder
+</span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#%24sel%3AstreamOrder%3AStreamSelection%27"><span class="hs-identifier hs-var hs-var">streamOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamOrder.html#StreamOrder"><span class="hs-identifier hs-type">StreamOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The minimum video bitrate (bps) to include in output.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AminVideoBitsPerSecond%3AStreamSelection%27"><span class="annot"><span class="annottext">StreamSelection -&gt; Maybe Int
 </span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#%24sel%3AminVideoBitsPerSecond%3AStreamSelection%27"><span class="hs-identifier hs-var hs-var">minVideoBitsPerSecond</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The maximum video bitrate (bps) to include in output.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AmaxVideoBitsPerSecond%3AStreamSelection%27"><span class="annot"><span class="annottext">StreamSelection -&gt; Maybe Int
-</span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#%24sel%3AmaxVideoBitsPerSecond%3AStreamSelection%27"><span class="hs-identifier hs-var hs-var">maxVideoBitsPerSecond</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A directive that determines the order of streams in the output.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AstreamOrder%3AStreamSelection%27"><span class="annot"><span class="annottext">StreamSelection -&gt; Maybe StreamOrder
-</span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#%24sel%3AstreamOrder%3AStreamSelection%27"><span class="hs-identifier hs-var hs-var">streamOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamOrder.html#StreamOrder"><span class="hs-identifier hs-type">StreamOrder</span></a></span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The maximum video bitrate (bps) to include in output.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AmaxVideoBitsPerSecond%3AStreamSelection%27"><span class="annot"><span class="annottext">StreamSelection -&gt; Maybe Int
+</span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#%24sel%3AmaxVideoBitsPerSecond%3AStreamSelection%27"><span class="hs-identifier hs-var hs-var">maxVideoBitsPerSecond</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238814"><span id="local-6989586621679238816"><span class="annot"><span class="annottext">StreamSelection -&gt; StreamSelection -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238943"><span id="local-6989586621679238945"><span class="annot"><span class="annottext">StreamSelection -&gt; StreamSelection -&gt; Bool
 (StreamSelection -&gt; StreamSelection -&gt; Bool)
 -&gt; (StreamSelection -&gt; StreamSelection -&gt; Bool)
 -&gt; Eq StreamSelection
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StreamSelection -&gt; StreamSelection -&gt; Bool
 == :: StreamSelection -&gt; StreamSelection -&gt; Bool
 $c== :: StreamSelection -&gt; StreamSelection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238805"><span id="local-6989586621679238807"><span id="local-6989586621679238809"><span id="local-6989586621679238811"><span class="annot"><span class="annottext">ReadPrec [StreamSelection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238934"><span id="local-6989586621679238936"><span id="local-6989586621679238938"><span id="local-6989586621679238940"><span class="annot"><span class="annottext">ReadPrec [StreamSelection]
 ReadPrec StreamSelection
 Int -&gt; ReadS StreamSelection
 ReadS [StreamSelection]
@@ -67,7 +67,7 @@ readList :: ReadS [StreamSelection]
 $creadList :: ReadS [StreamSelection]
 readsPrec :: Int -&gt; ReadS StreamSelection
 $creadsPrec :: Int -&gt; ReadS StreamSelection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238798"><span id="local-6989586621679238800"><span id="local-6989586621679238802"><span class="annot"><span class="annottext">Int -&gt; StreamSelection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238927"><span id="local-6989586621679238929"><span id="local-6989586621679238931"><span class="annot"><span class="annottext">Int -&gt; StreamSelection -&gt; ShowS
 [StreamSelection] -&gt; ShowS
 StreamSelection -&gt; String
 (Int -&gt; StreamSelection -&gt; ShowS)
@@ -101,73 +101,34 @@ $cfrom :: forall x. StreamSelection -&gt; Rep StreamSelection x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'minVideoBitsPerSecond', 'streamSelection_minVideoBitsPerSecond' - The minimum video bitrate (bps) to include in output.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'streamOrder', 'streamSelection_streamOrder' - A directive that determines the order of streams in the output.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'maxVideoBitsPerSecond', 'streamSelection_maxVideoBitsPerSecond' - The maximum video bitrate (bps) to include in output.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'minVideoBitsPerSecond', 'streamSelection_minVideoBitsPerSecond' - The minimum video bitrate (bps) to include in output.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'streamOrder', 'streamSelection_streamOrder' - A directive that determines the order of streams in the output.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'maxVideoBitsPerSecond', 'streamSelection_maxVideoBitsPerSecond' - The maximum video bitrate (bps) to include in output.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#newStreamSelection"><span class="hs-identifier hs-type">newStreamSelection</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span>
 </span><span id="line-55"></span><span id="newStreamSelection"><span class="annot"><span class="annottext">newStreamSelection :: StreamSelection
 </span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#newStreamSelection"><span class="hs-identifier hs-var hs-var">newStreamSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">StreamSelection' :: Maybe Int -&gt; Maybe Int -&gt; Maybe StreamOrder -&gt; StreamSelection
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">StreamSelection' :: Maybe StreamOrder -&gt; Maybe Int -&gt; Maybe Int -&gt; StreamSelection
 </span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-type">StreamSelection'</span></a></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:minVideoBitsPerSecond:StreamSelection' :: Maybe Int
-</span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#%24sel%3AminVideoBitsPerSecond%3AStreamSelection%27"><span class="hs-identifier hs-var">minVideoBitsPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamOrder:StreamSelection' :: Maybe StreamOrder
+</span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#%24sel%3AstreamOrder%3AStreamSelection%27"><span class="hs-identifier hs-var">streamOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamOrder
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:minVideoBitsPerSecond:StreamSelection' :: Maybe Int
+</span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#%24sel%3AminVideoBitsPerSecond%3AStreamSelection%27"><span class="hs-identifier hs-var">minVideoBitsPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxVideoBitsPerSecond:StreamSelection' :: Maybe Int
 </span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#%24sel%3AmaxVideoBitsPerSecond%3AStreamSelection%27"><span class="hs-identifier hs-var">maxVideoBitsPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamOrder:StreamSelection' :: Maybe StreamOrder
-</span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#%24sel%3AstreamOrder%3AStreamSelection%27"><span class="hs-identifier hs-var">streamOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamOrder
-forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The minimum video bitrate (bps) to include in output.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#streamSelection_minVideoBitsPerSecond"><span class="hs-identifier hs-type">streamSelection_minVideoBitsPerSecond</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="streamSelection_minVideoBitsPerSecond"><span class="annot"><span class="annottext">streamSelection_minVideoBitsPerSecond :: (Maybe Int -&gt; f (Maybe Int))
--&gt; StreamSelection -&gt; f StreamSelection
-</span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#streamSelection_minVideoBitsPerSecond"><span class="hs-identifier hs-var hs-var">streamSelection_minVideoBitsPerSecond</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StreamSelection -&gt; Maybe Int)
--&gt; (StreamSelection -&gt; Maybe Int -&gt; StreamSelection)
--&gt; Lens StreamSelection StreamSelection (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-type">StreamSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238789"><span class="annot"><span class="annottext">Maybe Int
-minVideoBitsPerSecond :: Maybe Int
-$sel:minVideoBitsPerSecond:StreamSelection' :: StreamSelection -&gt; Maybe Int
-</span><a href="#local-6989586621679238789"><span class="hs-identifier hs-var hs-var">minVideoBitsPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238789"><span class="hs-identifier hs-var">minVideoBitsPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238788"><span class="annot"><span class="annottext">s :: StreamSelection
-</span><a href="#local-6989586621679238788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-type">StreamSelection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238787"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamSelection
-</span><a href="#local-6989586621679238788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minVideoBitsPerSecond:StreamSelection' :: Maybe Int
-</span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#%24sel%3AminVideoBitsPerSecond%3AStreamSelection%27"><span class="hs-identifier hs-var">minVideoBitsPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The maximum video bitrate (bps) to include in output.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#streamSelection_maxVideoBitsPerSecond"><span class="hs-identifier hs-type">streamSelection_maxVideoBitsPerSecond</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="streamSelection_maxVideoBitsPerSecond"><span class="annot"><span class="annottext">streamSelection_maxVideoBitsPerSecond :: (Maybe Int -&gt; f (Maybe Int))
--&gt; StreamSelection -&gt; f StreamSelection
-</span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#streamSelection_maxVideoBitsPerSecond"><span class="hs-identifier hs-var hs-var">streamSelection_maxVideoBitsPerSecond</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StreamSelection -&gt; Maybe Int)
--&gt; (StreamSelection -&gt; Maybe Int -&gt; StreamSelection)
--&gt; Lens StreamSelection StreamSelection (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-type">StreamSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238785"><span class="annot"><span class="annottext">Maybe Int
-maxVideoBitsPerSecond :: Maybe Int
-$sel:maxVideoBitsPerSecond:StreamSelection' :: StreamSelection -&gt; Maybe Int
-</span><a href="#local-6989586621679238785"><span class="hs-identifier hs-var hs-var">maxVideoBitsPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238785"><span class="hs-identifier hs-var">maxVideoBitsPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238784"><span class="annot"><span class="annottext">s :: StreamSelection
-</span><a href="#local-6989586621679238784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-type">StreamSelection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238783"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamSelection
-</span><a href="#local-6989586621679238784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxVideoBitsPerSecond:StreamSelection' :: Maybe Int
-</span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#%24sel%3AmaxVideoBitsPerSecond%3AStreamSelection%27"><span class="hs-identifier hs-var">maxVideoBitsPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | A directive that determines the order of streams in the output.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#streamSelection_streamOrder"><span class="hs-identifier hs-type">streamSelection_streamOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamOrder.html#StreamOrder"><span class="hs-identifier hs-type">StreamOrder</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="streamSelection_streamOrder"><span class="annot"><span class="annottext">streamSelection_streamOrder :: (Maybe StreamOrder -&gt; f (Maybe StreamOrder))
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | A directive that determines the order of streams in the output.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#streamSelection_streamOrder"><span class="hs-identifier hs-type">streamSelection_streamOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamOrder.html#StreamOrder"><span class="hs-identifier hs-type">StreamOrder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="streamSelection_streamOrder"><span class="annot"><span class="annottext">streamSelection_streamOrder :: (Maybe StreamOrder -&gt; f (Maybe StreamOrder))
 -&gt; StreamSelection -&gt; f StreamSelection
 </span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#streamSelection_streamOrder"><span class="hs-identifier hs-var hs-var">streamSelection_streamOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StreamSelection -&gt; Maybe StreamOrder)
 -&gt; (StreamSelection -&gt; Maybe StreamOrder -&gt; StreamSelection)
@@ -177,88 +138,132 @@ $sel:maxVideoBitsPerSecond:StreamSelection' :: StreamSelection -&gt; Maybe Int
      (Maybe StreamOrder)
      (Maybe StreamOrder)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-type">StreamSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238781"><span class="annot"><span class="annottext">Maybe StreamOrder
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-type">StreamSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238918"><span class="annot"><span class="annottext">Maybe StreamOrder
 streamOrder :: Maybe StreamOrder
 $sel:streamOrder:StreamSelection' :: StreamSelection -&gt; Maybe StreamOrder
-</span><a href="#local-6989586621679238781"><span class="hs-identifier hs-var hs-var">streamOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamOrder
-</span><a href="#local-6989586621679238781"><span class="hs-identifier hs-var">streamOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238780"><span class="annot"><span class="annottext">s :: StreamSelection
-</span><a href="#local-6989586621679238780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-type">StreamSelection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238779"><span class="annot"><span class="annottext">Maybe StreamOrder
-</span><a href="#local-6989586621679238779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamSelection
-</span><a href="#local-6989586621679238780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamOrder:StreamSelection' :: Maybe StreamOrder
+</span><a href="#local-6989586621679238918"><span class="hs-identifier hs-var hs-var">streamOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamOrder
+</span><a href="#local-6989586621679238918"><span class="hs-identifier hs-var">streamOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238917"><span class="annot"><span class="annottext">s :: StreamSelection
+</span><a href="#local-6989586621679238917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-type">StreamSelection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238916"><span class="annot"><span class="annottext">Maybe StreamOrder
+</span><a href="#local-6989586621679238916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamSelection
+</span><a href="#local-6989586621679238917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamOrder:StreamSelection' :: Maybe StreamOrder
 </span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#%24sel%3AstreamOrder%3AStreamSelection%27"><span class="hs-identifier hs-var">streamOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamOrder
-</span><a href="#local-6989586621679238779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238776"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679238774"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StreamSelection
+</span><a href="#local-6989586621679238916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The minimum video bitrate (bps) to include in output.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#streamSelection_minVideoBitsPerSecond"><span class="hs-identifier hs-type">streamSelection_minVideoBitsPerSecond</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="streamSelection_minVideoBitsPerSecond"><span class="annot"><span class="annottext">streamSelection_minVideoBitsPerSecond :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; StreamSelection -&gt; f StreamSelection
+</span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#streamSelection_minVideoBitsPerSecond"><span class="hs-identifier hs-var hs-var">streamSelection_minVideoBitsPerSecond</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StreamSelection -&gt; Maybe Int)
+-&gt; (StreamSelection -&gt; Maybe Int -&gt; StreamSelection)
+-&gt; Lens StreamSelection StreamSelection (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-type">StreamSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238914"><span class="annot"><span class="annottext">Maybe Int
+minVideoBitsPerSecond :: Maybe Int
+$sel:minVideoBitsPerSecond:StreamSelection' :: StreamSelection -&gt; Maybe Int
+</span><a href="#local-6989586621679238914"><span class="hs-identifier hs-var hs-var">minVideoBitsPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679238914"><span class="hs-identifier hs-var">minVideoBitsPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238913"><span class="annot"><span class="annottext">s :: StreamSelection
+</span><a href="#local-6989586621679238913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-type">StreamSelection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238912"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679238912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamSelection
+</span><a href="#local-6989586621679238913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minVideoBitsPerSecond:StreamSelection' :: Maybe Int
+</span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#%24sel%3AminVideoBitsPerSecond%3AStreamSelection%27"><span class="hs-identifier hs-var">minVideoBitsPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679238912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The maximum video bitrate (bps) to include in output.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#streamSelection_maxVideoBitsPerSecond"><span class="hs-identifier hs-type">streamSelection_maxVideoBitsPerSecond</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="streamSelection_maxVideoBitsPerSecond"><span class="annot"><span class="annottext">streamSelection_maxVideoBitsPerSecond :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; StreamSelection -&gt; f StreamSelection
+</span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#streamSelection_maxVideoBitsPerSecond"><span class="hs-identifier hs-var hs-var">streamSelection_maxVideoBitsPerSecond</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StreamSelection -&gt; Maybe Int)
+-&gt; (StreamSelection -&gt; Maybe Int -&gt; StreamSelection)
+-&gt; Lens StreamSelection StreamSelection (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-type">StreamSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238910"><span class="annot"><span class="annottext">Maybe Int
+maxVideoBitsPerSecond :: Maybe Int
+$sel:maxVideoBitsPerSecond:StreamSelection' :: StreamSelection -&gt; Maybe Int
+</span><a href="#local-6989586621679238910"><span class="hs-identifier hs-var hs-var">maxVideoBitsPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679238910"><span class="hs-identifier hs-var">maxVideoBitsPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238909"><span class="annot"><span class="annottext">s :: StreamSelection
+</span><a href="#local-6989586621679238909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-type">StreamSelection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238908"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679238908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamSelection
+</span><a href="#local-6989586621679238909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxVideoBitsPerSecond:StreamSelection' :: Maybe Int
+</span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#%24sel%3AmaxVideoBitsPerSecond%3AStreamSelection%27"><span class="hs-identifier hs-var">maxVideoBitsPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679238908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238905"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679238903"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StreamSelection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StreamSelection)
 -&gt; Value
 -&gt; Parser StreamSelection
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StreamSelection&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679238771"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238771"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Int -&gt; Maybe StreamOrder -&gt; StreamSelection
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679238900"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238900"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe StreamOrder -&gt; Maybe Int -&gt; Maybe Int -&gt; StreamSelection
 </span><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-var">StreamSelection'</span></a></span><span>
-</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Int -&gt; Maybe StreamOrder -&gt; StreamSelection)
--&gt; Parser (Maybe Int)
--&gt; Parser (Maybe Int -&gt; Maybe StreamOrder -&gt; StreamSelection)
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe StreamOrder -&gt; Maybe Int -&gt; Maybe Int -&gt; StreamSelection)
+-&gt; Parser (Maybe StreamOrder)
+-&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; StreamSelection)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;minVideoBitsPerSecond&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe StreamOrder -&gt; StreamSelection)
--&gt; Parser (Maybe Int)
--&gt; Parser (Maybe StreamOrder -&gt; StreamSelection)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;maxVideoBitsPerSecond&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe StreamOrder -&gt; StreamSelection)
--&gt; Parser (Maybe StreamOrder) -&gt; Parser StreamSelection
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StreamOrder)
+</span><a href="#local-6989586621679238900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StreamOrder)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;streamOrder&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238765"><span id="local-6989586621679238767"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span></span></span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238762"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span></span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238754"><span id="local-6989586621679238756"><span id="local-6989586621679238758"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679238752"><span class="annot"><span class="annottext">toJSON :: StreamSelection -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-type">StreamSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238748"><span id="local-6989586621679238749"><span id="local-6989586621679238750"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Int -&gt; StreamSelection)
+-&gt; Parser (Maybe Int) -&gt; Parser (Maybe Int -&gt; StreamSelection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;minVideoBitsPerSecond&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; StreamSelection)
+-&gt; Parser (Maybe Int) -&gt; Parser StreamSelection
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxVideoBitsPerSecond&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238894"><span id="local-6989586621679238896"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238891"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238883"><span id="local-6989586621679238885"><span id="local-6989586621679238887"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679238881"><span class="annot"><span class="annottext">toJSON :: StreamSelection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection%27"><span class="hs-identifier hs-type">StreamSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238877"><span id="local-6989586621679238878"><span id="local-6989586621679238879"><span class="annot"><span class="annottext">Maybe Int
 Maybe StreamOrder
-streamOrder :: Maybe StreamOrder
 maxVideoBitsPerSecond :: Maybe Int
 minVideoBitsPerSecond :: Maybe Int
-$sel:streamOrder:StreamSelection' :: StreamSelection -&gt; Maybe StreamOrder
+streamOrder :: Maybe StreamOrder
 $sel:maxVideoBitsPerSecond:StreamSelection' :: StreamSelection -&gt; Maybe Int
 $sel:minVideoBitsPerSecond:StreamSelection' :: StreamSelection -&gt; Maybe Int
-</span><a href="#local-6989586621679238748"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:streamOrder:StreamSelection' :: StreamSelection -&gt; Maybe StreamOrder
+</span><a href="#local-6989586621679238877"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-93"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;streamOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StreamOrder -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(StreamOrder -&gt; Pair) -&gt; Maybe StreamOrder -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StreamOrder
+</span><a href="#local-6989586621679238879"><span class="hs-identifier hs-var">streamOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;minVideoBitsPerSecond&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238750"><span class="hs-identifier hs-var">minVideoBitsPerSecond</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679238878"><span class="hs-identifier hs-var">minVideoBitsPerSecond</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxVideoBitsPerSecond&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -266,14 +271,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238749"><span class="hs-identifier hs-var">maxVideoBitsPerSecond</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;streamOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StreamOrder -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(StreamOrder -&gt; Pair) -&gt; Maybe StreamOrder -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StreamOrder
-</span><a href="#local-6989586621679238748"><span class="hs-identifier hs-var">streamOrder</span></a></span><span>
-</span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span></pre></body></html>
+</span><a href="#local-6989586621679238877"><span class="hs-identifier hs-var">maxVideoBitsPerSecond</span></a></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span></pre></body></html>

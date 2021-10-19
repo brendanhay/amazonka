@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679301416"><span id="local-6989586621679301417"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EnvironmentStatus"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentStatus.html#EnvironmentStatus"><span class="hs-identifier hs-var">EnvironmentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentStatus%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentStatus.html#EnvironmentStatus%27"><span class="hs-identifier hs-var">EnvironmentStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679301695"><span id="local-6989586621679301696"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EnvironmentStatus"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentStatus.html#EnvironmentStatus"><span class="hs-identifier hs-var">EnvironmentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentStatus%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentStatus.html#EnvironmentStatus%27"><span class="hs-identifier hs-var">EnvironmentStatus'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEnvironmentStatus"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentStatus.html#fromEnvironmentStatus"><span class="hs-identifier hs-var hs-var">fromEnvironmentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301408"><span id="local-6989586621679301410"><span id="local-6989586621679301412"><span class="annot"><span class="annottext">Int -&gt; EnvironmentStatus -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301687"><span id="local-6989586621679301689"><span id="local-6989586621679301691"><span class="annot"><span class="annottext">Int -&gt; EnvironmentStatus -&gt; ShowS
 [EnvironmentStatus] -&gt; ShowS
 EnvironmentStatus -&gt; String
 (Int -&gt; EnvironmentStatus -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: EnvironmentStatus -&gt; String
 showsPrec :: Int -&gt; EnvironmentStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; EnvironmentStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679301399"><span id="local-6989586621679301401"><span id="local-6989586621679301403"><span id="local-6989586621679301405"><span class="annot"><span class="annottext">ReadPrec [EnvironmentStatus]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679301678"><span id="local-6989586621679301680"><span id="local-6989586621679301682"><span id="local-6989586621679301684"><span class="annot"><span class="annottext">ReadPrec [EnvironmentStatus]
 ReadPrec EnvironmentStatus
 Int -&gt; ReadS EnvironmentStatus
 ReadS [EnvironmentStatus]
@@ -78,7 +78,7 @@ $creadList :: ReadS [EnvironmentStatus]
 readsPrec :: Int -&gt; ReadS EnvironmentStatus
 $creadsPrec :: Int -&gt; ReadS EnvironmentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679301394"><span id="local-6989586621679301396"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679301673"><span id="local-6989586621679301675"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
 (EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool)
 -&gt; (EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool)
 -&gt; Eq EnvironmentStatus
@@ -88,7 +88,7 @@ $c/= :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
 == :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
 $c== :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679301378"><span id="local-6989586621679301380"><span id="local-6989586621679301382"><span id="local-6989586621679301384"><span id="local-6989586621679301386"><span id="local-6989586621679301388"><span id="local-6989586621679301390"><span class="annot"><span class="annottext">Eq EnvironmentStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679301657"><span id="local-6989586621679301659"><span id="local-6989586621679301661"><span id="local-6989586621679301663"><span id="local-6989586621679301665"><span id="local-6989586621679301667"><span id="local-6989586621679301669"><span class="annot"><span class="annottext">Eq EnvironmentStatus
 Eq EnvironmentStatus
 -&gt; (EnvironmentStatus -&gt; EnvironmentStatus -&gt; Ordering)
 -&gt; (EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. EnvironmentStatus -&gt; Rep EnvironmentStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301370"><span id="local-6989586621679301372"><span class="annot"><span class="annottext">Int -&gt; EnvironmentStatus -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301649"><span id="local-6989586621679301651"><span class="annot"><span class="annottext">Int -&gt; EnvironmentStatus -&gt; Int
 EnvironmentStatus -&gt; Int
 (Int -&gt; EnvironmentStatus -&gt; Int)
 -&gt; (EnvironmentStatus -&gt; Int) -&gt; Hashable EnvironmentStatus
@@ -149,51 +149,51 @@ $chash :: EnvironmentStatus -&gt; Int
 hashWithSalt :: Int -&gt; EnvironmentStatus -&gt; Int
 $chashWithSalt :: Int -&gt; EnvironmentStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679301367"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679301646"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; ()
 (EnvironmentStatus -&gt; ()) -&gt; NFData EnvironmentStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EnvironmentStatus -&gt; ()
 $crnf :: EnvironmentStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679301364"><span class="annot"><span class="annottext">Text -&gt; Either String EnvironmentStatus
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679301643"><span class="annot"><span class="annottext">Text -&gt; Either String EnvironmentStatus
 (Text -&gt; Either String EnvironmentStatus)
 -&gt; FromText EnvironmentStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EnvironmentStatus
 $cfromText :: Text -&gt; Either String EnvironmentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301361"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301640"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; Text
 (EnvironmentStatus -&gt; Text) -&gt; ToText EnvironmentStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EnvironmentStatus -&gt; Text
 $ctoText :: EnvironmentStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301358"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301637"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; ByteString
 (EnvironmentStatus -&gt; ByteString) -&gt; ToByteString EnvironmentStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EnvironmentStatus -&gt; ByteString
 $ctoBS :: EnvironmentStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301355"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301634"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; ByteStringBuilder
 (EnvironmentStatus -&gt; ByteStringBuilder) -&gt; ToLog EnvironmentStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EnvironmentStatus -&gt; ByteStringBuilder
 $cbuild :: EnvironmentStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301352"><span class="annot"><span class="annottext">HeaderName -&gt; EnvironmentStatus -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301631"><span class="annot"><span class="annottext">HeaderName -&gt; EnvironmentStatus -&gt; [Header]
 (HeaderName -&gt; EnvironmentStatus -&gt; [Header])
 -&gt; ToHeader EnvironmentStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EnvironmentStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EnvironmentStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301349"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301628"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; QueryString
 (EnvironmentStatus -&gt; QueryString) -&gt; ToQuery EnvironmentStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EnvironmentStatus -&gt; QueryString
 $ctoQuery :: EnvironmentStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679301344"><span id="local-6989586621679301346"><span class="annot"><span class="annottext">Value -&gt; Parser [EnvironmentStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679301623"><span id="local-6989586621679301625"><span class="annot"><span class="annottext">Value -&gt; Parser [EnvironmentStatus]
 Value -&gt; Parser EnvironmentStatus
 (Value -&gt; Parser EnvironmentStatus)
 -&gt; (Value -&gt; Parser [EnvironmentStatus])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [EnvironmentStatus]
 parseJSON :: Value -&gt; Parser EnvironmentStatus
 $cparseJSON :: Value -&gt; Parser EnvironmentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679301339"><span id="local-6989586621679301341"><span class="annot"><span class="annottext">FromJSONKeyFunction [EnvironmentStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679301618"><span id="local-6989586621679301620"><span class="annot"><span class="annottext">FromJSONKeyFunction [EnvironmentStatus]
 FromJSONKeyFunction EnvironmentStatus
 FromJSONKeyFunction EnvironmentStatus
 -&gt; FromJSONKeyFunction [EnvironmentStatus]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EnvironmentStatus]
 fromJSONKey :: FromJSONKeyFunction EnvironmentStatus
 $cfromJSONKey :: FromJSONKeyFunction EnvironmentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679301330"><span id="local-6989586621679301332"><span id="local-6989586621679301334"><span id="local-6989586621679301336"><span class="annot"><span class="annottext">[EnvironmentStatus] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679301609"><span id="local-6989586621679301611"><span id="local-6989586621679301613"><span id="local-6989586621679301615"><span class="annot"><span class="annottext">[EnvironmentStatus] -&gt; Encoding
 [EnvironmentStatus] -&gt; Value
 EnvironmentStatus -&gt; Encoding
 EnvironmentStatus -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: EnvironmentStatus -&gt; Encoding
 toJSON :: EnvironmentStatus -&gt; Value
 $ctoJSON :: EnvironmentStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679301325"><span id="local-6989586621679301327"><span class="annot"><span class="annottext">ToJSONKeyFunction [EnvironmentStatus]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679301604"><span id="local-6989586621679301606"><span class="annot"><span class="annottext">ToJSONKeyFunction [EnvironmentStatus]
 ToJSONKeyFunction EnvironmentStatus
 ToJSONKeyFunction EnvironmentStatus
 -&gt; ToJSONKeyFunction [EnvironmentStatus]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EnvironmentStatus]
 toJSONKey :: ToJSONKeyFunction EnvironmentStatus
 $ctoJSONKey :: ToJSONKeyFunction EnvironmentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679301322"><span class="annot"><span class="annottext">[Node] -&gt; Either String EnvironmentStatus
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679301601"><span class="annot"><span class="annottext">[Node] -&gt; Either String EnvironmentStatus
 ([Node] -&gt; Either String EnvironmentStatus)
 -&gt; FromXML EnvironmentStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EnvironmentStatus
 $cparseXML :: [Node] -&gt; Either String EnvironmentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679301319"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679301598"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; XML
 (EnvironmentStatus -&gt; XML) -&gt; ToXML EnvironmentStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EnvironmentStatus -&gt; XML

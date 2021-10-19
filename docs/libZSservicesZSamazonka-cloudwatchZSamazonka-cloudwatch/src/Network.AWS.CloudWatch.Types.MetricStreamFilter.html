@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- listed in a filter of a metric stream.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMetricStreamFilter' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679254896"><span id="local-6989586621679254897"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricStreamFilter"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter"><span class="hs-identifier hs-var">MetricStreamFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricStreamFilter%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter%27"><span class="hs-identifier hs-var">MetricStreamFilter'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679255224"><span id="local-6989586621679255225"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricStreamFilter"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter"><span class="hs-identifier hs-var">MetricStreamFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricStreamFilter%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter%27"><span class="hs-identifier hs-var">MetricStreamFilter'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the metric namespace in the filter.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Anamespace%3AMetricStreamFilter%27"><span class="annot"><span class="annottext">MetricStreamFilter -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#%24sel%3Anamespace%3AMetricStreamFilter%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254890"><span id="local-6989586621679254892"><span class="annot"><span class="annottext">MetricStreamFilter -&gt; MetricStreamFilter -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255218"><span id="local-6989586621679255220"><span class="annot"><span class="annottext">MetricStreamFilter -&gt; MetricStreamFilter -&gt; Bool
 (MetricStreamFilter -&gt; MetricStreamFilter -&gt; Bool)
 -&gt; (MetricStreamFilter -&gt; MetricStreamFilter -&gt; Bool)
 -&gt; Eq MetricStreamFilter
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MetricStreamFilter -&gt; MetricStreamFilter -&gt; Bool
 == :: MetricStreamFilter -&gt; MetricStreamFilter -&gt; Bool
 $c== :: MetricStreamFilter -&gt; MetricStreamFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254881"><span id="local-6989586621679254883"><span id="local-6989586621679254885"><span id="local-6989586621679254887"><span class="annot"><span class="annottext">ReadPrec [MetricStreamFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255209"><span id="local-6989586621679255211"><span id="local-6989586621679255213"><span id="local-6989586621679255215"><span class="annot"><span class="annottext">ReadPrec [MetricStreamFilter]
 ReadPrec MetricStreamFilter
 Int -&gt; ReadS MetricStreamFilter
 ReadS [MetricStreamFilter]
@@ -61,7 +61,7 @@ readList :: ReadS [MetricStreamFilter]
 $creadList :: ReadS [MetricStreamFilter]
 readsPrec :: Int -&gt; ReadS MetricStreamFilter
 $creadsPrec :: Int -&gt; ReadS MetricStreamFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254874"><span id="local-6989586621679254876"><span id="local-6989586621679254878"><span class="annot"><span class="annottext">Int -&gt; MetricStreamFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255202"><span id="local-6989586621679255204"><span id="local-6989586621679255206"><span class="annot"><span class="annottext">Int -&gt; MetricStreamFilter -&gt; ShowS
 [MetricStreamFilter] -&gt; ShowS
 MetricStreamFilter -&gt; String
 (Int -&gt; MetricStreamFilter -&gt; ShowS)
@@ -115,47 +115,47 @@ forall a. Maybe a
 -&gt; Lens
      MetricStreamFilter MetricStreamFilter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter%27"><span class="hs-identifier hs-type">MetricStreamFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254865"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter%27"><span class="hs-identifier hs-type">MetricStreamFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255193"><span class="annot"><span class="annottext">Maybe Text
 namespace :: Maybe Text
 $sel:namespace:MetricStreamFilter' :: MetricStreamFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679254865"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679254865"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254864"><span class="annot"><span class="annottext">s :: MetricStreamFilter
-</span><a href="#local-6989586621679254864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter%27"><span class="hs-identifier hs-type">MetricStreamFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254863"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679254863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStreamFilter
-</span><a href="#local-6989586621679254864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:MetricStreamFilter' :: Maybe Text
+</span><a href="#local-6989586621679255193"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255193"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255192"><span class="annot"><span class="annottext">s :: MetricStreamFilter
+</span><a href="#local-6989586621679255192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter%27"><span class="hs-identifier hs-type">MetricStreamFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255191"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStreamFilter
+</span><a href="#local-6989586621679255192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:MetricStreamFilter' :: Maybe Text
 </span><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#%24sel%3Anamespace%3AMetricStreamFilter%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679254863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter"><span class="hs-identifier hs-type">MetricStreamFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter"><span class="hs-identifier hs-type">MetricStreamFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter"><span class="hs-identifier hs-type">MetricStreamFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679254860"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MetricStreamFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679254858"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679254858"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679255188"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MetricStreamFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679255186"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679255186"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; MetricStreamFilter
 </span><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter%27"><span class="hs-identifier hs-var">MetricStreamFilter'</span></a></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; MetricStreamFilter)
 -&gt; Either String (Maybe Text) -&gt; Either String MetricStreamFilter
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679254858"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679255186"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Namespace&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254852"><span id="local-6989586621679254854"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter"><span class="hs-identifier hs-type">MetricStreamFilter</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255180"><span id="local-6989586621679255182"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter"><span class="hs-identifier hs-type">MetricStreamFilter</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254849"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter"><span class="hs-identifier hs-type">MetricStreamFilter</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255177"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter"><span class="hs-identifier hs-type">MetricStreamFilter</span></a></span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter"><span class="hs-identifier hs-type">MetricStreamFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679254845"><span class="annot"><span class="annottext">toQuery :: MetricStreamFilter -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter%27"><span class="hs-identifier hs-type">MetricStreamFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254843"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679255173"><span class="annot"><span class="annottext">toQuery :: MetricStreamFilter -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter%27"><span class="hs-identifier hs-type">MetricStreamFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255171"><span class="annot"><span class="annottext">Maybe Text
 namespace :: Maybe Text
 $sel:namespace:MetricStreamFilter' :: MetricStreamFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679254843"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679255171"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679254843"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679255171"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-66"></span></pre></body></html>

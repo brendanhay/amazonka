@@ -27,18 +27,18 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | This data type contains information about progress of an operation.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newProgress' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679547958"><span id="local-6989586621679547959"></span></span><span class="hs-keyword">data</span><span> </span><span id="Progress"><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-var">Progress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Progress%27"><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress%27"><span class="hs-identifier hs-var">Progress'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current number of object bytes scanned.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AbytesScanned%3AProgress%27"><span class="annot"><span class="annottext">Progress -&gt; Maybe Integer
+</span><span id="line-30"></span><span id="local-6989586621679548591"><span id="local-6989586621679548592"></span></span><span class="hs-keyword">data</span><span> </span><span id="Progress"><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-var">Progress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Progress%27"><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress%27"><span class="hs-identifier hs-var">Progress'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current number of bytes of records payload data returned.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AbytesReturned%3AProgress%27"><span class="annot"><span class="annottext">Progress -&gt; Maybe Integer
+</span><a href="Network.AWS.S3.Types.Progress.html#%24sel%3AbytesReturned%3AProgress%27"><span class="hs-identifier hs-var hs-var">bytesReturned</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The current number of object bytes scanned.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AbytesScanned%3AProgress%27"><span class="annot"><span class="annottext">Progress -&gt; Maybe Integer
 </span><a href="Network.AWS.S3.Types.Progress.html#%24sel%3AbytesScanned%3AProgress%27"><span class="hs-identifier hs-var hs-var">bytesScanned</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The current number of uncompressed object bytes processed.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AbytesProcessed%3AProgress%27"><span class="annot"><span class="annottext">Progress -&gt; Maybe Integer
-</span><a href="Network.AWS.S3.Types.Progress.html#%24sel%3AbytesProcessed%3AProgress%27"><span class="hs-identifier hs-var hs-var">bytesProcessed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The current number of bytes of records payload data returned.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AbytesReturned%3AProgress%27"><span class="annot"><span class="annottext">Progress -&gt; Maybe Integer
-</span><a href="Network.AWS.S3.Types.Progress.html#%24sel%3AbytesReturned%3AProgress%27"><span class="hs-identifier hs-var hs-var">bytesReturned</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The current number of uncompressed object bytes processed.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AbytesProcessed%3AProgress%27"><span class="annot"><span class="annottext">Progress -&gt; Maybe Integer
+</span><a href="Network.AWS.S3.Types.Progress.html#%24sel%3AbytesProcessed%3AProgress%27"><span class="hs-identifier hs-var hs-var">bytesProcessed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679547950"><span id="local-6989586621679547952"><span class="annot"><span class="annottext">Progress -&gt; Progress -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679548583"><span id="local-6989586621679548585"><span class="annot"><span class="annottext">Progress -&gt; Progress -&gt; Bool
 (Progress -&gt; Progress -&gt; Bool)
 -&gt; (Progress -&gt; Progress -&gt; Bool) -&gt; Eq Progress
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Progress -&gt; Progress -&gt; Bool
 == :: Progress -&gt; Progress -&gt; Bool
 $c== :: Progress -&gt; Progress -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547941"><span id="local-6989586621679547943"><span id="local-6989586621679547945"><span id="local-6989586621679547947"><span class="annot"><span class="annottext">ReadPrec [Progress]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679548574"><span id="local-6989586621679548576"><span id="local-6989586621679548578"><span id="local-6989586621679548580"><span class="annot"><span class="annottext">ReadPrec [Progress]
 ReadPrec Progress
 Int -&gt; ReadS Progress
 ReadS [Progress]
@@ -66,7 +66,7 @@ readList :: ReadS [Progress]
 $creadList :: ReadS [Progress]
 readsPrec :: Int -&gt; ReadS Progress
 $creadsPrec :: Int -&gt; ReadS Progress
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547934"><span id="local-6989586621679547936"><span id="local-6989586621679547938"><span class="annot"><span class="annottext">Int -&gt; Progress -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679548567"><span id="local-6989586621679548569"><span id="local-6989586621679548571"><span class="annot"><span class="annottext">Int -&gt; Progress -&gt; ShowS
 [Progress] -&gt; ShowS
 Progress -&gt; String
 (Int -&gt; Progress -&gt; ShowS)
@@ -97,89 +97,89 @@ $cfrom :: forall x. Progress -&gt; Rep Progress x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'bytesScanned', 'progress_bytesScanned' - The current number of object bytes scanned.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'bytesReturned', 'progress_bytesReturned' - The current number of bytes of records payload data returned.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'bytesProcessed', 'progress_bytesProcessed' - The current number of uncompressed object bytes processed.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'bytesScanned', 'progress_bytesScanned' - The current number of object bytes scanned.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'bytesReturned', 'progress_bytesReturned' - The current number of bytes of records payload data returned.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'bytesProcessed', 'progress_bytesProcessed' - The current number of uncompressed object bytes processed.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#newProgress"><span class="hs-identifier hs-type">newProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span><span>
 </span><span id="line-55"></span><span id="newProgress"><span class="annot"><span class="annottext">newProgress :: Progress
 </span><a href="Network.AWS.S3.Types.Progress.html#newProgress"><span class="hs-identifier hs-var hs-var">newProgress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">Progress' :: Maybe Integer -&gt; Maybe Integer -&gt; Maybe Integer -&gt; Progress
 </span><a href="Network.AWS.S3.Types.Progress.html#Progress%27"><span class="hs-identifier hs-type">Progress'</span></a></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bytesScanned:Progress' :: Maybe Integer
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bytesReturned:Progress' :: Maybe Integer
+</span><a href="Network.AWS.S3.Types.Progress.html#%24sel%3AbytesReturned%3AProgress%27"><span class="hs-identifier hs-var">bytesReturned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:bytesScanned:Progress' :: Maybe Integer
 </span><a href="Network.AWS.S3.Types.Progress.html#%24sel%3AbytesScanned%3AProgress%27"><span class="hs-identifier hs-var">bytesScanned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:bytesProcessed:Progress' :: Maybe Integer
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:bytesProcessed:Progress' :: Maybe Integer
 </span><a href="Network.AWS.S3.Types.Progress.html#%24sel%3AbytesProcessed%3AProgress%27"><span class="hs-identifier hs-var">bytesProcessed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:bytesReturned:Progress' :: Maybe Integer
-</span><a href="Network.AWS.S3.Types.Progress.html#%24sel%3AbytesReturned%3AProgress%27"><span class="hs-identifier hs-var">bytesReturned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The current number of object bytes scanned.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#progress_bytesScanned"><span class="hs-identifier hs-type">progress_bytesScanned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="progress_bytesScanned"><span class="annot"><span class="annottext">progress_bytesScanned :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Progress -&gt; f Progress
-</span><a href="Network.AWS.S3.Types.Progress.html#progress_bytesScanned"><span class="hs-identifier hs-var hs-var">progress_bytesScanned</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Progress -&gt; Maybe Integer)
--&gt; (Progress -&gt; Maybe Integer -&gt; Progress)
--&gt; Lens Progress Progress (Maybe Integer) (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress%27"><span class="hs-identifier hs-type">Progress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547925"><span class="annot"><span class="annottext">Maybe Integer
-bytesScanned :: Maybe Integer
-$sel:bytesScanned:Progress' :: Progress -&gt; Maybe Integer
-</span><a href="#local-6989586621679547925"><span class="hs-identifier hs-var hs-var">bytesScanned</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679547925"><span class="hs-identifier hs-var">bytesScanned</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547924"><span class="annot"><span class="annottext">s :: Progress
-</span><a href="#local-6989586621679547924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress%27"><span class="hs-identifier hs-type">Progress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547923"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679547923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Progress
-</span><a href="#local-6989586621679547924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytesScanned:Progress' :: Maybe Integer
-</span><a href="Network.AWS.S3.Types.Progress.html#%24sel%3AbytesScanned%3AProgress%27"><span class="hs-identifier hs-var">bytesScanned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679547923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The current number of uncompressed object bytes processed.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#progress_bytesProcessed"><span class="hs-identifier hs-type">progress_bytesProcessed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="progress_bytesProcessed"><span class="annot"><span class="annottext">progress_bytesProcessed :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Progress -&gt; f Progress
-</span><a href="Network.AWS.S3.Types.Progress.html#progress_bytesProcessed"><span class="hs-identifier hs-var hs-var">progress_bytesProcessed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Progress -&gt; Maybe Integer)
--&gt; (Progress -&gt; Maybe Integer -&gt; Progress)
--&gt; Lens Progress Progress (Maybe Integer) (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress%27"><span class="hs-identifier hs-type">Progress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547921"><span class="annot"><span class="annottext">Maybe Integer
-bytesProcessed :: Maybe Integer
-$sel:bytesProcessed:Progress' :: Progress -&gt; Maybe Integer
-</span><a href="#local-6989586621679547921"><span class="hs-identifier hs-var hs-var">bytesProcessed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679547921"><span class="hs-identifier hs-var">bytesProcessed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547920"><span class="annot"><span class="annottext">s :: Progress
-</span><a href="#local-6989586621679547920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress%27"><span class="hs-identifier hs-type">Progress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547919"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679547919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Progress
-</span><a href="#local-6989586621679547920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytesProcessed:Progress' :: Maybe Integer
-</span><a href="Network.AWS.S3.Types.Progress.html#%24sel%3AbytesProcessed%3AProgress%27"><span class="hs-identifier hs-var">bytesProcessed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679547919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The current number of bytes of records payload data returned.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#progress_bytesReturned"><span class="hs-identifier hs-type">progress_bytesReturned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="progress_bytesReturned"><span class="annot"><span class="annottext">progress_bytesReturned :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Progress -&gt; f Progress
+</span><span id="line-62"></span><span class="hs-comment">-- | The current number of bytes of records payload data returned.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#progress_bytesReturned"><span class="hs-identifier hs-type">progress_bytesReturned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="progress_bytesReturned"><span class="annot"><span class="annottext">progress_bytesReturned :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Progress -&gt; f Progress
 </span><a href="Network.AWS.S3.Types.Progress.html#progress_bytesReturned"><span class="hs-identifier hs-var hs-var">progress_bytesReturned</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Progress -&gt; Maybe Integer)
 -&gt; (Progress -&gt; Maybe Integer -&gt; Progress)
 -&gt; Lens Progress Progress (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress%27"><span class="hs-identifier hs-type">Progress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547917"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress%27"><span class="hs-identifier hs-type">Progress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548558"><span class="annot"><span class="annottext">Maybe Integer
 bytesReturned :: Maybe Integer
 $sel:bytesReturned:Progress' :: Progress -&gt; Maybe Integer
-</span><a href="#local-6989586621679547917"><span class="hs-identifier hs-var hs-var">bytesReturned</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679547917"><span class="hs-identifier hs-var">bytesReturned</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547916"><span class="annot"><span class="annottext">s :: Progress
-</span><a href="#local-6989586621679547916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress%27"><span class="hs-identifier hs-type">Progress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547915"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679547915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Progress
-</span><a href="#local-6989586621679547916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytesReturned:Progress' :: Maybe Integer
+</span><a href="#local-6989586621679548558"><span class="hs-identifier hs-var hs-var">bytesReturned</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679548558"><span class="hs-identifier hs-var">bytesReturned</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548557"><span class="annot"><span class="annottext">s :: Progress
+</span><a href="#local-6989586621679548557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress%27"><span class="hs-identifier hs-type">Progress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548556"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679548556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Progress
+</span><a href="#local-6989586621679548557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytesReturned:Progress' :: Maybe Integer
 </span><a href="Network.AWS.S3.Types.Progress.html#%24sel%3AbytesReturned%3AProgress%27"><span class="hs-identifier hs-var">bytesReturned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679547915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679548556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The current number of object bytes scanned.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#progress_bytesScanned"><span class="hs-identifier hs-type">progress_bytesScanned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="progress_bytesScanned"><span class="annot"><span class="annottext">progress_bytesScanned :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Progress -&gt; f Progress
+</span><a href="Network.AWS.S3.Types.Progress.html#progress_bytesScanned"><span class="hs-identifier hs-var hs-var">progress_bytesScanned</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Progress -&gt; Maybe Integer)
+-&gt; (Progress -&gt; Maybe Integer -&gt; Progress)
+-&gt; Lens Progress Progress (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress%27"><span class="hs-identifier hs-type">Progress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548554"><span class="annot"><span class="annottext">Maybe Integer
+bytesScanned :: Maybe Integer
+$sel:bytesScanned:Progress' :: Progress -&gt; Maybe Integer
+</span><a href="#local-6989586621679548554"><span class="hs-identifier hs-var hs-var">bytesScanned</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679548554"><span class="hs-identifier hs-var">bytesScanned</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548553"><span class="annot"><span class="annottext">s :: Progress
+</span><a href="#local-6989586621679548553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress%27"><span class="hs-identifier hs-type">Progress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548552"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679548552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Progress
+</span><a href="#local-6989586621679548553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytesScanned:Progress' :: Maybe Integer
+</span><a href="Network.AWS.S3.Types.Progress.html#%24sel%3AbytesScanned%3AProgress%27"><span class="hs-identifier hs-var">bytesScanned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679548552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The current number of uncompressed object bytes processed.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#progress_bytesProcessed"><span class="hs-identifier hs-type">progress_bytesProcessed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="progress_bytesProcessed"><span class="annot"><span class="annottext">progress_bytesProcessed :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Progress -&gt; f Progress
+</span><a href="Network.AWS.S3.Types.Progress.html#progress_bytesProcessed"><span class="hs-identifier hs-var hs-var">progress_bytesProcessed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Progress -&gt; Maybe Integer)
+-&gt; (Progress -&gt; Maybe Integer -&gt; Progress)
+-&gt; Lens Progress Progress (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress%27"><span class="hs-identifier hs-type">Progress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548550"><span class="annot"><span class="annottext">Maybe Integer
+bytesProcessed :: Maybe Integer
+$sel:bytesProcessed:Progress' :: Progress -&gt; Maybe Integer
+</span><a href="#local-6989586621679548550"><span class="hs-identifier hs-var hs-var">bytesProcessed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679548550"><span class="hs-identifier hs-var">bytesProcessed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548549"><span class="annot"><span class="annottext">s :: Progress
+</span><a href="#local-6989586621679548549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress%27"><span class="hs-identifier hs-type">Progress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548548"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679548548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Progress
+</span><a href="#local-6989586621679548549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytesProcessed:Progress' :: Maybe Integer
+</span><a href="Network.AWS.S3.Types.Progress.html#%24sel%3AbytesProcessed%3AProgress%27"><span class="hs-identifier hs-var">bytesProcessed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679548548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679547912"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Progress
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679547910"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679547910"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679548545"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Progress
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679548543"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679548543"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">Maybe Integer -&gt; Maybe Integer -&gt; Maybe Integer -&gt; Progress
 </span><a href="Network.AWS.S3.Types.Progress.html#Progress%27"><span class="hs-identifier hs-var">Progress'</span></a></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Integer -&gt; Maybe Integer -&gt; Maybe Integer -&gt; Progress)
@@ -187,29 +187,29 @@ $sel:bytesReturned:Progress' :: Progress -&gt; Maybe Integer
 -&gt; Either String (Maybe Integer -&gt; Maybe Integer -&gt; Progress)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679547910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679548543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BytesScanned&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;BytesReturned&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Integer -&gt; Maybe Integer -&gt; Progress)
 -&gt; Either String (Maybe Integer)
 -&gt; Either String (Maybe Integer -&gt; Progress)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679547910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679548543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BytesProcessed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;BytesScanned&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Integer -&gt; Progress)
 -&gt; Either String (Maybe Integer) -&gt; Either String Progress
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679547910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679548543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BytesReturned&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;BytesProcessed&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547904"><span id="local-6989586621679547906"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679548537"><span id="local-6989586621679548539"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547901"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679548534"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span></span><span>
 </span><span id="line-84"></span></pre></body></html>

@@ -29,38 +29,38 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes the configuration of On-Demand Instances in an EC2 Fleet.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newOnDemandOptions' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681096724"><span id="local-6989586621681096725"></span></span><span class="hs-keyword">data</span><span> </span><span id="OnDemandOptions"><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-var">OnDemandOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OnDemandOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-var">OnDemandOptions'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The minimum target capacity for On-Demand Instances in the fleet. If the</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- minimum target capacity is not reached, the fleet launches no instances.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AminTargetCapacity%3AOnDemandOptions%27"><span class="annot"><span class="annottext">OnDemandOptions -&gt; Maybe Int
-</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AminTargetCapacity%3AOnDemandOptions%27"><span class="hs-identifier hs-var hs-var">minTargetCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The strategy for using unused Capacity Reservations for fulfilling</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- On-Demand capacity. Supported only for fleets of type @instant@.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcapacityReservationOptions%3AOnDemandOptions%27"><span class="annot"><span class="annottext">OnDemandOptions -&gt; Maybe CapacityReservationOptions
+</span><span id="line-32"></span><span id="local-6989586621681131419"><span id="local-6989586621681131420"></span></span><span class="hs-keyword">data</span><span> </span><span id="OnDemandOptions"><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-var">OnDemandOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OnDemandOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-var">OnDemandOptions'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The strategy for using unused Capacity Reservations for fulfilling</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- On-Demand capacity. Supported only for fleets of type @instant@.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcapacityReservationOptions%3AOnDemandOptions%27"><span class="annot"><span class="annottext">OnDemandOptions -&gt; Maybe CapacityReservationOptions
 </span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AcapacityReservationOptions%3AOnDemandOptions%27"><span class="hs-identifier hs-var hs-var">capacityReservationOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationOptions.html#CapacityReservationOptions"><span class="hs-identifier hs-type">CapacityReservationOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Indicates that the fleet launches all On-Demand Instances into a single</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Availability Zone. Supported only for fleets of type @instant@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsingleAvailabilityZone%3AOnDemandOptions%27"><span class="annot"><span class="annottext">OnDemandOptions -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AsingleAvailabilityZone%3AOnDemandOptions%27"><span class="hs-identifier hs-var hs-var">singleAvailabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The maximum amount per hour for On-Demand Instances that you\'re willing</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- to pay.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AmaxTotalPrice%3AOnDemandOptions%27"><span class="annot"><span class="annottext">OnDemandOptions -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AmaxTotalPrice%3AOnDemandOptions%27"><span class="hs-identifier hs-var hs-var">maxTotalPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The order of the launch template overrides to use in fulfilling</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- On-Demand capacity. If you specify @lowest-price@, EC2 Fleet uses price</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- to determine the order, launching the lowest price first. If you specify</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @prioritized@, EC2 Fleet uses the priority that you assigned to each</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- launch template override, launching the highest priority first. If you</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- do not specify a value, EC2 Fleet defaults to @lowest-price@.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AallocationStrategy%3AOnDemandOptions%27"><span class="annot"><span class="annottext">OnDemandOptions -&gt; Maybe FleetOnDemandAllocationStrategy
-</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AallocationStrategy%3AOnDemandOptions%27"><span class="hs-identifier hs-var hs-var">allocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetOnDemandAllocationStrategy.html#FleetOnDemandAllocationStrategy"><span class="hs-identifier hs-type">FleetOnDemandAllocationStrategy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Indicates that the fleet uses a single instance type to launch all</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- On-Demand Instances in the fleet. Supported only for fleets of type</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @instant@.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AsingleInstanceType%3AOnDemandOptions%27"><span class="annot"><span class="annottext">OnDemandOptions -&gt; Maybe Bool
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The minimum target capacity for On-Demand Instances in the fleet. If the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- minimum target capacity is not reached, the fleet launches no instances.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AminTargetCapacity%3AOnDemandOptions%27"><span class="annot"><span class="annottext">OnDemandOptions -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AminTargetCapacity%3AOnDemandOptions%27"><span class="hs-identifier hs-var hs-var">minTargetCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Indicates that the fleet uses a single instance type to launch all</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- On-Demand Instances in the fleet. Supported only for fleets of type</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- @instant@.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AsingleInstanceType%3AOnDemandOptions%27"><span class="annot"><span class="annottext">OnDemandOptions -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AsingleInstanceType%3AOnDemandOptions%27"><span class="hs-identifier hs-var hs-var">singleInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Indicates that the fleet launches all On-Demand Instances into a single</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Availability Zone. Supported only for fleets of type @instant@.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AsingleAvailabilityZone%3AOnDemandOptions%27"><span class="annot"><span class="annottext">OnDemandOptions -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AsingleAvailabilityZone%3AOnDemandOptions%27"><span class="hs-identifier hs-var hs-var">singleAvailabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The order of the launch template overrides to use in fulfilling</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- On-Demand capacity. If you specify @lowest-price@, EC2 Fleet uses price</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- to determine the order, launching the lowest price first. If you specify</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- @prioritized@, EC2 Fleet uses the priority that you assigned to each</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- launch template override, launching the highest priority first. If you</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- do not specify a value, EC2 Fleet defaults to @lowest-price@.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AallocationStrategy%3AOnDemandOptions%27"><span class="annot"><span class="annottext">OnDemandOptions -&gt; Maybe FleetOnDemandAllocationStrategy
+</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AallocationStrategy%3AOnDemandOptions%27"><span class="hs-identifier hs-var hs-var">allocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetOnDemandAllocationStrategy.html#FleetOnDemandAllocationStrategy"><span class="hs-identifier hs-type">FleetOnDemandAllocationStrategy</span></a></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681096713"><span id="local-6989586621681096715"><span class="annot"><span class="annottext">OnDemandOptions -&gt; OnDemandOptions -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681131408"><span id="local-6989586621681131410"><span class="annot"><span class="annottext">OnDemandOptions -&gt; OnDemandOptions -&gt; Bool
 (OnDemandOptions -&gt; OnDemandOptions -&gt; Bool)
 -&gt; (OnDemandOptions -&gt; OnDemandOptions -&gt; Bool)
 -&gt; Eq OnDemandOptions
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OnDemandOptions -&gt; OnDemandOptions -&gt; Bool
 == :: OnDemandOptions -&gt; OnDemandOptions -&gt; Bool
 $c== :: OnDemandOptions -&gt; OnDemandOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681096704"><span id="local-6989586621681096706"><span id="local-6989586621681096708"><span id="local-6989586621681096710"><span class="annot"><span class="annottext">ReadPrec [OnDemandOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681131399"><span id="local-6989586621681131401"><span id="local-6989586621681131403"><span id="local-6989586621681131405"><span class="annot"><span class="annottext">ReadPrec [OnDemandOptions]
 ReadPrec OnDemandOptions
 Int -&gt; ReadS OnDemandOptions
 ReadS [OnDemandOptions]
@@ -89,7 +89,7 @@ readList :: ReadS [OnDemandOptions]
 $creadList :: ReadS [OnDemandOptions]
 readsPrec :: Int -&gt; ReadS OnDemandOptions
 $creadsPrec :: Int -&gt; ReadS OnDemandOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681096697"><span id="local-6989586621681096699"><span id="local-6989586621681096701"><span class="annot"><span class="annottext">Int -&gt; OnDemandOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681131392"><span id="local-6989586621681131394"><span id="local-6989586621681131396"><span class="annot"><span class="annottext">Int -&gt; OnDemandOptions -&gt; ShowS
 [OnDemandOptions] -&gt; ShowS
 OnDemandOptions -&gt; String
 (Int -&gt; OnDemandOptions -&gt; ShowS)
@@ -123,91 +123,71 @@ $cfrom :: forall x. OnDemandOptions -&gt; Rep OnDemandOptions x
 </span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'minTargetCapacity', 'onDemandOptions_minTargetCapacity' - The minimum target capacity for On-Demand Instances in the fleet. If the</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- minimum target capacity is not reached, the fleet launches no instances.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'capacityReservationOptions', 'onDemandOptions_capacityReservationOptions' - The strategy for using unused Capacity Reservations for fulfilling</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- On-Demand capacity. Supported only for fleets of type @instant@.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'capacityReservationOptions', 'onDemandOptions_capacityReservationOptions' - The strategy for using unused Capacity Reservations for fulfilling</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- On-Demand capacity. Supported only for fleets of type @instant@.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'singleAvailabilityZone', 'onDemandOptions_singleAvailabilityZone' - Indicates that the fleet launches all On-Demand Instances into a single</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Availability Zone. Supported only for fleets of type @instant@.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- 'maxTotalPrice', 'onDemandOptions_maxTotalPrice' - The maximum amount per hour for On-Demand Instances that you\'re willing</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- to pay.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'allocationStrategy', 'onDemandOptions_allocationStrategy' - The order of the launch template overrides to use in fulfilling</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- On-Demand capacity. If you specify @lowest-price@, EC2 Fleet uses price</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- to determine the order, launching the lowest price first. If you specify</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- @prioritized@, EC2 Fleet uses the priority that you assigned to each</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- launch template override, launching the highest priority first. If you</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- do not specify a value, EC2 Fleet defaults to @lowest-price@.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'minTargetCapacity', 'onDemandOptions_minTargetCapacity' - The minimum target capacity for On-Demand Instances in the fleet. If the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- minimum target capacity is not reached, the fleet launches no instances.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'singleInstanceType', 'onDemandOptions_singleInstanceType' - Indicates that the fleet uses a single instance type to launch all</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- On-Demand Instances in the fleet. Supported only for fleets of type</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- @instant@.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'singleInstanceType', 'onDemandOptions_singleInstanceType' - Indicates that the fleet uses a single instance type to launch all</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- On-Demand Instances in the fleet. Supported only for fleets of type</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- @instant@.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'singleAvailabilityZone', 'onDemandOptions_singleAvailabilityZone' - Indicates that the fleet launches all On-Demand Instances into a single</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- Availability Zone. Supported only for fleets of type @instant@.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'allocationStrategy', 'onDemandOptions_allocationStrategy' - The order of the launch template overrides to use in fulfilling</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- On-Demand capacity. If you specify @lowest-price@, EC2 Fleet uses price</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- to determine the order, launching the lowest price first. If you specify</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- @prioritized@, EC2 Fleet uses the priority that you assigned to each</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- launch template override, launching the highest priority first. If you</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- do not specify a value, EC2 Fleet defaults to @lowest-price@.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#newOnDemandOptions"><span class="hs-identifier hs-type">newOnDemandOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span>
 </span><span id="line-91"></span><span id="newOnDemandOptions"><span class="annot"><span class="annottext">newOnDemandOptions :: OnDemandOptions
 </span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#newOnDemandOptions"><span class="hs-identifier hs-var hs-var">newOnDemandOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">OnDemandOptions' :: Maybe Int
--&gt; Maybe CapacityReservationOptions
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">OnDemandOptions' :: Maybe CapacityReservationOptions
+-&gt; Maybe Bool
 -&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Bool
 -&gt; Maybe FleetOnDemandAllocationStrategy
--&gt; Maybe Bool
--&gt; Maybe Bool
 -&gt; OnDemandOptions
 </span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:minTargetCapacity:OnDemandOptions' :: Maybe Int
-</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AminTargetCapacity%3AOnDemandOptions%27"><span class="hs-identifier hs-var">minTargetCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:capacityReservationOptions:OnDemandOptions' :: Maybe CapacityReservationOptions
+</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AcapacityReservationOptions%3AOnDemandOptions%27"><span class="hs-identifier hs-var">capacityReservationOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Maybe CapacityReservationOptions
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:capacityReservationOptions:OnDemandOptions' :: Maybe CapacityReservationOptions
-</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AcapacityReservationOptions%3AOnDemandOptions%27"><span class="hs-identifier hs-var">capacityReservationOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CapacityReservationOptions
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:singleAvailabilityZone:OnDemandOptions' :: Maybe Bool
+</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AsingleAvailabilityZone%3AOnDemandOptions%27"><span class="hs-identifier hs-var">singleAvailabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxTotalPrice:OnDemandOptions' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AmaxTotalPrice%3AOnDemandOptions%27"><span class="hs-identifier hs-var">maxTotalPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:allocationStrategy:OnDemandOptions' :: Maybe FleetOnDemandAllocationStrategy
-</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AallocationStrategy%3AOnDemandOptions%27"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FleetOnDemandAllocationStrategy
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:minTargetCapacity:OnDemandOptions' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AminTargetCapacity%3AOnDemandOptions%27"><span class="hs-identifier hs-var">minTargetCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:singleInstanceType:OnDemandOptions' :: Maybe Bool
 </span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AsingleInstanceType%3AOnDemandOptions%27"><span class="hs-identifier hs-var">singleInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:singleAvailabilityZone:OnDemandOptions' :: Maybe Bool
-</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AsingleAvailabilityZone%3AOnDemandOptions%27"><span class="hs-identifier hs-var">singleAvailabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:allocationStrategy:OnDemandOptions' :: Maybe FleetOnDemandAllocationStrategy
+</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AallocationStrategy%3AOnDemandOptions%27"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FleetOnDemandAllocationStrategy
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | The minimum target capacity for On-Demand Instances in the fleet. If the</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- minimum target capacity is not reached, the fleet launches no instances.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_minTargetCapacity"><span class="hs-identifier hs-type">onDemandOptions_minTargetCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="onDemandOptions_minTargetCapacity"><span class="annot"><span class="annottext">onDemandOptions_minTargetCapacity :: (Maybe Int -&gt; f (Maybe Int))
--&gt; OnDemandOptions -&gt; f OnDemandOptions
-</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_minTargetCapacity"><span class="hs-identifier hs-var hs-var">onDemandOptions_minTargetCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OnDemandOptions -&gt; Maybe Int)
--&gt; (OnDemandOptions -&gt; Maybe Int -&gt; OnDemandOptions)
--&gt; Lens OnDemandOptions OnDemandOptions (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681096688"><span class="annot"><span class="annottext">Maybe Int
-minTargetCapacity :: Maybe Int
-$sel:minTargetCapacity:OnDemandOptions' :: OnDemandOptions -&gt; Maybe Int
-</span><a href="#local-6989586621681096688"><span class="hs-identifier hs-var hs-var">minTargetCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681096688"><span class="hs-identifier hs-var">minTargetCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681096687"><span class="annot"><span class="annottext">s :: OnDemandOptions
-</span><a href="#local-6989586621681096687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681096686"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681096686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandOptions
-</span><a href="#local-6989586621681096687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minTargetCapacity:OnDemandOptions' :: Maybe Int
-</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AminTargetCapacity%3AOnDemandOptions%27"><span class="hs-identifier hs-var">minTargetCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681096686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The strategy for using unused Capacity Reservations for fulfilling</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- On-Demand capacity. Supported only for fleets of type @instant@.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_capacityReservationOptions"><span class="hs-identifier hs-type">onDemandOptions_capacityReservationOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationOptions.html#CapacityReservationOptions"><span class="hs-identifier hs-type">CapacityReservationOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="onDemandOptions_capacityReservationOptions"><span class="annot"><span class="annottext">onDemandOptions_capacityReservationOptions :: (Maybe CapacityReservationOptions
+</span><span id="line-102"></span><span class="hs-comment">-- | The strategy for using unused Capacity Reservations for fulfilling</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- On-Demand capacity. Supported only for fleets of type @instant@.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_capacityReservationOptions"><span class="hs-identifier hs-type">onDemandOptions_capacityReservationOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationOptions.html#CapacityReservationOptions"><span class="hs-identifier hs-type">CapacityReservationOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="onDemandOptions_capacityReservationOptions"><span class="annot"><span class="annottext">onDemandOptions_capacityReservationOptions :: (Maybe CapacityReservationOptions
  -&gt; f (Maybe CapacityReservationOptions))
 -&gt; OnDemandOptions -&gt; f OnDemandOptions
 </span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_capacityReservationOptions"><span class="hs-identifier hs-var hs-var">onDemandOptions_capacityReservationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OnDemandOptions -&gt; Maybe CapacityReservationOptions)
@@ -219,16 +199,36 @@ $sel:minTargetCapacity:OnDemandOptions' :: OnDemandOptions -&gt; Maybe Int
      (Maybe CapacityReservationOptions)
      (Maybe CapacityReservationOptions)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681096684"><span class="annot"><span class="annottext">Maybe CapacityReservationOptions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131383"><span class="annot"><span class="annottext">Maybe CapacityReservationOptions
 capacityReservationOptions :: Maybe CapacityReservationOptions
 $sel:capacityReservationOptions:OnDemandOptions' :: OnDemandOptions -&gt; Maybe CapacityReservationOptions
-</span><a href="#local-6989586621681096684"><span class="hs-identifier hs-var hs-var">capacityReservationOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CapacityReservationOptions
-</span><a href="#local-6989586621681096684"><span class="hs-identifier hs-var">capacityReservationOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681096683"><span class="annot"><span class="annottext">s :: OnDemandOptions
-</span><a href="#local-6989586621681096683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681096682"><span class="annot"><span class="annottext">Maybe CapacityReservationOptions
-</span><a href="#local-6989586621681096682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandOptions
-</span><a href="#local-6989586621681096683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityReservationOptions:OnDemandOptions' :: Maybe CapacityReservationOptions
+</span><a href="#local-6989586621681131383"><span class="hs-identifier hs-var hs-var">capacityReservationOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CapacityReservationOptions
+</span><a href="#local-6989586621681131383"><span class="hs-identifier hs-var">capacityReservationOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681131382"><span class="annot"><span class="annottext">s :: OnDemandOptions
+</span><a href="#local-6989586621681131382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681131381"><span class="annot"><span class="annottext">Maybe CapacityReservationOptions
+</span><a href="#local-6989586621681131381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandOptions
+</span><a href="#local-6989586621681131382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityReservationOptions:OnDemandOptions' :: Maybe CapacityReservationOptions
 </span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AcapacityReservationOptions%3AOnDemandOptions%27"><span class="hs-identifier hs-var">capacityReservationOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CapacityReservationOptions
-</span><a href="#local-6989586621681096682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681131381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Indicates that the fleet launches all On-Demand Instances into a single</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Availability Zone. Supported only for fleets of type @instant@.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_singleAvailabilityZone"><span class="hs-identifier hs-type">onDemandOptions_singleAvailabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="onDemandOptions_singleAvailabilityZone"><span class="annot"><span class="annottext">onDemandOptions_singleAvailabilityZone :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; OnDemandOptions -&gt; f OnDemandOptions
+</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_singleAvailabilityZone"><span class="hs-identifier hs-var hs-var">onDemandOptions_singleAvailabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OnDemandOptions -&gt; Maybe Bool)
+-&gt; (OnDemandOptions -&gt; Maybe Bool -&gt; OnDemandOptions)
+-&gt; Lens OnDemandOptions OnDemandOptions (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131379"><span class="annot"><span class="annottext">Maybe Bool
+singleAvailabilityZone :: Maybe Bool
+$sel:singleAvailabilityZone:OnDemandOptions' :: OnDemandOptions -&gt; Maybe Bool
+</span><a href="#local-6989586621681131379"><span class="hs-identifier hs-var hs-var">singleAvailabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681131379"><span class="hs-identifier hs-var">singleAvailabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681131378"><span class="annot"><span class="annottext">s :: OnDemandOptions
+</span><a href="#local-6989586621681131378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681131377"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681131377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandOptions
+</span><a href="#local-6989586621681131378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:singleAvailabilityZone:OnDemandOptions' :: Maybe Bool
+</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AsingleAvailabilityZone%3AOnDemandOptions%27"><span class="hs-identifier hs-var">singleAvailabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681131377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The maximum amount per hour for On-Demand Instances that you\'re willing</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- to pay.</span><span>
@@ -239,25 +239,66 @@ $sel:capacityReservationOptions:OnDemandOptions' :: OnDemandOptions -&gt; Maybe 
 -&gt; (OnDemandOptions -&gt; Maybe Text -&gt; OnDemandOptions)
 -&gt; Lens OnDemandOptions OnDemandOptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681096680"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131375"><span class="annot"><span class="annottext">Maybe Text
 maxTotalPrice :: Maybe Text
 $sel:maxTotalPrice:OnDemandOptions' :: OnDemandOptions -&gt; Maybe Text
-</span><a href="#local-6989586621681096680"><span class="hs-identifier hs-var hs-var">maxTotalPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681096680"><span class="hs-identifier hs-var">maxTotalPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681096679"><span class="annot"><span class="annottext">s :: OnDemandOptions
-</span><a href="#local-6989586621681096679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681096678"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681096678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandOptions
-</span><a href="#local-6989586621681096679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxTotalPrice:OnDemandOptions' :: Maybe Text
+</span><a href="#local-6989586621681131375"><span class="hs-identifier hs-var hs-var">maxTotalPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681131375"><span class="hs-identifier hs-var">maxTotalPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681131374"><span class="annot"><span class="annottext">s :: OnDemandOptions
+</span><a href="#local-6989586621681131374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681131373"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681131373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandOptions
+</span><a href="#local-6989586621681131374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxTotalPrice:OnDemandOptions' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AmaxTotalPrice%3AOnDemandOptions%27"><span class="hs-identifier hs-var">maxTotalPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681096678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681131373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | The order of the launch template overrides to use in fulfilling</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- On-Demand capacity. If you specify @lowest-price@, EC2 Fleet uses price</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- to determine the order, launching the lowest price first. If you specify</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- @prioritized@, EC2 Fleet uses the priority that you assigned to each</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- launch template override, launching the highest priority first. If you</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- do not specify a value, EC2 Fleet defaults to @lowest-price@.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_allocationStrategy"><span class="hs-identifier hs-type">onDemandOptions_allocationStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetOnDemandAllocationStrategy.html#FleetOnDemandAllocationStrategy"><span class="hs-identifier hs-type">FleetOnDemandAllocationStrategy</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="onDemandOptions_allocationStrategy"><span class="annot"><span class="annottext">onDemandOptions_allocationStrategy :: (Maybe FleetOnDemandAllocationStrategy
+</span><span id="line-117"></span><span class="hs-comment">-- | The minimum target capacity for On-Demand Instances in the fleet. If the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- minimum target capacity is not reached, the fleet launches no instances.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_minTargetCapacity"><span class="hs-identifier hs-type">onDemandOptions_minTargetCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="onDemandOptions_minTargetCapacity"><span class="annot"><span class="annottext">onDemandOptions_minTargetCapacity :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; OnDemandOptions -&gt; f OnDemandOptions
+</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_minTargetCapacity"><span class="hs-identifier hs-var hs-var">onDemandOptions_minTargetCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OnDemandOptions -&gt; Maybe Int)
+-&gt; (OnDemandOptions -&gt; Maybe Int -&gt; OnDemandOptions)
+-&gt; Lens OnDemandOptions OnDemandOptions (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131371"><span class="annot"><span class="annottext">Maybe Int
+minTargetCapacity :: Maybe Int
+$sel:minTargetCapacity:OnDemandOptions' :: OnDemandOptions -&gt; Maybe Int
+</span><a href="#local-6989586621681131371"><span class="hs-identifier hs-var hs-var">minTargetCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681131371"><span class="hs-identifier hs-var">minTargetCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681131370"><span class="annot"><span class="annottext">s :: OnDemandOptions
+</span><a href="#local-6989586621681131370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681131369"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681131369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandOptions
+</span><a href="#local-6989586621681131370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minTargetCapacity:OnDemandOptions' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AminTargetCapacity%3AOnDemandOptions%27"><span class="hs-identifier hs-var">minTargetCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681131369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | Indicates that the fleet uses a single instance type to launch all</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- On-Demand Instances in the fleet. Supported only for fleets of type</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- @instant@.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_singleInstanceType"><span class="hs-identifier hs-type">onDemandOptions_singleInstanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="onDemandOptions_singleInstanceType"><span class="annot"><span class="annottext">onDemandOptions_singleInstanceType :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; OnDemandOptions -&gt; f OnDemandOptions
+</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_singleInstanceType"><span class="hs-identifier hs-var hs-var">onDemandOptions_singleInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OnDemandOptions -&gt; Maybe Bool)
+-&gt; (OnDemandOptions -&gt; Maybe Bool -&gt; OnDemandOptions)
+-&gt; Lens OnDemandOptions OnDemandOptions (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131367"><span class="annot"><span class="annottext">Maybe Bool
+singleInstanceType :: Maybe Bool
+$sel:singleInstanceType:OnDemandOptions' :: OnDemandOptions -&gt; Maybe Bool
+</span><a href="#local-6989586621681131367"><span class="hs-identifier hs-var hs-var">singleInstanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681131367"><span class="hs-identifier hs-var">singleInstanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681131366"><span class="annot"><span class="annottext">s :: OnDemandOptions
+</span><a href="#local-6989586621681131366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681131365"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681131365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandOptions
+</span><a href="#local-6989586621681131366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:singleInstanceType:OnDemandOptions' :: Maybe Bool
+</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AsingleInstanceType%3AOnDemandOptions%27"><span class="hs-identifier hs-var">singleInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681131365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The order of the launch template overrides to use in fulfilling</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- On-Demand capacity. If you specify @lowest-price@, EC2 Fleet uses price</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- to determine the order, launching the lowest price first. If you specify</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- @prioritized@, EC2 Fleet uses the priority that you assigned to each</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- launch template override, launching the highest priority first. If you</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- do not specify a value, EC2 Fleet defaults to @lowest-price@.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_allocationStrategy"><span class="hs-identifier hs-type">onDemandOptions_allocationStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetOnDemandAllocationStrategy.html#FleetOnDemandAllocationStrategy"><span class="hs-identifier hs-type">FleetOnDemandAllocationStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="onDemandOptions_allocationStrategy"><span class="annot"><span class="annottext">onDemandOptions_allocationStrategy :: (Maybe FleetOnDemandAllocationStrategy
  -&gt; f (Maybe FleetOnDemandAllocationStrategy))
 -&gt; OnDemandOptions -&gt; f OnDemandOptions
 </span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_allocationStrategy"><span class="hs-identifier hs-var hs-var">onDemandOptions_allocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OnDemandOptions -&gt; Maybe FleetOnDemandAllocationStrategy)
@@ -269,164 +310,136 @@ $sel:maxTotalPrice:OnDemandOptions' :: OnDemandOptions -&gt; Maybe Text
      (Maybe FleetOnDemandAllocationStrategy)
      (Maybe FleetOnDemandAllocationStrategy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681096676"><span class="annot"><span class="annottext">Maybe FleetOnDemandAllocationStrategy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131363"><span class="annot"><span class="annottext">Maybe FleetOnDemandAllocationStrategy
 allocationStrategy :: Maybe FleetOnDemandAllocationStrategy
 $sel:allocationStrategy:OnDemandOptions' :: OnDemandOptions -&gt; Maybe FleetOnDemandAllocationStrategy
-</span><a href="#local-6989586621681096676"><span class="hs-identifier hs-var hs-var">allocationStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FleetOnDemandAllocationStrategy
-</span><a href="#local-6989586621681096676"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681096675"><span class="annot"><span class="annottext">s :: OnDemandOptions
-</span><a href="#local-6989586621681096675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681096674"><span class="annot"><span class="annottext">Maybe FleetOnDemandAllocationStrategy
-</span><a href="#local-6989586621681096674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandOptions
-</span><a href="#local-6989586621681096675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allocationStrategy:OnDemandOptions' :: Maybe FleetOnDemandAllocationStrategy
+</span><a href="#local-6989586621681131363"><span class="hs-identifier hs-var hs-var">allocationStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FleetOnDemandAllocationStrategy
+</span><a href="#local-6989586621681131363"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681131362"><span class="annot"><span class="annottext">s :: OnDemandOptions
+</span><a href="#local-6989586621681131362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681131361"><span class="annot"><span class="annottext">Maybe FleetOnDemandAllocationStrategy
+</span><a href="#local-6989586621681131361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandOptions
+</span><a href="#local-6989586621681131362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allocationStrategy:OnDemandOptions' :: Maybe FleetOnDemandAllocationStrategy
 </span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AallocationStrategy%3AOnDemandOptions%27"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FleetOnDemandAllocationStrategy
-</span><a href="#local-6989586621681096674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | Indicates that the fleet uses a single instance type to launch all</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- On-Demand Instances in the fleet. Supported only for fleets of type</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- @instant@.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_singleInstanceType"><span class="hs-identifier hs-type">onDemandOptions_singleInstanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="onDemandOptions_singleInstanceType"><span class="annot"><span class="annottext">onDemandOptions_singleInstanceType :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; OnDemandOptions -&gt; f OnDemandOptions
-</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_singleInstanceType"><span class="hs-identifier hs-var hs-var">onDemandOptions_singleInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OnDemandOptions -&gt; Maybe Bool)
--&gt; (OnDemandOptions -&gt; Maybe Bool -&gt; OnDemandOptions)
--&gt; Lens OnDemandOptions OnDemandOptions (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681096672"><span class="annot"><span class="annottext">Maybe Bool
-singleInstanceType :: Maybe Bool
-$sel:singleInstanceType:OnDemandOptions' :: OnDemandOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621681096672"><span class="hs-identifier hs-var hs-var">singleInstanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681096672"><span class="hs-identifier hs-var">singleInstanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681096671"><span class="annot"><span class="annottext">s :: OnDemandOptions
-</span><a href="#local-6989586621681096671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681096670"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681096670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandOptions
-</span><a href="#local-6989586621681096671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:singleInstanceType:OnDemandOptions' :: Maybe Bool
-</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AsingleInstanceType%3AOnDemandOptions%27"><span class="hs-identifier hs-var">singleInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681096670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | Indicates that the fleet launches all On-Demand Instances into a single</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- Availability Zone. Supported only for fleets of type @instant@.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_singleAvailabilityZone"><span class="hs-identifier hs-type">onDemandOptions_singleAvailabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="onDemandOptions_singleAvailabilityZone"><span class="annot"><span class="annottext">onDemandOptions_singleAvailabilityZone :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; OnDemandOptions -&gt; f OnDemandOptions
-</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#onDemandOptions_singleAvailabilityZone"><span class="hs-identifier hs-var hs-var">onDemandOptions_singleAvailabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OnDemandOptions -&gt; Maybe Bool)
--&gt; (OnDemandOptions -&gt; Maybe Bool -&gt; OnDemandOptions)
--&gt; Lens OnDemandOptions OnDemandOptions (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681096668"><span class="annot"><span class="annottext">Maybe Bool
-singleAvailabilityZone :: Maybe Bool
-$sel:singleAvailabilityZone:OnDemandOptions' :: OnDemandOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621681096668"><span class="hs-identifier hs-var hs-var">singleAvailabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681096668"><span class="hs-identifier hs-var">singleAvailabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681096667"><span class="annot"><span class="annottext">s :: OnDemandOptions
-</span><a href="#local-6989586621681096667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-type">OnDemandOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681096666"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681096666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandOptions
-</span><a href="#local-6989586621681096667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:singleAvailabilityZone:OnDemandOptions' :: Maybe Bool
-</span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#%24sel%3AsingleAvailabilityZone%3AOnDemandOptions%27"><span class="hs-identifier hs-var">singleAvailabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681096666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681131361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621681096663"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String OnDemandOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681096661"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681096661"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int
--&gt; Maybe CapacityReservationOptions
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621681131358"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String OnDemandOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681131356"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681131356"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">Maybe CapacityReservationOptions
+-&gt; Maybe Bool
 -&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Bool
 -&gt; Maybe FleetOnDemandAllocationStrategy
--&gt; Maybe Bool
--&gt; Maybe Bool
 -&gt; OnDemandOptions
 </span><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions%27"><span class="hs-identifier hs-var">OnDemandOptions'</span></a></span><span>
-</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int
- -&gt; Maybe CapacityReservationOptions
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">(Maybe CapacityReservationOptions
+ -&gt; Maybe Bool
  -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Bool
  -&gt; Maybe FleetOnDemandAllocationStrategy
- -&gt; Maybe Bool
- -&gt; Maybe Bool
  -&gt; OnDemandOptions)
--&gt; Either String (Maybe Int)
--&gt; Either
-     String
-     (Maybe CapacityReservationOptions
-      -&gt; Maybe Text
-      -&gt; Maybe FleetOnDemandAllocationStrategy
-      -&gt; Maybe Bool
-      -&gt; Maybe Bool
-      -&gt; OnDemandOptions)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681096661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;minTargetCapacity&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe CapacityReservationOptions
-   -&gt; Maybe Text
-   -&gt; Maybe FleetOnDemandAllocationStrategy
-   -&gt; Maybe Bool
-   -&gt; Maybe Bool
-   -&gt; OnDemandOptions)
 -&gt; Either String (Maybe CapacityReservationOptions)
 -&gt; Either
      String
-     (Maybe Text
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Bool
       -&gt; Maybe FleetOnDemandAllocationStrategy
-      -&gt; Maybe Bool
-      -&gt; Maybe Bool
       -&gt; OnDemandOptions)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681096661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CapacityReservationOptions)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681131356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CapacityReservationOptions)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;capacityReservationOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe FleetOnDemandAllocationStrategy
+   -&gt; OnDemandOptions)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe FleetOnDemandAllocationStrategy
+      -&gt; OnDemandOptions)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681131356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;singleAvailabilityZone&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Bool
    -&gt; Maybe FleetOnDemandAllocationStrategy
-   -&gt; Maybe Bool
-   -&gt; Maybe Bool
    -&gt; OnDemandOptions)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe FleetOnDemandAllocationStrategy
-      -&gt; Maybe Bool -&gt; Maybe Bool -&gt; OnDemandOptions)
+     (Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe FleetOnDemandAllocationStrategy
+      -&gt; OnDemandOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681096661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681131356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxTotalPrice&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe FleetOnDemandAllocationStrategy
-   -&gt; Maybe Bool -&gt; Maybe Bool -&gt; OnDemandOptions)
--&gt; Either String (Maybe FleetOnDemandAllocationStrategy)
--&gt; Either String (Maybe Bool -&gt; Maybe Bool -&gt; OnDemandOptions)
+  (Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe FleetOnDemandAllocationStrategy
+   -&gt; OnDemandOptions)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe FleetOnDemandAllocationStrategy -&gt; OnDemandOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681096661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681131356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;minTargetCapacity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe FleetOnDemandAllocationStrategy -&gt; OnDemandOptions)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String (Maybe FleetOnDemandAllocationStrategy -&gt; OnDemandOptions)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681131356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;singleInstanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe FleetOnDemandAllocationStrategy -&gt; OnDemandOptions)
+-&gt; Either String (Maybe FleetOnDemandAllocationStrategy)
+-&gt; Either String OnDemandOptions
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681131356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe FleetOnDemandAllocationStrategy)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;allocationStrategy&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Maybe Bool -&gt; OnDemandOptions)
--&gt; Either String (Maybe Bool)
--&gt; Either String (Maybe Bool -&gt; OnDemandOptions)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681096661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;singleInstanceType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; OnDemandOptions)
--&gt; Either String (Maybe Bool) -&gt; Either String OnDemandOptions
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681096661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;singleAvailabilityZone&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681096655"><span id="local-6989586621681096657"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681131350"><span id="local-6989586621681131352"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span></span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681096652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681131347"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandOptions.html#OnDemandOptions"><span class="hs-identifier hs-type">OnDemandOptions</span></a></span></span><span>
 </span><span id="line-150"></span></pre></body></html>

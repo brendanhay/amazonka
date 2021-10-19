@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Specifies a file system data source for a channel.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newFileSystemDataSource' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680305073"><span id="local-6989586621680305074"></span></span><span class="hs-keyword">data</span><span> </span><span id="FileSystemDataSource"><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-var">FileSystemDataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileSystemDataSource%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-var">FileSystemDataSource'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680306448"><span id="local-6989586621680306449"></span></span><span class="hs-keyword">data</span><span> </span><span id="FileSystemDataSource"><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-var">FileSystemDataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileSystemDataSource%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-var">FileSystemDataSource'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The file system id.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AfileSystemId%3AFileSystemDataSource%27"><span class="annot"><span class="annottext">FileSystemDataSource -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#%24sel%3AfileSystemId%3AFileSystemDataSource%27"><span class="hs-identifier hs-var hs-var">fileSystemId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AdirectoryPath%3AFileSystemDataSource%27"><span class="annot"><span class="annottext">FileSystemDataSource -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#%24sel%3AdirectoryPath%3AFileSystemDataSource%27"><span class="hs-identifier hs-var hs-var">directoryPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680305064"><span id="local-6989586621680305066"><span class="annot"><span class="annottext">FileSystemDataSource -&gt; FileSystemDataSource -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680306439"><span id="local-6989586621680306441"><span class="annot"><span class="annottext">FileSystemDataSource -&gt; FileSystemDataSource -&gt; Bool
 (FileSystemDataSource -&gt; FileSystemDataSource -&gt; Bool)
 -&gt; (FileSystemDataSource -&gt; FileSystemDataSource -&gt; Bool)
 -&gt; Eq FileSystemDataSource
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FileSystemDataSource -&gt; FileSystemDataSource -&gt; Bool
 == :: FileSystemDataSource -&gt; FileSystemDataSource -&gt; Bool
 $c== :: FileSystemDataSource -&gt; FileSystemDataSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680305055"><span id="local-6989586621680305057"><span id="local-6989586621680305059"><span id="local-6989586621680305061"><span class="annot"><span class="annottext">ReadPrec [FileSystemDataSource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680306430"><span id="local-6989586621680306432"><span id="local-6989586621680306434"><span id="local-6989586621680306436"><span class="annot"><span class="annottext">ReadPrec [FileSystemDataSource]
 ReadPrec FileSystemDataSource
 Int -&gt; ReadS FileSystemDataSource
 ReadS [FileSystemDataSource]
@@ -73,7 +73,7 @@ readList :: ReadS [FileSystemDataSource]
 $creadList :: ReadS [FileSystemDataSource]
 readsPrec :: Int -&gt; ReadS FileSystemDataSource
 $creadsPrec :: Int -&gt; ReadS FileSystemDataSource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680305048"><span id="local-6989586621680305050"><span id="local-6989586621680305052"><span class="annot"><span class="annottext">Int -&gt; FileSystemDataSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680306423"><span id="local-6989586621680306425"><span id="local-6989586621680306427"><span class="annot"><span class="annottext">Int -&gt; FileSystemDataSource -&gt; ShowS
 [FileSystemDataSource] -&gt; ShowS
 FileSystemDataSource -&gt; String
 (Int -&gt; FileSystemDataSource -&gt; ShowS)
@@ -132,14 +132,14 @@ $cfrom :: forall x. FileSystemDataSource -&gt; Rep FileSystemDataSource x
 -&gt; Text
 -&gt; FileSystemDataSource
 </span><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#newFileSystemDataSource"><span class="hs-identifier hs-var hs-var">newFileSystemDataSource</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621680305042"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680305042"><span class="hs-identifier hs-var">pFileSystemId_</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621680305041"><span class="annot"><span class="annottext">FileSystemAccessMode
-</span><a href="#local-6989586621680305041"><span class="hs-identifier hs-var">pFileSystemAccessMode_</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621680305040"><span class="annot"><span class="annottext">FileSystemType
-</span><a href="#local-6989586621680305040"><span class="hs-identifier hs-var">pFileSystemType_</span></a></span></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621680305039"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680305039"><span class="hs-identifier hs-var">pDirectoryPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621680306417"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680306417"><span class="hs-identifier hs-var">pFileSystemId_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621680306416"><span class="annot"><span class="annottext">FileSystemAccessMode
+</span><a href="#local-6989586621680306416"><span class="hs-identifier hs-var">pFileSystemAccessMode_</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621680306415"><span class="annot"><span class="annottext">FileSystemType
+</span><a href="#local-6989586621680306415"><span class="hs-identifier hs-var">pFileSystemType_</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621680306414"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680306414"><span class="hs-identifier hs-var">pDirectoryPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">FileSystemDataSource' :: Text
 -&gt; FileSystemAccessMode
 -&gt; FileSystemType
@@ -149,16 +149,16 @@ $cfrom :: forall x. FileSystemDataSource -&gt; Rep FileSystemDataSource x
 </span><span id="line-78"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fileSystemId:FileSystemDataSource' :: Text
 </span><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#%24sel%3AfileSystemId%3AFileSystemDataSource%27"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680305042"><span class="hs-identifier hs-var">pFileSystemId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680306417"><span class="hs-identifier hs-var">pFileSystemId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:fileSystemAccessMode:FileSystemDataSource' :: FileSystemAccessMode
 </span><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#%24sel%3AfileSystemAccessMode%3AFileSystemDataSource%27"><span class="hs-identifier hs-var">fileSystemAccessMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FileSystemAccessMode
-</span><a href="#local-6989586621680305041"><span class="hs-identifier hs-var">pFileSystemAccessMode_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680306416"><span class="hs-identifier hs-var">pFileSystemAccessMode_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:fileSystemType:FileSystemDataSource' :: FileSystemType
 </span><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#%24sel%3AfileSystemType%3AFileSystemDataSource%27"><span class="hs-identifier hs-var">fileSystemType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FileSystemType
-</span><a href="#local-6989586621680305040"><span class="hs-identifier hs-var">pFileSystemType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680306415"><span class="hs-identifier hs-var">pFileSystemType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:directoryPath:FileSystemDataSource' :: Text
 </span><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#%24sel%3AdirectoryPath%3AFileSystemDataSource%27"><span class="hs-identifier hs-var">directoryPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680305039"><span class="hs-identifier hs-var">pDirectoryPath_</span></a></span><span>
+</span><a href="#local-6989586621680306414"><span class="hs-identifier hs-var">pDirectoryPath_</span></a></span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The file system id.</span><span>
@@ -168,16 +168,16 @@ $cfrom :: forall x. FileSystemDataSource -&gt; Rep FileSystemDataSource x
 -&gt; (FileSystemDataSource -&gt; Text -&gt; FileSystemDataSource)
 -&gt; Lens FileSystemDataSource FileSystemDataSource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680305035"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680306410"><span class="annot"><span class="annottext">Text
 fileSystemId :: Text
 $sel:fileSystemId:FileSystemDataSource' :: FileSystemDataSource -&gt; Text
-</span><a href="#local-6989586621680305035"><span class="hs-identifier hs-var hs-var">fileSystemId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680305035"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680305034"><span class="annot"><span class="annottext">s :: FileSystemDataSource
-</span><a href="#local-6989586621680305034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680305033"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680305033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemDataSource
-</span><a href="#local-6989586621680305034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemId:FileSystemDataSource' :: Text
+</span><a href="#local-6989586621680306410"><span class="hs-identifier hs-var hs-var">fileSystemId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680306410"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680306409"><span class="annot"><span class="annottext">s :: FileSystemDataSource
+</span><a href="#local-6989586621680306409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680306408"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680306408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemDataSource
+</span><a href="#local-6989586621680306409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemId:FileSystemDataSource' :: Text
 </span><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#%24sel%3AfileSystemId%3AFileSystemDataSource%27"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680305033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680306408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The access mode of the mount of the directory associated with the</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- channel. A directory can be mounted either in @ro@ (read-only) or @rw@</span><span>
@@ -194,16 +194,16 @@ $sel:fileSystemId:FileSystemDataSource' :: FileSystemDataSource -&gt; Text
      FileSystemAccessMode
      FileSystemAccessMode
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680305031"><span class="annot"><span class="annottext">FileSystemAccessMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680306406"><span class="annot"><span class="annottext">FileSystemAccessMode
 fileSystemAccessMode :: FileSystemAccessMode
 $sel:fileSystemAccessMode:FileSystemDataSource' :: FileSystemDataSource -&gt; FileSystemAccessMode
-</span><a href="#local-6989586621680305031"><span class="hs-identifier hs-var hs-var">fileSystemAccessMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemAccessMode
-</span><a href="#local-6989586621680305031"><span class="hs-identifier hs-var">fileSystemAccessMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680305030"><span class="annot"><span class="annottext">s :: FileSystemDataSource
-</span><a href="#local-6989586621680305030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680305029"><span class="annot"><span class="annottext">FileSystemAccessMode
-</span><a href="#local-6989586621680305029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemDataSource
-</span><a href="#local-6989586621680305030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemAccessMode:FileSystemDataSource' :: FileSystemAccessMode
+</span><a href="#local-6989586621680306406"><span class="hs-identifier hs-var hs-var">fileSystemAccessMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemAccessMode
+</span><a href="#local-6989586621680306406"><span class="hs-identifier hs-var">fileSystemAccessMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680306405"><span class="annot"><span class="annottext">s :: FileSystemDataSource
+</span><a href="#local-6989586621680306405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680306404"><span class="annot"><span class="annottext">FileSystemAccessMode
+</span><a href="#local-6989586621680306404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemDataSource
+</span><a href="#local-6989586621680306405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemAccessMode:FileSystemDataSource' :: FileSystemAccessMode
 </span><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#%24sel%3AfileSystemAccessMode%3AFileSystemDataSource%27"><span class="hs-identifier hs-var">fileSystemAccessMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FileSystemAccessMode
-</span><a href="#local-6989586621680305029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680306404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The file system type.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#fileSystemDataSource_fileSystemType"><span class="hs-identifier hs-type">fileSystemDataSource_fileSystemType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemType.html#FileSystemType"><span class="hs-identifier hs-type">FileSystemType</span></a></span><span>
@@ -217,16 +217,16 @@ $sel:fileSystemAccessMode:FileSystemDataSource' :: FileSystemDataSource -&gt; Fi
      FileSystemType
      FileSystemType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680305027"><span class="annot"><span class="annottext">FileSystemType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680306402"><span class="annot"><span class="annottext">FileSystemType
 fileSystemType :: FileSystemType
 $sel:fileSystemType:FileSystemDataSource' :: FileSystemDataSource -&gt; FileSystemType
-</span><a href="#local-6989586621680305027"><span class="hs-identifier hs-var hs-var">fileSystemType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemType
-</span><a href="#local-6989586621680305027"><span class="hs-identifier hs-var">fileSystemType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680305026"><span class="annot"><span class="annottext">s :: FileSystemDataSource
-</span><a href="#local-6989586621680305026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680305025"><span class="annot"><span class="annottext">FileSystemType
-</span><a href="#local-6989586621680305025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemDataSource
-</span><a href="#local-6989586621680305026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemType:FileSystemDataSource' :: FileSystemType
+</span><a href="#local-6989586621680306402"><span class="hs-identifier hs-var hs-var">fileSystemType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemType
+</span><a href="#local-6989586621680306402"><span class="hs-identifier hs-var">fileSystemType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680306401"><span class="annot"><span class="annottext">s :: FileSystemDataSource
+</span><a href="#local-6989586621680306401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680306400"><span class="annot"><span class="annottext">FileSystemType
+</span><a href="#local-6989586621680306400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemDataSource
+</span><a href="#local-6989586621680306401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemType:FileSystemDataSource' :: FileSystemType
 </span><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#%24sel%3AfileSystemType%3AFileSystemDataSource%27"><span class="hs-identifier hs-var">fileSystemType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FileSystemType
-</span><a href="#local-6989586621680305025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680306400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The full path to the directory to associate with the channel.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#fileSystemDataSource_directoryPath"><span class="hs-identifier hs-type">fileSystemDataSource_directoryPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -235,19 +235,19 @@ $sel:fileSystemType:FileSystemDataSource' :: FileSystemDataSource -&gt; FileSyst
 -&gt; (FileSystemDataSource -&gt; Text -&gt; FileSystemDataSource)
 -&gt; Lens FileSystemDataSource FileSystemDataSource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680305023"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680306398"><span class="annot"><span class="annottext">Text
 directoryPath :: Text
 $sel:directoryPath:FileSystemDataSource' :: FileSystemDataSource -&gt; Text
-</span><a href="#local-6989586621680305023"><span class="hs-identifier hs-var hs-var">directoryPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680305023"><span class="hs-identifier hs-var">directoryPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680305022"><span class="annot"><span class="annottext">s :: FileSystemDataSource
-</span><a href="#local-6989586621680305022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680305021"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680305021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemDataSource
-</span><a href="#local-6989586621680305022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryPath:FileSystemDataSource' :: Text
+</span><a href="#local-6989586621680306398"><span class="hs-identifier hs-var hs-var">directoryPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680306398"><span class="hs-identifier hs-var">directoryPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680306397"><span class="annot"><span class="annottext">s :: FileSystemDataSource
+</span><a href="#local-6989586621680306397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680306396"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680306396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSystemDataSource
+</span><a href="#local-6989586621680306397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryPath:FileSystemDataSource' :: Text
 </span><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#%24sel%3AdirectoryPath%3AFileSystemDataSource%27"><span class="hs-identifier hs-var">directoryPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680305021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680306396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680305018"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621680305016"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FileSystemDataSource
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680306393"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621680306391"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FileSystemDataSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FileSystemDataSource)
@@ -257,8 +257,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FileSystemDataSource&quot;</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680305013"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680305013"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680306388"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680306388"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Text
 -&gt; FileSystemAccessMode
 -&gt; FileSystemType
@@ -276,7 +276,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; FileSystemType -&gt; Text -&gt; FileSystemDataSource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680305013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680306388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FileSystemId&quot;</span></span><span class="hs-special">)</span><span>
@@ -287,7 +287,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (FileSystemType -&gt; Text -&gt; FileSystemDataSource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680305013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FileSystemAccessMode
+</span><a href="#local-6989586621680306388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FileSystemAccessMode
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FileSystemAccessMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -295,7 +295,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser FileSystemType -&gt; Parser (Text -&gt; FileSystemDataSource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680305013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FileSystemType
+</span><a href="#local-6989586621680306388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FileSystemType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FileSystemType&quot;</span></span><span class="hs-special">)</span><span>
@@ -303,19 +303,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser FileSystemDataSource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680305013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680306388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DirectoryPath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680305007"><span id="local-6989586621680305009"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680306382"><span id="local-6989586621680306384"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680305004"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680306379"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680304996"><span id="local-6989586621680304998"><span id="local-6989586621680305000"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621680304994"><span class="annot"><span class="annottext">toJSON :: FileSystemDataSource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680304989"><span id="local-6989586621680304990"><span id="local-6989586621680304991"><span id="local-6989586621680304992"><span class="annot"><span class="annottext">Text
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680306371"><span id="local-6989586621680306373"><span id="local-6989586621680306375"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource"><span class="hs-identifier hs-type">FileSystemDataSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621680306369"><span class="annot"><span class="annottext">toJSON :: FileSystemDataSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemDataSource.html#FileSystemDataSource%27"><span class="hs-identifier hs-type">FileSystemDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680306364"><span id="local-6989586621680306365"><span id="local-6989586621680306366"><span id="local-6989586621680306367"><span class="annot"><span class="annottext">Text
 FileSystemAccessMode
 FileSystemType
 directoryPath :: Text
@@ -326,7 +326,7 @@ $sel:directoryPath:FileSystemDataSource' :: FileSystemDataSource -&gt; Text
 $sel:fileSystemType:FileSystemDataSource' :: FileSystemDataSource -&gt; FileSystemType
 $sel:fileSystemAccessMode:FileSystemDataSource' :: FileSystemDataSource -&gt; FileSystemAccessMode
 $sel:fileSystemId:FileSystemDataSource' :: FileSystemDataSource -&gt; Text
-</span><a href="#local-6989586621680304989"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680306364"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -338,7 +338,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;FileSystemId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680304992"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680306367"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -347,7 +347,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-126"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; FileSystemAccessMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">FileSystemAccessMode
-</span><a href="#local-6989586621680304991"><span class="hs-identifier hs-var">fileSystemAccessMode</span></a></span><span>
+</span><a href="#local-6989586621680306366"><span class="hs-identifier hs-var">fileSystemAccessMode</span></a></span><span>
 </span><span id="line-127"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -356,7 +356,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;FileSystemType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FileSystemType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">FileSystemType
-</span><a href="#local-6989586621680304990"><span class="hs-identifier hs-var">fileSystemType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680306365"><span class="hs-identifier hs-var">fileSystemType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -364,7 +364,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DirectoryPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680304989"><span class="hs-identifier hs-var">directoryPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680306364"><span class="hs-identifier hs-var">directoryPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span></pre></body></html>

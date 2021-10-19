@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679434813"><span id="local-6989586621679434814"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LocationUpdateStatus"><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus"><span class="hs-identifier hs-var">LocationUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocationUpdateStatus%27"><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus%27"><span class="hs-identifier hs-var">LocationUpdateStatus'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679435260"><span id="local-6989586621679435261"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LocationUpdateStatus"><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus"><span class="hs-identifier hs-var">LocationUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocationUpdateStatus%27"><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus%27"><span class="hs-identifier hs-var">LocationUpdateStatus'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLocationUpdateStatus"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; Text
 </span><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#fromLocationUpdateStatus"><span class="hs-identifier hs-var hs-var">fromLocationUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679434805"><span id="local-6989586621679434807"><span id="local-6989586621679434809"><span class="annot"><span class="annottext">Int -&gt; LocationUpdateStatus -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435252"><span id="local-6989586621679435254"><span id="local-6989586621679435256"><span class="annot"><span class="annottext">Int -&gt; LocationUpdateStatus -&gt; ShowS
 [LocationUpdateStatus] -&gt; ShowS
 LocationUpdateStatus -&gt; String
 (Int -&gt; LocationUpdateStatus -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: LocationUpdateStatus -&gt; String
 showsPrec :: Int -&gt; LocationUpdateStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; LocationUpdateStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679434796"><span id="local-6989586621679434798"><span id="local-6989586621679434800"><span id="local-6989586621679434802"><span class="annot"><span class="annottext">ReadPrec [LocationUpdateStatus]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679435243"><span id="local-6989586621679435245"><span id="local-6989586621679435247"><span id="local-6989586621679435249"><span class="annot"><span class="annottext">ReadPrec [LocationUpdateStatus]
 ReadPrec LocationUpdateStatus
 Int -&gt; ReadS LocationUpdateStatus
 ReadS [LocationUpdateStatus]
@@ -71,7 +71,7 @@ $creadList :: ReadS [LocationUpdateStatus]
 readsPrec :: Int -&gt; ReadS LocationUpdateStatus
 $creadsPrec :: Int -&gt; ReadS LocationUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679434791"><span id="local-6989586621679434793"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679435238"><span id="local-6989586621679435240"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
 (LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool)
 -&gt; (LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool)
 -&gt; Eq LocationUpdateStatus
@@ -81,7 +81,7 @@ $c/= :: LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
 == :: LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
 $c== :: LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679434775"><span id="local-6989586621679434777"><span id="local-6989586621679434779"><span id="local-6989586621679434781"><span id="local-6989586621679434783"><span id="local-6989586621679434785"><span id="local-6989586621679434787"><span class="annot"><span class="annottext">Eq LocationUpdateStatus
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679435222"><span id="local-6989586621679435224"><span id="local-6989586621679435226"><span id="local-6989586621679435228"><span id="local-6989586621679435230"><span id="local-6989586621679435232"><span id="local-6989586621679435234"><span class="annot"><span class="annottext">Eq LocationUpdateStatus
 Eq LocationUpdateStatus
 -&gt; (LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Ordering)
 -&gt; (LocationUpdateStatus -&gt; LocationUpdateStatus -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. LocationUpdateStatus -&gt; Rep LocationUpdateStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679434767"><span id="local-6989586621679434769"><span class="annot"><span class="annottext">Int -&gt; LocationUpdateStatus -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435214"><span id="local-6989586621679435216"><span class="annot"><span class="annottext">Int -&gt; LocationUpdateStatus -&gt; Int
 LocationUpdateStatus -&gt; Int
 (Int -&gt; LocationUpdateStatus -&gt; Int)
 -&gt; (LocationUpdateStatus -&gt; Int) -&gt; Hashable LocationUpdateStatus
@@ -149,54 +149,54 @@ $chash :: LocationUpdateStatus -&gt; Int
 hashWithSalt :: Int -&gt; LocationUpdateStatus -&gt; Int
 $chashWithSalt :: Int -&gt; LocationUpdateStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679434764"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679435211"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; ()
 (LocationUpdateStatus -&gt; ()) -&gt; NFData LocationUpdateStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LocationUpdateStatus -&gt; ()
 $crnf :: LocationUpdateStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679434761"><span class="annot"><span class="annottext">Text -&gt; Either String LocationUpdateStatus
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679435208"><span class="annot"><span class="annottext">Text -&gt; Either String LocationUpdateStatus
 (Text -&gt; Either String LocationUpdateStatus)
 -&gt; FromText LocationUpdateStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LocationUpdateStatus
 $cfromText :: Text -&gt; Either String LocationUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679434758"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679435205"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; Text
 (LocationUpdateStatus -&gt; Text) -&gt; ToText LocationUpdateStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LocationUpdateStatus -&gt; Text
 $ctoText :: LocationUpdateStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679434755"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679435202"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; ByteString
 (LocationUpdateStatus -&gt; ByteString)
 -&gt; ToByteString LocationUpdateStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LocationUpdateStatus -&gt; ByteString
 $ctoBS :: LocationUpdateStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679434752"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679435199"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; ByteStringBuilder
 (LocationUpdateStatus -&gt; ByteStringBuilder)
 -&gt; ToLog LocationUpdateStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LocationUpdateStatus -&gt; ByteStringBuilder
 $cbuild :: LocationUpdateStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679434749"><span class="annot"><span class="annottext">HeaderName -&gt; LocationUpdateStatus -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679435196"><span class="annot"><span class="annottext">HeaderName -&gt; LocationUpdateStatus -&gt; [Header]
 (HeaderName -&gt; LocationUpdateStatus -&gt; [Header])
 -&gt; ToHeader LocationUpdateStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LocationUpdateStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LocationUpdateStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679434746"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679435193"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; QueryString
 (LocationUpdateStatus -&gt; QueryString)
 -&gt; ToQuery LocationUpdateStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LocationUpdateStatus -&gt; QueryString
 $ctoQuery :: LocationUpdateStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679434741"><span id="local-6989586621679434743"><span class="annot"><span class="annottext">Value -&gt; Parser [LocationUpdateStatus]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679435188"><span id="local-6989586621679435190"><span class="annot"><span class="annottext">Value -&gt; Parser [LocationUpdateStatus]
 Value -&gt; Parser LocationUpdateStatus
 (Value -&gt; Parser LocationUpdateStatus)
 -&gt; (Value -&gt; Parser [LocationUpdateStatus])
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [LocationUpdateStatus]
 parseJSON :: Value -&gt; Parser LocationUpdateStatus
 $cparseJSON :: Value -&gt; Parser LocationUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679434736"><span id="local-6989586621679434738"><span class="annot"><span class="annottext">FromJSONKeyFunction [LocationUpdateStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679435183"><span id="local-6989586621679435185"><span class="annot"><span class="annottext">FromJSONKeyFunction [LocationUpdateStatus]
 FromJSONKeyFunction LocationUpdateStatus
 FromJSONKeyFunction LocationUpdateStatus
 -&gt; FromJSONKeyFunction [LocationUpdateStatus]
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LocationUpdateStatus]
 fromJSONKey :: FromJSONKeyFunction LocationUpdateStatus
 $cfromJSONKey :: FromJSONKeyFunction LocationUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679434727"><span id="local-6989586621679434729"><span id="local-6989586621679434731"><span id="local-6989586621679434733"><span class="annot"><span class="annottext">[LocationUpdateStatus] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679435174"><span id="local-6989586621679435176"><span id="local-6989586621679435178"><span id="local-6989586621679435180"><span class="annot"><span class="annottext">[LocationUpdateStatus] -&gt; Encoding
 [LocationUpdateStatus] -&gt; Value
 LocationUpdateStatus -&gt; Encoding
 LocationUpdateStatus -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: LocationUpdateStatus -&gt; Encoding
 toJSON :: LocationUpdateStatus -&gt; Value
 $ctoJSON :: LocationUpdateStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679434722"><span id="local-6989586621679434724"><span class="annot"><span class="annottext">ToJSONKeyFunction [LocationUpdateStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679435169"><span id="local-6989586621679435171"><span class="annot"><span class="annottext">ToJSONKeyFunction [LocationUpdateStatus]
 ToJSONKeyFunction LocationUpdateStatus
 ToJSONKeyFunction LocationUpdateStatus
 -&gt; ToJSONKeyFunction [LocationUpdateStatus]
@@ -256,14 +256,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LocationUpdateStatus]
 toJSONKey :: ToJSONKeyFunction LocationUpdateStatus
 $ctoJSONKey :: ToJSONKeyFunction LocationUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679434719"><span class="annot"><span class="annottext">[Node] -&gt; Either String LocationUpdateStatus
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679435166"><span class="annot"><span class="annottext">[Node] -&gt; Either String LocationUpdateStatus
 ([Node] -&gt; Either String LocationUpdateStatus)
 -&gt; FromXML LocationUpdateStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LocationUpdateStatus
 $cparseXML :: [Node] -&gt; Either String LocationUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679434716"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679435163"><span class="annot"><span class="annottext">LocationUpdateStatus -&gt; XML
 (LocationUpdateStatus -&gt; XML) -&gt; ToXML LocationUpdateStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LocationUpdateStatus -&gt; XML

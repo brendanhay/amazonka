@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Specifies a batch of endpoints and events to process.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEventsBatch' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679609857"><span id="local-6989586621679609858"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventsBatch"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch"><span class="hs-identifier hs-var">EventsBatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventsBatch%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch%27"><span class="hs-identifier hs-var">EventsBatch'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679610342"><span id="local-6989586621679610343"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventsBatch"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch"><span class="hs-identifier hs-var">EventsBatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventsBatch%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch%27"><span class="hs-identifier hs-var">EventsBatch'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A set of properties and attributes that are associated with the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- endpoint.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aendpoint%3AEventsBatch%27"><span class="annot"><span class="annottext">EventsBatch -&gt; PublicEndpoint
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aevents%3AEventsBatch%27"><span class="annot"><span class="annottext">EventsBatch -&gt; HashMap Text Event
 </span><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#%24sel%3Aevents%3AEventsBatch%27"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679609850"><span id="local-6989586621679609852"><span class="annot"><span class="annottext">EventsBatch -&gt; EventsBatch -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679610335"><span id="local-6989586621679610337"><span class="annot"><span class="annottext">EventsBatch -&gt; EventsBatch -&gt; Bool
 (EventsBatch -&gt; EventsBatch -&gt; Bool)
 -&gt; (EventsBatch -&gt; EventsBatch -&gt; Bool) -&gt; Eq EventsBatch
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EventsBatch -&gt; EventsBatch -&gt; Bool
 == :: EventsBatch -&gt; EventsBatch -&gt; Bool
 $c== :: EventsBatch -&gt; EventsBatch -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609841"><span id="local-6989586621679609843"><span id="local-6989586621679609845"><span id="local-6989586621679609847"><span class="annot"><span class="annottext">ReadPrec [EventsBatch]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610326"><span id="local-6989586621679610328"><span id="local-6989586621679610330"><span id="local-6989586621679610332"><span class="annot"><span class="annottext">ReadPrec [EventsBatch]
 ReadPrec EventsBatch
 Int -&gt; ReadS EventsBatch
 ReadS [EventsBatch]
@@ -65,7 +65,7 @@ readList :: ReadS [EventsBatch]
 $creadList :: ReadS [EventsBatch]
 readsPrec :: Int -&gt; ReadS EventsBatch
 $creadsPrec :: Int -&gt; ReadS EventsBatch
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609834"><span id="local-6989586621679609836"><span id="local-6989586621679609838"><span class="annot"><span class="annottext">Int -&gt; EventsBatch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610319"><span id="local-6989586621679610321"><span id="local-6989586621679610323"><span class="annot"><span class="annottext">Int -&gt; EventsBatch -&gt; ShowS
 [EventsBatch] -&gt; ShowS
 EventsBatch -&gt; String
 (Int -&gt; EventsBatch -&gt; ShowS)
@@ -108,13 +108,13 @@ $cfrom :: forall x. EventsBatch -&gt; Rep EventsBatch x
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.PublicEndpoint.html#PublicEndpoint"><span class="hs-identifier hs-type">PublicEndpoint</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch"><span class="hs-identifier hs-type">EventsBatch</span></a></span><span>
 </span><span id="line-56"></span><span id="newEventsBatch"><span class="annot"><span class="annottext">newEventsBatch :: PublicEndpoint -&gt; EventsBatch
-</span><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#newEventsBatch"><span class="hs-identifier hs-var hs-var">newEventsBatch</span></a></span></span><span> </span><span id="local-6989586621679609828"><span class="annot"><span class="annottext">PublicEndpoint
-</span><a href="#local-6989586621679609828"><span class="hs-identifier hs-var">pEndpoint_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#newEventsBatch"><span class="hs-identifier hs-var hs-var">newEventsBatch</span></a></span></span><span> </span><span id="local-6989586621679610313"><span class="annot"><span class="annottext">PublicEndpoint
+</span><a href="#local-6989586621679610313"><span class="hs-identifier hs-var">pEndpoint_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">EventsBatch' :: PublicEndpoint -&gt; HashMap Text Event -&gt; EventsBatch
 </span><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch%27"><span class="hs-identifier hs-type">EventsBatch'</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endpoint:EventsBatch' :: PublicEndpoint
 </span><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#%24sel%3Aendpoint%3AEventsBatch%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PublicEndpoint
-</span><a href="#local-6989586621679609828"><span class="hs-identifier hs-var">pEndpoint_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610313"><span class="hs-identifier hs-var">pEndpoint_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:events:EventsBatch' :: HashMap Text Event
 </span><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#%24sel%3Aevents%3AEventsBatch%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Event
 forall a. Monoid a =&gt; a
@@ -130,16 +130,16 @@ forall a. Monoid a =&gt; a
 -&gt; (EventsBatch -&gt; PublicEndpoint -&gt; EventsBatch)
 -&gt; Lens EventsBatch EventsBatch PublicEndpoint PublicEndpoint
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch%27"><span class="hs-identifier hs-type">EventsBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609824"><span class="annot"><span class="annottext">PublicEndpoint
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch%27"><span class="hs-identifier hs-type">EventsBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610309"><span class="annot"><span class="annottext">PublicEndpoint
 endpoint :: PublicEndpoint
 $sel:endpoint:EventsBatch' :: EventsBatch -&gt; PublicEndpoint
-</span><a href="#local-6989586621679609824"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicEndpoint
-</span><a href="#local-6989586621679609824"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609823"><span class="annot"><span class="annottext">s :: EventsBatch
-</span><a href="#local-6989586621679609823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch%27"><span class="hs-identifier hs-type">EventsBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609822"><span class="annot"><span class="annottext">PublicEndpoint
-</span><a href="#local-6989586621679609822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventsBatch
-</span><a href="#local-6989586621679609823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:EventsBatch' :: PublicEndpoint
+</span><a href="#local-6989586621679610309"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicEndpoint
+</span><a href="#local-6989586621679610309"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610308"><span class="annot"><span class="annottext">s :: EventsBatch
+</span><a href="#local-6989586621679610308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch%27"><span class="hs-identifier hs-type">EventsBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610307"><span class="annot"><span class="annottext">PublicEndpoint
+</span><a href="#local-6989586621679610307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventsBatch
+</span><a href="#local-6989586621679610308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:EventsBatch' :: PublicEndpoint
 </span><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#%24sel%3Aendpoint%3AEventsBatch%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PublicEndpoint
-</span><a href="#local-6989586621679609822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch"><span class="hs-identifier hs-type">EventsBatch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch"><span class="hs-identifier hs-type">EventsBatch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | A set of properties that are associated with the event.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#eventsBatch_events"><span class="hs-identifier hs-type">eventsBatch_events</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch"><span class="hs-identifier hs-type">EventsBatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
@@ -150,16 +150,16 @@ $sel:endpoint:EventsBatch' :: EventsBatch -&gt; PublicEndpoint
 -&gt; Lens
      EventsBatch EventsBatch (HashMap Text Event) (HashMap Text Event)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch%27"><span class="hs-identifier hs-type">EventsBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609820"><span class="annot"><span class="annottext">HashMap Text Event
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch%27"><span class="hs-identifier hs-type">EventsBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610305"><span class="annot"><span class="annottext">HashMap Text Event
 events :: HashMap Text Event
 $sel:events:EventsBatch' :: EventsBatch -&gt; HashMap Text Event
-</span><a href="#local-6989586621679609820"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Event
-</span><a href="#local-6989586621679609820"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609819"><span class="annot"><span class="annottext">s :: EventsBatch
-</span><a href="#local-6989586621679609819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch%27"><span class="hs-identifier hs-type">EventsBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609818"><span class="annot"><span class="annottext">HashMap Text Event
-</span><a href="#local-6989586621679609818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventsBatch
-</span><a href="#local-6989586621679609819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:EventsBatch' :: HashMap Text Event
+</span><a href="#local-6989586621679610305"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Event
+</span><a href="#local-6989586621679610305"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610304"><span class="annot"><span class="annottext">s :: EventsBatch
+</span><a href="#local-6989586621679610304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch%27"><span class="hs-identifier hs-type">EventsBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610303"><span class="annot"><span class="annottext">HashMap Text Event
+</span><a href="#local-6989586621679610303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventsBatch
+</span><a href="#local-6989586621679610304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:EventsBatch' :: HashMap Text Event
 </span><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#%24sel%3Aevents%3AEventsBatch%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Event
-</span><a href="#local-6989586621679609818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch"><span class="hs-identifier hs-type">EventsBatch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Event -&gt; f (HashMap Text Event))
+</span><a href="#local-6989586621679610303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch"><span class="hs-identifier hs-type">EventsBatch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Event -&gt; f (HashMap Text Event))
  -&gt; EventsBatch -&gt; f EventsBatch)
 -&gt; ((HashMap Text Event -&gt; f (HashMap Text Event))
     -&gt; HashMap Text Event -&gt; f (HashMap Text Event))
@@ -169,22 +169,22 @@ $sel:events:EventsBatch' :: EventsBatch -&gt; HashMap Text Event
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Event -&gt; f (HashMap Text Event))
 -&gt; HashMap Text Event -&gt; f (HashMap Text Event)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609812"><span id="local-6989586621679609814"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch"><span class="hs-identifier hs-type">EventsBatch</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610297"><span id="local-6989586621679610299"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch"><span class="hs-identifier hs-type">EventsBatch</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch"><span class="hs-identifier hs-type">EventsBatch</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch"><span class="hs-identifier hs-type">EventsBatch</span></a></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609801"><span id="local-6989586621679609803"><span id="local-6989586621679609805"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch"><span class="hs-identifier hs-type">EventsBatch</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679609799"><span class="annot"><span class="annottext">toJSON :: EventsBatch -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch%27"><span class="hs-identifier hs-type">EventsBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609796"><span id="local-6989586621679609797"><span class="annot"><span class="annottext">HashMap Text Event
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610286"><span id="local-6989586621679610288"><span id="local-6989586621679610290"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch"><span class="hs-identifier hs-type">EventsBatch</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679610284"><span class="annot"><span class="annottext">toJSON :: EventsBatch -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch%27"><span class="hs-identifier hs-type">EventsBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610281"><span id="local-6989586621679610282"><span class="annot"><span class="annottext">HashMap Text Event
 PublicEndpoint
 events :: HashMap Text Event
 endpoint :: PublicEndpoint
 $sel:events:EventsBatch' :: EventsBatch -&gt; HashMap Text Event
 $sel:endpoint:EventsBatch' :: EventsBatch -&gt; PublicEndpoint
-</span><a href="#local-6989586621679609796"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679610281"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -196,14 +196,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Endpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PublicEndpoint -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PublicEndpoint
-</span><a href="#local-6989586621679609797"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610282"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Events&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Event -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Event
-</span><a href="#local-6989586621679609796"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610281"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span></pre></body></html>

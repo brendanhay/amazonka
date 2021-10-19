@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDeleteDomainEntry' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679652483"><span id="local-6989586621679652484"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDomainEntry"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-var">DeleteDomainEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDomainEntry%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry%27"><span class="hs-identifier hs-var">DeleteDomainEntry'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679653509"><span id="local-6989586621679653510"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDomainEntry"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-var">DeleteDomainEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDomainEntry%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry%27"><span class="hs-identifier hs-var">DeleteDomainEntry'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the domain entry to delete.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdomainName%3ADeleteDomainEntry%27"><span class="annot"><span class="annottext">DeleteDomainEntry -&gt; Text
 </span><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#%24sel%3AdomainName%3ADeleteDomainEntry%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AdomainEntry%3ADeleteDomainEntry%27"><span class="annot"><span class="annottext">DeleteDomainEntry -&gt; DomainEntry
 </span><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#%24sel%3AdomainEntry%3ADeleteDomainEntry%27"><span class="hs-identifier hs-var hs-var">domainEntry</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679652476"><span id="local-6989586621679652478"><span class="annot"><span class="annottext">DeleteDomainEntry -&gt; DeleteDomainEntry -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679653502"><span id="local-6989586621679653504"><span class="annot"><span class="annottext">DeleteDomainEntry -&gt; DeleteDomainEntry -&gt; Bool
 (DeleteDomainEntry -&gt; DeleteDomainEntry -&gt; Bool)
 -&gt; (DeleteDomainEntry -&gt; DeleteDomainEntry -&gt; Bool)
 -&gt; Eq DeleteDomainEntry
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDomainEntry -&gt; DeleteDomainEntry -&gt; Bool
 == :: DeleteDomainEntry -&gt; DeleteDomainEntry -&gt; Bool
 $c== :: DeleteDomainEntry -&gt; DeleteDomainEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652467"><span id="local-6989586621679652469"><span id="local-6989586621679652471"><span id="local-6989586621679652473"><span class="annot"><span class="annottext">ReadPrec [DeleteDomainEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653493"><span id="local-6989586621679653495"><span id="local-6989586621679653497"><span id="local-6989586621679653499"><span class="annot"><span class="annottext">ReadPrec [DeleteDomainEntry]
 ReadPrec DeleteDomainEntry
 Int -&gt; ReadS DeleteDomainEntry
 ReadS [DeleteDomainEntry]
@@ -91,7 +91,7 @@ readList :: ReadS [DeleteDomainEntry]
 $creadList :: ReadS [DeleteDomainEntry]
 readsPrec :: Int -&gt; ReadS DeleteDomainEntry
 $creadsPrec :: Int -&gt; ReadS DeleteDomainEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652460"><span id="local-6989586621679652462"><span id="local-6989586621679652464"><span class="annot"><span class="annottext">Int -&gt; DeleteDomainEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653486"><span id="local-6989586621679653488"><span id="local-6989586621679653490"><span class="annot"><span class="annottext">Int -&gt; DeleteDomainEntry -&gt; ShowS
 [DeleteDomainEntry] -&gt; ShowS
 DeleteDomainEntry -&gt; String
 (Int -&gt; DeleteDomainEntry -&gt; ShowS)
@@ -136,17 +136,17 @@ $cfrom :: forall x. DeleteDomainEntry -&gt; Rep DeleteDomainEntry x
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-type">DeleteDomainEntry</span></a></span><span>
 </span><span id="line-83"></span><span id="newDeleteDomainEntry"><span class="annot"><span class="annottext">newDeleteDomainEntry :: Text -&gt; DomainEntry -&gt; DeleteDomainEntry
-</span><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#newDeleteDomainEntry"><span class="hs-identifier hs-var hs-var">newDeleteDomainEntry</span></a></span></span><span> </span><span id="local-6989586621679652455"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652455"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679652454"><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679652454"><span class="hs-identifier hs-var">pDomainEntry_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#newDeleteDomainEntry"><span class="hs-identifier hs-var hs-var">newDeleteDomainEntry</span></a></span></span><span> </span><span id="local-6989586621679653481"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679653481"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679653480"><span class="annot"><span class="annottext">DomainEntry
+</span><a href="#local-6989586621679653480"><span class="hs-identifier hs-var">pDomainEntry_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">DeleteDomainEntry' :: Text -&gt; DomainEntry -&gt; DeleteDomainEntry
 </span><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry%27"><span class="hs-identifier hs-type">DeleteDomainEntry'</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainName:DeleteDomainEntry' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#%24sel%3AdomainName%3ADeleteDomainEntry%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652455"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679653481"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainEntry:DeleteDomainEntry' :: DomainEntry
 </span><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#%24sel%3AdomainEntry%3ADeleteDomainEntry%27"><span class="hs-identifier hs-var">domainEntry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679652454"><span class="hs-identifier hs-var">pDomainEntry_</span></a></span><span>
+</span><a href="#local-6989586621679653480"><span class="hs-identifier hs-var">pDomainEntry_</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The name of the domain entry to delete.</span><span>
@@ -156,16 +156,16 @@ $cfrom :: forall x. DeleteDomainEntry -&gt; Rep DeleteDomainEntry x
 -&gt; (DeleteDomainEntry -&gt; Text -&gt; DeleteDomainEntry)
 -&gt; Lens DeleteDomainEntry DeleteDomainEntry Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry%27"><span class="hs-identifier hs-type">DeleteDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652451"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry%27"><span class="hs-identifier hs-type">DeleteDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653477"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:DeleteDomainEntry' :: DeleteDomainEntry -&gt; Text
-</span><a href="#local-6989586621679652451"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652451"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652450"><span class="annot"><span class="annottext">s :: DeleteDomainEntry
-</span><a href="#local-6989586621679652450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry%27"><span class="hs-identifier hs-type">DeleteDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652449"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDomainEntry
-</span><a href="#local-6989586621679652450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DeleteDomainEntry' :: Text
+</span><a href="#local-6989586621679653477"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679653477"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679653476"><span class="annot"><span class="annottext">s :: DeleteDomainEntry
+</span><a href="#local-6989586621679653476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry%27"><span class="hs-identifier hs-type">DeleteDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679653475"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679653475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDomainEntry
+</span><a href="#local-6989586621679653476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DeleteDomainEntry' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#%24sel%3AdomainName%3ADeleteDomainEntry%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-type">DeleteDomainEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679653475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-type">DeleteDomainEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | An array of key-value pairs containing information about your domain</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- entries.</span><span>
@@ -176,27 +176,27 @@ $sel:domainName:DeleteDomainEntry' :: DeleteDomainEntry -&gt; Text
 -&gt; (DeleteDomainEntry -&gt; DomainEntry -&gt; DeleteDomainEntry)
 -&gt; Lens DeleteDomainEntry DeleteDomainEntry DomainEntry DomainEntry
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry%27"><span class="hs-identifier hs-type">DeleteDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652448"><span class="annot"><span class="annottext">DomainEntry
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry%27"><span class="hs-identifier hs-type">DeleteDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653474"><span class="annot"><span class="annottext">DomainEntry
 domainEntry :: DomainEntry
 $sel:domainEntry:DeleteDomainEntry' :: DeleteDomainEntry -&gt; DomainEntry
-</span><a href="#local-6989586621679652448"><span class="hs-identifier hs-var hs-var">domainEntry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679652448"><span class="hs-identifier hs-var">domainEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652447"><span class="annot"><span class="annottext">s :: DeleteDomainEntry
-</span><a href="#local-6989586621679652447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry%27"><span class="hs-identifier hs-type">DeleteDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652446"><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679652446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDomainEntry
-</span><a href="#local-6989586621679652447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainEntry:DeleteDomainEntry' :: DomainEntry
+</span><a href="#local-6989586621679653474"><span class="hs-identifier hs-var hs-var">domainEntry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
+</span><a href="#local-6989586621679653474"><span class="hs-identifier hs-var">domainEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679653473"><span class="annot"><span class="annottext">s :: DeleteDomainEntry
+</span><a href="#local-6989586621679653473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry%27"><span class="hs-identifier hs-type">DeleteDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679653472"><span class="annot"><span class="annottext">DomainEntry
+</span><a href="#local-6989586621679653472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDomainEntry
+</span><a href="#local-6989586621679653473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainEntry:DeleteDomainEntry' :: DomainEntry
 </span><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#%24sel%3AdomainEntry%3ADeleteDomainEntry%27"><span class="hs-identifier hs-var">domainEntry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679652446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-type">DeleteDomainEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679653472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-type">DeleteDomainEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-type">DeleteDomainEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-type">DeleteDomainEntry</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse"><span class="hs-identifier hs-type">DeleteDomainEntryResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679652442"><span class="annot"><span class="annottext">request :: DeleteDomainEntry -&gt; Request DeleteDomainEntry
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679653468"><span class="annot"><span class="annottext">request :: DeleteDomainEntry -&gt; Request DeleteDomainEntry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDomainEntry -&gt; Request DeleteDomainEntry
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679652438"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679653464"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDomainEntry
 -&gt; ClientResponse ClientBody
@@ -222,10 +222,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679652435"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652435"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679652434"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679652434"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679652433"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679652433"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679653461"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679653461"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679653460"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679653460"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679653459"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679653459"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Operation -&gt; Int -&gt; DeleteDomainEntryResponse
 </span><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse%27"><span class="hs-identifier hs-var">DeleteDomainEntryResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Operation -&gt; Int -&gt; DeleteDomainEntryResponse)
@@ -233,7 +233,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteDomainEntryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679652433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Operation)
+</span><a href="#local-6989586621679653459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Operation)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operation&quot;</span></span><span class="hs-special">)</span><span>
@@ -245,15 +245,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652435"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679653461"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652425"><span id="local-6989586621679652427"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-type">DeleteDomainEntry</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679653451"><span id="local-6989586621679653453"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-type">DeleteDomainEntry</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652422"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-type">DeleteDomainEntry</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679653448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-type">DeleteDomainEntry</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-type">DeleteDomainEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679652418"><span class="annot"><span class="annottext">toHeaders :: DeleteDomainEntry -&gt; ResponseHeaders
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679653444"><span class="annot"><span class="annottext">toHeaders :: DeleteDomainEntry -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteDomainEntry -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -280,15 +280,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652408"><span id="local-6989586621679652410"><span id="local-6989586621679652412"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-type">DeleteDomainEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679652406"><span class="annot"><span class="annottext">toJSON :: DeleteDomainEntry -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry%27"><span class="hs-identifier hs-type">DeleteDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652403"><span id="local-6989586621679652404"><span class="annot"><span class="annottext">Text
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679653434"><span id="local-6989586621679653436"><span id="local-6989586621679653438"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-type">DeleteDomainEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679653432"><span class="annot"><span class="annottext">toJSON :: DeleteDomainEntry -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry%27"><span class="hs-identifier hs-type">DeleteDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653429"><span id="local-6989586621679653430"><span class="annot"><span class="annottext">Text
 DomainEntry
 domainEntry :: DomainEntry
 domainName :: Text
 $sel:domainEntry:DeleteDomainEntry' :: DeleteDomainEntry -&gt; DomainEntry
 $sel:domainName:DeleteDomainEntry' :: DeleteDomainEntry -&gt; Text
-</span><a href="#local-6989586621679652403"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679653429"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -300,26 +300,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;domainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652404"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679653430"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;domainEntry&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DomainEntry -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679652403"><span class="hs-identifier hs-var">domainEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679653429"><span class="hs-identifier hs-var">domainEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-type">DeleteDomainEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679652397"><span class="annot"><span class="annottext">toPath :: DeleteDomainEntry -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679653423"><span class="annot"><span class="annottext">toPath :: DeleteDomainEntry -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDomainEntry -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntry"><span class="hs-identifier hs-type">DeleteDomainEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679652393"><span class="annot"><span class="annottext">toQuery :: DeleteDomainEntry -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679653419"><span class="annot"><span class="annottext">toQuery :: DeleteDomainEntry -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDomainEntry -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -327,7 +327,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newDeleteDomainEntryResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679652390"><span id="local-6989586621679652391"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDomainEntryResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse"><span class="hs-identifier hs-var">DeleteDomainEntryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDomainEntryResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse%27"><span class="hs-identifier hs-var">DeleteDomainEntryResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679653416"><span id="local-6989586621679653417"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDomainEntryResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse"><span class="hs-identifier hs-var">DeleteDomainEntryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDomainEntryResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse%27"><span class="hs-identifier hs-var">DeleteDomainEntryResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -337,7 +337,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteDomainEntryResponse%27"><span class="annot"><span class="annottext">DeleteDomainEntryResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#%24sel%3AhttpStatus%3ADeleteDomainEntryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679652384"><span id="local-6989586621679652386"><span class="annot"><span class="annottext">DeleteDomainEntryResponse -&gt; DeleteDomainEntryResponse -&gt; Bool
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679653410"><span id="local-6989586621679653412"><span class="annot"><span class="annottext">DeleteDomainEntryResponse -&gt; DeleteDomainEntryResponse -&gt; Bool
 (DeleteDomainEntryResponse -&gt; DeleteDomainEntryResponse -&gt; Bool)
 -&gt; (DeleteDomainEntryResponse -&gt; DeleteDomainEntryResponse -&gt; Bool)
 -&gt; Eq DeleteDomainEntryResponse
@@ -346,7 +346,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDomainEntryResponse -&gt; DeleteDomainEntryResponse -&gt; Bool
 == :: DeleteDomainEntryResponse -&gt; DeleteDomainEntryResponse -&gt; Bool
 $c== :: DeleteDomainEntryResponse -&gt; DeleteDomainEntryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652376"><span id="local-6989586621679652378"><span id="local-6989586621679652380"><span id="local-6989586621679652382"><span class="annot"><span class="annottext">ReadPrec [DeleteDomainEntryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653402"><span id="local-6989586621679653404"><span id="local-6989586621679653406"><span id="local-6989586621679653408"><span class="annot"><span class="annottext">ReadPrec [DeleteDomainEntryResponse]
 ReadPrec DeleteDomainEntryResponse
 Int -&gt; ReadS DeleteDomainEntryResponse
 ReadS [DeleteDomainEntryResponse]
@@ -366,7 +366,7 @@ readList :: ReadS [DeleteDomainEntryResponse]
 $creadList :: ReadS [DeleteDomainEntryResponse]
 readsPrec :: Int -&gt; ReadS DeleteDomainEntryResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDomainEntryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652370"><span id="local-6989586621679652372"><span id="local-6989586621679652374"><span class="annot"><span class="annottext">Int -&gt; DeleteDomainEntryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653396"><span id="local-6989586621679653398"><span id="local-6989586621679653400"><span class="annot"><span class="annottext">Int -&gt; DeleteDomainEntryResponse -&gt; ShowS
 [DeleteDomainEntryResponse] -&gt; ShowS
 DeleteDomainEntryResponse -&gt; String
 (Int -&gt; DeleteDomainEntryResponse -&gt; ShowS)
@@ -416,8 +416,8 @@ DeleteDomainEntryResponse -&gt; Rep DeleteDomainEntryResponse x
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse"><span class="hs-identifier hs-type">DeleteDomainEntryResponse</span></a></span><span>
 </span><span id="line-173"></span><span id="newDeleteDomainEntryResponse"><span class="annot"><span class="annottext">newDeleteDomainEntryResponse :: Int -&gt; DeleteDomainEntryResponse
-</span><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#newDeleteDomainEntryResponse"><span class="hs-identifier hs-var hs-var">newDeleteDomainEntryResponse</span></a></span></span><span> </span><span id="local-6989586621679652367"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652367"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#newDeleteDomainEntryResponse"><span class="hs-identifier hs-var hs-var">newDeleteDomainEntryResponse</span></a></span></span><span> </span><span id="local-6989586621679653393"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679653393"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">DeleteDomainEntryResponse' :: Maybe Operation -&gt; Int -&gt; DeleteDomainEntryResponse
 </span><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse%27"><span class="hs-identifier hs-type">DeleteDomainEntryResponse'</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operation:DeleteDomainEntryResponse' :: Maybe Operation
@@ -427,7 +427,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDomainEntryResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#%24sel%3AhttpStatus%3ADeleteDomainEntryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652367"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679653393"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -445,16 +445,16 @@ forall a. Maybe a
      (Maybe Operation)
      (Maybe Operation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse%27"><span class="hs-identifier hs-type">DeleteDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652366"><span class="annot"><span class="annottext">Maybe Operation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse%27"><span class="hs-identifier hs-type">DeleteDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653392"><span class="annot"><span class="annottext">Maybe Operation
 operation :: Maybe Operation
 $sel:operation:DeleteDomainEntryResponse' :: DeleteDomainEntryResponse -&gt; Maybe Operation
-</span><a href="#local-6989586621679652366"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679652366"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652365"><span class="annot"><span class="annottext">s :: DeleteDomainEntryResponse
-</span><a href="#local-6989586621679652365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse%27"><span class="hs-identifier hs-type">DeleteDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652364"><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679652364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDomainEntryResponse
-</span><a href="#local-6989586621679652365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:DeleteDomainEntryResponse' :: Maybe Operation
+</span><a href="#local-6989586621679653392"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679653392"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679653391"><span class="annot"><span class="annottext">s :: DeleteDomainEntryResponse
+</span><a href="#local-6989586621679653391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse%27"><span class="hs-identifier hs-type">DeleteDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679653390"><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679653390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDomainEntryResponse
+</span><a href="#local-6989586621679653391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:DeleteDomainEntryResponse' :: Maybe Operation
 </span><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#%24sel%3Aoperation%3ADeleteDomainEntryResponse%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679652364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse"><span class="hs-identifier hs-type">DeleteDomainEntryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679653390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse"><span class="hs-identifier hs-type">DeleteDomainEntryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-187"></span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#deleteDomainEntryResponse_httpStatus"><span class="hs-identifier hs-type">deleteDomainEntryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse"><span class="hs-identifier hs-type">DeleteDomainEntryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -464,16 +464,16 @@ $sel:operation:DeleteDomainEntryResponse' :: DeleteDomainEntryResponse -&gt; May
 -&gt; (DeleteDomainEntryResponse -&gt; Int -&gt; DeleteDomainEntryResponse)
 -&gt; Lens DeleteDomainEntryResponse DeleteDomainEntryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse%27"><span class="hs-identifier hs-type">DeleteDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652363"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse%27"><span class="hs-identifier hs-type">DeleteDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653389"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteDomainEntryResponse' :: DeleteDomainEntryResponse -&gt; Int
-</span><a href="#local-6989586621679652363"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652363"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652362"><span class="annot"><span class="annottext">s :: DeleteDomainEntryResponse
-</span><a href="#local-6989586621679652362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse%27"><span class="hs-identifier hs-type">DeleteDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652361"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDomainEntryResponse
-</span><a href="#local-6989586621679652362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDomainEntryResponse' :: Int
+</span><a href="#local-6989586621679653389"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679653389"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679653388"><span class="annot"><span class="annottext">s :: DeleteDomainEntryResponse
+</span><a href="#local-6989586621679653388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse%27"><span class="hs-identifier hs-type">DeleteDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679653387"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679653387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDomainEntryResponse
+</span><a href="#local-6989586621679653388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDomainEntryResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#%24sel%3AhttpStatus%3ADeleteDomainEntryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse"><span class="hs-identifier hs-type">DeleteDomainEntryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679653387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse"><span class="hs-identifier hs-type">DeleteDomainEntryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652359"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse"><span class="hs-identifier hs-type">DeleteDomainEntryResponse</span></a></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679653385"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDomainEntry.html#DeleteDomainEntryResponse"><span class="hs-identifier hs-type">DeleteDomainEntryResponse</span></a></span></span><span>
 </span><span id="line-191"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679196237"><span id="local-6989586621679196238"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConsumerStatus"><span class="annot"><a href="Network.AWS.Kinesis.Types.ConsumerStatus.html#ConsumerStatus"><span class="hs-identifier hs-var">ConsumerStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConsumerStatus%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.ConsumerStatus.html#ConsumerStatus%27"><span class="hs-identifier hs-var">ConsumerStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679196328"><span id="local-6989586621679196329"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConsumerStatus"><span class="annot"><a href="Network.AWS.Kinesis.Types.ConsumerStatus.html#ConsumerStatus"><span class="hs-identifier hs-var">ConsumerStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConsumerStatus%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.ConsumerStatus.html#ConsumerStatus%27"><span class="hs-identifier hs-var">ConsumerStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConsumerStatus"><span class="annot"><span class="annottext">ConsumerStatus -&gt; Text
 </span><a href="Network.AWS.Kinesis.Types.ConsumerStatus.html#fromConsumerStatus"><span class="hs-identifier hs-var hs-var">fromConsumerStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679196229"><span id="local-6989586621679196231"><span id="local-6989586621679196233"><span class="annot"><span class="annottext">Int -&gt; ConsumerStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679196320"><span id="local-6989586621679196322"><span id="local-6989586621679196324"><span class="annot"><span class="annottext">Int -&gt; ConsumerStatus -&gt; ShowS
 [ConsumerStatus] -&gt; ShowS
 ConsumerStatus -&gt; String
 (Int -&gt; ConsumerStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ConsumerStatus -&gt; String
 showsPrec :: Int -&gt; ConsumerStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConsumerStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679196220"><span id="local-6989586621679196222"><span id="local-6989586621679196224"><span id="local-6989586621679196226"><span class="annot"><span class="annottext">ReadPrec [ConsumerStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679196311"><span id="local-6989586621679196313"><span id="local-6989586621679196315"><span id="local-6989586621679196317"><span class="annot"><span class="annottext">ReadPrec [ConsumerStatus]
 ReadPrec ConsumerStatus
 Int -&gt; ReadS ConsumerStatus
 ReadS [ConsumerStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ConsumerStatus]
 readsPrec :: Int -&gt; ReadS ConsumerStatus
 $creadsPrec :: Int -&gt; ReadS ConsumerStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679196215"><span id="local-6989586621679196217"><span class="annot"><span class="annottext">ConsumerStatus -&gt; ConsumerStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679196306"><span id="local-6989586621679196308"><span class="annot"><span class="annottext">ConsumerStatus -&gt; ConsumerStatus -&gt; Bool
 (ConsumerStatus -&gt; ConsumerStatus -&gt; Bool)
 -&gt; (ConsumerStatus -&gt; ConsumerStatus -&gt; Bool) -&gt; Eq ConsumerStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: ConsumerStatus -&gt; ConsumerStatus -&gt; Bool
 == :: ConsumerStatus -&gt; ConsumerStatus -&gt; Bool
 $c== :: ConsumerStatus -&gt; ConsumerStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679196199"><span id="local-6989586621679196201"><span id="local-6989586621679196203"><span id="local-6989586621679196205"><span id="local-6989586621679196207"><span id="local-6989586621679196209"><span id="local-6989586621679196211"><span class="annot"><span class="annottext">Eq ConsumerStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679196290"><span id="local-6989586621679196292"><span id="local-6989586621679196294"><span id="local-6989586621679196296"><span id="local-6989586621679196298"><span id="local-6989586621679196300"><span id="local-6989586621679196302"><span class="annot"><span class="annottext">Eq ConsumerStatus
 Eq ConsumerStatus
 -&gt; (ConsumerStatus -&gt; ConsumerStatus -&gt; Ordering)
 -&gt; (ConsumerStatus -&gt; ConsumerStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ConsumerStatus -&gt; Rep ConsumerStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679196191"><span id="local-6989586621679196193"><span class="annot"><span class="annottext">Int -&gt; ConsumerStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679196282"><span id="local-6989586621679196284"><span class="annot"><span class="annottext">Int -&gt; ConsumerStatus -&gt; Int
 ConsumerStatus -&gt; Int
 (Int -&gt; ConsumerStatus -&gt; Int)
 -&gt; (ConsumerStatus -&gt; Int) -&gt; Hashable ConsumerStatus
@@ -143,50 +143,50 @@ $chash :: ConsumerStatus -&gt; Int
 hashWithSalt :: Int -&gt; ConsumerStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ConsumerStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679196188"><span class="annot"><span class="annottext">ConsumerStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679196279"><span class="annot"><span class="annottext">ConsumerStatus -&gt; ()
 (ConsumerStatus -&gt; ()) -&gt; NFData ConsumerStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConsumerStatus -&gt; ()
 $crnf :: ConsumerStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679196185"><span class="annot"><span class="annottext">Text -&gt; Either String ConsumerStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679196276"><span class="annot"><span class="annottext">Text -&gt; Either String ConsumerStatus
 (Text -&gt; Either String ConsumerStatus) -&gt; FromText ConsumerStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConsumerStatus
 $cfromText :: Text -&gt; Either String ConsumerStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679196182"><span class="annot"><span class="annottext">ConsumerStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679196273"><span class="annot"><span class="annottext">ConsumerStatus -&gt; Text
 (ConsumerStatus -&gt; Text) -&gt; ToText ConsumerStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConsumerStatus -&gt; Text
 $ctoText :: ConsumerStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679196179"><span class="annot"><span class="annottext">ConsumerStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679196270"><span class="annot"><span class="annottext">ConsumerStatus -&gt; ByteString
 (ConsumerStatus -&gt; ByteString) -&gt; ToByteString ConsumerStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConsumerStatus -&gt; ByteString
 $ctoBS :: ConsumerStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679196176"><span class="annot"><span class="annottext">ConsumerStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679196267"><span class="annot"><span class="annottext">ConsumerStatus -&gt; ByteStringBuilder
 (ConsumerStatus -&gt; ByteStringBuilder) -&gt; ToLog ConsumerStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConsumerStatus -&gt; ByteStringBuilder
 $cbuild :: ConsumerStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679196173"><span class="annot"><span class="annottext">HeaderName -&gt; ConsumerStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679196264"><span class="annot"><span class="annottext">HeaderName -&gt; ConsumerStatus -&gt; [Header]
 (HeaderName -&gt; ConsumerStatus -&gt; [Header])
 -&gt; ToHeader ConsumerStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConsumerStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConsumerStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679196170"><span class="annot"><span class="annottext">ConsumerStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679196261"><span class="annot"><span class="annottext">ConsumerStatus -&gt; QueryString
 (ConsumerStatus -&gt; QueryString) -&gt; ToQuery ConsumerStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConsumerStatus -&gt; QueryString
 $ctoQuery :: ConsumerStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679196165"><span id="local-6989586621679196167"><span class="annot"><span class="annottext">Value -&gt; Parser [ConsumerStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679196256"><span id="local-6989586621679196258"><span class="annot"><span class="annottext">Value -&gt; Parser [ConsumerStatus]
 Value -&gt; Parser ConsumerStatus
 (Value -&gt; Parser ConsumerStatus)
 -&gt; (Value -&gt; Parser [ConsumerStatus]) -&gt; FromJSON ConsumerStatus
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [ConsumerStatus]
 parseJSON :: Value -&gt; Parser ConsumerStatus
 $cparseJSON :: Value -&gt; Parser ConsumerStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679196160"><span id="local-6989586621679196162"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConsumerStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679196251"><span id="local-6989586621679196253"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConsumerStatus]
 FromJSONKeyFunction ConsumerStatus
 FromJSONKeyFunction ConsumerStatus
 -&gt; FromJSONKeyFunction [ConsumerStatus]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConsumerStatus]
 fromJSONKey :: FromJSONKeyFunction ConsumerStatus
 $cfromJSONKey :: FromJSONKeyFunction ConsumerStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679196151"><span id="local-6989586621679196153"><span id="local-6989586621679196155"><span id="local-6989586621679196157"><span class="annot"><span class="annottext">[ConsumerStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679196242"><span id="local-6989586621679196244"><span id="local-6989586621679196246"><span id="local-6989586621679196248"><span class="annot"><span class="annottext">[ConsumerStatus] -&gt; Encoding
 [ConsumerStatus] -&gt; Value
 ConsumerStatus -&gt; Encoding
 ConsumerStatus -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: ConsumerStatus -&gt; Encoding
 toJSON :: ConsumerStatus -&gt; Value
 $ctoJSON :: ConsumerStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679196146"><span id="local-6989586621679196148"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConsumerStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679196237"><span id="local-6989586621679196239"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConsumerStatus]
 ToJSONKeyFunction ConsumerStatus
 ToJSONKeyFunction ConsumerStatus
 -&gt; ToJSONKeyFunction [ConsumerStatus] -&gt; ToJSONKey ConsumerStatus
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConsumerStatus]
 toJSONKey :: ToJSONKeyFunction ConsumerStatus
 $ctoJSONKey :: ToJSONKeyFunction ConsumerStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679196143"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConsumerStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679196234"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConsumerStatus
 ([Node] -&gt; Either String ConsumerStatus) -&gt; FromXML ConsumerStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConsumerStatus
 $cparseXML :: [Node] -&gt; Either String ConsumerStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679196140"><span class="annot"><span class="annottext">ConsumerStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679196231"><span class="annot"><span class="annottext">ConsumerStatus -&gt; XML
 (ConsumerStatus -&gt; XML) -&gt; ToXML ConsumerStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ConsumerStatus -&gt; XML

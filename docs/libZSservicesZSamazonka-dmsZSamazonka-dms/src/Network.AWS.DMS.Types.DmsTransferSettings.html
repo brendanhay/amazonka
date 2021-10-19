@@ -26,16 +26,16 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The settings in JSON format for the DMS Transfer type source endpoint.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDmsTransferSettings' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679430926"><span id="local-6989586621679430927"></span></span><span class="hs-keyword">data</span><span> </span><span id="DmsTransferSettings"><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-var">DmsTransferSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DmsTransferSettings%27"><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings%27"><span class="hs-identifier hs-var">DmsTransferSettings'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the S3 bucket to use.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AbucketName%3ADmsTransferSettings%27"><span class="annot"><span class="annottext">DmsTransferSettings -&gt; Maybe Text
-</span><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#%24sel%3AbucketName%3ADmsTransferSettings%27"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) used by the service access IAM role. The</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- role must allow the @iam:PassRole@ action.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AserviceAccessRoleArn%3ADmsTransferSettings%27"><span class="annot"><span class="annottext">DmsTransferSettings -&gt; Maybe Text
-</span><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#%24sel%3AserviceAccessRoleArn%3ADmsTransferSettings%27"><span class="hs-identifier hs-var hs-var">serviceAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679431197"><span id="local-6989586621679431198"></span></span><span class="hs-keyword">data</span><span> </span><span id="DmsTransferSettings"><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-var">DmsTransferSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DmsTransferSettings%27"><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings%27"><span class="hs-identifier hs-var">DmsTransferSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) used by the service access IAM role. The</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- role must allow the @iam:PassRole@ action.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AserviceAccessRoleArn%3ADmsTransferSettings%27"><span class="annot"><span class="annottext">DmsTransferSettings -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#%24sel%3AserviceAccessRoleArn%3ADmsTransferSettings%27"><span class="hs-identifier hs-var hs-var">serviceAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the S3 bucket to use.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AbucketName%3ADmsTransferSettings%27"><span class="annot"><span class="annottext">DmsTransferSettings -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#%24sel%3AbucketName%3ADmsTransferSettings%27"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430919"><span id="local-6989586621679430921"><span class="annot"><span class="annottext">DmsTransferSettings -&gt; DmsTransferSettings -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431190"><span id="local-6989586621679431192"><span class="annot"><span class="annottext">DmsTransferSettings -&gt; DmsTransferSettings -&gt; Bool
 (DmsTransferSettings -&gt; DmsTransferSettings -&gt; Bool)
 -&gt; (DmsTransferSettings -&gt; DmsTransferSettings -&gt; Bool)
 -&gt; Eq DmsTransferSettings
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DmsTransferSettings -&gt; DmsTransferSettings -&gt; Bool
 == :: DmsTransferSettings -&gt; DmsTransferSettings -&gt; Bool
 $c== :: DmsTransferSettings -&gt; DmsTransferSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430910"><span id="local-6989586621679430912"><span id="local-6989586621679430914"><span id="local-6989586621679430916"><span class="annot"><span class="annottext">ReadPrec [DmsTransferSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431181"><span id="local-6989586621679431183"><span id="local-6989586621679431185"><span id="local-6989586621679431187"><span class="annot"><span class="annottext">ReadPrec [DmsTransferSettings]
 ReadPrec DmsTransferSettings
 Int -&gt; ReadS DmsTransferSettings
 ReadS [DmsTransferSettings]
@@ -64,7 +64,7 @@ readList :: ReadS [DmsTransferSettings]
 $creadList :: ReadS [DmsTransferSettings]
 readsPrec :: Int -&gt; ReadS DmsTransferSettings
 $creadsPrec :: Int -&gt; ReadS DmsTransferSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430903"><span id="local-6989586621679430905"><span id="local-6989586621679430907"><span class="annot"><span class="annottext">Int -&gt; DmsTransferSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431174"><span id="local-6989586621679431176"><span id="local-6989586621679431178"><span class="annot"><span class="annottext">Int -&gt; DmsTransferSettings -&gt; ShowS
 [DmsTransferSettings] -&gt; ShowS
 DmsTransferSettings -&gt; String
 (Int -&gt; DmsTransferSettings -&gt; ShowS)
@@ -98,133 +98,134 @@ $cfrom :: forall x. DmsTransferSettings -&gt; Rep DmsTransferSettings x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'bucketName', 'dmsTransferSettings_bucketName' - The name of the S3 bucket to use.</span><span>
-</span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'serviceAccessRoleArn', 'dmsTransferSettings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) used by the service access IAM role. The</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- role must allow the @iam:PassRole@ action.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'serviceAccessRoleArn', 'dmsTransferSettings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) used by the service access IAM role. The</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- role must allow the @iam:PassRole@ action.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'bucketName', 'dmsTransferSettings_bucketName' - The name of the S3 bucket to use.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#newDmsTransferSettings"><span class="hs-identifier hs-type">newDmsTransferSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-type">DmsTransferSettings</span></a></span><span>
 </span><span id="line-52"></span><span id="newDmsTransferSettings"><span class="annot"><span class="annottext">newDmsTransferSettings :: DmsTransferSettings
 </span><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#newDmsTransferSettings"><span class="hs-identifier hs-var hs-var">newDmsTransferSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">DmsTransferSettings' :: Maybe Text -&gt; Maybe Text -&gt; DmsTransferSettings
 </span><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings%27"><span class="hs-identifier hs-type">DmsTransferSettings'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bucketName:DmsTransferSettings' :: Maybe Text
-</span><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#%24sel%3AbucketName%3ADmsTransferSettings%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceAccessRoleArn:DmsTransferSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#%24sel%3AserviceAccessRoleArn%3ADmsTransferSettings%27"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceAccessRoleArn:DmsTransferSettings' :: Maybe Text
-</span><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#%24sel%3AserviceAccessRoleArn%3ADmsTransferSettings%27"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketName:DmsTransferSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#%24sel%3AbucketName%3ADmsTransferSettings%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | The name of the S3 bucket to use.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#dmsTransferSettings_bucketName"><span class="hs-identifier hs-type">dmsTransferSettings_bucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-type">DmsTransferSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="dmsTransferSettings_bucketName"><span class="annot"><span class="annottext">dmsTransferSettings_bucketName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DmsTransferSettings -&gt; f DmsTransferSettings
-</span><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#dmsTransferSettings_bucketName"><span class="hs-identifier hs-var hs-var">dmsTransferSettings_bucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DmsTransferSettings -&gt; Maybe Text)
--&gt; (DmsTransferSettings -&gt; Maybe Text -&gt; DmsTransferSettings)
--&gt; Lens
-     DmsTransferSettings DmsTransferSettings (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings%27"><span class="hs-identifier hs-type">DmsTransferSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430894"><span class="annot"><span class="annottext">Maybe Text
-bucketName :: Maybe Text
-$sel:bucketName:DmsTransferSettings' :: DmsTransferSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679430894"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430894"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430893"><span class="annot"><span class="annottext">s :: DmsTransferSettings
-</span><a href="#local-6989586621679430893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings%27"><span class="hs-identifier hs-type">DmsTransferSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430892"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DmsTransferSettings
-</span><a href="#local-6989586621679430893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:DmsTransferSettings' :: Maybe Text
-</span><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#%24sel%3AbucketName%3ADmsTransferSettings%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-type">DmsTransferSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) used by the service access IAM role. The</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- role must allow the @iam:PassRole@ action.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#dmsTransferSettings_serviceAccessRoleArn"><span class="hs-identifier hs-type">dmsTransferSettings_serviceAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-type">DmsTransferSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="dmsTransferSettings_serviceAccessRoleArn"><span class="annot"><span class="annottext">dmsTransferSettings_serviceAccessRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) used by the service access IAM role. The</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- role must allow the @iam:PassRole@ action.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#dmsTransferSettings_serviceAccessRoleArn"><span class="hs-identifier hs-type">dmsTransferSettings_serviceAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-type">DmsTransferSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="dmsTransferSettings_serviceAccessRoleArn"><span class="annot"><span class="annottext">dmsTransferSettings_serviceAccessRoleArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DmsTransferSettings -&gt; f DmsTransferSettings
 </span><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#dmsTransferSettings_serviceAccessRoleArn"><span class="hs-identifier hs-var hs-var">dmsTransferSettings_serviceAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DmsTransferSettings -&gt; Maybe Text)
 -&gt; (DmsTransferSettings -&gt; Maybe Text -&gt; DmsTransferSettings)
 -&gt; Lens
      DmsTransferSettings DmsTransferSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings%27"><span class="hs-identifier hs-type">DmsTransferSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430890"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings%27"><span class="hs-identifier hs-type">DmsTransferSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431165"><span class="annot"><span class="annottext">Maybe Text
 serviceAccessRoleArn :: Maybe Text
 $sel:serviceAccessRoleArn:DmsTransferSettings' :: DmsTransferSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679430890"><span class="hs-identifier hs-var hs-var">serviceAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430890"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430889"><span class="annot"><span class="annottext">s :: DmsTransferSettings
-</span><a href="#local-6989586621679430889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings%27"><span class="hs-identifier hs-type">DmsTransferSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430888"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DmsTransferSettings
-</span><a href="#local-6989586621679430889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccessRoleArn:DmsTransferSettings' :: Maybe Text
+</span><a href="#local-6989586621679431165"><span class="hs-identifier hs-var hs-var">serviceAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431165"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431164"><span class="annot"><span class="annottext">s :: DmsTransferSettings
+</span><a href="#local-6989586621679431164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings%27"><span class="hs-identifier hs-type">DmsTransferSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431163"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DmsTransferSettings
+</span><a href="#local-6989586621679431164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccessRoleArn:DmsTransferSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#%24sel%3AserviceAccessRoleArn%3ADmsTransferSettings%27"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-type">DmsTransferSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430885"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-type">DmsTransferSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679430883"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DmsTransferSettings
+</span><a href="#local-6989586621679431163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-type">DmsTransferSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The name of the S3 bucket to use.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#dmsTransferSettings_bucketName"><span class="hs-identifier hs-type">dmsTransferSettings_bucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-type">DmsTransferSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="dmsTransferSettings_bucketName"><span class="annot"><span class="annottext">dmsTransferSettings_bucketName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DmsTransferSettings -&gt; f DmsTransferSettings
+</span><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#dmsTransferSettings_bucketName"><span class="hs-identifier hs-var hs-var">dmsTransferSettings_bucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DmsTransferSettings -&gt; Maybe Text)
+-&gt; (DmsTransferSettings -&gt; Maybe Text -&gt; DmsTransferSettings)
+-&gt; Lens
+     DmsTransferSettings DmsTransferSettings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings%27"><span class="hs-identifier hs-type">DmsTransferSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431161"><span class="annot"><span class="annottext">Maybe Text
+bucketName :: Maybe Text
+$sel:bucketName:DmsTransferSettings' :: DmsTransferSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679431161"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431161"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431160"><span class="annot"><span class="annottext">s :: DmsTransferSettings
+</span><a href="#local-6989586621679431160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings%27"><span class="hs-identifier hs-type">DmsTransferSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431159"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DmsTransferSettings
+</span><a href="#local-6989586621679431160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:DmsTransferSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#%24sel%3AbucketName%3ADmsTransferSettings%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-type">DmsTransferSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431156"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-type">DmsTransferSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679431154"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DmsTransferSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DmsTransferSettings)
 -&gt; Value
 -&gt; Parser DmsTransferSettings
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DmsTransferSettings&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679430880"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679430880"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; DmsTransferSettings
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679431151"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679431151"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; DmsTransferSettings
 </span><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings%27"><span class="hs-identifier hs-var">DmsTransferSettings'</span></a></span><span>
-</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; DmsTransferSettings)
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; DmsTransferSettings)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; DmsTransferSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679430880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BucketName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DmsTransferSettings)
--&gt; Parser (Maybe Text) -&gt; Parser DmsTransferSettings
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679430880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679431151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceAccessRoleArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430874"><span id="local-6989586621679430876"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-type">DmsTransferSettings</span></a></span></span></span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430871"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-type">DmsTransferSettings</span></a></span></span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430863"><span id="local-6989586621679430865"><span id="local-6989586621679430867"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-type">DmsTransferSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679430861"><span class="annot"><span class="annottext">toJSON :: DmsTransferSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings%27"><span class="hs-identifier hs-type">DmsTransferSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430858"><span id="local-6989586621679430859"><span class="annot"><span class="annottext">Maybe Text
-serviceAccessRoleArn :: Maybe Text
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DmsTransferSettings)
+-&gt; Parser (Maybe Text) -&gt; Parser DmsTransferSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679431151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BucketName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431145"><span id="local-6989586621679431147"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-type">DmsTransferSettings</span></a></span></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431142"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-type">DmsTransferSettings</span></a></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431134"><span id="local-6989586621679431136"><span id="local-6989586621679431138"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings"><span class="hs-identifier hs-type">DmsTransferSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679431132"><span class="annot"><span class="annottext">toJSON :: DmsTransferSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DmsTransferSettings.html#DmsTransferSettings%27"><span class="hs-identifier hs-type">DmsTransferSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431129"><span id="local-6989586621679431130"><span class="annot"><span class="annottext">Maybe Text
 bucketName :: Maybe Text
-$sel:serviceAccessRoleArn:DmsTransferSettings' :: DmsTransferSettings -&gt; Maybe Text
+serviceAccessRoleArn :: Maybe Text
 $sel:bucketName:DmsTransferSettings' :: DmsTransferSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679430858"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:serviceAccessRoleArn:DmsTransferSettings' :: DmsTransferSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679431129"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-85"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430859"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-86"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceAccessRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430858"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span>
-</span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span></pre></body></html>
+</span><a href="#local-6989586621679431130"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431129"><span class="hs-identifier hs-var">bucketName</span></a></span><span>
+</span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span></pre></body></html>

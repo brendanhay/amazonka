@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679430050"><span id="local-6989586621679430051"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetAction"><span class="annot"><a href="Network.AWS.GameLift.Types.FleetAction.html#FleetAction"><span class="hs-identifier hs-var">FleetAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetAction%27"><span class="annot"><a href="Network.AWS.GameLift.Types.FleetAction.html#FleetAction%27"><span class="hs-identifier hs-var">FleetAction'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679430495"><span id="local-6989586621679430496"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetAction"><span class="annot"><a href="Network.AWS.GameLift.Types.FleetAction.html#FleetAction"><span class="hs-identifier hs-var">FleetAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetAction%27"><span class="annot"><a href="Network.AWS.GameLift.Types.FleetAction.html#FleetAction%27"><span class="hs-identifier hs-var">FleetAction'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFleetAction"><span class="annot"><span class="annottext">FleetAction -&gt; Text
 </span><a href="Network.AWS.GameLift.Types.FleetAction.html#fromFleetAction"><span class="hs-identifier hs-var hs-var">fromFleetAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679430042"><span id="local-6989586621679430044"><span id="local-6989586621679430046"><span class="annot"><span class="annottext">Int -&gt; FleetAction -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679430487"><span id="local-6989586621679430489"><span id="local-6989586621679430491"><span class="annot"><span class="annottext">Int -&gt; FleetAction -&gt; ShowS
 [FleetAction] -&gt; ShowS
 FleetAction -&gt; String
 (Int -&gt; FleetAction -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: FleetAction -&gt; String
 showsPrec :: Int -&gt; FleetAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; FleetAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679430033"><span id="local-6989586621679430035"><span id="local-6989586621679430037"><span id="local-6989586621679430039"><span class="annot"><span class="annottext">ReadPrec [FleetAction]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679430478"><span id="local-6989586621679430480"><span id="local-6989586621679430482"><span id="local-6989586621679430484"><span class="annot"><span class="annottext">ReadPrec [FleetAction]
 ReadPrec FleetAction
 Int -&gt; ReadS FleetAction
 ReadS [FleetAction]
@@ -71,7 +71,7 @@ $creadList :: ReadS [FleetAction]
 readsPrec :: Int -&gt; ReadS FleetAction
 $creadsPrec :: Int -&gt; ReadS FleetAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679430028"><span id="local-6989586621679430030"><span class="annot"><span class="annottext">FleetAction -&gt; FleetAction -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679430473"><span id="local-6989586621679430475"><span class="annot"><span class="annottext">FleetAction -&gt; FleetAction -&gt; Bool
 (FleetAction -&gt; FleetAction -&gt; Bool)
 -&gt; (FleetAction -&gt; FleetAction -&gt; Bool) -&gt; Eq FleetAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: FleetAction -&gt; FleetAction -&gt; Bool
 == :: FleetAction -&gt; FleetAction -&gt; Bool
 $c== :: FleetAction -&gt; FleetAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679430012"><span id="local-6989586621679430014"><span id="local-6989586621679430016"><span id="local-6989586621679430018"><span id="local-6989586621679430020"><span id="local-6989586621679430022"><span id="local-6989586621679430024"><span class="annot"><span class="annottext">Eq FleetAction
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679430457"><span id="local-6989586621679430459"><span id="local-6989586621679430461"><span id="local-6989586621679430463"><span id="local-6989586621679430465"><span id="local-6989586621679430467"><span id="local-6989586621679430469"><span class="annot"><span class="annottext">Eq FleetAction
 Eq FleetAction
 -&gt; (FleetAction -&gt; FleetAction -&gt; Ordering)
 -&gt; (FleetAction -&gt; FleetAction -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. FleetAction -&gt; Rep FleetAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679430004"><span id="local-6989586621679430006"><span class="annot"><span class="annottext">Int -&gt; FleetAction -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679430449"><span id="local-6989586621679430451"><span class="annot"><span class="annottext">Int -&gt; FleetAction -&gt; Int
 FleetAction -&gt; Int
 (Int -&gt; FleetAction -&gt; Int)
 -&gt; (FleetAction -&gt; Int) -&gt; Hashable FleetAction
@@ -141,49 +141,49 @@ $chash :: FleetAction -&gt; Int
 hashWithSalt :: Int -&gt; FleetAction -&gt; Int
 $chashWithSalt :: Int -&gt; FleetAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679430001"><span class="annot"><span class="annottext">FleetAction -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679430446"><span class="annot"><span class="annottext">FleetAction -&gt; ()
 (FleetAction -&gt; ()) -&gt; NFData FleetAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FleetAction -&gt; ()
 $crnf :: FleetAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679429998"><span class="annot"><span class="annottext">Text -&gt; Either String FleetAction
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679430443"><span class="annot"><span class="annottext">Text -&gt; Either String FleetAction
 (Text -&gt; Either String FleetAction) -&gt; FromText FleetAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FleetAction
 $cfromText :: Text -&gt; Either String FleetAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679429995"><span class="annot"><span class="annottext">FleetAction -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679430440"><span class="annot"><span class="annottext">FleetAction -&gt; Text
 (FleetAction -&gt; Text) -&gt; ToText FleetAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FleetAction -&gt; Text
 $ctoText :: FleetAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679429992"><span class="annot"><span class="annottext">FleetAction -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679430437"><span class="annot"><span class="annottext">FleetAction -&gt; ByteString
 (FleetAction -&gt; ByteString) -&gt; ToByteString FleetAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FleetAction -&gt; ByteString
 $ctoBS :: FleetAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679429989"><span class="annot"><span class="annottext">FleetAction -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679430434"><span class="annot"><span class="annottext">FleetAction -&gt; ByteStringBuilder
 (FleetAction -&gt; ByteStringBuilder) -&gt; ToLog FleetAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FleetAction -&gt; ByteStringBuilder
 $cbuild :: FleetAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679429986"><span class="annot"><span class="annottext">HeaderName -&gt; FleetAction -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679430431"><span class="annot"><span class="annottext">HeaderName -&gt; FleetAction -&gt; [Header]
 (HeaderName -&gt; FleetAction -&gt; [Header]) -&gt; ToHeader FleetAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FleetAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FleetAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679429983"><span class="annot"><span class="annottext">FleetAction -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679430428"><span class="annot"><span class="annottext">FleetAction -&gt; QueryString
 (FleetAction -&gt; QueryString) -&gt; ToQuery FleetAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FleetAction -&gt; QueryString
 $ctoQuery :: FleetAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679429978"><span id="local-6989586621679429980"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetAction]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679430423"><span id="local-6989586621679430425"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetAction]
 Value -&gt; Parser FleetAction
 (Value -&gt; Parser FleetAction)
 -&gt; (Value -&gt; Parser [FleetAction]) -&gt; FromJSON FleetAction
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [FleetAction]
 parseJSON :: Value -&gt; Parser FleetAction
 $cparseJSON :: Value -&gt; Parser FleetAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679429973"><span id="local-6989586621679429975"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetAction]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679430418"><span id="local-6989586621679430420"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetAction]
 FromJSONKeyFunction FleetAction
 FromJSONKeyFunction FleetAction
 -&gt; FromJSONKeyFunction [FleetAction] -&gt; FromJSONKey FleetAction
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FleetAction]
 fromJSONKey :: FromJSONKeyFunction FleetAction
 $cfromJSONKey :: FromJSONKeyFunction FleetAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679429964"><span id="local-6989586621679429966"><span id="local-6989586621679429968"><span id="local-6989586621679429970"><span class="annot"><span class="annottext">[FleetAction] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679430409"><span id="local-6989586621679430411"><span id="local-6989586621679430413"><span id="local-6989586621679430415"><span class="annot"><span class="annottext">[FleetAction] -&gt; Encoding
 [FleetAction] -&gt; Value
 FleetAction -&gt; Encoding
 FleetAction -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: FleetAction -&gt; Encoding
 toJSON :: FleetAction -&gt; Value
 $ctoJSON :: FleetAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679429959"><span id="local-6989586621679429961"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetAction]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679430404"><span id="local-6989586621679430406"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetAction]
 ToJSONKeyFunction FleetAction
 ToJSONKeyFunction FleetAction
 -&gt; ToJSONKeyFunction [FleetAction] -&gt; ToJSONKey FleetAction
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FleetAction]
 toJSONKey :: ToJSONKeyFunction FleetAction
 $ctoJSONKey :: ToJSONKeyFunction FleetAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679429956"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetAction
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679430401"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetAction
 ([Node] -&gt; Either String FleetAction) -&gt; FromXML FleetAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FleetAction
 $cparseXML :: [Node] -&gt; Either String FleetAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679429953"><span class="annot"><span class="annottext">FleetAction -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679430398"><span class="annot"><span class="annottext">FleetAction -&gt; XML
 (FleetAction -&gt; XML) -&gt; ToXML FleetAction
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FleetAction -&gt; XML

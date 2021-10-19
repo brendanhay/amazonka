@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newUntagUser' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679462428"><span id="local-6989586621679462429"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagUser"><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser"><span class="hs-identifier hs-var">UntagUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagUser%27"><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser%27"><span class="hs-identifier hs-var">UntagUser'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679463076"><span id="local-6989586621679463077"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagUser"><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser"><span class="hs-identifier hs-var">UntagUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagUser%27"><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser%27"><span class="hs-identifier hs-var">UntagUser'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the IAM user from which you want to remove tags.</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AtagKeys%3AUntagUser%27"><span class="annot"><span class="annottext">UntagUser -&gt; [Text]
 </span><a href="Network.AWS.IAM.UntagUser.html#%24sel%3AtagKeys%3AUntagUser%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679462421"><span id="local-6989586621679462423"><span class="annot"><span class="annottext">UntagUser -&gt; UntagUser -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463069"><span id="local-6989586621679463071"><span class="annot"><span class="annottext">UntagUser -&gt; UntagUser -&gt; Bool
 (UntagUser -&gt; UntagUser -&gt; Bool)
 -&gt; (UntagUser -&gt; UntagUser -&gt; Bool) -&gt; Eq UntagUser
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UntagUser -&gt; UntagUser -&gt; Bool
 == :: UntagUser -&gt; UntagUser -&gt; Bool
 $c== :: UntagUser -&gt; UntagUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462412"><span id="local-6989586621679462414"><span id="local-6989586621679462416"><span id="local-6989586621679462418"><span class="annot"><span class="annottext">ReadPrec [UntagUser]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463060"><span id="local-6989586621679463062"><span id="local-6989586621679463064"><span id="local-6989586621679463066"><span class="annot"><span class="annottext">ReadPrec [UntagUser]
 ReadPrec UntagUser
 Int -&gt; ReadS UntagUser
 ReadS [UntagUser]
@@ -89,7 +89,7 @@ readList :: ReadS [UntagUser]
 $creadList :: ReadS [UntagUser]
 readsPrec :: Int -&gt; ReadS UntagUser
 $creadsPrec :: Int -&gt; ReadS UntagUser
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462405"><span id="local-6989586621679462407"><span id="local-6989586621679462409"><span class="annot"><span class="annottext">Int -&gt; UntagUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463053"><span id="local-6989586621679463055"><span id="local-6989586621679463057"><span class="annot"><span class="annottext">Int -&gt; UntagUser -&gt; ShowS
 [UntagUser] -&gt; ShowS
 UntagUser -&gt; String
 (Int -&gt; UntagUser -&gt; ShowS)
@@ -136,13 +136,13 @@ $cfrom :: forall x. UntagUser -&gt; Rep UntagUser x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser"><span class="hs-identifier hs-type">UntagUser</span></a></span><span>
 </span><span id="line-85"></span><span id="newUntagUser"><span class="annot"><span class="annottext">newUntagUser :: Text -&gt; UntagUser
-</span><a href="Network.AWS.IAM.UntagUser.html#newUntagUser"><span class="hs-identifier hs-var hs-var">newUntagUser</span></a></span></span><span> </span><span id="local-6989586621679462400"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462400"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.UntagUser.html#newUntagUser"><span class="hs-identifier hs-var hs-var">newUntagUser</span></a></span></span><span> </span><span id="local-6989586621679463048"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463048"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">UntagUser' :: Text -&gt; [Text] -&gt; UntagUser
 </span><a href="Network.AWS.IAM.UntagUser.html#UntagUser%27"><span class="hs-identifier hs-type">UntagUser'</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userName:UntagUser' :: Text
 </span><a href="Network.AWS.IAM.UntagUser.html#%24sel%3AuserName%3AUntagUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462400"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679463048"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeys:UntagUser' :: [Text]
 </span><a href="Network.AWS.IAM.UntagUser.html#%24sel%3AtagKeys%3AUntagUser%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -161,16 +161,16 @@ forall a. Monoid a =&gt; a
 -&gt; (UntagUser -&gt; Text -&gt; UntagUser)
 -&gt; Lens UntagUser UntagUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser%27"><span class="hs-identifier hs-type">UntagUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462397"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser%27"><span class="hs-identifier hs-type">UntagUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463045"><span class="annot"><span class="annottext">Text
 userName :: Text
 $sel:userName:UntagUser' :: UntagUser -&gt; Text
-</span><a href="#local-6989586621679462397"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462397"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462396"><span class="annot"><span class="annottext">s :: UntagUser
-</span><a href="#local-6989586621679462396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser%27"><span class="hs-identifier hs-type">UntagUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462395"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagUser
-</span><a href="#local-6989586621679462396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:UntagUser' :: Text
+</span><a href="#local-6989586621679463045"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463045"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463044"><span class="annot"><span class="annottext">s :: UntagUser
+</span><a href="#local-6989586621679463044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser%27"><span class="hs-identifier hs-type">UntagUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463043"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagUser
+</span><a href="#local-6989586621679463044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:UntagUser' :: Text
 </span><a href="Network.AWS.IAM.UntagUser.html#%24sel%3AuserName%3AUntagUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser"><span class="hs-identifier hs-type">UntagUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser"><span class="hs-identifier hs-type">UntagUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | A list of key names as a simple array of strings. The tags with matching</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- keys are removed from the specified user.</span><span>
@@ -180,33 +180,33 @@ $sel:userName:UntagUser' :: UntagUser -&gt; Text
 -&gt; (UntagUser -&gt; [Text] -&gt; UntagUser)
 -&gt; Lens UntagUser UntagUser [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser%27"><span class="hs-identifier hs-type">UntagUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462394"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser%27"><span class="hs-identifier hs-type">UntagUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463042"><span class="annot"><span class="annottext">[Text]
 tagKeys :: [Text]
 $sel:tagKeys:UntagUser' :: UntagUser -&gt; [Text]
-</span><a href="#local-6989586621679462394"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679462394"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462393"><span class="annot"><span class="annottext">s :: UntagUser
-</span><a href="#local-6989586621679462393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser%27"><span class="hs-identifier hs-type">UntagUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462392"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679462392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagUser
-</span><a href="#local-6989586621679462393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:UntagUser' :: [Text]
+</span><a href="#local-6989586621679463042"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679463042"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463041"><span class="annot"><span class="annottext">s :: UntagUser
+</span><a href="#local-6989586621679463041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser%27"><span class="hs-identifier hs-type">UntagUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463040"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679463040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagUser
+</span><a href="#local-6989586621679463041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:UntagUser' :: [Text]
 </span><a href="Network.AWS.IAM.UntagUser.html#%24sel%3AtagKeys%3AUntagUser%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679462392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser"><span class="hs-identifier hs-type">UntagUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; UntagUser -&gt; f UntagUser)
+</span><a href="#local-6989586621679463040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser"><span class="hs-identifier hs-type">UntagUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; UntagUser -&gt; f UntagUser)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; UntagUser
 -&gt; f UntagUser
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser"><span class="hs-identifier hs-type">UntagUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser"><span class="hs-identifier hs-type">UntagUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUserResponse"><span class="hs-identifier hs-type">UntagUserResponse</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679462386"><span class="annot"><span class="annottext">request :: UntagUser -&gt; Request UntagUser
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679463034"><span class="annot"><span class="annottext">request :: UntagUser -&gt; Request UntagUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UntagUser -&gt; Request UntagUser
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679462382"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679463030"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UntagUser
 -&gt; ClientResponse ClientBody
@@ -229,12 +229,12 @@ AWSResponse a
 UntagUserResponse
 </span><a href="Network.AWS.IAM.UntagUser.html#UntagUserResponse%27"><span class="hs-identifier hs-var">UntagUserResponse'</span></a></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462375"><span id="local-6989586621679462377"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser"><span class="hs-identifier hs-type">UntagUser</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463023"><span id="local-6989586621679463025"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser"><span class="hs-identifier hs-type">UntagUser</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462372"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser"><span class="hs-identifier hs-type">UntagUser</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463020"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser"><span class="hs-identifier hs-type">UntagUser</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser"><span class="hs-identifier hs-type">UntagUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679462368"><span class="annot"><span class="annottext">toHeaders :: UntagUser -&gt; [Header]
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679463016"><span class="annot"><span class="annottext">toHeaders :: UntagUser -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; UntagUser -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -242,21 +242,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser"><span class="hs-identifier hs-type">UntagUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679462363"><span class="annot"><span class="annottext">toPath :: UntagUser -&gt; ByteString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679463011"><span class="annot"><span class="annottext">toPath :: UntagUser -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UntagUser -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser"><span class="hs-identifier hs-type">UntagUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679462359"><span class="annot"><span class="annottext">toQuery :: UntagUser -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser%27"><span class="hs-identifier hs-type">UntagUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462356"><span id="local-6989586621679462357"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679463007"><span class="annot"><span class="annottext">toQuery :: UntagUser -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUser%27"><span class="hs-identifier hs-type">UntagUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463004"><span id="local-6989586621679463005"><span class="annot"><span class="annottext">[Text]
 Text
 tagKeys :: [Text]
 userName :: Text
 $sel:tagKeys:UntagUser' :: UntagUser -&gt; [Text]
 $sel:userName:UntagUser' :: UntagUser -&gt; Text
-</span><a href="#local-6989586621679462356"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679463004"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -276,7 +276,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462357"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679463005"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TagKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
@@ -286,14 +286,14 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679462356"><span class="hs-identifier hs-var">tagKeys</span></a></span><span>
+</span><a href="#local-6989586621679463004"><span class="hs-identifier hs-var">tagKeys</span></a></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newUntagUserResponse' smart constructor.</span><span>
-</span><span id="line-132"></span><span id="local-6989586621679462352"><span id="local-6989586621679462353"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagUserResponse"><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUserResponse"><span class="hs-identifier hs-var">UntagUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagUserResponse%27"><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUserResponse%27"><span class="hs-identifier hs-var">UntagUserResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span id="local-6989586621679463000"><span id="local-6989586621679463001"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagUserResponse"><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUserResponse"><span class="hs-identifier hs-var">UntagUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagUserResponse%27"><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUserResponse%27"><span class="hs-identifier hs-var">UntagUserResponse'</span></a></span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679462348"><span id="local-6989586621679462350"><span class="annot"><span class="annottext">UntagUserResponse -&gt; UntagUserResponse -&gt; Bool
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679462996"><span id="local-6989586621679462998"><span class="annot"><span class="annottext">UntagUserResponse -&gt; UntagUserResponse -&gt; Bool
 (UntagUserResponse -&gt; UntagUserResponse -&gt; Bool)
 -&gt; (UntagUserResponse -&gt; UntagUserResponse -&gt; Bool)
 -&gt; Eq UntagUserResponse
@@ -302,7 +302,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UntagUserResponse -&gt; UntagUserResponse -&gt; Bool
 == :: UntagUserResponse -&gt; UntagUserResponse -&gt; Bool
 $c== :: UntagUserResponse -&gt; UntagUserResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462340"><span id="local-6989586621679462342"><span id="local-6989586621679462344"><span id="local-6989586621679462346"><span class="annot"><span class="annottext">ReadPrec [UntagUserResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462988"><span id="local-6989586621679462990"><span id="local-6989586621679462992"><span id="local-6989586621679462994"><span class="annot"><span class="annottext">ReadPrec [UntagUserResponse]
 ReadPrec UntagUserResponse
 Int -&gt; ReadS UntagUserResponse
 ReadS [UntagUserResponse]
@@ -322,7 +322,7 @@ readList :: ReadS [UntagUserResponse]
 $creadList :: ReadS [UntagUserResponse]
 readsPrec :: Int -&gt; ReadS UntagUserResponse
 $creadsPrec :: Int -&gt; ReadS UntagUserResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462334"><span id="local-6989586621679462336"><span id="local-6989586621679462338"><span class="annot"><span class="annottext">Int -&gt; UntagUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462982"><span id="local-6989586621679462984"><span id="local-6989586621679462986"><span class="annot"><span class="annottext">Int -&gt; UntagUserResponse -&gt; ShowS
 [UntagUserResponse] -&gt; ShowS
 UntagUserResponse -&gt; String
 (Int -&gt; UntagUserResponse -&gt; ShowS)
@@ -358,5 +358,5 @@ $cfrom :: forall x. UntagUserResponse -&gt; Rep UntagUserResponse x
 </span><a href="Network.AWS.IAM.UntagUser.html#newUntagUserResponse"><span class="hs-identifier hs-var hs-var">newUntagUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UntagUserResponse
 </span><a href="Network.AWS.IAM.UntagUser.html#UntagUserResponse%27"><span class="hs-identifier hs-var">UntagUserResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462330"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUserResponse"><span class="hs-identifier hs-type">UntagUserResponse</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462978"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagUser.html#UntagUserResponse"><span class="hs-identifier hs-type">UntagUserResponse</span></a></span></span><span>
 </span><span id="line-146"></span></pre></body></html>

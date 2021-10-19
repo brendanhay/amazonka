@@ -52,13 +52,13 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newStopJob' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679373688"><span id="local-6989586621679373689"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopJob"><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob"><span class="hs-identifier hs-var">StopJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopJob%27"><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob%27"><span class="hs-identifier hs-var">StopJob'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679373942"><span id="local-6989586621679373943"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopJob"><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob"><span class="hs-identifier hs-var">StopJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopJob%27"><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob%27"><span class="hs-identifier hs-var">StopJob'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the Amazon Resource Name (ARN) of the Device Farm job to</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- stop.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Aarn%3AStopJob%27"><span class="annot"><span class="annottext">StopJob -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.StopJob.html#%24sel%3Aarn%3AStopJob%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373682"><span id="local-6989586621679373684"><span class="annot"><span class="annottext">StopJob -&gt; StopJob -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373936"><span id="local-6989586621679373938"><span class="annot"><span class="annottext">StopJob -&gt; StopJob -&gt; Bool
 (StopJob -&gt; StopJob -&gt; Bool)
 -&gt; (StopJob -&gt; StopJob -&gt; Bool) -&gt; Eq StopJob
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopJob -&gt; StopJob -&gt; Bool
 == :: StopJob -&gt; StopJob -&gt; Bool
 $c== :: StopJob -&gt; StopJob -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373673"><span id="local-6989586621679373675"><span id="local-6989586621679373677"><span id="local-6989586621679373679"><span class="annot"><span class="annottext">ReadPrec [StopJob]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373927"><span id="local-6989586621679373929"><span id="local-6989586621679373931"><span id="local-6989586621679373933"><span class="annot"><span class="annottext">ReadPrec [StopJob]
 ReadPrec StopJob
 Int -&gt; ReadS StopJob
 ReadS [StopJob]
@@ -86,7 +86,7 @@ readList :: ReadS [StopJob]
 $creadList :: ReadS [StopJob]
 readsPrec :: Int -&gt; ReadS StopJob
 $creadsPrec :: Int -&gt; ReadS StopJob
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373666"><span id="local-6989586621679373668"><span id="local-6989586621679373670"><span class="annot"><span class="annottext">Int -&gt; StopJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373920"><span id="local-6989586621679373922"><span id="local-6989586621679373924"><span class="annot"><span class="annottext">Int -&gt; StopJob -&gt; ShowS
 [StopJob] -&gt; ShowS
 StopJob -&gt; String
 (Int -&gt; StopJob -&gt; ShowS)
@@ -124,11 +124,11 @@ $cfrom :: forall x. StopJob -&gt; Rep StopJob x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob"><span class="hs-identifier hs-type">StopJob</span></a></span><span>
 </span><span id="line-76"></span><span id="newStopJob"><span class="annot"><span class="annottext">newStopJob :: Text -&gt; StopJob
-</span><a href="Network.AWS.DeviceFarm.StopJob.html#newStopJob"><span class="hs-identifier hs-var hs-var">newStopJob</span></a></span></span><span> </span><span id="local-6989586621679373661"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373661"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StopJob' :: Text -&gt; StopJob
+</span><a href="Network.AWS.DeviceFarm.StopJob.html#newStopJob"><span class="hs-identifier hs-var hs-var">newStopJob</span></a></span></span><span> </span><span id="local-6989586621679373915"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373915"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StopJob' :: Text -&gt; StopJob
 </span><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob%27"><span class="hs-identifier hs-type">StopJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:StopJob' :: Text
 </span><a href="Network.AWS.DeviceFarm.StopJob.html#%24sel%3Aarn%3AStopJob%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373661"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679373915"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | Represents the Amazon Resource Name (ARN) of the Device Farm job to</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- stop.</span><span>
@@ -137,25 +137,25 @@ $cfrom :: forall x. StopJob -&gt; Rep StopJob x
 </span><a href="Network.AWS.DeviceFarm.StopJob.html#stopJob_arn"><span class="hs-identifier hs-var hs-var">stopJob_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopJob -&gt; Text)
 -&gt; (StopJob -&gt; Text -&gt; StopJob) -&gt; Lens StopJob StopJob Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob%27"><span class="hs-identifier hs-type">StopJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373658"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob%27"><span class="hs-identifier hs-type">StopJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373912"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:StopJob' :: StopJob -&gt; Text
-</span><a href="#local-6989586621679373658"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373658"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373657"><span class="annot"><span class="annottext">s :: StopJob
-</span><a href="#local-6989586621679373657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob%27"><span class="hs-identifier hs-type">StopJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373656"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopJob
-</span><a href="#local-6989586621679373657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:StopJob' :: Text
+</span><a href="#local-6989586621679373912"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373912"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373911"><span class="annot"><span class="annottext">s :: StopJob
+</span><a href="#local-6989586621679373911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob%27"><span class="hs-identifier hs-type">StopJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373910"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopJob
+</span><a href="#local-6989586621679373911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:StopJob' :: Text
 </span><a href="Network.AWS.DeviceFarm.StopJob.html#%24sel%3Aarn%3AStopJob%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob"><span class="hs-identifier hs-type">StopJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob"><span class="hs-identifier hs-type">StopJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob"><span class="hs-identifier hs-type">StopJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob"><span class="hs-identifier hs-type">StopJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse"><span class="hs-identifier hs-type">StopJobResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679373652"><span class="annot"><span class="annottext">request :: StopJob -&gt; Request StopJob
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679373906"><span class="annot"><span class="annottext">request :: StopJob -&gt; Request StopJob
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopJob -&gt; Request StopJob
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679373648"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679373902"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopJob
 -&gt; ClientResponse ClientBody
@@ -179,10 +179,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373645"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373645"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679373644"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679373644"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679373643"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373643"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373899"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373899"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679373898"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679373898"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679373897"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373897"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Job -&gt; Int -&gt; StopJobResponse
 </span><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse%27"><span class="hs-identifier hs-var">StopJobResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Job -&gt; Int -&gt; StopJobResponse)
@@ -190,7 +190,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; StopJobResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Job)
+</span><a href="#local-6989586621679373897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Job)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;job&quot;</span></span><span class="hs-special">)</span><span>
@@ -202,15 +202,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373645"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373899"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373635"><span id="local-6989586621679373637"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob"><span class="hs-identifier hs-type">StopJob</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373889"><span id="local-6989586621679373891"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob"><span class="hs-identifier hs-type">StopJob</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373632"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob"><span class="hs-identifier hs-type">StopJob</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373886"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob"><span class="hs-identifier hs-type">StopJob</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob"><span class="hs-identifier hs-type">StopJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679373628"><span class="annot"><span class="annottext">toHeaders :: StopJob -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679373882"><span class="annot"><span class="annottext">toHeaders :: StopJob -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopJob -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -237,12 +237,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373618"><span id="local-6989586621679373620"><span id="local-6989586621679373622"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob"><span class="hs-identifier hs-type">StopJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679373616"><span class="annot"><span class="annottext">toJSON :: StopJob -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob%27"><span class="hs-identifier hs-type">StopJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373614"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373872"><span id="local-6989586621679373874"><span id="local-6989586621679373876"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob"><span class="hs-identifier hs-type">StopJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679373870"><span class="annot"><span class="annottext">toJSON :: StopJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob%27"><span class="hs-identifier hs-type">StopJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373868"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:StopJob' :: StopJob -&gt; Text
-</span><a href="#local-6989586621679373614"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679373868"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -254,18 +254,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373614"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679373868"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob"><span class="hs-identifier hs-type">StopJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679373608"><span class="annot"><span class="annottext">toPath :: StopJob -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679373862"><span class="annot"><span class="annottext">toPath :: StopJob -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopJob -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJob"><span class="hs-identifier hs-type">StopJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679373604"><span class="annot"><span class="annottext">toQuery :: StopJob -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679373858"><span class="annot"><span class="annottext">toQuery :: StopJob -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopJob -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -273,7 +273,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newStopJobResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679373601"><span id="local-6989586621679373602"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopJobResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse"><span class="hs-identifier hs-var">StopJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopJobResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse%27"><span class="hs-identifier hs-var">StopJobResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679373855"><span id="local-6989586621679373856"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopJobResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse"><span class="hs-identifier hs-var">StopJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopJobResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse%27"><span class="hs-identifier hs-var">StopJobResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The job that was stopped.</span><span>
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3Ajob%3AStopJobResponse%27"><span class="annot"><span class="annottext">StopJobResponse -&gt; Maybe Job
 </span><a href="Network.AWS.DeviceFarm.StopJob.html#%24sel%3Ajob%3AStopJobResponse%27"><span class="hs-identifier hs-var hs-var">job</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">,</span><span>
@@ -281,7 +281,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopJobResponse%27"><span class="annot"><span class="annottext">StopJobResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.StopJob.html#%24sel%3AhttpStatus%3AStopJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373595"><span id="local-6989586621679373597"><span class="annot"><span class="annottext">StopJobResponse -&gt; StopJobResponse -&gt; Bool
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373849"><span id="local-6989586621679373851"><span class="annot"><span class="annottext">StopJobResponse -&gt; StopJobResponse -&gt; Bool
 (StopJobResponse -&gt; StopJobResponse -&gt; Bool)
 -&gt; (StopJobResponse -&gt; StopJobResponse -&gt; Bool)
 -&gt; Eq StopJobResponse
@@ -290,7 +290,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopJobResponse -&gt; StopJobResponse -&gt; Bool
 == :: StopJobResponse -&gt; StopJobResponse -&gt; Bool
 $c== :: StopJobResponse -&gt; StopJobResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373587"><span id="local-6989586621679373589"><span id="local-6989586621679373591"><span id="local-6989586621679373593"><span class="annot"><span class="annottext">ReadPrec [StopJobResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373841"><span id="local-6989586621679373843"><span id="local-6989586621679373845"><span id="local-6989586621679373847"><span class="annot"><span class="annottext">ReadPrec [StopJobResponse]
 ReadPrec StopJobResponse
 Int -&gt; ReadS StopJobResponse
 ReadS [StopJobResponse]
@@ -310,7 +310,7 @@ readList :: ReadS [StopJobResponse]
 $creadList :: ReadS [StopJobResponse]
 readsPrec :: Int -&gt; ReadS StopJobResponse
 $creadsPrec :: Int -&gt; ReadS StopJobResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373581"><span id="local-6989586621679373583"><span id="local-6989586621679373585"><span class="annot"><span class="annottext">Int -&gt; StopJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373835"><span id="local-6989586621679373837"><span id="local-6989586621679373839"><span class="annot"><span class="annottext">Int -&gt; StopJobResponse -&gt; ShowS
 [StopJobResponse] -&gt; ShowS
 StopJobResponse -&gt; String
 (Int -&gt; StopJobResponse -&gt; ShowS)
@@ -352,8 +352,8 @@ $cfrom :: forall x. StopJobResponse -&gt; Rep StopJobResponse x
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse"><span class="hs-identifier hs-type">StopJobResponse</span></a></span><span>
 </span><span id="line-150"></span><span id="newStopJobResponse"><span class="annot"><span class="annottext">newStopJobResponse :: Int -&gt; StopJobResponse
-</span><a href="Network.AWS.DeviceFarm.StopJob.html#newStopJobResponse"><span class="hs-identifier hs-var hs-var">newStopJobResponse</span></a></span></span><span> </span><span id="local-6989586621679373578"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373578"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.StopJob.html#newStopJobResponse"><span class="hs-identifier hs-var hs-var">newStopJobResponse</span></a></span></span><span> </span><span id="local-6989586621679373832"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373832"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">StopJobResponse' :: Maybe Job -&gt; Int -&gt; StopJobResponse
 </span><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse%27"><span class="hs-identifier hs-type">StopJobResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:job:StopJobResponse' :: Maybe Job
@@ -362,7 +362,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopJobResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.StopJob.html#%24sel%3AhttpStatus%3AStopJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373578"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679373832"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The job that was stopped.</span><span>
@@ -373,16 +373,16 @@ forall a. Maybe a
 -&gt; (StopJobResponse -&gt; Maybe Job -&gt; StopJobResponse)
 -&gt; Lens StopJobResponse StopJobResponse (Maybe Job) (Maybe Job)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse%27"><span class="hs-identifier hs-type">StopJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373577"><span class="annot"><span class="annottext">Maybe Job
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse%27"><span class="hs-identifier hs-type">StopJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373831"><span class="annot"><span class="annottext">Maybe Job
 job :: Maybe Job
 $sel:job:StopJobResponse' :: StopJobResponse -&gt; Maybe Job
-</span><a href="#local-6989586621679373577"><span class="hs-identifier hs-var hs-var">job</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Job
-</span><a href="#local-6989586621679373577"><span class="hs-identifier hs-var">job</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373576"><span class="annot"><span class="annottext">s :: StopJobResponse
-</span><a href="#local-6989586621679373576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse%27"><span class="hs-identifier hs-type">StopJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373575"><span class="annot"><span class="annottext">Maybe Job
-</span><a href="#local-6989586621679373575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopJobResponse
-</span><a href="#local-6989586621679373576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:job:StopJobResponse' :: Maybe Job
+</span><a href="#local-6989586621679373831"><span class="hs-identifier hs-var hs-var">job</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Job
+</span><a href="#local-6989586621679373831"><span class="hs-identifier hs-var">job</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373830"><span class="annot"><span class="annottext">s :: StopJobResponse
+</span><a href="#local-6989586621679373830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse%27"><span class="hs-identifier hs-type">StopJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373829"><span class="annot"><span class="annottext">Maybe Job
+</span><a href="#local-6989586621679373829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopJobResponse
+</span><a href="#local-6989586621679373830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:job:StopJobResponse' :: Maybe Job
 </span><a href="Network.AWS.DeviceFarm.StopJob.html#%24sel%3Ajob%3AStopJobResponse%27"><span class="hs-identifier hs-var">job</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Job
-</span><a href="#local-6989586621679373575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse"><span class="hs-identifier hs-type">StopJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse"><span class="hs-identifier hs-type">StopJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-161"></span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#stopJobResponse_httpStatus"><span class="hs-identifier hs-type">stopJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse"><span class="hs-identifier hs-type">StopJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -391,16 +391,16 @@ $sel:job:StopJobResponse' :: StopJobResponse -&gt; Maybe Job
 -&gt; (StopJobResponse -&gt; Int -&gt; StopJobResponse)
 -&gt; Lens StopJobResponse StopJobResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse%27"><span class="hs-identifier hs-type">StopJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373574"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse%27"><span class="hs-identifier hs-type">StopJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373828"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopJobResponse' :: StopJobResponse -&gt; Int
-</span><a href="#local-6989586621679373574"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373574"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373573"><span class="annot"><span class="annottext">s :: StopJobResponse
-</span><a href="#local-6989586621679373573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse%27"><span class="hs-identifier hs-type">StopJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373572"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopJobResponse
-</span><a href="#local-6989586621679373573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopJobResponse' :: Int
+</span><a href="#local-6989586621679373828"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373828"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373827"><span class="annot"><span class="annottext">s :: StopJobResponse
+</span><a href="#local-6989586621679373827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse%27"><span class="hs-identifier hs-type">StopJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373826"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopJobResponse
+</span><a href="#local-6989586621679373827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopJobResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.StopJob.html#%24sel%3AhttpStatus%3AStopJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse"><span class="hs-identifier hs-type">StopJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse"><span class="hs-identifier hs-type">StopJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse"><span class="hs-identifier hs-type">StopJobResponse</span></a></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373824"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopJob.html#StopJobResponse"><span class="hs-identifier hs-type">StopJobResponse</span></a></span></span><span>
 </span><span id="line-165"></span></pre></body></html>

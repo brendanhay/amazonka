@@ -42,8 +42,8 @@
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#newCreateBGPPeer"><span class="hs-identifier">newCreateBGPPeer</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#createBGPPeer_virtualInterfaceId"><span class="hs-identifier">createBGPPeer_virtualInterfaceId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#createBGPPeer_newBGPPeer"><span class="hs-identifier">createBGPPeer_newBGPPeer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#createBGPPeer_newBGPPeer"><span class="hs-identifier">createBGPPeer_newBGPPeer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#createBGPPeer_virtualInterfaceId"><span class="hs-identifier">createBGPPeer_virtualInterfaceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse"><span class="hs-identifier">CreateBGPPeerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -63,15 +63,15 @@
 </span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newCreateBGPPeer' smart constructor.</span><span>
-</span><span id="line-66"></span><span id="local-6989586621679293071"><span id="local-6989586621679293072"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBGPPeer"><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-var">CreateBGPPeer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBGPPeer%27"><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer%27"><span class="hs-identifier hs-var">CreateBGPPeer'</span></a></span></span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the virtual interface.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AvirtualInterfaceId%3ACreateBGPPeer%27"><span class="annot"><span class="annottext">CreateBGPPeer -&gt; Maybe Text
-</span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#%24sel%3AvirtualInterfaceId%3ACreateBGPPeer%27"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Information about the BGP peer.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AnewBGPPeer%27%3ACreateBGPPeer%27"><span class="annot"><span class="annottext">CreateBGPPeer -&gt; Maybe NewBGPPeer
-</span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#%24sel%3AnewBGPPeer%27%3ACreateBGPPeer%27"><span class="hs-identifier hs-var hs-var">newBGPPeer'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span><span>
+</span><span id="line-66"></span><span id="local-6989586621679293333"><span id="local-6989586621679293334"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBGPPeer"><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-var">CreateBGPPeer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBGPPeer%27"><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer%27"><span class="hs-identifier hs-var">CreateBGPPeer'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the BGP peer.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AnewBGPPeer%27%3ACreateBGPPeer%27"><span class="annot"><span class="annottext">CreateBGPPeer -&gt; Maybe NewBGPPeer
+</span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#%24sel%3AnewBGPPeer%27%3ACreateBGPPeer%27"><span class="hs-identifier hs-var hs-var">newBGPPeer'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The ID of the virtual interface.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AvirtualInterfaceId%3ACreateBGPPeer%27"><span class="annot"><span class="annottext">CreateBGPPeer -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#%24sel%3AvirtualInterfaceId%3ACreateBGPPeer%27"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293064"><span id="local-6989586621679293066"><span class="annot"><span class="annottext">CreateBGPPeer -&gt; CreateBGPPeer -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293326"><span id="local-6989586621679293328"><span class="annot"><span class="annottext">CreateBGPPeer -&gt; CreateBGPPeer -&gt; Bool
 (CreateBGPPeer -&gt; CreateBGPPeer -&gt; Bool)
 -&gt; (CreateBGPPeer -&gt; CreateBGPPeer -&gt; Bool) -&gt; Eq CreateBGPPeer
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateBGPPeer -&gt; CreateBGPPeer -&gt; Bool
 == :: CreateBGPPeer -&gt; CreateBGPPeer -&gt; Bool
 $c== :: CreateBGPPeer -&gt; CreateBGPPeer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293055"><span id="local-6989586621679293057"><span id="local-6989586621679293059"><span id="local-6989586621679293061"><span class="annot"><span class="annottext">ReadPrec [CreateBGPPeer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293317"><span id="local-6989586621679293319"><span id="local-6989586621679293321"><span id="local-6989586621679293323"><span class="annot"><span class="annottext">ReadPrec [CreateBGPPeer]
 ReadPrec CreateBGPPeer
 Int -&gt; ReadS CreateBGPPeer
 ReadS [CreateBGPPeer]
@@ -99,7 +99,7 @@ readList :: ReadS [CreateBGPPeer]
 $creadList :: ReadS [CreateBGPPeer]
 readsPrec :: Int -&gt; ReadS CreateBGPPeer
 $creadsPrec :: Int -&gt; ReadS CreateBGPPeer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293048"><span id="local-6989586621679293050"><span id="local-6989586621679293052"><span class="annot"><span class="annottext">Int -&gt; CreateBGPPeer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293310"><span id="local-6989586621679293312"><span id="local-6989586621679293314"><span class="annot"><span class="annottext">Int -&gt; CreateBGPPeer -&gt; ShowS
 [CreateBGPPeer] -&gt; ShowS
 CreateBGPPeer -&gt; String
 (Int -&gt; CreateBGPPeer -&gt; ShowS)
@@ -133,80 +133,79 @@ $cfrom :: forall x. CreateBGPPeer -&gt; Rep CreateBGPPeer x
 </span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'virtualInterfaceId', 'createBGPPeer_virtualInterfaceId' - The ID of the virtual interface.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'newBGPPeer'', 'createBGPPeer_newBGPPeer' - Information about the BGP peer.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'newBGPPeer'', 'createBGPPeer_newBGPPeer' - Information about the BGP peer.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'virtualInterfaceId', 'createBGPPeer_virtualInterfaceId' - The ID of the virtual interface.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#newCreateBGPPeer"><span class="hs-identifier hs-type">newCreateBGPPeer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span>
 </span><span id="line-87"></span><span id="newCreateBGPPeer"><span class="annot"><span class="annottext">newCreateBGPPeer :: CreateBGPPeer
 </span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#newCreateBGPPeer"><span class="hs-identifier hs-var hs-var">newCreateBGPPeer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">CreateBGPPeer' :: Maybe Text -&gt; Maybe NewBGPPeer -&gt; CreateBGPPeer
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">CreateBGPPeer' :: Maybe NewBGPPeer -&gt; Maybe Text -&gt; CreateBGPPeer
 </span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer%27"><span class="hs-identifier hs-type">CreateBGPPeer'</span></a></span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:CreateBGPPeer' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#%24sel%3AvirtualInterfaceId%3ACreateBGPPeer%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:newBGPPeer':CreateBGPPeer' :: Maybe NewBGPPeer
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:newBGPPeer':CreateBGPPeer' :: Maybe NewBGPPeer
 </span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#%24sel%3AnewBGPPeer%27%3ACreateBGPPeer%27"><span class="hs-identifier hs-var">newBGPPeer'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NewBGPPeer
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The ID of the virtual interface.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#createBGPPeer_virtualInterfaceId"><span class="hs-identifier hs-type">createBGPPeer_virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="createBGPPeer_virtualInterfaceId"><span class="annot"><span class="annottext">createBGPPeer_virtualInterfaceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateBGPPeer -&gt; f CreateBGPPeer
-</span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#createBGPPeer_virtualInterfaceId"><span class="hs-identifier hs-var hs-var">createBGPPeer_virtualInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBGPPeer -&gt; Maybe Text)
--&gt; (CreateBGPPeer -&gt; Maybe Text -&gt; CreateBGPPeer)
--&gt; Lens CreateBGPPeer CreateBGPPeer (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer%27"><span class="hs-identifier hs-type">CreateBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293041"><span class="annot"><span class="annottext">Maybe Text
-virtualInterfaceId :: Maybe Text
-$sel:virtualInterfaceId:CreateBGPPeer' :: CreateBGPPeer -&gt; Maybe Text
-</span><a href="#local-6989586621679293041"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293041"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293040"><span class="annot"><span class="annottext">s :: CreateBGPPeer
-</span><a href="#local-6989586621679293040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer%27"><span class="hs-identifier hs-type">CreateBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293039"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBGPPeer
-</span><a href="#local-6989586621679293040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:CreateBGPPeer' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:CreateBGPPeer' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#%24sel%3AvirtualInterfaceId%3ACreateBGPPeer%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | Information about the BGP peer.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#createBGPPeer_newBGPPeer"><span class="hs-identifier hs-type">createBGPPeer_newBGPPeer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="createBGPPeer_newBGPPeer"><span class="annot"><span class="annottext">createBGPPeer_newBGPPeer :: (Maybe NewBGPPeer -&gt; f (Maybe NewBGPPeer))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Information about the BGP peer.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#createBGPPeer_newBGPPeer"><span class="hs-identifier hs-type">createBGPPeer_newBGPPeer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewBGPPeer.html#NewBGPPeer"><span class="hs-identifier hs-type">NewBGPPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="createBGPPeer_newBGPPeer"><span class="annot"><span class="annottext">createBGPPeer_newBGPPeer :: (Maybe NewBGPPeer -&gt; f (Maybe NewBGPPeer))
 -&gt; CreateBGPPeer -&gt; f CreateBGPPeer
 </span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#createBGPPeer_newBGPPeer"><span class="hs-identifier hs-var hs-var">createBGPPeer_newBGPPeer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBGPPeer -&gt; Maybe NewBGPPeer)
 -&gt; (CreateBGPPeer -&gt; Maybe NewBGPPeer -&gt; CreateBGPPeer)
 -&gt; Lens
      CreateBGPPeer CreateBGPPeer (Maybe NewBGPPeer) (Maybe NewBGPPeer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer%27"><span class="hs-identifier hs-type">CreateBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293038"><span class="annot"><span class="annottext">Maybe NewBGPPeer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer%27"><span class="hs-identifier hs-type">CreateBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293303"><span class="annot"><span class="annottext">Maybe NewBGPPeer
 newBGPPeer' :: Maybe NewBGPPeer
 $sel:newBGPPeer':CreateBGPPeer' :: CreateBGPPeer -&gt; Maybe NewBGPPeer
-</span><a href="#local-6989586621679293038"><span class="hs-identifier hs-var hs-var">newBGPPeer'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NewBGPPeer
-</span><a href="#local-6989586621679293038"><span class="hs-identifier hs-var">newBGPPeer'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293037"><span class="annot"><span class="annottext">s :: CreateBGPPeer
-</span><a href="#local-6989586621679293037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer%27"><span class="hs-identifier hs-type">CreateBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293036"><span class="annot"><span class="annottext">Maybe NewBGPPeer
-</span><a href="#local-6989586621679293036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBGPPeer
-</span><a href="#local-6989586621679293037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newBGPPeer':CreateBGPPeer' :: Maybe NewBGPPeer
+</span><a href="#local-6989586621679293303"><span class="hs-identifier hs-var hs-var">newBGPPeer'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NewBGPPeer
+</span><a href="#local-6989586621679293303"><span class="hs-identifier hs-var">newBGPPeer'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293302"><span class="annot"><span class="annottext">s :: CreateBGPPeer
+</span><a href="#local-6989586621679293302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer%27"><span class="hs-identifier hs-type">CreateBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293301"><span class="annot"><span class="annottext">Maybe NewBGPPeer
+</span><a href="#local-6989586621679293301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBGPPeer
+</span><a href="#local-6989586621679293302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newBGPPeer':CreateBGPPeer' :: Maybe NewBGPPeer
 </span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#%24sel%3AnewBGPPeer%27%3ACreateBGPPeer%27"><span class="hs-identifier hs-var">newBGPPeer'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NewBGPPeer
-</span><a href="#local-6989586621679293036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse"><span class="hs-identifier hs-type">CreateBGPPeerResponse</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679293032"><span class="annot"><span class="annottext">request :: CreateBGPPeer -&gt; Request CreateBGPPeer
+</span><a href="#local-6989586621679293301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The ID of the virtual interface.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#createBGPPeer_virtualInterfaceId"><span class="hs-identifier hs-type">createBGPPeer_virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="createBGPPeer_virtualInterfaceId"><span class="annot"><span class="annottext">createBGPPeer_virtualInterfaceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateBGPPeer -&gt; f CreateBGPPeer
+</span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#createBGPPeer_virtualInterfaceId"><span class="hs-identifier hs-var hs-var">createBGPPeer_virtualInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBGPPeer -&gt; Maybe Text)
+-&gt; (CreateBGPPeer -&gt; Maybe Text -&gt; CreateBGPPeer)
+-&gt; Lens CreateBGPPeer CreateBGPPeer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer%27"><span class="hs-identifier hs-type">CreateBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293300"><span class="annot"><span class="annottext">Maybe Text
+virtualInterfaceId :: Maybe Text
+$sel:virtualInterfaceId:CreateBGPPeer' :: CreateBGPPeer -&gt; Maybe Text
+</span><a href="#local-6989586621679293300"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293300"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293299"><span class="annot"><span class="annottext">s :: CreateBGPPeer
+</span><a href="#local-6989586621679293299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer%27"><span class="hs-identifier hs-type">CreateBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293298"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBGPPeer
+</span><a href="#local-6989586621679293299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:CreateBGPPeer' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#%24sel%3AvirtualInterfaceId%3ACreateBGPPeer%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse"><span class="hs-identifier hs-type">CreateBGPPeerResponse</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679293294"><span class="annot"><span class="annottext">request :: CreateBGPPeer -&gt; Request CreateBGPPeer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateBGPPeer -&gt; Request CreateBGPPeer
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679293028"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679293290"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateBGPPeer
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse CreateBGPPeer)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; Object
  -&gt; Either String (AWSResponse CreateBGPPeer))
@@ -224,22 +223,22 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293025"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679293025"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679293024"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679293024"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679293023"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293023"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe VirtualInterface -&gt; Int -&gt; CreateBGPPeerResponse
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293287"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293287"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679293286"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679293286"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679293285"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293285"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe VirtualInterface -&gt; Int -&gt; CreateBGPPeerResponse
 </span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse%27"><span class="hs-identifier hs-var">CreateBGPPeerResponse'</span></a></span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VirtualInterface -&gt; Int -&gt; CreateBGPPeerResponse)
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VirtualInterface -&gt; Int -&gt; CreateBGPPeerResponse)
 -&gt; Either String (Maybe VirtualInterface)
 -&gt; Either String (Int -&gt; CreateBGPPeerResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VirtualInterface)
+</span><a href="#local-6989586621679293285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VirtualInterface)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;virtualInterface&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateBGPPeerResponse)
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateBGPPeerResponse)
 -&gt; Either String Int -&gt; Either String CreateBGPPeerResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
@@ -247,98 +246,98 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679293025"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293015"><span id="local-6989586621679293017"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span></span></span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span></span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679293008"><span class="annot"><span class="annottext">toHeaders :: CreateBGPPeer -&gt; ResponseHeaders
+</span><a href="#local-6989586621679293287"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293277"><span id="local-6989586621679293279"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293274"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679293270"><span class="annot"><span class="annottext">toHeaders :: CreateBGPPeer -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateBGPPeer -&gt; ResponseHeaders
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateBGPPeer -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
-</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;OvertureService.CreateBGPPeer&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-125"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-126"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-124"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
-</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-129"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-130"></span><span>                      </span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292998"><span id="local-6989586621679293000"><span id="local-6989586621679293002"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679292996"><span class="annot"><span class="annottext">toJSON :: CreateBGPPeer -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer%27"><span class="hs-identifier hs-type">CreateBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292993"><span id="local-6989586621679292994"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-128"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-129"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293260"><span id="local-6989586621679293262"><span id="local-6989586621679293264"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679293258"><span class="annot"><span class="annottext">toJSON :: CreateBGPPeer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer%27"><span class="hs-identifier hs-type">CreateBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293255"><span id="local-6989586621679293256"><span class="annot"><span class="annottext">Maybe Text
 Maybe NewBGPPeer
-newBGPPeer' :: Maybe NewBGPPeer
 virtualInterfaceId :: Maybe Text
-$sel:newBGPPeer':CreateBGPPeer' :: CreateBGPPeer -&gt; Maybe NewBGPPeer
+newBGPPeer' :: Maybe NewBGPPeer
 $sel:virtualInterfaceId:CreateBGPPeer' :: CreateBGPPeer -&gt; Maybe Text
-</span><a href="#local-6989586621679292993"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:newBGPPeer':CreateBGPPeer' :: CreateBGPPeer -&gt; Maybe NewBGPPeer
+</span><a href="#local-6989586621679293255"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-138"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;newBGPPeer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NewBGPPeer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NewBGPPeer -&gt; Pair) -&gt; Maybe NewBGPPeer -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NewBGPPeer
+</span><a href="#local-6989586621679293256"><span class="hs-identifier hs-var">newBGPPeer'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;virtualInterfaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679292994"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;newBGPPeer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NewBGPPeer -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NewBGPPeer -&gt; Pair) -&gt; Maybe NewBGPPeer -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NewBGPPeer
-</span><a href="#local-6989586621679292993"><span class="hs-identifier hs-var">newBGPPeer'</span></a></span><span>
-</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679292987"><span class="annot"><span class="annottext">toPath :: CreateBGPPeer -&gt; ByteString
+</span><a href="#local-6989586621679293255"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679293249"><span class="annot"><span class="annottext">toPath :: CreateBGPPeer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateBGPPeer -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
-</span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679292983"><span class="annot"><span class="annottext">toQuery :: CreateBGPPeer -&gt; QueryString
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeer"><span class="hs-identifier hs-type">CreateBGPPeer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679293245"><span class="annot"><span class="annottext">toQuery :: CreateBGPPeer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateBGPPeer -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newCreateBGPPeerResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679292980"><span id="local-6989586621679292981"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBGPPeerResponse"><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse"><span class="hs-identifier hs-var">CreateBGPPeerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBGPPeerResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse%27"><span class="hs-identifier hs-var">CreateBGPPeerResponse'</span></a></span></span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The virtual interface.</span><span>
-</span><span id="line-153"></span><span>    </span><span id="%24sel%3AvirtualInterface%3ACreateBGPPeerResponse%27"><span class="annot"><span class="annottext">CreateBGPPeerResponse -&gt; Maybe VirtualInterface
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newCreateBGPPeerResponse' smart constructor.</span><span>
+</span><span id="line-150"></span><span id="local-6989586621679293242"><span id="local-6989586621679293243"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBGPPeerResponse"><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse"><span class="hs-identifier hs-var">CreateBGPPeerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBGPPeerResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse%27"><span class="hs-identifier hs-var">CreateBGPPeerResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The virtual interface.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AvirtualInterface%3ACreateBGPPeerResponse%27"><span class="annot"><span class="annottext">CreateBGPPeerResponse -&gt; Maybe VirtualInterface
 </span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#%24sel%3AvirtualInterface%3ACreateBGPPeerResponse%27"><span class="hs-identifier hs-var hs-var">virtualInterface</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterface.html#VirtualInterface"><span class="hs-identifier hs-type">VirtualInterface</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateBGPPeerResponse%27"><span class="annot"><span class="annottext">CreateBGPPeerResponse -&gt; Int
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateBGPPeerResponse%27"><span class="annot"><span class="annottext">CreateBGPPeerResponse -&gt; Int
 </span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#%24sel%3AhttpStatus%3ACreateBGPPeerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292974"><span id="local-6989586621679292976"><span class="annot"><span class="annottext">CreateBGPPeerResponse -&gt; CreateBGPPeerResponse -&gt; Bool
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293236"><span id="local-6989586621679293238"><span class="annot"><span class="annottext">CreateBGPPeerResponse -&gt; CreateBGPPeerResponse -&gt; Bool
 (CreateBGPPeerResponse -&gt; CreateBGPPeerResponse -&gt; Bool)
 -&gt; (CreateBGPPeerResponse -&gt; CreateBGPPeerResponse -&gt; Bool)
 -&gt; Eq CreateBGPPeerResponse
@@ -347,7 +346,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateBGPPeerResponse -&gt; CreateBGPPeerResponse -&gt; Bool
 == :: CreateBGPPeerResponse -&gt; CreateBGPPeerResponse -&gt; Bool
 $c== :: CreateBGPPeerResponse -&gt; CreateBGPPeerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292966"><span id="local-6989586621679292968"><span id="local-6989586621679292970"><span id="local-6989586621679292972"><span class="annot"><span class="annottext">ReadPrec [CreateBGPPeerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293228"><span id="local-6989586621679293230"><span id="local-6989586621679293232"><span id="local-6989586621679293234"><span class="annot"><span class="annottext">ReadPrec [CreateBGPPeerResponse]
 ReadPrec CreateBGPPeerResponse
 Int -&gt; ReadS CreateBGPPeerResponse
 ReadS [CreateBGPPeerResponse]
@@ -367,7 +366,7 @@ readList :: ReadS [CreateBGPPeerResponse]
 $creadList :: ReadS [CreateBGPPeerResponse]
 readsPrec :: Int -&gt; ReadS CreateBGPPeerResponse
 $creadsPrec :: Int -&gt; ReadS CreateBGPPeerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292960"><span id="local-6989586621679292962"><span id="local-6989586621679292964"><span class="annot"><span class="annottext">Int -&gt; CreateBGPPeerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293222"><span id="local-6989586621679293224"><span id="local-6989586621679293226"><span class="annot"><span class="annottext">Int -&gt; CreateBGPPeerResponse -&gt; ShowS
 [CreateBGPPeerResponse] -&gt; ShowS
 CreateBGPPeerResponse -&gt; String
 (Int -&gt; CreateBGPPeerResponse -&gt; ShowS)
@@ -392,40 +391,40 @@ forall a.
 $cto :: forall x. Rep CreateBGPPeerResponse x -&gt; CreateBGPPeerResponse
 $cfrom :: forall x. CreateBGPPeerResponse -&gt; Rep CreateBGPPeerResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- Create a value of 'CreateBGPPeerResponse' with all optional fields omitted.</span><span>
-</span><span id="line-161"></span><span class="hs-comment">--</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-163"></span><span class="hs-comment">--</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-166"></span><span class="hs-comment">--</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- 'virtualInterface', 'createBGPPeerResponse_virtualInterface' - The virtual interface.</span><span>
-</span><span id="line-168"></span><span class="hs-comment">--</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- 'httpStatus', 'createBGPPeerResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#newCreateBGPPeerResponse"><span class="hs-identifier hs-type">newCreateBGPPeerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-171"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse"><span class="hs-identifier hs-type">CreateBGPPeerResponse</span></a></span><span>
-</span><span id="line-174"></span><span id="newCreateBGPPeerResponse"><span class="annot"><span class="annottext">newCreateBGPPeerResponse :: Int -&gt; CreateBGPPeerResponse
-</span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#newCreateBGPPeerResponse"><span class="hs-identifier hs-var hs-var">newCreateBGPPeerResponse</span></a></span></span><span> </span><span id="local-6989586621679292957"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679292957"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">CreateBGPPeerResponse' :: Maybe VirtualInterface -&gt; Int -&gt; CreateBGPPeerResponse
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'CreateBGPPeerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'virtualInterface', 'createBGPPeerResponse_virtualInterface' - The virtual interface.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'httpStatus', 'createBGPPeerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#newCreateBGPPeerResponse"><span class="hs-identifier hs-type">newCreateBGPPeerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse"><span class="hs-identifier hs-type">CreateBGPPeerResponse</span></a></span><span>
+</span><span id="line-173"></span><span id="newCreateBGPPeerResponse"><span class="annot"><span class="annottext">newCreateBGPPeerResponse :: Int -&gt; CreateBGPPeerResponse
+</span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#newCreateBGPPeerResponse"><span class="hs-identifier hs-var hs-var">newCreateBGPPeerResponse</span></a></span></span><span> </span><span id="local-6989586621679293219"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293219"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">CreateBGPPeerResponse' :: Maybe VirtualInterface -&gt; Int -&gt; CreateBGPPeerResponse
 </span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse%27"><span class="hs-identifier hs-type">CreateBGPPeerResponse'</span></a></span><span>
-</span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:virtualInterface:CreateBGPPeerResponse' :: Maybe VirtualInterface
+</span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:virtualInterface:CreateBGPPeerResponse' :: Maybe VirtualInterface
 </span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#%24sel%3AvirtualInterface%3ACreateBGPPeerResponse%27"><span class="hs-identifier hs-var">virtualInterface</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">Maybe VirtualInterface
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">Maybe VirtualInterface
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBGPPeerResponse' :: Int
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBGPPeerResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#%24sel%3AhttpStatus%3ACreateBGPPeerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679292957"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- | The virtual interface.</span><span>
-</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#createBGPPeerResponse_virtualInterface"><span class="hs-identifier hs-type">createBGPPeerResponse_virtualInterface</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse"><span class="hs-identifier hs-type">CreateBGPPeerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterface.html#VirtualInterface"><span class="hs-identifier hs-type">VirtualInterface</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span id="createBGPPeerResponse_virtualInterface"><span class="annot"><span class="annottext">createBGPPeerResponse_virtualInterface :: (Maybe VirtualInterface -&gt; f (Maybe VirtualInterface))
+</span><a href="#local-6989586621679293219"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The virtual interface.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#createBGPPeerResponse_virtualInterface"><span class="hs-identifier hs-type">createBGPPeerResponse_virtualInterface</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse"><span class="hs-identifier hs-type">CreateBGPPeerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterface.html#VirtualInterface"><span class="hs-identifier hs-type">VirtualInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="createBGPPeerResponse_virtualInterface"><span class="annot"><span class="annottext">createBGPPeerResponse_virtualInterface :: (Maybe VirtualInterface -&gt; f (Maybe VirtualInterface))
 -&gt; CreateBGPPeerResponse -&gt; f CreateBGPPeerResponse
 </span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#createBGPPeerResponse_virtualInterface"><span class="hs-identifier hs-var hs-var">createBGPPeerResponse_virtualInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBGPPeerResponse -&gt; Maybe VirtualInterface)
 -&gt; (CreateBGPPeerResponse
@@ -436,34 +435,34 @@ forall a. Maybe a
      (Maybe VirtualInterface)
      (Maybe VirtualInterface)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse%27"><span class="hs-identifier hs-type">CreateBGPPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292956"><span class="annot"><span class="annottext">Maybe VirtualInterface
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse%27"><span class="hs-identifier hs-type">CreateBGPPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293218"><span class="annot"><span class="annottext">Maybe VirtualInterface
 virtualInterface :: Maybe VirtualInterface
 $sel:virtualInterface:CreateBGPPeerResponse' :: CreateBGPPeerResponse -&gt; Maybe VirtualInterface
-</span><a href="#local-6989586621679292956"><span class="hs-identifier hs-var hs-var">virtualInterface</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualInterface
-</span><a href="#local-6989586621679292956"><span class="hs-identifier hs-var">virtualInterface</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292955"><span class="annot"><span class="annottext">s :: CreateBGPPeerResponse
-</span><a href="#local-6989586621679292955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse%27"><span class="hs-identifier hs-type">CreateBGPPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292954"><span class="annot"><span class="annottext">Maybe VirtualInterface
-</span><a href="#local-6989586621679292954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBGPPeerResponse
-</span><a href="#local-6989586621679292955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterface:CreateBGPPeerResponse' :: Maybe VirtualInterface
+</span><a href="#local-6989586621679293218"><span class="hs-identifier hs-var hs-var">virtualInterface</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualInterface
+</span><a href="#local-6989586621679293218"><span class="hs-identifier hs-var">virtualInterface</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293217"><span class="annot"><span class="annottext">s :: CreateBGPPeerResponse
+</span><a href="#local-6989586621679293217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse%27"><span class="hs-identifier hs-type">CreateBGPPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293216"><span class="annot"><span class="annottext">Maybe VirtualInterface
+</span><a href="#local-6989586621679293216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBGPPeerResponse
+</span><a href="#local-6989586621679293217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterface:CreateBGPPeerResponse' :: Maybe VirtualInterface
 </span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#%24sel%3AvirtualInterface%3ACreateBGPPeerResponse%27"><span class="hs-identifier hs-var">virtualInterface</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualInterface
-</span><a href="#local-6989586621679292954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse"><span class="hs-identifier hs-type">CreateBGPPeerResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#createBGPPeerResponse_httpStatus"><span class="hs-identifier hs-type">createBGPPeerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse"><span class="hs-identifier hs-type">CreateBGPPeerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-187"></span><span id="createBGPPeerResponse_httpStatus"><span class="annot"><span class="annottext">createBGPPeerResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateBGPPeerResponse -&gt; f CreateBGPPeerResponse
+</span><a href="#local-6989586621679293216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse"><span class="hs-identifier hs-type">CreateBGPPeerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#createBGPPeerResponse_httpStatus"><span class="hs-identifier hs-type">createBGPPeerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse"><span class="hs-identifier hs-type">CreateBGPPeerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-186"></span><span id="createBGPPeerResponse_httpStatus"><span class="annot"><span class="annottext">createBGPPeerResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateBGPPeerResponse -&gt; f CreateBGPPeerResponse
 </span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#createBGPPeerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createBGPPeerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBGPPeerResponse -&gt; Int)
 -&gt; (CreateBGPPeerResponse -&gt; Int -&gt; CreateBGPPeerResponse)
 -&gt; Lens CreateBGPPeerResponse CreateBGPPeerResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse%27"><span class="hs-identifier hs-type">CreateBGPPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292953"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse%27"><span class="hs-identifier hs-type">CreateBGPPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293215"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateBGPPeerResponse' :: CreateBGPPeerResponse -&gt; Int
-</span><a href="#local-6989586621679292953"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679292953"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292952"><span class="annot"><span class="annottext">s :: CreateBGPPeerResponse
-</span><a href="#local-6989586621679292952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse%27"><span class="hs-identifier hs-type">CreateBGPPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292951"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679292951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBGPPeerResponse
-</span><a href="#local-6989586621679292952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBGPPeerResponse' :: Int
+</span><a href="#local-6989586621679293215"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293215"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293214"><span class="annot"><span class="annottext">s :: CreateBGPPeerResponse
+</span><a href="#local-6989586621679293214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse%27"><span class="hs-identifier hs-type">CreateBGPPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293213"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBGPPeerResponse
+</span><a href="#local-6989586621679293214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBGPPeerResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#%24sel%3AhttpStatus%3ACreateBGPPeerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679292951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse"><span class="hs-identifier hs-type">CreateBGPPeerResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292949"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse"><span class="hs-identifier hs-type">CreateBGPPeerResponse</span></a></span></span><span>
-</span><span id="line-190"></span></pre></body></html>
+</span><a href="#local-6989586621679293213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse"><span class="hs-identifier hs-type">CreateBGPPeerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293211"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateBGPPeer.html#CreateBGPPeerResponse"><span class="hs-identifier hs-type">CreateBGPPeerResponse</span></a></span></span><span>
+</span><span id="line-189"></span></pre></body></html>

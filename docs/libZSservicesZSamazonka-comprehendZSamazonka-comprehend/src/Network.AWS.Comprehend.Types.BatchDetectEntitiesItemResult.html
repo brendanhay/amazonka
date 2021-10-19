@@ -28,16 +28,16 @@
 </span><span id="line-28"></span><span class="hs-comment">-- for each document that is successfully processed by the operation.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newBatchDetectEntitiesItemResult' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679342832"><span id="local-6989586621679342833"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDetectEntitiesItemResult"><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult"><span class="hs-identifier hs-var">BatchDetectEntitiesItemResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDetectEntitiesItemResult%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-var">BatchDetectEntitiesItemResult'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The zero-based index of the document in the input list.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aindex%3ABatchDetectEntitiesItemResult%27"><span class="annot"><span class="annottext">BatchDetectEntitiesItemResult -&gt; Maybe Int
-</span><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#%24sel%3Aindex%3ABatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | One or more Entity objects, one for each entity detected in the</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- document.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aentities%3ABatchDetectEntitiesItemResult%27"><span class="annot"><span class="annottext">BatchDetectEntitiesItemResult -&gt; Maybe [Entity]
-</span><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#%24sel%3Aentities%3ABatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-var hs-var">entities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679343096"><span id="local-6989586621679343097"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDetectEntitiesItemResult"><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult"><span class="hs-identifier hs-var">BatchDetectEntitiesItemResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDetectEntitiesItemResult%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-var">BatchDetectEntitiesItemResult'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more Entity objects, one for each entity detected in the</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- document.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aentities%3ABatchDetectEntitiesItemResult%27"><span class="annot"><span class="annottext">BatchDetectEntitiesItemResult -&gt; Maybe [Entity]
+</span><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#%24sel%3Aentities%3ABatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-var hs-var">entities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The zero-based index of the document in the input list.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aindex%3ABatchDetectEntitiesItemResult%27"><span class="annot"><span class="annottext">BatchDetectEntitiesItemResult -&gt; Maybe Int
+</span><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#%24sel%3Aindex%3ABatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342825"><span id="local-6989586621679342827"><span class="annot"><span class="annottext">BatchDetectEntitiesItemResult
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343089"><span id="local-6989586621679343091"><span class="annot"><span class="annottext">BatchDetectEntitiesItemResult
 -&gt; BatchDetectEntitiesItemResult -&gt; Bool
 (BatchDetectEntitiesItemResult
  -&gt; BatchDetectEntitiesItemResult -&gt; Bool)
@@ -53,7 +53,7 @@ $c/= :: BatchDetectEntitiesItemResult
 -&gt; BatchDetectEntitiesItemResult -&gt; Bool
 $c== :: BatchDetectEntitiesItemResult
 -&gt; BatchDetectEntitiesItemResult -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342816"><span id="local-6989586621679342818"><span id="local-6989586621679342820"><span id="local-6989586621679342822"><span class="annot"><span class="annottext">ReadPrec [BatchDetectEntitiesItemResult]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343080"><span id="local-6989586621679343082"><span id="local-6989586621679343084"><span id="local-6989586621679343086"><span class="annot"><span class="annottext">ReadPrec [BatchDetectEntitiesItemResult]
 ReadPrec BatchDetectEntitiesItemResult
 Int -&gt; ReadS BatchDetectEntitiesItemResult
 ReadS [BatchDetectEntitiesItemResult]
@@ -73,7 +73,7 @@ readList :: ReadS [BatchDetectEntitiesItemResult]
 $creadList :: ReadS [BatchDetectEntitiesItemResult]
 readsPrec :: Int -&gt; ReadS BatchDetectEntitiesItemResult
 $creadsPrec :: Int -&gt; ReadS BatchDetectEntitiesItemResult
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342809"><span id="local-6989586621679342811"><span id="local-6989586621679342813"><span class="annot"><span class="annottext">Int -&gt; BatchDetectEntitiesItemResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343073"><span id="local-6989586621679343075"><span id="local-6989586621679343077"><span class="annot"><span class="annottext">Int -&gt; BatchDetectEntitiesItemResult -&gt; ShowS
 [BatchDetectEntitiesItemResult] -&gt; ShowS
 BatchDetectEntitiesItemResult -&gt; String
 (Int -&gt; BatchDetectEntitiesItemResult -&gt; ShowS)
@@ -119,55 +119,31 @@ BatchDetectEntitiesItemResult
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'index', 'batchDetectEntitiesItemResult_index' - The zero-based index of the document in the input list.</span><span>
-</span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'entities', 'batchDetectEntitiesItemResult_entities' - One or more Entity objects, one for each entity detected in the</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- document.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'entities', 'batchDetectEntitiesItemResult_entities' - One or more Entity objects, one for each entity detected in the</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- document.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'index', 'batchDetectEntitiesItemResult_index' - The zero-based index of the document in the input list.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#newBatchDetectEntitiesItemResult"><span class="hs-identifier hs-type">newBatchDetectEntitiesItemResult</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult</span></a></span><span>
 </span><span id="line-54"></span><span id="newBatchDetectEntitiesItemResult"><span class="annot"><span class="annottext">newBatchDetectEntitiesItemResult :: BatchDetectEntitiesItemResult
 </span><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#newBatchDetectEntitiesItemResult"><span class="hs-identifier hs-var hs-var">newBatchDetectEntitiesItemResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">BatchDetectEntitiesItemResult' :: Maybe Int -&gt; Maybe [Entity] -&gt; BatchDetectEntitiesItemResult
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">BatchDetectEntitiesItemResult' :: Maybe [Entity] -&gt; Maybe Int -&gt; BatchDetectEntitiesItemResult
 </span><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:index:BatchDetectEntitiesItemResult' :: Maybe Int
-</span><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#%24sel%3Aindex%3ABatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-var">index</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:entities:BatchDetectEntitiesItemResult' :: Maybe [Entity]
+</span><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#%24sel%3Aentities%3ABatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-var">entities</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Entity]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:entities:BatchDetectEntitiesItemResult' :: Maybe [Entity]
-</span><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#%24sel%3Aentities%3ABatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-var">entities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Entity]
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:index:BatchDetectEntitiesItemResult' :: Maybe Int
+</span><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#%24sel%3Aindex%3ABatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-var">index</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The zero-based index of the document in the input list.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#batchDetectEntitiesItemResult_index"><span class="hs-identifier hs-type">batchDetectEntitiesItemResult_index</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="batchDetectEntitiesItemResult_index"><span class="annot"><span class="annottext">batchDetectEntitiesItemResult_index :: (Maybe Int -&gt; f (Maybe Int))
--&gt; BatchDetectEntitiesItemResult -&gt; f BatchDetectEntitiesItemResult
-</span><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#batchDetectEntitiesItemResult_index"><span class="hs-identifier hs-var hs-var">batchDetectEntitiesItemResult_index</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDetectEntitiesItemResult -&gt; Maybe Int)
--&gt; (BatchDetectEntitiesItemResult
-    -&gt; Maybe Int -&gt; BatchDetectEntitiesItemResult)
--&gt; Lens
-     BatchDetectEntitiesItemResult
-     BatchDetectEntitiesItemResult
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342800"><span class="annot"><span class="annottext">Maybe Int
-index :: Maybe Int
-$sel:index:BatchDetectEntitiesItemResult' :: BatchDetectEntitiesItemResult -&gt; Maybe Int
-</span><a href="#local-6989586621679342800"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679342800"><span class="hs-identifier hs-var">index</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342799"><span class="annot"><span class="annottext">s :: BatchDetectEntitiesItemResult
-</span><a href="#local-6989586621679342799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342798"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679342798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectEntitiesItemResult
-</span><a href="#local-6989586621679342799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:index:BatchDetectEntitiesItemResult' :: Maybe Int
-</span><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#%24sel%3Aindex%3ABatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-var">index</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679342798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | One or more Entity objects, one for each entity detected in the</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- document.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#batchDetectEntitiesItemResult_entities"><span class="hs-identifier hs-type">batchDetectEntitiesItemResult_entities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="batchDetectEntitiesItemResult_entities"><span class="annot"><span class="annottext">batchDetectEntitiesItemResult_entities :: (Maybe [Entity] -&gt; f (Maybe [Entity]))
+</span><span id="line-61"></span><span class="hs-comment">-- | One or more Entity objects, one for each entity detected in the</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- document.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#batchDetectEntitiesItemResult_entities"><span class="hs-identifier hs-type">batchDetectEntitiesItemResult_entities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="batchDetectEntitiesItemResult_entities"><span class="annot"><span class="annottext">batchDetectEntitiesItemResult_entities :: (Maybe [Entity] -&gt; f (Maybe [Entity]))
 -&gt; BatchDetectEntitiesItemResult -&gt; f BatchDetectEntitiesItemResult
 </span><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#batchDetectEntitiesItemResult_entities"><span class="hs-identifier hs-var hs-var">batchDetectEntitiesItemResult_entities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDetectEntitiesItemResult -&gt; Maybe [Entity])
 -&gt; (BatchDetectEntitiesItemResult
@@ -178,16 +154,16 @@ $sel:index:BatchDetectEntitiesItemResult' :: BatchDetectEntitiesItemResult -&gt;
      (Maybe [Entity])
      (Maybe [Entity])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342796"><span class="annot"><span class="annottext">Maybe [Entity]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343064"><span class="annot"><span class="annottext">Maybe [Entity]
 entities :: Maybe [Entity]
 $sel:entities:BatchDetectEntitiesItemResult' :: BatchDetectEntitiesItemResult -&gt; Maybe [Entity]
-</span><a href="#local-6989586621679342796"><span class="hs-identifier hs-var hs-var">entities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Entity]
-</span><a href="#local-6989586621679342796"><span class="hs-identifier hs-var">entities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342795"><span class="annot"><span class="annottext">s :: BatchDetectEntitiesItemResult
-</span><a href="#local-6989586621679342795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342794"><span class="annot"><span class="annottext">Maybe [Entity]
-</span><a href="#local-6989586621679342794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectEntitiesItemResult
-</span><a href="#local-6989586621679342795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entities:BatchDetectEntitiesItemResult' :: Maybe [Entity]
+</span><a href="#local-6989586621679343064"><span class="hs-identifier hs-var hs-var">entities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Entity]
+</span><a href="#local-6989586621679343064"><span class="hs-identifier hs-var">entities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343063"><span class="annot"><span class="annottext">s :: BatchDetectEntitiesItemResult
+</span><a href="#local-6989586621679343063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343062"><span class="annot"><span class="annottext">Maybe [Entity]
+</span><a href="#local-6989586621679343062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectEntitiesItemResult
+</span><a href="#local-6989586621679343063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entities:BatchDetectEntitiesItemResult' :: Maybe [Entity]
 </span><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#%24sel%3Aentities%3ABatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-var">entities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Entity]
-</span><a href="#local-6989586621679342794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Entity] -&gt; f (Maybe [Entity]))
+</span><a href="#local-6989586621679343062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Entity] -&gt; f (Maybe [Entity]))
  -&gt; BatchDetectEntitiesItemResult
  -&gt; f BatchDetectEntitiesItemResult)
 -&gt; ((Maybe [Entity] -&gt; f (Maybe [Entity]))
@@ -203,11 +179,35 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Entity] [Entity] [Entity] [Entity]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The zero-based index of the document in the input list.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#batchDetectEntitiesItemResult_index"><span class="hs-identifier hs-type">batchDetectEntitiesItemResult_index</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="batchDetectEntitiesItemResult_index"><span class="annot"><span class="annottext">batchDetectEntitiesItemResult_index :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; BatchDetectEntitiesItemResult -&gt; f BatchDetectEntitiesItemResult
+</span><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#batchDetectEntitiesItemResult_index"><span class="hs-identifier hs-var hs-var">batchDetectEntitiesItemResult_index</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDetectEntitiesItemResult -&gt; Maybe Int)
+-&gt; (BatchDetectEntitiesItemResult
+    -&gt; Maybe Int -&gt; BatchDetectEntitiesItemResult)
+-&gt; Lens
+     BatchDetectEntitiesItemResult
+     BatchDetectEntitiesItemResult
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343057"><span class="annot"><span class="annottext">Maybe Int
+index :: Maybe Int
+$sel:index:BatchDetectEntitiesItemResult' :: BatchDetectEntitiesItemResult -&gt; Maybe Int
+</span><a href="#local-6989586621679343057"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343057"><span class="hs-identifier hs-var">index</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343056"><span class="annot"><span class="annottext">s :: BatchDetectEntitiesItemResult
+</span><a href="#local-6989586621679343056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343055"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectEntitiesItemResult
+</span><a href="#local-6989586621679343056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:index:BatchDetectEntitiesItemResult' :: Maybe Int
+</span><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#%24sel%3Aindex%3ABatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-var">index</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342788"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679342786"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchDetectEntitiesItemResult
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343052"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679343050"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchDetectEntitiesItemResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BatchDetectEntitiesItemResult)
@@ -217,24 +217,16 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BatchDetectEntitiesItemResult&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342783"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342783"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe [Entity] -&gt; BatchDetectEntitiesItemResult
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679343047"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343047"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Entity] -&gt; Maybe Int -&gt; BatchDetectEntitiesItemResult
 </span><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult%27"><span class="hs-identifier hs-var">BatchDetectEntitiesItemResult'</span></a></span><span>
-</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe [Entity] -&gt; BatchDetectEntitiesItemResult)
--&gt; Parser (Maybe Int)
--&gt; Parser (Maybe [Entity] -&gt; BatchDetectEntitiesItemResult)
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Entity] -&gt; Maybe Int -&gt; BatchDetectEntitiesItemResult)
+-&gt; Parser (Maybe [Entity])
+-&gt; Parser (Maybe Int -&gt; BatchDetectEntitiesItemResult)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342783"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Index&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Entity] -&gt; BatchDetectEntitiesItemResult)
--&gt; Parser (Maybe [Entity]) -&gt; Parser BatchDetectEntitiesItemResult
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342783"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Entity]))
+</span><a href="#local-6989586621679343047"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Entity]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Entities&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Entity]))
@@ -243,11 +235,19 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Entity]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; BatchDetectEntitiesItemResult)
+-&gt; Parser (Maybe Int) -&gt; Parser BatchDetectEntitiesItemResult
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343047"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Index&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679342776"><span id="local-6989586621679342778"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679343040"><span id="local-6989586621679343042"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342773"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343037"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult.html#BatchDetectEntitiesItemResult"><span class="hs-identifier hs-type">BatchDetectEntitiesItemResult</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

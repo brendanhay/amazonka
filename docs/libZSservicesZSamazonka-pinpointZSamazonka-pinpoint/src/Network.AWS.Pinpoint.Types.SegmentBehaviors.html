@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- segment based on how recently an endpoint was active.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSegmentBehaviors' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679608775"><span id="local-6989586621679608776"></span></span><span class="hs-keyword">data</span><span> </span><span id="SegmentBehaviors"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors"><span class="hs-identifier hs-var">SegmentBehaviors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SegmentBehaviors%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors%27"><span class="hs-identifier hs-var">SegmentBehaviors'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679609257"><span id="local-6989586621679609258"></span></span><span class="hs-keyword">data</span><span> </span><span id="SegmentBehaviors"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors"><span class="hs-identifier hs-var">SegmentBehaviors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SegmentBehaviors%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors%27"><span class="hs-identifier hs-var">SegmentBehaviors'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The dimension settings that are based on how recently an endpoint was</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- active.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Arecency%3ASegmentBehaviors%27"><span class="annot"><span class="annottext">SegmentBehaviors -&gt; Maybe RecencyDimension
 </span><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#%24sel%3Arecency%3ASegmentBehaviors%27"><span class="hs-identifier hs-var hs-var">recency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension"><span class="hs-identifier hs-type">RecencyDimension</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679608769"><span id="local-6989586621679608771"><span class="annot"><span class="annottext">SegmentBehaviors -&gt; SegmentBehaviors -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679609251"><span id="local-6989586621679609253"><span class="annot"><span class="annottext">SegmentBehaviors -&gt; SegmentBehaviors -&gt; Bool
 (SegmentBehaviors -&gt; SegmentBehaviors -&gt; Bool)
 -&gt; (SegmentBehaviors -&gt; SegmentBehaviors -&gt; Bool)
 -&gt; Eq SegmentBehaviors
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SegmentBehaviors -&gt; SegmentBehaviors -&gt; Bool
 == :: SegmentBehaviors -&gt; SegmentBehaviors -&gt; Bool
 $c== :: SegmentBehaviors -&gt; SegmentBehaviors -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679608760"><span id="local-6989586621679608762"><span id="local-6989586621679608764"><span id="local-6989586621679608766"><span class="annot"><span class="annottext">ReadPrec [SegmentBehaviors]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609242"><span id="local-6989586621679609244"><span id="local-6989586621679609246"><span id="local-6989586621679609248"><span class="annot"><span class="annottext">ReadPrec [SegmentBehaviors]
 ReadPrec SegmentBehaviors
 Int -&gt; ReadS SegmentBehaviors
 ReadS [SegmentBehaviors]
@@ -63,7 +63,7 @@ readList :: ReadS [SegmentBehaviors]
 $creadList :: ReadS [SegmentBehaviors]
 readsPrec :: Int -&gt; ReadS SegmentBehaviors
 $creadsPrec :: Int -&gt; ReadS SegmentBehaviors
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679608753"><span id="local-6989586621679608755"><span id="local-6989586621679608757"><span class="annot"><span class="annottext">Int -&gt; SegmentBehaviors -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609235"><span id="local-6989586621679609237"><span id="local-6989586621679609239"><span class="annot"><span class="annottext">Int -&gt; SegmentBehaviors -&gt; ShowS
 [SegmentBehaviors] -&gt; ShowS
 SegmentBehaviors -&gt; String
 (Int -&gt; SegmentBehaviors -&gt; ShowS)
@@ -122,19 +122,19 @@ forall a. Maybe a
      (Maybe RecencyDimension)
      (Maybe RecencyDimension)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors%27"><span class="hs-identifier hs-type">SegmentBehaviors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608744"><span class="annot"><span class="annottext">Maybe RecencyDimension
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors%27"><span class="hs-identifier hs-type">SegmentBehaviors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609226"><span class="annot"><span class="annottext">Maybe RecencyDimension
 recency :: Maybe RecencyDimension
 $sel:recency:SegmentBehaviors' :: SegmentBehaviors -&gt; Maybe RecencyDimension
-</span><a href="#local-6989586621679608744"><span class="hs-identifier hs-var hs-var">recency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RecencyDimension
-</span><a href="#local-6989586621679608744"><span class="hs-identifier hs-var">recency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608743"><span class="annot"><span class="annottext">s :: SegmentBehaviors
-</span><a href="#local-6989586621679608743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors%27"><span class="hs-identifier hs-type">SegmentBehaviors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608742"><span class="annot"><span class="annottext">Maybe RecencyDimension
-</span><a href="#local-6989586621679608742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentBehaviors
-</span><a href="#local-6989586621679608743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recency:SegmentBehaviors' :: Maybe RecencyDimension
+</span><a href="#local-6989586621679609226"><span class="hs-identifier hs-var hs-var">recency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RecencyDimension
+</span><a href="#local-6989586621679609226"><span class="hs-identifier hs-var">recency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609225"><span class="annot"><span class="annottext">s :: SegmentBehaviors
+</span><a href="#local-6989586621679609225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors%27"><span class="hs-identifier hs-type">SegmentBehaviors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609224"><span class="annot"><span class="annottext">Maybe RecencyDimension
+</span><a href="#local-6989586621679609224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentBehaviors
+</span><a href="#local-6989586621679609225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recency:SegmentBehaviors' :: Maybe RecencyDimension
 </span><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#%24sel%3Arecency%3ASegmentBehaviors%27"><span class="hs-identifier hs-var">recency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecencyDimension
-</span><a href="#local-6989586621679608742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors"><span class="hs-identifier hs-type">SegmentBehaviors</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679609224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors"><span class="hs-identifier hs-type">SegmentBehaviors</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608739"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors"><span class="hs-identifier hs-type">SegmentBehaviors</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679608737"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SegmentBehaviors
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609221"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors"><span class="hs-identifier hs-type">SegmentBehaviors</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679609219"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SegmentBehaviors
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SegmentBehaviors)
@@ -144,29 +144,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SegmentBehaviors&quot;</span></span><span>
-</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679608734"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679608734"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679609216"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679609216"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">Maybe RecencyDimension -&gt; SegmentBehaviors
 </span><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors%27"><span class="hs-identifier hs-var">SegmentBehaviors'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe RecencyDimension -&gt; SegmentBehaviors)
 -&gt; Parser (Maybe RecencyDimension) -&gt; Parser SegmentBehaviors
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679608734"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RecencyDimension)
+</span><a href="#local-6989586621679609216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RecencyDimension)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Recency&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608728"><span id="local-6989586621679608730"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors"><span class="hs-identifier hs-type">SegmentBehaviors</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609210"><span id="local-6989586621679609212"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors"><span class="hs-identifier hs-type">SegmentBehaviors</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608725"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors"><span class="hs-identifier hs-type">SegmentBehaviors</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609207"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors"><span class="hs-identifier hs-type">SegmentBehaviors</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608717"><span id="local-6989586621679608719"><span id="local-6989586621679608721"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors"><span class="hs-identifier hs-type">SegmentBehaviors</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679608715"><span class="annot"><span class="annottext">toJSON :: SegmentBehaviors -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors%27"><span class="hs-identifier hs-type">SegmentBehaviors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608713"><span class="annot"><span class="annottext">Maybe RecencyDimension
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609199"><span id="local-6989586621679609201"><span id="local-6989586621679609203"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors"><span class="hs-identifier hs-type">SegmentBehaviors</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679609197"><span class="annot"><span class="annottext">toJSON :: SegmentBehaviors -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentBehaviors.html#SegmentBehaviors%27"><span class="hs-identifier hs-type">SegmentBehaviors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609195"><span class="annot"><span class="annottext">Maybe RecencyDimension
 recency :: Maybe RecencyDimension
 $sel:recency:SegmentBehaviors' :: SegmentBehaviors -&gt; Maybe RecencyDimension
-</span><a href="#local-6989586621679608713"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679609195"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -178,6 +178,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RecencyDimension -&gt; Pair) -&gt; Maybe RecencyDimension -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RecencyDimension
-</span><a href="#local-6989586621679608713"><span class="hs-identifier hs-var">recency</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679609195"><span class="hs-identifier hs-var">recency</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span></pre></body></html>

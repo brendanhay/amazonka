@@ -42,21 +42,21 @@
 </span><span id="line-42"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-43"></span><span class="hs-comment">--</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- /See:/ 'newEventDestination' smart constructor.</span><span>
-</span><span id="line-45"></span><span id="local-6989586621679275117"><span id="local-6989586621679275118"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventDestination"><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-var">EventDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventDestination%27"><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-var">EventDestination'</span></a></span></span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that contains the names, default values, and sources of the</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- dimensions associated with an Amazon CloudWatch event destination.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcloudWatchDestination%3AEventDestination%27"><span class="annot"><span class="annottext">EventDestination -&gt; Maybe CloudWatchDestination
-</span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3AcloudWatchDestination%3AEventDestination%27"><span class="hs-identifier hs-var hs-var">cloudWatchDestination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-type">CloudWatchDestination</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Sets whether Amazon SES publishes events to this destination when you</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- send an email with the associated configuration set. Set to @true@ to</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- enable publishing to this destination; set to @false@ to prevent</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- publishing to this destination. The default value is @false@.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aenabled%3AEventDestination%27"><span class="annot"><span class="annottext">EventDestination -&gt; Maybe Bool
+</span><span id="line-45"></span><span id="local-6989586621679275314"><span id="local-6989586621679275315"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventDestination"><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-var">EventDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventDestination%27"><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-var">EventDestination'</span></a></span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Sets whether Amazon SES publishes events to this destination when you</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- send an email with the associated configuration set. Set to @true@ to</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- enable publishing to this destination; set to @false@ to prevent</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- publishing to this destination. The default value is @false@.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aenabled%3AEventDestination%27"><span class="annot"><span class="annottext">EventDestination -&gt; Maybe Bool
 </span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3Aenabled%3AEventDestination%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | An object that contains the delivery stream ARN and the IAM role ARN</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- associated with an Amazon Kinesis Firehose event destination.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AkinesisFirehoseDestination%3AEventDestination%27"><span class="annot"><span class="annottext">EventDestination -&gt; Maybe KinesisFirehoseDestination
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | An object that contains the delivery stream ARN and the IAM role ARN</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- associated with an Amazon Kinesis Firehose event destination.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AkinesisFirehoseDestination%3AEventDestination%27"><span class="annot"><span class="annottext">EventDestination -&gt; Maybe KinesisFirehoseDestination
 </span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3AkinesisFirehoseDestination%3AEventDestination%27"><span class="hs-identifier hs-var hs-var">kinesisFirehoseDestination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-type">KinesisFirehoseDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | An object that contains the names, default values, and sources of the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- dimensions associated with an Amazon CloudWatch event destination.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AcloudWatchDestination%3AEventDestination%27"><span class="annot"><span class="annottext">EventDestination -&gt; Maybe CloudWatchDestination
+</span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3AcloudWatchDestination%3AEventDestination%27"><span class="hs-identifier hs-var hs-var">cloudWatchDestination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-type">CloudWatchDestination</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | An object that contains the topic ARN associated with an Amazon Simple</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Notification Service (Amazon SNS) event destination.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AsNSDestination%3AEventDestination%27"><span class="annot"><span class="annottext">EventDestination -&gt; Maybe SNSDestination
@@ -73,7 +73,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AmatchingEventTypes%3AEventDestination%27"><span class="annot"><span class="annottext">EventDestination -&gt; [EventType]
 </span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3AmatchingEventTypes%3AEventDestination%27"><span class="hs-identifier hs-var hs-var">matchingEventTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SES.Types.EventType.html#EventType"><span class="hs-identifier hs-type">EventType</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275106"><span id="local-6989586621679275108"><span class="annot"><span class="annottext">EventDestination -&gt; EventDestination -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275303"><span id="local-6989586621679275305"><span class="annot"><span class="annottext">EventDestination -&gt; EventDestination -&gt; Bool
 (EventDestination -&gt; EventDestination -&gt; Bool)
 -&gt; (EventDestination -&gt; EventDestination -&gt; Bool)
 -&gt; Eq EventDestination
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EventDestination -&gt; EventDestination -&gt; Bool
 == :: EventDestination -&gt; EventDestination -&gt; Bool
 $c== :: EventDestination -&gt; EventDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275097"><span id="local-6989586621679275099"><span id="local-6989586621679275101"><span id="local-6989586621679275103"><span class="annot"><span class="annottext">ReadPrec [EventDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275294"><span id="local-6989586621679275296"><span id="local-6989586621679275298"><span id="local-6989586621679275300"><span class="annot"><span class="annottext">ReadPrec [EventDestination]
 ReadPrec EventDestination
 Int -&gt; ReadS EventDestination
 ReadS [EventDestination]
@@ -102,7 +102,7 @@ readList :: ReadS [EventDestination]
 $creadList :: ReadS [EventDestination]
 readsPrec :: Int -&gt; ReadS EventDestination
 $creadsPrec :: Int -&gt; ReadS EventDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275090"><span id="local-6989586621679275092"><span id="local-6989586621679275094"><span class="annot"><span class="annottext">Int -&gt; EventDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275287"><span id="local-6989586621679275289"><span id="local-6989586621679275291"><span class="annot"><span class="annottext">Int -&gt; EventDestination -&gt; ShowS
 [EventDestination] -&gt; ShowS
 EventDestination -&gt; String
 (Int -&gt; EventDestination -&gt; ShowS)
@@ -136,16 +136,16 @@ $cfrom :: forall x. EventDestination -&gt; Rep EventDestination x
 </span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'cloudWatchDestination', 'eventDestination_cloudWatchDestination' - An object that contains the names, default values, and sources of the</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- dimensions associated with an Amazon CloudWatch event destination.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'enabled', 'eventDestination_enabled' - Sets whether Amazon SES publishes events to this destination when you</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- send an email with the associated configuration set. Set to @true@ to</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- enable publishing to this destination; set to @false@ to prevent</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- publishing to this destination. The default value is @false@.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'enabled', 'eventDestination_enabled' - Sets whether Amazon SES publishes events to this destination when you</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- send an email with the associated configuration set. Set to @true@ to</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- enable publishing to this destination; set to @false@ to prevent</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- publishing to this destination. The default value is @false@.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'kinesisFirehoseDestination', 'eventDestination_kinesisFirehoseDestination' - An object that contains the delivery stream ARN and the IAM role ARN</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- associated with an Amazon Kinesis Firehose event destination.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'kinesisFirehoseDestination', 'eventDestination_kinesisFirehoseDestination' - An object that contains the delivery stream ARN and the IAM role ARN</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- associated with an Amazon Kinesis Firehose event destination.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'cloudWatchDestination', 'eventDestination_cloudWatchDestination' - An object that contains the names, default values, and sources of the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- dimensions associated with an Amazon CloudWatch event destination.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- 'sNSDestination', 'eventDestination_sNSDestination' - An object that contains the topic ARN associated with an Amazon Simple</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- Notification Service (Amazon SNS) event destination.</span><span>
@@ -163,93 +163,67 @@ $cfrom :: forall x. EventDestination -&gt; Rep EventDestination x
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span>
 </span><span id="line-106"></span><span id="newEventDestination"><span class="annot"><span class="annottext">newEventDestination :: Text -&gt; EventDestination
-</span><a href="Network.AWS.SES.Types.EventDestination.html#newEventDestination"><span class="hs-identifier hs-var hs-var">newEventDestination</span></a></span></span><span> </span><span id="local-6989586621679275084"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275084"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">EventDestination' :: Maybe CloudWatchDestination
--&gt; Maybe Bool
+</span><a href="Network.AWS.SES.Types.EventDestination.html#newEventDestination"><span class="hs-identifier hs-var hs-var">newEventDestination</span></a></span></span><span> </span><span id="local-6989586621679275281"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275281"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">EventDestination' :: Maybe Bool
 -&gt; Maybe KinesisFirehoseDestination
+-&gt; Maybe CloudWatchDestination
 -&gt; Maybe SNSDestination
 -&gt; Text
 -&gt; [EventType]
 -&gt; EventDestination
 </span><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cloudWatchDestination:EventDestination' :: Maybe CloudWatchDestination
-</span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3AcloudWatchDestination%3AEventDestination%27"><span class="hs-identifier hs-var">cloudWatchDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Maybe CloudWatchDestination
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:EventDestination' :: Maybe Bool
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:enabled:EventDestination' :: Maybe Bool
 </span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3Aenabled%3AEventDestination%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:kinesisFirehoseDestination:EventDestination' :: Maybe KinesisFirehoseDestination
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:kinesisFirehoseDestination:EventDestination' :: Maybe KinesisFirehoseDestination
 </span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3AkinesisFirehoseDestination%3AEventDestination%27"><span class="hs-identifier hs-var">kinesisFirehoseDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseDestination
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:sNSDestination:EventDestination' :: Maybe SNSDestination
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudWatchDestination:EventDestination' :: Maybe CloudWatchDestination
+</span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3AcloudWatchDestination%3AEventDestination%27"><span class="hs-identifier hs-var">cloudWatchDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchDestination
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:sNSDestination:EventDestination' :: Maybe SNSDestination
 </span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3AsNSDestination%3AEventDestination%27"><span class="hs-identifier hs-var">sNSDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SNSDestination
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:EventDestination' :: Text
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:EventDestination' :: Text
 </span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3Aname%3AEventDestination%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275084"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:matchingEventTypes:EventDestination' :: [EventType]
+</span><a href="#local-6989586621679275281"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:matchingEventTypes:EventDestination' :: [EventType]
 </span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3AmatchingEventTypes%3AEventDestination%27"><span class="hs-identifier hs-var">matchingEventTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EventType]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | An object that contains the names, default values, and sources of the</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- dimensions associated with an Amazon CloudWatch event destination.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_cloudWatchDestination"><span class="hs-identifier hs-type">eventDestination_cloudWatchDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-type">CloudWatchDestination</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="eventDestination_cloudWatchDestination"><span class="annot"><span class="annottext">eventDestination_cloudWatchDestination :: (Maybe CloudWatchDestination -&gt; f (Maybe CloudWatchDestination))
--&gt; EventDestination -&gt; f EventDestination
-</span><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_cloudWatchDestination"><span class="hs-identifier hs-var hs-var">eventDestination_cloudWatchDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventDestination -&gt; Maybe CloudWatchDestination)
--&gt; (EventDestination
-    -&gt; Maybe CloudWatchDestination -&gt; EventDestination)
--&gt; Lens
-     EventDestination
-     EventDestination
-     (Maybe CloudWatchDestination)
-     (Maybe CloudWatchDestination)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275080"><span class="annot"><span class="annottext">Maybe CloudWatchDestination
-cloudWatchDestination :: Maybe CloudWatchDestination
-$sel:cloudWatchDestination:EventDestination' :: EventDestination -&gt; Maybe CloudWatchDestination
-</span><a href="#local-6989586621679275080"><span class="hs-identifier hs-var hs-var">cloudWatchDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchDestination
-</span><a href="#local-6989586621679275080"><span class="hs-identifier hs-var">cloudWatchDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275079"><span class="annot"><span class="annottext">s :: EventDestination
-</span><a href="#local-6989586621679275079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275078"><span class="annot"><span class="annottext">Maybe CloudWatchDestination
-</span><a href="#local-6989586621679275078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
-</span><a href="#local-6989586621679275079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchDestination:EventDestination' :: Maybe CloudWatchDestination
-</span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3AcloudWatchDestination%3AEventDestination%27"><span class="hs-identifier hs-var">cloudWatchDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchDestination
-</span><a href="#local-6989586621679275078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | Sets whether Amazon SES publishes events to this destination when you</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- send an email with the associated configuration set. Set to @true@ to</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- enable publishing to this destination; set to @false@ to prevent</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- publishing to this destination. The default value is @false@.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_enabled"><span class="hs-identifier hs-type">eventDestination_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="eventDestination_enabled"><span class="annot"><span class="annottext">eventDestination_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Sets whether Amazon SES publishes events to this destination when you</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- send an email with the associated configuration set. Set to @true@ to</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- enable publishing to this destination; set to @false@ to prevent</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- publishing to this destination. The default value is @false@.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_enabled"><span class="hs-identifier hs-type">eventDestination_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="eventDestination_enabled"><span class="annot"><span class="annottext">eventDestination_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; EventDestination -&gt; f EventDestination
 </span><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_enabled"><span class="hs-identifier hs-var hs-var">eventDestination_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventDestination -&gt; Maybe Bool)
 -&gt; (EventDestination -&gt; Maybe Bool -&gt; EventDestination)
 -&gt; Lens EventDestination EventDestination (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275076"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275277"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:EventDestination' :: EventDestination -&gt; Maybe Bool
-</span><a href="#local-6989586621679275076"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679275076"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275075"><span class="annot"><span class="annottext">s :: EventDestination
-</span><a href="#local-6989586621679275075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275074"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679275074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
-</span><a href="#local-6989586621679275075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:EventDestination' :: Maybe Bool
+</span><a href="#local-6989586621679275277"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275277"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275276"><span class="annot"><span class="annottext">s :: EventDestination
+</span><a href="#local-6989586621679275276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275275"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
+</span><a href="#local-6989586621679275276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:EventDestination' :: Maybe Bool
 </span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3Aenabled%3AEventDestination%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679275074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | An object that contains the delivery stream ARN and the IAM role ARN</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- associated with an Amazon Kinesis Firehose event destination.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_kinesisFirehoseDestination"><span class="hs-identifier hs-type">eventDestination_kinesisFirehoseDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-type">KinesisFirehoseDestination</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="eventDestination_kinesisFirehoseDestination"><span class="annot"><span class="annottext">eventDestination_kinesisFirehoseDestination :: (Maybe KinesisFirehoseDestination
+</span><a href="#local-6989586621679275275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | An object that contains the delivery stream ARN and the IAM role ARN</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- associated with an Amazon Kinesis Firehose event destination.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_kinesisFirehoseDestination"><span class="hs-identifier hs-type">eventDestination_kinesisFirehoseDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-type">KinesisFirehoseDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="eventDestination_kinesisFirehoseDestination"><span class="annot"><span class="annottext">eventDestination_kinesisFirehoseDestination :: (Maybe KinesisFirehoseDestination
  -&gt; f (Maybe KinesisFirehoseDestination))
 -&gt; EventDestination -&gt; f EventDestination
 </span><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_kinesisFirehoseDestination"><span class="hs-identifier hs-var hs-var">eventDestination_kinesisFirehoseDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventDestination -&gt; Maybe KinesisFirehoseDestination)
@@ -261,21 +235,46 @@ $sel:enabled:EventDestination' :: EventDestination -&gt; Maybe Bool
      (Maybe KinesisFirehoseDestination)
      (Maybe KinesisFirehoseDestination)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275072"><span class="annot"><span class="annottext">Maybe KinesisFirehoseDestination
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275273"><span class="annot"><span class="annottext">Maybe KinesisFirehoseDestination
 kinesisFirehoseDestination :: Maybe KinesisFirehoseDestination
 $sel:kinesisFirehoseDestination:EventDestination' :: EventDestination -&gt; Maybe KinesisFirehoseDestination
-</span><a href="#local-6989586621679275072"><span class="hs-identifier hs-var hs-var">kinesisFirehoseDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseDestination
-</span><a href="#local-6989586621679275072"><span class="hs-identifier hs-var">kinesisFirehoseDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275071"><span class="annot"><span class="annottext">s :: EventDestination
-</span><a href="#local-6989586621679275071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275070"><span class="annot"><span class="annottext">Maybe KinesisFirehoseDestination
-</span><a href="#local-6989586621679275070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
-</span><a href="#local-6989586621679275071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisFirehoseDestination:EventDestination' :: Maybe KinesisFirehoseDestination
+</span><a href="#local-6989586621679275273"><span class="hs-identifier hs-var hs-var">kinesisFirehoseDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseDestination
+</span><a href="#local-6989586621679275273"><span class="hs-identifier hs-var">kinesisFirehoseDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275272"><span class="annot"><span class="annottext">s :: EventDestination
+</span><a href="#local-6989586621679275272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275271"><span class="annot"><span class="annottext">Maybe KinesisFirehoseDestination
+</span><a href="#local-6989586621679275271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
+</span><a href="#local-6989586621679275272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisFirehoseDestination:EventDestination' :: Maybe KinesisFirehoseDestination
 </span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3AkinesisFirehoseDestination%3AEventDestination%27"><span class="hs-identifier hs-var">kinesisFirehoseDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseDestination
-</span><a href="#local-6989586621679275070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | An object that contains the topic ARN associated with an Amazon Simple</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- Notification Service (Amazon SNS) event destination.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_sNSDestination"><span class="hs-identifier hs-type">eventDestination_sNSDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination"><span class="hs-identifier hs-type">SNSDestination</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="eventDestination_sNSDestination"><span class="annot"><span class="annottext">eventDestination_sNSDestination :: (Maybe SNSDestination -&gt; f (Maybe SNSDestination))
+</span><a href="#local-6989586621679275271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | An object that contains the names, default values, and sources of the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- dimensions associated with an Amazon CloudWatch event destination.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_cloudWatchDestination"><span class="hs-identifier hs-type">eventDestination_cloudWatchDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-type">CloudWatchDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="eventDestination_cloudWatchDestination"><span class="annot"><span class="annottext">eventDestination_cloudWatchDestination :: (Maybe CloudWatchDestination -&gt; f (Maybe CloudWatchDestination))
+-&gt; EventDestination -&gt; f EventDestination
+</span><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_cloudWatchDestination"><span class="hs-identifier hs-var hs-var">eventDestination_cloudWatchDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventDestination -&gt; Maybe CloudWatchDestination)
+-&gt; (EventDestination
+    -&gt; Maybe CloudWatchDestination -&gt; EventDestination)
+-&gt; Lens
+     EventDestination
+     EventDestination
+     (Maybe CloudWatchDestination)
+     (Maybe CloudWatchDestination)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275269"><span class="annot"><span class="annottext">Maybe CloudWatchDestination
+cloudWatchDestination :: Maybe CloudWatchDestination
+$sel:cloudWatchDestination:EventDestination' :: EventDestination -&gt; Maybe CloudWatchDestination
+</span><a href="#local-6989586621679275269"><span class="hs-identifier hs-var hs-var">cloudWatchDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchDestination
+</span><a href="#local-6989586621679275269"><span class="hs-identifier hs-var">cloudWatchDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275268"><span class="annot"><span class="annottext">s :: EventDestination
+</span><a href="#local-6989586621679275268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275267"><span class="annot"><span class="annottext">Maybe CloudWatchDestination
+</span><a href="#local-6989586621679275267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
+</span><a href="#local-6989586621679275268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchDestination:EventDestination' :: Maybe CloudWatchDestination
+</span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3AcloudWatchDestination%3AEventDestination%27"><span class="hs-identifier hs-var">cloudWatchDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchDestination
+</span><a href="#local-6989586621679275267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | An object that contains the topic ARN associated with an Amazon Simple</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Notification Service (Amazon SNS) event destination.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_sNSDestination"><span class="hs-identifier hs-type">eventDestination_sNSDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination"><span class="hs-identifier hs-type">SNSDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="eventDestination_sNSDestination"><span class="annot"><span class="annottext">eventDestination_sNSDestination :: (Maybe SNSDestination -&gt; f (Maybe SNSDestination))
 -&gt; EventDestination -&gt; f EventDestination
 </span><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_sNSDestination"><span class="hs-identifier hs-var hs-var">eventDestination_sNSDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventDestination -&gt; Maybe SNSDestination)
 -&gt; (EventDestination -&gt; Maybe SNSDestination -&gt; EventDestination)
@@ -285,58 +284,58 @@ $sel:kinesisFirehoseDestination:EventDestination' :: EventDestination -&gt; Mayb
      (Maybe SNSDestination)
      (Maybe SNSDestination)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275068"><span class="annot"><span class="annottext">Maybe SNSDestination
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275265"><span class="annot"><span class="annottext">Maybe SNSDestination
 sNSDestination :: Maybe SNSDestination
 $sel:sNSDestination:EventDestination' :: EventDestination -&gt; Maybe SNSDestination
-</span><a href="#local-6989586621679275068"><span class="hs-identifier hs-var hs-var">sNSDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SNSDestination
-</span><a href="#local-6989586621679275068"><span class="hs-identifier hs-var">sNSDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275067"><span class="annot"><span class="annottext">s :: EventDestination
-</span><a href="#local-6989586621679275067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275066"><span class="annot"><span class="annottext">Maybe SNSDestination
-</span><a href="#local-6989586621679275066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
-</span><a href="#local-6989586621679275067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sNSDestination:EventDestination' :: Maybe SNSDestination
+</span><a href="#local-6989586621679275265"><span class="hs-identifier hs-var hs-var">sNSDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SNSDestination
+</span><a href="#local-6989586621679275265"><span class="hs-identifier hs-var">sNSDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275264"><span class="annot"><span class="annottext">s :: EventDestination
+</span><a href="#local-6989586621679275264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275263"><span class="annot"><span class="annottext">Maybe SNSDestination
+</span><a href="#local-6989586621679275263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
+</span><a href="#local-6989586621679275264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sNSDestination:EventDestination' :: Maybe SNSDestination
 </span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3AsNSDestination%3AEventDestination%27"><span class="hs-identifier hs-var">sNSDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SNSDestination
-</span><a href="#local-6989586621679275066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | The name of the event destination. The name must:</span><span>
-</span><span id="line-140"></span><span class="hs-comment">--</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- -   This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--     underscores (_), or dashes (-).</span><span>
-</span><span id="line-143"></span><span class="hs-comment">--</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- -   Contain less than 64 characters.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_name"><span class="hs-identifier hs-type">eventDestination_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-146"></span><span id="eventDestination_name"><span class="annot"><span class="annottext">eventDestination_name :: (Text -&gt; f Text) -&gt; EventDestination -&gt; f EventDestination
+</span><a href="#local-6989586621679275263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The name of the event destination. The name must:</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--     underscores (_), or dashes (-).</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- -   Contain less than 64 characters.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_name"><span class="hs-identifier hs-type">eventDestination_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-145"></span><span id="eventDestination_name"><span class="annot"><span class="annottext">eventDestination_name :: (Text -&gt; f Text) -&gt; EventDestination -&gt; f EventDestination
 </span><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_name"><span class="hs-identifier hs-var hs-var">eventDestination_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventDestination -&gt; Text)
 -&gt; (EventDestination -&gt; Text -&gt; EventDestination)
 -&gt; Lens EventDestination EventDestination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275064"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275261"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:EventDestination' :: EventDestination -&gt; Text
-</span><a href="#local-6989586621679275064"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275064"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275063"><span class="annot"><span class="annottext">s :: EventDestination
-</span><a href="#local-6989586621679275063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275062"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
-</span><a href="#local-6989586621679275063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:EventDestination' :: Text
+</span><a href="#local-6989586621679275261"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275261"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275260"><span class="annot"><span class="annottext">s :: EventDestination
+</span><a href="#local-6989586621679275260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275259"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
+</span><a href="#local-6989586621679275260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:EventDestination' :: Text
 </span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3Aname%3AEventDestination%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | The type of email sending events to publish to the event destination.</span><span>
-</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_matchingEventTypes"><span class="hs-identifier hs-type">eventDestination_matchingEventTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SES.Types.EventType.html#EventType"><span class="hs-identifier hs-type">EventType</span></a></span><span class="hs-special">]</span><span>
-</span><span id="line-150"></span><span id="eventDestination_matchingEventTypes"><span class="annot"><span class="annottext">eventDestination_matchingEventTypes :: ([EventType] -&gt; f [EventType])
+</span><a href="#local-6989586621679275259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The type of email sending events to publish to the event destination.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_matchingEventTypes"><span class="hs-identifier hs-type">eventDestination_matchingEventTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SES.Types.EventType.html#EventType"><span class="hs-identifier hs-type">EventType</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-149"></span><span id="eventDestination_matchingEventTypes"><span class="annot"><span class="annottext">eventDestination_matchingEventTypes :: ([EventType] -&gt; f [EventType])
 -&gt; EventDestination -&gt; f EventDestination
 </span><a href="Network.AWS.SES.Types.EventDestination.html#eventDestination_matchingEventTypes"><span class="hs-identifier hs-var hs-var">eventDestination_matchingEventTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventDestination -&gt; [EventType])
 -&gt; (EventDestination -&gt; [EventType] -&gt; EventDestination)
 -&gt; Lens EventDestination EventDestination [EventType] [EventType]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275060"><span class="annot"><span class="annottext">[EventType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275257"><span class="annot"><span class="annottext">[EventType]
 matchingEventTypes :: [EventType]
 $sel:matchingEventTypes:EventDestination' :: EventDestination -&gt; [EventType]
-</span><a href="#local-6989586621679275060"><span class="hs-identifier hs-var hs-var">matchingEventTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[EventType]
-</span><a href="#local-6989586621679275060"><span class="hs-identifier hs-var">matchingEventTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275059"><span class="annot"><span class="annottext">s :: EventDestination
-</span><a href="#local-6989586621679275059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275058"><span class="annot"><span class="annottext">[EventType]
-</span><a href="#local-6989586621679275058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
-</span><a href="#local-6989586621679275059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchingEventTypes:EventDestination' :: [EventType]
+</span><a href="#local-6989586621679275257"><span class="hs-identifier hs-var hs-var">matchingEventTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[EventType]
+</span><a href="#local-6989586621679275257"><span class="hs-identifier hs-var">matchingEventTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275256"><span class="annot"><span class="annottext">s :: EventDestination
+</span><a href="#local-6989586621679275256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275255"><span class="annot"><span class="annottext">[EventType]
+</span><a href="#local-6989586621679275255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestination
+</span><a href="#local-6989586621679275256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchingEventTypes:EventDestination' :: [EventType]
 </span><a href="Network.AWS.SES.Types.EventDestination.html#%24sel%3AmatchingEventTypes%3AEventDestination%27"><span class="hs-identifier hs-var">matchingEventTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EventType]
-</span><a href="#local-6989586621679275058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([EventType] -&gt; f [EventType])
+</span><a href="#local-6989586621679275255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([EventType] -&gt; f [EventType])
  -&gt; EventDestination -&gt; f EventDestination)
 -&gt; (([EventType] -&gt; f [EventType]) -&gt; [EventType] -&gt; f [EventType])
 -&gt; ([EventType] -&gt; f [EventType])
@@ -344,110 +343,110 @@ $sel:matchingEventTypes:EventDestination' :: EventDestination -&gt; [EventType]
 -&gt; f EventDestination
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([EventType] -&gt; f [EventType]) -&gt; [EventType] -&gt; f [EventType]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679275053"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EventDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679275051"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679275051"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">Maybe CloudWatchDestination
--&gt; Maybe Bool
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679275250"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EventDestination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679275248"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679275248"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe KinesisFirehoseDestination
+-&gt; Maybe CloudWatchDestination
 -&gt; Maybe SNSDestination
 -&gt; Text
 -&gt; [EventType]
 -&gt; EventDestination
 </span><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-var">EventDestination'</span></a></span><span>
-</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">(Maybe CloudWatchDestination
- -&gt; Maybe Bool
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool
  -&gt; Maybe KinesisFirehoseDestination
+ -&gt; Maybe CloudWatchDestination
  -&gt; Maybe SNSDestination
  -&gt; Text
  -&gt; [EventType]
  -&gt; EventDestination)
--&gt; Either String (Maybe CloudWatchDestination)
+-&gt; Either String (Maybe Bool)
 -&gt; Either
      String
-     (Maybe Bool
-      -&gt; Maybe KinesisFirehoseDestination
+     (Maybe KinesisFirehoseDestination
+      -&gt; Maybe CloudWatchDestination
       -&gt; Maybe SNSDestination
       -&gt; Text
       -&gt; [EventType]
       -&gt; EventDestination)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679275051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CloudWatchDestination)
+</span><a href="#local-6989586621679275248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CloudWatchDestination&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Bool
-   -&gt; Maybe KinesisFirehoseDestination
+  (Maybe KinesisFirehoseDestination
+   -&gt; Maybe CloudWatchDestination
    -&gt; Maybe SNSDestination
    -&gt; Text
    -&gt; [EventType]
    -&gt; EventDestination)
--&gt; Either String (Maybe Bool)
+-&gt; Either String (Maybe KinesisFirehoseDestination)
 -&gt; Either
      String
-     (Maybe KinesisFirehoseDestination
+     (Maybe CloudWatchDestination
       -&gt; Maybe SNSDestination -&gt; Text -&gt; [EventType] -&gt; EventDestination)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679275051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679275248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe KinesisFirehoseDestination)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;KinesisFirehoseDestination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe KinesisFirehoseDestination
+  (Maybe CloudWatchDestination
    -&gt; Maybe SNSDestination -&gt; Text -&gt; [EventType] -&gt; EventDestination)
--&gt; Either String (Maybe KinesisFirehoseDestination)
+-&gt; Either String (Maybe CloudWatchDestination)
 -&gt; Either
      String
      (Maybe SNSDestination -&gt; Text -&gt; [EventType] -&gt; EventDestination)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679275051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe KinesisFirehoseDestination)
+</span><a href="#local-6989586621679275248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CloudWatchDestination)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;KinesisFirehoseDestination&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;CloudWatchDestination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe SNSDestination -&gt; Text -&gt; [EventType] -&gt; EventDestination)
 -&gt; Either String (Maybe SNSDestination)
 -&gt; Either String (Text -&gt; [EventType] -&gt; EventDestination)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679275051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SNSDestination)
+</span><a href="#local-6989586621679275248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SNSDestination)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SNSDestination&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; [EventType] -&gt; EventDestination)
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; [EventType] -&gt; EventDestination)
 -&gt; Either String Text
 -&gt; Either String ([EventType] -&gt; EventDestination)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679275051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679275248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">Either String ([EventType] -&gt; EventDestination)
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">Either String ([EventType] -&gt; EventDestination)
 -&gt; Either String [EventType] -&gt; Either String EventDestination
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679275051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679275248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MatchingEventTypes&quot;</span></span><span>
-</span><span id="line-161"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-160"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-162"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-161"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String [EventType])
 -&gt; Either String [EventType]
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -455,15 +454,15 @@ forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;member&quot;</span></span><span>
-</span><span id="line-163"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275042"><span id="local-6989586621679275044"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span></span></span><span>
-</span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275039"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span></span><span>
-</span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679275035"><span class="annot"><span class="annottext">toQuery :: EventDestination -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275028"><span id="local-6989586621679275029"><span id="local-6989586621679275030"><span id="local-6989586621679275031"><span id="local-6989586621679275032"><span id="local-6989586621679275033"><span class="annot"><span class="annottext">[EventType]
+</span><span id="line-162"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275239"><span id="local-6989586621679275241"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275236"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination"><span class="hs-identifier hs-type">EventDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679275232"><span class="annot"><span class="annottext">toQuery :: EventDestination -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.EventDestination.html#EventDestination%27"><span class="hs-identifier hs-type">EventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275225"><span id="local-6989586621679275226"><span id="local-6989586621679275227"><span id="local-6989586621679275228"><span id="local-6989586621679275229"><span id="local-6989586621679275230"><span class="annot"><span class="annottext">[EventType]
 Maybe Bool
 Maybe CloudWatchDestination
 Maybe KinesisFirehoseDestination
@@ -472,49 +471,49 @@ Text
 matchingEventTypes :: [EventType]
 name :: Text
 sNSDestination :: Maybe SNSDestination
+cloudWatchDestination :: Maybe CloudWatchDestination
 kinesisFirehoseDestination :: Maybe KinesisFirehoseDestination
 enabled :: Maybe Bool
-cloudWatchDestination :: Maybe CloudWatchDestination
 $sel:matchingEventTypes:EventDestination' :: EventDestination -&gt; [EventType]
 $sel:name:EventDestination' :: EventDestination -&gt; Text
 $sel:sNSDestination:EventDestination' :: EventDestination -&gt; Maybe SNSDestination
+$sel:cloudWatchDestination:EventDestination' :: EventDestination -&gt; Maybe CloudWatchDestination
 $sel:kinesisFirehoseDestination:EventDestination' :: EventDestination -&gt; Maybe KinesisFirehoseDestination
 $sel:enabled:EventDestination' :: EventDestination -&gt; Maybe Bool
-$sel:cloudWatchDestination:EventDestination' :: EventDestination -&gt; Maybe CloudWatchDestination
-</span><a href="#local-6989586621679275028"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+</span><a href="#local-6989586621679275225"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-172"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;CloudWatchDestination&quot;</span></span><span>
-</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe CloudWatchDestination -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchDestination
-</span><a href="#local-6989586621679275033"><span class="hs-identifier hs-var">cloudWatchDestination</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-171"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679275032"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679275230"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;KinesisFirehoseDestination&quot;</span></span><span>
-</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe KinesisFirehoseDestination -&gt; QueryString
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe KinesisFirehoseDestination -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseDestination
-</span><a href="#local-6989586621679275031"><span class="hs-identifier hs-var">kinesisFirehoseDestination</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679275229"><span class="hs-identifier hs-var">kinesisFirehoseDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CloudWatchDestination&quot;</span></span><span>
+</span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe CloudWatchDestination -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchDestination
+</span><a href="#local-6989586621679275228"><span class="hs-identifier hs-var">cloudWatchDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SNSDestination&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe SNSDestination -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe SNSDestination
-</span><a href="#local-6989586621679275030"><span class="hs-identifier hs-var">sNSDestination</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679275227"><span class="hs-identifier hs-var">sNSDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275029"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679275226"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MatchingEventTypes&quot;</span></span><span>
-</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+</span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [EventType] -&gt; QueryString
 forall a.
@@ -522,6 +521,6 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[EventType]
-</span><a href="#local-6989586621679275028"><span class="hs-identifier hs-var">matchingEventTypes</span></a></span><span>
-</span><span id="line-181"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-182"></span></pre></body></html>
+</span><a href="#local-6989586621679275225"><span class="hs-identifier hs-var">matchingEventTypes</span></a></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span></pre></body></html>

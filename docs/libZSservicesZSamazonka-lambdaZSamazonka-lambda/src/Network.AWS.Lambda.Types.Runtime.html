@@ -52,10 +52,10 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span id="local-6989586621679293478"><span id="local-6989586621679293479"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Runtime"><span class="annot"><a href="Network.AWS.Lambda.Types.Runtime.html#Runtime"><span class="hs-identifier hs-var">Runtime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Runtime%27"><span class="annot"><a href="Network.AWS.Lambda.Types.Runtime.html#Runtime%27"><span class="hs-identifier hs-var">Runtime'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromRuntime"><span class="annot"><span class="annottext">Runtime -&gt; Text
+</span><span id="line-55"></span><span id="local-6989586621679298321"><span id="local-6989586621679298322"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Runtime"><span class="annot"><a href="Network.AWS.Lambda.Types.Runtime.html#Runtime"><span class="hs-identifier hs-var">Runtime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Runtime%27"><span class="annot"><a href="Network.AWS.Lambda.Types.Runtime.html#Runtime%27"><span class="hs-identifier hs-var">Runtime'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromRuntime"><span class="annot"><span class="annottext">Runtime -&gt; Text
 </span><a href="Network.AWS.Lambda.Types.Runtime.html#fromRuntime"><span class="hs-identifier hs-var hs-var">fromRuntime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293470"><span id="local-6989586621679293472"><span id="local-6989586621679293474"><span class="annot"><span class="annottext">Int -&gt; Runtime -&gt; ShowS
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298313"><span id="local-6989586621679298315"><span id="local-6989586621679298317"><span class="annot"><span class="annottext">Int -&gt; Runtime -&gt; ShowS
 [Runtime] -&gt; ShowS
 Runtime -&gt; String
 (Int -&gt; Runtime -&gt; ShowS)
@@ -69,7 +69,7 @@ $cshow :: Runtime -&gt; String
 showsPrec :: Int -&gt; Runtime -&gt; ShowS
 $cshowsPrec :: Int -&gt; Runtime -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679293461"><span id="local-6989586621679293463"><span id="local-6989586621679293465"><span id="local-6989586621679293467"><span class="annot"><span class="annottext">ReadPrec [Runtime]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679298304"><span id="local-6989586621679298306"><span id="local-6989586621679298308"><span id="local-6989586621679298310"><span class="annot"><span class="annottext">ReadPrec [Runtime]
 ReadPrec Runtime
 Int -&gt; ReadS Runtime
 ReadS [Runtime]
@@ -90,7 +90,7 @@ $creadList :: ReadS [Runtime]
 readsPrec :: Int -&gt; ReadS Runtime
 $creadsPrec :: Int -&gt; ReadS Runtime
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679293456"><span id="local-6989586621679293458"><span class="annot"><span class="annottext">Runtime -&gt; Runtime -&gt; Bool
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679298299"><span id="local-6989586621679298301"><span class="annot"><span class="annottext">Runtime -&gt; Runtime -&gt; Bool
 (Runtime -&gt; Runtime -&gt; Bool)
 -&gt; (Runtime -&gt; Runtime -&gt; Bool) -&gt; Eq Runtime
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -99,7 +99,7 @@ $c/= :: Runtime -&gt; Runtime -&gt; Bool
 == :: Runtime -&gt; Runtime -&gt; Bool
 $c== :: Runtime -&gt; Runtime -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679293440"><span id="local-6989586621679293442"><span id="local-6989586621679293444"><span id="local-6989586621679293446"><span id="local-6989586621679293448"><span id="local-6989586621679293450"><span id="local-6989586621679293452"><span class="annot"><span class="annottext">Eq Runtime
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679298283"><span id="local-6989586621679298285"><span id="local-6989586621679298287"><span id="local-6989586621679298289"><span id="local-6989586621679298291"><span id="local-6989586621679298293"><span id="local-6989586621679298295"><span class="annot"><span class="annottext">Eq Runtime
 Eq Runtime
 -&gt; (Runtime -&gt; Runtime -&gt; Ordering)
 -&gt; (Runtime -&gt; Runtime -&gt; Bool)
@@ -149,7 +149,7 @@ $cfrom :: forall x. Runtime -&gt; Rep Runtime x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293432"><span id="local-6989586621679293434"><span class="annot"><span class="annottext">Int -&gt; Runtime -&gt; Int
+</span><span id="line-64"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298275"><span id="local-6989586621679298277"><span class="annot"><span class="annottext">Int -&gt; Runtime -&gt; Int
 Runtime -&gt; Int
 (Int -&gt; Runtime -&gt; Int) -&gt; (Runtime -&gt; Int) -&gt; Hashable Runtime
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -158,49 +158,49 @@ $chash :: Runtime -&gt; Int
 hashWithSalt :: Int -&gt; Runtime -&gt; Int
 $chashWithSalt :: Int -&gt; Runtime -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679293429"><span class="annot"><span class="annottext">Runtime -&gt; ()
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679298272"><span class="annot"><span class="annottext">Runtime -&gt; ()
 (Runtime -&gt; ()) -&gt; NFData Runtime
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Runtime -&gt; ()
 $crnf :: Runtime -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679293426"><span class="annot"><span class="annottext">Text -&gt; Either String Runtime
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679298269"><span class="annot"><span class="annottext">Text -&gt; Either String Runtime
 (Text -&gt; Either String Runtime) -&gt; FromText Runtime
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Runtime
 $cfromText :: Text -&gt; Either String Runtime
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679293423"><span class="annot"><span class="annottext">Runtime -&gt; Text
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679298266"><span class="annot"><span class="annottext">Runtime -&gt; Text
 (Runtime -&gt; Text) -&gt; ToText Runtime
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Runtime -&gt; Text
 $ctoText :: Runtime -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679293420"><span class="annot"><span class="annottext">Runtime -&gt; ByteString
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679298263"><span class="annot"><span class="annottext">Runtime -&gt; ByteString
 (Runtime -&gt; ByteString) -&gt; ToByteString Runtime
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Runtime -&gt; ByteString
 $ctoBS :: Runtime -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679293417"><span class="annot"><span class="annottext">Runtime -&gt; ByteStringBuilder
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679298260"><span class="annot"><span class="annottext">Runtime -&gt; ByteStringBuilder
 (Runtime -&gt; ByteStringBuilder) -&gt; ToLog Runtime
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Runtime -&gt; ByteStringBuilder
 $cbuild :: Runtime -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679293414"><span class="annot"><span class="annottext">HeaderName -&gt; Runtime -&gt; [Header]
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679298257"><span class="annot"><span class="annottext">HeaderName -&gt; Runtime -&gt; [Header]
 (HeaderName -&gt; Runtime -&gt; [Header]) -&gt; ToHeader Runtime
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Runtime -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Runtime -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679293411"><span class="annot"><span class="annottext">Runtime -&gt; QueryString
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679298254"><span class="annot"><span class="annottext">Runtime -&gt; QueryString
 (Runtime -&gt; QueryString) -&gt; ToQuery Runtime
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Runtime -&gt; QueryString
 $ctoQuery :: Runtime -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679293406"><span id="local-6989586621679293408"><span class="annot"><span class="annottext">Value -&gt; Parser [Runtime]
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679298249"><span id="local-6989586621679298251"><span class="annot"><span class="annottext">Value -&gt; Parser [Runtime]
 Value -&gt; Parser Runtime
 (Value -&gt; Parser Runtime)
 -&gt; (Value -&gt; Parser [Runtime]) -&gt; FromJSON Runtime
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [Runtime]
 parseJSON :: Value -&gt; Parser Runtime
 $cparseJSON :: Value -&gt; Parser Runtime
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679293401"><span id="local-6989586621679293403"><span class="annot"><span class="annottext">FromJSONKeyFunction [Runtime]
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679298244"><span id="local-6989586621679298246"><span class="annot"><span class="annottext">FromJSONKeyFunction [Runtime]
 FromJSONKeyFunction Runtime
 FromJSONKeyFunction Runtime
 -&gt; FromJSONKeyFunction [Runtime] -&gt; FromJSONKey Runtime
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Runtime]
 fromJSONKey :: FromJSONKeyFunction Runtime
 $cfromJSONKey :: FromJSONKeyFunction Runtime
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679293392"><span id="local-6989586621679293394"><span id="local-6989586621679293396"><span id="local-6989586621679293398"><span class="annot"><span class="annottext">[Runtime] -&gt; Encoding
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679298235"><span id="local-6989586621679298237"><span id="local-6989586621679298239"><span id="local-6989586621679298241"><span class="annot"><span class="annottext">[Runtime] -&gt; Encoding
 [Runtime] -&gt; Value
 Runtime -&gt; Encoding
 Runtime -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: Runtime -&gt; Encoding
 toJSON :: Runtime -&gt; Value
 $ctoJSON :: Runtime -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679293387"><span id="local-6989586621679293389"><span class="annot"><span class="annottext">ToJSONKeyFunction [Runtime]
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679298230"><span id="local-6989586621679298232"><span class="annot"><span class="annottext">ToJSONKeyFunction [Runtime]
 ToJSONKeyFunction Runtime
 ToJSONKeyFunction Runtime
 -&gt; ToJSONKeyFunction [Runtime] -&gt; ToJSONKey Runtime
@@ -257,13 +257,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Runtime]
 toJSONKey :: ToJSONKeyFunction Runtime
 $ctoJSONKey :: ToJSONKeyFunction Runtime
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679293384"><span class="annot"><span class="annottext">[Node] -&gt; Either String Runtime
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679298227"><span class="annot"><span class="annottext">[Node] -&gt; Either String Runtime
 ([Node] -&gt; Either String Runtime) -&gt; FromXML Runtime
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Runtime
 $cparseXML :: [Node] -&gt; Either String Runtime
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679293381"><span class="annot"><span class="annottext">Runtime -&gt; XML
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679298224"><span class="annot"><span class="annottext">Runtime -&gt; XML
 (Runtime -&gt; XML) -&gt; ToXML Runtime
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Runtime -&gt; XML

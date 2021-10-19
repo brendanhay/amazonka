@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html"><span class="hs-identifier">Network.AWS.Route53.Internal</span></a></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679293563"><span id="local-6989586621679293564"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ComparisonOperator"><span class="annot"><a href="Network.AWS.Route53.Types.ComparisonOperator.html#ComparisonOperator"><span class="hs-identifier hs-var">ComparisonOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComparisonOperator%27"><span class="annot"><a href="Network.AWS.Route53.Types.ComparisonOperator.html#ComparisonOperator%27"><span class="hs-identifier hs-var">ComparisonOperator'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679293708"><span id="local-6989586621679293709"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ComparisonOperator"><span class="annot"><a href="Network.AWS.Route53.Types.ComparisonOperator.html#ComparisonOperator"><span class="hs-identifier hs-var">ComparisonOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComparisonOperator%27"><span class="annot"><a href="Network.AWS.Route53.Types.ComparisonOperator.html#ComparisonOperator%27"><span class="hs-identifier hs-var">ComparisonOperator'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromComparisonOperator"><span class="annot"><span class="annottext">ComparisonOperator -&gt; Text
 </span><a href="Network.AWS.Route53.Types.ComparisonOperator.html#fromComparisonOperator"><span class="hs-identifier hs-var hs-var">fromComparisonOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293555"><span id="local-6989586621679293557"><span id="local-6989586621679293559"><span class="annot"><span class="annottext">Int -&gt; ComparisonOperator -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293700"><span id="local-6989586621679293702"><span id="local-6989586621679293704"><span class="annot"><span class="annottext">Int -&gt; ComparisonOperator -&gt; ShowS
 [ComparisonOperator] -&gt; ShowS
 ComparisonOperator -&gt; String
 (Int -&gt; ComparisonOperator -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ComparisonOperator -&gt; String
 showsPrec :: Int -&gt; ComparisonOperator -&gt; ShowS
 $cshowsPrec :: Int -&gt; ComparisonOperator -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679293546"><span id="local-6989586621679293548"><span id="local-6989586621679293550"><span id="local-6989586621679293552"><span class="annot"><span class="annottext">ReadPrec [ComparisonOperator]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679293691"><span id="local-6989586621679293693"><span id="local-6989586621679293695"><span id="local-6989586621679293697"><span class="annot"><span class="annottext">ReadPrec [ComparisonOperator]
 ReadPrec ComparisonOperator
 Int -&gt; ReadS ComparisonOperator
 ReadS [ComparisonOperator]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ComparisonOperator]
 readsPrec :: Int -&gt; ReadS ComparisonOperator
 $creadsPrec :: Int -&gt; ReadS ComparisonOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679293541"><span id="local-6989586621679293543"><span class="annot"><span class="annottext">ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679293686"><span id="local-6989586621679293688"><span class="annot"><span class="annottext">ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
 (ComparisonOperator -&gt; ComparisonOperator -&gt; Bool)
 -&gt; (ComparisonOperator -&gt; ComparisonOperator -&gt; Bool)
 -&gt; Eq ComparisonOperator
@@ -85,7 +85,7 @@ $c/= :: ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
 == :: ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
 $c== :: ComparisonOperator -&gt; ComparisonOperator -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679293525"><span id="local-6989586621679293527"><span id="local-6989586621679293529"><span id="local-6989586621679293531"><span id="local-6989586621679293533"><span id="local-6989586621679293535"><span id="local-6989586621679293537"><span class="annot"><span class="annottext">Eq ComparisonOperator
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679293670"><span id="local-6989586621679293672"><span id="local-6989586621679293674"><span id="local-6989586621679293676"><span id="local-6989586621679293678"><span id="local-6989586621679293680"><span id="local-6989586621679293682"><span class="annot"><span class="annottext">Eq ComparisonOperator
 Eq ComparisonOperator
 -&gt; (ComparisonOperator -&gt; ComparisonOperator -&gt; Ordering)
 -&gt; (ComparisonOperator -&gt; ComparisonOperator -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. ComparisonOperator -&gt; Rep ComparisonOperator x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293517"><span id="local-6989586621679293519"><span class="annot"><span class="annottext">Int -&gt; ComparisonOperator -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293662"><span id="local-6989586621679293664"><span class="annot"><span class="annottext">Int -&gt; ComparisonOperator -&gt; Int
 ComparisonOperator -&gt; Int
 (Int -&gt; ComparisonOperator -&gt; Int)
 -&gt; (ComparisonOperator -&gt; Int) -&gt; Hashable ComparisonOperator
@@ -146,53 +146,53 @@ $chash :: ComparisonOperator -&gt; Int
 hashWithSalt :: Int -&gt; ComparisonOperator -&gt; Int
 $chashWithSalt :: Int -&gt; ComparisonOperator -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679293514"><span class="annot"><span class="annottext">ComparisonOperator -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679293659"><span class="annot"><span class="annottext">ComparisonOperator -&gt; ()
 (ComparisonOperator -&gt; ()) -&gt; NFData ComparisonOperator
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ComparisonOperator -&gt; ()
 $crnf :: ComparisonOperator -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679293511"><span class="annot"><span class="annottext">Text -&gt; Either String ComparisonOperator
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679293656"><span class="annot"><span class="annottext">Text -&gt; Either String ComparisonOperator
 (Text -&gt; Either String ComparisonOperator)
 -&gt; FromText ComparisonOperator
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ComparisonOperator
 $cfromText :: Text -&gt; Either String ComparisonOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679293508"><span class="annot"><span class="annottext">ComparisonOperator -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679293653"><span class="annot"><span class="annottext">ComparisonOperator -&gt; Text
 (ComparisonOperator -&gt; Text) -&gt; ToText ComparisonOperator
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ComparisonOperator -&gt; Text
 $ctoText :: ComparisonOperator -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679293505"><span class="annot"><span class="annottext">ComparisonOperator -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679293650"><span class="annot"><span class="annottext">ComparisonOperator -&gt; ByteString
 (ComparisonOperator -&gt; ByteString)
 -&gt; ToByteString ComparisonOperator
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ComparisonOperator -&gt; ByteString
 $ctoBS :: ComparisonOperator -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679293502"><span class="annot"><span class="annottext">ComparisonOperator -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679293647"><span class="annot"><span class="annottext">ComparisonOperator -&gt; ByteStringBuilder
 (ComparisonOperator -&gt; ByteStringBuilder)
 -&gt; ToLog ComparisonOperator
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ComparisonOperator -&gt; ByteStringBuilder
 $cbuild :: ComparisonOperator -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679293499"><span class="annot"><span class="annottext">HeaderName -&gt; ComparisonOperator -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679293644"><span class="annot"><span class="annottext">HeaderName -&gt; ComparisonOperator -&gt; [Header]
 (HeaderName -&gt; ComparisonOperator -&gt; [Header])
 -&gt; ToHeader ComparisonOperator
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ComparisonOperator -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ComparisonOperator -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679293496"><span class="annot"><span class="annottext">ComparisonOperator -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679293641"><span class="annot"><span class="annottext">ComparisonOperator -&gt; QueryString
 (ComparisonOperator -&gt; QueryString) -&gt; ToQuery ComparisonOperator
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ComparisonOperator -&gt; QueryString
 $ctoQuery :: ComparisonOperator -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679293491"><span id="local-6989586621679293493"><span class="annot"><span class="annottext">Value -&gt; Parser [ComparisonOperator]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679293636"><span id="local-6989586621679293638"><span class="annot"><span class="annottext">Value -&gt; Parser [ComparisonOperator]
 Value -&gt; Parser ComparisonOperator
 (Value -&gt; Parser ComparisonOperator)
 -&gt; (Value -&gt; Parser [ComparisonOperator])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [ComparisonOperator]
 parseJSON :: Value -&gt; Parser ComparisonOperator
 $cparseJSON :: Value -&gt; Parser ComparisonOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679293486"><span id="local-6989586621679293488"><span class="annot"><span class="annottext">FromJSONKeyFunction [ComparisonOperator]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679293631"><span id="local-6989586621679293633"><span class="annot"><span class="annottext">FromJSONKeyFunction [ComparisonOperator]
 FromJSONKeyFunction ComparisonOperator
 FromJSONKeyFunction ComparisonOperator
 -&gt; FromJSONKeyFunction [ComparisonOperator]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ComparisonOperator]
 fromJSONKey :: FromJSONKeyFunction ComparisonOperator
 $cfromJSONKey :: FromJSONKeyFunction ComparisonOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679293477"><span id="local-6989586621679293479"><span id="local-6989586621679293481"><span id="local-6989586621679293483"><span class="annot"><span class="annottext">[ComparisonOperator] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679293622"><span id="local-6989586621679293624"><span id="local-6989586621679293626"><span id="local-6989586621679293628"><span class="annot"><span class="annottext">[ComparisonOperator] -&gt; Encoding
 [ComparisonOperator] -&gt; Value
 ComparisonOperator -&gt; Encoding
 ComparisonOperator -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: ComparisonOperator -&gt; Encoding
 toJSON :: ComparisonOperator -&gt; Value
 $ctoJSON :: ComparisonOperator -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679293472"><span id="local-6989586621679293474"><span class="annot"><span class="annottext">ToJSONKeyFunction [ComparisonOperator]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679293617"><span id="local-6989586621679293619"><span class="annot"><span class="annottext">ToJSONKeyFunction [ComparisonOperator]
 ToJSONKeyFunction ComparisonOperator
 ToJSONKeyFunction ComparisonOperator
 -&gt; ToJSONKeyFunction [ComparisonOperator]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ComparisonOperator]
 toJSONKey :: ToJSONKeyFunction ComparisonOperator
 $ctoJSONKey :: ToJSONKeyFunction ComparisonOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679293469"><span class="annot"><span class="annottext">[Node] -&gt; Either String ComparisonOperator
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679293614"><span class="annot"><span class="annottext">[Node] -&gt; Either String ComparisonOperator
 ([Node] -&gt; Either String ComparisonOperator)
 -&gt; FromXML ComparisonOperator
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ComparisonOperator
 $cparseXML :: [Node] -&gt; Either String ComparisonOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679293466"><span class="annot"><span class="annottext">ComparisonOperator -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679293611"><span class="annot"><span class="annottext">ComparisonOperator -&gt; XML
 (ComparisonOperator -&gt; XML) -&gt; ToXML ComparisonOperator
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ComparisonOperator -&gt; XML

@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Multiplex Output Settings</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMultiplexOutputSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679902878"><span id="local-6989586621679902879"></span></span><span class="hs-keyword">data</span><span> </span><span id="MultiplexOutputSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings"><span class="hs-identifier hs-var">MultiplexOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MultiplexOutputSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings%27"><span class="hs-identifier hs-var">MultiplexOutputSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679910372"><span id="local-6989586621679910373"></span></span><span class="hs-keyword">data</span><span> </span><span id="MultiplexOutputSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings"><span class="hs-identifier hs-var">MultiplexOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MultiplexOutputSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings%27"><span class="hs-identifier hs-var">MultiplexOutputSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Destination is a Multiplex.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Adestination%3AMultiplexOutputSettings%27"><span class="annot"><span class="annottext">MultiplexOutputSettings -&gt; OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#%24sel%3Adestination%3AMultiplexOutputSettings%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679902872"><span id="local-6989586621679902874"><span class="annot"><span class="annottext">MultiplexOutputSettings -&gt; MultiplexOutputSettings -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679910366"><span id="local-6989586621679910368"><span class="annot"><span class="annottext">MultiplexOutputSettings -&gt; MultiplexOutputSettings -&gt; Bool
 (MultiplexOutputSettings -&gt; MultiplexOutputSettings -&gt; Bool)
 -&gt; (MultiplexOutputSettings -&gt; MultiplexOutputSettings -&gt; Bool)
 -&gt; Eq MultiplexOutputSettings
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MultiplexOutputSettings -&gt; MultiplexOutputSettings -&gt; Bool
 == :: MultiplexOutputSettings -&gt; MultiplexOutputSettings -&gt; Bool
 $c== :: MultiplexOutputSettings -&gt; MultiplexOutputSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679902863"><span id="local-6989586621679902865"><span id="local-6989586621679902867"><span id="local-6989586621679902869"><span class="annot"><span class="annottext">ReadPrec [MultiplexOutputSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910357"><span id="local-6989586621679910359"><span id="local-6989586621679910361"><span id="local-6989586621679910363"><span class="annot"><span class="annottext">ReadPrec [MultiplexOutputSettings]
 ReadPrec MultiplexOutputSettings
 Int -&gt; ReadS MultiplexOutputSettings
 ReadS [MultiplexOutputSettings]
@@ -61,7 +61,7 @@ readList :: ReadS [MultiplexOutputSettings]
 $creadList :: ReadS [MultiplexOutputSettings]
 readsPrec :: Int -&gt; ReadS MultiplexOutputSettings
 $creadsPrec :: Int -&gt; ReadS MultiplexOutputSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679902856"><span id="local-6989586621679902858"><span id="local-6989586621679902860"><span class="annot"><span class="annottext">Int -&gt; MultiplexOutputSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910350"><span id="local-6989586621679910352"><span id="local-6989586621679910354"><span class="annot"><span class="annottext">Int -&gt; MultiplexOutputSettings -&gt; ShowS
 [MultiplexOutputSettings] -&gt; ShowS
 MultiplexOutputSettings -&gt; String
 (Int -&gt; MultiplexOutputSettings -&gt; ShowS)
@@ -103,14 +103,14 @@ $cfrom :: forall x. MultiplexOutputSettings -&gt; Rep MultiplexOutputSettings x
 </span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings"><span class="hs-identifier hs-type">MultiplexOutputSettings</span></a></span><span>
 </span><span id="line-49"></span><span id="newMultiplexOutputSettings"><span class="annot"><span class="annottext">newMultiplexOutputSettings :: OutputLocationRef -&gt; MultiplexOutputSettings
-</span><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#newMultiplexOutputSettings"><span class="hs-identifier hs-var hs-var">newMultiplexOutputSettings</span></a></span></span><span> </span><span id="local-6989586621679902850"><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679902850"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#newMultiplexOutputSettings"><span class="hs-identifier hs-var hs-var">newMultiplexOutputSettings</span></a></span></span><span> </span><span id="local-6989586621679910344"><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679910344"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">MultiplexOutputSettings' :: OutputLocationRef -&gt; MultiplexOutputSettings
 </span><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings%27"><span class="hs-identifier hs-type">MultiplexOutputSettings'</span></a></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destination:MultiplexOutputSettings' :: OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#%24sel%3Adestination%3AMultiplexOutputSettings%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>        </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679902850"><span class="hs-identifier hs-var">pDestination_</span></a></span><span>
+</span><a href="#local-6989586621679910344"><span class="hs-identifier hs-var">pDestination_</span></a></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | Destination is a Multiplex.</span><span>
@@ -126,19 +126,19 @@ $cfrom :: forall x. MultiplexOutputSettings -&gt; Rep MultiplexOutputSettings x
      OutputLocationRef
      OutputLocationRef
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings%27"><span class="hs-identifier hs-type">MultiplexOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679902846"><span class="annot"><span class="annottext">OutputLocationRef
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings%27"><span class="hs-identifier hs-type">MultiplexOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910340"><span class="annot"><span class="annottext">OutputLocationRef
 destination :: OutputLocationRef
 $sel:destination:MultiplexOutputSettings' :: MultiplexOutputSettings -&gt; OutputLocationRef
-</span><a href="#local-6989586621679902846"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679902846"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679902845"><span class="annot"><span class="annottext">s :: MultiplexOutputSettings
-</span><a href="#local-6989586621679902845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings%27"><span class="hs-identifier hs-type">MultiplexOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679902844"><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679902844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexOutputSettings
-</span><a href="#local-6989586621679902845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:MultiplexOutputSettings' :: OutputLocationRef
+</span><a href="#local-6989586621679910340"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679910340"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679910339"><span class="annot"><span class="annottext">s :: MultiplexOutputSettings
+</span><a href="#local-6989586621679910339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings%27"><span class="hs-identifier hs-type">MultiplexOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679910338"><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679910338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexOutputSettings
+</span><a href="#local-6989586621679910339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:MultiplexOutputSettings' :: OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#%24sel%3Adestination%3AMultiplexOutputSettings%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679902844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings"><span class="hs-identifier hs-type">MultiplexOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679910338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings"><span class="hs-identifier hs-type">MultiplexOutputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679902841"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings"><span class="hs-identifier hs-type">MultiplexOutputSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679902839"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MultiplexOutputSettings
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910335"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings"><span class="hs-identifier hs-type">MultiplexOutputSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679910333"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MultiplexOutputSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MultiplexOutputSettings)
@@ -148,30 +148,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MultiplexOutputSettings&quot;</span></span><span>
-</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679902836"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679902836"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679910330"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679910330"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">OutputLocationRef -&gt; MultiplexOutputSettings
 </span><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings%27"><span class="hs-identifier hs-var">MultiplexOutputSettings'</span></a></span><span>
 </span><span id="line-65"></span><span>            </span><span class="annot"><span class="annottext">(OutputLocationRef -&gt; MultiplexOutputSettings)
 -&gt; Parser OutputLocationRef -&gt; Parser MultiplexOutputSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679902836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OutputLocationRef
+</span><a href="#local-6989586621679910330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OutputLocationRef
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destination&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679902830"><span id="local-6989586621679902832"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings"><span class="hs-identifier hs-type">MultiplexOutputSettings</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910324"><span id="local-6989586621679910326"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings"><span class="hs-identifier hs-type">MultiplexOutputSettings</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679902827"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings"><span class="hs-identifier hs-type">MultiplexOutputSettings</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910321"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings"><span class="hs-identifier hs-type">MultiplexOutputSettings</span></a></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679902819"><span id="local-6989586621679902821"><span id="local-6989586621679902823"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings"><span class="hs-identifier hs-type">MultiplexOutputSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679902817"><span class="annot"><span class="annottext">toJSON :: MultiplexOutputSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings%27"><span class="hs-identifier hs-type">MultiplexOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679902815"><span class="annot"><span class="annottext">OutputLocationRef
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910313"><span id="local-6989586621679910315"><span id="local-6989586621679910317"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings"><span class="hs-identifier hs-type">MultiplexOutputSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679910311"><span class="annot"><span class="annottext">toJSON :: MultiplexOutputSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings%27"><span class="hs-identifier hs-type">MultiplexOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910309"><span class="annot"><span class="annottext">OutputLocationRef
 destination :: OutputLocationRef
 $sel:destination:MultiplexOutputSettings' :: MultiplexOutputSettings -&gt; OutputLocationRef
-</span><a href="#local-6989586621679902815"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679910309"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -183,6 +183,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OutputLocationRef -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679902815"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679910309"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span></pre></body></html>

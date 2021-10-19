@@ -39,13 +39,13 @@
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- | An email sending event type. For example, email sends, opens, and</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- bounces are all email events.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679325761"><span id="local-6989586621679325762"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EventType"><span class="annot"><a href="Network.AWS.SESv2.Types.EventType.html#EventType"><span class="hs-identifier hs-var">EventType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventType%27"><span class="annot"><a href="Network.AWS.SESv2.Types.EventType.html#EventType%27"><span class="hs-identifier hs-var">EventType'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679328268"><span id="local-6989586621679328269"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EventType"><span class="annot"><a href="Network.AWS.SESv2.Types.EventType.html#EventType"><span class="hs-identifier hs-var">EventType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventType%27"><span class="annot"><a href="Network.AWS.SESv2.Types.EventType.html#EventType%27"><span class="hs-identifier hs-var">EventType'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEventType"><span class="annot"><span class="annottext">EventType -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.EventType.html#fromEventType"><span class="hs-identifier hs-var hs-var">fromEventType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325753"><span id="local-6989586621679325755"><span id="local-6989586621679325757"><span class="annot"><span class="annottext">Int -&gt; EventType -&gt; ShowS
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679328260"><span id="local-6989586621679328262"><span id="local-6989586621679328264"><span class="annot"><span class="annottext">Int -&gt; EventType -&gt; ShowS
 [EventType] -&gt; ShowS
 EventType -&gt; String
 (Int -&gt; EventType -&gt; ShowS)
@@ -61,7 +61,7 @@ $cshow :: EventType -&gt; String
 showsPrec :: Int -&gt; EventType -&gt; ShowS
 $cshowsPrec :: Int -&gt; EventType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679325744"><span id="local-6989586621679325746"><span id="local-6989586621679325748"><span id="local-6989586621679325750"><span class="annot"><span class="annottext">ReadPrec [EventType]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679328251"><span id="local-6989586621679328253"><span id="local-6989586621679328255"><span id="local-6989586621679328257"><span class="annot"><span class="annottext">ReadPrec [EventType]
 ReadPrec EventType
 Int -&gt; ReadS EventType
 ReadS [EventType]
@@ -82,7 +82,7 @@ $creadList :: ReadS [EventType]
 readsPrec :: Int -&gt; ReadS EventType
 $creadsPrec :: Int -&gt; ReadS EventType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679325739"><span id="local-6989586621679325741"><span class="annot"><span class="annottext">EventType -&gt; EventType -&gt; Bool
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679328246"><span id="local-6989586621679328248"><span class="annot"><span class="annottext">EventType -&gt; EventType -&gt; Bool
 (EventType -&gt; EventType -&gt; Bool)
 -&gt; (EventType -&gt; EventType -&gt; Bool) -&gt; Eq EventType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -91,7 +91,7 @@ $c/= :: EventType -&gt; EventType -&gt; Bool
 == :: EventType -&gt; EventType -&gt; Bool
 $c== :: EventType -&gt; EventType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679325723"><span id="local-6989586621679325725"><span id="local-6989586621679325727"><span id="local-6989586621679325729"><span id="local-6989586621679325731"><span id="local-6989586621679325733"><span id="local-6989586621679325735"><span class="annot"><span class="annottext">Eq EventType
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679328230"><span id="local-6989586621679328232"><span id="local-6989586621679328234"><span id="local-6989586621679328236"><span id="local-6989586621679328238"><span id="local-6989586621679328240"><span id="local-6989586621679328242"><span class="annot"><span class="annottext">Eq EventType
 Eq EventType
 -&gt; (EventType -&gt; EventType -&gt; Ordering)
 -&gt; (EventType -&gt; EventType -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. EventType -&gt; Rep EventType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325715"><span id="local-6989586621679325717"><span class="annot"><span class="annottext">Int -&gt; EventType -&gt; Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679328222"><span id="local-6989586621679328224"><span class="annot"><span class="annottext">Int -&gt; EventType -&gt; Int
 EventType -&gt; Int
 (Int -&gt; EventType -&gt; Int)
 -&gt; (EventType -&gt; Int) -&gt; Hashable EventType
@@ -151,49 +151,49 @@ $chash :: EventType -&gt; Int
 hashWithSalt :: Int -&gt; EventType -&gt; Int
 $chashWithSalt :: Int -&gt; EventType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679325712"><span class="annot"><span class="annottext">EventType -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679328219"><span class="annot"><span class="annottext">EventType -&gt; ()
 (EventType -&gt; ()) -&gt; NFData EventType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EventType -&gt; ()
 $crnf :: EventType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679325709"><span class="annot"><span class="annottext">Text -&gt; Either String EventType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679328216"><span class="annot"><span class="annottext">Text -&gt; Either String EventType
 (Text -&gt; Either String EventType) -&gt; FromText EventType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EventType
 $cfromText :: Text -&gt; Either String EventType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679325706"><span class="annot"><span class="annottext">EventType -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679328213"><span class="annot"><span class="annottext">EventType -&gt; Text
 (EventType -&gt; Text) -&gt; ToText EventType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EventType -&gt; Text
 $ctoText :: EventType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679325703"><span class="annot"><span class="annottext">EventType -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679328210"><span class="annot"><span class="annottext">EventType -&gt; ByteString
 (EventType -&gt; ByteString) -&gt; ToByteString EventType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EventType -&gt; ByteString
 $ctoBS :: EventType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679325700"><span class="annot"><span class="annottext">EventType -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679328207"><span class="annot"><span class="annottext">EventType -&gt; ByteStringBuilder
 (EventType -&gt; ByteStringBuilder) -&gt; ToLog EventType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EventType -&gt; ByteStringBuilder
 $cbuild :: EventType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679325697"><span class="annot"><span class="annottext">HeaderName -&gt; EventType -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679328204"><span class="annot"><span class="annottext">HeaderName -&gt; EventType -&gt; [Header]
 (HeaderName -&gt; EventType -&gt; [Header]) -&gt; ToHeader EventType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EventType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EventType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679325694"><span class="annot"><span class="annottext">EventType -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679328201"><span class="annot"><span class="annottext">EventType -&gt; QueryString
 (EventType -&gt; QueryString) -&gt; ToQuery EventType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EventType -&gt; QueryString
 $ctoQuery :: EventType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679325689"><span id="local-6989586621679325691"><span class="annot"><span class="annottext">Value -&gt; Parser [EventType]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679328196"><span id="local-6989586621679328198"><span class="annot"><span class="annottext">Value -&gt; Parser [EventType]
 Value -&gt; Parser EventType
 (Value -&gt; Parser EventType)
 -&gt; (Value -&gt; Parser [EventType]) -&gt; FromJSON EventType
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [EventType]
 parseJSON :: Value -&gt; Parser EventType
 $cparseJSON :: Value -&gt; Parser EventType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679325684"><span id="local-6989586621679325686"><span class="annot"><span class="annottext">FromJSONKeyFunction [EventType]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679328191"><span id="local-6989586621679328193"><span class="annot"><span class="annottext">FromJSONKeyFunction [EventType]
 FromJSONKeyFunction EventType
 FromJSONKeyFunction EventType
 -&gt; FromJSONKeyFunction [EventType] -&gt; FromJSONKey EventType
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EventType]
 fromJSONKey :: FromJSONKeyFunction EventType
 $cfromJSONKey :: FromJSONKeyFunction EventType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679325675"><span id="local-6989586621679325677"><span id="local-6989586621679325679"><span id="local-6989586621679325681"><span class="annot"><span class="annottext">[EventType] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679328182"><span id="local-6989586621679328184"><span id="local-6989586621679328186"><span id="local-6989586621679328188"><span class="annot"><span class="annottext">[EventType] -&gt; Encoding
 [EventType] -&gt; Value
 EventType -&gt; Encoding
 EventType -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: EventType -&gt; Encoding
 toJSON :: EventType -&gt; Value
 $ctoJSON :: EventType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679325670"><span id="local-6989586621679325672"><span class="annot"><span class="annottext">ToJSONKeyFunction [EventType]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679328177"><span id="local-6989586621679328179"><span class="annot"><span class="annottext">ToJSONKeyFunction [EventType]
 ToJSONKeyFunction EventType
 ToJSONKeyFunction EventType
 -&gt; ToJSONKeyFunction [EventType] -&gt; ToJSONKey EventType
@@ -250,13 +250,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EventType]
 toJSONKey :: ToJSONKeyFunction EventType
 $ctoJSONKey :: ToJSONKeyFunction EventType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679325667"><span class="annot"><span class="annottext">[Node] -&gt; Either String EventType
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679328174"><span class="annot"><span class="annottext">[Node] -&gt; Either String EventType
 ([Node] -&gt; Either String EventType) -&gt; FromXML EventType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EventType
 $cparseXML :: [Node] -&gt; Either String EventType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679325664"><span class="annot"><span class="annottext">EventType -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679328171"><span class="annot"><span class="annottext">EventType -&gt; XML
 (EventType -&gt; XML) -&gt; ToXML EventType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EventType -&gt; XML

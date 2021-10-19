@@ -39,13 +39,13 @@
 </span><span id="line-39"></span><span class="hs-comment">-- and Class 220 (CLASS_220) gives you and output with a bitrate of</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- approximately 220 Mbps. VC3 class also specifies the color bit depth of</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- your output.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621680005123"><span id="local-6989586621680005124"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vc3Class"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class"><span class="hs-identifier hs-var">Vc3Class</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vc3Class%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class%27"><span class="hs-identifier hs-var">Vc3Class'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621680010056"><span id="local-6989586621680010057"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vc3Class"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class"><span class="hs-identifier hs-var">Vc3Class</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vc3Class%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class%27"><span class="hs-identifier hs-var">Vc3Class'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVc3Class"><span class="annot"><span class="annottext">Vc3Class -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#fromVc3Class"><span class="hs-identifier hs-var hs-var">fromVc3Class</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680005115"><span id="local-6989586621680005117"><span id="local-6989586621680005119"><span class="annot"><span class="annottext">Int -&gt; Vc3Class -&gt; ShowS
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680010048"><span id="local-6989586621680010050"><span id="local-6989586621680010052"><span class="annot"><span class="annottext">Int -&gt; Vc3Class -&gt; ShowS
 [Vc3Class] -&gt; ShowS
 Vc3Class -&gt; String
 (Int -&gt; Vc3Class -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: Vc3Class -&gt; String
 showsPrec :: Int -&gt; Vc3Class -&gt; ShowS
 $cshowsPrec :: Int -&gt; Vc3Class -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680005106"><span id="local-6989586621680005108"><span id="local-6989586621680005110"><span id="local-6989586621680005112"><span class="annot"><span class="annottext">ReadPrec [Vc3Class]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680010039"><span id="local-6989586621680010041"><span id="local-6989586621680010043"><span id="local-6989586621680010045"><span class="annot"><span class="annottext">ReadPrec [Vc3Class]
 ReadPrec Vc3Class
 Int -&gt; ReadS Vc3Class
 ReadS [Vc3Class]
@@ -80,7 +80,7 @@ $creadList :: ReadS [Vc3Class]
 readsPrec :: Int -&gt; ReadS Vc3Class
 $creadsPrec :: Int -&gt; ReadS Vc3Class
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680005101"><span id="local-6989586621680005103"><span class="annot"><span class="annottext">Vc3Class -&gt; Vc3Class -&gt; Bool
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680010034"><span id="local-6989586621680010036"><span class="annot"><span class="annottext">Vc3Class -&gt; Vc3Class -&gt; Bool
 (Vc3Class -&gt; Vc3Class -&gt; Bool)
 -&gt; (Vc3Class -&gt; Vc3Class -&gt; Bool) -&gt; Eq Vc3Class
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ $c/= :: Vc3Class -&gt; Vc3Class -&gt; Bool
 == :: Vc3Class -&gt; Vc3Class -&gt; Bool
 $c== :: Vc3Class -&gt; Vc3Class -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680005085"><span id="local-6989586621680005087"><span id="local-6989586621680005089"><span id="local-6989586621680005091"><span id="local-6989586621680005093"><span id="local-6989586621680005095"><span id="local-6989586621680005097"><span class="annot"><span class="annottext">Eq Vc3Class
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680010018"><span id="local-6989586621680010020"><span id="local-6989586621680010022"><span id="local-6989586621680010024"><span id="local-6989586621680010026"><span id="local-6989586621680010028"><span id="local-6989586621680010030"><span class="annot"><span class="annottext">Eq Vc3Class
 Eq Vc3Class
 -&gt; (Vc3Class -&gt; Vc3Class -&gt; Ordering)
 -&gt; (Vc3Class -&gt; Vc3Class -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. Vc3Class -&gt; Rep Vc3Class x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680005077"><span id="local-6989586621680005079"><span class="annot"><span class="annottext">Int -&gt; Vc3Class -&gt; Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680010010"><span id="local-6989586621680010012"><span class="annot"><span class="annottext">Int -&gt; Vc3Class -&gt; Int
 Vc3Class -&gt; Int
 (Int -&gt; Vc3Class -&gt; Int) -&gt; (Vc3Class -&gt; Int) -&gt; Hashable Vc3Class
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -148,49 +148,49 @@ $chash :: Vc3Class -&gt; Int
 hashWithSalt :: Int -&gt; Vc3Class -&gt; Int
 $chashWithSalt :: Int -&gt; Vc3Class -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680005074"><span class="annot"><span class="annottext">Vc3Class -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680010007"><span class="annot"><span class="annottext">Vc3Class -&gt; ()
 (Vc3Class -&gt; ()) -&gt; NFData Vc3Class
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Vc3Class -&gt; ()
 $crnf :: Vc3Class -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680005071"><span class="annot"><span class="annottext">Text -&gt; Either String Vc3Class
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680010004"><span class="annot"><span class="annottext">Text -&gt; Either String Vc3Class
 (Text -&gt; Either String Vc3Class) -&gt; FromText Vc3Class
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Vc3Class
 $cfromText :: Text -&gt; Either String Vc3Class
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680005068"><span class="annot"><span class="annottext">Vc3Class -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680010001"><span class="annot"><span class="annottext">Vc3Class -&gt; Text
 (Vc3Class -&gt; Text) -&gt; ToText Vc3Class
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Vc3Class -&gt; Text
 $ctoText :: Vc3Class -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680005065"><span class="annot"><span class="annottext">Vc3Class -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680009998"><span class="annot"><span class="annottext">Vc3Class -&gt; ByteString
 (Vc3Class -&gt; ByteString) -&gt; ToByteString Vc3Class
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Vc3Class -&gt; ByteString
 $ctoBS :: Vc3Class -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680005062"><span class="annot"><span class="annottext">Vc3Class -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680009995"><span class="annot"><span class="annottext">Vc3Class -&gt; ByteStringBuilder
 (Vc3Class -&gt; ByteStringBuilder) -&gt; ToLog Vc3Class
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Vc3Class -&gt; ByteStringBuilder
 $cbuild :: Vc3Class -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680005059"><span class="annot"><span class="annottext">HeaderName -&gt; Vc3Class -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680009992"><span class="annot"><span class="annottext">HeaderName -&gt; Vc3Class -&gt; [Header]
 (HeaderName -&gt; Vc3Class -&gt; [Header]) -&gt; ToHeader Vc3Class
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Vc3Class -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Vc3Class -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680005056"><span class="annot"><span class="annottext">Vc3Class -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680009989"><span class="annot"><span class="annottext">Vc3Class -&gt; QueryString
 (Vc3Class -&gt; QueryString) -&gt; ToQuery Vc3Class
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Vc3Class -&gt; QueryString
 $ctoQuery :: Vc3Class -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680005051"><span id="local-6989586621680005053"><span class="annot"><span class="annottext">Value -&gt; Parser [Vc3Class]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680009984"><span id="local-6989586621680009986"><span class="annot"><span class="annottext">Value -&gt; Parser [Vc3Class]
 Value -&gt; Parser Vc3Class
 (Value -&gt; Parser Vc3Class)
 -&gt; (Value -&gt; Parser [Vc3Class]) -&gt; FromJSON Vc3Class
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [Vc3Class]
 parseJSON :: Value -&gt; Parser Vc3Class
 $cparseJSON :: Value -&gt; Parser Vc3Class
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680005046"><span id="local-6989586621680005048"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vc3Class]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680009979"><span id="local-6989586621680009981"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vc3Class]
 FromJSONKeyFunction Vc3Class
 FromJSONKeyFunction Vc3Class
 -&gt; FromJSONKeyFunction [Vc3Class] -&gt; FromJSONKey Vc3Class
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Vc3Class]
 fromJSONKey :: FromJSONKeyFunction Vc3Class
 $cfromJSONKey :: FromJSONKeyFunction Vc3Class
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680005037"><span id="local-6989586621680005039"><span id="local-6989586621680005041"><span id="local-6989586621680005043"><span class="annot"><span class="annottext">[Vc3Class] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680009970"><span id="local-6989586621680009972"><span id="local-6989586621680009974"><span id="local-6989586621680009976"><span class="annot"><span class="annottext">[Vc3Class] -&gt; Encoding
 [Vc3Class] -&gt; Value
 Vc3Class -&gt; Encoding
 Vc3Class -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: Vc3Class -&gt; Encoding
 toJSON :: Vc3Class -&gt; Value
 $ctoJSON :: Vc3Class -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680005032"><span id="local-6989586621680005034"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vc3Class]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680009965"><span id="local-6989586621680009967"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vc3Class]
 ToJSONKeyFunction Vc3Class
 ToJSONKeyFunction Vc3Class
 -&gt; ToJSONKeyFunction [Vc3Class] -&gt; ToJSONKey Vc3Class
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Vc3Class]
 toJSONKey :: ToJSONKeyFunction Vc3Class
 $ctoJSONKey :: ToJSONKeyFunction Vc3Class
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621680005029"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vc3Class
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680009962"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vc3Class
 ([Node] -&gt; Either String Vc3Class) -&gt; FromXML Vc3Class
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Vc3Class
 $cparseXML :: [Node] -&gt; Either String Vc3Class
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621680005026"><span class="annot"><span class="annottext">Vc3Class -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680009959"><span class="annot"><span class="annottext">Vc3Class -&gt; XML
 (Vc3Class -&gt; XML) -&gt; ToXML Vc3Class
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Vc3Class -&gt; XML

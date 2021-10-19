@@ -48,13 +48,13 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeclineInvitations' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679312657"><span id="local-6989586621679312658"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeclineInvitations"><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations"><span class="hs-identifier hs-var">DeclineInvitations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeclineInvitations%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations%27"><span class="hs-identifier hs-var">DeclineInvitations'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679312994"><span id="local-6989586621679312995"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeclineInvitations"><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations"><span class="hs-identifier hs-var">DeclineInvitations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeclineInvitations%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations%27"><span class="hs-identifier hs-var">DeclineInvitations'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of account IDs of the AWS accounts that sent invitations to the</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- current member account that you want to decline invitations from.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AaccountIds%3ADeclineInvitations%27"><span class="annot"><span class="annottext">DeclineInvitations -&gt; NonEmpty Text
 </span><a href="Network.AWS.GuardDuty.DeclineInvitations.html#%24sel%3AaccountIds%3ADeclineInvitations%27"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312651"><span id="local-6989586621679312653"><span class="annot"><span class="annottext">DeclineInvitations -&gt; DeclineInvitations -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312988"><span id="local-6989586621679312990"><span class="annot"><span class="annottext">DeclineInvitations -&gt; DeclineInvitations -&gt; Bool
 (DeclineInvitations -&gt; DeclineInvitations -&gt; Bool)
 -&gt; (DeclineInvitations -&gt; DeclineInvitations -&gt; Bool)
 -&gt; Eq DeclineInvitations
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeclineInvitations -&gt; DeclineInvitations -&gt; Bool
 == :: DeclineInvitations -&gt; DeclineInvitations -&gt; Bool
 $c== :: DeclineInvitations -&gt; DeclineInvitations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312642"><span id="local-6989586621679312644"><span id="local-6989586621679312646"><span id="local-6989586621679312648"><span class="annot"><span class="annottext">ReadPrec [DeclineInvitations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312979"><span id="local-6989586621679312981"><span id="local-6989586621679312983"><span id="local-6989586621679312985"><span class="annot"><span class="annottext">ReadPrec [DeclineInvitations]
 ReadPrec DeclineInvitations
 Int -&gt; ReadS DeclineInvitations
 ReadS [DeclineInvitations]
@@ -83,7 +83,7 @@ readList :: ReadS [DeclineInvitations]
 $creadList :: ReadS [DeclineInvitations]
 readsPrec :: Int -&gt; ReadS DeclineInvitations
 $creadsPrec :: Int -&gt; ReadS DeclineInvitations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312635"><span id="local-6989586621679312637"><span id="local-6989586621679312639"><span class="annot"><span class="annottext">Int -&gt; DeclineInvitations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312972"><span id="local-6989586621679312974"><span id="local-6989586621679312976"><span class="annot"><span class="annottext">Int -&gt; DeclineInvitations -&gt; ShowS
 [DeclineInvitations] -&gt; ShowS
 DeclineInvitations -&gt; String
 (Int -&gt; DeclineInvitations -&gt; ShowS)
@@ -124,21 +124,21 @@ $cfrom :: forall x. DeclineInvitations -&gt; Rep DeclineInvitations x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations"><span class="hs-identifier hs-type">DeclineInvitations</span></a></span><span>
 </span><span id="line-72"></span><span id="newDeclineInvitations"><span class="annot"><span class="annottext">newDeclineInvitations :: NonEmpty Text -&gt; DeclineInvitations
-</span><a href="Network.AWS.GuardDuty.DeclineInvitations.html#newDeclineInvitations"><span class="hs-identifier hs-var hs-var">newDeclineInvitations</span></a></span></span><span> </span><span id="local-6989586621679312630"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679312630"><span class="hs-identifier hs-var">pAccountIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.DeclineInvitations.html#newDeclineInvitations"><span class="hs-identifier hs-var hs-var">newDeclineInvitations</span></a></span></span><span> </span><span id="local-6989586621679312967"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679312967"><span class="hs-identifier hs-var">pAccountIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeclineInvitations' :: NonEmpty Text -&gt; DeclineInvitations
 </span><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations%27"><span class="hs-identifier hs-type">DeclineInvitations'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountIds:DeclineInvitations' :: NonEmpty Text
 </span><a href="Network.AWS.GuardDuty.DeclineInvitations.html#%24sel%3AaccountIds%3ADeclineInvitations%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679312630"><span class="hs-identifier hs-var">pAccountIds_</span></a></span><span>
+</span><a href="#local-6989586621679312967"><span class="hs-identifier hs-var">pAccountIds_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | A list of account IDs of the AWS accounts that sent invitations to the</span><span>
@@ -154,16 +154,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations%27"><span class="hs-identifier hs-type">DeclineInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312625"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations%27"><span class="hs-identifier hs-type">DeclineInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312962"><span class="annot"><span class="annottext">NonEmpty Text
 accountIds :: NonEmpty Text
 $sel:accountIds:DeclineInvitations' :: DeclineInvitations -&gt; NonEmpty Text
-</span><a href="#local-6989586621679312625"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679312625"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312624"><span class="annot"><span class="annottext">s :: DeclineInvitations
-</span><a href="#local-6989586621679312624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations%27"><span class="hs-identifier hs-type">DeclineInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312623"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679312623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeclineInvitations
-</span><a href="#local-6989586621679312624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:DeclineInvitations' :: NonEmpty Text
+</span><a href="#local-6989586621679312962"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679312962"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312961"><span class="annot"><span class="annottext">s :: DeclineInvitations
+</span><a href="#local-6989586621679312961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations%27"><span class="hs-identifier hs-type">DeclineInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312960"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679312960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeclineInvitations
+</span><a href="#local-6989586621679312961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:DeclineInvitations' :: NonEmpty Text
 </span><a href="Network.AWS.GuardDuty.DeclineInvitations.html#%24sel%3AaccountIds%3ADeclineInvitations%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679312623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations"><span class="hs-identifier hs-type">DeclineInvitations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679312960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations"><span class="hs-identifier hs-type">DeclineInvitations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; DeclineInvitations -&gt; f DeclineInvitations)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -173,19 +173,19 @@ $sel:accountIds:DeclineInvitations' :: DeclineInvitations -&gt; NonEmpty Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations"><span class="hs-identifier hs-type">DeclineInvitations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations"><span class="hs-identifier hs-type">DeclineInvitations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse"><span class="hs-identifier hs-type">DeclineInvitationsResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679312618"><span class="annot"><span class="annottext">request :: DeclineInvitations -&gt; Request DeclineInvitations
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679312955"><span class="annot"><span class="annottext">request :: DeclineInvitations -&gt; Request DeclineInvitations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeclineInvitations -&gt; Request DeclineInvitations
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679312614"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679312951"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeclineInvitations
 -&gt; ClientResponse ClientBody
@@ -211,10 +211,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312611"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312611"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312610"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679312610"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312609"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679312609"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312948"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312948"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312947"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312947"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312946"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312946"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; [UnprocessedAccount] -&gt; DeclineInvitationsResponse
 </span><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse%27"><span class="hs-identifier hs-var">DeclineInvitationsResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; [UnprocessedAccount] -&gt; DeclineInvitationsResponse)
@@ -227,13 +227,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312611"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312948"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either String ([UnprocessedAccount] -&gt; DeclineInvitationsResponse)
 -&gt; Either String [UnprocessedAccount]
 -&gt; Either String DeclineInvitationsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679312609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [UnprocessedAccount])
+</span><a href="#local-6989586621679312946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [UnprocessedAccount])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;unprocessedAccounts&quot;</span></span><span>
@@ -246,12 +246,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-95"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312600"><span id="local-6989586621679312602"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations"><span class="hs-identifier hs-type">DeclineInvitations</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312937"><span id="local-6989586621679312939"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations"><span class="hs-identifier hs-type">DeclineInvitations</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312597"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations"><span class="hs-identifier hs-type">DeclineInvitations</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312934"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations"><span class="hs-identifier hs-type">DeclineInvitations</span></a></span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations"><span class="hs-identifier hs-type">DeclineInvitations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679312593"><span class="annot"><span class="annottext">toHeaders :: DeclineInvitations -&gt; ResponseHeaders
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679312930"><span class="annot"><span class="annottext">toHeaders :: DeclineInvitations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeclineInvitations -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -270,12 +270,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312583"><span id="local-6989586621679312585"><span id="local-6989586621679312587"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations"><span class="hs-identifier hs-type">DeclineInvitations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679312581"><span class="annot"><span class="annottext">toJSON :: DeclineInvitations -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations%27"><span class="hs-identifier hs-type">DeclineInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312579"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312920"><span id="local-6989586621679312922"><span id="local-6989586621679312924"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations"><span class="hs-identifier hs-type">DeclineInvitations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679312918"><span class="annot"><span class="annottext">toJSON :: DeclineInvitations -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations%27"><span class="hs-identifier hs-type">DeclineInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312916"><span class="annot"><span class="annottext">NonEmpty Text
 accountIds :: NonEmpty Text
 $sel:accountIds:DeclineInvitations' :: DeclineInvitations -&gt; NonEmpty Text
-</span><a href="#local-6989586621679312579"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679312916"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -287,18 +287,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;accountIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679312579"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679312916"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations"><span class="hs-identifier hs-type">DeclineInvitations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679312573"><span class="annot"><span class="annottext">toPath :: DeclineInvitations -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679312910"><span class="annot"><span class="annottext">toPath :: DeclineInvitations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeclineInvitations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/invitation/decline&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitations"><span class="hs-identifier hs-type">DeclineInvitations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679312569"><span class="annot"><span class="annottext">toQuery :: DeclineInvitations -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679312906"><span class="annot"><span class="annottext">toQuery :: DeclineInvitations -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeclineInvitations -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -306,7 +306,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newDeclineInvitationsResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679312566"><span id="local-6989586621679312567"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeclineInvitationsResponse"><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse"><span class="hs-identifier hs-var">DeclineInvitationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeclineInvitationsResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse%27"><span class="hs-identifier hs-var">DeclineInvitationsResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679312903"><span id="local-6989586621679312904"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeclineInvitationsResponse"><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse"><span class="hs-identifier hs-var">DeclineInvitationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeclineInvitationsResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse%27"><span class="hs-identifier hs-var">DeclineInvitationsResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeclineInvitationsResponse%27"><span class="annot"><span class="annottext">DeclineInvitationsResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.DeclineInvitations.html#%24sel%3AhttpStatus%3ADeclineInvitationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -315,7 +315,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AunprocessedAccounts%3ADeclineInvitationsResponse%27"><span class="annot"><span class="annottext">DeclineInvitationsResponse -&gt; [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.DeclineInvitations.html#%24sel%3AunprocessedAccounts%3ADeclineInvitationsResponse%27"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312560"><span id="local-6989586621679312562"><span class="annot"><span class="annottext">DeclineInvitationsResponse -&gt; DeclineInvitationsResponse -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312897"><span id="local-6989586621679312899"><span class="annot"><span class="annottext">DeclineInvitationsResponse -&gt; DeclineInvitationsResponse -&gt; Bool
 (DeclineInvitationsResponse -&gt; DeclineInvitationsResponse -&gt; Bool)
 -&gt; (DeclineInvitationsResponse
     -&gt; DeclineInvitationsResponse -&gt; Bool)
@@ -325,7 +325,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeclineInvitationsResponse -&gt; DeclineInvitationsResponse -&gt; Bool
 == :: DeclineInvitationsResponse -&gt; DeclineInvitationsResponse -&gt; Bool
 $c== :: DeclineInvitationsResponse -&gt; DeclineInvitationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312552"><span id="local-6989586621679312554"><span id="local-6989586621679312556"><span id="local-6989586621679312558"><span class="annot"><span class="annottext">ReadPrec [DeclineInvitationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312889"><span id="local-6989586621679312891"><span id="local-6989586621679312893"><span id="local-6989586621679312895"><span class="annot"><span class="annottext">ReadPrec [DeclineInvitationsResponse]
 ReadPrec DeclineInvitationsResponse
 Int -&gt; ReadS DeclineInvitationsResponse
 ReadS [DeclineInvitationsResponse]
@@ -345,7 +345,7 @@ readList :: ReadS [DeclineInvitationsResponse]
 $creadList :: ReadS [DeclineInvitationsResponse]
 readsPrec :: Int -&gt; ReadS DeclineInvitationsResponse
 $creadsPrec :: Int -&gt; ReadS DeclineInvitationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312546"><span id="local-6989586621679312548"><span id="local-6989586621679312550"><span class="annot"><span class="annottext">Int -&gt; DeclineInvitationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312883"><span id="local-6989586621679312885"><span id="local-6989586621679312887"><span class="annot"><span class="annottext">Int -&gt; DeclineInvitationsResponse -&gt; ShowS
 [DeclineInvitationsResponse] -&gt; ShowS
 DeclineInvitationsResponse -&gt; String
 (Int -&gt; DeclineInvitationsResponse -&gt; ShowS)
@@ -394,14 +394,14 @@ DeclineInvitationsResponse -&gt; Rep DeclineInvitationsResponse x
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse"><span class="hs-identifier hs-type">DeclineInvitationsResponse</span></a></span><span>
 </span><span id="line-152"></span><span id="newDeclineInvitationsResponse"><span class="annot"><span class="annottext">newDeclineInvitationsResponse :: Int -&gt; DeclineInvitationsResponse
-</span><a href="Network.AWS.GuardDuty.DeclineInvitations.html#newDeclineInvitationsResponse"><span class="hs-identifier hs-var hs-var">newDeclineInvitationsResponse</span></a></span></span><span> </span><span id="local-6989586621679312543"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312543"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.DeclineInvitations.html#newDeclineInvitationsResponse"><span class="hs-identifier hs-var hs-var">newDeclineInvitationsResponse</span></a></span></span><span> </span><span id="local-6989586621679312880"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312880"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">DeclineInvitationsResponse' :: Int -&gt; [UnprocessedAccount] -&gt; DeclineInvitationsResponse
 </span><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse%27"><span class="hs-identifier hs-type">DeclineInvitationsResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeclineInvitationsResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.DeclineInvitations.html#%24sel%3AhttpStatus%3ADeclineInvitationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312543"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312880"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:DeclineInvitationsResponse' :: [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.DeclineInvitations.html#%24sel%3AunprocessedAccounts%3ADeclineInvitationsResponse%27"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
 forall a. Monoid a =&gt; a
@@ -418,16 +418,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      DeclineInvitationsResponse DeclineInvitationsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse%27"><span class="hs-identifier hs-type">DeclineInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312542"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse%27"><span class="hs-identifier hs-type">DeclineInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312879"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeclineInvitationsResponse' :: DeclineInvitationsResponse -&gt; Int
-</span><a href="#local-6989586621679312542"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312542"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312541"><span class="annot"><span class="annottext">s :: DeclineInvitationsResponse
-</span><a href="#local-6989586621679312541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse%27"><span class="hs-identifier hs-type">DeclineInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312540"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeclineInvitationsResponse
-</span><a href="#local-6989586621679312541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeclineInvitationsResponse' :: Int
+</span><a href="#local-6989586621679312879"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312879"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312878"><span class="annot"><span class="annottext">s :: DeclineInvitationsResponse
+</span><a href="#local-6989586621679312878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse%27"><span class="hs-identifier hs-type">DeclineInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312877"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeclineInvitationsResponse
+</span><a href="#local-6989586621679312878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeclineInvitationsResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.DeclineInvitations.html#%24sel%3AhttpStatus%3ADeclineInvitationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse"><span class="hs-identifier hs-type">DeclineInvitationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse"><span class="hs-identifier hs-type">DeclineInvitationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | A list of objects that contain the unprocessed account and a result</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- string that explains why it was unprocessed.</span><span>
@@ -443,16 +443,16 @@ $sel:httpStatus:DeclineInvitationsResponse' :: DeclineInvitationsResponse -&gt; 
      [UnprocessedAccount]
      [UnprocessedAccount]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse%27"><span class="hs-identifier hs-type">DeclineInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312539"><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse%27"><span class="hs-identifier hs-type">DeclineInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312876"><span class="annot"><span class="annottext">[UnprocessedAccount]
 unprocessedAccounts :: [UnprocessedAccount]
 $sel:unprocessedAccounts:DeclineInvitationsResponse' :: DeclineInvitationsResponse -&gt; [UnprocessedAccount]
-</span><a href="#local-6989586621679312539"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679312539"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312538"><span class="annot"><span class="annottext">s :: DeclineInvitationsResponse
-</span><a href="#local-6989586621679312538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse%27"><span class="hs-identifier hs-type">DeclineInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312537"><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679312537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeclineInvitationsResponse
-</span><a href="#local-6989586621679312538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:DeclineInvitationsResponse' :: [UnprocessedAccount]
+</span><a href="#local-6989586621679312876"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><a href="#local-6989586621679312876"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312875"><span class="annot"><span class="annottext">s :: DeclineInvitationsResponse
+</span><a href="#local-6989586621679312875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse%27"><span class="hs-identifier hs-type">DeclineInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312874"><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><a href="#local-6989586621679312874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeclineInvitationsResponse
+</span><a href="#local-6989586621679312875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:DeclineInvitationsResponse' :: [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.DeclineInvitations.html#%24sel%3AunprocessedAccounts%3ADeclineInvitationsResponse%27"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679312537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse"><span class="hs-identifier hs-type">DeclineInvitationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([UnprocessedAccount] -&gt; f [UnprocessedAccount])
+</span><a href="#local-6989586621679312874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse"><span class="hs-identifier hs-type">DeclineInvitationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([UnprocessedAccount] -&gt; f [UnprocessedAccount])
  -&gt; DeclineInvitationsResponse -&gt; f DeclineInvitationsResponse)
 -&gt; (([UnprocessedAccount] -&gt; f [UnprocessedAccount])
     -&gt; [UnprocessedAccount] -&gt; f [UnprocessedAccount])
@@ -462,8 +462,8 @@ $sel:unprocessedAccounts:DeclineInvitationsResponse' :: DeclineInvitationsRespon
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([UnprocessedAccount] -&gt; f [UnprocessedAccount])
 -&gt; [UnprocessedAccount] -&gt; f [UnprocessedAccount]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312535"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse"><span class="hs-identifier hs-type">DeclineInvitationsResponse</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312872"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeclineInvitations.html#DeclineInvitationsResponse"><span class="hs-identifier hs-type">DeclineInvitationsResponse</span></a></span></span><span>
 </span><span id="line-169"></span></pre></body></html>

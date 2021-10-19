@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679452748"><span id="local-6989586621679452749"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FirelensConfigurationType"><span class="annot"><a href="Network.AWS.ECS.Types.FirelensConfigurationType.html#FirelensConfigurationType"><span class="hs-identifier hs-var">FirelensConfigurationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FirelensConfigurationType%27"><span class="annot"><a href="Network.AWS.ECS.Types.FirelensConfigurationType.html#FirelensConfigurationType%27"><span class="hs-identifier hs-var">FirelensConfigurationType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679453460"><span id="local-6989586621679453461"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FirelensConfigurationType"><span class="annot"><a href="Network.AWS.ECS.Types.FirelensConfigurationType.html#FirelensConfigurationType"><span class="hs-identifier hs-var">FirelensConfigurationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FirelensConfigurationType%27"><span class="annot"><a href="Network.AWS.ECS.Types.FirelensConfigurationType.html#FirelensConfigurationType%27"><span class="hs-identifier hs-var">FirelensConfigurationType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFirelensConfigurationType"><span class="annot"><span class="annottext">FirelensConfigurationType -&gt; Text
 </span><a href="Network.AWS.ECS.Types.FirelensConfigurationType.html#fromFirelensConfigurationType"><span class="hs-identifier hs-var hs-var">fromFirelensConfigurationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679452740"><span id="local-6989586621679452742"><span id="local-6989586621679452744"><span class="annot"><span class="annottext">Int -&gt; FirelensConfigurationType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679453452"><span id="local-6989586621679453454"><span id="local-6989586621679453456"><span class="annot"><span class="annottext">Int -&gt; FirelensConfigurationType -&gt; ShowS
 [FirelensConfigurationType] -&gt; ShowS
 FirelensConfigurationType -&gt; String
 (Int -&gt; FirelensConfigurationType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: FirelensConfigurationType -&gt; String
 showsPrec :: Int -&gt; FirelensConfigurationType -&gt; ShowS
 $cshowsPrec :: Int -&gt; FirelensConfigurationType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679452731"><span id="local-6989586621679452733"><span id="local-6989586621679452735"><span id="local-6989586621679452737"><span class="annot"><span class="annottext">ReadPrec [FirelensConfigurationType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679453443"><span id="local-6989586621679453445"><span id="local-6989586621679453447"><span id="local-6989586621679453449"><span class="annot"><span class="annottext">ReadPrec [FirelensConfigurationType]
 ReadPrec FirelensConfigurationType
 Int -&gt; ReadS FirelensConfigurationType
 ReadS [FirelensConfigurationType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [FirelensConfigurationType]
 readsPrec :: Int -&gt; ReadS FirelensConfigurationType
 $creadsPrec :: Int -&gt; ReadS FirelensConfigurationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679452726"><span id="local-6989586621679452728"><span class="annot"><span class="annottext">FirelensConfigurationType -&gt; FirelensConfigurationType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679453438"><span id="local-6989586621679453440"><span class="annot"><span class="annottext">FirelensConfigurationType -&gt; FirelensConfigurationType -&gt; Bool
 (FirelensConfigurationType -&gt; FirelensConfigurationType -&gt; Bool)
 -&gt; (FirelensConfigurationType -&gt; FirelensConfigurationType -&gt; Bool)
 -&gt; Eq FirelensConfigurationType
@@ -82,7 +82,7 @@ $c/= :: FirelensConfigurationType -&gt; FirelensConfigurationType -&gt; Bool
 == :: FirelensConfigurationType -&gt; FirelensConfigurationType -&gt; Bool
 $c== :: FirelensConfigurationType -&gt; FirelensConfigurationType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679452710"><span id="local-6989586621679452712"><span id="local-6989586621679452714"><span id="local-6989586621679452716"><span id="local-6989586621679452718"><span id="local-6989586621679452720"><span id="local-6989586621679452722"><span class="annot"><span class="annottext">Eq FirelensConfigurationType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679453422"><span id="local-6989586621679453424"><span id="local-6989586621679453426"><span id="local-6989586621679453428"><span id="local-6989586621679453430"><span id="local-6989586621679453432"><span id="local-6989586621679453434"><span class="annot"><span class="annottext">Eq FirelensConfigurationType
 Eq FirelensConfigurationType
 -&gt; (FirelensConfigurationType
     -&gt; FirelensConfigurationType -&gt; Ordering)
@@ -147,7 +147,7 @@ FirelensConfigurationType -&gt; Rep FirelensConfigurationType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679452702"><span id="local-6989586621679452704"><span class="annot"><span class="annottext">Int -&gt; FirelensConfigurationType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679453414"><span id="local-6989586621679453416"><span class="annot"><span class="annottext">Int -&gt; FirelensConfigurationType -&gt; Int
 FirelensConfigurationType -&gt; Int
 (Int -&gt; FirelensConfigurationType -&gt; Int)
 -&gt; (FirelensConfigurationType -&gt; Int)
@@ -158,56 +158,56 @@ $chash :: FirelensConfigurationType -&gt; Int
 hashWithSalt :: Int -&gt; FirelensConfigurationType -&gt; Int
 $chashWithSalt :: Int -&gt; FirelensConfigurationType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679452699"><span class="annot"><span class="annottext">FirelensConfigurationType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679453411"><span class="annot"><span class="annottext">FirelensConfigurationType -&gt; ()
 (FirelensConfigurationType -&gt; ())
 -&gt; NFData FirelensConfigurationType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FirelensConfigurationType -&gt; ()
 $crnf :: FirelensConfigurationType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679452696"><span class="annot"><span class="annottext">Text -&gt; Either String FirelensConfigurationType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679453408"><span class="annot"><span class="annottext">Text -&gt; Either String FirelensConfigurationType
 (Text -&gt; Either String FirelensConfigurationType)
 -&gt; FromText FirelensConfigurationType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FirelensConfigurationType
 $cfromText :: Text -&gt; Either String FirelensConfigurationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679452693"><span class="annot"><span class="annottext">FirelensConfigurationType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679453405"><span class="annot"><span class="annottext">FirelensConfigurationType -&gt; Text
 (FirelensConfigurationType -&gt; Text)
 -&gt; ToText FirelensConfigurationType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FirelensConfigurationType -&gt; Text
 $ctoText :: FirelensConfigurationType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679452690"><span class="annot"><span class="annottext">FirelensConfigurationType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679453402"><span class="annot"><span class="annottext">FirelensConfigurationType -&gt; ByteString
 (FirelensConfigurationType -&gt; ByteString)
 -&gt; ToByteString FirelensConfigurationType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FirelensConfigurationType -&gt; ByteString
 $ctoBS :: FirelensConfigurationType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679452687"><span class="annot"><span class="annottext">FirelensConfigurationType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679453399"><span class="annot"><span class="annottext">FirelensConfigurationType -&gt; ByteStringBuilder
 (FirelensConfigurationType -&gt; ByteStringBuilder)
 -&gt; ToLog FirelensConfigurationType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FirelensConfigurationType -&gt; ByteStringBuilder
 $cbuild :: FirelensConfigurationType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679452684"><span class="annot"><span class="annottext">HeaderName -&gt; FirelensConfigurationType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679453396"><span class="annot"><span class="annottext">HeaderName -&gt; FirelensConfigurationType -&gt; [Header]
 (HeaderName -&gt; FirelensConfigurationType -&gt; [Header])
 -&gt; ToHeader FirelensConfigurationType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FirelensConfigurationType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FirelensConfigurationType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679452681"><span class="annot"><span class="annottext">FirelensConfigurationType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679453393"><span class="annot"><span class="annottext">FirelensConfigurationType -&gt; QueryString
 (FirelensConfigurationType -&gt; QueryString)
 -&gt; ToQuery FirelensConfigurationType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FirelensConfigurationType -&gt; QueryString
 $ctoQuery :: FirelensConfigurationType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679452676"><span id="local-6989586621679452678"><span class="annot"><span class="annottext">Value -&gt; Parser [FirelensConfigurationType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679453388"><span id="local-6989586621679453390"><span class="annot"><span class="annottext">Value -&gt; Parser [FirelensConfigurationType]
 Value -&gt; Parser FirelensConfigurationType
 (Value -&gt; Parser FirelensConfigurationType)
 -&gt; (Value -&gt; Parser [FirelensConfigurationType])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [FirelensConfigurationType]
 parseJSON :: Value -&gt; Parser FirelensConfigurationType
 $cparseJSON :: Value -&gt; Parser FirelensConfigurationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679452671"><span id="local-6989586621679452673"><span class="annot"><span class="annottext">FromJSONKeyFunction [FirelensConfigurationType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679453383"><span id="local-6989586621679453385"><span class="annot"><span class="annottext">FromJSONKeyFunction [FirelensConfigurationType]
 FromJSONKeyFunction FirelensConfigurationType
 FromJSONKeyFunction FirelensConfigurationType
 -&gt; FromJSONKeyFunction [FirelensConfigurationType]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FirelensConfigurationType]
 fromJSONKey :: FromJSONKeyFunction FirelensConfigurationType
 $cfromJSONKey :: FromJSONKeyFunction FirelensConfigurationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679452662"><span id="local-6989586621679452664"><span id="local-6989586621679452666"><span id="local-6989586621679452668"><span class="annot"><span class="annottext">[FirelensConfigurationType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679453374"><span id="local-6989586621679453376"><span id="local-6989586621679453378"><span id="local-6989586621679453380"><span class="annot"><span class="annottext">[FirelensConfigurationType] -&gt; Encoding
 [FirelensConfigurationType] -&gt; Value
 FirelensConfigurationType -&gt; Encoding
 FirelensConfigurationType -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: FirelensConfigurationType -&gt; Encoding
 toJSON :: FirelensConfigurationType -&gt; Value
 $ctoJSON :: FirelensConfigurationType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679452657"><span id="local-6989586621679452659"><span class="annot"><span class="annottext">ToJSONKeyFunction [FirelensConfigurationType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679453369"><span id="local-6989586621679453371"><span class="annot"><span class="annottext">ToJSONKeyFunction [FirelensConfigurationType]
 ToJSONKeyFunction FirelensConfigurationType
 ToJSONKeyFunction FirelensConfigurationType
 -&gt; ToJSONKeyFunction [FirelensConfigurationType]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FirelensConfigurationType]
 toJSONKey :: ToJSONKeyFunction FirelensConfigurationType
 $ctoJSONKey :: ToJSONKeyFunction FirelensConfigurationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679452654"><span class="annot"><span class="annottext">[Node] -&gt; Either String FirelensConfigurationType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679453366"><span class="annot"><span class="annottext">[Node] -&gt; Either String FirelensConfigurationType
 ([Node] -&gt; Either String FirelensConfigurationType)
 -&gt; FromXML FirelensConfigurationType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FirelensConfigurationType
 $cparseXML :: [Node] -&gt; Either String FirelensConfigurationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679452651"><span class="annot"><span class="annottext">FirelensConfigurationType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679453363"><span class="annot"><span class="annottext">FirelensConfigurationType -&gt; XML
 (FirelensConfigurationType -&gt; XML)
 -&gt; ToXML FirelensConfigurationType
 forall a. (a -&gt; XML) -&gt; ToXML a

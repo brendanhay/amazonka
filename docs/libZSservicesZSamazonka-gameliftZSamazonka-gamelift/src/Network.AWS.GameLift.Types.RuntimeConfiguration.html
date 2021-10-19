@@ -42,7 +42,7 @@
 </span><span id="line-42"></span><span class="hs-comment">-- DescribeRuntimeConfiguration | UpdateRuntimeConfiguration</span><span>
 </span><span id="line-43"></span><span class="hs-comment">--</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- /See:/ 'newRuntimeConfiguration' smart constructor.</span><span>
-</span><span id="line-45"></span><span id="local-6989586621679440752"><span id="local-6989586621679440753"></span></span><span class="hs-keyword">data</span><span> </span><span id="RuntimeConfiguration"><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-var">RuntimeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuntimeConfiguration%27"><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-var">RuntimeConfiguration'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679441214"><span id="local-6989586621679441215"></span></span><span class="hs-keyword">data</span><span> </span><span id="RuntimeConfiguration"><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-var">RuntimeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuntimeConfiguration%27"><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-var">RuntimeConfiguration'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum amount of time (in seconds) allowed to launch a new game</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- session and have it report ready to host players. During this time, the</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- game session is in status @ACTIVATING@. If the game session does not</span><span>
@@ -50,17 +50,17 @@
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">-- status is changed to @TERMINATED@.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AgameSessionActivationTimeoutSeconds%3ARuntimeConfiguration%27"><span class="annot"><span class="annottext">RuntimeConfiguration -&gt; Maybe Natural
 </span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#%24sel%3AgameSessionActivationTimeoutSeconds%3ARuntimeConfiguration%27"><span class="hs-identifier hs-var hs-var">gameSessionActivationTimeoutSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The number of game sessions in status @ACTIVATING@ to allow on an</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- instance. This setting limits the instance resources that can be used</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- for new game activations at any one time.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AmaxConcurrentGameSessionActivations%3ARuntimeConfiguration%27"><span class="annot"><span class="annottext">RuntimeConfiguration -&gt; Maybe Natural
-</span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#%24sel%3AmaxConcurrentGameSessionActivations%3ARuntimeConfiguration%27"><span class="hs-identifier hs-var hs-var">maxConcurrentGameSessionActivations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | A collection of server process configurations that identify what server</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- processes to run on each instance in a fleet.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AserverProcesses%3ARuntimeConfiguration%27"><span class="annot"><span class="annottext">RuntimeConfiguration -&gt; Maybe (NonEmpty ServerProcess)
-</span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#%24sel%3AserverProcesses%3ARuntimeConfiguration%27"><span class="hs-identifier hs-var hs-var">serverProcesses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | A collection of server process configurations that identify what server</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- processes to run on each instance in a fleet.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AserverProcesses%3ARuntimeConfiguration%27"><span class="annot"><span class="annottext">RuntimeConfiguration -&gt; Maybe (NonEmpty ServerProcess)
+</span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#%24sel%3AserverProcesses%3ARuntimeConfiguration%27"><span class="hs-identifier hs-var hs-var">serverProcesses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The number of game sessions in status @ACTIVATING@ to allow on an</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- instance. This setting limits the instance resources that can be used</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- for new game activations at any one time.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AmaxConcurrentGameSessionActivations%3ARuntimeConfiguration%27"><span class="annot"><span class="annottext">RuntimeConfiguration -&gt; Maybe Natural
+</span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#%24sel%3AmaxConcurrentGameSessionActivations%3ARuntimeConfiguration%27"><span class="hs-identifier hs-var hs-var">maxConcurrentGameSessionActivations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440744"><span id="local-6989586621679440746"><span class="annot"><span class="annottext">RuntimeConfiguration -&gt; RuntimeConfiguration -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679441206"><span id="local-6989586621679441208"><span class="annot"><span class="annottext">RuntimeConfiguration -&gt; RuntimeConfiguration -&gt; Bool
 (RuntimeConfiguration -&gt; RuntimeConfiguration -&gt; Bool)
 -&gt; (RuntimeConfiguration -&gt; RuntimeConfiguration -&gt; Bool)
 -&gt; Eq RuntimeConfiguration
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RuntimeConfiguration -&gt; RuntimeConfiguration -&gt; Bool
 == :: RuntimeConfiguration -&gt; RuntimeConfiguration -&gt; Bool
 $c== :: RuntimeConfiguration -&gt; RuntimeConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440735"><span id="local-6989586621679440737"><span id="local-6989586621679440739"><span id="local-6989586621679440741"><span class="annot"><span class="annottext">ReadPrec [RuntimeConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441197"><span id="local-6989586621679441199"><span id="local-6989586621679441201"><span id="local-6989586621679441203"><span class="annot"><span class="annottext">ReadPrec [RuntimeConfiguration]
 ReadPrec RuntimeConfiguration
 Int -&gt; ReadS RuntimeConfiguration
 ReadS [RuntimeConfiguration]
@@ -89,7 +89,7 @@ readList :: ReadS [RuntimeConfiguration]
 $creadList :: ReadS [RuntimeConfiguration]
 readsPrec :: Int -&gt; ReadS RuntimeConfiguration
 $creadsPrec :: Int -&gt; ReadS RuntimeConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440728"><span id="local-6989586621679440730"><span id="local-6989586621679440732"><span class="annot"><span class="annottext">Int -&gt; RuntimeConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441190"><span id="local-6989586621679441192"><span id="local-6989586621679441194"><span class="annot"><span class="annottext">Int -&gt; RuntimeConfiguration -&gt; ShowS
 [RuntimeConfiguration] -&gt; ShowS
 RuntimeConfiguration -&gt; String
 (Int -&gt; RuntimeConfiguration -&gt; ShowS)
@@ -129,19 +129,19 @@ $cfrom :: forall x. RuntimeConfiguration -&gt; Rep RuntimeConfiguration x
 </span><span id="line-73"></span><span class="hs-comment">-- become active before the timeout, it is ended and the game session</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- status is changed to @TERMINATED@.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'maxConcurrentGameSessionActivations', 'runtimeConfiguration_maxConcurrentGameSessionActivations' - The number of game sessions in status @ACTIVATING@ to allow on an</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- instance. This setting limits the instance resources that can be used</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- for new game activations at any one time.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'serverProcesses', 'runtimeConfiguration_serverProcesses' - A collection of server process configurations that identify what server</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- processes to run on each instance in a fleet.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'serverProcesses', 'runtimeConfiguration_serverProcesses' - A collection of server process configurations that identify what server</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- processes to run on each instance in a fleet.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'maxConcurrentGameSessionActivations', 'runtimeConfiguration_maxConcurrentGameSessionActivations' - The number of game sessions in status @ACTIVATING@ to allow on an</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- instance. This setting limits the instance resources that can be used</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for new game activations at any one time.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#newRuntimeConfiguration"><span class="hs-identifier hs-type">newRuntimeConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span><span>
 </span><span id="line-84"></span><span id="newRuntimeConfiguration"><span class="annot"><span class="annottext">newRuntimeConfiguration :: RuntimeConfiguration
 </span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#newRuntimeConfiguration"><span class="hs-identifier hs-var hs-var">newRuntimeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">RuntimeConfiguration' :: Maybe Natural
--&gt; Maybe Natural
 -&gt; Maybe (NonEmpty ServerProcess)
+-&gt; Maybe Natural
 -&gt; RuntimeConfiguration
 </span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-type">RuntimeConfiguration'</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gameSessionActivationTimeoutSeconds:RuntimeConfiguration' :: Maybe Natural
@@ -149,13 +149,13 @@ $cfrom :: forall x. RuntimeConfiguration -&gt; Rep RuntimeConfiguration x
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxConcurrentGameSessionActivations:RuntimeConfiguration' :: Maybe Natural
-</span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#%24sel%3AmaxConcurrentGameSessionActivations%3ARuntimeConfiguration%27"><span class="hs-identifier hs-var">maxConcurrentGameSessionActivations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverProcesses:RuntimeConfiguration' :: Maybe (NonEmpty ServerProcess)
+</span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#%24sel%3AserverProcesses%3ARuntimeConfiguration%27"><span class="hs-identifier hs-var">serverProcesses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ServerProcess)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverProcesses:RuntimeConfiguration' :: Maybe (NonEmpty ServerProcess)
-</span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#%24sel%3AserverProcesses%3ARuntimeConfiguration%27"><span class="hs-identifier hs-var">serverProcesses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ServerProcess)
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxConcurrentGameSessionActivations:RuntimeConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#%24sel%3AmaxConcurrentGameSessionActivations%3ARuntimeConfiguration%27"><span class="hs-identifier hs-var">maxConcurrentGameSessionActivations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
@@ -176,46 +176,21 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-type">RuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440719"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-type">RuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441181"><span class="annot"><span class="annottext">Maybe Natural
 gameSessionActivationTimeoutSeconds :: Maybe Natural
 $sel:gameSessionActivationTimeoutSeconds:RuntimeConfiguration' :: RuntimeConfiguration -&gt; Maybe Natural
-</span><a href="#local-6989586621679440719"><span class="hs-identifier hs-var hs-var">gameSessionActivationTimeoutSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440719"><span class="hs-identifier hs-var">gameSessionActivationTimeoutSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440718"><span class="annot"><span class="annottext">s :: RuntimeConfiguration
-</span><a href="#local-6989586621679440718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-type">RuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440717"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuntimeConfiguration
-</span><a href="#local-6989586621679440718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionActivationTimeoutSeconds:RuntimeConfiguration' :: Maybe Natural
+</span><a href="#local-6989586621679441181"><span class="hs-identifier hs-var hs-var">gameSessionActivationTimeoutSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679441181"><span class="hs-identifier hs-var">gameSessionActivationTimeoutSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441180"><span class="annot"><span class="annottext">s :: RuntimeConfiguration
+</span><a href="#local-6989586621679441180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-type">RuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441179"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679441179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuntimeConfiguration
+</span><a href="#local-6989586621679441180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionActivationTimeoutSeconds:RuntimeConfiguration' :: Maybe Natural
 </span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#%24sel%3AgameSessionActivationTimeoutSeconds%3ARuntimeConfiguration%27"><span class="hs-identifier hs-var">gameSessionActivationTimeoutSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The number of game sessions in status @ACTIVATING@ to allow on an</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- instance. This setting limits the instance resources that can be used</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- for new game activations at any one time.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#runtimeConfiguration_maxConcurrentGameSessionActivations"><span class="hs-identifier hs-type">runtimeConfiguration_maxConcurrentGameSessionActivations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="runtimeConfiguration_maxConcurrentGameSessionActivations"><span class="annot"><span class="annottext">runtimeConfiguration_maxConcurrentGameSessionActivations :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; RuntimeConfiguration -&gt; f RuntimeConfiguration
-</span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#runtimeConfiguration_maxConcurrentGameSessionActivations"><span class="hs-identifier hs-var hs-var">runtimeConfiguration_maxConcurrentGameSessionActivations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuntimeConfiguration -&gt; Maybe Natural)
--&gt; (RuntimeConfiguration -&gt; Maybe Natural -&gt; RuntimeConfiguration)
--&gt; Lens
-     RuntimeConfiguration
-     RuntimeConfiguration
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-type">RuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440715"><span class="annot"><span class="annottext">Maybe Natural
-maxConcurrentGameSessionActivations :: Maybe Natural
-$sel:maxConcurrentGameSessionActivations:RuntimeConfiguration' :: RuntimeConfiguration -&gt; Maybe Natural
-</span><a href="#local-6989586621679440715"><span class="hs-identifier hs-var hs-var">maxConcurrentGameSessionActivations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440715"><span class="hs-identifier hs-var">maxConcurrentGameSessionActivations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440714"><span class="annot"><span class="annottext">s :: RuntimeConfiguration
-</span><a href="#local-6989586621679440714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-type">RuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440713"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuntimeConfiguration
-</span><a href="#local-6989586621679440714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxConcurrentGameSessionActivations:RuntimeConfiguration' :: Maybe Natural
-</span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#%24sel%3AmaxConcurrentGameSessionActivations%3ARuntimeConfiguration%27"><span class="hs-identifier hs-var">maxConcurrentGameSessionActivations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | A collection of server process configurations that identify what server</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- processes to run on each instance in a fleet.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#runtimeConfiguration_serverProcesses"><span class="hs-identifier hs-type">runtimeConfiguration_serverProcesses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="runtimeConfiguration_serverProcesses"><span class="annot"><span class="annottext">runtimeConfiguration_serverProcesses :: (Maybe (NonEmpty ServerProcess)
+</span><span id="line-101"></span><span class="hs-comment">-- | A collection of server process configurations that identify what server</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- processes to run on each instance in a fleet.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#runtimeConfiguration_serverProcesses"><span class="hs-identifier hs-type">runtimeConfiguration_serverProcesses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="runtimeConfiguration_serverProcesses"><span class="annot"><span class="annottext">runtimeConfiguration_serverProcesses :: (Maybe (NonEmpty ServerProcess)
  -&gt; f (Maybe (NonEmpty ServerProcess)))
 -&gt; RuntimeConfiguration -&gt; f RuntimeConfiguration
 </span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#runtimeConfiguration_serverProcesses"><span class="hs-identifier hs-var hs-var">runtimeConfiguration_serverProcesses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuntimeConfiguration -&gt; Maybe (NonEmpty ServerProcess))
@@ -227,16 +202,16 @@ $sel:maxConcurrentGameSessionActivations:RuntimeConfiguration' :: RuntimeConfigu
      (Maybe (NonEmpty ServerProcess))
      (Maybe (NonEmpty ServerProcess))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-type">RuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440711"><span class="annot"><span class="annottext">Maybe (NonEmpty ServerProcess)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-type">RuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441177"><span class="annot"><span class="annottext">Maybe (NonEmpty ServerProcess)
 serverProcesses :: Maybe (NonEmpty ServerProcess)
 $sel:serverProcesses:RuntimeConfiguration' :: RuntimeConfiguration -&gt; Maybe (NonEmpty ServerProcess)
-</span><a href="#local-6989586621679440711"><span class="hs-identifier hs-var hs-var">serverProcesses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ServerProcess)
-</span><a href="#local-6989586621679440711"><span class="hs-identifier hs-var">serverProcesses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440710"><span class="annot"><span class="annottext">s :: RuntimeConfiguration
-</span><a href="#local-6989586621679440710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-type">RuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440709"><span class="annot"><span class="annottext">Maybe (NonEmpty ServerProcess)
-</span><a href="#local-6989586621679440709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuntimeConfiguration
-</span><a href="#local-6989586621679440710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverProcesses:RuntimeConfiguration' :: Maybe (NonEmpty ServerProcess)
+</span><a href="#local-6989586621679441177"><span class="hs-identifier hs-var hs-var">serverProcesses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ServerProcess)
+</span><a href="#local-6989586621679441177"><span class="hs-identifier hs-var">serverProcesses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441176"><span class="annot"><span class="annottext">s :: RuntimeConfiguration
+</span><a href="#local-6989586621679441176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-type">RuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441175"><span class="annot"><span class="annottext">Maybe (NonEmpty ServerProcess)
+</span><a href="#local-6989586621679441175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuntimeConfiguration
+</span><a href="#local-6989586621679441176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverProcesses:RuntimeConfiguration' :: Maybe (NonEmpty ServerProcess)
 </span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#%24sel%3AserverProcesses%3ARuntimeConfiguration%27"><span class="hs-identifier hs-var">serverProcesses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ServerProcess)
-</span><a href="#local-6989586621679440709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ServerProcess)
+</span><a href="#local-6989586621679441175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ServerProcess)
   -&gt; f (Maybe (NonEmpty ServerProcess)))
  -&gt; RuntimeConfiguration -&gt; f RuntimeConfiguration)
 -&gt; ((Maybe (NonEmpty ServerProcess)
@@ -266,11 +241,36 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty ServerProcess)
   (NonEmpty ServerProcess)
   (NonEmpty ServerProcess)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The number of game sessions in status @ACTIVATING@ to allow on an</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- instance. This setting limits the instance resources that can be used</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- for new game activations at any one time.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#runtimeConfiguration_maxConcurrentGameSessionActivations"><span class="hs-identifier hs-type">runtimeConfiguration_maxConcurrentGameSessionActivations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="runtimeConfiguration_maxConcurrentGameSessionActivations"><span class="annot"><span class="annottext">runtimeConfiguration_maxConcurrentGameSessionActivations :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; RuntimeConfiguration -&gt; f RuntimeConfiguration
+</span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#runtimeConfiguration_maxConcurrentGameSessionActivations"><span class="hs-identifier hs-var hs-var">runtimeConfiguration_maxConcurrentGameSessionActivations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuntimeConfiguration -&gt; Maybe Natural)
+-&gt; (RuntimeConfiguration -&gt; Maybe Natural -&gt; RuntimeConfiguration)
+-&gt; Lens
+     RuntimeConfiguration
+     RuntimeConfiguration
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-type">RuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441170"><span class="annot"><span class="annottext">Maybe Natural
+maxConcurrentGameSessionActivations :: Maybe Natural
+$sel:maxConcurrentGameSessionActivations:RuntimeConfiguration' :: RuntimeConfiguration -&gt; Maybe Natural
+</span><a href="#local-6989586621679441170"><span class="hs-identifier hs-var hs-var">maxConcurrentGameSessionActivations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679441170"><span class="hs-identifier hs-var">maxConcurrentGameSessionActivations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441169"><span class="annot"><span class="annottext">s :: RuntimeConfiguration
+</span><a href="#local-6989586621679441169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-type">RuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441168"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679441168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuntimeConfiguration
+</span><a href="#local-6989586621679441169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxConcurrentGameSessionActivations:RuntimeConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#%24sel%3AmaxConcurrentGameSessionActivations%3ARuntimeConfiguration%27"><span class="hs-identifier hs-var">maxConcurrentGameSessionActivations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679441168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440703"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679440701"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RuntimeConfiguration
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441165"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679441163"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RuntimeConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RuntimeConfiguration)
@@ -280,64 +280,63 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RuntimeConfiguration&quot;</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440698"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440698"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679441160"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679441160"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
--&gt; Maybe Natural
 -&gt; Maybe (NonEmpty ServerProcess)
+-&gt; Maybe Natural
 -&gt; RuntimeConfiguration
 </span><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-var">RuntimeConfiguration'</span></a></span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
- -&gt; Maybe Natural
  -&gt; Maybe (NonEmpty ServerProcess)
+ -&gt; Maybe Natural
  -&gt; RuntimeConfiguration)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser
-     (Maybe Natural
-      -&gt; Maybe (NonEmpty ServerProcess) -&gt; RuntimeConfiguration)
+     (Maybe (NonEmpty ServerProcess)
+      -&gt; Maybe Natural -&gt; RuntimeConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679441160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GameSessionActivationTimeoutSeconds&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Natural
-   -&gt; Maybe (NonEmpty ServerProcess) -&gt; RuntimeConfiguration)
--&gt; Parser (Maybe Natural)
--&gt; Parser (Maybe (NonEmpty ServerProcess) -&gt; RuntimeConfiguration)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxConcurrentGameSessionActivations&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (NonEmpty ServerProcess) -&gt; RuntimeConfiguration)
+  (Maybe (NonEmpty ServerProcess)
+   -&gt; Maybe Natural -&gt; RuntimeConfiguration)
 -&gt; Parser (Maybe (NonEmpty ServerProcess))
--&gt; Parser RuntimeConfiguration
+-&gt; Parser (Maybe Natural -&gt; RuntimeConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty ServerProcess))
+</span><a href="#local-6989586621679441160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty ServerProcess))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServerProcesses&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; RuntimeConfiguration)
+-&gt; Parser (Maybe Natural) -&gt; Parser RuntimeConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679441160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxConcurrentGameSessionActivations&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440692"><span id="local-6989586621679440694"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441154"><span id="local-6989586621679441156"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440689"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441151"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440681"><span id="local-6989586621679440683"><span id="local-6989586621679440685"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679440679"><span class="annot"><span class="annottext">toJSON :: RuntimeConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-type">RuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440675"><span id="local-6989586621679440676"><span id="local-6989586621679440677"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441143"><span id="local-6989586621679441145"><span id="local-6989586621679441147"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration"><span class="hs-identifier hs-type">RuntimeConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679441141"><span class="annot"><span class="annottext">toJSON :: RuntimeConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RuntimeConfiguration.html#RuntimeConfiguration%27"><span class="hs-identifier hs-type">RuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441137"><span id="local-6989586621679441138"><span id="local-6989586621679441139"><span class="annot"><span class="annottext">Maybe Natural
 Maybe (NonEmpty ServerProcess)
-serverProcesses :: Maybe (NonEmpty ServerProcess)
 maxConcurrentGameSessionActivations :: Maybe Natural
+serverProcesses :: Maybe (NonEmpty ServerProcess)
 gameSessionActivationTimeoutSeconds :: Maybe Natural
-$sel:serverProcesses:RuntimeConfiguration' :: RuntimeConfiguration -&gt; Maybe (NonEmpty ServerProcess)
 $sel:maxConcurrentGameSessionActivations:RuntimeConfiguration' :: RuntimeConfiguration -&gt; Maybe Natural
+$sel:serverProcesses:RuntimeConfiguration' :: RuntimeConfiguration -&gt; Maybe (NonEmpty ServerProcess)
 $sel:gameSessionActivationTimeoutSeconds:RuntimeConfiguration' :: RuntimeConfiguration -&gt; Maybe Natural
-</span><a href="#local-6989586621679440675"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679441137"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -350,24 +349,24 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440677"><span class="hs-identifier hs-var">gameSessionActivationTimeoutSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679441139"><span class="hs-identifier hs-var">gameSessionActivationTimeoutSeconds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxConcurrentGameSessionActivations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440676"><span class="hs-identifier hs-var">maxConcurrentGameSessionActivations</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServerProcesses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ServerProcess -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty ServerProcess -&gt; Pair)
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty ServerProcess -&gt; Pair)
 -&gt; Maybe (NonEmpty ServerProcess) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ServerProcess)
-</span><a href="#local-6989586621679440675"><span class="hs-identifier hs-var">serverProcesses</span></a></span><span>
+</span><a href="#local-6989586621679441138"><span class="hs-identifier hs-var">serverProcesses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxConcurrentGameSessionActivations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679441137"><span class="hs-identifier hs-var">maxConcurrentGameSessionActivations</span></a></span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span></pre></body></html>

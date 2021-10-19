@@ -27,16 +27,16 @@
 </span><span id="line-27"></span><span class="hs-comment">-- the @DescribeOptionGroupOptions@ action.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOptionVersion' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679762040"><span id="local-6989586621679762041"></span></span><span class="hs-keyword">data</span><span> </span><span id="OptionVersion"><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion"><span class="hs-identifier hs-var">OptionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OptionVersion%27"><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion%27"><span class="hs-identifier hs-var">OptionVersion'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | True if the version is the default version of the option, and otherwise</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- false.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AisDefault%3AOptionVersion%27"><span class="annot"><span class="annottext">OptionVersion -&gt; Maybe Bool
-</span><a href="Network.AWS.RDS.Types.OptionVersion.html#%24sel%3AisDefault%3AOptionVersion%27"><span class="hs-identifier hs-var hs-var">isDefault</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The version of the option.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aversion%3AOptionVersion%27"><span class="annot"><span class="annottext">OptionVersion -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.OptionVersion.html#%24sel%3Aversion%3AOptionVersion%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679763092"><span id="local-6989586621679763093"></span></span><span class="hs-keyword">data</span><span> </span><span id="OptionVersion"><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion"><span class="hs-identifier hs-var">OptionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OptionVersion%27"><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion%27"><span class="hs-identifier hs-var">OptionVersion'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the option.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aversion%3AOptionVersion%27"><span class="annot"><span class="annottext">OptionVersion -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.OptionVersion.html#%24sel%3Aversion%3AOptionVersion%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | True if the version is the default version of the option, and otherwise</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- false.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AisDefault%3AOptionVersion%27"><span class="annot"><span class="annottext">OptionVersion -&gt; Maybe Bool
+</span><a href="Network.AWS.RDS.Types.OptionVersion.html#%24sel%3AisDefault%3AOptionVersion%27"><span class="hs-identifier hs-var hs-var">isDefault</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679762033"><span id="local-6989586621679762035"><span class="annot"><span class="annottext">OptionVersion -&gt; OptionVersion -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679763085"><span id="local-6989586621679763087"><span class="annot"><span class="annottext">OptionVersion -&gt; OptionVersion -&gt; Bool
 (OptionVersion -&gt; OptionVersion -&gt; Bool)
 -&gt; (OptionVersion -&gt; OptionVersion -&gt; Bool) -&gt; Eq OptionVersion
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OptionVersion -&gt; OptionVersion -&gt; Bool
 == :: OptionVersion -&gt; OptionVersion -&gt; Bool
 $c== :: OptionVersion -&gt; OptionVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679762024"><span id="local-6989586621679762026"><span id="local-6989586621679762028"><span id="local-6989586621679762030"><span class="annot"><span class="annottext">ReadPrec [OptionVersion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679763076"><span id="local-6989586621679763078"><span id="local-6989586621679763080"><span id="local-6989586621679763082"><span class="annot"><span class="annottext">ReadPrec [OptionVersion]
 ReadPrec OptionVersion
 Int -&gt; ReadS OptionVersion
 ReadS [OptionVersion]
@@ -64,7 +64,7 @@ readList :: ReadS [OptionVersion]
 $creadList :: ReadS [OptionVersion]
 readsPrec :: Int -&gt; ReadS OptionVersion
 $creadsPrec :: Int -&gt; ReadS OptionVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679762017"><span id="local-6989586621679762019"><span id="local-6989586621679762021"><span class="annot"><span class="annottext">Int -&gt; OptionVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679763069"><span id="local-6989586621679763071"><span id="local-6989586621679763073"><span class="annot"><span class="annottext">Int -&gt; OptionVersion -&gt; ShowS
 [OptionVersion] -&gt; ShowS
 OptionVersion -&gt; String
 (Int -&gt; OptionVersion -&gt; ShowS)
@@ -98,88 +98,88 @@ $cfrom :: forall x. OptionVersion -&gt; Rep OptionVersion x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'isDefault', 'optionVersion_isDefault' - True if the version is the default version of the option, and otherwise</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- false.</span><span>
-</span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'version', 'optionVersion_version' - The version of the option.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'version', 'optionVersion_version' - The version of the option.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'isDefault', 'optionVersion_isDefault' - True if the version is the default version of the option, and otherwise</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- false.</span><span>
 </span><span id="line-51"></span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#newOptionVersion"><span class="hs-identifier hs-type">newOptionVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion"><span class="hs-identifier hs-type">OptionVersion</span></a></span><span>
 </span><span id="line-53"></span><span id="newOptionVersion"><span class="annot"><span class="annottext">newOptionVersion :: OptionVersion
 </span><a href="Network.AWS.RDS.Types.OptionVersion.html#newOptionVersion"><span class="hs-identifier hs-var hs-var">newOptionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">OptionVersion' :: Maybe Bool -&gt; Maybe Text -&gt; OptionVersion
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">OptionVersion' :: Maybe Text -&gt; Maybe Bool -&gt; OptionVersion
 </span><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion%27"><span class="hs-identifier hs-type">OptionVersion'</span></a></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:isDefault:OptionVersion' :: Maybe Bool
-</span><a href="Network.AWS.RDS.Types.OptionVersion.html#%24sel%3AisDefault%3AOptionVersion%27"><span class="hs-identifier hs-var">isDefault</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:version:OptionVersion' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.OptionVersion.html#%24sel%3Aversion%3AOptionVersion%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:OptionVersion' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.OptionVersion.html#%24sel%3Aversion%3AOptionVersion%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:isDefault:OptionVersion' :: Maybe Bool
+</span><a href="Network.AWS.RDS.Types.OptionVersion.html#%24sel%3AisDefault%3AOptionVersion%27"><span class="hs-identifier hs-var">isDefault</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | True if the version is the default version of the option, and otherwise</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- false.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#optionVersion_isDefault"><span class="hs-identifier hs-type">optionVersion_isDefault</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion"><span class="hs-identifier hs-type">OptionVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="optionVersion_isDefault"><span class="annot"><span class="annottext">optionVersion_isDefault :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; OptionVersion -&gt; f OptionVersion
-</span><a href="Network.AWS.RDS.Types.OptionVersion.html#optionVersion_isDefault"><span class="hs-identifier hs-var hs-var">optionVersion_isDefault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OptionVersion -&gt; Maybe Bool)
--&gt; (OptionVersion -&gt; Maybe Bool -&gt; OptionVersion)
--&gt; Lens OptionVersion OptionVersion (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion%27"><span class="hs-identifier hs-type">OptionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679762008"><span class="annot"><span class="annottext">Maybe Bool
-isDefault :: Maybe Bool
-$sel:isDefault:OptionVersion' :: OptionVersion -&gt; Maybe Bool
-</span><a href="#local-6989586621679762008"><span class="hs-identifier hs-var hs-var">isDefault</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679762008"><span class="hs-identifier hs-var">isDefault</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679762007"><span class="annot"><span class="annottext">s :: OptionVersion
-</span><a href="#local-6989586621679762007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion%27"><span class="hs-identifier hs-type">OptionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679762006"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679762006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionVersion
-</span><a href="#local-6989586621679762007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isDefault:OptionVersion' :: Maybe Bool
-</span><a href="Network.AWS.RDS.Types.OptionVersion.html#%24sel%3AisDefault%3AOptionVersion%27"><span class="hs-identifier hs-var">isDefault</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679762006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion"><span class="hs-identifier hs-type">OptionVersion</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | The version of the option.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#optionVersion_version"><span class="hs-identifier hs-type">optionVersion_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion"><span class="hs-identifier hs-type">OptionVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="optionVersion_version"><span class="annot"><span class="annottext">optionVersion_version :: (Maybe Text -&gt; f (Maybe Text)) -&gt; OptionVersion -&gt; f OptionVersion
+</span><span id="line-59"></span><span class="hs-comment">-- | The version of the option.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#optionVersion_version"><span class="hs-identifier hs-type">optionVersion_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion"><span class="hs-identifier hs-type">OptionVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="optionVersion_version"><span class="annot"><span class="annottext">optionVersion_version :: (Maybe Text -&gt; f (Maybe Text)) -&gt; OptionVersion -&gt; f OptionVersion
 </span><a href="Network.AWS.RDS.Types.OptionVersion.html#optionVersion_version"><span class="hs-identifier hs-var hs-var">optionVersion_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OptionVersion -&gt; Maybe Text)
 -&gt; (OptionVersion -&gt; Maybe Text -&gt; OptionVersion)
 -&gt; Lens OptionVersion OptionVersion (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion%27"><span class="hs-identifier hs-type">OptionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679762004"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion%27"><span class="hs-identifier hs-type">OptionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679763060"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 $sel:version:OptionVersion' :: OptionVersion -&gt; Maybe Text
-</span><a href="#local-6989586621679762004"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679762004"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679762003"><span class="annot"><span class="annottext">s :: OptionVersion
-</span><a href="#local-6989586621679762003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion%27"><span class="hs-identifier hs-type">OptionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679762002"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679762002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionVersion
-</span><a href="#local-6989586621679762003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:OptionVersion' :: Maybe Text
+</span><a href="#local-6989586621679763060"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679763060"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679763059"><span class="annot"><span class="annottext">s :: OptionVersion
+</span><a href="#local-6989586621679763059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion%27"><span class="hs-identifier hs-type">OptionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679763058"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679763058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionVersion
+</span><a href="#local-6989586621679763059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:OptionVersion' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.OptionVersion.html#%24sel%3Aversion%3AOptionVersion%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679762002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion"><span class="hs-identifier hs-type">OptionVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679763058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion"><span class="hs-identifier hs-type">OptionVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | True if the version is the default version of the option, and otherwise</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- false.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#optionVersion_isDefault"><span class="hs-identifier hs-type">optionVersion_isDefault</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion"><span class="hs-identifier hs-type">OptionVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="optionVersion_isDefault"><span class="annot"><span class="annottext">optionVersion_isDefault :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; OptionVersion -&gt; f OptionVersion
+</span><a href="Network.AWS.RDS.Types.OptionVersion.html#optionVersion_isDefault"><span class="hs-identifier hs-var hs-var">optionVersion_isDefault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OptionVersion -&gt; Maybe Bool)
+-&gt; (OptionVersion -&gt; Maybe Bool -&gt; OptionVersion)
+-&gt; Lens OptionVersion OptionVersion (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion%27"><span class="hs-identifier hs-type">OptionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679763056"><span class="annot"><span class="annottext">Maybe Bool
+isDefault :: Maybe Bool
+$sel:isDefault:OptionVersion' :: OptionVersion -&gt; Maybe Bool
+</span><a href="#local-6989586621679763056"><span class="hs-identifier hs-var hs-var">isDefault</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679763056"><span class="hs-identifier hs-var">isDefault</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679763055"><span class="annot"><span class="annottext">s :: OptionVersion
+</span><a href="#local-6989586621679763055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion%27"><span class="hs-identifier hs-type">OptionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679763054"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679763054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionVersion
+</span><a href="#local-6989586621679763055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isDefault:OptionVersion' :: Maybe Bool
+</span><a href="Network.AWS.RDS.Types.OptionVersion.html#%24sel%3AisDefault%3AOptionVersion%27"><span class="hs-identifier hs-var">isDefault</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679763054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion"><span class="hs-identifier hs-type">OptionVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion"><span class="hs-identifier hs-type">OptionVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679761999"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String OptionVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679761997"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679761997"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Text -&gt; OptionVersion
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679763051"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String OptionVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679763049"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679763049"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Bool -&gt; OptionVersion
 </span><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion%27"><span class="hs-identifier hs-var">OptionVersion'</span></a></span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Text -&gt; OptionVersion)
--&gt; Either String (Maybe Bool)
--&gt; Either String (Maybe Text -&gt; OptionVersion)
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Bool -&gt; OptionVersion)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Bool -&gt; OptionVersion)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679761997"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IsDefault&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; OptionVersion)
--&gt; Either String (Maybe Text) -&gt; Either String OptionVersion
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679761997"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679763049"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; OptionVersion)
+-&gt; Either String (Maybe Bool) -&gt; Either String OptionVersion
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679763049"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsDefault&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679761991"><span id="local-6989586621679761993"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion"><span class="hs-identifier hs-type">OptionVersion</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679763043"><span id="local-6989586621679763045"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion"><span class="hs-identifier hs-type">OptionVersion</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679761988"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion"><span class="hs-identifier hs-type">OptionVersion</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679763040"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.OptionVersion.html#OptionVersion"><span class="hs-identifier hs-type">OptionVersion</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

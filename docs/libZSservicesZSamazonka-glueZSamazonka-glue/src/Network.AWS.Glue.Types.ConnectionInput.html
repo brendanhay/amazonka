@@ -29,18 +29,18 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | A structure that is used to specify a connection to create or update.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newConnectionInput' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679691825"><span id="local-6989586621679691826"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionInput"><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-var">ConnectionInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionInput%27"><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-var">ConnectionInput'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A map of physical connection requirements, such as virtual private cloud</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- (VPC) and @SecurityGroup@, that are needed to successfully make this</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- connection.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AphysicalConnectionRequirements%3AConnectionInput%27"><span class="annot"><span class="annottext">ConnectionInput -&gt; Maybe PhysicalConnectionRequirements
-</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3AphysicalConnectionRequirements%3AConnectionInput%27"><span class="hs-identifier hs-var hs-var">physicalConnectionRequirements</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The description of the connection.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Adescription%3AConnectionInput%27"><span class="annot"><span class="annottext">ConnectionInput -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3Adescription%3AConnectionInput%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A list of criteria that can be used in selecting this connection.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AmatchCriteria%3AConnectionInput%27"><span class="annot"><span class="annottext">ConnectionInput -&gt; Maybe [Text]
+</span><span id="line-32"></span><span id="local-6989586621679693490"><span id="local-6989586621679693491"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionInput"><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-var">ConnectionInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionInput%27"><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-var">ConnectionInput'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of criteria that can be used in selecting this connection.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AmatchCriteria%3AConnectionInput%27"><span class="annot"><span class="annottext">ConnectionInput -&gt; Maybe [Text]
 </span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3AmatchCriteria%3AConnectionInput%27"><span class="hs-identifier hs-var hs-var">matchCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A map of physical connection requirements, such as virtual private cloud</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- (VPC) and @SecurityGroup@, that are needed to successfully make this</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- connection.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AphysicalConnectionRequirements%3AConnectionInput%27"><span class="annot"><span class="annottext">ConnectionInput -&gt; Maybe PhysicalConnectionRequirements
+</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3AphysicalConnectionRequirements%3AConnectionInput%27"><span class="hs-identifier hs-var hs-var">physicalConnectionRequirements</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The description of the connection.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Adescription%3AConnectionInput%27"><span class="annot"><span class="annottext">ConnectionInput -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3Adescription%3AConnectionInput%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the connection.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Aname%3AConnectionInput%27"><span class="annot"><span class="annottext">ConnectionInput -&gt; Text
 </span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3Aname%3AConnectionInput%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -72,7 +72,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AconnectionProperties%3AConnectionInput%27"><span class="annot"><span class="annottext">ConnectionInput -&gt; HashMap ConnectionPropertyKey Text
 </span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3AconnectionProperties%3AConnectionInput%27"><span class="hs-identifier hs-var hs-var">connectionProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionPropertyKey.html#ConnectionPropertyKey"><span class="hs-identifier hs-type">ConnectionPropertyKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679691814"><span id="local-6989586621679691816"><span class="annot"><span class="annottext">ConnectionInput -&gt; ConnectionInput -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679693479"><span id="local-6989586621679693481"><span class="annot"><span class="annottext">ConnectionInput -&gt; ConnectionInput -&gt; Bool
 (ConnectionInput -&gt; ConnectionInput -&gt; Bool)
 -&gt; (ConnectionInput -&gt; ConnectionInput -&gt; Bool)
 -&gt; Eq ConnectionInput
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConnectionInput -&gt; ConnectionInput -&gt; Bool
 == :: ConnectionInput -&gt; ConnectionInput -&gt; Bool
 $c== :: ConnectionInput -&gt; ConnectionInput -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679691805"><span id="local-6989586621679691807"><span id="local-6989586621679691809"><span id="local-6989586621679691811"><span class="annot"><span class="annottext">ReadPrec [ConnectionInput]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679693470"><span id="local-6989586621679693472"><span id="local-6989586621679693474"><span id="local-6989586621679693476"><span class="annot"><span class="annottext">ReadPrec [ConnectionInput]
 ReadPrec ConnectionInput
 Int -&gt; ReadS ConnectionInput
 ReadS [ConnectionInput]
@@ -101,7 +101,7 @@ readList :: ReadS [ConnectionInput]
 $creadList :: ReadS [ConnectionInput]
 readsPrec :: Int -&gt; ReadS ConnectionInput
 $creadsPrec :: Int -&gt; ReadS ConnectionInput
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679691798"><span id="local-6989586621679691800"><span id="local-6989586621679691802"><span class="annot"><span class="annottext">Int -&gt; ConnectionInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679693463"><span id="local-6989586621679693465"><span id="local-6989586621679693467"><span class="annot"><span class="annottext">Int -&gt; ConnectionInput -&gt; ShowS
 [ConnectionInput] -&gt; ShowS
 ConnectionInput -&gt; String
 (Int -&gt; ConnectionInput -&gt; ShowS)
@@ -135,13 +135,13 @@ $cfrom :: forall x. ConnectionInput -&gt; Rep ConnectionInput x
 </span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'physicalConnectionRequirements', 'connectionInput_physicalConnectionRequirements' - A map of physical connection requirements, such as virtual private cloud</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- (VPC) and @SecurityGroup@, that are needed to successfully make this</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- connection.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'description', 'connectionInput_description' - The description of the connection.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'matchCriteria', 'connectionInput_matchCriteria' - A list of criteria that can be used in selecting this connection.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'physicalConnectionRequirements', 'connectionInput_physicalConnectionRequirements' - A map of physical connection requirements, such as virtual private cloud</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- (VPC) and @SecurityGroup@, that are needed to successfully make this</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- connection.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'matchCriteria', 'connectionInput_matchCriteria' - A list of criteria that can be used in selecting this connection.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'description', 'connectionInput_description' - The description of the connection.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- 'name', 'connectionInput_name' - The name of the connection.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
@@ -176,107 +176,60 @@ $cfrom :: forall x. ConnectionInput -&gt; Rep ConnectionInput x
 </span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionType.html#ConnectionType"><span class="hs-identifier hs-type">ConnectionType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span>
 </span><span id="line-119"></span><span id="newConnectionInput"><span class="annot"><span class="annottext">newConnectionInput :: Text -&gt; ConnectionType -&gt; ConnectionInput
-</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#newConnectionInput"><span class="hs-identifier hs-var hs-var">newConnectionInput</span></a></span></span><span> </span><span id="local-6989586621679691792"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679691792"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679691791"><span class="annot"><span class="annottext">ConnectionType
-</span><a href="#local-6989586621679691791"><span class="hs-identifier hs-var">pConnectionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-120"></span><span>  </span><span class="annot"><span class="annottext">ConnectionInput' :: Maybe PhysicalConnectionRequirements
+</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#newConnectionInput"><span class="hs-identifier hs-var hs-var">newConnectionInput</span></a></span></span><span> </span><span id="local-6989586621679693457"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679693457"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679693456"><span class="annot"><span class="annottext">ConnectionType
+</span><a href="#local-6989586621679693456"><span class="hs-identifier hs-var">pConnectionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="annottext">ConnectionInput' :: Maybe [Text]
+-&gt; Maybe PhysicalConnectionRequirements
 -&gt; Maybe Text
--&gt; Maybe [Text]
 -&gt; Text
 -&gt; ConnectionType
 -&gt; HashMap ConnectionPropertyKey Text
 -&gt; ConnectionInput
 </span><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span>
-</span><span id="line-121"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:physicalConnectionRequirements:ConnectionInput' :: Maybe PhysicalConnectionRequirements
-</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3AphysicalConnectionRequirements%3AConnectionInput%27"><span class="hs-identifier hs-var">physicalConnectionRequirements</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Maybe PhysicalConnectionRequirements
+</span><span id="line-121"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:matchCriteria:ConnectionInput' :: Maybe [Text]
+</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3AmatchCriteria%3AConnectionInput%27"><span class="hs-identifier hs-var">matchCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:physicalConnectionRequirements:ConnectionInput' :: Maybe PhysicalConnectionRequirements
+</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3AphysicalConnectionRequirements%3AConnectionInput%27"><span class="hs-identifier hs-var">physicalConnectionRequirements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhysicalConnectionRequirements
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ConnectionInput' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3Adescription%3AConnectionInput%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:matchCriteria:ConnectionInput' :: Maybe [Text]
-</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3AmatchCriteria%3AConnectionInput%27"><span class="hs-identifier hs-var">matchCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ConnectionInput' :: Text
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ConnectionInput' :: Text
 </span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3Aname%3AConnectionInput%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679691792"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionType:ConnectionInput' :: ConnectionType
+</span><a href="#local-6989586621679693457"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionType:ConnectionInput' :: ConnectionType
 </span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3AconnectionType%3AConnectionInput%27"><span class="hs-identifier hs-var">connectionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConnectionType
-</span><a href="#local-6989586621679691791"><span class="hs-identifier hs-var">pConnectionType_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionProperties:ConnectionInput' :: HashMap ConnectionPropertyKey Text
+</span><a href="#local-6989586621679693456"><span class="hs-identifier hs-var">pConnectionType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionProperties:ConnectionInput' :: HashMap ConnectionPropertyKey Text
 </span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3AconnectionProperties%3AConnectionInput%27"><span class="hs-identifier hs-var">connectionProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap ConnectionPropertyKey Text
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-128"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | A map of physical connection requirements, such as virtual private cloud</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- (VPC) and @SecurityGroup@, that are needed to successfully make this</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- connection.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_physicalConnectionRequirements"><span class="hs-identifier hs-type">connectionInput_physicalConnectionRequirements</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="connectionInput_physicalConnectionRequirements"><span class="annot"><span class="annottext">connectionInput_physicalConnectionRequirements :: (Maybe PhysicalConnectionRequirements
- -&gt; f (Maybe PhysicalConnectionRequirements))
--&gt; ConnectionInput -&gt; f ConnectionInput
-</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_physicalConnectionRequirements"><span class="hs-identifier hs-var hs-var">connectionInput_physicalConnectionRequirements</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionInput -&gt; Maybe PhysicalConnectionRequirements)
--&gt; (ConnectionInput
-    -&gt; Maybe PhysicalConnectionRequirements -&gt; ConnectionInput)
--&gt; Lens
-     ConnectionInput
-     ConnectionInput
-     (Maybe PhysicalConnectionRequirements)
-     (Maybe PhysicalConnectionRequirements)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691787"><span class="annot"><span class="annottext">Maybe PhysicalConnectionRequirements
-physicalConnectionRequirements :: Maybe PhysicalConnectionRequirements
-$sel:physicalConnectionRequirements:ConnectionInput' :: ConnectionInput -&gt; Maybe PhysicalConnectionRequirements
-</span><a href="#local-6989586621679691787"><span class="hs-identifier hs-var hs-var">physicalConnectionRequirements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PhysicalConnectionRequirements
-</span><a href="#local-6989586621679691787"><span class="hs-identifier hs-var">physicalConnectionRequirements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691786"><span class="annot"><span class="annottext">s :: ConnectionInput
-</span><a href="#local-6989586621679691786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691785"><span class="annot"><span class="annottext">Maybe PhysicalConnectionRequirements
-</span><a href="#local-6989586621679691785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionInput
-</span><a href="#local-6989586621679691786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:physicalConnectionRequirements:ConnectionInput' :: Maybe PhysicalConnectionRequirements
-</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3AphysicalConnectionRequirements%3AConnectionInput%27"><span class="hs-identifier hs-var">physicalConnectionRequirements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhysicalConnectionRequirements
-</span><a href="#local-6989586621679691785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | The description of the connection.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_description"><span class="hs-identifier hs-type">connectionInput_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="connectionInput_description"><span class="annot"><span class="annottext">connectionInput_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ConnectionInput -&gt; f ConnectionInput
-</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_description"><span class="hs-identifier hs-var hs-var">connectionInput_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionInput -&gt; Maybe Text)
--&gt; (ConnectionInput -&gt; Maybe Text -&gt; ConnectionInput)
--&gt; Lens ConnectionInput ConnectionInput (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691783"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:ConnectionInput' :: ConnectionInput -&gt; Maybe Text
-</span><a href="#local-6989586621679691783"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691783"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691782"><span class="annot"><span class="annottext">s :: ConnectionInput
-</span><a href="#local-6989586621679691782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691781"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionInput
-</span><a href="#local-6989586621679691782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ConnectionInput' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3Adescription%3AConnectionInput%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | A list of criteria that can be used in selecting this connection.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_matchCriteria"><span class="hs-identifier hs-type">connectionInput_matchCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="connectionInput_matchCriteria"><span class="annot"><span class="annottext">connectionInput_matchCriteria :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | A list of criteria that can be used in selecting this connection.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_matchCriteria"><span class="hs-identifier hs-type">connectionInput_matchCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="connectionInput_matchCriteria"><span class="annot"><span class="annottext">connectionInput_matchCriteria :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; ConnectionInput -&gt; f ConnectionInput
 </span><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_matchCriteria"><span class="hs-identifier hs-var hs-var">connectionInput_matchCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionInput -&gt; Maybe [Text])
 -&gt; (ConnectionInput -&gt; Maybe [Text] -&gt; ConnectionInput)
 -&gt; Lens
      ConnectionInput ConnectionInput (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691779"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693452"><span class="annot"><span class="annottext">Maybe [Text]
 matchCriteria :: Maybe [Text]
 $sel:matchCriteria:ConnectionInput' :: ConnectionInput -&gt; Maybe [Text]
-</span><a href="#local-6989586621679691779"><span class="hs-identifier hs-var hs-var">matchCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679691779"><span class="hs-identifier hs-var">matchCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691778"><span class="annot"><span class="annottext">s :: ConnectionInput
-</span><a href="#local-6989586621679691778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691777"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679691777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionInput
-</span><a href="#local-6989586621679691778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchCriteria:ConnectionInput' :: Maybe [Text]
+</span><a href="#local-6989586621679693452"><span class="hs-identifier hs-var hs-var">matchCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679693452"><span class="hs-identifier hs-var">matchCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679693451"><span class="annot"><span class="annottext">s :: ConnectionInput
+</span><a href="#local-6989586621679693451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679693450"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679693450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionInput
+</span><a href="#local-6989586621679693451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchCriteria:ConnectionInput' :: Maybe [Text]
 </span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3AmatchCriteria%3AConnectionInput%27"><span class="hs-identifier hs-var">matchCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679691777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679693450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ConnectionInput -&gt; f ConnectionInput)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -290,71 +243,117 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | The name of the connection.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_name"><span class="hs-identifier hs-type">connectionInput_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-146"></span><span id="connectionInput_name"><span class="annot"><span class="annottext">connectionInput_name :: (Text -&gt; f Text) -&gt; ConnectionInput -&gt; f ConnectionInput
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | A map of physical connection requirements, such as virtual private cloud</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- (VPC) and @SecurityGroup@, that are needed to successfully make this</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- connection.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_physicalConnectionRequirements"><span class="hs-identifier hs-type">connectionInput_physicalConnectionRequirements</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="connectionInput_physicalConnectionRequirements"><span class="annot"><span class="annottext">connectionInput_physicalConnectionRequirements :: (Maybe PhysicalConnectionRequirements
+ -&gt; f (Maybe PhysicalConnectionRequirements))
+-&gt; ConnectionInput -&gt; f ConnectionInput
+</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_physicalConnectionRequirements"><span class="hs-identifier hs-var hs-var">connectionInput_physicalConnectionRequirements</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionInput -&gt; Maybe PhysicalConnectionRequirements)
+-&gt; (ConnectionInput
+    -&gt; Maybe PhysicalConnectionRequirements -&gt; ConnectionInput)
+-&gt; Lens
+     ConnectionInput
+     ConnectionInput
+     (Maybe PhysicalConnectionRequirements)
+     (Maybe PhysicalConnectionRequirements)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693445"><span class="annot"><span class="annottext">Maybe PhysicalConnectionRequirements
+physicalConnectionRequirements :: Maybe PhysicalConnectionRequirements
+$sel:physicalConnectionRequirements:ConnectionInput' :: ConnectionInput -&gt; Maybe PhysicalConnectionRequirements
+</span><a href="#local-6989586621679693445"><span class="hs-identifier hs-var hs-var">physicalConnectionRequirements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PhysicalConnectionRequirements
+</span><a href="#local-6989586621679693445"><span class="hs-identifier hs-var">physicalConnectionRequirements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679693444"><span class="annot"><span class="annottext">s :: ConnectionInput
+</span><a href="#local-6989586621679693444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679693443"><span class="annot"><span class="annottext">Maybe PhysicalConnectionRequirements
+</span><a href="#local-6989586621679693443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionInput
+</span><a href="#local-6989586621679693444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:physicalConnectionRequirements:ConnectionInput' :: Maybe PhysicalConnectionRequirements
+</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3AphysicalConnectionRequirements%3AConnectionInput%27"><span class="hs-identifier hs-var">physicalConnectionRequirements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhysicalConnectionRequirements
+</span><a href="#local-6989586621679693443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The description of the connection.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_description"><span class="hs-identifier hs-type">connectionInput_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="connectionInput_description"><span class="annot"><span class="annottext">connectionInput_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConnectionInput -&gt; f ConnectionInput
+</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_description"><span class="hs-identifier hs-var hs-var">connectionInput_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionInput -&gt; Maybe Text)
+-&gt; (ConnectionInput -&gt; Maybe Text -&gt; ConnectionInput)
+-&gt; Lens ConnectionInput ConnectionInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693441"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ConnectionInput' :: ConnectionInput -&gt; Maybe Text
+</span><a href="#local-6989586621679693441"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679693441"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679693440"><span class="annot"><span class="annottext">s :: ConnectionInput
+</span><a href="#local-6989586621679693440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679693439"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679693439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionInput
+</span><a href="#local-6989586621679693440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ConnectionInput' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3Adescription%3AConnectionInput%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679693439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The name of the connection.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_name"><span class="hs-identifier hs-type">connectionInput_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-145"></span><span id="connectionInput_name"><span class="annot"><span class="annottext">connectionInput_name :: (Text -&gt; f Text) -&gt; ConnectionInput -&gt; f ConnectionInput
 </span><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_name"><span class="hs-identifier hs-var hs-var">connectionInput_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionInput -&gt; Text)
 -&gt; (ConnectionInput -&gt; Text -&gt; ConnectionInput)
 -&gt; Lens ConnectionInput ConnectionInput Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691772"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693437"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:ConnectionInput' :: ConnectionInput -&gt; Text
-</span><a href="#local-6989586621679691772"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679691772"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691771"><span class="annot"><span class="annottext">s :: ConnectionInput
-</span><a href="#local-6989586621679691771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691770"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679691770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionInput
-</span><a href="#local-6989586621679691771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ConnectionInput' :: Text
+</span><a href="#local-6989586621679693437"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679693437"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679693436"><span class="annot"><span class="annottext">s :: ConnectionInput
+</span><a href="#local-6989586621679693436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679693435"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679693435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionInput
+</span><a href="#local-6989586621679693436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ConnectionInput' :: Text
 </span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3Aname%3AConnectionInput%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679691770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | The type of the connection. Currently, these types are supported:</span><span>
-</span><span id="line-149"></span><span class="hs-comment">--</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- -   @JDBC@ - Designates a connection to a database through Java Database</span><span>
-</span><span id="line-151"></span><span class="hs-comment">--     Connectivity (JDBC).</span><span>
-</span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- -   @KAFKA@ - Designates a connection to an Apache Kafka streaming</span><span>
-</span><span id="line-154"></span><span class="hs-comment">--     platform.</span><span>
-</span><span id="line-155"></span><span class="hs-comment">--</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- -   @MONGODB@ - Designates a connection to a MongoDB document database.</span><span>
-</span><span id="line-157"></span><span class="hs-comment">--</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- -   @NETWORK@ - Designates a network connection to a data source within</span><span>
-</span><span id="line-159"></span><span class="hs-comment">--     an Amazon Virtual Private Cloud environment (Amazon VPC).</span><span>
-</span><span id="line-160"></span><span class="hs-comment">--</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- -   @MARKETPLACE@ - Uses configuration settings contained in a connector</span><span>
-</span><span id="line-162"></span><span class="hs-comment">--     purchased from Amazon Web Services Marketplace to read from and</span><span>
-</span><span id="line-163"></span><span class="hs-comment">--     write to data stores that are not natively supported by Glue.</span><span>
-</span><span id="line-164"></span><span class="hs-comment">--</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- -   @CUSTOM@ - Uses configuration settings contained in a custom</span><span>
-</span><span id="line-166"></span><span class="hs-comment">--     connector to read from and write to data stores that are not</span><span>
-</span><span id="line-167"></span><span class="hs-comment">--     natively supported by Glue.</span><span>
-</span><span id="line-168"></span><span class="hs-comment">--</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- SFTP is not supported.</span><span>
-</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_connectionType"><span class="hs-identifier hs-type">connectionInput_connectionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionType.html#ConnectionType"><span class="hs-identifier hs-type">ConnectionType</span></a></span><span>
-</span><span id="line-171"></span><span id="connectionInput_connectionType"><span class="annot"><span class="annottext">connectionInput_connectionType :: (ConnectionType -&gt; f ConnectionType)
+</span><a href="#local-6989586621679693435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The type of the connection. Currently, these types are supported:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- -   @JDBC@ - Designates a connection to a database through Java Database</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--     Connectivity (JDBC).</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- -   @KAFKA@ - Designates a connection to an Apache Kafka streaming</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     platform.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- -   @MONGODB@ - Designates a connection to a MongoDB document database.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- -   @NETWORK@ - Designates a network connection to a data source within</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     an Amazon Virtual Private Cloud environment (Amazon VPC).</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -   @MARKETPLACE@ - Uses configuration settings contained in a connector</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--     purchased from Amazon Web Services Marketplace to read from and</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--     write to data stores that are not natively supported by Glue.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   @CUSTOM@ - Uses configuration settings contained in a custom</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--     connector to read from and write to data stores that are not</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--     natively supported by Glue.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- SFTP is not supported.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_connectionType"><span class="hs-identifier hs-type">connectionInput_connectionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionType.html#ConnectionType"><span class="hs-identifier hs-type">ConnectionType</span></a></span><span>
+</span><span id="line-170"></span><span id="connectionInput_connectionType"><span class="annot"><span class="annottext">connectionInput_connectionType :: (ConnectionType -&gt; f ConnectionType)
 -&gt; ConnectionInput -&gt; f ConnectionInput
 </span><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_connectionType"><span class="hs-identifier hs-var hs-var">connectionInput_connectionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionInput -&gt; ConnectionType)
 -&gt; (ConnectionInput -&gt; ConnectionType -&gt; ConnectionInput)
 -&gt; Lens
      ConnectionInput ConnectionInput ConnectionType ConnectionType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691768"><span class="annot"><span class="annottext">ConnectionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693433"><span class="annot"><span class="annottext">ConnectionType
 connectionType :: ConnectionType
 $sel:connectionType:ConnectionInput' :: ConnectionInput -&gt; ConnectionType
-</span><a href="#local-6989586621679691768"><span class="hs-identifier hs-var hs-var">connectionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionType
-</span><a href="#local-6989586621679691768"><span class="hs-identifier hs-var">connectionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691767"><span class="annot"><span class="annottext">s :: ConnectionInput
-</span><a href="#local-6989586621679691767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691766"><span class="annot"><span class="annottext">ConnectionType
-</span><a href="#local-6989586621679691766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionInput
-</span><a href="#local-6989586621679691767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionType:ConnectionInput' :: ConnectionType
+</span><a href="#local-6989586621679693433"><span class="hs-identifier hs-var hs-var">connectionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionType
+</span><a href="#local-6989586621679693433"><span class="hs-identifier hs-var">connectionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679693432"><span class="annot"><span class="annottext">s :: ConnectionInput
+</span><a href="#local-6989586621679693432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679693431"><span class="annot"><span class="annottext">ConnectionType
+</span><a href="#local-6989586621679693431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionInput
+</span><a href="#local-6989586621679693432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionType:ConnectionInput' :: ConnectionType
 </span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3AconnectionType%3AConnectionInput%27"><span class="hs-identifier hs-var">connectionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConnectionType
-</span><a href="#local-6989586621679691766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- | These key-value pairs define parameters for the connection.</span><span>
-</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_connectionProperties"><span class="hs-identifier hs-type">connectionInput_connectionProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionPropertyKey.html#ConnectionPropertyKey"><span class="hs-identifier hs-type">ConnectionPropertyKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-175"></span><span id="connectionInput_connectionProperties"><span class="annot"><span class="annottext">connectionInput_connectionProperties :: (HashMap ConnectionPropertyKey Text
+</span><a href="#local-6989586621679693431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | These key-value pairs define parameters for the connection.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_connectionProperties"><span class="hs-identifier hs-type">connectionInput_connectionProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionPropertyKey.html#ConnectionPropertyKey"><span class="hs-identifier hs-type">ConnectionPropertyKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="connectionInput_connectionProperties"><span class="annot"><span class="annottext">connectionInput_connectionProperties :: (HashMap ConnectionPropertyKey Text
  -&gt; f (HashMap ConnectionPropertyKey Text))
 -&gt; ConnectionInput -&gt; f ConnectionInput
 </span><a href="Network.AWS.Glue.Types.ConnectionInput.html#connectionInput_connectionProperties"><span class="hs-identifier hs-var hs-var">connectionInput_connectionProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionInput -&gt; HashMap ConnectionPropertyKey Text)
@@ -366,16 +365,16 @@ $sel:connectionType:ConnectionInput' :: ConnectionInput -&gt; ConnectionType
      (HashMap ConnectionPropertyKey Text)
      (HashMap ConnectionPropertyKey Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691764"><span class="annot"><span class="annottext">HashMap ConnectionPropertyKey Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693429"><span class="annot"><span class="annottext">HashMap ConnectionPropertyKey Text
 connectionProperties :: HashMap ConnectionPropertyKey Text
 $sel:connectionProperties:ConnectionInput' :: ConnectionInput -&gt; HashMap ConnectionPropertyKey Text
-</span><a href="#local-6989586621679691764"><span class="hs-identifier hs-var hs-var">connectionProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap ConnectionPropertyKey Text
-</span><a href="#local-6989586621679691764"><span class="hs-identifier hs-var">connectionProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691763"><span class="annot"><span class="annottext">s :: ConnectionInput
-</span><a href="#local-6989586621679691763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691762"><span class="annot"><span class="annottext">HashMap ConnectionPropertyKey Text
-</span><a href="#local-6989586621679691762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionInput
-</span><a href="#local-6989586621679691763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionProperties:ConnectionInput' :: HashMap ConnectionPropertyKey Text
+</span><a href="#local-6989586621679693429"><span class="hs-identifier hs-var hs-var">connectionProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap ConnectionPropertyKey Text
+</span><a href="#local-6989586621679693429"><span class="hs-identifier hs-var">connectionProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679693428"><span class="annot"><span class="annottext">s :: ConnectionInput
+</span><a href="#local-6989586621679693428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679693427"><span class="annot"><span class="annottext">HashMap ConnectionPropertyKey Text
+</span><a href="#local-6989586621679693427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionInput
+</span><a href="#local-6989586621679693428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionProperties:ConnectionInput' :: HashMap ConnectionPropertyKey Text
 </span><a href="Network.AWS.Glue.Types.ConnectionInput.html#%24sel%3AconnectionProperties%3AConnectionInput%27"><span class="hs-identifier hs-var">connectionProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap ConnectionPropertyKey Text
-</span><a href="#local-6989586621679691762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap ConnectionPropertyKey Text
+</span><a href="#local-6989586621679693427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap ConnectionPropertyKey Text
   -&gt; f (HashMap ConnectionPropertyKey Text))
  -&gt; ConnectionInput -&gt; f ConnectionInput)
 -&gt; ((HashMap ConnectionPropertyKey Text
@@ -391,16 +390,16 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
  -&gt; f (HashMap ConnectionPropertyKey Text))
 -&gt; HashMap ConnectionPropertyKey Text
 -&gt; f (HashMap ConnectionPropertyKey Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691758"><span id="local-6989586621679691760"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span></span></span><span>
-</span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span></span><span>
-</span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691747"><span id="local-6989586621679691749"><span id="local-6989586621679691751"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679691745"><span class="annot"><span class="annottext">toJSON :: ConnectionInput -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691738"><span id="local-6989586621679691739"><span id="local-6989586621679691740"><span id="local-6989586621679691741"><span id="local-6989586621679691742"><span id="local-6989586621679691743"><span class="annot"><span class="annottext">Maybe [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693423"><span id="local-6989586621679693425"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span></span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693420"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693412"><span id="local-6989586621679693414"><span id="local-6989586621679693416"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput"><span class="hs-identifier hs-type">ConnectionInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679693410"><span class="annot"><span class="annottext">toJSON :: ConnectionInput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionInput.html#ConnectionInput%27"><span class="hs-identifier hs-type">ConnectionInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693403"><span id="local-6989586621679693404"><span id="local-6989586621679693405"><span id="local-6989586621679693406"><span id="local-6989586621679693407"><span id="local-6989586621679693408"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 Maybe PhysicalConnectionRequirements
 Text
@@ -409,22 +408,29 @@ ConnectionType
 connectionProperties :: HashMap ConnectionPropertyKey Text
 connectionType :: ConnectionType
 name :: Text
-matchCriteria :: Maybe [Text]
 description :: Maybe Text
 physicalConnectionRequirements :: Maybe PhysicalConnectionRequirements
+matchCriteria :: Maybe [Text]
 $sel:connectionProperties:ConnectionInput' :: ConnectionInput -&gt; HashMap ConnectionPropertyKey Text
 $sel:connectionType:ConnectionInput' :: ConnectionInput -&gt; ConnectionType
 $sel:name:ConnectionInput' :: ConnectionInput -&gt; Text
-$sel:matchCriteria:ConnectionInput' :: ConnectionInput -&gt; Maybe [Text]
 $sel:description:ConnectionInput' :: ConnectionInput -&gt; Maybe Text
 $sel:physicalConnectionRequirements:ConnectionInput' :: ConnectionInput -&gt; Maybe PhysicalConnectionRequirements
-</span><a href="#local-6989586621679691738"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:matchCriteria:ConnectionInput' :: ConnectionInput -&gt; Maybe [Text]
+</span><a href="#local-6989586621679693403"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-185"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-184"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MatchCriteria&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679693408"><span class="hs-identifier hs-var">matchCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PhysicalConnectionRequirements&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PhysicalConnectionRequirements -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
@@ -432,46 +438,39 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe PhysicalConnectionRequirements -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PhysicalConnectionRequirements
-</span><a href="#local-6989586621679691743"><span class="hs-identifier hs-var">physicalConnectionRequirements</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679693407"><span class="hs-identifier hs-var">physicalConnectionRequirements</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691742"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MatchCriteria&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679691741"><span class="hs-identifier hs-var">matchCriteria</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679693406"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679691740"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679693405"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
-</span><span id="line-191"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-190"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConnectionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConnectionType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ConnectionType
-</span><a href="#local-6989586621679691739"><span class="hs-identifier hs-var">connectionType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679693404"><span class="hs-identifier hs-var">connectionType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
-</span><span id="line-193"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span id="line-192"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConnectionProperties&quot;</span></span><span>
-</span><span id="line-194"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; HashMap ConnectionPropertyKey Text -&gt; Pair
+</span><span id="line-193"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; HashMap ConnectionPropertyKey Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap ConnectionPropertyKey Text
-</span><a href="#local-6989586621679691738"><span class="hs-identifier hs-var">connectionProperties</span></a></span><span>
-</span><span id="line-195"></span><span>              </span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-198"></span></pre></body></html>
+</span><a href="#local-6989586621679693403"><span class="hs-identifier hs-var">connectionProperties</span></a></span><span>
+</span><span id="line-194"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span></pre></body></html>

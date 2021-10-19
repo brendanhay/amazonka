@@ -30,10 +30,10 @@
 </span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#newDeleteBGPPeer"><span class="hs-identifier">newDeleteBGPPeer</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_asn"><span class="hs-identifier">deleteBGPPeer_asn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_bgpPeerId"><span class="hs-identifier">deleteBGPPeer_bgpPeerId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_virtualInterfaceId"><span class="hs-identifier">deleteBGPPeer_virtualInterfaceId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_customerAddress"><span class="hs-identifier">deleteBGPPeer_customerAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_customerAddress"><span class="hs-identifier">deleteBGPPeer_customerAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_asn"><span class="hs-identifier">deleteBGPPeer_asn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_bgpPeerId"><span class="hs-identifier">deleteBGPPeer_bgpPeerId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_virtualInterfaceId"><span class="hs-identifier">deleteBGPPeer_virtualInterfaceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse"><span class="hs-identifier">DeleteBGPPeerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -53,22 +53,22 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDeleteBGPPeer' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679290685"><span id="local-6989586621679290686"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBGPPeer"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-var">DeleteBGPPeer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBGPPeer%27"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-var">DeleteBGPPeer'</span></a></span></span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aasn%3ADeleteBGPPeer%27"><span class="annot"><span class="annottext">DeleteBGPPeer -&gt; Maybe Int
+</span><span id="line-56"></span><span id="local-6989586621679290942"><span id="local-6989586621679290943"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBGPPeer"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-var">DeleteBGPPeer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBGPPeer%27"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-var">DeleteBGPPeer'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IP address assigned to the customer interface.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AcustomerAddress%3ADeleteBGPPeer%27"><span class="annot"><span class="annottext">DeleteBGPPeer -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AcustomerAddress%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var hs-var">customerAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aasn%3ADeleteBGPPeer%27"><span class="annot"><span class="annottext">DeleteBGPPeer -&gt; Maybe Int
 </span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3Aasn%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The ID of the BGP peer.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AbgpPeerId%3ADeleteBGPPeer%27"><span class="annot"><span class="annottext">DeleteBGPPeer -&gt; Maybe Text
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The ID of the BGP peer.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AbgpPeerId%3ADeleteBGPPeer%27"><span class="annot"><span class="annottext">DeleteBGPPeer -&gt; Maybe Text
 </span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AbgpPeerId%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var hs-var">bgpPeerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The ID of the virtual interface.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AvirtualInterfaceId%3ADeleteBGPPeer%27"><span class="annot"><span class="annottext">DeleteBGPPeer -&gt; Maybe Text
-</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AvirtualInterfaceId%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The IP address assigned to the customer interface.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AcustomerAddress%3ADeleteBGPPeer%27"><span class="annot"><span class="annottext">DeleteBGPPeer -&gt; Maybe Text
-</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AcustomerAddress%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var hs-var">customerAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ID of the virtual interface.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AvirtualInterfaceId%3ADeleteBGPPeer%27"><span class="annot"><span class="annottext">DeleteBGPPeer -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AvirtualInterfaceId%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290676"><span id="local-6989586621679290678"><span class="annot"><span class="annottext">DeleteBGPPeer -&gt; DeleteBGPPeer -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290933"><span id="local-6989586621679290935"><span class="annot"><span class="annottext">DeleteBGPPeer -&gt; DeleteBGPPeer -&gt; Bool
 (DeleteBGPPeer -&gt; DeleteBGPPeer -&gt; Bool)
 -&gt; (DeleteBGPPeer -&gt; DeleteBGPPeer -&gt; Bool) -&gt; Eq DeleteBGPPeer
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBGPPeer -&gt; DeleteBGPPeer -&gt; Bool
 == :: DeleteBGPPeer -&gt; DeleteBGPPeer -&gt; Bool
 $c== :: DeleteBGPPeer -&gt; DeleteBGPPeer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290667"><span id="local-6989586621679290669"><span id="local-6989586621679290671"><span id="local-6989586621679290673"><span class="annot"><span class="annottext">ReadPrec [DeleteBGPPeer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290924"><span id="local-6989586621679290926"><span id="local-6989586621679290928"><span id="local-6989586621679290930"><span class="annot"><span class="annottext">ReadPrec [DeleteBGPPeer]
 ReadPrec DeleteBGPPeer
 Int -&gt; ReadS DeleteBGPPeer
 ReadS [DeleteBGPPeer]
@@ -96,7 +96,7 @@ readList :: ReadS [DeleteBGPPeer]
 $creadList :: ReadS [DeleteBGPPeer]
 readsPrec :: Int -&gt; ReadS DeleteBGPPeer
 $creadsPrec :: Int -&gt; ReadS DeleteBGPPeer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290660"><span id="local-6989586621679290662"><span id="local-6989586621679290664"><span class="annot"><span class="annottext">Int -&gt; DeleteBGPPeer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290917"><span id="local-6989586621679290919"><span id="local-6989586621679290921"><span class="annot"><span class="annottext">Int -&gt; DeleteBGPPeer -&gt; ShowS
 [DeleteBGPPeer] -&gt; ShowS
 DeleteBGPPeer -&gt; String
 (Int -&gt; DeleteBGPPeer -&gt; ShowS)
@@ -130,122 +130,122 @@ $cfrom :: forall x. DeleteBGPPeer -&gt; Rep DeleteBGPPeer x
 </span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'asn', 'deleteBGPPeer_asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- configuration.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'bgpPeerId', 'deleteBGPPeer_bgpPeerId' - The ID of the BGP peer.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'customerAddress', 'deleteBGPPeer_customerAddress' - The IP address assigned to the customer interface.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'asn', 'deleteBGPPeer_asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- configuration.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'virtualInterfaceId', 'deleteBGPPeer_virtualInterfaceId' - The ID of the virtual interface.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'bgpPeerId', 'deleteBGPPeer_bgpPeerId' - The ID of the BGP peer.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'customerAddress', 'deleteBGPPeer_customerAddress' - The IP address assigned to the customer interface.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'virtualInterfaceId', 'deleteBGPPeer_virtualInterfaceId' - The ID of the virtual interface.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#newDeleteBGPPeer"><span class="hs-identifier hs-type">newDeleteBGPPeer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span>
 </span><span id="line-87"></span><span id="newDeleteBGPPeer"><span class="annot"><span class="annottext">newDeleteBGPPeer :: DeleteBGPPeer
 </span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#newDeleteBGPPeer"><span class="hs-identifier hs-var hs-var">newDeleteBGPPeer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">DeleteBGPPeer' :: Maybe Int
--&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DeleteBGPPeer
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">DeleteBGPPeer' :: Maybe Text
+-&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; DeleteBGPPeer
 </span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:asn:DeleteBGPPeer' :: Maybe Int
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:customerAddress:DeleteBGPPeer' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AcustomerAddress%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var">customerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:asn:DeleteBGPPeer' :: Maybe Int
 </span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3Aasn%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var">asn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:bgpPeerId:DeleteBGPPeer' :: Maybe Text
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:bgpPeerId:DeleteBGPPeer' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AbgpPeerId%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var">bgpPeerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:DeleteBGPPeer' :: Maybe Text
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:DeleteBGPPeer' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AvirtualInterfaceId%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:customerAddress:DeleteBGPPeer' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AcustomerAddress%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var">customerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- configuration.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_asn"><span class="hs-identifier hs-type">deleteBGPPeer_asn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="deleteBGPPeer_asn"><span class="annot"><span class="annottext">deleteBGPPeer_asn :: (Maybe Int -&gt; f (Maybe Int)) -&gt; DeleteBGPPeer -&gt; f DeleteBGPPeer
-</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_asn"><span class="hs-identifier hs-var hs-var">deleteBGPPeer_asn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBGPPeer -&gt; Maybe Int)
--&gt; (DeleteBGPPeer -&gt; Maybe Int -&gt; DeleteBGPPeer)
--&gt; Lens DeleteBGPPeer DeleteBGPPeer (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290653"><span class="annot"><span class="annottext">Maybe Int
-asn :: Maybe Int
-$sel:asn:DeleteBGPPeer' :: DeleteBGPPeer -&gt; Maybe Int
-</span><a href="#local-6989586621679290653"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679290653"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290652"><span class="annot"><span class="annottext">s :: DeleteBGPPeer
-</span><a href="#local-6989586621679290652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290651"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679290651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBGPPeer
-</span><a href="#local-6989586621679290652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:asn:DeleteBGPPeer' :: Maybe Int
-</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3Aasn%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var">asn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679290651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The ID of the BGP peer.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_bgpPeerId"><span class="hs-identifier hs-type">deleteBGPPeer_bgpPeerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="deleteBGPPeer_bgpPeerId"><span class="annot"><span class="annottext">deleteBGPPeer_bgpPeerId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteBGPPeer -&gt; f DeleteBGPPeer
-</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_bgpPeerId"><span class="hs-identifier hs-var hs-var">deleteBGPPeer_bgpPeerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBGPPeer -&gt; Maybe Text)
--&gt; (DeleteBGPPeer -&gt; Maybe Text -&gt; DeleteBGPPeer)
--&gt; Lens DeleteBGPPeer DeleteBGPPeer (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290650"><span class="annot"><span class="annottext">Maybe Text
-bgpPeerId :: Maybe Text
-$sel:bgpPeerId:DeleteBGPPeer' :: DeleteBGPPeer -&gt; Maybe Text
-</span><a href="#local-6989586621679290650"><span class="hs-identifier hs-var hs-var">bgpPeerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290650"><span class="hs-identifier hs-var">bgpPeerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290649"><span class="annot"><span class="annottext">s :: DeleteBGPPeer
-</span><a href="#local-6989586621679290649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290648"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBGPPeer
-</span><a href="#local-6989586621679290649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bgpPeerId:DeleteBGPPeer' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AbgpPeerId%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var">bgpPeerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | The ID of the virtual interface.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_virtualInterfaceId"><span class="hs-identifier hs-type">deleteBGPPeer_virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="deleteBGPPeer_virtualInterfaceId"><span class="annot"><span class="annottext">deleteBGPPeer_virtualInterfaceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteBGPPeer -&gt; f DeleteBGPPeer
-</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_virtualInterfaceId"><span class="hs-identifier hs-var hs-var">deleteBGPPeer_virtualInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBGPPeer -&gt; Maybe Text)
--&gt; (DeleteBGPPeer -&gt; Maybe Text -&gt; DeleteBGPPeer)
--&gt; Lens DeleteBGPPeer DeleteBGPPeer (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290647"><span class="annot"><span class="annottext">Maybe Text
-virtualInterfaceId :: Maybe Text
-$sel:virtualInterfaceId:DeleteBGPPeer' :: DeleteBGPPeer -&gt; Maybe Text
-</span><a href="#local-6989586621679290647"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290647"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290646"><span class="annot"><span class="annottext">s :: DeleteBGPPeer
-</span><a href="#local-6989586621679290646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290645"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBGPPeer
-</span><a href="#local-6989586621679290646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:DeleteBGPPeer' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AvirtualInterfaceId%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The IP address assigned to the customer interface.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_customerAddress"><span class="hs-identifier hs-type">deleteBGPPeer_customerAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="deleteBGPPeer_customerAddress"><span class="annot"><span class="annottext">deleteBGPPeer_customerAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteBGPPeer -&gt; f DeleteBGPPeer
+</span><span id="line-95"></span><span class="hs-comment">-- | The IP address assigned to the customer interface.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_customerAddress"><span class="hs-identifier hs-type">deleteBGPPeer_customerAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="deleteBGPPeer_customerAddress"><span class="annot"><span class="annottext">deleteBGPPeer_customerAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteBGPPeer -&gt; f DeleteBGPPeer
 </span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_customerAddress"><span class="hs-identifier hs-var hs-var">deleteBGPPeer_customerAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBGPPeer -&gt; Maybe Text)
 -&gt; (DeleteBGPPeer -&gt; Maybe Text -&gt; DeleteBGPPeer)
 -&gt; Lens DeleteBGPPeer DeleteBGPPeer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290644"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290910"><span class="annot"><span class="annottext">Maybe Text
 customerAddress :: Maybe Text
 $sel:customerAddress:DeleteBGPPeer' :: DeleteBGPPeer -&gt; Maybe Text
-</span><a href="#local-6989586621679290644"><span class="hs-identifier hs-var hs-var">customerAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290644"><span class="hs-identifier hs-var">customerAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290643"><span class="annot"><span class="annottext">s :: DeleteBGPPeer
-</span><a href="#local-6989586621679290643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290642"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBGPPeer
-</span><a href="#local-6989586621679290643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerAddress:DeleteBGPPeer' :: Maybe Text
+</span><a href="#local-6989586621679290910"><span class="hs-identifier hs-var hs-var">customerAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290910"><span class="hs-identifier hs-var">customerAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290909"><span class="annot"><span class="annottext">s :: DeleteBGPPeer
+</span><a href="#local-6989586621679290909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290908"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBGPPeer
+</span><a href="#local-6989586621679290909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerAddress:DeleteBGPPeer' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AcustomerAddress%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var">customerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679290908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_asn"><span class="hs-identifier hs-type">deleteBGPPeer_asn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="deleteBGPPeer_asn"><span class="annot"><span class="annottext">deleteBGPPeer_asn :: (Maybe Int -&gt; f (Maybe Int)) -&gt; DeleteBGPPeer -&gt; f DeleteBGPPeer
+</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_asn"><span class="hs-identifier hs-var hs-var">deleteBGPPeer_asn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBGPPeer -&gt; Maybe Int)
+-&gt; (DeleteBGPPeer -&gt; Maybe Int -&gt; DeleteBGPPeer)
+-&gt; Lens DeleteBGPPeer DeleteBGPPeer (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290907"><span class="annot"><span class="annottext">Maybe Int
+asn :: Maybe Int
+$sel:asn:DeleteBGPPeer' :: DeleteBGPPeer -&gt; Maybe Int
+</span><a href="#local-6989586621679290907"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679290907"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290906"><span class="annot"><span class="annottext">s :: DeleteBGPPeer
+</span><a href="#local-6989586621679290906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290905"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679290905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBGPPeer
+</span><a href="#local-6989586621679290906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:asn:DeleteBGPPeer' :: Maybe Int
+</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3Aasn%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var">asn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679290905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The ID of the BGP peer.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_bgpPeerId"><span class="hs-identifier hs-type">deleteBGPPeer_bgpPeerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="deleteBGPPeer_bgpPeerId"><span class="annot"><span class="annottext">deleteBGPPeer_bgpPeerId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteBGPPeer -&gt; f DeleteBGPPeer
+</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_bgpPeerId"><span class="hs-identifier hs-var hs-var">deleteBGPPeer_bgpPeerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBGPPeer -&gt; Maybe Text)
+-&gt; (DeleteBGPPeer -&gt; Maybe Text -&gt; DeleteBGPPeer)
+-&gt; Lens DeleteBGPPeer DeleteBGPPeer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290904"><span class="annot"><span class="annottext">Maybe Text
+bgpPeerId :: Maybe Text
+$sel:bgpPeerId:DeleteBGPPeer' :: DeleteBGPPeer -&gt; Maybe Text
+</span><a href="#local-6989586621679290904"><span class="hs-identifier hs-var hs-var">bgpPeerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290904"><span class="hs-identifier hs-var">bgpPeerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290903"><span class="annot"><span class="annottext">s :: DeleteBGPPeer
+</span><a href="#local-6989586621679290903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290902"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBGPPeer
+</span><a href="#local-6989586621679290903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bgpPeerId:DeleteBGPPeer' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AbgpPeerId%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var">bgpPeerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The ID of the virtual interface.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_virtualInterfaceId"><span class="hs-identifier hs-type">deleteBGPPeer_virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="deleteBGPPeer_virtualInterfaceId"><span class="annot"><span class="annottext">deleteBGPPeer_virtualInterfaceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteBGPPeer -&gt; f DeleteBGPPeer
+</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeer_virtualInterfaceId"><span class="hs-identifier hs-var hs-var">deleteBGPPeer_virtualInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBGPPeer -&gt; Maybe Text)
+-&gt; (DeleteBGPPeer -&gt; Maybe Text -&gt; DeleteBGPPeer)
+-&gt; Lens DeleteBGPPeer DeleteBGPPeer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290901"><span class="annot"><span class="annottext">Maybe Text
+virtualInterfaceId :: Maybe Text
+$sel:virtualInterfaceId:DeleteBGPPeer' :: DeleteBGPPeer -&gt; Maybe Text
+</span><a href="#local-6989586621679290901"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290901"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290900"><span class="annot"><span class="annottext">s :: DeleteBGPPeer
+</span><a href="#local-6989586621679290900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290899"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBGPPeer
+</span><a href="#local-6989586621679290900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:DeleteBGPPeer' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AvirtualInterfaceId%3ADeleteBGPPeer%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-114"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse"><span class="hs-identifier hs-type">DeleteBGPPeerResponse</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679290638"><span class="annot"><span class="annottext">request :: DeleteBGPPeer -&gt; Request DeleteBGPPeer
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679290895"><span class="annot"><span class="annottext">request :: DeleteBGPPeer -&gt; Request DeleteBGPPeer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteBGPPeer -&gt; Request DeleteBGPPeer
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679290634"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679290891"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteBGPPeer
 -&gt; ClientResponse ClientBody
@@ -269,10 +269,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679290631"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290631"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679290630"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679290630"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679290629"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679290629"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679290888"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290888"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679290887"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679290887"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679290886"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679290886"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe VirtualInterface -&gt; Int -&gt; DeleteBGPPeerResponse
 </span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse%27"><span class="hs-identifier hs-var">DeleteBGPPeerResponse'</span></a></span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VirtualInterface -&gt; Int -&gt; DeleteBGPPeerResponse)
@@ -280,7 +280,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteBGPPeerResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679290629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VirtualInterface)
+</span><a href="#local-6989586621679290886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VirtualInterface)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;virtualInterface&quot;</span></span><span class="hs-special">)</span><span>
@@ -292,15 +292,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290631"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679290888"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290621"><span id="local-6989586621679290623"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290878"><span id="local-6989586621679290880"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290618"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290875"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679290614"><span class="annot"><span class="annottext">toHeaders :: DeleteBGPPeer -&gt; ResponseHeaders
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679290871"><span class="annot"><span class="annottext">toHeaders :: DeleteBGPPeer -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteBGPPeer -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -327,66 +327,66 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290604"><span id="local-6989586621679290606"><span id="local-6989586621679290608"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679290602"><span class="annot"><span class="annottext">toJSON :: DeleteBGPPeer -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290597"><span id="local-6989586621679290598"><span id="local-6989586621679290599"><span id="local-6989586621679290600"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290861"><span id="local-6989586621679290863"><span id="local-6989586621679290865"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679290859"><span class="annot"><span class="annottext">toJSON :: DeleteBGPPeer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer%27"><span class="hs-identifier hs-type">DeleteBGPPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290854"><span id="local-6989586621679290855"><span id="local-6989586621679290856"><span id="local-6989586621679290857"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
-customerAddress :: Maybe Text
 virtualInterfaceId :: Maybe Text
 bgpPeerId :: Maybe Text
 asn :: Maybe Int
-$sel:customerAddress:DeleteBGPPeer' :: DeleteBGPPeer -&gt; Maybe Text
+customerAddress :: Maybe Text
 $sel:virtualInterfaceId:DeleteBGPPeer' :: DeleteBGPPeer -&gt; Maybe Text
 $sel:bgpPeerId:DeleteBGPPeer' :: DeleteBGPPeer -&gt; Maybe Text
 $sel:asn:DeleteBGPPeer' :: DeleteBGPPeer -&gt; Maybe Int
-</span><a href="#local-6989586621679290597"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:customerAddress:DeleteBGPPeer' :: DeleteBGPPeer -&gt; Maybe Text
+</span><a href="#local-6989586621679290854"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;customerAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290857"><span class="hs-identifier hs-var">customerAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;asn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679290600"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290856"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bgpPeerId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290599"><span class="hs-identifier hs-var">bgpPeerId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;virtualInterfaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290598"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679290855"><span class="hs-identifier hs-var">bgpPeerId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;customerAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;virtualInterfaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290597"><span class="hs-identifier hs-var">customerAddress</span></a></span><span>
+</span><a href="#local-6989586621679290854"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span>
 </span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679290591"><span class="annot"><span class="annottext">toPath :: DeleteBGPPeer -&gt; ByteString
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679290848"><span class="annot"><span class="annottext">toPath :: DeleteBGPPeer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteBGPPeer -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeer"><span class="hs-identifier hs-type">DeleteBGPPeer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679290587"><span class="annot"><span class="annottext">toQuery :: DeleteBGPPeer -&gt; QueryString
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679290844"><span class="annot"><span class="annottext">toQuery :: DeleteBGPPeer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteBGPPeer -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -394,7 +394,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | /See:/ 'newDeleteBGPPeerResponse' smart constructor.</span><span>
-</span><span id="line-164"></span><span id="local-6989586621679290584"><span id="local-6989586621679290585"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBGPPeerResponse"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse"><span class="hs-identifier hs-var">DeleteBGPPeerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBGPPeerResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse%27"><span class="hs-identifier hs-var">DeleteBGPPeerResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span id="local-6989586621679290841"><span id="local-6989586621679290842"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBGPPeerResponse"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse"><span class="hs-identifier hs-var">DeleteBGPPeerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBGPPeerResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse%27"><span class="hs-identifier hs-var">DeleteBGPPeerResponse'</span></a></span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The virtual interface.</span><span>
 </span><span id="line-166"></span><span>    </span><span id="%24sel%3AvirtualInterface%3ADeleteBGPPeerResponse%27"><span class="annot"><span class="annottext">DeleteBGPPeerResponse -&gt; Maybe VirtualInterface
 </span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AvirtualInterface%3ADeleteBGPPeerResponse%27"><span class="hs-identifier hs-var hs-var">virtualInterface</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterface.html#VirtualInterface"><span class="hs-identifier hs-type">VirtualInterface</span></a></span><span class="hs-special">,</span><span>
@@ -402,7 +402,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteBGPPeerResponse%27"><span class="annot"><span class="annottext">DeleteBGPPeerResponse -&gt; Int
 </span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AhttpStatus%3ADeleteBGPPeerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290578"><span id="local-6989586621679290580"><span class="annot"><span class="annottext">DeleteBGPPeerResponse -&gt; DeleteBGPPeerResponse -&gt; Bool
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290835"><span id="local-6989586621679290837"><span class="annot"><span class="annottext">DeleteBGPPeerResponse -&gt; DeleteBGPPeerResponse -&gt; Bool
 (DeleteBGPPeerResponse -&gt; DeleteBGPPeerResponse -&gt; Bool)
 -&gt; (DeleteBGPPeerResponse -&gt; DeleteBGPPeerResponse -&gt; Bool)
 -&gt; Eq DeleteBGPPeerResponse
@@ -411,7 +411,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBGPPeerResponse -&gt; DeleteBGPPeerResponse -&gt; Bool
 == :: DeleteBGPPeerResponse -&gt; DeleteBGPPeerResponse -&gt; Bool
 $c== :: DeleteBGPPeerResponse -&gt; DeleteBGPPeerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290570"><span id="local-6989586621679290572"><span id="local-6989586621679290574"><span id="local-6989586621679290576"><span class="annot"><span class="annottext">ReadPrec [DeleteBGPPeerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290827"><span id="local-6989586621679290829"><span id="local-6989586621679290831"><span id="local-6989586621679290833"><span class="annot"><span class="annottext">ReadPrec [DeleteBGPPeerResponse]
 ReadPrec DeleteBGPPeerResponse
 Int -&gt; ReadS DeleteBGPPeerResponse
 ReadS [DeleteBGPPeerResponse]
@@ -431,7 +431,7 @@ readList :: ReadS [DeleteBGPPeerResponse]
 $creadList :: ReadS [DeleteBGPPeerResponse]
 readsPrec :: Int -&gt; ReadS DeleteBGPPeerResponse
 $creadsPrec :: Int -&gt; ReadS DeleteBGPPeerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290564"><span id="local-6989586621679290566"><span id="local-6989586621679290568"><span class="annot"><span class="annottext">Int -&gt; DeleteBGPPeerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290821"><span id="local-6989586621679290823"><span id="local-6989586621679290825"><span class="annot"><span class="annottext">Int -&gt; DeleteBGPPeerResponse -&gt; ShowS
 [DeleteBGPPeerResponse] -&gt; ShowS
 DeleteBGPPeerResponse -&gt; String
 (Int -&gt; DeleteBGPPeerResponse -&gt; ShowS)
@@ -473,8 +473,8 @@ $cfrom :: forall x. DeleteBGPPeerResponse -&gt; Rep DeleteBGPPeerResponse x
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse"><span class="hs-identifier hs-type">DeleteBGPPeerResponse</span></a></span><span>
 </span><span id="line-187"></span><span id="newDeleteBGPPeerResponse"><span class="annot"><span class="annottext">newDeleteBGPPeerResponse :: Int -&gt; DeleteBGPPeerResponse
-</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#newDeleteBGPPeerResponse"><span class="hs-identifier hs-var hs-var">newDeleteBGPPeerResponse</span></a></span></span><span> </span><span id="local-6989586621679290561"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290561"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#newDeleteBGPPeerResponse"><span class="hs-identifier hs-var hs-var">newDeleteBGPPeerResponse</span></a></span></span><span> </span><span id="local-6989586621679290818"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290818"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="annottext">DeleteBGPPeerResponse' :: Maybe VirtualInterface -&gt; Int -&gt; DeleteBGPPeerResponse
 </span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse%27"><span class="hs-identifier hs-type">DeleteBGPPeerResponse'</span></a></span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:virtualInterface:DeleteBGPPeerResponse' :: Maybe VirtualInterface
@@ -484,7 +484,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBGPPeerResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AhttpStatus%3ADeleteBGPPeerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290561"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679290818"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | The virtual interface.</span><span>
@@ -500,16 +500,16 @@ forall a. Maybe a
      (Maybe VirtualInterface)
      (Maybe VirtualInterface)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse%27"><span class="hs-identifier hs-type">DeleteBGPPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290560"><span class="annot"><span class="annottext">Maybe VirtualInterface
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse%27"><span class="hs-identifier hs-type">DeleteBGPPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290817"><span class="annot"><span class="annottext">Maybe VirtualInterface
 virtualInterface :: Maybe VirtualInterface
 $sel:virtualInterface:DeleteBGPPeerResponse' :: DeleteBGPPeerResponse -&gt; Maybe VirtualInterface
-</span><a href="#local-6989586621679290560"><span class="hs-identifier hs-var hs-var">virtualInterface</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualInterface
-</span><a href="#local-6989586621679290560"><span class="hs-identifier hs-var">virtualInterface</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290559"><span class="annot"><span class="annottext">s :: DeleteBGPPeerResponse
-</span><a href="#local-6989586621679290559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse%27"><span class="hs-identifier hs-type">DeleteBGPPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290558"><span class="annot"><span class="annottext">Maybe VirtualInterface
-</span><a href="#local-6989586621679290558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBGPPeerResponse
-</span><a href="#local-6989586621679290559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterface:DeleteBGPPeerResponse' :: Maybe VirtualInterface
+</span><a href="#local-6989586621679290817"><span class="hs-identifier hs-var hs-var">virtualInterface</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualInterface
+</span><a href="#local-6989586621679290817"><span class="hs-identifier hs-var">virtualInterface</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290816"><span class="annot"><span class="annottext">s :: DeleteBGPPeerResponse
+</span><a href="#local-6989586621679290816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse%27"><span class="hs-identifier hs-type">DeleteBGPPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290815"><span class="annot"><span class="annottext">Maybe VirtualInterface
+</span><a href="#local-6989586621679290815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBGPPeerResponse
+</span><a href="#local-6989586621679290816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterface:DeleteBGPPeerResponse' :: Maybe VirtualInterface
 </span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AvirtualInterface%3ADeleteBGPPeerResponse%27"><span class="hs-identifier hs-var">virtualInterface</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualInterface
-</span><a href="#local-6989586621679290558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse"><span class="hs-identifier hs-type">DeleteBGPPeerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679290815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse"><span class="hs-identifier hs-type">DeleteBGPPeerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-199"></span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#deleteBGPPeerResponse_httpStatus"><span class="hs-identifier hs-type">deleteBGPPeerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse"><span class="hs-identifier hs-type">DeleteBGPPeerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -518,16 +518,16 @@ $sel:virtualInterface:DeleteBGPPeerResponse' :: DeleteBGPPeerResponse -&gt; Mayb
 -&gt; (DeleteBGPPeerResponse -&gt; Int -&gt; DeleteBGPPeerResponse)
 -&gt; Lens DeleteBGPPeerResponse DeleteBGPPeerResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse%27"><span class="hs-identifier hs-type">DeleteBGPPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290557"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse%27"><span class="hs-identifier hs-type">DeleteBGPPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290814"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteBGPPeerResponse' :: DeleteBGPPeerResponse -&gt; Int
-</span><a href="#local-6989586621679290557"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290557"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290556"><span class="annot"><span class="annottext">s :: DeleteBGPPeerResponse
-</span><a href="#local-6989586621679290556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse%27"><span class="hs-identifier hs-type">DeleteBGPPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290555"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBGPPeerResponse
-</span><a href="#local-6989586621679290556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBGPPeerResponse' :: Int
+</span><a href="#local-6989586621679290814"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290814"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290813"><span class="annot"><span class="annottext">s :: DeleteBGPPeerResponse
+</span><a href="#local-6989586621679290813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse%27"><span class="hs-identifier hs-type">DeleteBGPPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290812"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBGPPeerResponse
+</span><a href="#local-6989586621679290813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBGPPeerResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#%24sel%3AhttpStatus%3ADeleteBGPPeerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse"><span class="hs-identifier hs-type">DeleteBGPPeerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679290812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse"><span class="hs-identifier hs-type">DeleteBGPPeerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290553"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse"><span class="hs-identifier hs-type">DeleteBGPPeerResponse</span></a></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290810"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteBGPPeer.html#DeleteBGPPeerResponse"><span class="hs-identifier hs-type">DeleteBGPPeerResponse</span></a></span></span><span>
 </span><span id="line-203"></span></pre></body></html>

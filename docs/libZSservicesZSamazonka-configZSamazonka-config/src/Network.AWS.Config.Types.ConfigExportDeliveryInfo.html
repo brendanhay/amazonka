@@ -30,27 +30,27 @@
 </span><span id="line-30"></span><span class="hs-comment">-- topic.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newConfigExportDeliveryInfo' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679398928"><span id="local-6989586621679398929"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfigExportDeliveryInfo"><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-var">ConfigExportDeliveryInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigExportDeliveryInfo%27"><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">ConfigExportDeliveryInfo'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error message from the last attempted delivery.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlastErrorMessage%3AConfigExportDeliveryInfo%27"><span class="annot"><span class="annottext">ConfigExportDeliveryInfo -&gt; Maybe Text
-</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastErrorMessage%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var hs-var">lastErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The time that the next delivery occurs.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AnextDeliveryTime%3AConfigExportDeliveryInfo%27"><span class="annot"><span class="annottext">ConfigExportDeliveryInfo -&gt; Maybe POSIX
-</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AnextDeliveryTime%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var hs-var">nextDeliveryTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679399511"><span id="local-6989586621679399512"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfigExportDeliveryInfo"><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-var">ConfigExportDeliveryInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigExportDeliveryInfo%27"><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">ConfigExportDeliveryInfo'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code from the last attempted delivery.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlastErrorCode%3AConfigExportDeliveryInfo%27"><span class="annot"><span class="annottext">ConfigExportDeliveryInfo -&gt; Maybe Text
+</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastErrorCode%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var hs-var">lastErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The time of the last attempted delivery.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlastAttemptTime%3AConfigExportDeliveryInfo%27"><span class="annot"><span class="annottext">ConfigExportDeliveryInfo -&gt; Maybe POSIX
+</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastAttemptTime%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var hs-var">lastAttemptTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The time of the last successful delivery.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AlastSuccessfulTime%3AConfigExportDeliveryInfo%27"><span class="annot"><span class="annottext">ConfigExportDeliveryInfo -&gt; Maybe POSIX
 </span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastSuccessfulTime%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var hs-var">lastSuccessfulTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The error code from the last attempted delivery.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AlastErrorCode%3AConfigExportDeliveryInfo%27"><span class="annot"><span class="annottext">ConfigExportDeliveryInfo -&gt; Maybe Text
-</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastErrorCode%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var hs-var">lastErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Status of the last attempted delivery.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlastStatus%3AConfigExportDeliveryInfo%27"><span class="annot"><span class="annottext">ConfigExportDeliveryInfo -&gt; Maybe DeliveryStatus
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Status of the last attempted delivery.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AlastStatus%3AConfigExportDeliveryInfo%27"><span class="annot"><span class="annottext">ConfigExportDeliveryInfo -&gt; Maybe DeliveryStatus
 </span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastStatus%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var hs-var">lastStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryStatus.html#DeliveryStatus"><span class="hs-identifier hs-type">DeliveryStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The time of the last attempted delivery.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AlastAttemptTime%3AConfigExportDeliveryInfo%27"><span class="annot"><span class="annottext">ConfigExportDeliveryInfo -&gt; Maybe POSIX
-</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastAttemptTime%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var hs-var">lastAttemptTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The error message from the last attempted delivery.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlastErrorMessage%3AConfigExportDeliveryInfo%27"><span class="annot"><span class="annottext">ConfigExportDeliveryInfo -&gt; Maybe Text
+</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastErrorMessage%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var hs-var">lastErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The time that the next delivery occurs.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AnextDeliveryTime%3AConfigExportDeliveryInfo%27"><span class="annot"><span class="annottext">ConfigExportDeliveryInfo -&gt; Maybe POSIX
+</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AnextDeliveryTime%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var hs-var">nextDeliveryTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679398917"><span id="local-6989586621679398919"><span class="annot"><span class="annottext">ConfigExportDeliveryInfo -&gt; ConfigExportDeliveryInfo -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399500"><span id="local-6989586621679399502"><span class="annot"><span class="annottext">ConfigExportDeliveryInfo -&gt; ConfigExportDeliveryInfo -&gt; Bool
 (ConfigExportDeliveryInfo -&gt; ConfigExportDeliveryInfo -&gt; Bool)
 -&gt; (ConfigExportDeliveryInfo -&gt; ConfigExportDeliveryInfo -&gt; Bool)
 -&gt; Eq ConfigExportDeliveryInfo
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConfigExportDeliveryInfo -&gt; ConfigExportDeliveryInfo -&gt; Bool
 == :: ConfigExportDeliveryInfo -&gt; ConfigExportDeliveryInfo -&gt; Bool
 $c== :: ConfigExportDeliveryInfo -&gt; ConfigExportDeliveryInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398908"><span id="local-6989586621679398910"><span id="local-6989586621679398912"><span id="local-6989586621679398914"><span class="annot"><span class="annottext">ReadPrec [ConfigExportDeliveryInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399491"><span id="local-6989586621679399493"><span id="local-6989586621679399495"><span id="local-6989586621679399497"><span class="annot"><span class="annottext">ReadPrec [ConfigExportDeliveryInfo]
 ReadPrec ConfigExportDeliveryInfo
 Int -&gt; ReadS ConfigExportDeliveryInfo
 ReadS [ConfigExportDeliveryInfo]
@@ -79,7 +79,7 @@ readList :: ReadS [ConfigExportDeliveryInfo]
 $creadList :: ReadS [ConfigExportDeliveryInfo]
 readsPrec :: Int -&gt; ReadS ConfigExportDeliveryInfo
 $creadsPrec :: Int -&gt; ReadS ConfigExportDeliveryInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398901"><span id="local-6989586621679398903"><span id="local-6989586621679398905"><span class="annot"><span class="annottext">Int -&gt; ConfigExportDeliveryInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399484"><span id="local-6989586621679399486"><span id="local-6989586621679399488"><span class="annot"><span class="annottext">Int -&gt; ConfigExportDeliveryInfo -&gt; ShowS
 [ConfigExportDeliveryInfo] -&gt; ShowS
 ConfigExportDeliveryInfo -&gt; String
 (Int -&gt; ConfigExportDeliveryInfo -&gt; ShowS)
@@ -119,17 +119,17 @@ ConfigExportDeliveryInfo -&gt; Rep ConfigExportDeliveryInfo x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'lastErrorMessage', 'configExportDeliveryInfo_lastErrorMessage' - The error message from the last attempted delivery.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'lastErrorCode', 'configExportDeliveryInfo_lastErrorCode' - The error code from the last attempted delivery.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'nextDeliveryTime', 'configExportDeliveryInfo_nextDeliveryTime' - The time that the next delivery occurs.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'lastAttemptTime', 'configExportDeliveryInfo_lastAttemptTime' - The time of the last attempted delivery.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- 'lastSuccessfulTime', 'configExportDeliveryInfo_lastSuccessfulTime' - The time of the last successful delivery.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'lastErrorCode', 'configExportDeliveryInfo_lastErrorCode' - The error code from the last attempted delivery.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'lastStatus', 'configExportDeliveryInfo_lastStatus' - Status of the last attempted delivery.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'lastStatus', 'configExportDeliveryInfo_lastStatus' - Status of the last attempted delivery.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'lastErrorMessage', 'configExportDeliveryInfo_lastErrorMessage' - The error message from the last attempted delivery.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'lastAttemptTime', 'configExportDeliveryInfo_lastAttemptTime' - The time of the last attempted delivery.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'nextDeliveryTime', 'configExportDeliveryInfo_nextDeliveryTime' - The time that the next delivery occurs.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#newConfigExportDeliveryInfo"><span class="hs-identifier hs-type">newConfigExportDeliveryInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span>
 </span><span id="line-70"></span><span id="newConfigExportDeliveryInfo"><span class="annot"><span class="annottext">newConfigExportDeliveryInfo :: ConfigExportDeliveryInfo
@@ -137,43 +137,43 @@ ConfigExportDeliveryInfo -&gt; Rep ConfigExportDeliveryInfo x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">ConfigExportDeliveryInfo' :: Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe POSIX
--&gt; Maybe Text
 -&gt; Maybe DeliveryStatus
+-&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; ConfigExportDeliveryInfo
 </span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastErrorMessage:ConfigExportDeliveryInfo' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastErrorMessage%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastErrorCode:ConfigExportDeliveryInfo' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastErrorCode%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextDeliveryTime:ConfigExportDeliveryInfo' :: Maybe POSIX
-</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AnextDeliveryTime%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">nextDeliveryTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastAttemptTime:ConfigExportDeliveryInfo' :: Maybe POSIX
+</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastAttemptTime%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">lastAttemptTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastSuccessfulTime:ConfigExportDeliveryInfo' :: Maybe POSIX
 </span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastSuccessfulTime%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">lastSuccessfulTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastErrorCode:ConfigExportDeliveryInfo' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastErrorCode%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastStatus:ConfigExportDeliveryInfo' :: Maybe DeliveryStatus
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastStatus:ConfigExportDeliveryInfo' :: Maybe DeliveryStatus
 </span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastStatus%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">lastStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastAttemptTime:ConfigExportDeliveryInfo' :: Maybe POSIX
-</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastAttemptTime%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">lastAttemptTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastErrorMessage:ConfigExportDeliveryInfo' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastErrorMessage%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextDeliveryTime:ConfigExportDeliveryInfo' :: Maybe POSIX
+</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AnextDeliveryTime%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">nextDeliveryTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The error message from the last attempted delivery.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_lastErrorMessage"><span class="hs-identifier hs-type">configExportDeliveryInfo_lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="configExportDeliveryInfo_lastErrorMessage"><span class="annot"><span class="annottext">configExportDeliveryInfo_lastErrorMessage :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-81"></span><span class="hs-comment">-- | The error code from the last attempted delivery.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_lastErrorCode"><span class="hs-identifier hs-type">configExportDeliveryInfo_lastErrorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="configExportDeliveryInfo_lastErrorCode"><span class="annot"><span class="annottext">configExportDeliveryInfo_lastErrorCode :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ConfigExportDeliveryInfo -&gt; f ConfigExportDeliveryInfo
-</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_lastErrorMessage"><span class="hs-identifier hs-var hs-var">configExportDeliveryInfo_lastErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigExportDeliveryInfo -&gt; Maybe Text)
+</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_lastErrorCode"><span class="hs-identifier hs-var hs-var">configExportDeliveryInfo_lastErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigExportDeliveryInfo -&gt; Maybe Text)
 -&gt; (ConfigExportDeliveryInfo
     -&gt; Maybe Text -&gt; ConfigExportDeliveryInfo)
 -&gt; Lens
@@ -182,22 +182,22 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398892"><span class="annot"><span class="annottext">Maybe Text
-lastErrorMessage :: Maybe Text
-$sel:lastErrorMessage:ConfigExportDeliveryInfo' :: ConfigExportDeliveryInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679398892"><span class="hs-identifier hs-var hs-var">lastErrorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679398892"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398891"><span class="annot"><span class="annottext">s :: ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679398891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398890"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679398890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679398891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastErrorMessage:ConfigExportDeliveryInfo' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastErrorMessage%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679398890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399475"><span class="annot"><span class="annottext">Maybe Text
+lastErrorCode :: Maybe Text
+$sel:lastErrorCode:ConfigExportDeliveryInfo' :: ConfigExportDeliveryInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679399475"><span class="hs-identifier hs-var hs-var">lastErrorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399475"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399474"><span class="annot"><span class="annottext">s :: ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399473"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastErrorCode:ConfigExportDeliveryInfo' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastErrorCode%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The time that the next delivery occurs.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_nextDeliveryTime"><span class="hs-identifier hs-type">configExportDeliveryInfo_nextDeliveryTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="configExportDeliveryInfo_nextDeliveryTime"><span class="annot"><span class="annottext">configExportDeliveryInfo_nextDeliveryTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-85"></span><span class="hs-comment">-- | The time of the last attempted delivery.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_lastAttemptTime"><span class="hs-identifier hs-type">configExportDeliveryInfo_lastAttemptTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="configExportDeliveryInfo_lastAttemptTime"><span class="annot"><span class="annottext">configExportDeliveryInfo_lastAttemptTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ConfigExportDeliveryInfo -&gt; f ConfigExportDeliveryInfo
-</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_nextDeliveryTime"><span class="hs-identifier hs-var hs-var">configExportDeliveryInfo_nextDeliveryTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigExportDeliveryInfo -&gt; Maybe POSIX)
+</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_lastAttemptTime"><span class="hs-identifier hs-var hs-var">configExportDeliveryInfo_lastAttemptTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigExportDeliveryInfo -&gt; Maybe POSIX)
 -&gt; (ConfigExportDeliveryInfo
     -&gt; Maybe POSIX -&gt; ConfigExportDeliveryInfo)
 -&gt; Lens
@@ -206,16 +206,16 @@ $sel:lastErrorMessage:ConfigExportDeliveryInfo' :: ConfigExportDeliveryInfo -&gt
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398888"><span class="annot"><span class="annottext">Maybe POSIX
-nextDeliveryTime :: Maybe POSIX
-$sel:nextDeliveryTime:ConfigExportDeliveryInfo' :: ConfigExportDeliveryInfo -&gt; Maybe POSIX
-</span><a href="#local-6989586621679398888"><span class="hs-identifier hs-var hs-var">nextDeliveryTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679398888"><span class="hs-identifier hs-var">nextDeliveryTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398887"><span class="annot"><span class="annottext">s :: ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679398887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398886"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679398886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679398887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextDeliveryTime:ConfigExportDeliveryInfo' :: Maybe POSIX
-</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AnextDeliveryTime%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">nextDeliveryTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679398886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399471"><span class="annot"><span class="annottext">Maybe POSIX
+lastAttemptTime :: Maybe POSIX
+$sel:lastAttemptTime:ConfigExportDeliveryInfo' :: ConfigExportDeliveryInfo -&gt; Maybe POSIX
+</span><a href="#local-6989586621679399471"><span class="hs-identifier hs-var hs-var">lastAttemptTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679399471"><span class="hs-identifier hs-var">lastAttemptTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399470"><span class="annot"><span class="annottext">s :: ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399469"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679399469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAttemptTime:ConfigExportDeliveryInfo' :: Maybe POSIX
+</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastAttemptTime%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">lastAttemptTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679399469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ConfigExportDeliveryInfo -&gt; f ConfigExportDeliveryInfo)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -245,16 +245,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398881"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399464"><span class="annot"><span class="annottext">Maybe POSIX
 lastSuccessfulTime :: Maybe POSIX
 $sel:lastSuccessfulTime:ConfigExportDeliveryInfo' :: ConfigExportDeliveryInfo -&gt; Maybe POSIX
-</span><a href="#local-6989586621679398881"><span class="hs-identifier hs-var hs-var">lastSuccessfulTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679398881"><span class="hs-identifier hs-var">lastSuccessfulTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398880"><span class="annot"><span class="annottext">s :: ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679398880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398879"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679398879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679398880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastSuccessfulTime:ConfigExportDeliveryInfo' :: Maybe POSIX
+</span><a href="#local-6989586621679399464"><span class="hs-identifier hs-var hs-var">lastSuccessfulTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679399464"><span class="hs-identifier hs-var">lastSuccessfulTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399463"><span class="annot"><span class="annottext">s :: ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399462"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679399462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastSuccessfulTime:ConfigExportDeliveryInfo' :: Maybe POSIX
 </span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastSuccessfulTime%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">lastSuccessfulTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679398879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679399462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ConfigExportDeliveryInfo -&gt; f ConfigExportDeliveryInfo)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -271,33 +271,9 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The error code from the last attempted delivery.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_lastErrorCode"><span class="hs-identifier hs-type">configExportDeliveryInfo_lastErrorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="configExportDeliveryInfo_lastErrorCode"><span class="annot"><span class="annottext">configExportDeliveryInfo_lastErrorCode :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ConfigExportDeliveryInfo -&gt; f ConfigExportDeliveryInfo
-</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_lastErrorCode"><span class="hs-identifier hs-var hs-var">configExportDeliveryInfo_lastErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigExportDeliveryInfo -&gt; Maybe Text)
--&gt; (ConfigExportDeliveryInfo
-    -&gt; Maybe Text -&gt; ConfigExportDeliveryInfo)
--&gt; Lens
-     ConfigExportDeliveryInfo
-     ConfigExportDeliveryInfo
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398877"><span class="annot"><span class="annottext">Maybe Text
-lastErrorCode :: Maybe Text
-$sel:lastErrorCode:ConfigExportDeliveryInfo' :: ConfigExportDeliveryInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679398877"><span class="hs-identifier hs-var hs-var">lastErrorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679398877"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398876"><span class="annot"><span class="annottext">s :: ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679398876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398875"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679398875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679398876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastErrorCode:ConfigExportDeliveryInfo' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastErrorCode%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679398875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | Status of the last attempted delivery.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_lastStatus"><span class="hs-identifier hs-type">configExportDeliveryInfo_lastStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryStatus.html#DeliveryStatus"><span class="hs-identifier hs-type">DeliveryStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="configExportDeliveryInfo_lastStatus"><span class="annot"><span class="annottext">configExportDeliveryInfo_lastStatus :: (Maybe DeliveryStatus -&gt; f (Maybe DeliveryStatus))
+</span><span id="line-93"></span><span class="hs-comment">-- | Status of the last attempted delivery.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_lastStatus"><span class="hs-identifier hs-type">configExportDeliveryInfo_lastStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryStatus.html#DeliveryStatus"><span class="hs-identifier hs-type">DeliveryStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="configExportDeliveryInfo_lastStatus"><span class="annot"><span class="annottext">configExportDeliveryInfo_lastStatus :: (Maybe DeliveryStatus -&gt; f (Maybe DeliveryStatus))
 -&gt; ConfigExportDeliveryInfo -&gt; f ConfigExportDeliveryInfo
 </span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_lastStatus"><span class="hs-identifier hs-var hs-var">configExportDeliveryInfo_lastStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigExportDeliveryInfo -&gt; Maybe DeliveryStatus)
 -&gt; (ConfigExportDeliveryInfo
@@ -308,22 +284,46 @@ $sel:lastErrorCode:ConfigExportDeliveryInfo' :: ConfigExportDeliveryInfo -&gt; M
      (Maybe DeliveryStatus)
      (Maybe DeliveryStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398873"><span class="annot"><span class="annottext">Maybe DeliveryStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399460"><span class="annot"><span class="annottext">Maybe DeliveryStatus
 lastStatus :: Maybe DeliveryStatus
 $sel:lastStatus:ConfigExportDeliveryInfo' :: ConfigExportDeliveryInfo -&gt; Maybe DeliveryStatus
-</span><a href="#local-6989586621679398873"><span class="hs-identifier hs-var hs-var">lastStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStatus
-</span><a href="#local-6989586621679398873"><span class="hs-identifier hs-var">lastStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398872"><span class="annot"><span class="annottext">s :: ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679398872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398871"><span class="annot"><span class="annottext">Maybe DeliveryStatus
-</span><a href="#local-6989586621679398871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679398872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStatus:ConfigExportDeliveryInfo' :: Maybe DeliveryStatus
+</span><a href="#local-6989586621679399460"><span class="hs-identifier hs-var hs-var">lastStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStatus
+</span><a href="#local-6989586621679399460"><span class="hs-identifier hs-var">lastStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399459"><span class="annot"><span class="annottext">s :: ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399458"><span class="annot"><span class="annottext">Maybe DeliveryStatus
+</span><a href="#local-6989586621679399458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStatus:ConfigExportDeliveryInfo' :: Maybe DeliveryStatus
 </span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastStatus%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">lastStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStatus
-</span><a href="#local-6989586621679398871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The time of the last attempted delivery.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_lastAttemptTime"><span class="hs-identifier hs-type">configExportDeliveryInfo_lastAttemptTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="configExportDeliveryInfo_lastAttemptTime"><span class="annot"><span class="annottext">configExportDeliveryInfo_lastAttemptTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679399458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The error message from the last attempted delivery.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_lastErrorMessage"><span class="hs-identifier hs-type">configExportDeliveryInfo_lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="configExportDeliveryInfo_lastErrorMessage"><span class="annot"><span class="annottext">configExportDeliveryInfo_lastErrorMessage :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ConfigExportDeliveryInfo -&gt; f ConfigExportDeliveryInfo
-</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_lastAttemptTime"><span class="hs-identifier hs-var hs-var">configExportDeliveryInfo_lastAttemptTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigExportDeliveryInfo -&gt; Maybe POSIX)
+</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_lastErrorMessage"><span class="hs-identifier hs-var hs-var">configExportDeliveryInfo_lastErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigExportDeliveryInfo -&gt; Maybe Text)
+-&gt; (ConfigExportDeliveryInfo
+    -&gt; Maybe Text -&gt; ConfigExportDeliveryInfo)
+-&gt; Lens
+     ConfigExportDeliveryInfo
+     ConfigExportDeliveryInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399456"><span class="annot"><span class="annottext">Maybe Text
+lastErrorMessage :: Maybe Text
+$sel:lastErrorMessage:ConfigExportDeliveryInfo' :: ConfigExportDeliveryInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679399456"><span class="hs-identifier hs-var hs-var">lastErrorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399456"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399455"><span class="annot"><span class="annottext">s :: ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399454"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastErrorMessage:ConfigExportDeliveryInfo' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastErrorMessage%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The time that the next delivery occurs.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_nextDeliveryTime"><span class="hs-identifier hs-type">configExportDeliveryInfo_nextDeliveryTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="configExportDeliveryInfo_nextDeliveryTime"><span class="annot"><span class="annottext">configExportDeliveryInfo_nextDeliveryTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ConfigExportDeliveryInfo -&gt; f ConfigExportDeliveryInfo
+</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#configExportDeliveryInfo_nextDeliveryTime"><span class="hs-identifier hs-var hs-var">configExportDeliveryInfo_nextDeliveryTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigExportDeliveryInfo -&gt; Maybe POSIX)
 -&gt; (ConfigExportDeliveryInfo
     -&gt; Maybe POSIX -&gt; ConfigExportDeliveryInfo)
 -&gt; Lens
@@ -332,16 +332,16 @@ $sel:lastStatus:ConfigExportDeliveryInfo' :: ConfigExportDeliveryInfo -&gt; Mayb
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398869"><span class="annot"><span class="annottext">Maybe POSIX
-lastAttemptTime :: Maybe POSIX
-$sel:lastAttemptTime:ConfigExportDeliveryInfo' :: ConfigExportDeliveryInfo -&gt; Maybe POSIX
-</span><a href="#local-6989586621679398869"><span class="hs-identifier hs-var hs-var">lastAttemptTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679398869"><span class="hs-identifier hs-var">lastAttemptTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398868"><span class="annot"><span class="annottext">s :: ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679398868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398867"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679398867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679398868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAttemptTime:ConfigExportDeliveryInfo' :: Maybe POSIX
-</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AlastAttemptTime%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">lastAttemptTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679398867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399452"><span class="annot"><span class="annottext">Maybe POSIX
+nextDeliveryTime :: Maybe POSIX
+$sel:nextDeliveryTime:ConfigExportDeliveryInfo' :: ConfigExportDeliveryInfo -&gt; Maybe POSIX
+</span><a href="#local-6989586621679399452"><span class="hs-identifier hs-var hs-var">nextDeliveryTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679399452"><span class="hs-identifier hs-var">nextDeliveryTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399451"><span class="annot"><span class="annottext">s :: ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399450"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679399450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextDeliveryTime:ConfigExportDeliveryInfo' :: Maybe POSIX
+</span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#%24sel%3AnextDeliveryTime%3AConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">nextDeliveryTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679399450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ConfigExportDeliveryInfo -&gt; f ConfigExportDeliveryInfo)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -358,8 +358,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398864"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679398862"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConfigExportDeliveryInfo
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399447"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679399445"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConfigExportDeliveryInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ConfigExportDeliveryInfo)
@@ -369,106 +369,104 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ConfigExportDeliveryInfo&quot;</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679398859"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679398859"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399442"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399442"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe POSIX
--&gt; Maybe Text
 -&gt; Maybe DeliveryStatus
+-&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; ConfigExportDeliveryInfo
 </span><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo%27"><span class="hs-identifier hs-var">ConfigExportDeliveryInfo'</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe POSIX
  -&gt; Maybe POSIX
- -&gt; Maybe Text
  -&gt; Maybe DeliveryStatus
+ -&gt; Maybe Text
  -&gt; Maybe POSIX
  -&gt; ConfigExportDeliveryInfo)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe POSIX
       -&gt; Maybe POSIX
-      -&gt; Maybe Text
       -&gt; Maybe DeliveryStatus
+      -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; ConfigExportDeliveryInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679398859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679399442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lastErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;lastErrorCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
    -&gt; Maybe POSIX
-   -&gt; Maybe Text
    -&gt; Maybe DeliveryStatus
+   -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; ConfigExportDeliveryInfo)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe POSIX
-      -&gt; Maybe Text
       -&gt; Maybe DeliveryStatus
+      -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; ConfigExportDeliveryInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679398859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679399442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextDeliveryTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;lastAttemptTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
-   -&gt; Maybe Text
    -&gt; Maybe DeliveryStatus
+   -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; ConfigExportDeliveryInfo)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe DeliveryStatus -&gt; Maybe POSIX -&gt; ConfigExportDeliveryInfo)
+     (Maybe DeliveryStatus
+      -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ConfigExportDeliveryInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679398859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679399442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lastSuccessfulTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe DeliveryStatus -&gt; Maybe POSIX -&gt; ConfigExportDeliveryInfo)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe DeliveryStatus -&gt; Maybe POSIX -&gt; ConfigExportDeliveryInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679398859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lastErrorCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe DeliveryStatus -&gt; Maybe POSIX -&gt; ConfigExportDeliveryInfo)
+  (Maybe DeliveryStatus
+   -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ConfigExportDeliveryInfo)
 -&gt; Parser (Maybe DeliveryStatus)
--&gt; Parser (Maybe POSIX -&gt; ConfigExportDeliveryInfo)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; ConfigExportDeliveryInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679398859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeliveryStatus)
+</span><a href="#local-6989586621679399442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeliveryStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lastStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; ConfigExportDeliveryInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; ConfigExportDeliveryInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; ConfigExportDeliveryInfo)
 -&gt; Parser (Maybe POSIX) -&gt; Parser ConfigExportDeliveryInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679398859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679399442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lastAttemptTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;nextDeliveryTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398853"><span id="local-6989586621679398855"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399436"><span id="local-6989586621679399438"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398850"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span></span><span>
 </span><span id="line-122"></span></pre></body></html>

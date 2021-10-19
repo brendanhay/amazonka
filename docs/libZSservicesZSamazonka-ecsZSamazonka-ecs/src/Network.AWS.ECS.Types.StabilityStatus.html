@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679460943"><span id="local-6989586621679460944"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StabilityStatus"><span class="annot"><a href="Network.AWS.ECS.Types.StabilityStatus.html#StabilityStatus"><span class="hs-identifier hs-var">StabilityStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StabilityStatus%27"><span class="annot"><a href="Network.AWS.ECS.Types.StabilityStatus.html#StabilityStatus%27"><span class="hs-identifier hs-var">StabilityStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679461667"><span id="local-6989586621679461668"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StabilityStatus"><span class="annot"><a href="Network.AWS.ECS.Types.StabilityStatus.html#StabilityStatus"><span class="hs-identifier hs-var">StabilityStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StabilityStatus%27"><span class="annot"><a href="Network.AWS.ECS.Types.StabilityStatus.html#StabilityStatus%27"><span class="hs-identifier hs-var">StabilityStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStabilityStatus"><span class="annot"><span class="annottext">StabilityStatus -&gt; Text
 </span><a href="Network.AWS.ECS.Types.StabilityStatus.html#fromStabilityStatus"><span class="hs-identifier hs-var hs-var">fromStabilityStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679460935"><span id="local-6989586621679460937"><span id="local-6989586621679460939"><span class="annot"><span class="annottext">Int -&gt; StabilityStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679461659"><span id="local-6989586621679461661"><span id="local-6989586621679461663"><span class="annot"><span class="annottext">Int -&gt; StabilityStatus -&gt; ShowS
 [StabilityStatus] -&gt; ShowS
 StabilityStatus -&gt; String
 (Int -&gt; StabilityStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: StabilityStatus -&gt; String
 showsPrec :: Int -&gt; StabilityStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; StabilityStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679460926"><span id="local-6989586621679460928"><span id="local-6989586621679460930"><span id="local-6989586621679460932"><span class="annot"><span class="annottext">ReadPrec [StabilityStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679461650"><span id="local-6989586621679461652"><span id="local-6989586621679461654"><span id="local-6989586621679461656"><span class="annot"><span class="annottext">ReadPrec [StabilityStatus]
 ReadPrec StabilityStatus
 Int -&gt; ReadS StabilityStatus
 ReadS [StabilityStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [StabilityStatus]
 readsPrec :: Int -&gt; ReadS StabilityStatus
 $creadsPrec :: Int -&gt; ReadS StabilityStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679460921"><span id="local-6989586621679460923"><span class="annot"><span class="annottext">StabilityStatus -&gt; StabilityStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679461645"><span id="local-6989586621679461647"><span class="annot"><span class="annottext">StabilityStatus -&gt; StabilityStatus -&gt; Bool
 (StabilityStatus -&gt; StabilityStatus -&gt; Bool)
 -&gt; (StabilityStatus -&gt; StabilityStatus -&gt; Bool)
 -&gt; Eq StabilityStatus
@@ -82,7 +82,7 @@ $c/= :: StabilityStatus -&gt; StabilityStatus -&gt; Bool
 == :: StabilityStatus -&gt; StabilityStatus -&gt; Bool
 $c== :: StabilityStatus -&gt; StabilityStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679460905"><span id="local-6989586621679460907"><span id="local-6989586621679460909"><span id="local-6989586621679460911"><span id="local-6989586621679460913"><span id="local-6989586621679460915"><span id="local-6989586621679460917"><span class="annot"><span class="annottext">Eq StabilityStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679461629"><span id="local-6989586621679461631"><span id="local-6989586621679461633"><span id="local-6989586621679461635"><span id="local-6989586621679461637"><span id="local-6989586621679461639"><span id="local-6989586621679461641"><span class="annot"><span class="annottext">Eq StabilityStatus
 Eq StabilityStatus
 -&gt; (StabilityStatus -&gt; StabilityStatus -&gt; Ordering)
 -&gt; (StabilityStatus -&gt; StabilityStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. StabilityStatus -&gt; Rep StabilityStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679460897"><span id="local-6989586621679460899"><span class="annot"><span class="annottext">Int -&gt; StabilityStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679461621"><span id="local-6989586621679461623"><span class="annot"><span class="annottext">Int -&gt; StabilityStatus -&gt; Int
 StabilityStatus -&gt; Int
 (Int -&gt; StabilityStatus -&gt; Int)
 -&gt; (StabilityStatus -&gt; Int) -&gt; Hashable StabilityStatus
@@ -143,50 +143,50 @@ $chash :: StabilityStatus -&gt; Int
 hashWithSalt :: Int -&gt; StabilityStatus -&gt; Int
 $chashWithSalt :: Int -&gt; StabilityStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679460894"><span class="annot"><span class="annottext">StabilityStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679461618"><span class="annot"><span class="annottext">StabilityStatus -&gt; ()
 (StabilityStatus -&gt; ()) -&gt; NFData StabilityStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StabilityStatus -&gt; ()
 $crnf :: StabilityStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679460891"><span class="annot"><span class="annottext">Text -&gt; Either String StabilityStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679461615"><span class="annot"><span class="annottext">Text -&gt; Either String StabilityStatus
 (Text -&gt; Either String StabilityStatus) -&gt; FromText StabilityStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StabilityStatus
 $cfromText :: Text -&gt; Either String StabilityStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679460888"><span class="annot"><span class="annottext">StabilityStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679461612"><span class="annot"><span class="annottext">StabilityStatus -&gt; Text
 (StabilityStatus -&gt; Text) -&gt; ToText StabilityStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StabilityStatus -&gt; Text
 $ctoText :: StabilityStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679460885"><span class="annot"><span class="annottext">StabilityStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679461609"><span class="annot"><span class="annottext">StabilityStatus -&gt; ByteString
 (StabilityStatus -&gt; ByteString) -&gt; ToByteString StabilityStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StabilityStatus -&gt; ByteString
 $ctoBS :: StabilityStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679460882"><span class="annot"><span class="annottext">StabilityStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679461606"><span class="annot"><span class="annottext">StabilityStatus -&gt; ByteStringBuilder
 (StabilityStatus -&gt; ByteStringBuilder) -&gt; ToLog StabilityStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StabilityStatus -&gt; ByteStringBuilder
 $cbuild :: StabilityStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679460879"><span class="annot"><span class="annottext">HeaderName -&gt; StabilityStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679461603"><span class="annot"><span class="annottext">HeaderName -&gt; StabilityStatus -&gt; [Header]
 (HeaderName -&gt; StabilityStatus -&gt; [Header])
 -&gt; ToHeader StabilityStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StabilityStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StabilityStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679460876"><span class="annot"><span class="annottext">StabilityStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679461600"><span class="annot"><span class="annottext">StabilityStatus -&gt; QueryString
 (StabilityStatus -&gt; QueryString) -&gt; ToQuery StabilityStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StabilityStatus -&gt; QueryString
 $ctoQuery :: StabilityStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679460871"><span id="local-6989586621679460873"><span class="annot"><span class="annottext">Value -&gt; Parser [StabilityStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679461595"><span id="local-6989586621679461597"><span class="annot"><span class="annottext">Value -&gt; Parser [StabilityStatus]
 Value -&gt; Parser StabilityStatus
 (Value -&gt; Parser StabilityStatus)
 -&gt; (Value -&gt; Parser [StabilityStatus]) -&gt; FromJSON StabilityStatus
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [StabilityStatus]
 parseJSON :: Value -&gt; Parser StabilityStatus
 $cparseJSON :: Value -&gt; Parser StabilityStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679460866"><span id="local-6989586621679460868"><span class="annot"><span class="annottext">FromJSONKeyFunction [StabilityStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679461590"><span id="local-6989586621679461592"><span class="annot"><span class="annottext">FromJSONKeyFunction [StabilityStatus]
 FromJSONKeyFunction StabilityStatus
 FromJSONKeyFunction StabilityStatus
 -&gt; FromJSONKeyFunction [StabilityStatus]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StabilityStatus]
 fromJSONKey :: FromJSONKeyFunction StabilityStatus
 $cfromJSONKey :: FromJSONKeyFunction StabilityStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679460857"><span id="local-6989586621679460859"><span id="local-6989586621679460861"><span id="local-6989586621679460863"><span class="annot"><span class="annottext">[StabilityStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679461581"><span id="local-6989586621679461583"><span id="local-6989586621679461585"><span id="local-6989586621679461587"><span class="annot"><span class="annottext">[StabilityStatus] -&gt; Encoding
 [StabilityStatus] -&gt; Value
 StabilityStatus -&gt; Encoding
 StabilityStatus -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: StabilityStatus -&gt; Encoding
 toJSON :: StabilityStatus -&gt; Value
 $ctoJSON :: StabilityStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679460852"><span id="local-6989586621679460854"><span class="annot"><span class="annottext">ToJSONKeyFunction [StabilityStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679461576"><span id="local-6989586621679461578"><span class="annot"><span class="annottext">ToJSONKeyFunction [StabilityStatus]
 ToJSONKeyFunction StabilityStatus
 ToJSONKeyFunction StabilityStatus
 -&gt; ToJSONKeyFunction [StabilityStatus] -&gt; ToJSONKey StabilityStatus
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StabilityStatus]
 toJSONKey :: ToJSONKeyFunction StabilityStatus
 $ctoJSONKey :: ToJSONKeyFunction StabilityStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679460849"><span class="annot"><span class="annottext">[Node] -&gt; Either String StabilityStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679461573"><span class="annot"><span class="annottext">[Node] -&gt; Either String StabilityStatus
 ([Node] -&gt; Either String StabilityStatus)
 -&gt; FromXML StabilityStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StabilityStatus
 $cparseXML :: [Node] -&gt; Either String StabilityStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679460846"><span class="annot"><span class="annottext">StabilityStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679461570"><span class="annot"><span class="annottext">StabilityStatus -&gt; XML
 (StabilityStatus -&gt; XML) -&gt; ToXML StabilityStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StabilityStatus -&gt; XML

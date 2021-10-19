@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Internal.html"><span class="hs-identifier">Network.AWS.Redshift.Internal</span></a></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679488990"><span id="local-6989586621679488991"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AquaConfigurationStatus"><span class="annot"><a href="Network.AWS.Redshift.Types.AquaConfigurationStatus.html#AquaConfigurationStatus"><span class="hs-identifier hs-var">AquaConfigurationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AquaConfigurationStatus%27"><span class="annot"><a href="Network.AWS.Redshift.Types.AquaConfigurationStatus.html#AquaConfigurationStatus%27"><span class="hs-identifier hs-var">AquaConfigurationStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679489627"><span id="local-6989586621679489628"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AquaConfigurationStatus"><span class="annot"><a href="Network.AWS.Redshift.Types.AquaConfigurationStatus.html#AquaConfigurationStatus"><span class="hs-identifier hs-var">AquaConfigurationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AquaConfigurationStatus%27"><span class="annot"><a href="Network.AWS.Redshift.Types.AquaConfigurationStatus.html#AquaConfigurationStatus%27"><span class="hs-identifier hs-var">AquaConfigurationStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAquaConfigurationStatus"><span class="annot"><span class="annottext">AquaConfigurationStatus -&gt; Text
 </span><a href="Network.AWS.Redshift.Types.AquaConfigurationStatus.html#fromAquaConfigurationStatus"><span class="hs-identifier hs-var hs-var">fromAquaConfigurationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679488982"><span id="local-6989586621679488984"><span id="local-6989586621679488986"><span class="annot"><span class="annottext">Int -&gt; AquaConfigurationStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679489619"><span id="local-6989586621679489621"><span id="local-6989586621679489623"><span class="annot"><span class="annottext">Int -&gt; AquaConfigurationStatus -&gt; ShowS
 [AquaConfigurationStatus] -&gt; ShowS
 AquaConfigurationStatus -&gt; String
 (Int -&gt; AquaConfigurationStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: AquaConfigurationStatus -&gt; String
 showsPrec :: Int -&gt; AquaConfigurationStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; AquaConfigurationStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679488973"><span id="local-6989586621679488975"><span id="local-6989586621679488977"><span id="local-6989586621679488979"><span class="annot"><span class="annottext">ReadPrec [AquaConfigurationStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679489610"><span id="local-6989586621679489612"><span id="local-6989586621679489614"><span id="local-6989586621679489616"><span class="annot"><span class="annottext">ReadPrec [AquaConfigurationStatus]
 ReadPrec AquaConfigurationStatus
 Int -&gt; ReadS AquaConfigurationStatus
 ReadS [AquaConfigurationStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [AquaConfigurationStatus]
 readsPrec :: Int -&gt; ReadS AquaConfigurationStatus
 $creadsPrec :: Int -&gt; ReadS AquaConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679488968"><span id="local-6989586621679488970"><span class="annot"><span class="annottext">AquaConfigurationStatus -&gt; AquaConfigurationStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679489605"><span id="local-6989586621679489607"><span class="annot"><span class="annottext">AquaConfigurationStatus -&gt; AquaConfigurationStatus -&gt; Bool
 (AquaConfigurationStatus -&gt; AquaConfigurationStatus -&gt; Bool)
 -&gt; (AquaConfigurationStatus -&gt; AquaConfigurationStatus -&gt; Bool)
 -&gt; Eq AquaConfigurationStatus
@@ -84,7 +84,7 @@ $c/= :: AquaConfigurationStatus -&gt; AquaConfigurationStatus -&gt; Bool
 == :: AquaConfigurationStatus -&gt; AquaConfigurationStatus -&gt; Bool
 $c== :: AquaConfigurationStatus -&gt; AquaConfigurationStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679488952"><span id="local-6989586621679488954"><span id="local-6989586621679488956"><span id="local-6989586621679488958"><span id="local-6989586621679488960"><span id="local-6989586621679488962"><span id="local-6989586621679488964"><span class="annot"><span class="annottext">Eq AquaConfigurationStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679489589"><span id="local-6989586621679489591"><span id="local-6989586621679489593"><span id="local-6989586621679489595"><span id="local-6989586621679489597"><span id="local-6989586621679489599"><span id="local-6989586621679489601"><span class="annot"><span class="annottext">Eq AquaConfigurationStatus
 Eq AquaConfigurationStatus
 -&gt; (AquaConfigurationStatus -&gt; AquaConfigurationStatus -&gt; Ordering)
 -&gt; (AquaConfigurationStatus -&gt; AquaConfigurationStatus -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. AquaConfigurationStatus -&gt; Rep AquaConfigurationStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679488944"><span id="local-6989586621679488946"><span class="annot"><span class="annottext">Int -&gt; AquaConfigurationStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679489581"><span id="local-6989586621679489583"><span class="annot"><span class="annottext">Int -&gt; AquaConfigurationStatus -&gt; Int
 AquaConfigurationStatus -&gt; Int
 (Int -&gt; AquaConfigurationStatus -&gt; Int)
 -&gt; (AquaConfigurationStatus -&gt; Int)
@@ -155,54 +155,54 @@ $chash :: AquaConfigurationStatus -&gt; Int
 hashWithSalt :: Int -&gt; AquaConfigurationStatus -&gt; Int
 $chashWithSalt :: Int -&gt; AquaConfigurationStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679488941"><span class="annot"><span class="annottext">AquaConfigurationStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679489578"><span class="annot"><span class="annottext">AquaConfigurationStatus -&gt; ()
 (AquaConfigurationStatus -&gt; ()) -&gt; NFData AquaConfigurationStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AquaConfigurationStatus -&gt; ()
 $crnf :: AquaConfigurationStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679488938"><span class="annot"><span class="annottext">Text -&gt; Either String AquaConfigurationStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679489575"><span class="annot"><span class="annottext">Text -&gt; Either String AquaConfigurationStatus
 (Text -&gt; Either String AquaConfigurationStatus)
 -&gt; FromText AquaConfigurationStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AquaConfigurationStatus
 $cfromText :: Text -&gt; Either String AquaConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679488935"><span class="annot"><span class="annottext">AquaConfigurationStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679489572"><span class="annot"><span class="annottext">AquaConfigurationStatus -&gt; Text
 (AquaConfigurationStatus -&gt; Text) -&gt; ToText AquaConfigurationStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AquaConfigurationStatus -&gt; Text
 $ctoText :: AquaConfigurationStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679488932"><span class="annot"><span class="annottext">AquaConfigurationStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679489569"><span class="annot"><span class="annottext">AquaConfigurationStatus -&gt; ByteString
 (AquaConfigurationStatus -&gt; ByteString)
 -&gt; ToByteString AquaConfigurationStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AquaConfigurationStatus -&gt; ByteString
 $ctoBS :: AquaConfigurationStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679488929"><span class="annot"><span class="annottext">AquaConfigurationStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679489566"><span class="annot"><span class="annottext">AquaConfigurationStatus -&gt; ByteStringBuilder
 (AquaConfigurationStatus -&gt; ByteStringBuilder)
 -&gt; ToLog AquaConfigurationStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AquaConfigurationStatus -&gt; ByteStringBuilder
 $cbuild :: AquaConfigurationStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679488926"><span class="annot"><span class="annottext">HeaderName -&gt; AquaConfigurationStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679489563"><span class="annot"><span class="annottext">HeaderName -&gt; AquaConfigurationStatus -&gt; [Header]
 (HeaderName -&gt; AquaConfigurationStatus -&gt; [Header])
 -&gt; ToHeader AquaConfigurationStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AquaConfigurationStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AquaConfigurationStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679488923"><span class="annot"><span class="annottext">AquaConfigurationStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679489560"><span class="annot"><span class="annottext">AquaConfigurationStatus -&gt; QueryString
 (AquaConfigurationStatus -&gt; QueryString)
 -&gt; ToQuery AquaConfigurationStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AquaConfigurationStatus -&gt; QueryString
 $ctoQuery :: AquaConfigurationStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679488918"><span id="local-6989586621679488920"><span class="annot"><span class="annottext">Value -&gt; Parser [AquaConfigurationStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679489555"><span id="local-6989586621679489557"><span class="annot"><span class="annottext">Value -&gt; Parser [AquaConfigurationStatus]
 Value -&gt; Parser AquaConfigurationStatus
 (Value -&gt; Parser AquaConfigurationStatus)
 -&gt; (Value -&gt; Parser [AquaConfigurationStatus])
@@ -214,7 +214,7 @@ $cparseJSONList :: Value -&gt; Parser [AquaConfigurationStatus]
 parseJSON :: Value -&gt; Parser AquaConfigurationStatus
 $cparseJSON :: Value -&gt; Parser AquaConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679488913"><span id="local-6989586621679488915"><span class="annot"><span class="annottext">FromJSONKeyFunction [AquaConfigurationStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679489550"><span id="local-6989586621679489552"><span class="annot"><span class="annottext">FromJSONKeyFunction [AquaConfigurationStatus]
 FromJSONKeyFunction AquaConfigurationStatus
 FromJSONKeyFunction AquaConfigurationStatus
 -&gt; FromJSONKeyFunction [AquaConfigurationStatus]
@@ -226,7 +226,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AquaConfigurationStatus]
 fromJSONKey :: FromJSONKeyFunction AquaConfigurationStatus
 $cfromJSONKey :: FromJSONKeyFunction AquaConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679488904"><span id="local-6989586621679488906"><span id="local-6989586621679488908"><span id="local-6989586621679488910"><span class="annot"><span class="annottext">[AquaConfigurationStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679489541"><span id="local-6989586621679489543"><span id="local-6989586621679489545"><span id="local-6989586621679489547"><span class="annot"><span class="annottext">[AquaConfigurationStatus] -&gt; Encoding
 [AquaConfigurationStatus] -&gt; Value
 AquaConfigurationStatus -&gt; Encoding
 AquaConfigurationStatus -&gt; Value
@@ -250,7 +250,7 @@ $ctoEncoding :: AquaConfigurationStatus -&gt; Encoding
 toJSON :: AquaConfigurationStatus -&gt; Value
 $ctoJSON :: AquaConfigurationStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679488899"><span id="local-6989586621679488901"><span class="annot"><span class="annottext">ToJSONKeyFunction [AquaConfigurationStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679489536"><span id="local-6989586621679489538"><span class="annot"><span class="annottext">ToJSONKeyFunction [AquaConfigurationStatus]
 ToJSONKeyFunction AquaConfigurationStatus
 ToJSONKeyFunction AquaConfigurationStatus
 -&gt; ToJSONKeyFunction [AquaConfigurationStatus]
@@ -262,14 +262,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AquaConfigurationStatus]
 toJSONKey :: ToJSONKeyFunction AquaConfigurationStatus
 $ctoJSONKey :: ToJSONKeyFunction AquaConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679488896"><span class="annot"><span class="annottext">[Node] -&gt; Either String AquaConfigurationStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679489533"><span class="annot"><span class="annottext">[Node] -&gt; Either String AquaConfigurationStatus
 ([Node] -&gt; Either String AquaConfigurationStatus)
 -&gt; FromXML AquaConfigurationStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AquaConfigurationStatus
 $cparseXML :: [Node] -&gt; Either String AquaConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679488893"><span class="annot"><span class="annottext">AquaConfigurationStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679489530"><span class="annot"><span class="annottext">AquaConfigurationStatus -&gt; XML
 (AquaConfigurationStatus -&gt; XML) -&gt; ToXML AquaConfigurationStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AquaConfigurationStatus -&gt; XML

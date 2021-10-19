@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679156988"><span id="local-6989586621679156989"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetIdType"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TargetIdType.html#TargetIdType"><span class="hs-identifier hs-var">TargetIdType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetIdType%27"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TargetIdType.html#TargetIdType%27"><span class="hs-identifier hs-var">TargetIdType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679157083"><span id="local-6989586621679157084"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetIdType"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TargetIdType.html#TargetIdType"><span class="hs-identifier hs-var">TargetIdType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetIdType%27"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TargetIdType.html#TargetIdType%27"><span class="hs-identifier hs-var">TargetIdType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTargetIdType"><span class="annot"><span class="annottext">TargetIdType -&gt; Text
 </span><a href="Network.AWS.ResourceGroupsTagging.Types.TargetIdType.html#fromTargetIdType"><span class="hs-identifier hs-var hs-var">fromTargetIdType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679156980"><span id="local-6989586621679156982"><span id="local-6989586621679156984"><span class="annot"><span class="annottext">Int -&gt; TargetIdType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679157075"><span id="local-6989586621679157077"><span id="local-6989586621679157079"><span class="annot"><span class="annottext">Int -&gt; TargetIdType -&gt; ShowS
 [TargetIdType] -&gt; ShowS
 TargetIdType -&gt; String
 (Int -&gt; TargetIdType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: TargetIdType -&gt; String
 showsPrec :: Int -&gt; TargetIdType -&gt; ShowS
 $cshowsPrec :: Int -&gt; TargetIdType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679156971"><span id="local-6989586621679156973"><span id="local-6989586621679156975"><span id="local-6989586621679156977"><span class="annot"><span class="annottext">ReadPrec [TargetIdType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679157066"><span id="local-6989586621679157068"><span id="local-6989586621679157070"><span id="local-6989586621679157072"><span class="annot"><span class="annottext">ReadPrec [TargetIdType]
 ReadPrec TargetIdType
 Int -&gt; ReadS TargetIdType
 ReadS [TargetIdType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [TargetIdType]
 readsPrec :: Int -&gt; ReadS TargetIdType
 $creadsPrec :: Int -&gt; ReadS TargetIdType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679156966"><span id="local-6989586621679156968"><span class="annot"><span class="annottext">TargetIdType -&gt; TargetIdType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679157061"><span id="local-6989586621679157063"><span class="annot"><span class="annottext">TargetIdType -&gt; TargetIdType -&gt; Bool
 (TargetIdType -&gt; TargetIdType -&gt; Bool)
 -&gt; (TargetIdType -&gt; TargetIdType -&gt; Bool) -&gt; Eq TargetIdType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: TargetIdType -&gt; TargetIdType -&gt; Bool
 == :: TargetIdType -&gt; TargetIdType -&gt; Bool
 $c== :: TargetIdType -&gt; TargetIdType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679156950"><span id="local-6989586621679156952"><span id="local-6989586621679156954"><span id="local-6989586621679156956"><span id="local-6989586621679156958"><span id="local-6989586621679156960"><span id="local-6989586621679156962"><span class="annot"><span class="annottext">Eq TargetIdType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679157045"><span id="local-6989586621679157047"><span id="local-6989586621679157049"><span id="local-6989586621679157051"><span id="local-6989586621679157053"><span id="local-6989586621679157055"><span id="local-6989586621679157057"><span class="annot"><span class="annottext">Eq TargetIdType
 Eq TargetIdType
 -&gt; (TargetIdType -&gt; TargetIdType -&gt; Ordering)
 -&gt; (TargetIdType -&gt; TargetIdType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. TargetIdType -&gt; Rep TargetIdType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679156942"><span id="local-6989586621679156944"><span class="annot"><span class="annottext">Int -&gt; TargetIdType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679157037"><span id="local-6989586621679157039"><span class="annot"><span class="annottext">Int -&gt; TargetIdType -&gt; Int
 TargetIdType -&gt; Int
 (Int -&gt; TargetIdType -&gt; Int)
 -&gt; (TargetIdType -&gt; Int) -&gt; Hashable TargetIdType
@@ -143,49 +143,49 @@ $chash :: TargetIdType -&gt; Int
 hashWithSalt :: Int -&gt; TargetIdType -&gt; Int
 $chashWithSalt :: Int -&gt; TargetIdType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679156939"><span class="annot"><span class="annottext">TargetIdType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679157034"><span class="annot"><span class="annottext">TargetIdType -&gt; ()
 (TargetIdType -&gt; ()) -&gt; NFData TargetIdType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TargetIdType -&gt; ()
 $crnf :: TargetIdType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679156936"><span class="annot"><span class="annottext">Text -&gt; Either String TargetIdType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679157031"><span class="annot"><span class="annottext">Text -&gt; Either String TargetIdType
 (Text -&gt; Either String TargetIdType) -&gt; FromText TargetIdType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TargetIdType
 $cfromText :: Text -&gt; Either String TargetIdType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679156933"><span class="annot"><span class="annottext">TargetIdType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679157028"><span class="annot"><span class="annottext">TargetIdType -&gt; Text
 (TargetIdType -&gt; Text) -&gt; ToText TargetIdType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TargetIdType -&gt; Text
 $ctoText :: TargetIdType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679156930"><span class="annot"><span class="annottext">TargetIdType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679157025"><span class="annot"><span class="annottext">TargetIdType -&gt; ByteString
 (TargetIdType -&gt; ByteString) -&gt; ToByteString TargetIdType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TargetIdType -&gt; ByteString
 $ctoBS :: TargetIdType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679156927"><span class="annot"><span class="annottext">TargetIdType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679157022"><span class="annot"><span class="annottext">TargetIdType -&gt; ByteStringBuilder
 (TargetIdType -&gt; ByteStringBuilder) -&gt; ToLog TargetIdType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TargetIdType -&gt; ByteStringBuilder
 $cbuild :: TargetIdType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679156924"><span class="annot"><span class="annottext">HeaderName -&gt; TargetIdType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679157019"><span class="annot"><span class="annottext">HeaderName -&gt; TargetIdType -&gt; [Header]
 (HeaderName -&gt; TargetIdType -&gt; [Header]) -&gt; ToHeader TargetIdType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TargetIdType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TargetIdType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679156921"><span class="annot"><span class="annottext">TargetIdType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679157016"><span class="annot"><span class="annottext">TargetIdType -&gt; QueryString
 (TargetIdType -&gt; QueryString) -&gt; ToQuery TargetIdType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TargetIdType -&gt; QueryString
 $ctoQuery :: TargetIdType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679156916"><span id="local-6989586621679156918"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetIdType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679157011"><span id="local-6989586621679157013"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetIdType]
 Value -&gt; Parser TargetIdType
 (Value -&gt; Parser TargetIdType)
 -&gt; (Value -&gt; Parser [TargetIdType]) -&gt; FromJSON TargetIdType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [TargetIdType]
 parseJSON :: Value -&gt; Parser TargetIdType
 $cparseJSON :: Value -&gt; Parser TargetIdType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679156911"><span id="local-6989586621679156913"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetIdType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679157006"><span id="local-6989586621679157008"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetIdType]
 FromJSONKeyFunction TargetIdType
 FromJSONKeyFunction TargetIdType
 -&gt; FromJSONKeyFunction [TargetIdType] -&gt; FromJSONKey TargetIdType
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TargetIdType]
 fromJSONKey :: FromJSONKeyFunction TargetIdType
 $cfromJSONKey :: FromJSONKeyFunction TargetIdType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679156902"><span id="local-6989586621679156904"><span id="local-6989586621679156906"><span id="local-6989586621679156908"><span class="annot"><span class="annottext">[TargetIdType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679156997"><span id="local-6989586621679156999"><span id="local-6989586621679157001"><span id="local-6989586621679157003"><span class="annot"><span class="annottext">[TargetIdType] -&gt; Encoding
 [TargetIdType] -&gt; Value
 TargetIdType -&gt; Encoding
 TargetIdType -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: TargetIdType -&gt; Encoding
 toJSON :: TargetIdType -&gt; Value
 $ctoJSON :: TargetIdType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679156897"><span id="local-6989586621679156899"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetIdType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679156992"><span id="local-6989586621679156994"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetIdType]
 ToJSONKeyFunction TargetIdType
 ToJSONKeyFunction TargetIdType
 -&gt; ToJSONKeyFunction [TargetIdType] -&gt; ToJSONKey TargetIdType
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TargetIdType]
 toJSONKey :: ToJSONKeyFunction TargetIdType
 $ctoJSONKey :: ToJSONKeyFunction TargetIdType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679156894"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetIdType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679156989"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetIdType
 ([Node] -&gt; Either String TargetIdType) -&gt; FromXML TargetIdType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TargetIdType
 $cparseXML :: [Node] -&gt; Either String TargetIdType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679156891"><span class="annot"><span class="annottext">TargetIdType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679156986"><span class="annot"><span class="annottext">TargetIdType -&gt; XML
 (TargetIdType -&gt; XML) -&gt; ToXML TargetIdType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TargetIdType -&gt; XML

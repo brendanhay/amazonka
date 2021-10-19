@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- the user\'s request to a bot..</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCodeHook' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679309474"><span id="local-6989586621679309475"></span></span><span class="hs-keyword">data</span><span> </span><span id="CodeHook"><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook"><span class="hs-identifier hs-var">CodeHook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeHook%27"><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook%27"><span class="hs-identifier hs-var">CodeHook'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679309755"><span id="local-6989586621679309756"></span></span><span class="hs-keyword">data</span><span> </span><span id="CodeHook"><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook"><span class="hs-identifier hs-var">CodeHook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeHook%27"><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook%27"><span class="hs-identifier hs-var">CodeHook'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Lambda function.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Auri%3ACodeHook%27"><span class="annot"><span class="annottext">CodeHook -&gt; Text
 </span><a href="Network.AWS.LexModels.Types.CodeHook.html#%24sel%3Auri%3ACodeHook%27"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AmessageVersion%3ACodeHook%27"><span class="annot"><span class="annottext">CodeHook -&gt; Text
 </span><a href="Network.AWS.LexModels.Types.CodeHook.html#%24sel%3AmessageVersion%3ACodeHook%27"><span class="hs-identifier hs-var hs-var">messageVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309467"><span id="local-6989586621679309469"><span class="annot"><span class="annottext">CodeHook -&gt; CodeHook -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309748"><span id="local-6989586621679309750"><span class="annot"><span class="annottext">CodeHook -&gt; CodeHook -&gt; Bool
 (CodeHook -&gt; CodeHook -&gt; Bool)
 -&gt; (CodeHook -&gt; CodeHook -&gt; Bool) -&gt; Eq CodeHook
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CodeHook -&gt; CodeHook -&gt; Bool
 == :: CodeHook -&gt; CodeHook -&gt; Bool
 $c== :: CodeHook -&gt; CodeHook -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309458"><span id="local-6989586621679309460"><span id="local-6989586621679309462"><span id="local-6989586621679309464"><span class="annot"><span class="annottext">ReadPrec [CodeHook]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309739"><span id="local-6989586621679309741"><span id="local-6989586621679309743"><span id="local-6989586621679309745"><span class="annot"><span class="annottext">ReadPrec [CodeHook]
 ReadPrec CodeHook
 Int -&gt; ReadS CodeHook
 ReadS [CodeHook]
@@ -64,7 +64,7 @@ readList :: ReadS [CodeHook]
 $creadList :: ReadS [CodeHook]
 readsPrec :: Int -&gt; ReadS CodeHook
 $creadsPrec :: Int -&gt; ReadS CodeHook
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309451"><span id="local-6989586621679309453"><span id="local-6989586621679309455"><span class="annot"><span class="annottext">Int -&gt; CodeHook -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309732"><span id="local-6989586621679309734"><span id="local-6989586621679309736"><span class="annot"><span class="annottext">Int -&gt; CodeHook -&gt; ShowS
 [CodeHook] -&gt; ShowS
 CodeHook -&gt; String
 (Int -&gt; CodeHook -&gt; ShowS)
@@ -106,17 +106,17 @@ $cfrom :: forall x. CodeHook -&gt; Rep CodeHook x
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook"><span class="hs-identifier hs-type">CodeHook</span></a></span><span>
 </span><span id="line-57"></span><span id="newCodeHook"><span class="annot"><span class="annottext">newCodeHook :: Text -&gt; Text -&gt; CodeHook
-</span><a href="Network.AWS.LexModels.Types.CodeHook.html#newCodeHook"><span class="hs-identifier hs-var hs-var">newCodeHook</span></a></span></span><span> </span><span id="local-6989586621679309445"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309445"><span class="hs-identifier hs-var">pUri_</span></a></span></span><span> </span><span id="local-6989586621679309444"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309444"><span class="hs-identifier hs-var">pMessageVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.LexModels.Types.CodeHook.html#newCodeHook"><span class="hs-identifier hs-var hs-var">newCodeHook</span></a></span></span><span> </span><span id="local-6989586621679309726"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309726"><span class="hs-identifier hs-var">pUri_</span></a></span></span><span> </span><span id="local-6989586621679309725"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309725"><span class="hs-identifier hs-var">pMessageVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">CodeHook' :: Text -&gt; Text -&gt; CodeHook
 </span><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook%27"><span class="hs-identifier hs-type">CodeHook'</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:uri:CodeHook' :: Text
 </span><a href="Network.AWS.LexModels.Types.CodeHook.html#%24sel%3Auri%3ACodeHook%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309445"><span class="hs-identifier hs-var">pUri_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679309726"><span class="hs-identifier hs-var">pUri_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:messageVersion:CodeHook' :: Text
 </span><a href="Network.AWS.LexModels.Types.CodeHook.html#%24sel%3AmessageVersion%3ACodeHook%27"><span class="hs-identifier hs-var">messageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309444"><span class="hs-identifier hs-var">pMessageVersion_</span></a></span><span>
+</span><a href="#local-6989586621679309725"><span class="hs-identifier hs-var">pMessageVersion_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Lambda function.</span><span>
@@ -126,16 +126,16 @@ $cfrom :: forall x. CodeHook -&gt; Rep CodeHook x
 -&gt; (CodeHook -&gt; Text -&gt; CodeHook)
 -&gt; Lens CodeHook CodeHook Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook%27"><span class="hs-identifier hs-type">CodeHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309440"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook%27"><span class="hs-identifier hs-type">CodeHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309721"><span class="annot"><span class="annottext">Text
 uri :: Text
 $sel:uri:CodeHook' :: CodeHook -&gt; Text
-</span><a href="#local-6989586621679309440"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309440"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309439"><span class="annot"><span class="annottext">s :: CodeHook
-</span><a href="#local-6989586621679309439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook%27"><span class="hs-identifier hs-type">CodeHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309438"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeHook
-</span><a href="#local-6989586621679309439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uri:CodeHook' :: Text
+</span><a href="#local-6989586621679309721"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309721"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309720"><span class="annot"><span class="annottext">s :: CodeHook
+</span><a href="#local-6989586621679309720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook%27"><span class="hs-identifier hs-type">CodeHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309719"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeHook
+</span><a href="#local-6989586621679309720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uri:CodeHook' :: Text
 </span><a href="Network.AWS.LexModels.Types.CodeHook.html#%24sel%3Auri%3ACodeHook%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook"><span class="hs-identifier hs-type">CodeHook</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook"><span class="hs-identifier hs-type">CodeHook</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The version of the request-response that you want Amazon Lex to use to</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- invoke your Lambda function. For more information, see using-lambda.</span><span>
@@ -145,58 +145,58 @@ $sel:uri:CodeHook' :: CodeHook -&gt; Text
 -&gt; (CodeHook -&gt; Text -&gt; CodeHook)
 -&gt; Lens CodeHook CodeHook Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook%27"><span class="hs-identifier hs-type">CodeHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309436"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook%27"><span class="hs-identifier hs-type">CodeHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309717"><span class="annot"><span class="annottext">Text
 messageVersion :: Text
 $sel:messageVersion:CodeHook' :: CodeHook -&gt; Text
-</span><a href="#local-6989586621679309436"><span class="hs-identifier hs-var hs-var">messageVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309436"><span class="hs-identifier hs-var">messageVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309435"><span class="annot"><span class="annottext">s :: CodeHook
-</span><a href="#local-6989586621679309435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook%27"><span class="hs-identifier hs-type">CodeHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309434"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeHook
-</span><a href="#local-6989586621679309435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageVersion:CodeHook' :: Text
+</span><a href="#local-6989586621679309717"><span class="hs-identifier hs-var hs-var">messageVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309717"><span class="hs-identifier hs-var">messageVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309716"><span class="annot"><span class="annottext">s :: CodeHook
+</span><a href="#local-6989586621679309716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook%27"><span class="hs-identifier hs-type">CodeHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309715"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeHook
+</span><a href="#local-6989586621679309716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageVersion:CodeHook' :: Text
 </span><a href="Network.AWS.LexModels.Types.CodeHook.html#%24sel%3AmessageVersion%3ACodeHook%27"><span class="hs-identifier hs-var">messageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook"><span class="hs-identifier hs-type">CodeHook</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook"><span class="hs-identifier hs-type">CodeHook</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309431"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook"><span class="hs-identifier hs-type">CodeHook</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679309429"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CodeHook
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309712"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook"><span class="hs-identifier hs-type">CodeHook</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679309710"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CodeHook
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser CodeHook) -&gt; Value -&gt; Parser CodeHook
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CodeHook&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309426"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309426"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309707"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309707"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; CodeHook
 </span><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook%27"><span class="hs-identifier hs-var">CodeHook'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; CodeHook)
 -&gt; Parser Text -&gt; Parser (Text -&gt; CodeHook)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679309707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;uri&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; CodeHook) -&gt; Parser Text -&gt; Parser CodeHook
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679309707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;messageVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309420"><span id="local-6989586621679309422"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook"><span class="hs-identifier hs-type">CodeHook</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309701"><span id="local-6989586621679309703"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook"><span class="hs-identifier hs-type">CodeHook</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309417"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook"><span class="hs-identifier hs-type">CodeHook</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook"><span class="hs-identifier hs-type">CodeHook</span></a></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309409"><span id="local-6989586621679309411"><span id="local-6989586621679309413"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook"><span class="hs-identifier hs-type">CodeHook</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679309407"><span class="annot"><span class="annottext">toJSON :: CodeHook -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook%27"><span class="hs-identifier hs-type">CodeHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309404"><span id="local-6989586621679309405"><span class="annot"><span class="annottext">Text
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309690"><span id="local-6989586621679309692"><span id="local-6989586621679309694"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook"><span class="hs-identifier hs-type">CodeHook</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679309688"><span class="annot"><span class="annottext">toJSON :: CodeHook -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook%27"><span class="hs-identifier hs-type">CodeHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309685"><span id="local-6989586621679309686"><span class="annot"><span class="annottext">Text
 messageVersion :: Text
 uri :: Text
 $sel:messageVersion:CodeHook' :: CodeHook -&gt; Text
 $sel:uri:CodeHook' :: CodeHook -&gt; Text
-</span><a href="#local-6989586621679309404"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679309685"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -208,7 +208,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309405"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679309686"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -216,7 +216,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;messageVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309404"><span class="hs-identifier hs-var">messageVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309685"><span class="hs-identifier hs-var">messageVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span></pre></body></html>

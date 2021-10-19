@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | The container for the completed multipart upload details.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCompletedMultipartUpload' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679538679"><span id="local-6989586621679538680"></span></span><span class="hs-keyword">data</span><span> </span><span id="CompletedMultipartUpload"><span class="annot"><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#CompletedMultipartUpload"><span class="hs-identifier hs-var">CompletedMultipartUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompletedMultipartUpload%27"><span class="annot"><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#CompletedMultipartUpload%27"><span class="hs-identifier hs-var">CompletedMultipartUpload'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679539307"><span id="local-6989586621679539308"></span></span><span class="hs-keyword">data</span><span> </span><span id="CompletedMultipartUpload"><span class="annot"><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#CompletedMultipartUpload"><span class="hs-identifier hs-var">CompletedMultipartUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompletedMultipartUpload%27"><span class="annot"><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#CompletedMultipartUpload%27"><span class="hs-identifier hs-var">CompletedMultipartUpload'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Array of CompletedPart data types.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aparts%3ACompletedMultipartUpload%27"><span class="annot"><span class="annottext">CompletedMultipartUpload -&gt; Maybe (NonEmpty CompletedPart)
 </span><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#%24sel%3Aparts%3ACompletedMultipartUpload%27"><span class="hs-identifier hs-var hs-var">parts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedPart.html#CompletedPart"><span class="hs-identifier hs-type">CompletedPart</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679538673"><span id="local-6989586621679538675"><span class="annot"><span class="annottext">CompletedMultipartUpload -&gt; CompletedMultipartUpload -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679539301"><span id="local-6989586621679539303"><span class="annot"><span class="annottext">CompletedMultipartUpload -&gt; CompletedMultipartUpload -&gt; Bool
 (CompletedMultipartUpload -&gt; CompletedMultipartUpload -&gt; Bool)
 -&gt; (CompletedMultipartUpload -&gt; CompletedMultipartUpload -&gt; Bool)
 -&gt; Eq CompletedMultipartUpload
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CompletedMultipartUpload -&gt; CompletedMultipartUpload -&gt; Bool
 == :: CompletedMultipartUpload -&gt; CompletedMultipartUpload -&gt; Bool
 $c== :: CompletedMultipartUpload -&gt; CompletedMultipartUpload -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679538664"><span id="local-6989586621679538666"><span id="local-6989586621679538668"><span id="local-6989586621679538670"><span class="annot"><span class="annottext">ReadPrec [CompletedMultipartUpload]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539292"><span id="local-6989586621679539294"><span id="local-6989586621679539296"><span id="local-6989586621679539298"><span class="annot"><span class="annottext">ReadPrec [CompletedMultipartUpload]
 ReadPrec CompletedMultipartUpload
 Int -&gt; ReadS CompletedMultipartUpload
 ReadS [CompletedMultipartUpload]
@@ -62,7 +62,7 @@ readList :: ReadS [CompletedMultipartUpload]
 $creadList :: ReadS [CompletedMultipartUpload]
 readsPrec :: Int -&gt; ReadS CompletedMultipartUpload
 $creadsPrec :: Int -&gt; ReadS CompletedMultipartUpload
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679538657"><span id="local-6989586621679538659"><span id="local-6989586621679538661"><span class="annot"><span class="annottext">Int -&gt; CompletedMultipartUpload -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539285"><span id="local-6989586621679539287"><span id="local-6989586621679539289"><span class="annot"><span class="annottext">Int -&gt; CompletedMultipartUpload -&gt; ShowS
 [CompletedMultipartUpload] -&gt; ShowS
 CompletedMultipartUpload -&gt; String
 (Int -&gt; CompletedMultipartUpload -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
      (Maybe (NonEmpty CompletedPart))
      (Maybe (NonEmpty CompletedPart))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#CompletedMultipartUpload%27"><span class="hs-identifier hs-type">CompletedMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538648"><span class="annot"><span class="annottext">Maybe (NonEmpty CompletedPart)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#CompletedMultipartUpload%27"><span class="hs-identifier hs-type">CompletedMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539276"><span class="annot"><span class="annottext">Maybe (NonEmpty CompletedPart)
 parts :: Maybe (NonEmpty CompletedPart)
 $sel:parts:CompletedMultipartUpload' :: CompletedMultipartUpload -&gt; Maybe (NonEmpty CompletedPart)
-</span><a href="#local-6989586621679538648"><span class="hs-identifier hs-var hs-var">parts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CompletedPart)
-</span><a href="#local-6989586621679538648"><span class="hs-identifier hs-var">parts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679538647"><span class="annot"><span class="annottext">s :: CompletedMultipartUpload
-</span><a href="#local-6989586621679538647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#CompletedMultipartUpload%27"><span class="hs-identifier hs-type">CompletedMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538646"><span class="annot"><span class="annottext">Maybe (NonEmpty CompletedPart)
-</span><a href="#local-6989586621679538646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompletedMultipartUpload
-</span><a href="#local-6989586621679538647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parts:CompletedMultipartUpload' :: Maybe (NonEmpty CompletedPart)
+</span><a href="#local-6989586621679539276"><span class="hs-identifier hs-var hs-var">parts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CompletedPart)
+</span><a href="#local-6989586621679539276"><span class="hs-identifier hs-var">parts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539275"><span class="annot"><span class="annottext">s :: CompletedMultipartUpload
+</span><a href="#local-6989586621679539275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#CompletedMultipartUpload%27"><span class="hs-identifier hs-type">CompletedMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539274"><span class="annot"><span class="annottext">Maybe (NonEmpty CompletedPart)
+</span><a href="#local-6989586621679539274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompletedMultipartUpload
+</span><a href="#local-6989586621679539275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parts:CompletedMultipartUpload' :: Maybe (NonEmpty CompletedPart)
 </span><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#%24sel%3Aparts%3ACompletedMultipartUpload%27"><span class="hs-identifier hs-var">parts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CompletedPart)
-</span><a href="#local-6989586621679538646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#CompletedMultipartUpload"><span class="hs-identifier hs-type">CompletedMultipartUpload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty CompletedPart)
+</span><a href="#local-6989586621679539274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#CompletedMultipartUpload"><span class="hs-identifier hs-type">CompletedMultipartUpload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty CompletedPart)
   -&gt; f (Maybe (NonEmpty CompletedPart)))
  -&gt; CompletedMultipartUpload -&gt; f CompletedMultipartUpload)
 -&gt; ((Maybe (NonEmpty CompletedPart)
@@ -166,19 +166,19 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty CompletedPart)
   (NonEmpty CompletedPart)
   (NonEmpty CompletedPart)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679538639"><span id="local-6989586621679538641"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#CompletedMultipartUpload"><span class="hs-identifier hs-type">CompletedMultipartUpload</span></a></span></span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539267"><span id="local-6989586621679539269"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#CompletedMultipartUpload"><span class="hs-identifier hs-type">CompletedMultipartUpload</span></a></span></span></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679538636"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#CompletedMultipartUpload"><span class="hs-identifier hs-type">CompletedMultipartUpload</span></a></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539264"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#CompletedMultipartUpload"><span class="hs-identifier hs-type">CompletedMultipartUpload</span></a></span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#CompletedMultipartUpload"><span class="hs-identifier hs-type">CompletedMultipartUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679538632"><span class="annot"><span class="annottext">toXML :: CompletedMultipartUpload -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#CompletedMultipartUpload%27"><span class="hs-identifier hs-type">CompletedMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538630"><span class="annot"><span class="annottext">Maybe (NonEmpty CompletedPart)
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679539260"><span class="annot"><span class="annottext">toXML :: CompletedMultipartUpload -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompletedMultipartUpload.html#CompletedMultipartUpload%27"><span class="hs-identifier hs-type">CompletedMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539258"><span class="annot"><span class="annottext">Maybe (NonEmpty CompletedPart)
 parts :: Maybe (NonEmpty CompletedPart)
 $sel:parts:CompletedMultipartUpload' :: CompletedMultipartUpload -&gt; Maybe (NonEmpty CompletedPart)
-</span><a href="#local-6989586621679538630"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679539258"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -192,6 +192,6 @@ forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 -&gt; Maybe (NonEmpty CompletedPart) -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CompletedPart)
-</span><a href="#local-6989586621679538630"><span class="hs-identifier hs-var">parts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679539258"><span class="hs-identifier hs-var">parts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-65"></span></pre></body></html>

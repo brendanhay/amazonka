@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621680308970"><span id="local-6989586621680308971"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImageVersionSortBy"><span class="annot"><a href="Network.AWS.SageMaker.Types.ImageVersionSortBy.html#ImageVersionSortBy"><span class="hs-identifier hs-var">ImageVersionSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageVersionSortBy%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ImageVersionSortBy.html#ImageVersionSortBy%27"><span class="hs-identifier hs-var">ImageVersionSortBy'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621680310345"><span id="local-6989586621680310346"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImageVersionSortBy"><span class="annot"><a href="Network.AWS.SageMaker.Types.ImageVersionSortBy.html#ImageVersionSortBy"><span class="hs-identifier hs-var">ImageVersionSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageVersionSortBy%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ImageVersionSortBy.html#ImageVersionSortBy%27"><span class="hs-identifier hs-var">ImageVersionSortBy'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromImageVersionSortBy"><span class="annot"><span class="annottext">ImageVersionSortBy -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ImageVersionSortBy.html#fromImageVersionSortBy"><span class="hs-identifier hs-var hs-var">fromImageVersionSortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680308962"><span id="local-6989586621680308964"><span id="local-6989586621680308966"><span class="annot"><span class="annottext">Int -&gt; ImageVersionSortBy -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680310337"><span id="local-6989586621680310339"><span id="local-6989586621680310341"><span class="annot"><span class="annottext">Int -&gt; ImageVersionSortBy -&gt; ShowS
 [ImageVersionSortBy] -&gt; ShowS
 ImageVersionSortBy -&gt; String
 (Int -&gt; ImageVersionSortBy -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ImageVersionSortBy -&gt; String
 showsPrec :: Int -&gt; ImageVersionSortBy -&gt; ShowS
 $cshowsPrec :: Int -&gt; ImageVersionSortBy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680308953"><span id="local-6989586621680308955"><span id="local-6989586621680308957"><span id="local-6989586621680308959"><span class="annot"><span class="annottext">ReadPrec [ImageVersionSortBy]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680310328"><span id="local-6989586621680310330"><span id="local-6989586621680310332"><span id="local-6989586621680310334"><span class="annot"><span class="annottext">ReadPrec [ImageVersionSortBy]
 ReadPrec ImageVersionSortBy
 Int -&gt; ReadS ImageVersionSortBy
 ReadS [ImageVersionSortBy]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ImageVersionSortBy]
 readsPrec :: Int -&gt; ReadS ImageVersionSortBy
 $creadsPrec :: Int -&gt; ReadS ImageVersionSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680308948"><span id="local-6989586621680308950"><span class="annot"><span class="annottext">ImageVersionSortBy -&gt; ImageVersionSortBy -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680310323"><span id="local-6989586621680310325"><span class="annot"><span class="annottext">ImageVersionSortBy -&gt; ImageVersionSortBy -&gt; Bool
 (ImageVersionSortBy -&gt; ImageVersionSortBy -&gt; Bool)
 -&gt; (ImageVersionSortBy -&gt; ImageVersionSortBy -&gt; Bool)
 -&gt; Eq ImageVersionSortBy
@@ -83,7 +83,7 @@ $c/= :: ImageVersionSortBy -&gt; ImageVersionSortBy -&gt; Bool
 == :: ImageVersionSortBy -&gt; ImageVersionSortBy -&gt; Bool
 $c== :: ImageVersionSortBy -&gt; ImageVersionSortBy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680308932"><span id="local-6989586621680308934"><span id="local-6989586621680308936"><span id="local-6989586621680308938"><span id="local-6989586621680308940"><span id="local-6989586621680308942"><span id="local-6989586621680308944"><span class="annot"><span class="annottext">Eq ImageVersionSortBy
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680310307"><span id="local-6989586621680310309"><span id="local-6989586621680310311"><span id="local-6989586621680310313"><span id="local-6989586621680310315"><span id="local-6989586621680310317"><span id="local-6989586621680310319"><span class="annot"><span class="annottext">Eq ImageVersionSortBy
 Eq ImageVersionSortBy
 -&gt; (ImageVersionSortBy -&gt; ImageVersionSortBy -&gt; Ordering)
 -&gt; (ImageVersionSortBy -&gt; ImageVersionSortBy -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ImageVersionSortBy -&gt; Rep ImageVersionSortBy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680308924"><span id="local-6989586621680308926"><span class="annot"><span class="annottext">Int -&gt; ImageVersionSortBy -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680310299"><span id="local-6989586621680310301"><span class="annot"><span class="annottext">Int -&gt; ImageVersionSortBy -&gt; Int
 ImageVersionSortBy -&gt; Int
 (Int -&gt; ImageVersionSortBy -&gt; Int)
 -&gt; (ImageVersionSortBy -&gt; Int) -&gt; Hashable ImageVersionSortBy
@@ -144,53 +144,53 @@ $chash :: ImageVersionSortBy -&gt; Int
 hashWithSalt :: Int -&gt; ImageVersionSortBy -&gt; Int
 $chashWithSalt :: Int -&gt; ImageVersionSortBy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680308921"><span class="annot"><span class="annottext">ImageVersionSortBy -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680310296"><span class="annot"><span class="annottext">ImageVersionSortBy -&gt; ()
 (ImageVersionSortBy -&gt; ()) -&gt; NFData ImageVersionSortBy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ImageVersionSortBy -&gt; ()
 $crnf :: ImageVersionSortBy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680308918"><span class="annot"><span class="annottext">Text -&gt; Either String ImageVersionSortBy
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680310293"><span class="annot"><span class="annottext">Text -&gt; Either String ImageVersionSortBy
 (Text -&gt; Either String ImageVersionSortBy)
 -&gt; FromText ImageVersionSortBy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ImageVersionSortBy
 $cfromText :: Text -&gt; Either String ImageVersionSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680308915"><span class="annot"><span class="annottext">ImageVersionSortBy -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680310290"><span class="annot"><span class="annottext">ImageVersionSortBy -&gt; Text
 (ImageVersionSortBy -&gt; Text) -&gt; ToText ImageVersionSortBy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ImageVersionSortBy -&gt; Text
 $ctoText :: ImageVersionSortBy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680308912"><span class="annot"><span class="annottext">ImageVersionSortBy -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680310287"><span class="annot"><span class="annottext">ImageVersionSortBy -&gt; ByteString
 (ImageVersionSortBy -&gt; ByteString)
 -&gt; ToByteString ImageVersionSortBy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ImageVersionSortBy -&gt; ByteString
 $ctoBS :: ImageVersionSortBy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680308909"><span class="annot"><span class="annottext">ImageVersionSortBy -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680310284"><span class="annot"><span class="annottext">ImageVersionSortBy -&gt; ByteStringBuilder
 (ImageVersionSortBy -&gt; ByteStringBuilder)
 -&gt; ToLog ImageVersionSortBy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ImageVersionSortBy -&gt; ByteStringBuilder
 $cbuild :: ImageVersionSortBy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680308906"><span class="annot"><span class="annottext">HeaderName -&gt; ImageVersionSortBy -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680310281"><span class="annot"><span class="annottext">HeaderName -&gt; ImageVersionSortBy -&gt; [Header]
 (HeaderName -&gt; ImageVersionSortBy -&gt; [Header])
 -&gt; ToHeader ImageVersionSortBy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ImageVersionSortBy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ImageVersionSortBy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680308903"><span class="annot"><span class="annottext">ImageVersionSortBy -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680310278"><span class="annot"><span class="annottext">ImageVersionSortBy -&gt; QueryString
 (ImageVersionSortBy -&gt; QueryString) -&gt; ToQuery ImageVersionSortBy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ImageVersionSortBy -&gt; QueryString
 $ctoQuery :: ImageVersionSortBy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680308898"><span id="local-6989586621680308900"><span class="annot"><span class="annottext">Value -&gt; Parser [ImageVersionSortBy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680310273"><span id="local-6989586621680310275"><span class="annot"><span class="annottext">Value -&gt; Parser [ImageVersionSortBy]
 Value -&gt; Parser ImageVersionSortBy
 (Value -&gt; Parser ImageVersionSortBy)
 -&gt; (Value -&gt; Parser [ImageVersionSortBy])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [ImageVersionSortBy]
 parseJSON :: Value -&gt; Parser ImageVersionSortBy
 $cparseJSON :: Value -&gt; Parser ImageVersionSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680308893"><span id="local-6989586621680308895"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImageVersionSortBy]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680310268"><span id="local-6989586621680310270"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImageVersionSortBy]
 FromJSONKeyFunction ImageVersionSortBy
 FromJSONKeyFunction ImageVersionSortBy
 -&gt; FromJSONKeyFunction [ImageVersionSortBy]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ImageVersionSortBy]
 fromJSONKey :: FromJSONKeyFunction ImageVersionSortBy
 $cfromJSONKey :: FromJSONKeyFunction ImageVersionSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680308884"><span id="local-6989586621680308886"><span id="local-6989586621680308888"><span id="local-6989586621680308890"><span class="annot"><span class="annottext">[ImageVersionSortBy] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680310259"><span id="local-6989586621680310261"><span id="local-6989586621680310263"><span id="local-6989586621680310265"><span class="annot"><span class="annottext">[ImageVersionSortBy] -&gt; Encoding
 [ImageVersionSortBy] -&gt; Value
 ImageVersionSortBy -&gt; Encoding
 ImageVersionSortBy -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: ImageVersionSortBy -&gt; Encoding
 toJSON :: ImageVersionSortBy -&gt; Value
 $ctoJSON :: ImageVersionSortBy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680308879"><span id="local-6989586621680308881"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImageVersionSortBy]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680310254"><span id="local-6989586621680310256"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImageVersionSortBy]
 ToJSONKeyFunction ImageVersionSortBy
 ToJSONKeyFunction ImageVersionSortBy
 -&gt; ToJSONKeyFunction [ImageVersionSortBy]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ImageVersionSortBy]
 toJSONKey :: ToJSONKeyFunction ImageVersionSortBy
 $ctoJSONKey :: ToJSONKeyFunction ImageVersionSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680308876"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImageVersionSortBy
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680310251"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImageVersionSortBy
 ([Node] -&gt; Either String ImageVersionSortBy)
 -&gt; FromXML ImageVersionSortBy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ImageVersionSortBy
 $cparseXML :: [Node] -&gt; Either String ImageVersionSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680308873"><span class="annot"><span class="annottext">ImageVersionSortBy -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680310248"><span class="annot"><span class="annottext">ImageVersionSortBy -&gt; XML
 (ImageVersionSortBy -&gt; XML) -&gt; ToXML ImageVersionSortBy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ImageVersionSortBy -&gt; XML

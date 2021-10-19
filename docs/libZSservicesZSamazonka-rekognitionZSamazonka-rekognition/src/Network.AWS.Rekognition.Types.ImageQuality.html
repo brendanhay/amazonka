@@ -26,19 +26,19 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Identifies face image brightness and sharpness.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newImageQuality' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679324680"><span id="local-6989586621679324681"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImageQuality"><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality"><span class="hs-identifier hs-var">ImageQuality</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageQuality%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality%27"><span class="hs-identifier hs-var">ImageQuality'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Value representing brightness of the face. The service returns a value</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- between 0 and 100 (inclusive). A higher value indicates a brighter face</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679324959"><span id="local-6989586621679324960"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImageQuality"><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality"><span class="hs-identifier hs-var">ImageQuality</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageQuality%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality%27"><span class="hs-identifier hs-var">ImageQuality'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Value representing sharpness of the face. The service returns a value</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- between 0 and 100 (inclusive). A higher value indicates a sharper face</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- image.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Abrightness%3AImageQuality%27"><span class="annot"><span class="annottext">ImageQuality -&gt; Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.ImageQuality.html#%24sel%3Abrightness%3AImageQuality%27"><span class="hs-identifier hs-var hs-var">brightness</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Value representing sharpness of the face. The service returns a value</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- between 0 and 100 (inclusive). A higher value indicates a sharper face</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Asharpness%3AImageQuality%27"><span class="annot"><span class="annottext">ImageQuality -&gt; Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.ImageQuality.html#%24sel%3Asharpness%3AImageQuality%27"><span class="hs-identifier hs-var hs-var">sharpness</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Value representing brightness of the face. The service returns a value</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- between 0 and 100 (inclusive). A higher value indicates a brighter face</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- image.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Asharpness%3AImageQuality%27"><span class="annot"><span class="annottext">ImageQuality -&gt; Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.ImageQuality.html#%24sel%3Asharpness%3AImageQuality%27"><span class="hs-identifier hs-var hs-var">sharpness</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Abrightness%3AImageQuality%27"><span class="annot"><span class="annottext">ImageQuality -&gt; Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.ImageQuality.html#%24sel%3Abrightness%3AImageQuality%27"><span class="hs-identifier hs-var hs-var">brightness</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324673"><span id="local-6989586621679324675"><span class="annot"><span class="annottext">ImageQuality -&gt; ImageQuality -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324952"><span id="local-6989586621679324954"><span class="annot"><span class="annottext">ImageQuality -&gt; ImageQuality -&gt; Bool
 (ImageQuality -&gt; ImageQuality -&gt; Bool)
 -&gt; (ImageQuality -&gt; ImageQuality -&gt; Bool) -&gt; Eq ImageQuality
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImageQuality -&gt; ImageQuality -&gt; Bool
 == :: ImageQuality -&gt; ImageQuality -&gt; Bool
 $c== :: ImageQuality -&gt; ImageQuality -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324664"><span id="local-6989586621679324666"><span id="local-6989586621679324668"><span id="local-6989586621679324670"><span class="annot"><span class="annottext">ReadPrec [ImageQuality]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324943"><span id="local-6989586621679324945"><span id="local-6989586621679324947"><span id="local-6989586621679324949"><span class="annot"><span class="annottext">ReadPrec [ImageQuality]
 ReadPrec ImageQuality
 Int -&gt; ReadS ImageQuality
 ReadS [ImageQuality]
@@ -66,7 +66,7 @@ readList :: ReadS [ImageQuality]
 $creadList :: ReadS [ImageQuality]
 readsPrec :: Int -&gt; ReadS ImageQuality
 $creadsPrec :: Int -&gt; ReadS ImageQuality
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324657"><span id="local-6989586621679324659"><span id="local-6989586621679324661"><span class="annot"><span class="annottext">Int -&gt; ImageQuality -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324936"><span id="local-6989586621679324938"><span id="local-6989586621679324940"><span class="annot"><span class="annottext">Int -&gt; ImageQuality -&gt; ShowS
 [ImageQuality] -&gt; ShowS
 ImageQuality -&gt; String
 (Int -&gt; ImageQuality -&gt; ShowS)
@@ -100,12 +100,12 @@ $cfrom :: forall x. ImageQuality -&gt; Rep ImageQuality x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'brightness', 'imageQuality_brightness' - Value representing brightness of the face. The service returns a value</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- between 0 and 100 (inclusive). A higher value indicates a brighter face</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'sharpness', 'imageQuality_sharpness' - Value representing sharpness of the face. The service returns a value</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- between 0 and 100 (inclusive). A higher value indicates a sharper face</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- image.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'sharpness', 'imageQuality_sharpness' - Value representing sharpness of the face. The service returns a value</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- between 0 and 100 (inclusive). A higher value indicates a sharper face</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'brightness', 'imageQuality_brightness' - Value representing brightness of the face. The service returns a value</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- between 0 and 100 (inclusive). A higher value indicates a brighter face</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- image.</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#newImageQuality"><span class="hs-identifier hs-type">newImageQuality</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality"><span class="hs-identifier hs-type">ImageQuality</span></a></span><span>
@@ -113,60 +113,60 @@ $cfrom :: forall x. ImageQuality -&gt; Rep ImageQuality x
 </span><a href="Network.AWS.Rekognition.Types.ImageQuality.html#newImageQuality"><span class="hs-identifier hs-var hs-var">newImageQuality</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ImageQuality' :: Maybe Double -&gt; Maybe Double -&gt; ImageQuality
 </span><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality%27"><span class="hs-identifier hs-type">ImageQuality'</span></a></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:brightness:ImageQuality' :: Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.ImageQuality.html#%24sel%3Abrightness%3AImageQuality%27"><span class="hs-identifier hs-var">brightness</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sharpness:ImageQuality' :: Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.ImageQuality.html#%24sel%3Asharpness%3AImageQuality%27"><span class="hs-identifier hs-var">sharpness</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:sharpness:ImageQuality' :: Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.ImageQuality.html#%24sel%3Asharpness%3AImageQuality%27"><span class="hs-identifier hs-var">sharpness</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:brightness:ImageQuality' :: Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.ImageQuality.html#%24sel%3Abrightness%3AImageQuality%27"><span class="hs-identifier hs-var">brightness</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | Value representing brightness of the face. The service returns a value</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- between 0 and 100 (inclusive). A higher value indicates a brighter face</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Value representing sharpness of the face. The service returns a value</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- between 0 and 100 (inclusive). A higher value indicates a sharper face</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- image.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#imageQuality_brightness"><span class="hs-identifier hs-type">imageQuality_brightness</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality"><span class="hs-identifier hs-type">ImageQuality</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="imageQuality_brightness"><span class="annot"><span class="annottext">imageQuality_brightness :: (Maybe Double -&gt; f (Maybe Double))
--&gt; ImageQuality -&gt; f ImageQuality
-</span><a href="Network.AWS.Rekognition.Types.ImageQuality.html#imageQuality_brightness"><span class="hs-identifier hs-var hs-var">imageQuality_brightness</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageQuality -&gt; Maybe Double)
--&gt; (ImageQuality -&gt; Maybe Double -&gt; ImageQuality)
--&gt; Lens ImageQuality ImageQuality (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality%27"><span class="hs-identifier hs-type">ImageQuality'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324648"><span class="annot"><span class="annottext">Maybe Double
-brightness :: Maybe Double
-$sel:brightness:ImageQuality' :: ImageQuality -&gt; Maybe Double
-</span><a href="#local-6989586621679324648"><span class="hs-identifier hs-var hs-var">brightness</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679324648"><span class="hs-identifier hs-var">brightness</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324647"><span class="annot"><span class="annottext">s :: ImageQuality
-</span><a href="#local-6989586621679324647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality%27"><span class="hs-identifier hs-type">ImageQuality'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324646"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679324646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageQuality
-</span><a href="#local-6989586621679324647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brightness:ImageQuality' :: Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.ImageQuality.html#%24sel%3Abrightness%3AImageQuality%27"><span class="hs-identifier hs-var">brightness</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679324646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality"><span class="hs-identifier hs-type">ImageQuality</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | Value representing sharpness of the face. The service returns a value</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- between 0 and 100 (inclusive). A higher value indicates a sharper face</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- image.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#imageQuality_sharpness"><span class="hs-identifier hs-type">imageQuality_sharpness</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality"><span class="hs-identifier hs-type">ImageQuality</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="imageQuality_sharpness"><span class="annot"><span class="annottext">imageQuality_sharpness :: (Maybe Double -&gt; f (Maybe Double))
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#imageQuality_sharpness"><span class="hs-identifier hs-type">imageQuality_sharpness</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality"><span class="hs-identifier hs-type">ImageQuality</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="imageQuality_sharpness"><span class="annot"><span class="annottext">imageQuality_sharpness :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; ImageQuality -&gt; f ImageQuality
 </span><a href="Network.AWS.Rekognition.Types.ImageQuality.html#imageQuality_sharpness"><span class="hs-identifier hs-var hs-var">imageQuality_sharpness</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageQuality -&gt; Maybe Double)
 -&gt; (ImageQuality -&gt; Maybe Double -&gt; ImageQuality)
 -&gt; Lens ImageQuality ImageQuality (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality%27"><span class="hs-identifier hs-type">ImageQuality'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324644"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality%27"><span class="hs-identifier hs-type">ImageQuality'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324927"><span class="annot"><span class="annottext">Maybe Double
 sharpness :: Maybe Double
 $sel:sharpness:ImageQuality' :: ImageQuality -&gt; Maybe Double
-</span><a href="#local-6989586621679324644"><span class="hs-identifier hs-var hs-var">sharpness</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679324644"><span class="hs-identifier hs-var">sharpness</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324643"><span class="annot"><span class="annottext">s :: ImageQuality
-</span><a href="#local-6989586621679324643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality%27"><span class="hs-identifier hs-type">ImageQuality'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324642"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679324642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageQuality
-</span><a href="#local-6989586621679324643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharpness:ImageQuality' :: Maybe Double
+</span><a href="#local-6989586621679324927"><span class="hs-identifier hs-var hs-var">sharpness</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679324927"><span class="hs-identifier hs-var">sharpness</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324926"><span class="annot"><span class="annottext">s :: ImageQuality
+</span><a href="#local-6989586621679324926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality%27"><span class="hs-identifier hs-type">ImageQuality'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324925"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679324925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageQuality
+</span><a href="#local-6989586621679324926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharpness:ImageQuality' :: Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.ImageQuality.html#%24sel%3Asharpness%3AImageQuality%27"><span class="hs-identifier hs-var">sharpness</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679324642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality"><span class="hs-identifier hs-type">ImageQuality</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679324925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality"><span class="hs-identifier hs-type">ImageQuality</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | Value representing brightness of the face. The service returns a value</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- between 0 and 100 (inclusive). A higher value indicates a brighter face</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- image.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#imageQuality_brightness"><span class="hs-identifier hs-type">imageQuality_brightness</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality"><span class="hs-identifier hs-type">ImageQuality</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="imageQuality_brightness"><span class="annot"><span class="annottext">imageQuality_brightness :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; ImageQuality -&gt; f ImageQuality
+</span><a href="Network.AWS.Rekognition.Types.ImageQuality.html#imageQuality_brightness"><span class="hs-identifier hs-var hs-var">imageQuality_brightness</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageQuality -&gt; Maybe Double)
+-&gt; (ImageQuality -&gt; Maybe Double -&gt; ImageQuality)
+-&gt; Lens ImageQuality ImageQuality (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality%27"><span class="hs-identifier hs-type">ImageQuality'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324923"><span class="annot"><span class="annottext">Maybe Double
+brightness :: Maybe Double
+$sel:brightness:ImageQuality' :: ImageQuality -&gt; Maybe Double
+</span><a href="#local-6989586621679324923"><span class="hs-identifier hs-var hs-var">brightness</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679324923"><span class="hs-identifier hs-var">brightness</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324922"><span class="annot"><span class="annottext">s :: ImageQuality
+</span><a href="#local-6989586621679324922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality%27"><span class="hs-identifier hs-type">ImageQuality'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324921"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679324921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageQuality
+</span><a href="#local-6989586621679324922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brightness:ImageQuality' :: Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.ImageQuality.html#%24sel%3Abrightness%3AImageQuality%27"><span class="hs-identifier hs-var">brightness</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679324921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality"><span class="hs-identifier hs-type">ImageQuality</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324639"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality"><span class="hs-identifier hs-type">ImageQuality</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679324637"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImageQuality
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324918"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality"><span class="hs-identifier hs-type">ImageQuality</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679324916"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImageQuality
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ImageQuality) -&gt; Value -&gt; Parser ImageQuality
@@ -174,29 +174,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ImageQuality&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679324634"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679324634"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679324913"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324913"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Double -&gt; ImageQuality
 </span><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality%27"><span class="hs-identifier hs-var">ImageQuality'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe Double -&gt; ImageQuality)
 -&gt; Parser (Maybe Double) -&gt; Parser (Maybe Double -&gt; ImageQuality)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679324634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679324913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Brightness&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Sharpness&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; ImageQuality)
 -&gt; Parser (Maybe Double) -&gt; Parser ImageQuality
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679324634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679324913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Sharpness&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Brightness&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324628"><span id="local-6989586621679324630"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality"><span class="hs-identifier hs-type">ImageQuality</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324907"><span id="local-6989586621679324909"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality"><span class="hs-identifier hs-type">ImageQuality</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality"><span class="hs-identifier hs-type">ImageQuality</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324904"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ImageQuality.html#ImageQuality"><span class="hs-identifier hs-type">ImageQuality</span></a></span></span><span>
 </span><span id="line-89"></span></pre></body></html>

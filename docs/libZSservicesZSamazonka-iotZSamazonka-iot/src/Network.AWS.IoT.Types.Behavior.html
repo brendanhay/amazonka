@@ -28,16 +28,16 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | A Device Defender security profile behavior.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newBehavior' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679798397"><span id="local-6989586621679798398"></span></span><span class="hs-keyword">data</span><span> </span><span id="Behavior"><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-var">Behavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Behavior%27"><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-var">Behavior'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The dimension for a metric in your behavior. For example, using a</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric to</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- only MQTT topics where the name matches the pattern specified in the</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- dimension. This can\'t be used with custom metrics.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AmetricDimension%3ABehavior%27"><span class="annot"><span class="annottext">Behavior -&gt; Maybe MetricDimension
-</span><a href="Network.AWS.IoT.Types.Behavior.html#%24sel%3AmetricDimension%3ABehavior%27"><span class="hs-identifier hs-var hs-var">metricDimension</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Suppresses alerts.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsuppressAlerts%3ABehavior%27"><span class="annot"><span class="annottext">Behavior -&gt; Maybe Bool
+</span><span id="line-31"></span><span id="local-6989586621679799269"><span id="local-6989586621679799270"></span></span><span class="hs-keyword">data</span><span> </span><span id="Behavior"><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-var">Behavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Behavior%27"><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-var">Behavior'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Suppresses alerts.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsuppressAlerts%3ABehavior%27"><span class="annot"><span class="annottext">Behavior -&gt; Maybe Bool
 </span><a href="Network.AWS.IoT.Types.Behavior.html#%24sel%3AsuppressAlerts%3ABehavior%27"><span class="hs-identifier hs-var hs-var">suppressAlerts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The dimension for a metric in your behavior. For example, using a</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric to</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- only MQTT topics where the name matches the pattern specified in the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- dimension. This can\'t be used with custom metrics.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmetricDimension%3ABehavior%27"><span class="annot"><span class="annottext">Behavior -&gt; Maybe MetricDimension
+</span><a href="Network.AWS.IoT.Types.Behavior.html#%24sel%3AmetricDimension%3ABehavior%27"><span class="hs-identifier hs-var hs-var">metricDimension</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | What is measured by the behavior.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Ametric%3ABehavior%27"><span class="annot"><span class="annottext">Behavior -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.Behavior.html#%24sel%3Ametric%3ABehavior%27"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3Aname%3ABehavior%27"><span class="annot"><span class="annottext">Behavior -&gt; Text
 </span><a href="Network.AWS.IoT.Types.Behavior.html#%24sel%3Aname%3ABehavior%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679798387"><span id="local-6989586621679798389"><span class="annot"><span class="annottext">Behavior -&gt; Behavior -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799259"><span id="local-6989586621679799261"><span class="annot"><span class="annottext">Behavior -&gt; Behavior -&gt; Bool
 (Behavior -&gt; Behavior -&gt; Bool)
 -&gt; (Behavior -&gt; Behavior -&gt; Bool) -&gt; Eq Behavior
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Behavior -&gt; Behavior -&gt; Bool
 == :: Behavior -&gt; Behavior -&gt; Bool
 $c== :: Behavior -&gt; Behavior -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798378"><span id="local-6989586621679798380"><span id="local-6989586621679798382"><span id="local-6989586621679798384"><span class="annot"><span class="annottext">ReadPrec [Behavior]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799250"><span id="local-6989586621679799252"><span id="local-6989586621679799254"><span id="local-6989586621679799256"><span class="annot"><span class="annottext">ReadPrec [Behavior]
 ReadPrec Behavior
 Int -&gt; ReadS Behavior
 ReadS [Behavior]
@@ -77,7 +77,7 @@ readList :: ReadS [Behavior]
 $creadList :: ReadS [Behavior]
 readsPrec :: Int -&gt; ReadS Behavior
 $creadsPrec :: Int -&gt; ReadS Behavior
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798371"><span id="local-6989586621679798373"><span id="local-6989586621679798375"><span class="annot"><span class="annottext">Int -&gt; Behavior -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799243"><span id="local-6989586621679799245"><span id="local-6989586621679799247"><span class="annot"><span class="annottext">Int -&gt; Behavior -&gt; ShowS
 [Behavior] -&gt; ShowS
 Behavior -&gt; String
 (Int -&gt; Behavior -&gt; ShowS)
@@ -108,12 +108,12 @@ $cfrom :: forall x. Behavior -&gt; Rep Behavior x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'metricDimension', 'behavior_metricDimension' - The dimension for a metric in your behavior. For example, using a</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric to</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- only MQTT topics where the name matches the pattern specified in the</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- dimension. This can\'t be used with custom metrics.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'suppressAlerts', 'behavior_suppressAlerts' - Suppresses alerts.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'suppressAlerts', 'behavior_suppressAlerts' - Suppresses alerts.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'metricDimension', 'behavior_metricDimension' - The dimension for a metric in your behavior. For example, using a</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric to</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- only MQTT topics where the name matches the pattern specified in the</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- dimension. This can\'t be used with custom metrics.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- 'metric', 'behavior_metric' - What is measured by the behavior.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
@@ -126,21 +126,21 @@ $cfrom :: forall x. Behavior -&gt; Rep Behavior x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span>
 </span><span id="line-74"></span><span id="newBehavior"><span class="annot"><span class="annottext">newBehavior :: Text -&gt; Behavior
-</span><a href="Network.AWS.IoT.Types.Behavior.html#newBehavior"><span class="hs-identifier hs-var hs-var">newBehavior</span></a></span></span><span> </span><span id="local-6989586621679798365"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798365"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">Behavior' :: Maybe MetricDimension
--&gt; Maybe Bool
+</span><a href="Network.AWS.IoT.Types.Behavior.html#newBehavior"><span class="hs-identifier hs-var hs-var">newBehavior</span></a></span></span><span> </span><span id="local-6989586621679799237"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799237"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">Behavior' :: Maybe Bool
+-&gt; Maybe MetricDimension
 -&gt; Maybe Text
 -&gt; Maybe BehaviorCriteria
 -&gt; Text
 -&gt; Behavior
 </span><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricDimension:Behavior' :: Maybe MetricDimension
-</span><a href="Network.AWS.IoT.Types.Behavior.html#%24sel%3AmetricDimension%3ABehavior%27"><span class="hs-identifier hs-var">metricDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricDimension
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:suppressAlerts:Behavior' :: Maybe Bool
+</span><a href="Network.AWS.IoT.Types.Behavior.html#%24sel%3AsuppressAlerts%3ABehavior%27"><span class="hs-identifier hs-var">suppressAlerts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:suppressAlerts:Behavior' :: Maybe Bool
-</span><a href="Network.AWS.IoT.Types.Behavior.html#%24sel%3AsuppressAlerts%3ABehavior%27"><span class="hs-identifier hs-var">suppressAlerts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricDimension:Behavior' :: Maybe MetricDimension
+</span><a href="Network.AWS.IoT.Types.Behavior.html#%24sel%3AmetricDimension%3ABehavior%27"><span class="hs-identifier hs-var">metricDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricDimension
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:metric:Behavior' :: Maybe Text
@@ -153,49 +153,49 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Behavior' :: Text
 </span><a href="Network.AWS.IoT.Types.Behavior.html#%24sel%3Aname%3ABehavior%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798365"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679799237"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | The dimension for a metric in your behavior. For example, using a</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric to</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- only MQTT topics where the name matches the pattern specified in the</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- dimension. This can\'t be used with custom metrics.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#behavior_metricDimension"><span class="hs-identifier hs-type">behavior_metricDimension</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="behavior_metricDimension"><span class="annot"><span class="annottext">behavior_metricDimension :: (Maybe MetricDimension -&gt; f (Maybe MetricDimension))
+</span><span id="line-83"></span><span class="hs-comment">-- | Suppresses alerts.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#behavior_suppressAlerts"><span class="hs-identifier hs-type">behavior_suppressAlerts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="behavior_suppressAlerts"><span class="annot"><span class="annottext">behavior_suppressAlerts :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Behavior -&gt; f Behavior
+</span><a href="Network.AWS.IoT.Types.Behavior.html#behavior_suppressAlerts"><span class="hs-identifier hs-var hs-var">behavior_suppressAlerts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Behavior -&gt; Maybe Bool)
+-&gt; (Behavior -&gt; Maybe Bool -&gt; Behavior)
+-&gt; Lens Behavior Behavior (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799233"><span class="annot"><span class="annottext">Maybe Bool
+suppressAlerts :: Maybe Bool
+$sel:suppressAlerts:Behavior' :: Behavior -&gt; Maybe Bool
+</span><a href="#local-6989586621679799233"><span class="hs-identifier hs-var hs-var">suppressAlerts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799233"><span class="hs-identifier hs-var">suppressAlerts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799232"><span class="annot"><span class="annottext">s :: Behavior
+</span><a href="#local-6989586621679799232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799231"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Behavior
+</span><a href="#local-6989586621679799232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suppressAlerts:Behavior' :: Maybe Bool
+</span><a href="Network.AWS.IoT.Types.Behavior.html#%24sel%3AsuppressAlerts%3ABehavior%27"><span class="hs-identifier hs-var">suppressAlerts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The dimension for a metric in your behavior. For example, using a</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric to</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- only MQTT topics where the name matches the pattern specified in the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- dimension. This can\'t be used with custom metrics.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#behavior_metricDimension"><span class="hs-identifier hs-type">behavior_metricDimension</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="behavior_metricDimension"><span class="annot"><span class="annottext">behavior_metricDimension :: (Maybe MetricDimension -&gt; f (Maybe MetricDimension))
 -&gt; Behavior -&gt; f Behavior
 </span><a href="Network.AWS.IoT.Types.Behavior.html#behavior_metricDimension"><span class="hs-identifier hs-var hs-var">behavior_metricDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Behavior -&gt; Maybe MetricDimension)
 -&gt; (Behavior -&gt; Maybe MetricDimension -&gt; Behavior)
 -&gt; Lens
      Behavior Behavior (Maybe MetricDimension) (Maybe MetricDimension)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798361"><span class="annot"><span class="annottext">Maybe MetricDimension
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799229"><span class="annot"><span class="annottext">Maybe MetricDimension
 metricDimension :: Maybe MetricDimension
 $sel:metricDimension:Behavior' :: Behavior -&gt; Maybe MetricDimension
-</span><a href="#local-6989586621679798361"><span class="hs-identifier hs-var hs-var">metricDimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricDimension
-</span><a href="#local-6989586621679798361"><span class="hs-identifier hs-var">metricDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798360"><span class="annot"><span class="annottext">s :: Behavior
-</span><a href="#local-6989586621679798360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798359"><span class="annot"><span class="annottext">Maybe MetricDimension
-</span><a href="#local-6989586621679798359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Behavior
-</span><a href="#local-6989586621679798360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricDimension:Behavior' :: Maybe MetricDimension
+</span><a href="#local-6989586621679799229"><span class="hs-identifier hs-var hs-var">metricDimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricDimension
+</span><a href="#local-6989586621679799229"><span class="hs-identifier hs-var">metricDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799228"><span class="annot"><span class="annottext">s :: Behavior
+</span><a href="#local-6989586621679799228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799227"><span class="annot"><span class="annottext">Maybe MetricDimension
+</span><a href="#local-6989586621679799227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Behavior
+</span><a href="#local-6989586621679799228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricDimension:Behavior' :: Maybe MetricDimension
 </span><a href="Network.AWS.IoT.Types.Behavior.html#%24sel%3AmetricDimension%3ABehavior%27"><span class="hs-identifier hs-var">metricDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricDimension
-</span><a href="#local-6989586621679798359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | Suppresses alerts.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#behavior_suppressAlerts"><span class="hs-identifier hs-type">behavior_suppressAlerts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="behavior_suppressAlerts"><span class="annot"><span class="annottext">behavior_suppressAlerts :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Behavior -&gt; f Behavior
-</span><a href="Network.AWS.IoT.Types.Behavior.html#behavior_suppressAlerts"><span class="hs-identifier hs-var hs-var">behavior_suppressAlerts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Behavior -&gt; Maybe Bool)
--&gt; (Behavior -&gt; Maybe Bool -&gt; Behavior)
--&gt; Lens Behavior Behavior (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798357"><span class="annot"><span class="annottext">Maybe Bool
-suppressAlerts :: Maybe Bool
-$sel:suppressAlerts:Behavior' :: Behavior -&gt; Maybe Bool
-</span><a href="#local-6989586621679798357"><span class="hs-identifier hs-var hs-var">suppressAlerts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679798357"><span class="hs-identifier hs-var">suppressAlerts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798356"><span class="annot"><span class="annottext">s :: Behavior
-</span><a href="#local-6989586621679798356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798355"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679798355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Behavior
-</span><a href="#local-6989586621679798356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suppressAlerts:Behavior' :: Maybe Bool
-</span><a href="Network.AWS.IoT.Types.Behavior.html#%24sel%3AsuppressAlerts%3ABehavior%27"><span class="hs-identifier hs-var">suppressAlerts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679798355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | What is measured by the behavior.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#behavior_metric"><span class="hs-identifier hs-type">behavior_metric</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -204,16 +204,16 @@ $sel:suppressAlerts:Behavior' :: Behavior -&gt; Maybe Bool
 -&gt; (Behavior -&gt; Maybe Text -&gt; Behavior)
 -&gt; Lens Behavior Behavior (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798353"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799225"><span class="annot"><span class="annottext">Maybe Text
 metric :: Maybe Text
 $sel:metric:Behavior' :: Behavior -&gt; Maybe Text
-</span><a href="#local-6989586621679798353"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679798353"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798352"><span class="annot"><span class="annottext">s :: Behavior
-</span><a href="#local-6989586621679798352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798351"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679798351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Behavior
-</span><a href="#local-6989586621679798352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metric:Behavior' :: Maybe Text
+</span><a href="#local-6989586621679799225"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799225"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799224"><span class="annot"><span class="annottext">s :: Behavior
+</span><a href="#local-6989586621679799224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799223"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Behavior
+</span><a href="#local-6989586621679799224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metric:Behavior' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.Behavior.html#%24sel%3Ametric%3ABehavior%27"><span class="hs-identifier hs-var">metric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679798351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The criteria that determine if a device is behaving normally in regard</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- to the @metric@.</span><span>
@@ -225,16 +225,16 @@ $sel:metric:Behavior' :: Behavior -&gt; Maybe Text
 -&gt; Lens
      Behavior Behavior (Maybe BehaviorCriteria) (Maybe BehaviorCriteria)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798349"><span class="annot"><span class="annottext">Maybe BehaviorCriteria
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799221"><span class="annot"><span class="annottext">Maybe BehaviorCriteria
 criteria :: Maybe BehaviorCriteria
 $sel:criteria:Behavior' :: Behavior -&gt; Maybe BehaviorCriteria
-</span><a href="#local-6989586621679798349"><span class="hs-identifier hs-var hs-var">criteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BehaviorCriteria
-</span><a href="#local-6989586621679798349"><span class="hs-identifier hs-var">criteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798348"><span class="annot"><span class="annottext">s :: Behavior
-</span><a href="#local-6989586621679798348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798347"><span class="annot"><span class="annottext">Maybe BehaviorCriteria
-</span><a href="#local-6989586621679798347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Behavior
-</span><a href="#local-6989586621679798348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:criteria:Behavior' :: Maybe BehaviorCriteria
+</span><a href="#local-6989586621679799221"><span class="hs-identifier hs-var hs-var">criteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BehaviorCriteria
+</span><a href="#local-6989586621679799221"><span class="hs-identifier hs-var">criteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799220"><span class="annot"><span class="annottext">s :: Behavior
+</span><a href="#local-6989586621679799220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799219"><span class="annot"><span class="annottext">Maybe BehaviorCriteria
+</span><a href="#local-6989586621679799219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Behavior
+</span><a href="#local-6989586621679799220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:criteria:Behavior' :: Maybe BehaviorCriteria
 </span><a href="Network.AWS.IoT.Types.Behavior.html#%24sel%3Acriteria%3ABehavior%27"><span class="hs-identifier hs-var">criteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BehaviorCriteria
-</span><a href="#local-6989586621679798347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The name you\'ve given to the behavior.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#behavior_name"><span class="hs-identifier hs-type">behavior_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -243,68 +243,68 @@ $sel:criteria:Behavior' :: Behavior -&gt; Maybe BehaviorCriteria
 -&gt; (Behavior -&gt; Text -&gt; Behavior)
 -&gt; Lens Behavior Behavior Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798345"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799217"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:Behavior' :: Behavior -&gt; Text
-</span><a href="#local-6989586621679798345"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798345"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798344"><span class="annot"><span class="annottext">s :: Behavior
-</span><a href="#local-6989586621679798344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798343"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Behavior
-</span><a href="#local-6989586621679798344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Behavior' :: Text
+</span><a href="#local-6989586621679799217"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799217"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799216"><span class="annot"><span class="annottext">s :: Behavior
+</span><a href="#local-6989586621679799216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799215"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Behavior
+</span><a href="#local-6989586621679799216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Behavior' :: Text
 </span><a href="Network.AWS.IoT.Types.Behavior.html#%24sel%3Aname%3ABehavior%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798340"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679798338"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Behavior
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799212"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679799210"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Behavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Behavior) -&gt; Value -&gt; Parser Behavior
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Behavior&quot;</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679798335"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679798335"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe MetricDimension
--&gt; Maybe Bool
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679799207"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799207"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe MetricDimension
 -&gt; Maybe Text
 -&gt; Maybe BehaviorCriteria
 -&gt; Text
 -&gt; Behavior
 </span><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-var">Behavior'</span></a></span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MetricDimension
- -&gt; Maybe Bool
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe MetricDimension
  -&gt; Maybe Text
  -&gt; Maybe BehaviorCriteria
  -&gt; Text
  -&gt; Behavior)
--&gt; Parser (Maybe MetricDimension)
+-&gt; Parser (Maybe Bool)
 -&gt; Parser
-     (Maybe Bool
+     (Maybe MetricDimension
       -&gt; Maybe Text -&gt; Maybe BehaviorCriteria -&gt; Text -&gt; Behavior)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679798335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MetricDimension)
+</span><a href="#local-6989586621679799207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;metricDimension&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;suppressAlerts&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Bool
+  (Maybe MetricDimension
    -&gt; Maybe Text -&gt; Maybe BehaviorCriteria -&gt; Text -&gt; Behavior)
--&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe MetricDimension)
 -&gt; Parser
      (Maybe Text -&gt; Maybe BehaviorCriteria -&gt; Text -&gt; Behavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679798335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679799207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MetricDimension)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;suppressAlerts&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;metricDimension&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe BehaviorCriteria -&gt; Text -&gt; Behavior)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe BehaviorCriteria -&gt; Text -&gt; Behavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679798335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679799207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metric&quot;</span></span><span class="hs-special">)</span><span>
@@ -312,26 +312,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe BehaviorCriteria) -&gt; Parser (Text -&gt; Behavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679798335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BehaviorCriteria)
+</span><a href="#local-6989586621679799207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BehaviorCriteria)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;criteria&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Behavior) -&gt; Parser Text -&gt; Parser Behavior
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679798335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679799207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798328"><span id="local-6989586621679798330"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799200"><span id="local-6989586621679799202"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798325"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799197"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798317"><span id="local-6989586621679798319"><span id="local-6989586621679798321"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679798315"><span class="annot"><span class="annottext">toJSON :: Behavior -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798309"><span id="local-6989586621679798310"><span id="local-6989586621679798311"><span id="local-6989586621679798312"><span id="local-6989586621679798313"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799189"><span id="local-6989586621679799191"><span id="local-6989586621679799193"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679799187"><span class="annot"><span class="annottext">toJSON :: Behavior -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior%27"><span class="hs-identifier hs-type">Behavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799181"><span id="local-6989586621679799182"><span id="local-6989586621679799183"><span id="local-6989586621679799184"><span id="local-6989586621679799185"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe MetricDimension
 Maybe BehaviorCriteria
@@ -339,56 +339,56 @@ Text
 name :: Text
 criteria :: Maybe BehaviorCriteria
 metric :: Maybe Text
-suppressAlerts :: Maybe Bool
 metricDimension :: Maybe MetricDimension
+suppressAlerts :: Maybe Bool
 $sel:name:Behavior' :: Behavior -&gt; Text
 $sel:criteria:Behavior' :: Behavior -&gt; Maybe BehaviorCriteria
 $sel:metric:Behavior' :: Behavior -&gt; Maybe Text
-$sel:suppressAlerts:Behavior' :: Behavior -&gt; Maybe Bool
 $sel:metricDimension:Behavior' :: Behavior -&gt; Maybe MetricDimension
-</span><a href="#local-6989586621679798309"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:suppressAlerts:Behavior' :: Behavior -&gt; Maybe Bool
+</span><a href="#local-6989586621679799181"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-128"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;metricDimension&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MetricDimension -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">(MetricDimension -&gt; Pair) -&gt; Maybe MetricDimension -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MetricDimension
-</span><a href="#local-6989586621679798313"><span class="hs-identifier hs-var">metricDimension</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-130"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;suppressAlerts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+</span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679798312"><span class="hs-identifier hs-var">suppressAlerts</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679799185"><span class="hs-identifier hs-var">suppressAlerts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metricDimension&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MetricDimension -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">(MetricDimension -&gt; Pair) -&gt; Maybe MetricDimension -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MetricDimension
+</span><a href="#local-6989586621679799184"><span class="hs-identifier hs-var">metricDimension</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metric&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679798311"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679799183"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;criteria&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BehaviorCriteria -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(BehaviorCriteria -&gt; Pair) -&gt; Maybe BehaviorCriteria -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BehaviorCriteria
-</span><a href="#local-6989586621679798310"><span class="hs-identifier hs-var">criteria</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679799182"><span class="hs-identifier hs-var">criteria</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798309"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799181"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span></pre></body></html>

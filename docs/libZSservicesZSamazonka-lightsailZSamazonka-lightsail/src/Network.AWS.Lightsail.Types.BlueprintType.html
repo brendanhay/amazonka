@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679604208"><span id="local-6989586621679604209"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BlueprintType"><span class="annot"><a href="Network.AWS.Lightsail.Types.BlueprintType.html#BlueprintType"><span class="hs-identifier hs-var">BlueprintType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlueprintType%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.BlueprintType.html#BlueprintType%27"><span class="hs-identifier hs-var">BlueprintType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679605095"><span id="local-6989586621679605096"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BlueprintType"><span class="annot"><a href="Network.AWS.Lightsail.Types.BlueprintType.html#BlueprintType"><span class="hs-identifier hs-var">BlueprintType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlueprintType%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.BlueprintType.html#BlueprintType%27"><span class="hs-identifier hs-var">BlueprintType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBlueprintType"><span class="annot"><span class="annottext">BlueprintType -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.BlueprintType.html#fromBlueprintType"><span class="hs-identifier hs-var hs-var">fromBlueprintType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679604200"><span id="local-6989586621679604202"><span id="local-6989586621679604204"><span class="annot"><span class="annottext">Int -&gt; BlueprintType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679605087"><span id="local-6989586621679605089"><span id="local-6989586621679605091"><span class="annot"><span class="annottext">Int -&gt; BlueprintType -&gt; ShowS
 [BlueprintType] -&gt; ShowS
 BlueprintType -&gt; String
 (Int -&gt; BlueprintType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: BlueprintType -&gt; String
 showsPrec :: Int -&gt; BlueprintType -&gt; ShowS
 $cshowsPrec :: Int -&gt; BlueprintType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679604191"><span id="local-6989586621679604193"><span id="local-6989586621679604195"><span id="local-6989586621679604197"><span class="annot"><span class="annottext">ReadPrec [BlueprintType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679605078"><span id="local-6989586621679605080"><span id="local-6989586621679605082"><span id="local-6989586621679605084"><span class="annot"><span class="annottext">ReadPrec [BlueprintType]
 ReadPrec BlueprintType
 Int -&gt; ReadS BlueprintType
 ReadS [BlueprintType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [BlueprintType]
 readsPrec :: Int -&gt; ReadS BlueprintType
 $creadsPrec :: Int -&gt; ReadS BlueprintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679604186"><span id="local-6989586621679604188"><span class="annot"><span class="annottext">BlueprintType -&gt; BlueprintType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679605073"><span id="local-6989586621679605075"><span class="annot"><span class="annottext">BlueprintType -&gt; BlueprintType -&gt; Bool
 (BlueprintType -&gt; BlueprintType -&gt; Bool)
 -&gt; (BlueprintType -&gt; BlueprintType -&gt; Bool) -&gt; Eq BlueprintType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: BlueprintType -&gt; BlueprintType -&gt; Bool
 == :: BlueprintType -&gt; BlueprintType -&gt; Bool
 $c== :: BlueprintType -&gt; BlueprintType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679604170"><span id="local-6989586621679604172"><span id="local-6989586621679604174"><span id="local-6989586621679604176"><span id="local-6989586621679604178"><span id="local-6989586621679604180"><span id="local-6989586621679604182"><span class="annot"><span class="annottext">Eq BlueprintType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679605057"><span id="local-6989586621679605059"><span id="local-6989586621679605061"><span id="local-6989586621679605063"><span id="local-6989586621679605065"><span id="local-6989586621679605067"><span id="local-6989586621679605069"><span class="annot"><span class="annottext">Eq BlueprintType
 Eq BlueprintType
 -&gt; (BlueprintType -&gt; BlueprintType -&gt; Ordering)
 -&gt; (BlueprintType -&gt; BlueprintType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. BlueprintType -&gt; Rep BlueprintType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679604162"><span id="local-6989586621679604164"><span class="annot"><span class="annottext">Int -&gt; BlueprintType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679605049"><span id="local-6989586621679605051"><span class="annot"><span class="annottext">Int -&gt; BlueprintType -&gt; Int
 BlueprintType -&gt; Int
 (Int -&gt; BlueprintType -&gt; Int)
 -&gt; (BlueprintType -&gt; Int) -&gt; Hashable BlueprintType
@@ -142,49 +142,49 @@ $chash :: BlueprintType -&gt; Int
 hashWithSalt :: Int -&gt; BlueprintType -&gt; Int
 $chashWithSalt :: Int -&gt; BlueprintType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679604159"><span class="annot"><span class="annottext">BlueprintType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679605046"><span class="annot"><span class="annottext">BlueprintType -&gt; ()
 (BlueprintType -&gt; ()) -&gt; NFData BlueprintType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BlueprintType -&gt; ()
 $crnf :: BlueprintType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679604156"><span class="annot"><span class="annottext">Text -&gt; Either String BlueprintType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679605043"><span class="annot"><span class="annottext">Text -&gt; Either String BlueprintType
 (Text -&gt; Either String BlueprintType) -&gt; FromText BlueprintType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BlueprintType
 $cfromText :: Text -&gt; Either String BlueprintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679604153"><span class="annot"><span class="annottext">BlueprintType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679605040"><span class="annot"><span class="annottext">BlueprintType -&gt; Text
 (BlueprintType -&gt; Text) -&gt; ToText BlueprintType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BlueprintType -&gt; Text
 $ctoText :: BlueprintType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679604150"><span class="annot"><span class="annottext">BlueprintType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679605037"><span class="annot"><span class="annottext">BlueprintType -&gt; ByteString
 (BlueprintType -&gt; ByteString) -&gt; ToByteString BlueprintType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BlueprintType -&gt; ByteString
 $ctoBS :: BlueprintType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679604147"><span class="annot"><span class="annottext">BlueprintType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679605034"><span class="annot"><span class="annottext">BlueprintType -&gt; ByteStringBuilder
 (BlueprintType -&gt; ByteStringBuilder) -&gt; ToLog BlueprintType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BlueprintType -&gt; ByteStringBuilder
 $cbuild :: BlueprintType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679604144"><span class="annot"><span class="annottext">HeaderName -&gt; BlueprintType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679605031"><span class="annot"><span class="annottext">HeaderName -&gt; BlueprintType -&gt; [Header]
 (HeaderName -&gt; BlueprintType -&gt; [Header]) -&gt; ToHeader BlueprintType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BlueprintType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BlueprintType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679604141"><span class="annot"><span class="annottext">BlueprintType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679605028"><span class="annot"><span class="annottext">BlueprintType -&gt; QueryString
 (BlueprintType -&gt; QueryString) -&gt; ToQuery BlueprintType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BlueprintType -&gt; QueryString
 $ctoQuery :: BlueprintType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679604136"><span id="local-6989586621679604138"><span class="annot"><span class="annottext">Value -&gt; Parser [BlueprintType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679605023"><span id="local-6989586621679605025"><span class="annot"><span class="annottext">Value -&gt; Parser [BlueprintType]
 Value -&gt; Parser BlueprintType
 (Value -&gt; Parser BlueprintType)
 -&gt; (Value -&gt; Parser [BlueprintType]) -&gt; FromJSON BlueprintType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [BlueprintType]
 parseJSON :: Value -&gt; Parser BlueprintType
 $cparseJSON :: Value -&gt; Parser BlueprintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679604131"><span id="local-6989586621679604133"><span class="annot"><span class="annottext">FromJSONKeyFunction [BlueprintType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679605018"><span id="local-6989586621679605020"><span class="annot"><span class="annottext">FromJSONKeyFunction [BlueprintType]
 FromJSONKeyFunction BlueprintType
 FromJSONKeyFunction BlueprintType
 -&gt; FromJSONKeyFunction [BlueprintType] -&gt; FromJSONKey BlueprintType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BlueprintType]
 fromJSONKey :: FromJSONKeyFunction BlueprintType
 $cfromJSONKey :: FromJSONKeyFunction BlueprintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679604122"><span id="local-6989586621679604124"><span id="local-6989586621679604126"><span id="local-6989586621679604128"><span class="annot"><span class="annottext">[BlueprintType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679605009"><span id="local-6989586621679605011"><span id="local-6989586621679605013"><span id="local-6989586621679605015"><span class="annot"><span class="annottext">[BlueprintType] -&gt; Encoding
 [BlueprintType] -&gt; Value
 BlueprintType -&gt; Encoding
 BlueprintType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: BlueprintType -&gt; Encoding
 toJSON :: BlueprintType -&gt; Value
 $ctoJSON :: BlueprintType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679604117"><span id="local-6989586621679604119"><span class="annot"><span class="annottext">ToJSONKeyFunction [BlueprintType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679605004"><span id="local-6989586621679605006"><span class="annot"><span class="annottext">ToJSONKeyFunction [BlueprintType]
 ToJSONKeyFunction BlueprintType
 ToJSONKeyFunction BlueprintType
 -&gt; ToJSONKeyFunction [BlueprintType] -&gt; ToJSONKey BlueprintType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BlueprintType]
 toJSONKey :: ToJSONKeyFunction BlueprintType
 $ctoJSONKey :: ToJSONKeyFunction BlueprintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679604114"><span class="annot"><span class="annottext">[Node] -&gt; Either String BlueprintType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679605001"><span class="annot"><span class="annottext">[Node] -&gt; Either String BlueprintType
 ([Node] -&gt; Either String BlueprintType) -&gt; FromXML BlueprintType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BlueprintType
 $cparseXML :: [Node] -&gt; Either String BlueprintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679604111"><span class="annot"><span class="annottext">BlueprintType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679604998"><span class="annot"><span class="annottext">BlueprintType -&gt; XML
 (BlueprintType -&gt; XML) -&gt; ToXML BlueprintType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BlueprintType -&gt; XML

@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Container for the Stats Event.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newStatsEvent' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679553354"><span id="local-6989586621679553355"></span></span><span class="hs-keyword">data</span><span> </span><span id="StatsEvent"><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent"><span class="hs-identifier hs-var">StatsEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StatsEvent%27"><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent%27"><span class="hs-identifier hs-var">StatsEvent'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679553995"><span id="local-6989586621679553996"></span></span><span class="hs-keyword">data</span><span> </span><span id="StatsEvent"><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent"><span class="hs-identifier hs-var">StatsEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StatsEvent%27"><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent%27"><span class="hs-identifier hs-var">StatsEvent'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Stats event details.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Adetails%3AStatsEvent%27"><span class="annot"><span class="annottext">StatsEvent -&gt; Maybe Stats
 </span><a href="Network.AWS.S3.Types.StatsEvent.html#%24sel%3Adetails%3AStatsEvent%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679553348"><span id="local-6989586621679553350"><span class="annot"><span class="annottext">StatsEvent -&gt; StatsEvent -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679553989"><span id="local-6989586621679553991"><span class="annot"><span class="annottext">StatsEvent -&gt; StatsEvent -&gt; Bool
 (StatsEvent -&gt; StatsEvent -&gt; Bool)
 -&gt; (StatsEvent -&gt; StatsEvent -&gt; Bool) -&gt; Eq StatsEvent
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StatsEvent -&gt; StatsEvent -&gt; Bool
 == :: StatsEvent -&gt; StatsEvent -&gt; Bool
 $c== :: StatsEvent -&gt; StatsEvent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553339"><span id="local-6989586621679553341"><span id="local-6989586621679553343"><span id="local-6989586621679553345"><span class="annot"><span class="annottext">ReadPrec [StatsEvent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553980"><span id="local-6989586621679553982"><span id="local-6989586621679553984"><span id="local-6989586621679553986"><span class="annot"><span class="annottext">ReadPrec [StatsEvent]
 ReadPrec StatsEvent
 Int -&gt; ReadS StatsEvent
 ReadS [StatsEvent]
@@ -61,7 +61,7 @@ readList :: ReadS [StatsEvent]
 $creadList :: ReadS [StatsEvent]
 readsPrec :: Int -&gt; ReadS StatsEvent
 $creadsPrec :: Int -&gt; ReadS StatsEvent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553332"><span id="local-6989586621679553334"><span id="local-6989586621679553336"><span class="annot"><span class="annottext">Int -&gt; StatsEvent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553973"><span id="local-6989586621679553975"><span id="local-6989586621679553977"><span class="annot"><span class="annottext">Int -&gt; StatsEvent -&gt; ShowS
 [StatsEvent] -&gt; ShowS
 StatsEvent -&gt; String
 (Int -&gt; StatsEvent -&gt; ShowS)
@@ -112,32 +112,32 @@ forall a. Maybe a
 -&gt; (StatsEvent -&gt; Maybe Stats -&gt; StatsEvent)
 -&gt; Lens StatsEvent StatsEvent (Maybe Stats) (Maybe Stats)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent%27"><span class="hs-identifier hs-type">StatsEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553323"><span class="annot"><span class="annottext">Maybe Stats
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent%27"><span class="hs-identifier hs-type">StatsEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553964"><span class="annot"><span class="annottext">Maybe Stats
 details :: Maybe Stats
 $sel:details:StatsEvent' :: StatsEvent -&gt; Maybe Stats
-</span><a href="#local-6989586621679553323"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Stats
-</span><a href="#local-6989586621679553323"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553322"><span class="annot"><span class="annottext">s :: StatsEvent
-</span><a href="#local-6989586621679553322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent%27"><span class="hs-identifier hs-type">StatsEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553321"><span class="annot"><span class="annottext">Maybe Stats
-</span><a href="#local-6989586621679553321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatsEvent
-</span><a href="#local-6989586621679553322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:StatsEvent' :: Maybe Stats
+</span><a href="#local-6989586621679553964"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Stats
+</span><a href="#local-6989586621679553964"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553963"><span class="annot"><span class="annottext">s :: StatsEvent
+</span><a href="#local-6989586621679553963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent%27"><span class="hs-identifier hs-type">StatsEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553962"><span class="annot"><span class="annottext">Maybe Stats
+</span><a href="#local-6989586621679553962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatsEvent
+</span><a href="#local-6989586621679553963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:StatsEvent' :: Maybe Stats
 </span><a href="Network.AWS.S3.Types.StatsEvent.html#%24sel%3Adetails%3AStatsEvent%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Stats
-</span><a href="#local-6989586621679553321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent"><span class="hs-identifier hs-type">StatsEvent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679553962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent"><span class="hs-identifier hs-type">StatsEvent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent"><span class="hs-identifier hs-type">StatsEvent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621679553318"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StatsEvent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679553316"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553316"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679553959"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StatsEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679553957"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553957"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">Maybe Stats -&gt; StatsEvent
 </span><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent%27"><span class="hs-identifier hs-var">StatsEvent'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Stats -&gt; StatsEvent)
 -&gt; Either String (Maybe Stats) -&gt; Either String StatsEvent
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Stats)
+</span><a href="#local-6989586621679553957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Stats)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Details&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553310"><span id="local-6989586621679553312"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent"><span class="hs-identifier hs-type">StatsEvent</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553951"><span id="local-6989586621679553953"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent"><span class="hs-identifier hs-type">StatsEvent</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553307"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent"><span class="hs-identifier hs-type">StatsEvent</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553948"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent"><span class="hs-identifier hs-type">StatsEvent</span></a></span></span><span>
 </span><span id="line-62"></span></pre></body></html>

@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newUntagResource' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679372869"><span id="local-6989586621679372870"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagResource"><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-var">UntagResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagResource%27"><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-var">UntagResource'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679373189"><span id="local-6989586621679373190"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagResource"><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-var">UntagResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagResource%27"><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-var">UntagResource'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource to which you want to</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- remove tags.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AresourceArn%3AUntagResource%27"><span class="annot"><span class="annottext">UntagResource -&gt; Text
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AtagKeys%3AUntagResource%27"><span class="annot"><span class="annottext">UntagResource -&gt; [Text]
 </span><a href="Network.AWS.CodeCommit.UntagResource.html#%24sel%3AtagKeys%3AUntagResource%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679372862"><span id="local-6989586621679372864"><span class="annot"><span class="annottext">UntagResource -&gt; UntagResource -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373182"><span id="local-6989586621679373184"><span class="annot"><span class="annottext">UntagResource -&gt; UntagResource -&gt; Bool
 (UntagResource -&gt; UntagResource -&gt; Bool)
 -&gt; (UntagResource -&gt; UntagResource -&gt; Bool) -&gt; Eq UntagResource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UntagResource -&gt; UntagResource -&gt; Bool
 == :: UntagResource -&gt; UntagResource -&gt; Bool
 $c== :: UntagResource -&gt; UntagResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372853"><span id="local-6989586621679372855"><span id="local-6989586621679372857"><span id="local-6989586621679372859"><span class="annot"><span class="annottext">ReadPrec [UntagResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373173"><span id="local-6989586621679373175"><span id="local-6989586621679373177"><span id="local-6989586621679373179"><span class="annot"><span class="annottext">ReadPrec [UntagResource]
 ReadPrec UntagResource
 Int -&gt; ReadS UntagResource
 ReadS [UntagResource]
@@ -84,7 +84,7 @@ readList :: ReadS [UntagResource]
 $creadList :: ReadS [UntagResource]
 readsPrec :: Int -&gt; ReadS UntagResource
 $creadsPrec :: Int -&gt; ReadS UntagResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372846"><span id="local-6989586621679372848"><span id="local-6989586621679372850"><span class="annot"><span class="annottext">Int -&gt; UntagResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373166"><span id="local-6989586621679373168"><span id="local-6989586621679373170"><span class="annot"><span class="annottext">Int -&gt; UntagResource -&gt; ShowS
 [UntagResource] -&gt; ShowS
 UntagResource -&gt; String
 (Int -&gt; UntagResource -&gt; ShowS)
@@ -127,13 +127,13 @@ $cfrom :: forall x. UntagResource -&gt; Rep UntagResource x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span>
 </span><span id="line-75"></span><span id="newUntagResource"><span class="annot"><span class="annottext">newUntagResource :: Text -&gt; UntagResource
-</span><a href="Network.AWS.CodeCommit.UntagResource.html#newUntagResource"><span class="hs-identifier hs-var hs-var">newUntagResource</span></a></span></span><span> </span><span id="local-6989586621679372841"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372841"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.UntagResource.html#newUntagResource"><span class="hs-identifier hs-var hs-var">newUntagResource</span></a></span></span><span> </span><span id="local-6989586621679373161"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373161"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">UntagResource' :: Text -&gt; [Text] -&gt; UntagResource
 </span><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceArn:UntagResource' :: Text
 </span><a href="Network.AWS.CodeCommit.UntagResource.html#%24sel%3AresourceArn%3AUntagResource%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372841"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373161"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeys:UntagResource' :: [Text]
 </span><a href="Network.AWS.CodeCommit.UntagResource.html#%24sel%3AtagKeys%3AUntagResource%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -148,16 +148,16 @@ forall a. Monoid a =&gt; a
 -&gt; (UntagResource -&gt; Text -&gt; UntagResource)
 -&gt; Lens UntagResource UntagResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372838"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373158"><span class="annot"><span class="annottext">Text
 resourceArn :: Text
 $sel:resourceArn:UntagResource' :: UntagResource -&gt; Text
-</span><a href="#local-6989586621679372838"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372838"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372837"><span class="annot"><span class="annottext">s :: UntagResource
-</span><a href="#local-6989586621679372837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372836"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResource
-</span><a href="#local-6989586621679372837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:UntagResource' :: Text
+</span><a href="#local-6989586621679373158"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373158"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373157"><span class="annot"><span class="annottext">s :: UntagResource
+</span><a href="#local-6989586621679373157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373156"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResource
+</span><a href="#local-6989586621679373157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:UntagResource' :: Text
 </span><a href="Network.AWS.CodeCommit.UntagResource.html#%24sel%3AresourceArn%3AUntagResource%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The tag key for each tag that you want to remove from the resource.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#untagResource_tagKeys"><span class="hs-identifier hs-type">untagResource_tagKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -166,35 +166,35 @@ $sel:resourceArn:UntagResource' :: UntagResource -&gt; Text
 -&gt; (UntagResource -&gt; [Text] -&gt; UntagResource)
 -&gt; Lens UntagResource UntagResource [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372835"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373155"><span class="annot"><span class="annottext">[Text]
 tagKeys :: [Text]
 $sel:tagKeys:UntagResource' :: UntagResource -&gt; [Text]
-</span><a href="#local-6989586621679372835"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679372835"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372834"><span class="annot"><span class="annottext">s :: UntagResource
-</span><a href="#local-6989586621679372834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372833"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679372833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResource
-</span><a href="#local-6989586621679372834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:UntagResource' :: [Text]
+</span><a href="#local-6989586621679373155"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679373155"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373154"><span class="annot"><span class="annottext">s :: UntagResource
+</span><a href="#local-6989586621679373154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373153"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679373153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResource
+</span><a href="#local-6989586621679373154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:UntagResource' :: [Text]
 </span><a href="Network.AWS.CodeCommit.UntagResource.html#%24sel%3AtagKeys%3AUntagResource%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679372833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; UntagResource -&gt; f UntagResource)
+</span><a href="#local-6989586621679373153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; UntagResource -&gt; f UntagResource)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; UntagResource
 -&gt; f UntagResource
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679372827"><span class="annot"><span class="annottext">request :: UntagResource -&gt; Request UntagResource
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679373147"><span class="annot"><span class="annottext">request :: UntagResource -&gt; Request UntagResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UntagResource -&gt; Request UntagResource
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679372823"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679373143"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UntagResource
 -&gt; ClientResponse ClientBody
@@ -218,12 +218,12 @@ AWSResponse a
 UntagResourceResponse
 </span><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-var">UntagResourceResponse'</span></a></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372816"><span id="local-6989586621679372818"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373136"><span id="local-6989586621679373138"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372813"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679372809"><span class="annot"><span class="annottext">toHeaders :: UntagResource -&gt; [Header]
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679373129"><span class="annot"><span class="annottext">toHeaders :: UntagResource -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UntagResource -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -250,15 +250,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372799"><span id="local-6989586621679372801"><span id="local-6989586621679372803"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679372797"><span class="annot"><span class="annottext">toJSON :: UntagResource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372794"><span id="local-6989586621679372795"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373119"><span id="local-6989586621679373121"><span id="local-6989586621679373123"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679373117"><span class="annot"><span class="annottext">toJSON :: UntagResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373114"><span id="local-6989586621679373115"><span class="annot"><span class="annottext">[Text]
 Text
 tagKeys :: [Text]
 resourceArn :: Text
 $sel:tagKeys:UntagResource' :: UntagResource -&gt; [Text]
 $sel:resourceArn:UntagResource' :: UntagResource -&gt; Text
-</span><a href="#local-6989586621679372794"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679373114"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -270,26 +270,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;resourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372795"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373115"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679372794"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373114"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679372788"><span class="annot"><span class="annottext">toPath :: UntagResource -&gt; ByteString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679373108"><span class="annot"><span class="annottext">toPath :: UntagResource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UntagResource -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679372784"><span class="annot"><span class="annottext">toQuery :: UntagResource -&gt; QueryString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679373104"><span class="annot"><span class="annottext">toQuery :: UntagResource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UntagResource -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -297,10 +297,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newUntagResourceResponse' smart constructor.</span><span>
-</span><span id="line-133"></span><span id="local-6989586621679372781"><span id="local-6989586621679372782"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagResourceResponse"><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-var">UntagResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagResourceResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-var">UntagResourceResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span id="local-6989586621679373101"><span id="local-6989586621679373102"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagResourceResponse"><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-var">UntagResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagResourceResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-var">UntagResourceResponse'</span></a></span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679372777"><span id="local-6989586621679372779"><span class="annot"><span class="annottext">UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373097"><span id="local-6989586621679373099"><span class="annot"><span class="annottext">UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
 (UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool)
 -&gt; (UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool)
 -&gt; Eq UntagResourceResponse
@@ -309,7 +309,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
 == :: UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
 $c== :: UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372769"><span id="local-6989586621679372771"><span id="local-6989586621679372773"><span id="local-6989586621679372775"><span class="annot"><span class="annottext">ReadPrec [UntagResourceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373089"><span id="local-6989586621679373091"><span id="local-6989586621679373093"><span id="local-6989586621679373095"><span class="annot"><span class="annottext">ReadPrec [UntagResourceResponse]
 ReadPrec UntagResourceResponse
 Int -&gt; ReadS UntagResourceResponse
 ReadS [UntagResourceResponse]
@@ -329,7 +329,7 @@ readList :: ReadS [UntagResourceResponse]
 $creadList :: ReadS [UntagResourceResponse]
 readsPrec :: Int -&gt; ReadS UntagResourceResponse
 $creadsPrec :: Int -&gt; ReadS UntagResourceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372763"><span id="local-6989586621679372765"><span id="local-6989586621679372767"><span class="annot"><span class="annottext">Int -&gt; UntagResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373083"><span id="local-6989586621679373085"><span id="local-6989586621679373087"><span class="annot"><span class="annottext">Int -&gt; UntagResourceResponse -&gt; ShowS
 [UntagResourceResponse] -&gt; ShowS
 UntagResourceResponse -&gt; String
 (Int -&gt; UntagResourceResponse -&gt; ShowS)
@@ -365,5 +365,5 @@ $cfrom :: forall x. UntagResourceResponse -&gt; Rep UntagResourceResponse x
 </span><a href="Network.AWS.CodeCommit.UntagResource.html#newUntagResourceResponse"><span class="hs-identifier hs-var hs-var">newUntagResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UntagResourceResponse
 </span><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-var">UntagResourceResponse'</span></a></span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372759"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span></span><span>
 </span><span id="line-147"></span></pre></body></html>

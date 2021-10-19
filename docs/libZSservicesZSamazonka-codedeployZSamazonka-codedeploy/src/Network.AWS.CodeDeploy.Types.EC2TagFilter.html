@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about an EC2 tag filter.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEC2TagFilter' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679307689"><span id="local-6989586621679307690"></span></span><span class="hs-keyword">data</span><span> </span><span id="EC2TagFilter"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-var">EC2TagFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EC2TagFilter%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-var">EC2TagFilter'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tag filter key.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Akey%3AEC2TagFilter%27"><span class="annot"><span class="annottext">EC2TagFilter -&gt; Maybe Text
-</span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#%24sel%3Akey%3AEC2TagFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The tag filter value.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3AEC2TagFilter%27"><span class="annot"><span class="annottext">EC2TagFilter -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679307972"><span id="local-6989586621679307973"></span></span><span class="hs-keyword">data</span><span> </span><span id="EC2TagFilter"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-var">EC2TagFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EC2TagFilter%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-var">EC2TagFilter'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tag filter value.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalue%3AEC2TagFilter%27"><span class="annot"><span class="annottext">EC2TagFilter -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#%24sel%3Avalue%3AEC2TagFilter%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The tag filter key.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Akey%3AEC2TagFilter%27"><span class="annot"><span class="annottext">EC2TagFilter -&gt; Maybe Text
+</span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#%24sel%3Akey%3AEC2TagFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The tag filter type:</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   @KEY_ONLY@: Key only.</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Atype%27%3AEC2TagFilter%27"><span class="annot"><span class="annottext">EC2TagFilter -&gt; Maybe EC2TagFilterType
 </span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#%24sel%3Atype%27%3AEC2TagFilter%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilterType.html#EC2TagFilterType"><span class="hs-identifier hs-type">EC2TagFilterType</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307681"><span id="local-6989586621679307683"><span class="annot"><span class="annottext">EC2TagFilter -&gt; EC2TagFilter -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307964"><span id="local-6989586621679307966"><span class="annot"><span class="annottext">EC2TagFilter -&gt; EC2TagFilter -&gt; Bool
 (EC2TagFilter -&gt; EC2TagFilter -&gt; Bool)
 -&gt; (EC2TagFilter -&gt; EC2TagFilter -&gt; Bool) -&gt; Eq EC2TagFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EC2TagFilter -&gt; EC2TagFilter -&gt; Bool
 == :: EC2TagFilter -&gt; EC2TagFilter -&gt; Bool
 $c== :: EC2TagFilter -&gt; EC2TagFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307672"><span id="local-6989586621679307674"><span id="local-6989586621679307676"><span id="local-6989586621679307678"><span class="annot"><span class="annottext">ReadPrec [EC2TagFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307955"><span id="local-6989586621679307957"><span id="local-6989586621679307959"><span id="local-6989586621679307961"><span class="annot"><span class="annottext">ReadPrec [EC2TagFilter]
 ReadPrec EC2TagFilter
 Int -&gt; ReadS EC2TagFilter
 ReadS [EC2TagFilter]
@@ -72,7 +72,7 @@ readList :: ReadS [EC2TagFilter]
 $creadList :: ReadS [EC2TagFilter]
 readsPrec :: Int -&gt; ReadS EC2TagFilter
 $creadsPrec :: Int -&gt; ReadS EC2TagFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307665"><span id="local-6989586621679307667"><span id="local-6989586621679307669"><span class="annot"><span class="annottext">Int -&gt; EC2TagFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307948"><span id="local-6989586621679307950"><span id="local-6989586621679307952"><span class="annot"><span class="annottext">Int -&gt; EC2TagFilter -&gt; ShowS
 [EC2TagFilter] -&gt; ShowS
 EC2TagFilter -&gt; String
 (Int -&gt; EC2TagFilter -&gt; ShowS)
@@ -106,9 +106,9 @@ $cfrom :: forall x. EC2TagFilter -&gt; Rep EC2TagFilter x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'key', 'eC2TagFilter_key' - The tag filter key.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'value', 'eC2TagFilter_value' - The tag filter value.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'value', 'eC2TagFilter_value' - The tag filter value.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'key', 'eC2TagFilter_key' - The tag filter key.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- 'type'', 'eC2TagFilter_type' - The tag filter type:</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
@@ -123,12 +123,12 @@ $cfrom :: forall x. EC2TagFilter -&gt; Rep EC2TagFilter x
 </span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#newEC2TagFilter"><span class="hs-identifier hs-var hs-var">newEC2TagFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">EC2TagFilter' :: Maybe Text -&gt; Maybe Text -&gt; Maybe EC2TagFilterType -&gt; EC2TagFilter
 </span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-type">EC2TagFilter'</span></a></span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:EC2TagFilter' :: Maybe Text
-</span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#%24sel%3Akey%3AEC2TagFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:EC2TagFilter' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#%24sel%3Avalue%3AEC2TagFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:EC2TagFilter' :: Maybe Text
-</span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#%24sel%3Avalue%3AEC2TagFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:EC2TagFilter' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#%24sel%3Akey%3AEC2TagFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':EC2TagFilter' :: Maybe EC2TagFilterType
@@ -137,41 +137,41 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | The tag filter key.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#eC2TagFilter_key"><span class="hs-identifier hs-type">eC2TagFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="eC2TagFilter_key"><span class="annot"><span class="annottext">eC2TagFilter_key :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EC2TagFilter -&gt; f EC2TagFilter
-</span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#eC2TagFilter_key"><span class="hs-identifier hs-var hs-var">eC2TagFilter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EC2TagFilter -&gt; Maybe Text)
--&gt; (EC2TagFilter -&gt; Maybe Text -&gt; EC2TagFilter)
--&gt; Lens EC2TagFilter EC2TagFilter (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-type">EC2TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307656"><span class="annot"><span class="annottext">Maybe Text
-key :: Maybe Text
-$sel:key:EC2TagFilter' :: EC2TagFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679307656"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307656"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307655"><span class="annot"><span class="annottext">s :: EC2TagFilter
-</span><a href="#local-6989586621679307655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-type">EC2TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307654"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2TagFilter
-</span><a href="#local-6989586621679307655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:EC2TagFilter' :: Maybe Text
-</span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#%24sel%3Akey%3AEC2TagFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The tag filter value.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#eC2TagFilter_value"><span class="hs-identifier hs-type">eC2TagFilter_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="eC2TagFilter_value"><span class="annot"><span class="annottext">eC2TagFilter_value :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EC2TagFilter -&gt; f EC2TagFilter
+</span><span id="line-74"></span><span class="hs-comment">-- | The tag filter value.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#eC2TagFilter_value"><span class="hs-identifier hs-type">eC2TagFilter_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="eC2TagFilter_value"><span class="annot"><span class="annottext">eC2TagFilter_value :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EC2TagFilter -&gt; f EC2TagFilter
 </span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#eC2TagFilter_value"><span class="hs-identifier hs-var hs-var">eC2TagFilter_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EC2TagFilter -&gt; Maybe Text)
 -&gt; (EC2TagFilter -&gt; Maybe Text -&gt; EC2TagFilter)
 -&gt; Lens EC2TagFilter EC2TagFilter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-type">EC2TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307652"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-type">EC2TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307939"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:EC2TagFilter' :: EC2TagFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679307652"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307652"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307651"><span class="annot"><span class="annottext">s :: EC2TagFilter
-</span><a href="#local-6989586621679307651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-type">EC2TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307650"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2TagFilter
-</span><a href="#local-6989586621679307651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:EC2TagFilter' :: Maybe Text
+</span><a href="#local-6989586621679307939"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307939"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307938"><span class="annot"><span class="annottext">s :: EC2TagFilter
+</span><a href="#local-6989586621679307938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-type">EC2TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307937"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2TagFilter
+</span><a href="#local-6989586621679307938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:EC2TagFilter' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#%24sel%3Avalue%3AEC2TagFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The tag filter key.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#eC2TagFilter_key"><span class="hs-identifier hs-type">eC2TagFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="eC2TagFilter_key"><span class="annot"><span class="annottext">eC2TagFilter_key :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EC2TagFilter -&gt; f EC2TagFilter
+</span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#eC2TagFilter_key"><span class="hs-identifier hs-var hs-var">eC2TagFilter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EC2TagFilter -&gt; Maybe Text)
+-&gt; (EC2TagFilter -&gt; Maybe Text -&gt; EC2TagFilter)
+-&gt; Lens EC2TagFilter EC2TagFilter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-type">EC2TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307935"><span class="annot"><span class="annottext">Maybe Text
+key :: Maybe Text
+$sel:key:EC2TagFilter' :: EC2TagFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679307935"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307935"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307934"><span class="annot"><span class="annottext">s :: EC2TagFilter
+</span><a href="#local-6989586621679307934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-type">EC2TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307933"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2TagFilter
+</span><a href="#local-6989586621679307934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:EC2TagFilter' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#%24sel%3Akey%3AEC2TagFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The tag filter type:</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
@@ -191,19 +191,19 @@ $sel:value:EC2TagFilter' :: EC2TagFilter -&gt; Maybe Text
      (Maybe EC2TagFilterType)
      (Maybe EC2TagFilterType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-type">EC2TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307648"><span class="annot"><span class="annottext">Maybe EC2TagFilterType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-type">EC2TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307931"><span class="annot"><span class="annottext">Maybe EC2TagFilterType
 type' :: Maybe EC2TagFilterType
 $sel:type':EC2TagFilter' :: EC2TagFilter -&gt; Maybe EC2TagFilterType
-</span><a href="#local-6989586621679307648"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2TagFilterType
-</span><a href="#local-6989586621679307648"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307647"><span class="annot"><span class="annottext">s :: EC2TagFilter
-</span><a href="#local-6989586621679307647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-type">EC2TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307646"><span class="annot"><span class="annottext">Maybe EC2TagFilterType
-</span><a href="#local-6989586621679307646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2TagFilter
-</span><a href="#local-6989586621679307647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':EC2TagFilter' :: Maybe EC2TagFilterType
+</span><a href="#local-6989586621679307931"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2TagFilterType
+</span><a href="#local-6989586621679307931"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307930"><span class="annot"><span class="annottext">s :: EC2TagFilter
+</span><a href="#local-6989586621679307930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-type">EC2TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307929"><span class="annot"><span class="annottext">Maybe EC2TagFilterType
+</span><a href="#local-6989586621679307929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2TagFilter
+</span><a href="#local-6989586621679307930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':EC2TagFilter' :: Maybe EC2TagFilterType
 </span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#%24sel%3Atype%27%3AEC2TagFilter%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2TagFilterType
-</span><a href="#local-6989586621679307646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307643"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679307641"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EC2TagFilter
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307926"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679307924"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EC2TagFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EC2TagFilter) -&gt; Value -&gt; Parser EC2TagFilter
@@ -211,8 +211,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EC2TagFilter&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307638"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307638"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307921"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679307921"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe EC2TagFilterType -&gt; EC2TagFilter
 </span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-var">EC2TagFilter'</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
@@ -221,70 +221,70 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe EC2TagFilterType -&gt; EC2TagFilter)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679307921"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe EC2TagFilterType -&gt; EC2TagFilter)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe EC2TagFilterType -&gt; EC2TagFilter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679307921"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EC2TagFilterType -&gt; EC2TagFilter)
 -&gt; Parser (Maybe EC2TagFilterType) -&gt; Parser EC2TagFilter
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2TagFilterType)
+</span><a href="#local-6989586621679307921"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2TagFilterType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307632"><span id="local-6989586621679307634"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307915"><span id="local-6989586621679307917"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307629"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307912"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307621"><span id="local-6989586621679307623"><span id="local-6989586621679307625"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679307619"><span class="annot"><span class="annottext">toJSON :: EC2TagFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-type">EC2TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307615"><span id="local-6989586621679307616"><span id="local-6989586621679307617"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307904"><span id="local-6989586621679307906"><span id="local-6989586621679307908"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679307902"><span class="annot"><span class="annottext">toJSON :: EC2TagFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter%27"><span class="hs-identifier hs-type">EC2TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307898"><span id="local-6989586621679307899"><span id="local-6989586621679307900"><span class="annot"><span class="annottext">Maybe Text
 Maybe EC2TagFilterType
 type' :: Maybe EC2TagFilterType
-value :: Maybe Text
 key :: Maybe Text
+value :: Maybe Text
 $sel:type':EC2TagFilter' :: EC2TagFilter -&gt; Maybe EC2TagFilterType
-$sel:value:EC2TagFilter' :: EC2TagFilter -&gt; Maybe Text
 $sel:key:EC2TagFilter' :: EC2TagFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679307615"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:value:EC2TagFilter' :: EC2TagFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679307898"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307617"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307616"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307900"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307899"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EC2TagFilterType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EC2TagFilterType -&gt; Pair) -&gt; Maybe EC2TagFilterType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EC2TagFilterType
-</span><a href="#local-6989586621679307615"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621679307898"><span class="hs-identifier hs-var">type'</span></a></span><span>
 </span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span></pre></body></html>

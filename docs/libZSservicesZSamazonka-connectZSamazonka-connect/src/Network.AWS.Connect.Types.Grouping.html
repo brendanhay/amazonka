@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679396105"><span id="local-6989586621679396106"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Grouping"><span class="annot"><a href="Network.AWS.Connect.Types.Grouping.html#Grouping"><span class="hs-identifier hs-var">Grouping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Grouping%27"><span class="annot"><a href="Network.AWS.Connect.Types.Grouping.html#Grouping%27"><span class="hs-identifier hs-var">Grouping'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679396386"><span id="local-6989586621679396387"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Grouping"><span class="annot"><a href="Network.AWS.Connect.Types.Grouping.html#Grouping"><span class="hs-identifier hs-var">Grouping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Grouping%27"><span class="annot"><a href="Network.AWS.Connect.Types.Grouping.html#Grouping%27"><span class="hs-identifier hs-var">Grouping'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGrouping"><span class="annot"><span class="annottext">Grouping -&gt; Text
 </span><a href="Network.AWS.Connect.Types.Grouping.html#fromGrouping"><span class="hs-identifier hs-var hs-var">fromGrouping</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396097"><span id="local-6989586621679396099"><span id="local-6989586621679396101"><span class="annot"><span class="annottext">Int -&gt; Grouping -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396378"><span id="local-6989586621679396380"><span id="local-6989586621679396382"><span class="annot"><span class="annottext">Int -&gt; Grouping -&gt; ShowS
 [Grouping] -&gt; ShowS
 Grouping -&gt; String
 (Int -&gt; Grouping -&gt; ShowS)
@@ -49,7 +49,7 @@ $cshow :: Grouping -&gt; String
 showsPrec :: Int -&gt; Grouping -&gt; ShowS
 $cshowsPrec :: Int -&gt; Grouping -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679396088"><span id="local-6989586621679396090"><span id="local-6989586621679396092"><span id="local-6989586621679396094"><span class="annot"><span class="annottext">ReadPrec [Grouping]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679396369"><span id="local-6989586621679396371"><span id="local-6989586621679396373"><span id="local-6989586621679396375"><span class="annot"><span class="annottext">ReadPrec [Grouping]
 ReadPrec Grouping
 Int -&gt; ReadS Grouping
 ReadS [Grouping]
@@ -70,7 +70,7 @@ $creadList :: ReadS [Grouping]
 readsPrec :: Int -&gt; ReadS Grouping
 $creadsPrec :: Int -&gt; ReadS Grouping
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679396083"><span id="local-6989586621679396085"><span class="annot"><span class="annottext">Grouping -&gt; Grouping -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679396364"><span id="local-6989586621679396366"><span class="annot"><span class="annottext">Grouping -&gt; Grouping -&gt; Bool
 (Grouping -&gt; Grouping -&gt; Bool)
 -&gt; (Grouping -&gt; Grouping -&gt; Bool) -&gt; Eq Grouping
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ $c/= :: Grouping -&gt; Grouping -&gt; Bool
 == :: Grouping -&gt; Grouping -&gt; Bool
 $c== :: Grouping -&gt; Grouping -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679396067"><span id="local-6989586621679396069"><span id="local-6989586621679396071"><span id="local-6989586621679396073"><span id="local-6989586621679396075"><span id="local-6989586621679396077"><span id="local-6989586621679396079"><span class="annot"><span class="annottext">Eq Grouping
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679396348"><span id="local-6989586621679396350"><span id="local-6989586621679396352"><span id="local-6989586621679396354"><span id="local-6989586621679396356"><span id="local-6989586621679396358"><span id="local-6989586621679396360"><span class="annot"><span class="annottext">Eq Grouping
 Eq Grouping
 -&gt; (Grouping -&gt; Grouping -&gt; Ordering)
 -&gt; (Grouping -&gt; Grouping -&gt; Bool)
@@ -129,7 +129,7 @@ $cfrom :: forall x. Grouping -&gt; Rep Grouping x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396059"><span id="local-6989586621679396061"><span class="annot"><span class="annottext">Int -&gt; Grouping -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396340"><span id="local-6989586621679396342"><span class="annot"><span class="annottext">Int -&gt; Grouping -&gt; Int
 Grouping -&gt; Int
 (Int -&gt; Grouping -&gt; Int) -&gt; (Grouping -&gt; Int) -&gt; Hashable Grouping
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -138,49 +138,49 @@ $chash :: Grouping -&gt; Int
 hashWithSalt :: Int -&gt; Grouping -&gt; Int
 $chashWithSalt :: Int -&gt; Grouping -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679396056"><span class="annot"><span class="annottext">Grouping -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679396337"><span class="annot"><span class="annottext">Grouping -&gt; ()
 (Grouping -&gt; ()) -&gt; NFData Grouping
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Grouping -&gt; ()
 $crnf :: Grouping -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679396053"><span class="annot"><span class="annottext">Text -&gt; Either String Grouping
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679396334"><span class="annot"><span class="annottext">Text -&gt; Either String Grouping
 (Text -&gt; Either String Grouping) -&gt; FromText Grouping
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Grouping
 $cfromText :: Text -&gt; Either String Grouping
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679396050"><span class="annot"><span class="annottext">Grouping -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679396331"><span class="annot"><span class="annottext">Grouping -&gt; Text
 (Grouping -&gt; Text) -&gt; ToText Grouping
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Grouping -&gt; Text
 $ctoText :: Grouping -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679396047"><span class="annot"><span class="annottext">Grouping -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679396328"><span class="annot"><span class="annottext">Grouping -&gt; ByteString
 (Grouping -&gt; ByteString) -&gt; ToByteString Grouping
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Grouping -&gt; ByteString
 $ctoBS :: Grouping -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679396044"><span class="annot"><span class="annottext">Grouping -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679396325"><span class="annot"><span class="annottext">Grouping -&gt; ByteStringBuilder
 (Grouping -&gt; ByteStringBuilder) -&gt; ToLog Grouping
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Grouping -&gt; ByteStringBuilder
 $cbuild :: Grouping -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679396041"><span class="annot"><span class="annottext">HeaderName -&gt; Grouping -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679396322"><span class="annot"><span class="annottext">HeaderName -&gt; Grouping -&gt; [Header]
 (HeaderName -&gt; Grouping -&gt; [Header]) -&gt; ToHeader Grouping
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Grouping -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Grouping -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679396038"><span class="annot"><span class="annottext">Grouping -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679396319"><span class="annot"><span class="annottext">Grouping -&gt; QueryString
 (Grouping -&gt; QueryString) -&gt; ToQuery Grouping
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Grouping -&gt; QueryString
 $ctoQuery :: Grouping -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679396033"><span id="local-6989586621679396035"><span class="annot"><span class="annottext">Value -&gt; Parser [Grouping]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679396314"><span id="local-6989586621679396316"><span class="annot"><span class="annottext">Value -&gt; Parser [Grouping]
 Value -&gt; Parser Grouping
 (Value -&gt; Parser Grouping)
 -&gt; (Value -&gt; Parser [Grouping]) -&gt; FromJSON Grouping
@@ -191,7 +191,7 @@ $cparseJSONList :: Value -&gt; Parser [Grouping]
 parseJSON :: Value -&gt; Parser Grouping
 $cparseJSON :: Value -&gt; Parser Grouping
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679396028"><span id="local-6989586621679396030"><span class="annot"><span class="annottext">FromJSONKeyFunction [Grouping]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679396309"><span id="local-6989586621679396311"><span class="annot"><span class="annottext">FromJSONKeyFunction [Grouping]
 FromJSONKeyFunction Grouping
 FromJSONKeyFunction Grouping
 -&gt; FromJSONKeyFunction [Grouping] -&gt; FromJSONKey Grouping
@@ -202,7 +202,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Grouping]
 fromJSONKey :: FromJSONKeyFunction Grouping
 $cfromJSONKey :: FromJSONKeyFunction Grouping
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679396019"><span id="local-6989586621679396021"><span id="local-6989586621679396023"><span id="local-6989586621679396025"><span class="annot"><span class="annottext">[Grouping] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679396300"><span id="local-6989586621679396302"><span id="local-6989586621679396304"><span id="local-6989586621679396306"><span class="annot"><span class="annottext">[Grouping] -&gt; Encoding
 [Grouping] -&gt; Value
 Grouping -&gt; Encoding
 Grouping -&gt; Value
@@ -226,7 +226,7 @@ $ctoEncoding :: Grouping -&gt; Encoding
 toJSON :: Grouping -&gt; Value
 $ctoJSON :: Grouping -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679396014"><span id="local-6989586621679396016"><span class="annot"><span class="annottext">ToJSONKeyFunction [Grouping]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679396295"><span id="local-6989586621679396297"><span class="annot"><span class="annottext">ToJSONKeyFunction [Grouping]
 ToJSONKeyFunction Grouping
 ToJSONKeyFunction Grouping
 -&gt; ToJSONKeyFunction [Grouping] -&gt; ToJSONKey Grouping
@@ -237,13 +237,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Grouping]
 toJSONKey :: ToJSONKeyFunction Grouping
 $ctoJSONKey :: ToJSONKeyFunction Grouping
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679396011"><span class="annot"><span class="annottext">[Node] -&gt; Either String Grouping
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679396292"><span class="annot"><span class="annottext">[Node] -&gt; Either String Grouping
 ([Node] -&gt; Either String Grouping) -&gt; FromXML Grouping
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Grouping
 $cparseXML :: [Node] -&gt; Either String Grouping
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679396008"><span class="annot"><span class="annottext">Grouping -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679396289"><span class="annot"><span class="annottext">Grouping -&gt; XML
 (Grouping -&gt; XML) -&gt; ToXML Grouping
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Grouping -&gt; XML

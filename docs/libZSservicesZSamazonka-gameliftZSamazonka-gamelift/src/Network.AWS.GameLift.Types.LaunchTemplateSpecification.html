@@ -32,21 +32,21 @@
 </span><span id="line-32"></span><span class="hs-comment">-- CreateGameServerGroup.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newLaunchTemplateSpecification' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679434479"><span id="local-6989586621679434480"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplateSpecification"><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-var">LaunchTemplateSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateSpecification%27"><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-var">LaunchTemplateSpecification'</span></a></span></span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for an existing EC2 launch template.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlaunchTemplateId%3ALaunchTemplateSpecification%27"><span class="annot"><span class="annottext">LaunchTemplateSpecification -&gt; Maybe Text
+</span><span id="line-35"></span><span id="local-6989586621679434926"><span id="local-6989586621679434927"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplateSpecification"><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-var">LaunchTemplateSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateSpecification%27"><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-var">LaunchTemplateSpecification'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A readable identifier for an existing EC2 launch template.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlaunchTemplateName%3ALaunchTemplateSpecification%27"><span class="annot"><span class="annottext">LaunchTemplateSpecification -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#%24sel%3AlaunchTemplateName%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var hs-var">launchTemplateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A unique identifier for an existing EC2 launch template.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlaunchTemplateId%3ALaunchTemplateSpecification%27"><span class="annot"><span class="annottext">LaunchTemplateSpecification -&gt; Maybe Text
 </span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#%24sel%3AlaunchTemplateId%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var hs-var">launchTemplateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The version of the EC2 launch template to use. If no version is</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- specified, the default version will be used. With Amazon EC2, you can</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- specify a default version for a launch template. If none is set, the</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- default is the first version created.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aversion%3ALaunchTemplateSpecification%27"><span class="annot"><span class="annottext">LaunchTemplateSpecification -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#%24sel%3Aversion%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A readable identifier for an existing EC2 launch template.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AlaunchTemplateName%3ALaunchTemplateSpecification%27"><span class="annot"><span class="annottext">LaunchTemplateSpecification -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#%24sel%3AlaunchTemplateName%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var hs-var">launchTemplateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The version of the EC2 launch template to use. If no version is</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- specified, the default version will be used. With Amazon EC2, you can</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- specify a default version for a launch template. If none is set, the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- default is the first version created.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aversion%3ALaunchTemplateSpecification%27"><span class="annot"><span class="annottext">LaunchTemplateSpecification -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#%24sel%3Aversion%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434471"><span id="local-6989586621679434473"><span class="annot"><span class="annottext">LaunchTemplateSpecification -&gt; LaunchTemplateSpecification -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434918"><span id="local-6989586621679434920"><span class="annot"><span class="annottext">LaunchTemplateSpecification -&gt; LaunchTemplateSpecification -&gt; Bool
 (LaunchTemplateSpecification
  -&gt; LaunchTemplateSpecification -&gt; Bool)
 -&gt; (LaunchTemplateSpecification
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LaunchTemplateSpecification -&gt; LaunchTemplateSpecification -&gt; Bool
 == :: LaunchTemplateSpecification -&gt; LaunchTemplateSpecification -&gt; Bool
 $c== :: LaunchTemplateSpecification -&gt; LaunchTemplateSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434462"><span id="local-6989586621679434464"><span id="local-6989586621679434466"><span id="local-6989586621679434468"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434909"><span id="local-6989586621679434911"><span id="local-6989586621679434913"><span id="local-6989586621679434915"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateSpecification]
 ReadPrec LaunchTemplateSpecification
 Int -&gt; ReadS LaunchTemplateSpecification
 ReadS [LaunchTemplateSpecification]
@@ -77,7 +77,7 @@ readList :: ReadS [LaunchTemplateSpecification]
 $creadList :: ReadS [LaunchTemplateSpecification]
 readsPrec :: Int -&gt; ReadS LaunchTemplateSpecification
 $creadsPrec :: Int -&gt; ReadS LaunchTemplateSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434455"><span id="local-6989586621679434457"><span id="local-6989586621679434459"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434902"><span id="local-6989586621679434904"><span id="local-6989586621679434906"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateSpecification -&gt; ShowS
 [LaunchTemplateSpecification] -&gt; ShowS
 LaunchTemplateSpecification -&gt; String
 (Int -&gt; LaunchTemplateSpecification -&gt; ShowS)
@@ -117,14 +117,14 @@ LaunchTemplateSpecification -&gt; Rep LaunchTemplateSpecification x
 </span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'launchTemplateId', 'launchTemplateSpecification_launchTemplateId' - A unique identifier for an existing EC2 launch template.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'launchTemplateName', 'launchTemplateSpecification_launchTemplateName' - A readable identifier for an existing EC2 launch template.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'version', 'launchTemplateSpecification_version' - The version of the EC2 launch template to use. If no version is</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- specified, the default version will be used. With Amazon EC2, you can</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- specify a default version for a launch template. If none is set, the</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- default is the first version created.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'launchTemplateName', 'launchTemplateSpecification_launchTemplateName' - A readable identifier for an existing EC2 launch template.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'launchTemplateId', 'launchTemplateSpecification_launchTemplateId' - A unique identifier for an existing EC2 launch template.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'version', 'launchTemplateSpecification_version' - The version of the EC2 launch template to use. If no version is</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- specified, the default version will be used. With Amazon EC2, you can</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- specify a default version for a launch template. If none is set, the</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- default is the first version created.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#newLaunchTemplateSpecification"><span class="hs-identifier hs-type">newLaunchTemplateSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span>
 </span><span id="line-66"></span><span id="newLaunchTemplateSpecification"><span class="annot"><span class="annottext">newLaunchTemplateSpecification :: LaunchTemplateSpecification
@@ -132,75 +132,24 @@ LaunchTemplateSpecification -&gt; Rep LaunchTemplateSpecification x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">LaunchTemplateSpecification' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; LaunchTemplateSpecification
 </span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:launchTemplateId:LaunchTemplateSpecification' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#%24sel%3AlaunchTemplateId%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var">launchTemplateId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:launchTemplateName:LaunchTemplateSpecification' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#%24sel%3AlaunchTemplateName%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var">launchTemplateName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:LaunchTemplateSpecification' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#%24sel%3Aversion%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchTemplateId:LaunchTemplateSpecification' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#%24sel%3AlaunchTemplateId%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var">launchTemplateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchTemplateName:LaunchTemplateSpecification' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#%24sel%3AlaunchTemplateName%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var">launchTemplateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:LaunchTemplateSpecification' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#%24sel%3Aversion%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | A unique identifier for an existing EC2 launch template.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#launchTemplateSpecification_launchTemplateId"><span class="hs-identifier hs-type">launchTemplateSpecification_launchTemplateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="launchTemplateSpecification_launchTemplateId"><span class="annot"><span class="annottext">launchTemplateSpecification_launchTemplateId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LaunchTemplateSpecification -&gt; f LaunchTemplateSpecification
-</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#launchTemplateSpecification_launchTemplateId"><span class="hs-identifier hs-var hs-var">launchTemplateSpecification_launchTemplateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplateSpecification -&gt; Maybe Text)
--&gt; (LaunchTemplateSpecification
-    -&gt; Maybe Text -&gt; LaunchTemplateSpecification)
--&gt; Lens
-     LaunchTemplateSpecification
-     LaunchTemplateSpecification
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434446"><span class="annot"><span class="annottext">Maybe Text
-launchTemplateId :: Maybe Text
-$sel:launchTemplateId:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621679434446"><span class="hs-identifier hs-var hs-var">launchTemplateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434446"><span class="hs-identifier hs-var">launchTemplateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434445"><span class="annot"><span class="annottext">s :: LaunchTemplateSpecification
-</span><a href="#local-6989586621679434445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434444"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateSpecification
-</span><a href="#local-6989586621679434445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateId:LaunchTemplateSpecification' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#%24sel%3AlaunchTemplateId%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var">launchTemplateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The version of the EC2 launch template to use. If no version is</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- specified, the default version will be used. With Amazon EC2, you can</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- specify a default version for a launch template. If none is set, the</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- default is the first version created.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#launchTemplateSpecification_version"><span class="hs-identifier hs-type">launchTemplateSpecification_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="launchTemplateSpecification_version"><span class="annot"><span class="annottext">launchTemplateSpecification_version :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LaunchTemplateSpecification -&gt; f LaunchTemplateSpecification
-</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#launchTemplateSpecification_version"><span class="hs-identifier hs-var hs-var">launchTemplateSpecification_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplateSpecification -&gt; Maybe Text)
--&gt; (LaunchTemplateSpecification
-    -&gt; Maybe Text -&gt; LaunchTemplateSpecification)
--&gt; Lens
-     LaunchTemplateSpecification
-     LaunchTemplateSpecification
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434442"><span class="annot"><span class="annottext">Maybe Text
-version :: Maybe Text
-$sel:version:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621679434442"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434442"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434441"><span class="annot"><span class="annottext">s :: LaunchTemplateSpecification
-</span><a href="#local-6989586621679434441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434440"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateSpecification
-</span><a href="#local-6989586621679434441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:LaunchTemplateSpecification' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#%24sel%3Aversion%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | A readable identifier for an existing EC2 launch template.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#launchTemplateSpecification_launchTemplateName"><span class="hs-identifier hs-type">launchTemplateSpecification_launchTemplateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="launchTemplateSpecification_launchTemplateName"><span class="annot"><span class="annottext">launchTemplateSpecification_launchTemplateName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-74"></span><span class="hs-comment">-- | A readable identifier for an existing EC2 launch template.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#launchTemplateSpecification_launchTemplateName"><span class="hs-identifier hs-type">launchTemplateSpecification_launchTemplateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="launchTemplateSpecification_launchTemplateName"><span class="annot"><span class="annottext">launchTemplateSpecification_launchTemplateName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; LaunchTemplateSpecification -&gt; f LaunchTemplateSpecification
 </span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#launchTemplateSpecification_launchTemplateName"><span class="hs-identifier hs-var hs-var">launchTemplateSpecification_launchTemplateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplateSpecification -&gt; Maybe Text)
 -&gt; (LaunchTemplateSpecification
@@ -211,59 +160,110 @@ $sel:version:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; M
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434438"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434893"><span class="annot"><span class="annottext">Maybe Text
 launchTemplateName :: Maybe Text
 $sel:launchTemplateName:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621679434438"><span class="hs-identifier hs-var hs-var">launchTemplateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434438"><span class="hs-identifier hs-var">launchTemplateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434437"><span class="annot"><span class="annottext">s :: LaunchTemplateSpecification
-</span><a href="#local-6989586621679434437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434436"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateSpecification
-</span><a href="#local-6989586621679434437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateName:LaunchTemplateSpecification' :: Maybe Text
+</span><a href="#local-6989586621679434893"><span class="hs-identifier hs-var hs-var">launchTemplateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434893"><span class="hs-identifier hs-var">launchTemplateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434892"><span class="annot"><span class="annottext">s :: LaunchTemplateSpecification
+</span><a href="#local-6989586621679434892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434891"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateSpecification
+</span><a href="#local-6989586621679434892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateName:LaunchTemplateSpecification' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#%24sel%3AlaunchTemplateName%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var">launchTemplateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | A unique identifier for an existing EC2 launch template.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#launchTemplateSpecification_launchTemplateId"><span class="hs-identifier hs-type">launchTemplateSpecification_launchTemplateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="launchTemplateSpecification_launchTemplateId"><span class="annot"><span class="annottext">launchTemplateSpecification_launchTemplateId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LaunchTemplateSpecification -&gt; f LaunchTemplateSpecification
+</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#launchTemplateSpecification_launchTemplateId"><span class="hs-identifier hs-var hs-var">launchTemplateSpecification_launchTemplateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplateSpecification -&gt; Maybe Text)
+-&gt; (LaunchTemplateSpecification
+    -&gt; Maybe Text -&gt; LaunchTemplateSpecification)
+-&gt; Lens
+     LaunchTemplateSpecification
+     LaunchTemplateSpecification
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434889"><span class="annot"><span class="annottext">Maybe Text
+launchTemplateId :: Maybe Text
+$sel:launchTemplateId:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; Maybe Text
+</span><a href="#local-6989586621679434889"><span class="hs-identifier hs-var hs-var">launchTemplateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434889"><span class="hs-identifier hs-var">launchTemplateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434888"><span class="annot"><span class="annottext">s :: LaunchTemplateSpecification
+</span><a href="#local-6989586621679434888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434887"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateSpecification
+</span><a href="#local-6989586621679434888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateId:LaunchTemplateSpecification' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#%24sel%3AlaunchTemplateId%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var">launchTemplateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The version of the EC2 launch template to use. If no version is</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- specified, the default version will be used. With Amazon EC2, you can</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- specify a default version for a launch template. If none is set, the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- default is the first version created.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#launchTemplateSpecification_version"><span class="hs-identifier hs-type">launchTemplateSpecification_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="launchTemplateSpecification_version"><span class="annot"><span class="annottext">launchTemplateSpecification_version :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LaunchTemplateSpecification -&gt; f LaunchTemplateSpecification
+</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#launchTemplateSpecification_version"><span class="hs-identifier hs-var hs-var">launchTemplateSpecification_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplateSpecification -&gt; Maybe Text)
+-&gt; (LaunchTemplateSpecification
+    -&gt; Maybe Text -&gt; LaunchTemplateSpecification)
+-&gt; Lens
+     LaunchTemplateSpecification
+     LaunchTemplateSpecification
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434885"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; Maybe Text
+</span><a href="#local-6989586621679434885"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434885"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434884"><span class="annot"><span class="annottext">s :: LaunchTemplateSpecification
+</span><a href="#local-6989586621679434884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434883"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateSpecification
+</span><a href="#local-6989586621679434884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:LaunchTemplateSpecification' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#%24sel%3Aversion%3ALaunchTemplateSpecification%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434432"><span id="local-6989586621679434434"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434879"><span id="local-6989586621679434881"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434429"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434876"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434421"><span id="local-6989586621679434423"><span id="local-6989586621679434425"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679434419"><span class="annot"><span class="annottext">toJSON :: LaunchTemplateSpecification -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434415"><span id="local-6989586621679434416"><span id="local-6989586621679434417"><span class="annot"><span class="annottext">Maybe Text
-launchTemplateName :: Maybe Text
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434868"><span id="local-6989586621679434870"><span id="local-6989586621679434872"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679434866"><span class="annot"><span class="annottext">toJSON :: LaunchTemplateSpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification%27"><span class="hs-identifier hs-type">LaunchTemplateSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434862"><span id="local-6989586621679434863"><span id="local-6989586621679434864"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 launchTemplateId :: Maybe Text
-$sel:launchTemplateName:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; Maybe Text
+launchTemplateName :: Maybe Text
 $sel:version:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; Maybe Text
 $sel:launchTemplateId:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621679434415"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:launchTemplateName:LaunchTemplateSpecification' :: LaunchTemplateSpecification -&gt; Maybe Text
+</span><a href="#local-6989586621679434862"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-97"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LaunchTemplateId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;LaunchTemplateName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434417"><span class="hs-identifier hs-var">launchTemplateId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434864"><span class="hs-identifier hs-var">launchTemplateName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LaunchTemplateId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434863"><span class="hs-identifier hs-var">launchTemplateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Version&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434416"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LaunchTemplateName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434415"><span class="hs-identifier hs-var">launchTemplateName</span></a></span><span>
+</span><a href="#local-6989586621679434862"><span class="hs-identifier hs-var">version</span></a></span><span>
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span></pre></body></html>

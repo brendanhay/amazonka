@@ -29,21 +29,21 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Configures the monitoring schedule and defines the monitoring job.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newMonitoringScheduleConfig' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680358869"><span id="local-6989586621680358870"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoringScheduleConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-var">MonitoringScheduleConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringScheduleConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-var">MonitoringScheduleConfig'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Configures the monitoring schedule.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AscheduleConfig%3AMonitoringScheduleConfig%27"><span class="annot"><span class="annottext">MonitoringScheduleConfig -&gt; Maybe ScheduleConfig
-</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AscheduleConfig%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var hs-var">scheduleConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ScheduleConfig.html#ScheduleConfig"><span class="hs-identifier hs-type">ScheduleConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The type of the monitoring job definition to schedule.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AmonitoringType%3AMonitoringScheduleConfig%27"><span class="annot"><span class="annottext">MonitoringScheduleConfig -&gt; Maybe MonitoringType
+</span><span id="line-32"></span><span id="local-6989586621680360333"><span id="local-6989586621680360334"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoringScheduleConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-var">MonitoringScheduleConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringScheduleConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-var">MonitoringScheduleConfig'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of the monitoring job definition to schedule.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AmonitoringType%3AMonitoringScheduleConfig%27"><span class="annot"><span class="annottext">MonitoringScheduleConfig -&gt; Maybe MonitoringType
 </span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AmonitoringType%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var hs-var">monitoringType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType"><span class="hs-identifier hs-type">MonitoringType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the monitoring job definition to schedule.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmonitoringJobDefinitionName%3AMonitoringScheduleConfig%27"><span class="annot"><span class="annottext">MonitoringScheduleConfig -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AmonitoringJobDefinitionName%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var hs-var">monitoringJobDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Defines the monitoring job.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AmonitoringJobDefinition%3AMonitoringScheduleConfig%27"><span class="annot"><span class="annottext">MonitoringScheduleConfig -&gt; Maybe MonitoringJobDefinition
-</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AmonitoringJobDefinition%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var hs-var">monitoringJobDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringJobDefinition.html#MonitoringJobDefinition"><span class="hs-identifier hs-type">MonitoringJobDefinition</span></a></span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Configures the monitoring schedule.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AscheduleConfig%3AMonitoringScheduleConfig%27"><span class="annot"><span class="annottext">MonitoringScheduleConfig -&gt; Maybe ScheduleConfig
+</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AscheduleConfig%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var hs-var">scheduleConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ScheduleConfig.html#ScheduleConfig"><span class="hs-identifier hs-type">ScheduleConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Defines the monitoring job.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmonitoringJobDefinition%3AMonitoringScheduleConfig%27"><span class="annot"><span class="annottext">MonitoringScheduleConfig -&gt; Maybe MonitoringJobDefinition
+</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AmonitoringJobDefinition%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var hs-var">monitoringJobDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringJobDefinition.html#MonitoringJobDefinition"><span class="hs-identifier hs-type">MonitoringJobDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the monitoring job definition to schedule.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AmonitoringJobDefinitionName%3AMonitoringScheduleConfig%27"><span class="annot"><span class="annottext">MonitoringScheduleConfig -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AmonitoringJobDefinitionName%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var hs-var">monitoringJobDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680358860"><span id="local-6989586621680358862"><span class="annot"><span class="annottext">MonitoringScheduleConfig -&gt; MonitoringScheduleConfig -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680360324"><span id="local-6989586621680360326"><span class="annot"><span class="annottext">MonitoringScheduleConfig -&gt; MonitoringScheduleConfig -&gt; Bool
 (MonitoringScheduleConfig -&gt; MonitoringScheduleConfig -&gt; Bool)
 -&gt; (MonitoringScheduleConfig -&gt; MonitoringScheduleConfig -&gt; Bool)
 -&gt; Eq MonitoringScheduleConfig
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MonitoringScheduleConfig -&gt; MonitoringScheduleConfig -&gt; Bool
 == :: MonitoringScheduleConfig -&gt; MonitoringScheduleConfig -&gt; Bool
 $c== :: MonitoringScheduleConfig -&gt; MonitoringScheduleConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680358851"><span id="local-6989586621680358853"><span id="local-6989586621680358855"><span id="local-6989586621680358857"><span class="annot"><span class="annottext">ReadPrec [MonitoringScheduleConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680360315"><span id="local-6989586621680360317"><span id="local-6989586621680360319"><span id="local-6989586621680360321"><span class="annot"><span class="annottext">ReadPrec [MonitoringScheduleConfig]
 ReadPrec MonitoringScheduleConfig
 Int -&gt; ReadS MonitoringScheduleConfig
 ReadS [MonitoringScheduleConfig]
@@ -72,7 +72,7 @@ readList :: ReadS [MonitoringScheduleConfig]
 $creadList :: ReadS [MonitoringScheduleConfig]
 readsPrec :: Int -&gt; ReadS MonitoringScheduleConfig
 $creadsPrec :: Int -&gt; ReadS MonitoringScheduleConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680358844"><span id="local-6989586621680358846"><span id="local-6989586621680358848"><span class="annot"><span class="annottext">Int -&gt; MonitoringScheduleConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680360308"><span id="local-6989586621680360310"><span id="local-6989586621680360312"><span class="annot"><span class="annottext">Int -&gt; MonitoringScheduleConfig -&gt; ShowS
 [MonitoringScheduleConfig] -&gt; ShowS
 MonitoringScheduleConfig -&gt; String
 (Int -&gt; MonitoringScheduleConfig -&gt; ShowS)
@@ -112,69 +112,45 @@ MonitoringScheduleConfig -&gt; Rep MonitoringScheduleConfig x
 </span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'scheduleConfig', 'monitoringScheduleConfig_scheduleConfig' - Configures the monitoring schedule.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'monitoringType', 'monitoringScheduleConfig_monitoringType' - The type of the monitoring job definition to schedule.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'monitoringType', 'monitoringScheduleConfig_monitoringType' - The type of the monitoring job definition to schedule.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'scheduleConfig', 'monitoringScheduleConfig_scheduleConfig' - Configures the monitoring schedule.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'monitoringJobDefinitionName', 'monitoringScheduleConfig_monitoringJobDefinitionName' - The name of the monitoring job definition to schedule.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'monitoringJobDefinition', 'monitoringScheduleConfig_monitoringJobDefinition' - Defines the monitoring job.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'monitoringJobDefinition', 'monitoringScheduleConfig_monitoringJobDefinition' - Defines the monitoring job.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'monitoringJobDefinitionName', 'monitoringScheduleConfig_monitoringJobDefinitionName' - The name of the monitoring job definition to schedule.</span><span>
 </span><span id="line-59"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#newMonitoringScheduleConfig"><span class="hs-identifier hs-type">newMonitoringScheduleConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span>
 </span><span id="line-61"></span><span id="newMonitoringScheduleConfig"><span class="annot"><span class="annottext">newMonitoringScheduleConfig :: MonitoringScheduleConfig
 </span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#newMonitoringScheduleConfig"><span class="hs-identifier hs-var hs-var">newMonitoringScheduleConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">MonitoringScheduleConfig' :: Maybe ScheduleConfig
--&gt; Maybe MonitoringType
--&gt; Maybe Text
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">MonitoringScheduleConfig' :: Maybe MonitoringType
+-&gt; Maybe ScheduleConfig
 -&gt; Maybe MonitoringJobDefinition
+-&gt; Maybe Text
 -&gt; MonitoringScheduleConfig
 </span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scheduleConfig:MonitoringScheduleConfig' :: Maybe ScheduleConfig
-</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AscheduleConfig%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var">scheduleConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe ScheduleConfig
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:monitoringType:MonitoringScheduleConfig' :: Maybe MonitoringType
+</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AmonitoringType%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var">monitoringType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe MonitoringType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:monitoringType:MonitoringScheduleConfig' :: Maybe MonitoringType
-</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AmonitoringType%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var">monitoringType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringType
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduleConfig:MonitoringScheduleConfig' :: Maybe ScheduleConfig
+</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AscheduleConfig%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var">scheduleConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduleConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:monitoringJobDefinitionName:MonitoringScheduleConfig' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AmonitoringJobDefinitionName%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var">monitoringJobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:monitoringJobDefinition:MonitoringScheduleConfig' :: Maybe MonitoringJobDefinition
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:monitoringJobDefinition:MonitoringScheduleConfig' :: Maybe MonitoringJobDefinition
 </span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AmonitoringJobDefinition%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var">monitoringJobDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringJobDefinition
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:monitoringJobDefinitionName:MonitoringScheduleConfig' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AmonitoringJobDefinitionName%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var">monitoringJobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | Configures the monitoring schedule.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#monitoringScheduleConfig_scheduleConfig"><span class="hs-identifier hs-type">monitoringScheduleConfig_scheduleConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ScheduleConfig.html#ScheduleConfig"><span class="hs-identifier hs-type">ScheduleConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="monitoringScheduleConfig_scheduleConfig"><span class="annot"><span class="annottext">monitoringScheduleConfig_scheduleConfig :: (Maybe ScheduleConfig -&gt; f (Maybe ScheduleConfig))
--&gt; MonitoringScheduleConfig -&gt; f MonitoringScheduleConfig
-</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#monitoringScheduleConfig_scheduleConfig"><span class="hs-identifier hs-var hs-var">monitoringScheduleConfig_scheduleConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringScheduleConfig -&gt; Maybe ScheduleConfig)
--&gt; (MonitoringScheduleConfig
-    -&gt; Maybe ScheduleConfig -&gt; MonitoringScheduleConfig)
--&gt; Lens
-     MonitoringScheduleConfig
-     MonitoringScheduleConfig
-     (Maybe ScheduleConfig)
-     (Maybe ScheduleConfig)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358835"><span class="annot"><span class="annottext">Maybe ScheduleConfig
-scheduleConfig :: Maybe ScheduleConfig
-$sel:scheduleConfig:MonitoringScheduleConfig' :: MonitoringScheduleConfig -&gt; Maybe ScheduleConfig
-</span><a href="#local-6989586621680358835"><span class="hs-identifier hs-var hs-var">scheduleConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduleConfig
-</span><a href="#local-6989586621680358835"><span class="hs-identifier hs-var">scheduleConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358834"><span class="annot"><span class="annottext">s :: MonitoringScheduleConfig
-</span><a href="#local-6989586621680358834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358833"><span class="annot"><span class="annottext">Maybe ScheduleConfig
-</span><a href="#local-6989586621680358833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringScheduleConfig
-</span><a href="#local-6989586621680358834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleConfig:MonitoringScheduleConfig' :: Maybe ScheduleConfig
-</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AscheduleConfig%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var">scheduleConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduleConfig
-</span><a href="#local-6989586621680358833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | The type of the monitoring job definition to schedule.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#monitoringScheduleConfig_monitoringType"><span class="hs-identifier hs-type">monitoringScheduleConfig_monitoringType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType"><span class="hs-identifier hs-type">MonitoringType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="monitoringScheduleConfig_monitoringType"><span class="annot"><span class="annottext">monitoringScheduleConfig_monitoringType :: (Maybe MonitoringType -&gt; f (Maybe MonitoringType))
+</span><span id="line-70"></span><span class="hs-comment">-- | The type of the monitoring job definition to schedule.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#monitoringScheduleConfig_monitoringType"><span class="hs-identifier hs-type">monitoringScheduleConfig_monitoringType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType"><span class="hs-identifier hs-type">MonitoringType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="monitoringScheduleConfig_monitoringType"><span class="annot"><span class="annottext">monitoringScheduleConfig_monitoringType :: (Maybe MonitoringType -&gt; f (Maybe MonitoringType))
 -&gt; MonitoringScheduleConfig -&gt; f MonitoringScheduleConfig
 </span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#monitoringScheduleConfig_monitoringType"><span class="hs-identifier hs-var hs-var">monitoringScheduleConfig_monitoringType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringScheduleConfig -&gt; Maybe MonitoringType)
 -&gt; (MonitoringScheduleConfig
@@ -185,44 +161,44 @@ $sel:scheduleConfig:MonitoringScheduleConfig' :: MonitoringScheduleConfig -&gt; 
      (Maybe MonitoringType)
      (Maybe MonitoringType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358831"><span class="annot"><span class="annottext">Maybe MonitoringType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360299"><span class="annot"><span class="annottext">Maybe MonitoringType
 monitoringType :: Maybe MonitoringType
 $sel:monitoringType:MonitoringScheduleConfig' :: MonitoringScheduleConfig -&gt; Maybe MonitoringType
-</span><a href="#local-6989586621680358831"><span class="hs-identifier hs-var hs-var">monitoringType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringType
-</span><a href="#local-6989586621680358831"><span class="hs-identifier hs-var">monitoringType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358830"><span class="annot"><span class="annottext">s :: MonitoringScheduleConfig
-</span><a href="#local-6989586621680358830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358829"><span class="annot"><span class="annottext">Maybe MonitoringType
-</span><a href="#local-6989586621680358829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringScheduleConfig
-</span><a href="#local-6989586621680358830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringType:MonitoringScheduleConfig' :: Maybe MonitoringType
+</span><a href="#local-6989586621680360299"><span class="hs-identifier hs-var hs-var">monitoringType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringType
+</span><a href="#local-6989586621680360299"><span class="hs-identifier hs-var">monitoringType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360298"><span class="annot"><span class="annottext">s :: MonitoringScheduleConfig
+</span><a href="#local-6989586621680360298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360297"><span class="annot"><span class="annottext">Maybe MonitoringType
+</span><a href="#local-6989586621680360297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringScheduleConfig
+</span><a href="#local-6989586621680360298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringType:MonitoringScheduleConfig' :: Maybe MonitoringType
 </span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AmonitoringType%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var">monitoringType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringType
-</span><a href="#local-6989586621680358829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The name of the monitoring job definition to schedule.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#monitoringScheduleConfig_monitoringJobDefinitionName"><span class="hs-identifier hs-type">monitoringScheduleConfig_monitoringJobDefinitionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="monitoringScheduleConfig_monitoringJobDefinitionName"><span class="annot"><span class="annottext">monitoringScheduleConfig_monitoringJobDefinitionName :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621680360297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | Configures the monitoring schedule.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#monitoringScheduleConfig_scheduleConfig"><span class="hs-identifier hs-type">monitoringScheduleConfig_scheduleConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ScheduleConfig.html#ScheduleConfig"><span class="hs-identifier hs-type">ScheduleConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="monitoringScheduleConfig_scheduleConfig"><span class="annot"><span class="annottext">monitoringScheduleConfig_scheduleConfig :: (Maybe ScheduleConfig -&gt; f (Maybe ScheduleConfig))
 -&gt; MonitoringScheduleConfig -&gt; f MonitoringScheduleConfig
-</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#monitoringScheduleConfig_monitoringJobDefinitionName"><span class="hs-identifier hs-var hs-var">monitoringScheduleConfig_monitoringJobDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringScheduleConfig -&gt; Maybe Text)
+</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#monitoringScheduleConfig_scheduleConfig"><span class="hs-identifier hs-var hs-var">monitoringScheduleConfig_scheduleConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringScheduleConfig -&gt; Maybe ScheduleConfig)
 -&gt; (MonitoringScheduleConfig
-    -&gt; Maybe Text -&gt; MonitoringScheduleConfig)
+    -&gt; Maybe ScheduleConfig -&gt; MonitoringScheduleConfig)
 -&gt; Lens
      MonitoringScheduleConfig
      MonitoringScheduleConfig
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe ScheduleConfig)
+     (Maybe ScheduleConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358827"><span class="annot"><span class="annottext">Maybe Text
-monitoringJobDefinitionName :: Maybe Text
-$sel:monitoringJobDefinitionName:MonitoringScheduleConfig' :: MonitoringScheduleConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680358827"><span class="hs-identifier hs-var hs-var">monitoringJobDefinitionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680358827"><span class="hs-identifier hs-var">monitoringJobDefinitionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358826"><span class="annot"><span class="annottext">s :: MonitoringScheduleConfig
-</span><a href="#local-6989586621680358826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358825"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680358825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringScheduleConfig
-</span><a href="#local-6989586621680358826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringJobDefinitionName:MonitoringScheduleConfig' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AmonitoringJobDefinitionName%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var">monitoringJobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680358825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | Defines the monitoring job.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#monitoringScheduleConfig_monitoringJobDefinition"><span class="hs-identifier hs-type">monitoringScheduleConfig_monitoringJobDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringJobDefinition.html#MonitoringJobDefinition"><span class="hs-identifier hs-type">MonitoringJobDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="monitoringScheduleConfig_monitoringJobDefinition"><span class="annot"><span class="annottext">monitoringScheduleConfig_monitoringJobDefinition :: (Maybe MonitoringJobDefinition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360295"><span class="annot"><span class="annottext">Maybe ScheduleConfig
+scheduleConfig :: Maybe ScheduleConfig
+$sel:scheduleConfig:MonitoringScheduleConfig' :: MonitoringScheduleConfig -&gt; Maybe ScheduleConfig
+</span><a href="#local-6989586621680360295"><span class="hs-identifier hs-var hs-var">scheduleConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduleConfig
+</span><a href="#local-6989586621680360295"><span class="hs-identifier hs-var">scheduleConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360294"><span class="annot"><span class="annottext">s :: MonitoringScheduleConfig
+</span><a href="#local-6989586621680360294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360293"><span class="annot"><span class="annottext">Maybe ScheduleConfig
+</span><a href="#local-6989586621680360293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringScheduleConfig
+</span><a href="#local-6989586621680360294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleConfig:MonitoringScheduleConfig' :: Maybe ScheduleConfig
+</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AscheduleConfig%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var">scheduleConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduleConfig
+</span><a href="#local-6989586621680360293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | Defines the monitoring job.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#monitoringScheduleConfig_monitoringJobDefinition"><span class="hs-identifier hs-type">monitoringScheduleConfig_monitoringJobDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringJobDefinition.html#MonitoringJobDefinition"><span class="hs-identifier hs-type">MonitoringJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="monitoringScheduleConfig_monitoringJobDefinition"><span class="annot"><span class="annottext">monitoringScheduleConfig_monitoringJobDefinition :: (Maybe MonitoringJobDefinition
  -&gt; f (Maybe MonitoringJobDefinition))
 -&gt; MonitoringScheduleConfig -&gt; f MonitoringScheduleConfig
 </span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#monitoringScheduleConfig_monitoringJobDefinition"><span class="hs-identifier hs-var hs-var">monitoringScheduleConfig_monitoringJobDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringScheduleConfig -&gt; Maybe MonitoringJobDefinition)
@@ -234,19 +210,43 @@ $sel:monitoringJobDefinitionName:MonitoringScheduleConfig' :: MonitoringSchedule
      (Maybe MonitoringJobDefinition)
      (Maybe MonitoringJobDefinition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358823"><span class="annot"><span class="annottext">Maybe MonitoringJobDefinition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360291"><span class="annot"><span class="annottext">Maybe MonitoringJobDefinition
 monitoringJobDefinition :: Maybe MonitoringJobDefinition
 $sel:monitoringJobDefinition:MonitoringScheduleConfig' :: MonitoringScheduleConfig -&gt; Maybe MonitoringJobDefinition
-</span><a href="#local-6989586621680358823"><span class="hs-identifier hs-var hs-var">monitoringJobDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringJobDefinition
-</span><a href="#local-6989586621680358823"><span class="hs-identifier hs-var">monitoringJobDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358822"><span class="annot"><span class="annottext">s :: MonitoringScheduleConfig
-</span><a href="#local-6989586621680358822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358821"><span class="annot"><span class="annottext">Maybe MonitoringJobDefinition
-</span><a href="#local-6989586621680358821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringScheduleConfig
-</span><a href="#local-6989586621680358822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringJobDefinition:MonitoringScheduleConfig' :: Maybe MonitoringJobDefinition
+</span><a href="#local-6989586621680360291"><span class="hs-identifier hs-var hs-var">monitoringJobDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringJobDefinition
+</span><a href="#local-6989586621680360291"><span class="hs-identifier hs-var">monitoringJobDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360290"><span class="annot"><span class="annottext">s :: MonitoringScheduleConfig
+</span><a href="#local-6989586621680360290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360289"><span class="annot"><span class="annottext">Maybe MonitoringJobDefinition
+</span><a href="#local-6989586621680360289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringScheduleConfig
+</span><a href="#local-6989586621680360290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringJobDefinition:MonitoringScheduleConfig' :: Maybe MonitoringJobDefinition
 </span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AmonitoringJobDefinition%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var">monitoringJobDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringJobDefinition
-</span><a href="#local-6989586621680358821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680360289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The name of the monitoring job definition to schedule.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#monitoringScheduleConfig_monitoringJobDefinitionName"><span class="hs-identifier hs-type">monitoringScheduleConfig_monitoringJobDefinitionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="monitoringScheduleConfig_monitoringJobDefinitionName"><span class="annot"><span class="annottext">monitoringScheduleConfig_monitoringJobDefinitionName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MonitoringScheduleConfig -&gt; f MonitoringScheduleConfig
+</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#monitoringScheduleConfig_monitoringJobDefinitionName"><span class="hs-identifier hs-var hs-var">monitoringScheduleConfig_monitoringJobDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringScheduleConfig -&gt; Maybe Text)
+-&gt; (MonitoringScheduleConfig
+    -&gt; Maybe Text -&gt; MonitoringScheduleConfig)
+-&gt; Lens
+     MonitoringScheduleConfig
+     MonitoringScheduleConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360287"><span class="annot"><span class="annottext">Maybe Text
+monitoringJobDefinitionName :: Maybe Text
+$sel:monitoringJobDefinitionName:MonitoringScheduleConfig' :: MonitoringScheduleConfig -&gt; Maybe Text
+</span><a href="#local-6989586621680360287"><span class="hs-identifier hs-var hs-var">monitoringJobDefinitionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680360287"><span class="hs-identifier hs-var">monitoringJobDefinitionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360286"><span class="annot"><span class="annottext">s :: MonitoringScheduleConfig
+</span><a href="#local-6989586621680360286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360285"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680360285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringScheduleConfig
+</span><a href="#local-6989586621680360286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringJobDefinitionName:MonitoringScheduleConfig' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#%24sel%3AmonitoringJobDefinitionName%3AMonitoringScheduleConfig%27"><span class="hs-identifier hs-var">monitoringJobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680360285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358818"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621680358816"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonitoringScheduleConfig
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680360282"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621680360280"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonitoringScheduleConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MonitoringScheduleConfig)
@@ -256,126 +256,124 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MonitoringScheduleConfig&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680358813"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680358813"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe ScheduleConfig
--&gt; Maybe MonitoringType
--&gt; Maybe Text
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680360277"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680360277"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe MonitoringType
+-&gt; Maybe ScheduleConfig
 -&gt; Maybe MonitoringJobDefinition
+-&gt; Maybe Text
 -&gt; MonitoringScheduleConfig
 </span><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-var">MonitoringScheduleConfig'</span></a></span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ScheduleConfig
- -&gt; Maybe MonitoringType
- -&gt; Maybe Text
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MonitoringType
+ -&gt; Maybe ScheduleConfig
  -&gt; Maybe MonitoringJobDefinition
+ -&gt; Maybe Text
  -&gt; MonitoringScheduleConfig)
--&gt; Parser (Maybe ScheduleConfig)
+-&gt; Parser (Maybe MonitoringType)
 -&gt; Parser
-     (Maybe MonitoringType
-      -&gt; Maybe Text
+     (Maybe ScheduleConfig
       -&gt; Maybe MonitoringJobDefinition
+      -&gt; Maybe Text
       -&gt; MonitoringScheduleConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680358813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ScheduleConfig)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ScheduleConfig&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe MonitoringType
-   -&gt; Maybe Text
-   -&gt; Maybe MonitoringJobDefinition
-   -&gt; MonitoringScheduleConfig)
--&gt; Parser (Maybe MonitoringType)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe MonitoringJobDefinition -&gt; MonitoringScheduleConfig)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680358813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MonitoringType)
+</span><a href="#local-6989586621680360277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MonitoringType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MonitoringType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe MonitoringJobDefinition -&gt; MonitoringScheduleConfig)
--&gt; Parser (Maybe Text)
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ScheduleConfig
+   -&gt; Maybe MonitoringJobDefinition
+   -&gt; Maybe Text
+   -&gt; MonitoringScheduleConfig)
+-&gt; Parser (Maybe ScheduleConfig)
 -&gt; Parser
-     (Maybe MonitoringJobDefinition -&gt; MonitoringScheduleConfig)
+     (Maybe MonitoringJobDefinition
+      -&gt; Maybe Text -&gt; MonitoringScheduleConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680358813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680360277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ScheduleConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MonitoringJobDefinitionName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe MonitoringJobDefinition -&gt; MonitoringScheduleConfig)
+</span><span class="hs-string">&quot;ScheduleConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MonitoringJobDefinition
+   -&gt; Maybe Text -&gt; MonitoringScheduleConfig)
 -&gt; Parser (Maybe MonitoringJobDefinition)
--&gt; Parser MonitoringScheduleConfig
+-&gt; Parser (Maybe Text -&gt; MonitoringScheduleConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680358813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MonitoringJobDefinition)
+</span><a href="#local-6989586621680360277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MonitoringJobDefinition)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MonitoringJobDefinition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MonitoringScheduleConfig)
+-&gt; Parser (Maybe Text) -&gt; Parser MonitoringScheduleConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680360277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MonitoringJobDefinitionName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358807"><span id="local-6989586621680358809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680360271"><span id="local-6989586621680360273"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680360268"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358796"><span id="local-6989586621680358798"><span id="local-6989586621680358800"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621680358794"><span class="annot"><span class="annottext">toJSON :: MonitoringScheduleConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358789"><span id="local-6989586621680358790"><span id="local-6989586621680358791"><span id="local-6989586621680358792"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680360260"><span id="local-6989586621680360262"><span id="local-6989586621680360264"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621680360258"><span class="annot"><span class="annottext">toJSON :: MonitoringScheduleConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig%27"><span class="hs-identifier hs-type">MonitoringScheduleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360253"><span id="local-6989586621680360254"><span id="local-6989586621680360255"><span id="local-6989586621680360256"><span class="annot"><span class="annottext">Maybe Text
 Maybe MonitoringType
 Maybe ScheduleConfig
 Maybe MonitoringJobDefinition
-monitoringJobDefinition :: Maybe MonitoringJobDefinition
 monitoringJobDefinitionName :: Maybe Text
-monitoringType :: Maybe MonitoringType
+monitoringJobDefinition :: Maybe MonitoringJobDefinition
 scheduleConfig :: Maybe ScheduleConfig
-$sel:monitoringJobDefinition:MonitoringScheduleConfig' :: MonitoringScheduleConfig -&gt; Maybe MonitoringJobDefinition
+monitoringType :: Maybe MonitoringType
 $sel:monitoringJobDefinitionName:MonitoringScheduleConfig' :: MonitoringScheduleConfig -&gt; Maybe Text
-$sel:monitoringType:MonitoringScheduleConfig' :: MonitoringScheduleConfig -&gt; Maybe MonitoringType
+$sel:monitoringJobDefinition:MonitoringScheduleConfig' :: MonitoringScheduleConfig -&gt; Maybe MonitoringJobDefinition
 $sel:scheduleConfig:MonitoringScheduleConfig' :: MonitoringScheduleConfig -&gt; Maybe ScheduleConfig
-</span><a href="#local-6989586621680358789"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:monitoringType:MonitoringScheduleConfig' :: MonitoringScheduleConfig -&gt; Maybe MonitoringType
+</span><a href="#local-6989586621680360253"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-106"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ScheduleConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScheduleConfig -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">(ScheduleConfig -&gt; Pair) -&gt; Maybe ScheduleConfig -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ScheduleConfig
-</span><a href="#local-6989586621680358792"><span class="hs-identifier hs-var">scheduleConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MonitoringType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">(MonitoringType -&gt; Pair) -&gt; Maybe MonitoringType -&gt; Maybe Pair
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">(MonitoringType -&gt; Pair) -&gt; Maybe MonitoringType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringType
-</span><a href="#local-6989586621680358791"><span class="hs-identifier hs-var">monitoringType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MonitoringJobDefinitionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><a href="#local-6989586621680360256"><span class="hs-identifier hs-var">monitoringType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScheduleConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScheduleConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">(ScheduleConfig -&gt; Pair) -&gt; Maybe ScheduleConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680358790"><span class="hs-identifier hs-var">monitoringJobDefinitionName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ScheduleConfig
+</span><a href="#local-6989586621680360255"><span class="hs-identifier hs-var">scheduleConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MonitoringJobDefinition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringJobDefinition -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(MonitoringJobDefinition -&gt; Pair)
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">(MonitoringJobDefinition -&gt; Pair)
 -&gt; Maybe MonitoringJobDefinition -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringJobDefinition
-</span><a href="#local-6989586621680358789"><span class="hs-identifier hs-var">monitoringJobDefinition</span></a></span><span>
+</span><a href="#local-6989586621680360254"><span class="hs-identifier hs-var">monitoringJobDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MonitoringJobDefinitionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680360253"><span class="hs-identifier hs-var">monitoringJobDefinitionName</span></a></span><span>
 </span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span></pre></body></html>

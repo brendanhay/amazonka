@@ -65,12 +65,12 @@
 </span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#newPutLifecycleHook"><span class="hs-identifier">newPutLifecycleHook</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_roleARN"><span class="hs-identifier">putLifecycleHook_roleARN</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_lifecycleTransition"><span class="hs-identifier">putLifecycleHook_lifecycleTransition</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_notificationTargetARN"><span class="hs-identifier">putLifecycleHook_notificationTargetARN</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_heartbeatTimeout"><span class="hs-identifier">putLifecycleHook_heartbeatTimeout</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_notificationMetadata"><span class="hs-identifier">putLifecycleHook_notificationMetadata</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_defaultResult"><span class="hs-identifier">putLifecycleHook_defaultResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_defaultResult"><span class="hs-identifier">putLifecycleHook_defaultResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_heartbeatTimeout"><span class="hs-identifier">putLifecycleHook_heartbeatTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_notificationMetadata"><span class="hs-identifier">putLifecycleHook_notificationMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_notificationTargetARN"><span class="hs-identifier">putLifecycleHook_notificationTargetARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_lifecycleTransition"><span class="hs-identifier">putLifecycleHook_lifecycleTransition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_roleARN"><span class="hs-identifier">putLifecycleHook_roleARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_lifecycleHookName"><span class="hs-identifier">putLifecycleHook_lifecycleHookName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_autoScalingGroupName"><span class="hs-identifier">putLifecycleHook_autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>
@@ -91,60 +91,60 @@
 </span><span id="line-91"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | /See:/ 'newPutLifecycleHook' smart constructor.</span><span>
-</span><span id="line-94"></span><span id="local-6989586621679337285"><span id="local-6989586621679337286"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLifecycleHook"><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-var">PutLifecycleHook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLifecycleHook%27"><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-var">PutLifecycleHook'</span></a></span></span><span>
-</span><span id="line-95"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the IAM role that allows the Auto Scaling group to publish to</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- the specified notification target, for example, an Amazon SNS topic or</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- an Amazon SQS queue.</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- Required for new lifecycle hooks, but optional when updating existing</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- hooks.</span><span>
-</span><span id="line-101"></span><span>    </span><span id="%24sel%3AroleARN%3APutLifecycleHook%27"><span class="annot"><span class="annottext">PutLifecycleHook -&gt; Maybe Text
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AroleARN%3APutLifecycleHook%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The instance state to which you want to attach the lifecycle hook. The</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- valid values are:</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- -   autoscaling:EC2_INSTANCE_LAUNCHING</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- -   autoscaling:EC2_INSTANCE_TERMINATING</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- Required for new lifecycle hooks, but optional when updating existing</span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- hooks.</span><span>
-</span><span id="line-111"></span><span>    </span><span id="%24sel%3AlifecycleTransition%3APutLifecycleHook%27"><span class="annot"><span class="annottext">PutLifecycleHook -&gt; Maybe Text
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AlifecycleTransition%3APutLifecycleHook%27"><span class="hs-identifier hs-var hs-var">lifecycleTransition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The ARN of the notification target that Amazon EC2 Auto Scaling uses to</span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- notify you when an instance is in the transition state for the lifecycle</span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- hook. This target can be either an SQS queue or an SNS topic.</span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- If you specify an empty string, this overrides the current ARN.</span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- This operation uses the JSON format when sending notifications to an</span><span>
-</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- Amazon SQS queue, and an email key-value pair format when sending</span><span>
-</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- notifications to an Amazon SNS topic.</span><span>
-</span><span id="line-121"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- When you specify a notification target, Amazon EC2 Auto Scaling sends it</span><span>
-</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- a test message. Test messages contain the following additional key-value</span><span>
-</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- pair: @\&quot;Event\&quot;: \&quot;autoscaling:TEST_NOTIFICATION\&quot;@.</span><span>
-</span><span id="line-125"></span><span>    </span><span id="%24sel%3AnotificationTargetARN%3APutLifecycleHook%27"><span class="annot"><span class="annottext">PutLifecycleHook -&gt; Maybe Text
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AnotificationTargetARN%3APutLifecycleHook%27"><span class="hs-identifier hs-var hs-var">notificationTargetARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The maximum time, in seconds, that can elapse before the lifecycle hook</span><span>
-</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- times out. The range is from @30@ to @7200@ seconds. The default value</span><span>
-</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- is @3600@ seconds (1 hour).</span><span>
-</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the</span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- action that you specified in the @DefaultResult@ parameter. You can</span><span>
-</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- prevent the lifecycle hook from timing out by calling the</span><span>
-</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- RecordLifecycleActionHeartbeat API.</span><span>
-</span><span id="line-134"></span><span>    </span><span id="%24sel%3AheartbeatTimeout%3APutLifecycleHook%27"><span class="annot"><span class="annottext">PutLifecycleHook -&gt; Maybe Int
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AheartbeatTimeout%3APutLifecycleHook%27"><span class="hs-identifier hs-var hs-var">heartbeatTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | Additional information that you want to include any time Amazon EC2 Auto</span><span>
-</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- Scaling sends a message to the notification target.</span><span>
-</span><span id="line-137"></span><span>    </span><span id="%24sel%3AnotificationMetadata%3APutLifecycleHook%27"><span class="annot"><span class="annottext">PutLifecycleHook -&gt; Maybe Text
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AnotificationMetadata%3APutLifecycleHook%27"><span class="hs-identifier hs-var hs-var">notificationMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | Defines the action the Auto Scaling group should take when the lifecycle</span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- hook timeout elapses or if an unexpected failure occurs. This parameter</span><span>
-</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- can be either @CONTINUE@ or @ABANDON@. The default value is @ABANDON@.</span><span>
-</span><span id="line-141"></span><span>    </span><span id="%24sel%3AdefaultResult%3APutLifecycleHook%27"><span class="annot"><span class="annottext">PutLifecycleHook -&gt; Maybe Text
+</span><span id="line-94"></span><span id="local-6989586621679337958"><span id="local-6989586621679337959"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLifecycleHook"><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-var">PutLifecycleHook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLifecycleHook%27"><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-var">PutLifecycleHook'</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Defines the action the Auto Scaling group should take when the lifecycle</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- hook timeout elapses or if an unexpected failure occurs. This parameter</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- can be either @CONTINUE@ or @ABANDON@. The default value is @ABANDON@.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AdefaultResult%3APutLifecycleHook%27"><span class="annot"><span class="annottext">PutLifecycleHook -&gt; Maybe Text
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AdefaultResult%3APutLifecycleHook%27"><span class="hs-identifier hs-var hs-var">defaultResult</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The maximum time, in seconds, that can elapse before the lifecycle hook</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- times out. The range is from @30@ to @7200@ seconds. The default value</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- is @3600@ seconds (1 hour).</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- action that you specified in the @DefaultResult@ parameter. You can</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- prevent the lifecycle hook from timing out by calling the</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- RecordLifecycleActionHeartbeat API.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AheartbeatTimeout%3APutLifecycleHook%27"><span class="annot"><span class="annottext">PutLifecycleHook -&gt; Maybe Int
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AheartbeatTimeout%3APutLifecycleHook%27"><span class="hs-identifier hs-var hs-var">heartbeatTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | Additional information that you want to include any time Amazon EC2 Auto</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- Scaling sends a message to the notification target.</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3AnotificationMetadata%3APutLifecycleHook%27"><span class="annot"><span class="annottext">PutLifecycleHook -&gt; Maybe Text
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AnotificationMetadata%3APutLifecycleHook%27"><span class="hs-identifier hs-var hs-var">notificationMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- | The ARN of the notification target that Amazon EC2 Auto Scaling uses to</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- notify you when an instance is in the transition state for the lifecycle</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- hook. This target can be either an SQS queue or an SNS topic.</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- If you specify an empty string, this overrides the current ARN.</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- This operation uses the JSON format when sending notifications to an</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- Amazon SQS queue, and an email key-value pair format when sending</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- notifications to an Amazon SNS topic.</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- When you specify a notification target, Amazon EC2 Auto Scaling sends it</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- a test message. Test messages contain the following additional key-value</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- pair: @\&quot;Event\&quot;: \&quot;autoscaling:TEST_NOTIFICATION\&quot;@.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AnotificationTargetARN%3APutLifecycleHook%27"><span class="annot"><span class="annottext">PutLifecycleHook -&gt; Maybe Text
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AnotificationTargetARN%3APutLifecycleHook%27"><span class="hs-identifier hs-var hs-var">notificationTargetARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The instance state to which you want to attach the lifecycle hook. The</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- valid values are:</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- -   autoscaling:EC2_INSTANCE_LAUNCHING</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- -   autoscaling:EC2_INSTANCE_TERMINATING</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- Required for new lifecycle hooks, but optional when updating existing</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- hooks.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AlifecycleTransition%3APutLifecycleHook%27"><span class="annot"><span class="annottext">PutLifecycleHook -&gt; Maybe Text
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AlifecycleTransition%3APutLifecycleHook%27"><span class="hs-identifier hs-var hs-var">lifecycleTransition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The ARN of the IAM role that allows the Auto Scaling group to publish to</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- the specified notification target, for example, an Amazon SNS topic or</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- an Amazon SQS queue.</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- Required for new lifecycle hooks, but optional when updating existing</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- hooks.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AroleARN%3APutLifecycleHook%27"><span class="annot"><span class="annottext">PutLifecycleHook -&gt; Maybe Text
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AroleARN%3APutLifecycleHook%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The name of the lifecycle hook.</span><span>
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3AlifecycleHookName%3APutLifecycleHook%27"><span class="annot"><span class="annottext">PutLifecycleHook -&gt; Text
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AlifecycleHookName%3APutLifecycleHook%27"><span class="hs-identifier hs-var hs-var">lifecycleHookName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -152,7 +152,7 @@
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AautoScalingGroupName%3APutLifecycleHook%27"><span class="annot"><span class="annottext">PutLifecycleHook -&gt; Text
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AautoScalingGroupName%3APutLifecycleHook%27"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337272"><span id="local-6989586621679337274"><span class="annot"><span class="annottext">PutLifecycleHook -&gt; PutLifecycleHook -&gt; Bool
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337945"><span id="local-6989586621679337947"><span class="annot"><span class="annottext">PutLifecycleHook -&gt; PutLifecycleHook -&gt; Bool
 (PutLifecycleHook -&gt; PutLifecycleHook -&gt; Bool)
 -&gt; (PutLifecycleHook -&gt; PutLifecycleHook -&gt; Bool)
 -&gt; Eq PutLifecycleHook
@@ -161,7 +161,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutLifecycleHook -&gt; PutLifecycleHook -&gt; Bool
 == :: PutLifecycleHook -&gt; PutLifecycleHook -&gt; Bool
 $c== :: PutLifecycleHook -&gt; PutLifecycleHook -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337263"><span id="local-6989586621679337265"><span id="local-6989586621679337267"><span id="local-6989586621679337269"><span class="annot"><span class="annottext">ReadPrec [PutLifecycleHook]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337936"><span id="local-6989586621679337938"><span id="local-6989586621679337940"><span id="local-6989586621679337942"><span class="annot"><span class="annottext">ReadPrec [PutLifecycleHook]
 ReadPrec PutLifecycleHook
 Int -&gt; ReadS PutLifecycleHook
 ReadS [PutLifecycleHook]
@@ -181,7 +181,7 @@ readList :: ReadS [PutLifecycleHook]
 $creadList :: ReadS [PutLifecycleHook]
 readsPrec :: Int -&gt; ReadS PutLifecycleHook
 $creadsPrec :: Int -&gt; ReadS PutLifecycleHook
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337256"><span id="local-6989586621679337258"><span id="local-6989586621679337260"><span class="annot"><span class="annottext">Int -&gt; PutLifecycleHook -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337929"><span id="local-6989586621679337931"><span id="local-6989586621679337933"><span class="annot"><span class="annottext">Int -&gt; PutLifecycleHook -&gt; ShowS
 [PutLifecycleHook] -&gt; ShowS
 PutLifecycleHook -&gt; String
 (Int -&gt; PutLifecycleHook -&gt; ShowS)
@@ -215,52 +215,52 @@ $cfrom :: forall x. PutLifecycleHook -&gt; Rep PutLifecycleHook x
 </span><span id="line-154"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-156"></span><span class="hs-comment">--</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- 'roleARN', 'putLifecycleHook_roleARN' - The ARN of the IAM role that allows the Auto Scaling group to publish to</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- the specified notification target, for example, an Amazon SNS topic or</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- an Amazon SQS queue.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'defaultResult', 'putLifecycleHook_defaultResult' - Defines the action the Auto Scaling group should take when the lifecycle</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- hook timeout elapses or if an unexpected failure occurs. This parameter</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- can be either @CONTINUE@ or @ABANDON@. The default value is @ABANDON@.</span><span>
 </span><span id="line-160"></span><span class="hs-comment">--</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- Required for new lifecycle hooks, but optional when updating existing</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- hooks.</span><span>
-</span><span id="line-163"></span><span class="hs-comment">--</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- 'lifecycleTransition', 'putLifecycleHook_lifecycleTransition' - The instance state to which you want to attach the lifecycle hook. The</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- valid values are:</span><span>
-</span><span id="line-166"></span><span class="hs-comment">--</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- -   autoscaling:EC2_INSTANCE_LAUNCHING</span><span>
-</span><span id="line-168"></span><span class="hs-comment">--</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- -   autoscaling:EC2_INSTANCE_TERMINATING</span><span>
-</span><span id="line-170"></span><span class="hs-comment">--</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- Required for new lifecycle hooks, but optional when updating existing</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- hooks.</span><span>
-</span><span id="line-173"></span><span class="hs-comment">--</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- 'notificationTargetARN', 'putLifecycleHook_notificationTargetARN' - The ARN of the notification target that Amazon EC2 Auto Scaling uses to</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- notify you when an instance is in the transition state for the lifecycle</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- hook. This target can be either an SQS queue or an SNS topic.</span><span>
-</span><span id="line-177"></span><span class="hs-comment">--</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- If you specify an empty string, this overrides the current ARN.</span><span>
-</span><span id="line-179"></span><span class="hs-comment">--</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- This operation uses the JSON format when sending notifications to an</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- Amazon SQS queue, and an email key-value pair format when sending</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- notifications to an Amazon SNS topic.</span><span>
-</span><span id="line-183"></span><span class="hs-comment">--</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- When you specify a notification target, Amazon EC2 Auto Scaling sends it</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- a test message. Test messages contain the following additional key-value</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- pair: @\&quot;Event\&quot;: \&quot;autoscaling:TEST_NOTIFICATION\&quot;@.</span><span>
-</span><span id="line-187"></span><span class="hs-comment">--</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- 'heartbeatTimeout', 'putLifecycleHook_heartbeatTimeout' - The maximum time, in seconds, that can elapse before the lifecycle hook</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- times out. The range is from @30@ to @7200@ seconds. The default value</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- is @3600@ seconds (1 hour).</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'heartbeatTimeout', 'putLifecycleHook_heartbeatTimeout' - The maximum time, in seconds, that can elapse before the lifecycle hook</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- times out. The range is from @30@ to @7200@ seconds. The default value</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- is @3600@ seconds (1 hour).</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- action that you specified in the @DefaultResult@ parameter. You can</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- prevent the lifecycle hook from timing out by calling the</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- RecordLifecycleActionHeartbeat API.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'notificationMetadata', 'putLifecycleHook_notificationMetadata' - Additional information that you want to include any time Amazon EC2 Auto</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Scaling sends a message to the notification target.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'notificationTargetARN', 'putLifecycleHook_notificationTargetARN' - The ARN of the notification target that Amazon EC2 Auto Scaling uses to</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- notify you when an instance is in the transition state for the lifecycle</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- hook. This target can be either an SQS queue or an SNS topic.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- If you specify an empty string, this overrides the current ARN.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- This operation uses the JSON format when sending notifications to an</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Amazon SQS queue, and an email key-value pair format when sending</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- notifications to an Amazon SNS topic.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- When you specify a notification target, Amazon EC2 Auto Scaling sends it</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- a test message. Test messages contain the following additional key-value</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- pair: @\&quot;Event\&quot;: \&quot;autoscaling:TEST_NOTIFICATION\&quot;@.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'lifecycleTransition', 'putLifecycleHook_lifecycleTransition' - The instance state to which you want to attach the lifecycle hook. The</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- valid values are:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- -   autoscaling:EC2_INSTANCE_LAUNCHING</span><span>
 </span><span id="line-191"></span><span class="hs-comment">--</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- action that you specified in the @DefaultResult@ parameter. You can</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- prevent the lifecycle hook from timing out by calling the</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- RecordLifecycleActionHeartbeat API.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- -   autoscaling:EC2_INSTANCE_TERMINATING</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Required for new lifecycle hooks, but optional when updating existing</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- hooks.</span><span>
 </span><span id="line-196"></span><span class="hs-comment">--</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- 'notificationMetadata', 'putLifecycleHook_notificationMetadata' - Additional information that you want to include any time Amazon EC2 Auto</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- Scaling sends a message to the notification target.</span><span>
-</span><span id="line-199"></span><span class="hs-comment">--</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- 'defaultResult', 'putLifecycleHook_defaultResult' - Defines the action the Auto Scaling group should take when the lifecycle</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- hook timeout elapses or if an unexpected failure occurs. This parameter</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- can be either @CONTINUE@ or @ABANDON@. The default value is @ABANDON@.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'roleARN', 'putLifecycleHook_roleARN' - The ARN of the IAM role that allows the Auto Scaling group to publish to</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- the specified notification target, for example, an Amazon SNS topic or</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- an Amazon SQS queue.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Required for new lifecycle hooks, but optional when updating existing</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- hooks.</span><span>
 </span><span id="line-203"></span><span class="hs-comment">--</span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- 'lifecycleHookName', 'putLifecycleHook_lifecycleHookName' - The name of the lifecycle hook.</span><span>
 </span><span id="line-205"></span><span class="hs-comment">--</span><span>
@@ -273,200 +273,200 @@ $cfrom :: forall x. PutLifecycleHook -&gt; Rep PutLifecycleHook x
 </span><span id="line-212"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span>
 </span><span id="line-213"></span><span id="newPutLifecycleHook"><span class="annot"><span class="annottext">newPutLifecycleHook :: Text -&gt; Text -&gt; PutLifecycleHook
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#newPutLifecycleHook"><span class="hs-identifier hs-var hs-var">newPutLifecycleHook</span></a></span></span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679337251"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337251"><span class="hs-identifier hs-var">pLifecycleHookName_</span></a></span></span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679337250"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337250"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679337924"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679337924"><span class="hs-identifier hs-var">pLifecycleHookName_</span></a></span></span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679337923"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679337923"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-216"></span><span>    </span><span class="annot"><span class="annottext">PutLifecycleHook' :: Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Text
 -&gt; Text
 -&gt; PutLifecycleHook
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span>
-</span><span id="line-217"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleARN:PutLifecycleHook' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AroleARN%3APutLifecycleHook%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-217"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:defaultResult:PutLifecycleHook' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AdefaultResult%3APutLifecycleHook%27"><span class="hs-identifier hs-var">defaultResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:lifecycleTransition:PutLifecycleHook' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AlifecycleTransition%3APutLifecycleHook%27"><span class="hs-identifier hs-var">lifecycleTransition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">$sel:notificationTargetARN:PutLifecycleHook' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AnotificationTargetARN%3APutLifecycleHook%27"><span class="hs-identifier hs-var">notificationTargetARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">$sel:heartbeatTimeout:PutLifecycleHook' :: Maybe Int
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:heartbeatTimeout:PutLifecycleHook' :: Maybe Int
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AheartbeatTimeout%3APutLifecycleHook%27"><span class="hs-identifier hs-var">heartbeatTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">$sel:notificationMetadata:PutLifecycleHook' :: Maybe Text
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">$sel:notificationMetadata:PutLifecycleHook' :: Maybe Text
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AnotificationMetadata%3APutLifecycleHook%27"><span class="hs-identifier hs-var">notificationMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">$sel:defaultResult:PutLifecycleHook' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AdefaultResult%3APutLifecycleHook%27"><span class="hs-identifier hs-var">defaultResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">$sel:notificationTargetARN:PutLifecycleHook' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AnotificationTargetARN%3APutLifecycleHook%27"><span class="hs-identifier hs-var">notificationTargetARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">$sel:lifecycleTransition:PutLifecycleHook' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AlifecycleTransition%3APutLifecycleHook%27"><span class="hs-identifier hs-var">lifecycleTransition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleARN:PutLifecycleHook' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AroleARN%3APutLifecycleHook%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">$sel:lifecycleHookName:PutLifecycleHook' :: Text
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AlifecycleHookName%3APutLifecycleHook%27"><span class="hs-identifier hs-var">lifecycleHookName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337251"><span class="hs-identifier hs-var">pLifecycleHookName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679337924"><span class="hs-identifier hs-var">pLifecycleHookName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:PutLifecycleHook' :: Text
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AautoScalingGroupName%3APutLifecycleHook%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337250"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679337923"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span>
 </span><span id="line-225"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- | The ARN of the IAM role that allows the Auto Scaling group to publish to</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- the specified notification target, for example, an Amazon SNS topic or</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- an Amazon SQS queue.</span><span>
-</span><span id="line-230"></span><span class="hs-comment">--</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- Required for new lifecycle hooks, but optional when updating existing</span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- hooks.</span><span>
-</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_roleARN"><span class="hs-identifier hs-type">putLifecycleHook_roleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-234"></span><span id="putLifecycleHook_roleARN"><span class="annot"><span class="annottext">putLifecycleHook_roleARN :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PutLifecycleHook -&gt; f PutLifecycleHook
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_roleARN"><span class="hs-identifier hs-var hs-var">putLifecycleHook_roleARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLifecycleHook -&gt; Maybe Text)
--&gt; (PutLifecycleHook -&gt; Maybe Text -&gt; PutLifecycleHook)
--&gt; Lens PutLifecycleHook PutLifecycleHook (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337247"><span class="annot"><span class="annottext">Maybe Text
-roleARN :: Maybe Text
-$sel:roleARN:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
-</span><a href="#local-6989586621679337247"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337247"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337246"><span class="annot"><span class="annottext">s :: PutLifecycleHook
-</span><a href="#local-6989586621679337246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337245"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHook
-</span><a href="#local-6989586621679337246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:PutLifecycleHook' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AroleARN%3APutLifecycleHook%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- | The instance state to which you want to attach the lifecycle hook. The</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- valid values are:</span><span>
-</span><span id="line-238"></span><span class="hs-comment">--</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- -   autoscaling:EC2_INSTANCE_LAUNCHING</span><span>
-</span><span id="line-240"></span><span class="hs-comment">--</span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- -   autoscaling:EC2_INSTANCE_TERMINATING</span><span>
-</span><span id="line-242"></span><span class="hs-comment">--</span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- Required for new lifecycle hooks, but optional when updating existing</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- hooks.</span><span>
-</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_lifecycleTransition"><span class="hs-identifier hs-type">putLifecycleHook_lifecycleTransition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-246"></span><span id="putLifecycleHook_lifecycleTransition"><span class="annot"><span class="annottext">putLifecycleHook_lifecycleTransition :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PutLifecycleHook -&gt; f PutLifecycleHook
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_lifecycleTransition"><span class="hs-identifier hs-var hs-var">putLifecycleHook_lifecycleTransition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLifecycleHook -&gt; Maybe Text)
--&gt; (PutLifecycleHook -&gt; Maybe Text -&gt; PutLifecycleHook)
--&gt; Lens PutLifecycleHook PutLifecycleHook (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337244"><span class="annot"><span class="annottext">Maybe Text
-lifecycleTransition :: Maybe Text
-$sel:lifecycleTransition:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
-</span><a href="#local-6989586621679337244"><span class="hs-identifier hs-var hs-var">lifecycleTransition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337244"><span class="hs-identifier hs-var">lifecycleTransition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337243"><span class="annot"><span class="annottext">s :: PutLifecycleHook
-</span><a href="#local-6989586621679337243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337242"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHook
-</span><a href="#local-6989586621679337243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycleTransition:PutLifecycleHook' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AlifecycleTransition%3APutLifecycleHook%27"><span class="hs-identifier hs-var">lifecycleTransition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-247"></span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- | The ARN of the notification target that Amazon EC2 Auto Scaling uses to</span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- notify you when an instance is in the transition state for the lifecycle</span><span>
-</span><span id="line-250"></span><span class="hs-comment">-- hook. This target can be either an SQS queue or an SNS topic.</span><span>
-</span><span id="line-251"></span><span class="hs-comment">--</span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- If you specify an empty string, this overrides the current ARN.</span><span>
-</span><span id="line-253"></span><span class="hs-comment">--</span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- This operation uses the JSON format when sending notifications to an</span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- Amazon SQS queue, and an email key-value pair format when sending</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- notifications to an Amazon SNS topic.</span><span>
-</span><span id="line-257"></span><span class="hs-comment">--</span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- When you specify a notification target, Amazon EC2 Auto Scaling sends it</span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- a test message. Test messages contain the following additional key-value</span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- pair: @\&quot;Event\&quot;: \&quot;autoscaling:TEST_NOTIFICATION\&quot;@.</span><span>
-</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_notificationTargetARN"><span class="hs-identifier hs-type">putLifecycleHook_notificationTargetARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-262"></span><span id="putLifecycleHook_notificationTargetARN"><span class="annot"><span class="annottext">putLifecycleHook_notificationTargetARN :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PutLifecycleHook -&gt; f PutLifecycleHook
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_notificationTargetARN"><span class="hs-identifier hs-var hs-var">putLifecycleHook_notificationTargetARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLifecycleHook -&gt; Maybe Text)
--&gt; (PutLifecycleHook -&gt; Maybe Text -&gt; PutLifecycleHook)
--&gt; Lens PutLifecycleHook PutLifecycleHook (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337241"><span class="annot"><span class="annottext">Maybe Text
-notificationTargetARN :: Maybe Text
-$sel:notificationTargetARN:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
-</span><a href="#local-6989586621679337241"><span class="hs-identifier hs-var hs-var">notificationTargetARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337241"><span class="hs-identifier hs-var">notificationTargetARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337240"><span class="annot"><span class="annottext">s :: PutLifecycleHook
-</span><a href="#local-6989586621679337240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337239"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHook
-</span><a href="#local-6989586621679337240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationTargetARN:PutLifecycleHook' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AnotificationTargetARN%3APutLifecycleHook%27"><span class="hs-identifier hs-var">notificationTargetARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-263"></span><span>
-</span><span id="line-264"></span><span class="hs-comment">-- | The maximum time, in seconds, that can elapse before the lifecycle hook</span><span>
-</span><span id="line-265"></span><span class="hs-comment">-- times out. The range is from @30@ to @7200@ seconds. The default value</span><span>
-</span><span id="line-266"></span><span class="hs-comment">-- is @3600@ seconds (1 hour).</span><span>
-</span><span id="line-267"></span><span class="hs-comment">--</span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the</span><span>
-</span><span id="line-269"></span><span class="hs-comment">-- action that you specified in the @DefaultResult@ parameter. You can</span><span>
-</span><span id="line-270"></span><span class="hs-comment">-- prevent the lifecycle hook from timing out by calling the</span><span>
-</span><span id="line-271"></span><span class="hs-comment">-- RecordLifecycleActionHeartbeat API.</span><span>
-</span><span id="line-272"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_heartbeatTimeout"><span class="hs-identifier hs-type">putLifecycleHook_heartbeatTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-273"></span><span id="putLifecycleHook_heartbeatTimeout"><span class="annot"><span class="annottext">putLifecycleHook_heartbeatTimeout :: (Maybe Int -&gt; f (Maybe Int))
--&gt; PutLifecycleHook -&gt; f PutLifecycleHook
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_heartbeatTimeout"><span class="hs-identifier hs-var hs-var">putLifecycleHook_heartbeatTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLifecycleHook -&gt; Maybe Int)
--&gt; (PutLifecycleHook -&gt; Maybe Int -&gt; PutLifecycleHook)
--&gt; Lens PutLifecycleHook PutLifecycleHook (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337238"><span class="annot"><span class="annottext">Maybe Int
-heartbeatTimeout :: Maybe Int
-$sel:heartbeatTimeout:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Int
-</span><a href="#local-6989586621679337238"><span class="hs-identifier hs-var hs-var">heartbeatTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679337238"><span class="hs-identifier hs-var">heartbeatTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337237"><span class="annot"><span class="annottext">s :: PutLifecycleHook
-</span><a href="#local-6989586621679337237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337236"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679337236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHook
-</span><a href="#local-6989586621679337237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:heartbeatTimeout:PutLifecycleHook' :: Maybe Int
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AheartbeatTimeout%3APutLifecycleHook%27"><span class="hs-identifier hs-var">heartbeatTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679337236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-274"></span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- | Additional information that you want to include any time Amazon EC2 Auto</span><span>
-</span><span id="line-276"></span><span class="hs-comment">-- Scaling sends a message to the notification target.</span><span>
-</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_notificationMetadata"><span class="hs-identifier hs-type">putLifecycleHook_notificationMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-278"></span><span id="putLifecycleHook_notificationMetadata"><span class="annot"><span class="annottext">putLifecycleHook_notificationMetadata :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PutLifecycleHook -&gt; f PutLifecycleHook
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_notificationMetadata"><span class="hs-identifier hs-var hs-var">putLifecycleHook_notificationMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLifecycleHook -&gt; Maybe Text)
--&gt; (PutLifecycleHook -&gt; Maybe Text -&gt; PutLifecycleHook)
--&gt; Lens PutLifecycleHook PutLifecycleHook (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337235"><span class="annot"><span class="annottext">Maybe Text
-notificationMetadata :: Maybe Text
-$sel:notificationMetadata:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
-</span><a href="#local-6989586621679337235"><span class="hs-identifier hs-var hs-var">notificationMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337235"><span class="hs-identifier hs-var">notificationMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337234"><span class="annot"><span class="annottext">s :: PutLifecycleHook
-</span><a href="#local-6989586621679337234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337233"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHook
-</span><a href="#local-6989586621679337234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationMetadata:PutLifecycleHook' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AnotificationMetadata%3APutLifecycleHook%27"><span class="hs-identifier hs-var">notificationMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-279"></span><span>
-</span><span id="line-280"></span><span class="hs-comment">-- | Defines the action the Auto Scaling group should take when the lifecycle</span><span>
-</span><span id="line-281"></span><span class="hs-comment">-- hook timeout elapses or if an unexpected failure occurs. This parameter</span><span>
-</span><span id="line-282"></span><span class="hs-comment">-- can be either @CONTINUE@ or @ABANDON@. The default value is @ABANDON@.</span><span>
-</span><span id="line-283"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_defaultResult"><span class="hs-identifier hs-type">putLifecycleHook_defaultResult</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-284"></span><span id="putLifecycleHook_defaultResult"><span class="annot"><span class="annottext">putLifecycleHook_defaultResult :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-227"></span><span class="hs-comment">-- | Defines the action the Auto Scaling group should take when the lifecycle</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- hook timeout elapses or if an unexpected failure occurs. This parameter</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- can be either @CONTINUE@ or @ABANDON@. The default value is @ABANDON@.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_defaultResult"><span class="hs-identifier hs-type">putLifecycleHook_defaultResult</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="putLifecycleHook_defaultResult"><span class="annot"><span class="annottext">putLifecycleHook_defaultResult :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PutLifecycleHook -&gt; f PutLifecycleHook
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_defaultResult"><span class="hs-identifier hs-var hs-var">putLifecycleHook_defaultResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLifecycleHook -&gt; Maybe Text)
 -&gt; (PutLifecycleHook -&gt; Maybe Text -&gt; PutLifecycleHook)
 -&gt; Lens PutLifecycleHook PutLifecycleHook (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337232"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337920"><span class="annot"><span class="annottext">Maybe Text
 defaultResult :: Maybe Text
 $sel:defaultResult:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
-</span><a href="#local-6989586621679337232"><span class="hs-identifier hs-var hs-var">defaultResult</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337232"><span class="hs-identifier hs-var">defaultResult</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337231"><span class="annot"><span class="annottext">s :: PutLifecycleHook
-</span><a href="#local-6989586621679337231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337230"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHook
-</span><a href="#local-6989586621679337231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultResult:PutLifecycleHook' :: Maybe Text
+</span><a href="#local-6989586621679337920"><span class="hs-identifier hs-var hs-var">defaultResult</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337920"><span class="hs-identifier hs-var">defaultResult</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337919"><span class="annot"><span class="annottext">s :: PutLifecycleHook
+</span><a href="#local-6989586621679337919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337918"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHook
+</span><a href="#local-6989586621679337919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultResult:PutLifecycleHook' :: Maybe Text
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AdefaultResult%3APutLifecycleHook%27"><span class="hs-identifier hs-var">defaultResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679337918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The maximum time, in seconds, that can elapse before the lifecycle hook</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- times out. The range is from @30@ to @7200@ seconds. The default value</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- is @3600@ seconds (1 hour).</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- action that you specified in the @DefaultResult@ parameter. You can</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- prevent the lifecycle hook from timing out by calling the</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- RecordLifecycleActionHeartbeat API.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_heartbeatTimeout"><span class="hs-identifier hs-type">putLifecycleHook_heartbeatTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="putLifecycleHook_heartbeatTimeout"><span class="annot"><span class="annottext">putLifecycleHook_heartbeatTimeout :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; PutLifecycleHook -&gt; f PutLifecycleHook
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_heartbeatTimeout"><span class="hs-identifier hs-var hs-var">putLifecycleHook_heartbeatTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLifecycleHook -&gt; Maybe Int)
+-&gt; (PutLifecycleHook -&gt; Maybe Int -&gt; PutLifecycleHook)
+-&gt; Lens PutLifecycleHook PutLifecycleHook (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337917"><span class="annot"><span class="annottext">Maybe Int
+heartbeatTimeout :: Maybe Int
+$sel:heartbeatTimeout:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Int
+</span><a href="#local-6989586621679337917"><span class="hs-identifier hs-var hs-var">heartbeatTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679337917"><span class="hs-identifier hs-var">heartbeatTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337916"><span class="annot"><span class="annottext">s :: PutLifecycleHook
+</span><a href="#local-6989586621679337916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337915"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679337915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHook
+</span><a href="#local-6989586621679337916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:heartbeatTimeout:PutLifecycleHook' :: Maybe Int
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AheartbeatTimeout%3APutLifecycleHook%27"><span class="hs-identifier hs-var">heartbeatTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679337915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | Additional information that you want to include any time Amazon EC2 Auto</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- Scaling sends a message to the notification target.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_notificationMetadata"><span class="hs-identifier hs-type">putLifecycleHook_notificationMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="putLifecycleHook_notificationMetadata"><span class="annot"><span class="annottext">putLifecycleHook_notificationMetadata :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutLifecycleHook -&gt; f PutLifecycleHook
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_notificationMetadata"><span class="hs-identifier hs-var hs-var">putLifecycleHook_notificationMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLifecycleHook -&gt; Maybe Text)
+-&gt; (PutLifecycleHook -&gt; Maybe Text -&gt; PutLifecycleHook)
+-&gt; Lens PutLifecycleHook PutLifecycleHook (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337914"><span class="annot"><span class="annottext">Maybe Text
+notificationMetadata :: Maybe Text
+$sel:notificationMetadata:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
+</span><a href="#local-6989586621679337914"><span class="hs-identifier hs-var hs-var">notificationMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337914"><span class="hs-identifier hs-var">notificationMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337913"><span class="annot"><span class="annottext">s :: PutLifecycleHook
+</span><a href="#local-6989586621679337913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337912"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHook
+</span><a href="#local-6989586621679337913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationMetadata:PutLifecycleHook' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AnotificationMetadata%3APutLifecycleHook%27"><span class="hs-identifier hs-var">notificationMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The ARN of the notification target that Amazon EC2 Auto Scaling uses to</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- notify you when an instance is in the transition state for the lifecycle</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- hook. This target can be either an SQS queue or an SNS topic.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- If you specify an empty string, this overrides the current ARN.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- This operation uses the JSON format when sending notifications to an</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- Amazon SQS queue, and an email key-value pair format when sending</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- notifications to an Amazon SNS topic.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- When you specify a notification target, Amazon EC2 Auto Scaling sends it</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- a test message. Test messages contain the following additional key-value</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- pair: @\&quot;Event\&quot;: \&quot;autoscaling:TEST_NOTIFICATION\&quot;@.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_notificationTargetARN"><span class="hs-identifier hs-type">putLifecycleHook_notificationTargetARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="putLifecycleHook_notificationTargetARN"><span class="annot"><span class="annottext">putLifecycleHook_notificationTargetARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutLifecycleHook -&gt; f PutLifecycleHook
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_notificationTargetARN"><span class="hs-identifier hs-var hs-var">putLifecycleHook_notificationTargetARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLifecycleHook -&gt; Maybe Text)
+-&gt; (PutLifecycleHook -&gt; Maybe Text -&gt; PutLifecycleHook)
+-&gt; Lens PutLifecycleHook PutLifecycleHook (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337911"><span class="annot"><span class="annottext">Maybe Text
+notificationTargetARN :: Maybe Text
+$sel:notificationTargetARN:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
+</span><a href="#local-6989586621679337911"><span class="hs-identifier hs-var hs-var">notificationTargetARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337911"><span class="hs-identifier hs-var">notificationTargetARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337910"><span class="annot"><span class="annottext">s :: PutLifecycleHook
+</span><a href="#local-6989586621679337910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337909"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHook
+</span><a href="#local-6989586621679337910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationTargetARN:PutLifecycleHook' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AnotificationTargetARN%3APutLifecycleHook%27"><span class="hs-identifier hs-var">notificationTargetARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | The instance state to which you want to attach the lifecycle hook. The</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- valid values are:</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- -   autoscaling:EC2_INSTANCE_LAUNCHING</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- -   autoscaling:EC2_INSTANCE_TERMINATING</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- Required for new lifecycle hooks, but optional when updating existing</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- hooks.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_lifecycleTransition"><span class="hs-identifier hs-type">putLifecycleHook_lifecycleTransition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="putLifecycleHook_lifecycleTransition"><span class="annot"><span class="annottext">putLifecycleHook_lifecycleTransition :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutLifecycleHook -&gt; f PutLifecycleHook
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_lifecycleTransition"><span class="hs-identifier hs-var hs-var">putLifecycleHook_lifecycleTransition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLifecycleHook -&gt; Maybe Text)
+-&gt; (PutLifecycleHook -&gt; Maybe Text -&gt; PutLifecycleHook)
+-&gt; Lens PutLifecycleHook PutLifecycleHook (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337908"><span class="annot"><span class="annottext">Maybe Text
+lifecycleTransition :: Maybe Text
+$sel:lifecycleTransition:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
+</span><a href="#local-6989586621679337908"><span class="hs-identifier hs-var hs-var">lifecycleTransition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337908"><span class="hs-identifier hs-var">lifecycleTransition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337907"><span class="annot"><span class="annottext">s :: PutLifecycleHook
+</span><a href="#local-6989586621679337907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337906"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHook
+</span><a href="#local-6989586621679337907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycleTransition:PutLifecycleHook' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AlifecycleTransition%3APutLifecycleHook%27"><span class="hs-identifier hs-var">lifecycleTransition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | The ARN of the IAM role that allows the Auto Scaling group to publish to</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- the specified notification target, for example, an Amazon SNS topic or</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- an Amazon SQS queue.</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- Required for new lifecycle hooks, but optional when updating existing</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- hooks.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_roleARN"><span class="hs-identifier hs-type">putLifecycleHook_roleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span id="putLifecycleHook_roleARN"><span class="annot"><span class="annottext">putLifecycleHook_roleARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutLifecycleHook -&gt; f PutLifecycleHook
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_roleARN"><span class="hs-identifier hs-var hs-var">putLifecycleHook_roleARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLifecycleHook -&gt; Maybe Text)
+-&gt; (PutLifecycleHook -&gt; Maybe Text -&gt; PutLifecycleHook)
+-&gt; Lens PutLifecycleHook PutLifecycleHook (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337905"><span class="annot"><span class="annottext">Maybe Text
+roleARN :: Maybe Text
+$sel:roleARN:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
+</span><a href="#local-6989586621679337905"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337905"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337904"><span class="annot"><span class="annottext">s :: PutLifecycleHook
+</span><a href="#local-6989586621679337904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337903"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHook
+</span><a href="#local-6989586621679337904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:PutLifecycleHook' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AroleARN%3APutLifecycleHook%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-285"></span><span>
 </span><span id="line-286"></span><span class="hs-comment">-- | The name of the lifecycle hook.</span><span>
 </span><span id="line-287"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_lifecycleHookName"><span class="hs-identifier hs-type">putLifecycleHook_lifecycleHookName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -475,16 +475,16 @@ $sel:defaultResult:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
 -&gt; (PutLifecycleHook -&gt; Text -&gt; PutLifecycleHook)
 -&gt; Lens PutLifecycleHook PutLifecycleHook Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337229"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337902"><span class="annot"><span class="annottext">Text
 lifecycleHookName :: Text
 $sel:lifecycleHookName:PutLifecycleHook' :: PutLifecycleHook -&gt; Text
-</span><a href="#local-6989586621679337229"><span class="hs-identifier hs-var hs-var">lifecycleHookName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337229"><span class="hs-identifier hs-var">lifecycleHookName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337228"><span class="annot"><span class="annottext">s :: PutLifecycleHook
-</span><a href="#local-6989586621679337228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337227"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHook
-</span><a href="#local-6989586621679337228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycleHookName:PutLifecycleHook' :: Text
+</span><a href="#local-6989586621679337902"><span class="hs-identifier hs-var hs-var">lifecycleHookName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679337902"><span class="hs-identifier hs-var">lifecycleHookName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337901"><span class="annot"><span class="annottext">s :: PutLifecycleHook
+</span><a href="#local-6989586621679337901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337900"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679337900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHook
+</span><a href="#local-6989586621679337901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycleHookName:PutLifecycleHook' :: Text
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AlifecycleHookName%3APutLifecycleHook%27"><span class="hs-identifier hs-var">lifecycleHookName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679337900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-289"></span><span>
 </span><span id="line-290"></span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
 </span><span id="line-291"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#putLifecycleHook_autoScalingGroupName"><span class="hs-identifier hs-type">putLifecycleHook_autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -493,27 +493,27 @@ $sel:lifecycleHookName:PutLifecycleHook' :: PutLifecycleHook -&gt; Text
 -&gt; (PutLifecycleHook -&gt; Text -&gt; PutLifecycleHook)
 -&gt; Lens PutLifecycleHook PutLifecycleHook Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337226"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337899"><span class="annot"><span class="annottext">Text
 autoScalingGroupName :: Text
 $sel:autoScalingGroupName:PutLifecycleHook' :: PutLifecycleHook -&gt; Text
-</span><a href="#local-6989586621679337226"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337226"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337225"><span class="annot"><span class="annottext">s :: PutLifecycleHook
-</span><a href="#local-6989586621679337225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337224"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHook
-</span><a href="#local-6989586621679337225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:PutLifecycleHook' :: Text
+</span><a href="#local-6989586621679337899"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679337899"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337898"><span class="annot"><span class="annottext">s :: PutLifecycleHook
+</span><a href="#local-6989586621679337898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337897"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679337897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHook
+</span><a href="#local-6989586621679337898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:PutLifecycleHook' :: Text
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AautoScalingGroupName%3APutLifecycleHook%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679337897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-293"></span><span>
 </span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-295"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-296"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-297"></span><span>      </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHookResponse"><span class="hs-identifier hs-type">PutLifecycleHookResponse</span></a></span><span>
-</span><span id="line-298"></span><span>  </span><span id="local-6989586621679337220"><span class="annot"><span class="annottext">request :: PutLifecycleHook -&gt; Request PutLifecycleHook
+</span><span id="line-298"></span><span>  </span><span id="local-6989586621679337893"><span class="annot"><span class="annottext">request :: PutLifecycleHook -&gt; Request PutLifecycleHook
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutLifecycleHook -&gt; Request PutLifecycleHook
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-299"></span><span>  </span><span id="local-6989586621679337216"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-299"></span><span>  </span><span id="local-6989586621679337889"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutLifecycleHook
 -&gt; ClientResponse ClientBody
@@ -542,10 +542,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-301"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PutLifecycleHookResult&quot;</span></span><span>
-</span><span id="line-302"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679337213"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337213"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679337212"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679337212"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679337211"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679337211"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-302"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679337886"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679337886"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679337885"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679337885"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679337884"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679337884"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-303"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutLifecycleHookResponse
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHookResponse%27"><span class="hs-identifier hs-var">PutLifecycleHookResponse'</span></a></span><span>
 </span><span id="line-304"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutLifecycleHookResponse)
@@ -556,15 +556,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337213"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679337886"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-305"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-306"></span><span>
-</span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337204"><span id="local-6989586621679337206"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span></span></span><span>
+</span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337877"><span id="local-6989586621679337879"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span></span></span><span>
 </span><span id="line-308"></span><span>
-</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337201"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span></span><span>
+</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337874"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span></span><span>
 </span><span id="line-310"></span><span>
 </span><span id="line-311"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-312"></span><span>  </span><span id="local-6989586621679337197"><span class="annot"><span class="annottext">toHeaders :: PutLifecycleHook -&gt; ResponseHeaders
+</span><span id="line-312"></span><span>  </span><span id="local-6989586621679337870"><span class="annot"><span class="annottext">toHeaders :: PutLifecycleHook -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutLifecycleHook -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -572,34 +572,34 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-313"></span><span>
 </span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-315"></span><span>  </span><span id="local-6989586621679337192"><span class="annot"><span class="annottext">toPath :: PutLifecycleHook -&gt; ByteString
+</span><span id="line-315"></span><span>  </span><span id="local-6989586621679337865"><span class="annot"><span class="annottext">toPath :: PutLifecycleHook -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutLifecycleHook -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-316"></span><span>
 </span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook"><span class="hs-identifier hs-type">PutLifecycleHook</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-318"></span><span>  </span><span id="local-6989586621679337188"><span class="annot"><span class="annottext">toQuery :: PutLifecycleHook -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337179"><span id="local-6989586621679337180"><span id="local-6989586621679337181"><span id="local-6989586621679337182"><span id="local-6989586621679337183"><span id="local-6989586621679337184"><span id="local-6989586621679337185"><span id="local-6989586621679337186"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-318"></span><span>  </span><span id="local-6989586621679337861"><span class="annot"><span class="annottext">toQuery :: PutLifecycleHook -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHook%27"><span class="hs-identifier hs-type">PutLifecycleHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337852"><span id="local-6989586621679337853"><span id="local-6989586621679337854"><span id="local-6989586621679337855"><span id="local-6989586621679337856"><span id="local-6989586621679337857"><span id="local-6989586621679337858"><span id="local-6989586621679337859"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Text
 autoScalingGroupName :: Text
 lifecycleHookName :: Text
-defaultResult :: Maybe Text
+roleARN :: Maybe Text
+lifecycleTransition :: Maybe Text
+notificationTargetARN :: Maybe Text
 notificationMetadata :: Maybe Text
 heartbeatTimeout :: Maybe Int
-notificationTargetARN :: Maybe Text
-lifecycleTransition :: Maybe Text
-roleARN :: Maybe Text
+defaultResult :: Maybe Text
 $sel:autoScalingGroupName:PutLifecycleHook' :: PutLifecycleHook -&gt; Text
 $sel:lifecycleHookName:PutLifecycleHook' :: PutLifecycleHook -&gt; Text
-$sel:defaultResult:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
+$sel:roleARN:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
+$sel:lifecycleTransition:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
+$sel:notificationTargetARN:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
 $sel:notificationMetadata:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
 $sel:heartbeatTimeout:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Int
-$sel:notificationTargetARN:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
-$sel:lifecycleTransition:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
-$sel:roleARN:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
-</span><a href="#local-6989586621679337179"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:defaultResult:PutLifecycleHook' :: PutLifecycleHook -&gt; Maybe Text
+</span><a href="#local-6989586621679337852"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-319"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -616,55 +616,55 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2011-01-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-324"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;RoleARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337186"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-325"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;LifecycleTransition&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337185"><span class="hs-identifier hs-var">lifecycleTransition</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-326"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;NotificationTargetARN&quot;</span></span><span>
-</span><span id="line-327"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337184"><span class="hs-identifier hs-var">notificationTargetARN</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-328"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;HeartbeatTimeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679337183"><span class="hs-identifier hs-var">heartbeatTimeout</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-329"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;NotificationMetadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337182"><span class="hs-identifier hs-var">notificationMetadata</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-330"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DefaultResult&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337181"><span class="hs-identifier hs-var">defaultResult</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679337859"><span class="hs-identifier hs-var">defaultResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;HeartbeatTimeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679337858"><span class="hs-identifier hs-var">heartbeatTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NotificationMetadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337857"><span class="hs-identifier hs-var">notificationMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NotificationTargetARN&quot;</span></span><span>
+</span><span id="line-328"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337856"><span class="hs-identifier hs-var">notificationTargetARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LifecycleTransition&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337855"><span class="hs-identifier hs-var">lifecycleTransition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RoleARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337854"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-331"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;LifecycleHookName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337180"><span class="hs-identifier hs-var">lifecycleHookName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679337853"><span class="hs-identifier hs-var">lifecycleHookName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-332"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AutoScalingGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337179"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span>
+</span><a href="#local-6989586621679337852"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span>
 </span><span id="line-333"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-334"></span><span>
 </span><span id="line-335"></span><span class="hs-comment">-- | /See:/ 'newPutLifecycleHookResponse' smart constructor.</span><span>
-</span><span id="line-336"></span><span id="local-6989586621679337176"><span id="local-6989586621679337177"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLifecycleHookResponse"><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHookResponse"><span class="hs-identifier hs-var">PutLifecycleHookResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLifecycleHookResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHookResponse%27"><span class="hs-identifier hs-var">PutLifecycleHookResponse'</span></a></span></span><span>
+</span><span id="line-336"></span><span id="local-6989586621679337849"><span id="local-6989586621679337850"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLifecycleHookResponse"><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHookResponse"><span class="hs-identifier hs-var">PutLifecycleHookResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLifecycleHookResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHookResponse%27"><span class="hs-identifier hs-var">PutLifecycleHookResponse'</span></a></span></span><span>
 </span><span id="line-337"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-338"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutLifecycleHookResponse%27"><span class="annot"><span class="annottext">PutLifecycleHookResponse -&gt; Int
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AhttpStatus%3APutLifecycleHookResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-339"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-340"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337171"><span id="local-6989586621679337173"><span class="annot"><span class="annottext">PutLifecycleHookResponse -&gt; PutLifecycleHookResponse -&gt; Bool
+</span><span id="line-340"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337844"><span id="local-6989586621679337846"><span class="annot"><span class="annottext">PutLifecycleHookResponse -&gt; PutLifecycleHookResponse -&gt; Bool
 (PutLifecycleHookResponse -&gt; PutLifecycleHookResponse -&gt; Bool)
 -&gt; (PutLifecycleHookResponse -&gt; PutLifecycleHookResponse -&gt; Bool)
 -&gt; Eq PutLifecycleHookResponse
@@ -673,7 +673,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutLifecycleHookResponse -&gt; PutLifecycleHookResponse -&gt; Bool
 == :: PutLifecycleHookResponse -&gt; PutLifecycleHookResponse -&gt; Bool
 $c== :: PutLifecycleHookResponse -&gt; PutLifecycleHookResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337163"><span id="local-6989586621679337165"><span id="local-6989586621679337167"><span id="local-6989586621679337169"><span class="annot"><span class="annottext">ReadPrec [PutLifecycleHookResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337836"><span id="local-6989586621679337838"><span id="local-6989586621679337840"><span id="local-6989586621679337842"><span class="annot"><span class="annottext">ReadPrec [PutLifecycleHookResponse]
 ReadPrec PutLifecycleHookResponse
 Int -&gt; ReadS PutLifecycleHookResponse
 ReadS [PutLifecycleHookResponse]
@@ -693,7 +693,7 @@ readList :: ReadS [PutLifecycleHookResponse]
 $creadList :: ReadS [PutLifecycleHookResponse]
 readsPrec :: Int -&gt; ReadS PutLifecycleHookResponse
 $creadsPrec :: Int -&gt; ReadS PutLifecycleHookResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337157"><span id="local-6989586621679337159"><span id="local-6989586621679337161"><span class="annot"><span class="annottext">Int -&gt; PutLifecycleHookResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337830"><span id="local-6989586621679337832"><span id="local-6989586621679337834"><span class="annot"><span class="annottext">Int -&gt; PutLifecycleHookResponse -&gt; ShowS
 [PutLifecycleHookResponse] -&gt; ShowS
 PutLifecycleHookResponse -&gt; String
 (Int -&gt; PutLifecycleHookResponse -&gt; ShowS)
@@ -739,14 +739,14 @@ PutLifecycleHookResponse -&gt; Rep PutLifecycleHookResponse x
 </span><span id="line-353"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-354"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHookResponse"><span class="hs-identifier hs-type">PutLifecycleHookResponse</span></a></span><span>
 </span><span id="line-355"></span><span id="newPutLifecycleHookResponse"><span class="annot"><span class="annottext">newPutLifecycleHookResponse :: Int -&gt; PutLifecycleHookResponse
-</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#newPutLifecycleHookResponse"><span class="hs-identifier hs-var hs-var">newPutLifecycleHookResponse</span></a></span></span><span> </span><span id="local-6989586621679337154"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337154"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#newPutLifecycleHookResponse"><span class="hs-identifier hs-var hs-var">newPutLifecycleHookResponse</span></a></span></span><span> </span><span id="local-6989586621679337827"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679337827"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-356"></span><span>  </span><span class="annot"><span class="annottext">PutLifecycleHookResponse' :: Int -&gt; PutLifecycleHookResponse
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHookResponse%27"><span class="hs-identifier hs-type">PutLifecycleHookResponse'</span></a></span><span>
 </span><span id="line-357"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutLifecycleHookResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AhttpStatus%3APutLifecycleHookResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-358"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337154"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679337827"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-359"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-360"></span><span>
 </span><span id="line-361"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -757,16 +757,16 @@ PutLifecycleHookResponse -&gt; Rep PutLifecycleHookResponse x
 -&gt; (PutLifecycleHookResponse -&gt; Int -&gt; PutLifecycleHookResponse)
 -&gt; Lens PutLifecycleHookResponse PutLifecycleHookResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHookResponse%27"><span class="hs-identifier hs-type">PutLifecycleHookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337153"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHookResponse%27"><span class="hs-identifier hs-type">PutLifecycleHookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337826"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutLifecycleHookResponse' :: PutLifecycleHookResponse -&gt; Int
-</span><a href="#local-6989586621679337153"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337153"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337152"><span class="annot"><span class="annottext">s :: PutLifecycleHookResponse
-</span><a href="#local-6989586621679337152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHookResponse%27"><span class="hs-identifier hs-type">PutLifecycleHookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337151"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHookResponse
-</span><a href="#local-6989586621679337152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutLifecycleHookResponse' :: Int
+</span><a href="#local-6989586621679337826"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679337826"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337825"><span class="annot"><span class="annottext">s :: PutLifecycleHookResponse
+</span><a href="#local-6989586621679337825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHookResponse%27"><span class="hs-identifier hs-type">PutLifecycleHookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337824"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679337824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleHookResponse
+</span><a href="#local-6989586621679337825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutLifecycleHookResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#%24sel%3AhttpStatus%3APutLifecycleHookResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHookResponse"><span class="hs-identifier hs-type">PutLifecycleHookResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679337824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHookResponse"><span class="hs-identifier hs-type">PutLifecycleHookResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-364"></span><span>
-</span><span id="line-365"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHookResponse"><span class="hs-identifier hs-type">PutLifecycleHookResponse</span></a></span></span><span>
+</span><span id="line-365"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337822"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutLifecycleHook.html#PutLifecycleHookResponse"><span class="hs-identifier hs-type">PutLifecycleHookResponse</span></a></span></span><span>
 </span><span id="line-366"></span></pre></body></html>

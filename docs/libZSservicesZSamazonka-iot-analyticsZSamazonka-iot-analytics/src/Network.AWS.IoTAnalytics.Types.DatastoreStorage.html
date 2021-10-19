@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- of Amazon S3 storage after your data store is created.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newDatastoreStorage' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679260578"><span id="local-6989586621679260579"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatastoreStorage"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage"><span class="hs-identifier hs-var">DatastoreStorage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatastoreStorage%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage%27"><span class="hs-identifier hs-var">DatastoreStorage'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679260789"><span id="local-6989586621679260790"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatastoreStorage"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage"><span class="hs-identifier hs-var">DatastoreStorage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatastoreStorage%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage%27"><span class="hs-identifier hs-var">DatastoreStorage'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Used to store data in an Amazon S3 bucket managed by IoT Analytics. You</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- can\'t change the choice of Amazon S3 storage after your data store is</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- created.</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3AiotSiteWiseMultiLayerStorage%3ADatastoreStorage%27"><span class="annot"><span class="annottext">DatastoreStorage -&gt; Maybe DatastoreIotSiteWiseMultiLayerStorage
 </span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#%24sel%3AiotSiteWiseMultiLayerStorage%3ADatastoreStorage%27"><span class="hs-identifier hs-var hs-var">iotSiteWiseMultiLayerStorage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreIotSiteWiseMultiLayerStorage.html#DatastoreIotSiteWiseMultiLayerStorage"><span class="hs-identifier hs-type">DatastoreIotSiteWiseMultiLayerStorage</span></a></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260570"><span id="local-6989586621679260572"><span class="annot"><span class="annottext">DatastoreStorage -&gt; DatastoreStorage -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260781"><span id="local-6989586621679260783"><span class="annot"><span class="annottext">DatastoreStorage -&gt; DatastoreStorage -&gt; Bool
 (DatastoreStorage -&gt; DatastoreStorage -&gt; Bool)
 -&gt; (DatastoreStorage -&gt; DatastoreStorage -&gt; Bool)
 -&gt; Eq DatastoreStorage
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DatastoreStorage -&gt; DatastoreStorage -&gt; Bool
 == :: DatastoreStorage -&gt; DatastoreStorage -&gt; Bool
 $c== :: DatastoreStorage -&gt; DatastoreStorage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260561"><span id="local-6989586621679260563"><span id="local-6989586621679260565"><span id="local-6989586621679260567"><span class="annot"><span class="annottext">ReadPrec [DatastoreStorage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260772"><span id="local-6989586621679260774"><span id="local-6989586621679260776"><span id="local-6989586621679260778"><span class="annot"><span class="annottext">ReadPrec [DatastoreStorage]
 ReadPrec DatastoreStorage
 Int -&gt; ReadS DatastoreStorage
 ReadS [DatastoreStorage]
@@ -78,7 +78,7 @@ readList :: ReadS [DatastoreStorage]
 $creadList :: ReadS [DatastoreStorage]
 readsPrec :: Int -&gt; ReadS DatastoreStorage
 $creadsPrec :: Int -&gt; ReadS DatastoreStorage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260554"><span id="local-6989586621679260556"><span id="local-6989586621679260558"><span class="annot"><span class="annottext">Int -&gt; DatastoreStorage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260765"><span id="local-6989586621679260767"><span id="local-6989586621679260769"><span class="annot"><span class="annottext">Int -&gt; DatastoreStorage -&gt; ShowS
 [DatastoreStorage] -&gt; ShowS
 DatastoreStorage -&gt; String
 (Int -&gt; DatastoreStorage -&gt; ShowS)
@@ -163,16 +163,16 @@ forall a. Maybe a
      (Maybe ServiceManagedDatastoreS3Storage)
      (Maybe ServiceManagedDatastoreS3Storage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage%27"><span class="hs-identifier hs-type">DatastoreStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260545"><span class="annot"><span class="annottext">Maybe ServiceManagedDatastoreS3Storage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage%27"><span class="hs-identifier hs-type">DatastoreStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260756"><span class="annot"><span class="annottext">Maybe ServiceManagedDatastoreS3Storage
 serviceManagedS3 :: Maybe ServiceManagedDatastoreS3Storage
 $sel:serviceManagedS3:DatastoreStorage' :: DatastoreStorage -&gt; Maybe ServiceManagedDatastoreS3Storage
-</span><a href="#local-6989586621679260545"><span class="hs-identifier hs-var hs-var">serviceManagedS3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceManagedDatastoreS3Storage
-</span><a href="#local-6989586621679260545"><span class="hs-identifier hs-var">serviceManagedS3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260544"><span class="annot"><span class="annottext">s :: DatastoreStorage
-</span><a href="#local-6989586621679260544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage%27"><span class="hs-identifier hs-type">DatastoreStorage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260543"><span class="annot"><span class="annottext">Maybe ServiceManagedDatastoreS3Storage
-</span><a href="#local-6989586621679260543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreStorage
-</span><a href="#local-6989586621679260544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceManagedS3:DatastoreStorage' :: Maybe ServiceManagedDatastoreS3Storage
+</span><a href="#local-6989586621679260756"><span class="hs-identifier hs-var hs-var">serviceManagedS3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceManagedDatastoreS3Storage
+</span><a href="#local-6989586621679260756"><span class="hs-identifier hs-var">serviceManagedS3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260755"><span class="annot"><span class="annottext">s :: DatastoreStorage
+</span><a href="#local-6989586621679260755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage%27"><span class="hs-identifier hs-type">DatastoreStorage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260754"><span class="annot"><span class="annottext">Maybe ServiceManagedDatastoreS3Storage
+</span><a href="#local-6989586621679260754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreStorage
+</span><a href="#local-6989586621679260755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceManagedS3:DatastoreStorage' :: Maybe ServiceManagedDatastoreS3Storage
 </span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#%24sel%3AserviceManagedS3%3ADatastoreStorage%27"><span class="hs-identifier hs-var">serviceManagedS3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceManagedDatastoreS3Storage
-</span><a href="#local-6989586621679260543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage"><span class="hs-identifier hs-type">DatastoreStorage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage"><span class="hs-identifier hs-type">DatastoreStorage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | S3-customer-managed; When you choose customer-managed storage, the</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- @retentionPeriod@ parameter is ignored. You can\'t change the choice of</span><span>
@@ -190,16 +190,16 @@ $sel:serviceManagedS3:DatastoreStorage' :: DatastoreStorage -&gt; Maybe ServiceM
      (Maybe CustomerManagedDatastoreS3Storage)
      (Maybe CustomerManagedDatastoreS3Storage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage%27"><span class="hs-identifier hs-type">DatastoreStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260541"><span class="annot"><span class="annottext">Maybe CustomerManagedDatastoreS3Storage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage%27"><span class="hs-identifier hs-type">DatastoreStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260752"><span class="annot"><span class="annottext">Maybe CustomerManagedDatastoreS3Storage
 customerManagedS3 :: Maybe CustomerManagedDatastoreS3Storage
 $sel:customerManagedS3:DatastoreStorage' :: DatastoreStorage -&gt; Maybe CustomerManagedDatastoreS3Storage
-</span><a href="#local-6989586621679260541"><span class="hs-identifier hs-var hs-var">customerManagedS3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerManagedDatastoreS3Storage
-</span><a href="#local-6989586621679260541"><span class="hs-identifier hs-var">customerManagedS3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260540"><span class="annot"><span class="annottext">s :: DatastoreStorage
-</span><a href="#local-6989586621679260540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage%27"><span class="hs-identifier hs-type">DatastoreStorage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260539"><span class="annot"><span class="annottext">Maybe CustomerManagedDatastoreS3Storage
-</span><a href="#local-6989586621679260539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreStorage
-</span><a href="#local-6989586621679260540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerManagedS3:DatastoreStorage' :: Maybe CustomerManagedDatastoreS3Storage
+</span><a href="#local-6989586621679260752"><span class="hs-identifier hs-var hs-var">customerManagedS3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerManagedDatastoreS3Storage
+</span><a href="#local-6989586621679260752"><span class="hs-identifier hs-var">customerManagedS3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260751"><span class="annot"><span class="annottext">s :: DatastoreStorage
+</span><a href="#local-6989586621679260751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage%27"><span class="hs-identifier hs-type">DatastoreStorage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260750"><span class="annot"><span class="annottext">Maybe CustomerManagedDatastoreS3Storage
+</span><a href="#local-6989586621679260750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreStorage
+</span><a href="#local-6989586621679260751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerManagedS3:DatastoreStorage' :: Maybe CustomerManagedDatastoreS3Storage
 </span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#%24sel%3AcustomerManagedS3%3ADatastoreStorage%27"><span class="hs-identifier hs-var">customerManagedS3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerManagedDatastoreS3Storage
-</span><a href="#local-6989586621679260539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage"><span class="hs-identifier hs-type">DatastoreStorage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage"><span class="hs-identifier hs-type">DatastoreStorage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | Used to store data used by IoT SiteWise in an Amazon S3 bucket that you</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- manage. You can\'t change the choice of Amazon S3 storage after your</span><span>
@@ -217,19 +217,19 @@ $sel:customerManagedS3:DatastoreStorage' :: DatastoreStorage -&gt; Maybe Custome
      (Maybe DatastoreIotSiteWiseMultiLayerStorage)
      (Maybe DatastoreIotSiteWiseMultiLayerStorage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage%27"><span class="hs-identifier hs-type">DatastoreStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260537"><span class="annot"><span class="annottext">Maybe DatastoreIotSiteWiseMultiLayerStorage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage%27"><span class="hs-identifier hs-type">DatastoreStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260748"><span class="annot"><span class="annottext">Maybe DatastoreIotSiteWiseMultiLayerStorage
 iotSiteWiseMultiLayerStorage :: Maybe DatastoreIotSiteWiseMultiLayerStorage
 $sel:iotSiteWiseMultiLayerStorage:DatastoreStorage' :: DatastoreStorage -&gt; Maybe DatastoreIotSiteWiseMultiLayerStorage
-</span><a href="#local-6989586621679260537"><span class="hs-identifier hs-var hs-var">iotSiteWiseMultiLayerStorage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreIotSiteWiseMultiLayerStorage
-</span><a href="#local-6989586621679260537"><span class="hs-identifier hs-var">iotSiteWiseMultiLayerStorage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260536"><span class="annot"><span class="annottext">s :: DatastoreStorage
-</span><a href="#local-6989586621679260536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage%27"><span class="hs-identifier hs-type">DatastoreStorage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260535"><span class="annot"><span class="annottext">Maybe DatastoreIotSiteWiseMultiLayerStorage
-</span><a href="#local-6989586621679260535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreStorage
-</span><a href="#local-6989586621679260536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotSiteWiseMultiLayerStorage:DatastoreStorage' :: Maybe DatastoreIotSiteWiseMultiLayerStorage
+</span><a href="#local-6989586621679260748"><span class="hs-identifier hs-var hs-var">iotSiteWiseMultiLayerStorage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreIotSiteWiseMultiLayerStorage
+</span><a href="#local-6989586621679260748"><span class="hs-identifier hs-var">iotSiteWiseMultiLayerStorage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260747"><span class="annot"><span class="annottext">s :: DatastoreStorage
+</span><a href="#local-6989586621679260747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage%27"><span class="hs-identifier hs-type">DatastoreStorage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260746"><span class="annot"><span class="annottext">Maybe DatastoreIotSiteWiseMultiLayerStorage
+</span><a href="#local-6989586621679260746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreStorage
+</span><a href="#local-6989586621679260747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotSiteWiseMultiLayerStorage:DatastoreStorage' :: Maybe DatastoreIotSiteWiseMultiLayerStorage
 </span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#%24sel%3AiotSiteWiseMultiLayerStorage%3ADatastoreStorage%27"><span class="hs-identifier hs-var">iotSiteWiseMultiLayerStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreIotSiteWiseMultiLayerStorage
-</span><a href="#local-6989586621679260535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage"><span class="hs-identifier hs-type">DatastoreStorage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage"><span class="hs-identifier hs-type">DatastoreStorage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260532"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage"><span class="hs-identifier hs-type">DatastoreStorage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679260530"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatastoreStorage
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260743"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage"><span class="hs-identifier hs-type">DatastoreStorage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679260741"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatastoreStorage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DatastoreStorage)
@@ -239,8 +239,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DatastoreStorage&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260527"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260527"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260738"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260738"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServiceManagedDatastoreS3Storage
 -&gt; Maybe CustomerManagedDatastoreS3Storage
 -&gt; Maybe DatastoreIotSiteWiseMultiLayerStorage
@@ -256,7 +256,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe DatastoreIotSiteWiseMultiLayerStorage -&gt; DatastoreStorage)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceManagedDatastoreS3Storage)
+</span><a href="#local-6989586621679260738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceManagedDatastoreS3Storage)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serviceManagedS3&quot;</span></span><span class="hs-special">)</span><span>
@@ -268,7 +268,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe DatastoreIotSiteWiseMultiLayerStorage -&gt; DatastoreStorage)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomerManagedDatastoreS3Storage)
+</span><a href="#local-6989586621679260738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomerManagedDatastoreS3Storage)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;customerManagedS3&quot;</span></span><span class="hs-special">)</span><span>
@@ -278,20 +278,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser DatastoreStorage
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe DatastoreIotSiteWiseMultiLayerStorage)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iotSiteWiseMultiLayerStorage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260521"><span id="local-6989586621679260523"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage"><span class="hs-identifier hs-type">DatastoreStorage</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260732"><span id="local-6989586621679260734"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage"><span class="hs-identifier hs-type">DatastoreStorage</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260518"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage"><span class="hs-identifier hs-type">DatastoreStorage</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260729"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage"><span class="hs-identifier hs-type">DatastoreStorage</span></a></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260510"><span id="local-6989586621679260512"><span id="local-6989586621679260514"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage"><span class="hs-identifier hs-type">DatastoreStorage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679260508"><span class="annot"><span class="annottext">toJSON :: DatastoreStorage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage%27"><span class="hs-identifier hs-type">DatastoreStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260504"><span id="local-6989586621679260505"><span id="local-6989586621679260506"><span class="annot"><span class="annottext">Maybe CustomerManagedDatastoreS3Storage
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260721"><span id="local-6989586621679260723"><span id="local-6989586621679260725"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage"><span class="hs-identifier hs-type">DatastoreStorage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679260719"><span class="annot"><span class="annottext">toJSON :: DatastoreStorage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStorage.html#DatastoreStorage%27"><span class="hs-identifier hs-type">DatastoreStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260715"><span id="local-6989586621679260716"><span id="local-6989586621679260717"><span class="annot"><span class="annottext">Maybe CustomerManagedDatastoreS3Storage
 Maybe DatastoreIotSiteWiseMultiLayerStorage
 Maybe ServiceManagedDatastoreS3Storage
 iotSiteWiseMultiLayerStorage :: Maybe DatastoreIotSiteWiseMultiLayerStorage
@@ -300,7 +300,7 @@ serviceManagedS3 :: Maybe ServiceManagedDatastoreS3Storage
 $sel:iotSiteWiseMultiLayerStorage:DatastoreStorage' :: DatastoreStorage -&gt; Maybe DatastoreIotSiteWiseMultiLayerStorage
 $sel:customerManagedS3:DatastoreStorage' :: DatastoreStorage -&gt; Maybe CustomerManagedDatastoreS3Storage
 $sel:serviceManagedS3:DatastoreStorage' :: DatastoreStorage -&gt; Maybe ServiceManagedDatastoreS3Storage
-</span><a href="#local-6989586621679260504"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679260715"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -314,7 +314,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ServiceManagedDatastoreS3Storage -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ServiceManagedDatastoreS3Storage
-</span><a href="#local-6989586621679260506"><span class="hs-identifier hs-var">serviceManagedS3</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679260717"><span class="hs-identifier hs-var">serviceManagedS3</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;customerManagedS3&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CustomerManagedDatastoreS3Storage -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -323,7 +323,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CustomerManagedDatastoreS3Storage -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CustomerManagedDatastoreS3Storage
-</span><a href="#local-6989586621679260505"><span class="hs-identifier hs-var">customerManagedS3</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679260716"><span class="hs-identifier hs-var">customerManagedS3</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iotSiteWiseMultiLayerStorage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DatastoreIotSiteWiseMultiLayerStorage -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -332,7 +332,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DatastoreIotSiteWiseMultiLayerStorage -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreIotSiteWiseMultiLayerStorage
-</span><a href="#local-6989586621679260504"><span class="hs-identifier hs-var">iotSiteWiseMultiLayerStorage</span></a></span><span>
+</span><a href="#local-6989586621679260715"><span class="hs-identifier hs-var">iotSiteWiseMultiLayerStorage</span></a></span><span>
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span></pre></body></html>

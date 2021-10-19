@@ -35,70 +35,70 @@
 </span><span id="line-35"></span><span class="hs-comment">-- DescribeInstances</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newInstance' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679436336"><span id="local-6989586621679436337"></span></span><span class="hs-keyword">data</span><span> </span><span id="Instance"><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-var">Instance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Instance%27"><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-var">Instance'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679436787"><span id="local-6989586621679436788"></span></span><span class="hs-keyword">data</span><span> </span><span id="Instance"><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-var">Instance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Instance%27"><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-var">Instance'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A time stamp indicating when this data object was created. Format is a</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- number expressed in Unix time as milliseconds (for example</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @\&quot;1469498468.057\&quot;@).</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AcreationTime%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe POSIX
 </span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AcreationTime%3AInstance%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Current status of the instance. Possible statuses include the following:</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   __PENDING__ -- The instance is in the process of being created and</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     launching server processes as defined in the fleet\'s run-time</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     configuration.</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- -   __ACTIVE__ -- The instance has been successfully created and at</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     least one server process has successfully launched and reported back</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     to GameLift that it is ready to host a game session. The instance is</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     now considered ready to host game sessions.</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- -   __TERMINATING__ -- The instance is in the process of shutting down.</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     This may happen to reduce capacity during a scaling down event or to</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     recycle resources in the event of a problem.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3Astatus%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe InstanceStatus
-</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3Astatus%3AInstance%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceStatus.html#InstanceStatus"><span class="hs-identifier hs-type">InstanceStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the instance.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AinstanceId%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the instance.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AinstanceId%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AinstanceId%3AInstance%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the fleet that the instance is in.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AfleetId%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AfleetId%3AInstance%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AfleetArn%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AfleetArn%3AInstance%27"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | IP address that is assigned to the instance.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AipAddress%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Current status of the instance. Possible statuses include the following:</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   __PENDING__ -- The instance is in the process of being created and</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     launching server processes as defined in the fleet\'s run-time</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     configuration.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   __ACTIVE__ -- The instance has been successfully created and at</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     least one server process has successfully launched and reported back</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     to GameLift that it is ready to host a game session. The instance is</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     now considered ready to host game sessions.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   __TERMINATING__ -- The instance is in the process of shutting down.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     This may happen to reduce capacity during a scaling down event or to</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     recycle resources in the event of a problem.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Astatus%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe InstanceStatus
+</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3Astatus%3AInstance%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceStatus.html#InstanceStatus"><span class="hs-identifier hs-type">InstanceStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | IP address that is assigned to the instance.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AipAddress%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AipAddress%3AInstance%27"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The DNS identifier assigned to the instance that is running the game</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- session. Values have the following format:</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   TLS-enabled fleets:</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     @\&lt;unique identifier&gt;.\&lt;region identifier&gt;.amazongamelift.com@.</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   Non-TLS-enabled fleets:</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     @ec2-\&lt;unique identifier&gt;.compute.amazonaws.com@. (See</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing&gt;.)</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- When connecting to a game session that is running on a TLS-enabled</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- fleet, you must use the DNS name, not the IP address.</span><span>
-</span><span id="line-82"></span><span>    </span><span id="%24sel%3AdnsName%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AdnsName%3AInstance%27"><span class="hs-identifier hs-var hs-var">dnsName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | Operating system that is running on this instance.</span><span>
-</span><span id="line-84"></span><span>    </span><span id="%24sel%3AoperatingSystem%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe OperatingSystem
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The fleet location of the instance, expressed as an AWS Region code,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- such as @us-west-2@.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Alocation%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3Alocation%3AInstance%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Operating system that is running on this instance.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AoperatingSystem%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe OperatingSystem
 </span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AoperatingSystem%3AInstance%27"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | EC2 instance type that defines the computing resources of this instance.</span><span>
-</span><span id="line-86"></span><span>    </span><span id="%24sel%3Atype%27%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe EC2InstanceType
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AfleetArn%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AfleetArn%3AInstance%27"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | EC2 instance type that defines the computing resources of this instance.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Atype%27%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe EC2InstanceType
 </span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3Atype%27%3AInstance%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.EC2InstanceType.html#EC2InstanceType"><span class="hs-identifier hs-type">EC2InstanceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The fleet location of the instance, expressed as an AWS Region code,</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- such as @us-west-2@.</span><span>
-</span><span id="line-89"></span><span>    </span><span id="%24sel%3Alocation%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3Alocation%3AInstance%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the fleet that the instance is in.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AfleetId%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AfleetId%3AInstance%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The DNS identifier assigned to the instance that is running the game</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- session. Values have the following format:</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- -   TLS-enabled fleets:</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     @\&lt;unique identifier&gt;.\&lt;region identifier&gt;.amazongamelift.com@.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   Non-TLS-enabled fleets:</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     @ec2-\&lt;unique identifier&gt;.compute.amazonaws.com@. (See</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing&gt;.)</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- When connecting to a game session that is running on a TLS-enabled</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- fleet, you must use the DNS name, not the IP address.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AdnsName%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AdnsName%3AInstance%27"><span class="hs-identifier hs-var hs-var">dnsName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436321"><span id="local-6989586621679436323"><span class="annot"><span class="annottext">Instance -&gt; Instance -&gt; Bool
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436772"><span id="local-6989586621679436774"><span class="annot"><span class="annottext">Instance -&gt; Instance -&gt; Bool
 (Instance -&gt; Instance -&gt; Bool)
 -&gt; (Instance -&gt; Instance -&gt; Bool) -&gt; Eq Instance
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -106,7 +106,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Instance -&gt; Instance -&gt; Bool
 == :: Instance -&gt; Instance -&gt; Bool
 $c== :: Instance -&gt; Instance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436312"><span id="local-6989586621679436314"><span id="local-6989586621679436316"><span id="local-6989586621679436318"><span class="annot"><span class="annottext">ReadPrec [Instance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436763"><span id="local-6989586621679436765"><span id="local-6989586621679436767"><span id="local-6989586621679436769"><span class="annot"><span class="annottext">ReadPrec [Instance]
 ReadPrec Instance
 Int -&gt; ReadS Instance
 ReadS [Instance]
@@ -126,7 +126,7 @@ readList :: ReadS [Instance]
 $creadList :: ReadS [Instance]
 readsPrec :: Int -&gt; ReadS Instance
 $creadsPrec :: Int -&gt; ReadS Instance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436305"><span id="local-6989586621679436307"><span id="local-6989586621679436309"><span class="annot"><span class="annottext">Int -&gt; Instance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436756"><span id="local-6989586621679436758"><span id="local-6989586621679436760"><span class="annot"><span class="annottext">Int -&gt; Instance -&gt; ShowS
 [Instance] -&gt; ShowS
 Instance -&gt; String
 (Int -&gt; Instance -&gt; ShowS)
@@ -161,65 +161,65 @@ $cfrom :: forall x. Instance -&gt; Rep Instance x
 </span><span id="line-102"></span><span class="hs-comment">-- number expressed in Unix time as milliseconds (for example</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- @\&quot;1469498468.057\&quot;@).</span><span>
 </span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'status', 'instance_status' - Current status of the instance. Possible statuses include the following:</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'instanceId', 'instance_instanceId' - A unique identifier for the instance.</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- -   __PENDING__ -- The instance is in the process of being created and</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--     launching server processes as defined in the fleet\'s run-time</span><span>
-</span><span id="line-109"></span><span class="hs-comment">--     configuration.</span><span>
-</span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- -   __ACTIVE__ -- The instance has been successfully created and at</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--     least one server process has successfully launched and reported back</span><span>
-</span><span id="line-113"></span><span class="hs-comment">--     to GameLift that it is ready to host a game session. The instance is</span><span>
-</span><span id="line-114"></span><span class="hs-comment">--     now considered ready to host game sessions.</span><span>
-</span><span id="line-115"></span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- -   __TERMINATING__ -- The instance is in the process of shutting down.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--     This may happen to reduce capacity during a scaling down event or to</span><span>
-</span><span id="line-118"></span><span class="hs-comment">--     recycle resources in the event of a problem.</span><span>
-</span><span id="line-119"></span><span class="hs-comment">--</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- 'instanceId', 'instance_instanceId' - A unique identifier for the instance.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'status', 'instance_status' - Current status of the instance. Possible statuses include the following:</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- -   __PENDING__ -- The instance is in the process of being created and</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--     launching server processes as defined in the fleet\'s run-time</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--     configuration.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -   __ACTIVE__ -- The instance has been successfully created and at</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--     least one server process has successfully launched and reported back</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--     to GameLift that it is ready to host a game session. The instance is</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     now considered ready to host game sessions.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   __TERMINATING__ -- The instance is in the process of shutting down.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     This may happen to reduce capacity during a scaling down event or to</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--     recycle resources in the event of a problem.</span><span>
 </span><span id="line-121"></span><span class="hs-comment">--</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- 'fleetId', 'instance_fleetId' - A unique identifier for the fleet that the instance is in.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'ipAddress', 'instance_ipAddress' - IP address that is assigned to the instance.</span><span>
 </span><span id="line-123"></span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- 'fleetArn', 'instance_fleetArn' - The Amazon Resource Name</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- 'ipAddress', 'instance_ipAddress' - IP address that is assigned to the instance.</span><span>
-</span><span id="line-131"></span><span class="hs-comment">--</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- 'dnsName', 'instance_dnsName' - The DNS identifier assigned to the instance that is running the game</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- session. Values have the following format:</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'location', 'instance_location' - The fleet location of the instance, expressed as an AWS Region code,</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- such as @us-west-2@.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'operatingSystem', 'instance_operatingSystem' - Operating system that is running on this instance.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'fleetArn', 'instance_fleetArn' - The Amazon Resource Name</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
 </span><span id="line-134"></span><span class="hs-comment">--</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- -   TLS-enabled fleets:</span><span>
-</span><span id="line-136"></span><span class="hs-comment">--     @\&lt;unique identifier&gt;.\&lt;region identifier&gt;.amazongamelift.com@.</span><span>
-</span><span id="line-137"></span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- -   Non-TLS-enabled fleets:</span><span>
-</span><span id="line-139"></span><span class="hs-comment">--     @ec2-\&lt;unique identifier&gt;.compute.amazonaws.com@. (See</span><span>
-</span><span id="line-140"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing&gt;.)</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'type'', 'instance_type' - EC2 instance type that defines the computing resources of this instance.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'fleetId', 'instance_fleetId' - A unique identifier for the fleet that the instance is in.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'dnsName', 'instance_dnsName' - The DNS identifier assigned to the instance that is running the game</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- session. Values have the following format:</span><span>
 </span><span id="line-141"></span><span class="hs-comment">--</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- When connecting to a game session that is running on a TLS-enabled</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- fleet, you must use the DNS name, not the IP address.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- -   TLS-enabled fleets:</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--     @\&lt;unique identifier&gt;.\&lt;region identifier&gt;.amazongamelift.com@.</span><span>
 </span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- 'operatingSystem', 'instance_operatingSystem' - Operating system that is running on this instance.</span><span>
-</span><span id="line-146"></span><span class="hs-comment">--</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- 'type'', 'instance_type' - EC2 instance type that defines the computing resources of this instance.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- -   Non-TLS-enabled fleets:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--     @ec2-\&lt;unique identifier&gt;.compute.amazonaws.com@. (See</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing&gt;.)</span><span>
 </span><span id="line-148"></span><span class="hs-comment">--</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- 'location', 'instance_location' - The fleet location of the instance, expressed as an AWS Region code,</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- such as @us-west-2@.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- When connecting to a game session that is running on a TLS-enabled</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- fleet, you must use the DNS name, not the IP address.</span><span>
 </span><span id="line-151"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#newInstance"><span class="hs-identifier hs-type">newInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span>
 </span><span id="line-153"></span><span id="newInstance"><span class="annot"><span class="annottext">newInstance :: Instance
 </span><a href="Network.AWS.GameLift.Types.Instance.html#newInstance"><span class="hs-identifier hs-var hs-var">newInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">Instance' :: Maybe POSIX
+-&gt; Maybe Text
 -&gt; Maybe InstanceStatus
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe OperatingSystem
+-&gt; Maybe Text
 -&gt; Maybe EC2InstanceType
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Instance
 </span><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span>
@@ -227,40 +227,40 @@ $cfrom :: forall x. Instance -&gt; Rep Instance x
 </span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AcreationTime%3AInstance%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:Instance' :: Maybe InstanceStatus
-</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3Astatus%3AInstance%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceStatus
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:Instance' :: Maybe Text
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:Instance' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AinstanceId%3AInstance%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetId:Instance' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AfleetId%3AInstance%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:Instance' :: Maybe InstanceStatus
+</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3Astatus%3AInstance%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetArn:Instance' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AfleetArn%3AInstance%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipAddress:Instance' :: Maybe Text
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipAddress:Instance' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AipAddress%3AInstance%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:dnsName:Instance' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AdnsName%3AInstance%27"><span class="hs-identifier hs-var">dnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:Instance' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3Alocation%3AInstance%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:operatingSystem:Instance' :: Maybe OperatingSystem
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:operatingSystem:Instance' :: Maybe OperatingSystem
 </span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AoperatingSystem%3AInstance%27"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Instance' :: Maybe EC2InstanceType
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetArn:Instance' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AfleetArn%3AInstance%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Instance' :: Maybe EC2InstanceType
 </span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3Atype%27%3AInstance%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2InstanceType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:Instance' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3Alocation%3AInstance%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetId:Instance' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AfleetId%3AInstance%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:dnsName:Instance' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AdnsName%3AInstance%27"><span class="hs-identifier hs-var">dnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
@@ -274,16 +274,16 @@ forall a. Maybe a
 -&gt; (Instance -&gt; Maybe POSIX -&gt; Instance)
 -&gt; Lens Instance Instance (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436296"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436747"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:Instance' :: Instance -&gt; Maybe POSIX
-</span><a href="#local-6989586621679436296"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679436296"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436295"><span class="annot"><span class="annottext">s :: Instance
-</span><a href="#local-6989586621679436295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436294"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679436294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
-</span><a href="#local-6989586621679436295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Instance' :: Maybe POSIX
+</span><a href="#local-6989586621679436747"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679436747"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436746"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679436746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436745"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679436745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679436746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Instance' :: Maybe POSIX
 </span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AcreationTime%3AInstance%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679436294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Instance -&gt; f Instance)
+</span><a href="#local-6989586621679436745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Instance -&gt; f Instance)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -299,421 +299,412 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- | Current status of the instance. Possible statuses include the following:</span><span>
-</span><span id="line-174"></span><span class="hs-comment">--</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- -   __PENDING__ -- The instance is in the process of being created and</span><span>
-</span><span id="line-176"></span><span class="hs-comment">--     launching server processes as defined in the fleet\'s run-time</span><span>
-</span><span id="line-177"></span><span class="hs-comment">--     configuration.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | A unique identifier for the instance.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_instanceId"><span class="hs-identifier hs-type">instance_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="instance_instanceId"><span class="annot"><span class="annottext">instance_instanceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.GameLift.Types.Instance.html#instance_instanceId"><span class="hs-identifier hs-var hs-var">instance_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
+-&gt; (Instance -&gt; Maybe Text -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436740"><span class="annot"><span class="annottext">Maybe Text
+instanceId :: Maybe Text
+$sel:instanceId:Instance' :: Instance -&gt; Maybe Text
+</span><a href="#local-6989586621679436740"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436740"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436739"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679436739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436738"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679436739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:Instance' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AinstanceId%3AInstance%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Current status of the instance. Possible statuses include the following:</span><span>
 </span><span id="line-178"></span><span class="hs-comment">--</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- -   __ACTIVE__ -- The instance has been successfully created and at</span><span>
-</span><span id="line-180"></span><span class="hs-comment">--     least one server process has successfully launched and reported back</span><span>
-</span><span id="line-181"></span><span class="hs-comment">--     to GameLift that it is ready to host a game session. The instance is</span><span>
-</span><span id="line-182"></span><span class="hs-comment">--     now considered ready to host game sessions.</span><span>
-</span><span id="line-183"></span><span class="hs-comment">--</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- -   __TERMINATING__ -- The instance is in the process of shutting down.</span><span>
-</span><span id="line-185"></span><span class="hs-comment">--     This may happen to reduce capacity during a scaling down event or to</span><span>
-</span><span id="line-186"></span><span class="hs-comment">--     recycle resources in the event of a problem.</span><span>
-</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_status"><span class="hs-identifier hs-type">instance_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceStatus.html#InstanceStatus"><span class="hs-identifier hs-type">InstanceStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span id="instance_status"><span class="annot"><span class="annottext">instance_status :: (Maybe InstanceStatus -&gt; f (Maybe InstanceStatus))
+</span><span id="line-179"></span><span class="hs-comment">-- -   __PENDING__ -- The instance is in the process of being created and</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     launching server processes as defined in the fleet\'s run-time</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     configuration.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- -   __ACTIVE__ -- The instance has been successfully created and at</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--     least one server process has successfully launched and reported back</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--     to GameLift that it is ready to host a game session. The instance is</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--     now considered ready to host game sessions.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- -   __TERMINATING__ -- The instance is in the process of shutting down.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     This may happen to reduce capacity during a scaling down event or to</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--     recycle resources in the event of a problem.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_status"><span class="hs-identifier hs-type">instance_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceStatus.html#InstanceStatus"><span class="hs-identifier hs-type">InstanceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="instance_status"><span class="annot"><span class="annottext">instance_status :: (Maybe InstanceStatus -&gt; f (Maybe InstanceStatus))
 -&gt; Instance -&gt; f Instance
 </span><a href="Network.AWS.GameLift.Types.Instance.html#instance_status"><span class="hs-identifier hs-var hs-var">instance_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe InstanceStatus)
 -&gt; (Instance -&gt; Maybe InstanceStatus -&gt; Instance)
 -&gt; Lens
      Instance Instance (Maybe InstanceStatus) (Maybe InstanceStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436289"><span class="annot"><span class="annottext">Maybe InstanceStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436736"><span class="annot"><span class="annottext">Maybe InstanceStatus
 status :: Maybe InstanceStatus
 $sel:status:Instance' :: Instance -&gt; Maybe InstanceStatus
-</span><a href="#local-6989586621679436289"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceStatus
-</span><a href="#local-6989586621679436289"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436288"><span class="annot"><span class="annottext">s :: Instance
-</span><a href="#local-6989586621679436288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436287"><span class="annot"><span class="annottext">Maybe InstanceStatus
-</span><a href="#local-6989586621679436287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
-</span><a href="#local-6989586621679436288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Instance' :: Maybe InstanceStatus
+</span><a href="#local-6989586621679436736"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceStatus
+</span><a href="#local-6989586621679436736"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436735"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679436735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436734"><span class="annot"><span class="annottext">Maybe InstanceStatus
+</span><a href="#local-6989586621679436734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679436735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Instance' :: Maybe InstanceStatus
 </span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3Astatus%3AInstance%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceStatus
-</span><a href="#local-6989586621679436287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- | A unique identifier for the instance.</span><span>
-</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_instanceId"><span class="hs-identifier hs-type">instance_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span id="instance_instanceId"><span class="annot"><span class="annottext">instance_instanceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
-</span><a href="Network.AWS.GameLift.Types.Instance.html#instance_instanceId"><span class="hs-identifier hs-var hs-var">instance_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
--&gt; (Instance -&gt; Maybe Text -&gt; Instance)
--&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436285"><span class="annot"><span class="annottext">Maybe Text
-instanceId :: Maybe Text
-$sel:instanceId:Instance' :: Instance -&gt; Maybe Text
-</span><a href="#local-6989586621679436285"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436285"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436284"><span class="annot"><span class="annottext">s :: Instance
-</span><a href="#local-6989586621679436284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436283"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
-</span><a href="#local-6989586621679436284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:Instance' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AinstanceId%3AInstance%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- | A unique identifier for the fleet that the instance is in.</span><span>
-</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_fleetId"><span class="hs-identifier hs-type">instance_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span id="instance_fleetId"><span class="annot"><span class="annottext">instance_fleetId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
-</span><a href="Network.AWS.GameLift.Types.Instance.html#instance_fleetId"><span class="hs-identifier hs-var hs-var">instance_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
--&gt; (Instance -&gt; Maybe Text -&gt; Instance)
--&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436281"><span class="annot"><span class="annottext">Maybe Text
-fleetId :: Maybe Text
-$sel:fleetId:Instance' :: Instance -&gt; Maybe Text
-</span><a href="#local-6989586621679436281"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436281"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436280"><span class="annot"><span class="annottext">s :: Instance
-</span><a href="#local-6989586621679436280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436279"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
-</span><a href="#local-6989586621679436280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:Instance' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AfleetId%3AInstance%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
-</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_fleetArn"><span class="hs-identifier hs-type">instance_fleetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-204"></span><span id="instance_fleetArn"><span class="annot"><span class="annottext">instance_fleetArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
-</span><a href="Network.AWS.GameLift.Types.Instance.html#instance_fleetArn"><span class="hs-identifier hs-var hs-var">instance_fleetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
--&gt; (Instance -&gt; Maybe Text -&gt; Instance)
--&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436277"><span class="annot"><span class="annottext">Maybe Text
-fleetArn :: Maybe Text
-$sel:fleetArn:Instance' :: Instance -&gt; Maybe Text
-</span><a href="#local-6989586621679436277"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436277"><span class="hs-identifier hs-var">fleetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436276"><span class="annot"><span class="annottext">s :: Instance
-</span><a href="#local-6989586621679436276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436275"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
-</span><a href="#local-6989586621679436276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetArn:Instance' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AfleetArn%3AInstance%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- | IP address that is assigned to the instance.</span><span>
-</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_ipAddress"><span class="hs-identifier hs-type">instance_ipAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-208"></span><span id="instance_ipAddress"><span class="annot"><span class="annottext">instance_ipAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
+</span><span id="line-194"></span><span class="hs-comment">-- | IP address that is assigned to the instance.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_ipAddress"><span class="hs-identifier hs-type">instance_ipAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="instance_ipAddress"><span class="annot"><span class="annottext">instance_ipAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
 </span><a href="Network.AWS.GameLift.Types.Instance.html#instance_ipAddress"><span class="hs-identifier hs-var hs-var">instance_ipAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
 -&gt; (Instance -&gt; Maybe Text -&gt; Instance)
 -&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436273"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436732"><span class="annot"><span class="annottext">Maybe Text
 ipAddress :: Maybe Text
 $sel:ipAddress:Instance' :: Instance -&gt; Maybe Text
-</span><a href="#local-6989586621679436273"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436273"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436272"><span class="annot"><span class="annottext">s :: Instance
-</span><a href="#local-6989586621679436272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436271"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
-</span><a href="#local-6989586621679436272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:Instance' :: Maybe Text
+</span><a href="#local-6989586621679436732"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436732"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436731"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679436731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436730"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679436731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:Instance' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AipAddress%3AInstance%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- | The DNS identifier assigned to the instance that is running the game</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- session. Values have the following format:</span><span>
-</span><span id="line-212"></span><span class="hs-comment">--</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- -   TLS-enabled fleets:</span><span>
-</span><span id="line-214"></span><span class="hs-comment">--     @\&lt;unique identifier&gt;.\&lt;region identifier&gt;.amazongamelift.com@.</span><span>
-</span><span id="line-215"></span><span class="hs-comment">--</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- -   Non-TLS-enabled fleets:</span><span>
-</span><span id="line-217"></span><span class="hs-comment">--     @ec2-\&lt;unique identifier&gt;.compute.amazonaws.com@. (See</span><span>
-</span><span id="line-218"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing&gt;.)</span><span>
-</span><span id="line-219"></span><span class="hs-comment">--</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- When connecting to a game session that is running on a TLS-enabled</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- fleet, you must use the DNS name, not the IP address.</span><span>
-</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_dnsName"><span class="hs-identifier hs-type">instance_dnsName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-223"></span><span id="instance_dnsName"><span class="annot"><span class="annottext">instance_dnsName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
-</span><a href="Network.AWS.GameLift.Types.Instance.html#instance_dnsName"><span class="hs-identifier hs-var hs-var">instance_dnsName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
+</span><a href="#local-6989586621679436730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The fleet location of the instance, expressed as an AWS Region code,</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- such as @us-west-2@.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_location"><span class="hs-identifier hs-type">instance_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="instance_location"><span class="annot"><span class="annottext">instance_location :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.GameLift.Types.Instance.html#instance_location"><span class="hs-identifier hs-var hs-var">instance_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
 -&gt; (Instance -&gt; Maybe Text -&gt; Instance)
 -&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436269"><span class="annot"><span class="annottext">Maybe Text
-dnsName :: Maybe Text
-$sel:dnsName:Instance' :: Instance -&gt; Maybe Text
-</span><a href="#local-6989586621679436269"><span class="hs-identifier hs-var hs-var">dnsName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436269"><span class="hs-identifier hs-var">dnsName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436268"><span class="annot"><span class="annottext">s :: Instance
-</span><a href="#local-6989586621679436268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436267"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
-</span><a href="#local-6989586621679436268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsName:Instance' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AdnsName%3AInstance%27"><span class="hs-identifier hs-var">dnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- | Operating system that is running on this instance.</span><span>
-</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_operatingSystem"><span class="hs-identifier hs-type">instance_operatingSystem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-227"></span><span id="instance_operatingSystem"><span class="annot"><span class="annottext">instance_operatingSystem :: (Maybe OperatingSystem -&gt; f (Maybe OperatingSystem))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436728"><span class="annot"><span class="annottext">Maybe Text
+location :: Maybe Text
+$sel:location:Instance' :: Instance -&gt; Maybe Text
+</span><a href="#local-6989586621679436728"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436728"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436727"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679436727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436726"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679436727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:Instance' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3Alocation%3AInstance%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | Operating system that is running on this instance.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_operatingSystem"><span class="hs-identifier hs-type">instance_operatingSystem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="instance_operatingSystem"><span class="annot"><span class="annottext">instance_operatingSystem :: (Maybe OperatingSystem -&gt; f (Maybe OperatingSystem))
 -&gt; Instance -&gt; f Instance
 </span><a href="Network.AWS.GameLift.Types.Instance.html#instance_operatingSystem"><span class="hs-identifier hs-var hs-var">instance_operatingSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe OperatingSystem)
 -&gt; (Instance -&gt; Maybe OperatingSystem -&gt; Instance)
 -&gt; Lens
      Instance Instance (Maybe OperatingSystem) (Maybe OperatingSystem)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436265"><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436724"><span class="annot"><span class="annottext">Maybe OperatingSystem
 operatingSystem :: Maybe OperatingSystem
 $sel:operatingSystem:Instance' :: Instance -&gt; Maybe OperatingSystem
-</span><a href="#local-6989586621679436265"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
-</span><a href="#local-6989586621679436265"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436264"><span class="annot"><span class="annottext">s :: Instance
-</span><a href="#local-6989586621679436264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436263"><span class="annot"><span class="annottext">Maybe OperatingSystem
-</span><a href="#local-6989586621679436263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
-</span><a href="#local-6989586621679436264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operatingSystem:Instance' :: Maybe OperatingSystem
+</span><a href="#local-6989586621679436724"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679436724"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436723"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679436723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436722"><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679436722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679436723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operatingSystem:Instance' :: Maybe OperatingSystem
 </span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AoperatingSystem%3AInstance%27"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
-</span><a href="#local-6989586621679436263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- | EC2 instance type that defines the computing resources of this instance.</span><span>
-</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_type"><span class="hs-identifier hs-type">instance_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.EC2InstanceType.html#EC2InstanceType"><span class="hs-identifier hs-type">EC2InstanceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-231"></span><span id="instance_type"><span class="annot"><span class="annottext">instance_type :: (Maybe EC2InstanceType -&gt; f (Maybe EC2InstanceType))
+</span><a href="#local-6989586621679436722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_fleetArn"><span class="hs-identifier hs-type">instance_fleetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="instance_fleetArn"><span class="annot"><span class="annottext">instance_fleetArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.GameLift.Types.Instance.html#instance_fleetArn"><span class="hs-identifier hs-var hs-var">instance_fleetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
+-&gt; (Instance -&gt; Maybe Text -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436720"><span class="annot"><span class="annottext">Maybe Text
+fleetArn :: Maybe Text
+$sel:fleetArn:Instance' :: Instance -&gt; Maybe Text
+</span><a href="#local-6989586621679436720"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436720"><span class="hs-identifier hs-var">fleetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436719"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679436719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436718"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679436719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetArn:Instance' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AfleetArn%3AInstance%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | EC2 instance type that defines the computing resources of this instance.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_type"><span class="hs-identifier hs-type">instance_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.EC2InstanceType.html#EC2InstanceType"><span class="hs-identifier hs-type">EC2InstanceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="instance_type"><span class="annot"><span class="annottext">instance_type :: (Maybe EC2InstanceType -&gt; f (Maybe EC2InstanceType))
 -&gt; Instance -&gt; f Instance
 </span><a href="Network.AWS.GameLift.Types.Instance.html#instance_type"><span class="hs-identifier hs-var hs-var">instance_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe EC2InstanceType)
 -&gt; (Instance -&gt; Maybe EC2InstanceType -&gt; Instance)
 -&gt; Lens
      Instance Instance (Maybe EC2InstanceType) (Maybe EC2InstanceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436261"><span class="annot"><span class="annottext">Maybe EC2InstanceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436716"><span class="annot"><span class="annottext">Maybe EC2InstanceType
 type' :: Maybe EC2InstanceType
 $sel:type':Instance' :: Instance -&gt; Maybe EC2InstanceType
-</span><a href="#local-6989586621679436261"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2InstanceType
-</span><a href="#local-6989586621679436261"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436260"><span class="annot"><span class="annottext">s :: Instance
-</span><a href="#local-6989586621679436260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436259"><span class="annot"><span class="annottext">Maybe EC2InstanceType
-</span><a href="#local-6989586621679436259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
-</span><a href="#local-6989586621679436260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Instance' :: Maybe EC2InstanceType
+</span><a href="#local-6989586621679436716"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2InstanceType
+</span><a href="#local-6989586621679436716"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436715"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679436715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436714"><span class="annot"><span class="annottext">Maybe EC2InstanceType
+</span><a href="#local-6989586621679436714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679436715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Instance' :: Maybe EC2InstanceType
 </span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3Atype%27%3AInstance%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2InstanceType
-</span><a href="#local-6989586621679436259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- | The fleet location of the instance, expressed as an AWS Region code,</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- such as @us-west-2@.</span><span>
-</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_location"><span class="hs-identifier hs-type">instance_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-236"></span><span id="instance_location"><span class="annot"><span class="annottext">instance_location :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
-</span><a href="Network.AWS.GameLift.Types.Instance.html#instance_location"><span class="hs-identifier hs-var hs-var">instance_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
+</span><a href="#local-6989586621679436714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | A unique identifier for the fleet that the instance is in.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_fleetId"><span class="hs-identifier hs-type">instance_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="instance_fleetId"><span class="annot"><span class="annottext">instance_fleetId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.GameLift.Types.Instance.html#instance_fleetId"><span class="hs-identifier hs-var hs-var">instance_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
 -&gt; (Instance -&gt; Maybe Text -&gt; Instance)
 -&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436257"><span class="annot"><span class="annottext">Maybe Text
-location :: Maybe Text
-$sel:location:Instance' :: Instance -&gt; Maybe Text
-</span><a href="#local-6989586621679436257"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436257"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436256"><span class="annot"><span class="annottext">s :: Instance
-</span><a href="#local-6989586621679436256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436255"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
-</span><a href="#local-6989586621679436256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:Instance' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3Alocation%3AInstance%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436712"><span class="annot"><span class="annottext">Maybe Text
+fleetId :: Maybe Text
+$sel:fleetId:Instance' :: Instance -&gt; Maybe Text
+</span><a href="#local-6989586621679436712"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436712"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436711"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679436711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436710"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679436711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:Instance' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AfleetId%3AInstance%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The DNS identifier assigned to the instance that is running the game</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- session. Values have the following format:</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- -   TLS-enabled fleets:</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--     @\&lt;unique identifier&gt;.\&lt;region identifier&gt;.amazongamelift.com@.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- -   Non-TLS-enabled fleets:</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--     @ec2-\&lt;unique identifier&gt;.compute.amazonaws.com@. (See</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing&gt;.)</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- When connecting to a game session that is running on a TLS-enabled</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- fleet, you must use the DNS name, not the IP address.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#instance_dnsName"><span class="hs-identifier hs-type">instance_dnsName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="instance_dnsName"><span class="annot"><span class="annottext">instance_dnsName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Instance -&gt; f Instance
+</span><a href="Network.AWS.GameLift.Types.Instance.html#instance_dnsName"><span class="hs-identifier hs-var hs-var">instance_dnsName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Instance -&gt; Maybe Text)
+-&gt; (Instance -&gt; Maybe Text -&gt; Instance)
+-&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436708"><span class="annot"><span class="annottext">Maybe Text
+dnsName :: Maybe Text
+$sel:dnsName:Instance' :: Instance -&gt; Maybe Text
+</span><a href="#local-6989586621679436708"><span class="hs-identifier hs-var hs-var">dnsName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436708"><span class="hs-identifier hs-var">dnsName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436707"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679436707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436706"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679436707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsName:Instance' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Instance.html#%24sel%3AdnsName%3AInstance%27"><span class="hs-identifier hs-var">dnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
-</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436252"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-239"></span><span>  </span><span id="local-6989586621679436250"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Instance
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436703"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679436701"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Instance
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-240"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Instance) -&gt; Value -&gt; Parser Instance
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Instance&quot;</span></span><span>
-</span><span id="line-242"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679436247"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436247"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-242"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679436698"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679436698"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-243"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
 -&gt; Maybe InstanceStatus
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe OperatingSystem
+-&gt; Maybe Text
 -&gt; Maybe EC2InstanceType
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Instance
 </span><a href="Network.AWS.GameLift.Types.Instance.html#Instance%27"><span class="hs-identifier hs-var">Instance'</span></a></span><span>
 </span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
  -&gt; Maybe InstanceStatus
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe OperatingSystem
+ -&gt; Maybe Text
  -&gt; Maybe EC2InstanceType
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Instance)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe InstanceStatus
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
+     (Maybe Text
+      -&gt; Maybe InstanceStatus
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe OperatingSystem
+      -&gt; Maybe Text
       -&gt; Maybe EC2InstanceType
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Instance)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679436698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe InstanceStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
+  (Maybe Text
+   -&gt; Maybe InstanceStatus
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe OperatingSystem
+   -&gt; Maybe Text
    -&gt; Maybe EC2InstanceType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Instance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe InstanceStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe OperatingSystem
+      -&gt; Maybe Text
+      -&gt; Maybe EC2InstanceType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679436698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InstanceStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe OperatingSystem
+   -&gt; Maybe Text
+   -&gt; Maybe EC2InstanceType
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Instance)
 -&gt; Parser (Maybe InstanceStatus)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe OperatingSystem
+      -&gt; Maybe Text
       -&gt; Maybe EC2InstanceType
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Instance)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceStatus)
+</span><a href="#local-6989586621679436698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe OperatingSystem
-   -&gt; Maybe EC2InstanceType
-   -&gt; Maybe Text
-   -&gt; Instance)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe OperatingSystem
-      -&gt; Maybe EC2InstanceType
-      -&gt; Maybe Text
-      -&gt; Instance)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe OperatingSystem
+   -&gt; Maybe Text
    -&gt; Maybe EC2InstanceType
    -&gt; Maybe Text
-   -&gt; Instance)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe OperatingSystem
-      -&gt; Maybe EC2InstanceType
-      -&gt; Maybe Text
-      -&gt; Instance)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FleetId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe OperatingSystem
-   -&gt; Maybe EC2InstanceType
-   -&gt; Maybe Text
-   -&gt; Instance)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe OperatingSystem
-      -&gt; Maybe EC2InstanceType
-      -&gt; Maybe Text
-      -&gt; Instance)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FleetArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe OperatingSystem
-   -&gt; Maybe EC2InstanceType
    -&gt; Maybe Text
    -&gt; Instance)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe OperatingSystem
+      -&gt; Maybe Text
       -&gt; Maybe EC2InstanceType
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Instance)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679436698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IpAddress&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe OperatingSystem
+   -&gt; Maybe Text
    -&gt; Maybe EC2InstanceType
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Instance)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe OperatingSystem
-      -&gt; Maybe EC2InstanceType -&gt; Maybe Text -&gt; Instance)
+      -&gt; Maybe Text
+      -&gt; Maybe EC2InstanceType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Instance)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679436698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DnsName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-251"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;Location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe OperatingSystem
-   -&gt; Maybe EC2InstanceType -&gt; Maybe Text -&gt; Instance)
+   -&gt; Maybe Text
+   -&gt; Maybe EC2InstanceType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Instance)
 -&gt; Parser (Maybe OperatingSystem)
--&gt; Parser (Maybe EC2InstanceType -&gt; Maybe Text -&gt; Instance)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe EC2InstanceType -&gt; Maybe Text -&gt; Maybe Text -&gt; Instance)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OperatingSystem)
+</span><a href="#local-6989586621679436698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OperatingSystem)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OperatingSystem&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EC2InstanceType -&gt; Maybe Text -&gt; Instance)
--&gt; Parser (Maybe EC2InstanceType)
--&gt; Parser (Maybe Text -&gt; Instance)
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe EC2InstanceType -&gt; Maybe Text -&gt; Maybe Text -&gt; Instance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe EC2InstanceType -&gt; Maybe Text -&gt; Maybe Text -&gt; Instance)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2InstanceType)
+</span><a href="#local-6989586621679436698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EC2InstanceType -&gt; Maybe Text -&gt; Maybe Text -&gt; Instance)
+-&gt; Parser (Maybe EC2InstanceType)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679436698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2InstanceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Instance)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Instance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679436698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Instance)
 -&gt; Parser (Maybe Text) -&gt; Parser Instance
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679436698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;DnsName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>
-</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436241"><span id="local-6989586621679436243"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436692"><span id="local-6989586621679436694"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span></span><span>
 </span><span id="line-257"></span><span>
-</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436238"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span><span>
+</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436689"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span><span>
 </span><span id="line-259"></span></pre></body></html>

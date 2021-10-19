@@ -41,13 +41,13 @@
 </span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-43"></span><span>
-</span><span id="line-44"></span><span id="local-6989586621679247920"><span id="local-6989586621679247921"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GrantOperation"><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-var">GrantOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GrantOperation%27"><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-identifier hs-var">GrantOperation'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679248118"><span id="local-6989586621679248119"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GrantOperation"><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-var">GrantOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GrantOperation%27"><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation%27"><span class="hs-identifier hs-var">GrantOperation'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGrantOperation"><span class="annot"><span class="annottext">GrantOperation -&gt; Text
 </span><a href="Network.AWS.KMS.Types.GrantOperation.html#fromGrantOperation"><span class="hs-identifier hs-var hs-var">fromGrantOperation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247912"><span id="local-6989586621679247914"><span id="local-6989586621679247916"><span class="annot"><span class="annottext">Int -&gt; GrantOperation -&gt; ShowS
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248110"><span id="local-6989586621679248112"><span id="local-6989586621679248114"><span class="annot"><span class="annottext">Int -&gt; GrantOperation -&gt; ShowS
 [GrantOperation] -&gt; ShowS
 GrantOperation -&gt; String
 (Int -&gt; GrantOperation -&gt; ShowS)
@@ -63,7 +63,7 @@ $cshow :: GrantOperation -&gt; String
 showsPrec :: Int -&gt; GrantOperation -&gt; ShowS
 $cshowsPrec :: Int -&gt; GrantOperation -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679247903"><span id="local-6989586621679247905"><span id="local-6989586621679247907"><span id="local-6989586621679247909"><span class="annot"><span class="annottext">ReadPrec [GrantOperation]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679248101"><span id="local-6989586621679248103"><span id="local-6989586621679248105"><span id="local-6989586621679248107"><span class="annot"><span class="annottext">ReadPrec [GrantOperation]
 ReadPrec GrantOperation
 Int -&gt; ReadS GrantOperation
 ReadS [GrantOperation]
@@ -84,7 +84,7 @@ $creadList :: ReadS [GrantOperation]
 readsPrec :: Int -&gt; ReadS GrantOperation
 $creadsPrec :: Int -&gt; ReadS GrantOperation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679247898"><span id="local-6989586621679247900"><span class="annot"><span class="annottext">GrantOperation -&gt; GrantOperation -&gt; Bool
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248096"><span id="local-6989586621679248098"><span class="annot"><span class="annottext">GrantOperation -&gt; GrantOperation -&gt; Bool
 (GrantOperation -&gt; GrantOperation -&gt; Bool)
 -&gt; (GrantOperation -&gt; GrantOperation -&gt; Bool) -&gt; Eq GrantOperation
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -93,7 +93,7 @@ $c/= :: GrantOperation -&gt; GrantOperation -&gt; Bool
 == :: GrantOperation -&gt; GrantOperation -&gt; Bool
 $c== :: GrantOperation -&gt; GrantOperation -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679247882"><span id="local-6989586621679247884"><span id="local-6989586621679247886"><span id="local-6989586621679247888"><span id="local-6989586621679247890"><span id="local-6989586621679247892"><span id="local-6989586621679247894"><span class="annot"><span class="annottext">Eq GrantOperation
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248080"><span id="local-6989586621679248082"><span id="local-6989586621679248084"><span id="local-6989586621679248086"><span id="local-6989586621679248088"><span id="local-6989586621679248090"><span id="local-6989586621679248092"><span class="annot"><span class="annottext">Eq GrantOperation
 Eq GrantOperation
 -&gt; (GrantOperation -&gt; GrantOperation -&gt; Ordering)
 -&gt; (GrantOperation -&gt; GrantOperation -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. GrantOperation -&gt; Rep GrantOperation x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247874"><span id="local-6989586621679247876"><span class="annot"><span class="annottext">Int -&gt; GrantOperation -&gt; Int
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248072"><span id="local-6989586621679248074"><span class="annot"><span class="annottext">Int -&gt; GrantOperation -&gt; Int
 GrantOperation -&gt; Int
 (Int -&gt; GrantOperation -&gt; Int)
 -&gt; (GrantOperation -&gt; Int) -&gt; Hashable GrantOperation
@@ -154,50 +154,50 @@ $chash :: GrantOperation -&gt; Int
 hashWithSalt :: Int -&gt; GrantOperation -&gt; Int
 $chashWithSalt :: Int -&gt; GrantOperation -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679247871"><span class="annot"><span class="annottext">GrantOperation -&gt; ()
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679248069"><span class="annot"><span class="annottext">GrantOperation -&gt; ()
 (GrantOperation -&gt; ()) -&gt; NFData GrantOperation
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: GrantOperation -&gt; ()
 $crnf :: GrantOperation -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679247868"><span class="annot"><span class="annottext">Text -&gt; Either String GrantOperation
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679248066"><span class="annot"><span class="annottext">Text -&gt; Either String GrantOperation
 (Text -&gt; Either String GrantOperation) -&gt; FromText GrantOperation
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String GrantOperation
 $cfromText :: Text -&gt; Either String GrantOperation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679247865"><span class="annot"><span class="annottext">GrantOperation -&gt; Text
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679248063"><span class="annot"><span class="annottext">GrantOperation -&gt; Text
 (GrantOperation -&gt; Text) -&gt; ToText GrantOperation
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: GrantOperation -&gt; Text
 $ctoText :: GrantOperation -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679247862"><span class="annot"><span class="annottext">GrantOperation -&gt; ByteString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679248060"><span class="annot"><span class="annottext">GrantOperation -&gt; ByteString
 (GrantOperation -&gt; ByteString) -&gt; ToByteString GrantOperation
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: GrantOperation -&gt; ByteString
 $ctoBS :: GrantOperation -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679247859"><span class="annot"><span class="annottext">GrantOperation -&gt; ByteStringBuilder
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679248057"><span class="annot"><span class="annottext">GrantOperation -&gt; ByteStringBuilder
 (GrantOperation -&gt; ByteStringBuilder) -&gt; ToLog GrantOperation
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: GrantOperation -&gt; ByteStringBuilder
 $cbuild :: GrantOperation -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679247856"><span class="annot"><span class="annottext">HeaderName -&gt; GrantOperation -&gt; [Header]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679248054"><span class="annot"><span class="annottext">HeaderName -&gt; GrantOperation -&gt; [Header]
 (HeaderName -&gt; GrantOperation -&gt; [Header])
 -&gt; ToHeader GrantOperation
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; GrantOperation -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; GrantOperation -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679247853"><span class="annot"><span class="annottext">GrantOperation -&gt; QueryString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679248051"><span class="annot"><span class="annottext">GrantOperation -&gt; QueryString
 (GrantOperation -&gt; QueryString) -&gt; ToQuery GrantOperation
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: GrantOperation -&gt; QueryString
 $ctoQuery :: GrantOperation -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679247848"><span id="local-6989586621679247850"><span class="annot"><span class="annottext">Value -&gt; Parser [GrantOperation]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679248046"><span id="local-6989586621679248048"><span class="annot"><span class="annottext">Value -&gt; Parser [GrantOperation]
 Value -&gt; Parser GrantOperation
 (Value -&gt; Parser GrantOperation)
 -&gt; (Value -&gt; Parser [GrantOperation]) -&gt; FromJSON GrantOperation
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [GrantOperation]
 parseJSON :: Value -&gt; Parser GrantOperation
 $cparseJSON :: Value -&gt; Parser GrantOperation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679247843"><span id="local-6989586621679247845"><span class="annot"><span class="annottext">FromJSONKeyFunction [GrantOperation]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679248041"><span id="local-6989586621679248043"><span class="annot"><span class="annottext">FromJSONKeyFunction [GrantOperation]
 FromJSONKeyFunction GrantOperation
 FromJSONKeyFunction GrantOperation
 -&gt; FromJSONKeyFunction [GrantOperation]
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [GrantOperation]
 fromJSONKey :: FromJSONKeyFunction GrantOperation
 $cfromJSONKey :: FromJSONKeyFunction GrantOperation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679247834"><span id="local-6989586621679247836"><span id="local-6989586621679247838"><span id="local-6989586621679247840"><span class="annot"><span class="annottext">[GrantOperation] -&gt; Encoding
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679248032"><span id="local-6989586621679248034"><span id="local-6989586621679248036"><span id="local-6989586621679248038"><span class="annot"><span class="annottext">[GrantOperation] -&gt; Encoding
 [GrantOperation] -&gt; Value
 GrantOperation -&gt; Encoding
 GrantOperation -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: GrantOperation -&gt; Encoding
 toJSON :: GrantOperation -&gt; Value
 $ctoJSON :: GrantOperation -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679247829"><span id="local-6989586621679247831"><span class="annot"><span class="annottext">ToJSONKeyFunction [GrantOperation]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679248027"><span id="local-6989586621679248029"><span class="annot"><span class="annottext">ToJSONKeyFunction [GrantOperation]
 ToJSONKeyFunction GrantOperation
 ToJSONKeyFunction GrantOperation
 -&gt; ToJSONKeyFunction [GrantOperation] -&gt; ToJSONKey GrantOperation
@@ -255,13 +255,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [GrantOperation]
 toJSONKey :: ToJSONKeyFunction GrantOperation
 $ctoJSONKey :: ToJSONKeyFunction GrantOperation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679247826"><span class="annot"><span class="annottext">[Node] -&gt; Either String GrantOperation
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679248024"><span class="annot"><span class="annottext">[Node] -&gt; Either String GrantOperation
 ([Node] -&gt; Either String GrantOperation) -&gt; FromXML GrantOperation
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String GrantOperation
 $cparseXML :: [Node] -&gt; Either String GrantOperation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679247823"><span class="annot"><span class="annottext">GrantOperation -&gt; XML
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679248021"><span class="annot"><span class="annottext">GrantOperation -&gt; XML
 (GrantOperation -&gt; XML) -&gt; ToXML GrantOperation
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: GrantOperation -&gt; XML

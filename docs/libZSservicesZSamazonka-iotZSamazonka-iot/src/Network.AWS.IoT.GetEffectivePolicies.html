@@ -33,9 +33,9 @@
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#newGetEffectivePolicies"><span class="hs-identifier">newGetEffectivePolicies</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#getEffectivePolicies_thingName"><span class="hs-identifier">getEffectivePolicies_thingName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#getEffectivePolicies_principal"><span class="hs-identifier">getEffectivePolicies_principal</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#getEffectivePolicies_cognitoIdentityPoolId"><span class="hs-identifier">getEffectivePolicies_cognitoIdentityPoolId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#getEffectivePolicies_principal"><span class="hs-identifier">getEffectivePolicies_principal</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#getEffectivePolicies_thingName"><span class="hs-identifier">getEffectivePolicies_thingName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse"><span class="hs-identifier">GetEffectivePoliciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -55,21 +55,21 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetEffectivePolicies' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679831631"><span id="local-6989586621679831632"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEffectivePolicies"><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-var">GetEffectivePolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEffectivePolicies%27"><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-var">GetEffectivePolicies'</span></a></span></span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The thing name.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AthingName%3AGetEffectivePolicies%27"><span class="annot"><span class="annottext">GetEffectivePolicies -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3AthingName%3AGetEffectivePolicies%27"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The Cognito identity pool ID.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AcognitoIdentityPoolId%3AGetEffectivePolicies%27"><span class="annot"><span class="annottext">GetEffectivePolicies -&gt; Maybe Text
+</span><span id="line-58"></span><span id="local-6989586621679832601"><span id="local-6989586621679832602"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEffectivePolicies"><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-var">GetEffectivePolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEffectivePolicies%27"><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-var">GetEffectivePolicies'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The principal. Valid principals are CertificateArn</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- (arn:aws:iot:/region/:/accountId/:cert\//certificateId/), thingGroupArn</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- (arn:aws:iot:/region/:/accountId/:thinggroup\//groupName/) and CognitoId</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- (/region/:/id/).</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Aprincipal%3AGetEffectivePolicies%27"><span class="annot"><span class="annottext">GetEffectivePolicies -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3Aprincipal%3AGetEffectivePolicies%27"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The Cognito identity pool ID.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AcognitoIdentityPoolId%3AGetEffectivePolicies%27"><span class="annot"><span class="annottext">GetEffectivePolicies -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3AcognitoIdentityPoolId%3AGetEffectivePolicies%27"><span class="hs-identifier hs-var hs-var">cognitoIdentityPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The principal. Valid principals are CertificateArn</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- (arn:aws:iot:/region/:/accountId/:cert\//certificateId/), thingGroupArn</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- (arn:aws:iot:/region/:/accountId/:thinggroup\//groupName/) and CognitoId</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- (/region/:/id/).</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3Aprincipal%3AGetEffectivePolicies%27"><span class="annot"><span class="annottext">GetEffectivePolicies -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3Aprincipal%3AGetEffectivePolicies%27"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The thing name.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AthingName%3AGetEffectivePolicies%27"><span class="annot"><span class="annottext">GetEffectivePolicies -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3AthingName%3AGetEffectivePolicies%27"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679831623"><span id="local-6989586621679831625"><span class="annot"><span class="annottext">GetEffectivePolicies -&gt; GetEffectivePolicies -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679832593"><span id="local-6989586621679832595"><span class="annot"><span class="annottext">GetEffectivePolicies -&gt; GetEffectivePolicies -&gt; Bool
 (GetEffectivePolicies -&gt; GetEffectivePolicies -&gt; Bool)
 -&gt; (GetEffectivePolicies -&gt; GetEffectivePolicies -&gt; Bool)
 -&gt; Eq GetEffectivePolicies
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetEffectivePolicies -&gt; GetEffectivePolicies -&gt; Bool
 == :: GetEffectivePolicies -&gt; GetEffectivePolicies -&gt; Bool
 $c== :: GetEffectivePolicies -&gt; GetEffectivePolicies -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831614"><span id="local-6989586621679831616"><span id="local-6989586621679831618"><span id="local-6989586621679831620"><span class="annot"><span class="annottext">ReadPrec [GetEffectivePolicies]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832584"><span id="local-6989586621679832586"><span id="local-6989586621679832588"><span id="local-6989586621679832590"><span class="annot"><span class="annottext">ReadPrec [GetEffectivePolicies]
 ReadPrec GetEffectivePolicies
 Int -&gt; ReadS GetEffectivePolicies
 ReadS [GetEffectivePolicies]
@@ -98,7 +98,7 @@ readList :: ReadS [GetEffectivePolicies]
 $creadList :: ReadS [GetEffectivePolicies]
 readsPrec :: Int -&gt; ReadS GetEffectivePolicies
 $creadsPrec :: Int -&gt; ReadS GetEffectivePolicies
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831607"><span id="local-6989586621679831609"><span id="local-6989586621679831611"><span class="annot"><span class="annottext">Int -&gt; GetEffectivePolicies -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832577"><span id="local-6989586621679832579"><span id="local-6989586621679832581"><span class="annot"><span class="annottext">Int -&gt; GetEffectivePolicies -&gt; ShowS
 [GetEffectivePolicies] -&gt; ShowS
 GetEffectivePolicies -&gt; String
 (Int -&gt; GetEffectivePolicies -&gt; ShowS)
@@ -132,107 +132,107 @@ $cfrom :: forall x. GetEffectivePolicies -&gt; Rep GetEffectivePolicies x
 </span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'thingName', 'getEffectivePolicies_thingName' - The thing name.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'cognitoIdentityPoolId', 'getEffectivePolicies_cognitoIdentityPoolId' - The Cognito identity pool ID.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'principal', 'getEffectivePolicies_principal' - The principal. Valid principals are CertificateArn</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- (arn:aws:iot:/region/:/accountId/:cert\//certificateId/), thingGroupArn</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- (arn:aws:iot:/region/:/accountId/:thinggroup\//groupName/) and CognitoId</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- (/region/:/id/).</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'principal', 'getEffectivePolicies_principal' - The principal. Valid principals are CertificateArn</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- (arn:aws:iot:/region/:/accountId/:cert\//certificateId/), thingGroupArn</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- (arn:aws:iot:/region/:/accountId/:thinggroup\//groupName/) and CognitoId</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- (/region/:/id/).</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'cognitoIdentityPoolId', 'getEffectivePolicies_cognitoIdentityPoolId' - The Cognito identity pool ID.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'thingName', 'getEffectivePolicies_thingName' - The thing name.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#newGetEffectivePolicies"><span class="hs-identifier hs-type">newGetEffectivePolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span>
 </span><span id="line-89"></span><span id="newGetEffectivePolicies"><span class="annot"><span class="annottext">newGetEffectivePolicies :: GetEffectivePolicies
 </span><a href="Network.AWS.IoT.GetEffectivePolicies.html#newGetEffectivePolicies"><span class="hs-identifier hs-var hs-var">newGetEffectivePolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">GetEffectivePolicies' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; GetEffectivePolicies
 </span><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-type">GetEffectivePolicies'</span></a></span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:thingName:GetEffectivePolicies' :: Maybe Text
-</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3AthingName%3AGetEffectivePolicies%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:principal:GetEffectivePolicies' :: Maybe Text
+</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3Aprincipal%3AGetEffectivePolicies%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:cognitoIdentityPoolId:GetEffectivePolicies' :: Maybe Text
 </span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3AcognitoIdentityPoolId%3AGetEffectivePolicies%27"><span class="hs-identifier hs-var">cognitoIdentityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:principal:GetEffectivePolicies' :: Maybe Text
-</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3Aprincipal%3AGetEffectivePolicies%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingName:GetEffectivePolicies' :: Maybe Text
+</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3AthingName%3AGetEffectivePolicies%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The thing name.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#getEffectivePolicies_thingName"><span class="hs-identifier hs-type">getEffectivePolicies_thingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="getEffectivePolicies_thingName"><span class="annot"><span class="annottext">getEffectivePolicies_thingName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetEffectivePolicies -&gt; f GetEffectivePolicies
-</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#getEffectivePolicies_thingName"><span class="hs-identifier hs-var hs-var">getEffectivePolicies_thingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEffectivePolicies -&gt; Maybe Text)
--&gt; (GetEffectivePolicies -&gt; Maybe Text -&gt; GetEffectivePolicies)
--&gt; Lens
-     GetEffectivePolicies GetEffectivePolicies (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-type">GetEffectivePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831600"><span class="annot"><span class="annottext">Maybe Text
-thingName :: Maybe Text
-$sel:thingName:GetEffectivePolicies' :: GetEffectivePolicies -&gt; Maybe Text
-</span><a href="#local-6989586621679831600"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831600"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831599"><span class="annot"><span class="annottext">s :: GetEffectivePolicies
-</span><a href="#local-6989586621679831599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-type">GetEffectivePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831598"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEffectivePolicies
-</span><a href="#local-6989586621679831599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:GetEffectivePolicies' :: Maybe Text
-</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3AthingName%3AGetEffectivePolicies%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The Cognito identity pool ID.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#getEffectivePolicies_cognitoIdentityPoolId"><span class="hs-identifier hs-type">getEffectivePolicies_cognitoIdentityPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="getEffectivePolicies_cognitoIdentityPoolId"><span class="annot"><span class="annottext">getEffectivePolicies_cognitoIdentityPoolId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetEffectivePolicies -&gt; f GetEffectivePolicies
-</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#getEffectivePolicies_cognitoIdentityPoolId"><span class="hs-identifier hs-var hs-var">getEffectivePolicies_cognitoIdentityPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEffectivePolicies -&gt; Maybe Text)
--&gt; (GetEffectivePolicies -&gt; Maybe Text -&gt; GetEffectivePolicies)
--&gt; Lens
-     GetEffectivePolicies GetEffectivePolicies (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-type">GetEffectivePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831597"><span class="annot"><span class="annottext">Maybe Text
-cognitoIdentityPoolId :: Maybe Text
-$sel:cognitoIdentityPoolId:GetEffectivePolicies' :: GetEffectivePolicies -&gt; Maybe Text
-</span><a href="#local-6989586621679831597"><span class="hs-identifier hs-var hs-var">cognitoIdentityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831597"><span class="hs-identifier hs-var">cognitoIdentityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831596"><span class="annot"><span class="annottext">s :: GetEffectivePolicies
-</span><a href="#local-6989586621679831596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-type">GetEffectivePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831595"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEffectivePolicies
-</span><a href="#local-6989586621679831596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cognitoIdentityPoolId:GetEffectivePolicies' :: Maybe Text
-</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3AcognitoIdentityPoolId%3AGetEffectivePolicies%27"><span class="hs-identifier hs-var">cognitoIdentityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | The principal. Valid principals are CertificateArn</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- (arn:aws:iot:/region/:/accountId/:cert\//certificateId/), thingGroupArn</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- (arn:aws:iot:/region/:/accountId/:thinggroup\//groupName/) and CognitoId</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- (/region/:/id/).</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#getEffectivePolicies_principal"><span class="hs-identifier hs-type">getEffectivePolicies_principal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="getEffectivePolicies_principal"><span class="annot"><span class="annottext">getEffectivePolicies_principal :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-96"></span><span class="hs-comment">-- | The principal. Valid principals are CertificateArn</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- (arn:aws:iot:/region/:/accountId/:cert\//certificateId/), thingGroupArn</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- (arn:aws:iot:/region/:/accountId/:thinggroup\//groupName/) and CognitoId</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- (/region/:/id/).</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#getEffectivePolicies_principal"><span class="hs-identifier hs-type">getEffectivePolicies_principal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="getEffectivePolicies_principal"><span class="annot"><span class="annottext">getEffectivePolicies_principal :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetEffectivePolicies -&gt; f GetEffectivePolicies
 </span><a href="Network.AWS.IoT.GetEffectivePolicies.html#getEffectivePolicies_principal"><span class="hs-identifier hs-var hs-var">getEffectivePolicies_principal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEffectivePolicies -&gt; Maybe Text)
 -&gt; (GetEffectivePolicies -&gt; Maybe Text -&gt; GetEffectivePolicies)
 -&gt; Lens
      GetEffectivePolicies GetEffectivePolicies (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-type">GetEffectivePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831594"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-type">GetEffectivePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832570"><span class="annot"><span class="annottext">Maybe Text
 principal :: Maybe Text
 $sel:principal:GetEffectivePolicies' :: GetEffectivePolicies -&gt; Maybe Text
-</span><a href="#local-6989586621679831594"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831594"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831593"><span class="annot"><span class="annottext">s :: GetEffectivePolicies
-</span><a href="#local-6989586621679831593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-type">GetEffectivePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831592"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEffectivePolicies
-</span><a href="#local-6989586621679831593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:GetEffectivePolicies' :: Maybe Text
+</span><a href="#local-6989586621679832570"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832570"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832569"><span class="annot"><span class="annottext">s :: GetEffectivePolicies
+</span><a href="#local-6989586621679832569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-type">GetEffectivePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832568"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEffectivePolicies
+</span><a href="#local-6989586621679832569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:GetEffectivePolicies' :: Maybe Text
 </span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3Aprincipal%3AGetEffectivePolicies%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679832568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The Cognito identity pool ID.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#getEffectivePolicies_cognitoIdentityPoolId"><span class="hs-identifier hs-type">getEffectivePolicies_cognitoIdentityPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="getEffectivePolicies_cognitoIdentityPoolId"><span class="annot"><span class="annottext">getEffectivePolicies_cognitoIdentityPoolId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetEffectivePolicies -&gt; f GetEffectivePolicies
+</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#getEffectivePolicies_cognitoIdentityPoolId"><span class="hs-identifier hs-var hs-var">getEffectivePolicies_cognitoIdentityPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEffectivePolicies -&gt; Maybe Text)
+-&gt; (GetEffectivePolicies -&gt; Maybe Text -&gt; GetEffectivePolicies)
+-&gt; Lens
+     GetEffectivePolicies GetEffectivePolicies (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-type">GetEffectivePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832567"><span class="annot"><span class="annottext">Maybe Text
+cognitoIdentityPoolId :: Maybe Text
+$sel:cognitoIdentityPoolId:GetEffectivePolicies' :: GetEffectivePolicies -&gt; Maybe Text
+</span><a href="#local-6989586621679832567"><span class="hs-identifier hs-var hs-var">cognitoIdentityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832567"><span class="hs-identifier hs-var">cognitoIdentityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832566"><span class="annot"><span class="annottext">s :: GetEffectivePolicies
+</span><a href="#local-6989586621679832566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-type">GetEffectivePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832565"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEffectivePolicies
+</span><a href="#local-6989586621679832566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cognitoIdentityPoolId:GetEffectivePolicies' :: Maybe Text
+</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3AcognitoIdentityPoolId%3AGetEffectivePolicies%27"><span class="hs-identifier hs-var">cognitoIdentityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The thing name.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#getEffectivePolicies_thingName"><span class="hs-identifier hs-type">getEffectivePolicies_thingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="getEffectivePolicies_thingName"><span class="annot"><span class="annottext">getEffectivePolicies_thingName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetEffectivePolicies -&gt; f GetEffectivePolicies
+</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#getEffectivePolicies_thingName"><span class="hs-identifier hs-var hs-var">getEffectivePolicies_thingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEffectivePolicies -&gt; Maybe Text)
+-&gt; (GetEffectivePolicies -&gt; Maybe Text -&gt; GetEffectivePolicies)
+-&gt; Lens
+     GetEffectivePolicies GetEffectivePolicies (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-type">GetEffectivePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832564"><span class="annot"><span class="annottext">Maybe Text
+thingName :: Maybe Text
+$sel:thingName:GetEffectivePolicies' :: GetEffectivePolicies -&gt; Maybe Text
+</span><a href="#local-6989586621679832564"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832564"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832563"><span class="annot"><span class="annottext">s :: GetEffectivePolicies
+</span><a href="#local-6989586621679832563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-type">GetEffectivePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832562"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEffectivePolicies
+</span><a href="#local-6989586621679832563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:GetEffectivePolicies' :: Maybe Text
+</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3AthingName%3AGetEffectivePolicies%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679831588"><span class="annot"><span class="annottext">request :: GetEffectivePolicies -&gt; Request GetEffectivePolicies
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679832558"><span class="annot"><span class="annottext">request :: GetEffectivePolicies -&gt; Request GetEffectivePolicies
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetEffectivePolicies -&gt; Request GetEffectivePolicies
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679831584"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679832554"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetEffectivePolicies
 -&gt; ClientResponse ClientBody
@@ -258,10 +258,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679831581"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831581"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679831580"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679831580"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679831579"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679831579"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679832551"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679832551"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679832550"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679832550"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679832549"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679832549"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe [EffectivePolicy] -&gt; Int -&gt; GetEffectivePoliciesResponse
 </span><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse%27"><span class="hs-identifier hs-var">GetEffectivePoliciesResponse'</span></a></span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [EffectivePolicy] -&gt; Int -&gt; GetEffectivePoliciesResponse)
@@ -269,7 +269,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetEffectivePoliciesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679831579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [EffectivePolicy]))
+</span><a href="#local-6989586621679832549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [EffectivePolicy]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;effectivePolicies&quot;</span></span><span>
@@ -289,81 +289,81 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831581"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679832551"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831570"><span id="local-6989586621679831572"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832540"><span id="local-6989586621679832542"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831567"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832537"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679831563"><span class="annot"><span class="annottext">toHeaders :: GetEffectivePolicies -&gt; ResponseHeaders
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679832533"><span class="annot"><span class="annottext">toHeaders :: GetEffectivePolicies -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetEffectivePolicies -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831554"><span id="local-6989586621679831556"><span id="local-6989586621679831558"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679831552"><span class="annot"><span class="annottext">toJSON :: GetEffectivePolicies -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-type">GetEffectivePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831548"><span id="local-6989586621679831549"><span id="local-6989586621679831550"><span class="annot"><span class="annottext">Maybe Text
-principal :: Maybe Text
-cognitoIdentityPoolId :: Maybe Text
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832524"><span id="local-6989586621679832526"><span id="local-6989586621679832528"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679832522"><span class="annot"><span class="annottext">toJSON :: GetEffectivePolicies -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-type">GetEffectivePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832518"><span id="local-6989586621679832519"><span id="local-6989586621679832520"><span class="annot"><span class="annottext">Maybe Text
 thingName :: Maybe Text
-$sel:principal:GetEffectivePolicies' :: GetEffectivePolicies -&gt; Maybe Text
-$sel:cognitoIdentityPoolId:GetEffectivePolicies' :: GetEffectivePolicies -&gt; Maybe Text
+cognitoIdentityPoolId :: Maybe Text
+principal :: Maybe Text
 $sel:thingName:GetEffectivePolicies' :: GetEffectivePolicies -&gt; Maybe Text
-</span><a href="#local-6989586621679831548"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:cognitoIdentityPoolId:GetEffectivePolicies' :: GetEffectivePolicies -&gt; Maybe Text
+$sel:principal:GetEffectivePolicies' :: GetEffectivePolicies -&gt; Maybe Text
+</span><a href="#local-6989586621679832518"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;cognitoIdentityPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831549"><span class="hs-identifier hs-var">cognitoIdentityPoolId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;principal&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831548"><span class="hs-identifier hs-var">principal</span></a></span><span>
+</span><a href="#local-6989586621679832520"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cognitoIdentityPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832519"><span class="hs-identifier hs-var">cognitoIdentityPoolId</span></a></span><span>
 </span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679831542"><span class="annot"><span class="annottext">toPath :: GetEffectivePolicies -&gt; ByteString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679832512"><span class="annot"><span class="annottext">toPath :: GetEffectivePolicies -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetEffectivePolicies -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/effective-policies&quot;</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies"><span class="hs-identifier hs-type">GetEffectivePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679831538"><span class="annot"><span class="annottext">toQuery :: GetEffectivePolicies -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-type">GetEffectivePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831534"><span id="local-6989586621679831535"><span id="local-6989586621679831536"><span class="annot"><span class="annottext">Maybe Text
-principal :: Maybe Text
-cognitoIdentityPoolId :: Maybe Text
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679832508"><span class="annot"><span class="annottext">toQuery :: GetEffectivePolicies -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePolicies%27"><span class="hs-identifier hs-type">GetEffectivePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832504"><span id="local-6989586621679832505"><span id="local-6989586621679832506"><span class="annot"><span class="annottext">Maybe Text
 thingName :: Maybe Text
-$sel:principal:GetEffectivePolicies' :: GetEffectivePolicies -&gt; Maybe Text
-$sel:cognitoIdentityPoolId:GetEffectivePolicies' :: GetEffectivePolicies -&gt; Maybe Text
+cognitoIdentityPoolId :: Maybe Text
+principal :: Maybe Text
 $sel:thingName:GetEffectivePolicies' :: GetEffectivePolicies -&gt; Maybe Text
-</span><a href="#local-6989586621679831534"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:cognitoIdentityPoolId:GetEffectivePolicies' :: GetEffectivePolicies -&gt; Maybe Text
+$sel:principal:GetEffectivePolicies' :: GetEffectivePolicies -&gt; Maybe Text
+</span><a href="#local-6989586621679832504"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;thingName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831536"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679832504"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newGetEffectivePoliciesResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679831531"><span id="local-6989586621679831532"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEffectivePoliciesResponse"><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse"><span class="hs-identifier hs-var">GetEffectivePoliciesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEffectivePoliciesResponse%27"><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse%27"><span class="hs-identifier hs-var">GetEffectivePoliciesResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679832501"><span id="local-6989586621679832502"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEffectivePoliciesResponse"><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse"><span class="hs-identifier hs-var">GetEffectivePoliciesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEffectivePoliciesResponse%27"><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse%27"><span class="hs-identifier hs-var">GetEffectivePoliciesResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The effective policies.</span><span>
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AeffectivePolicies%3AGetEffectivePoliciesResponse%27"><span class="annot"><span class="annottext">GetEffectivePoliciesResponse -&gt; Maybe [EffectivePolicy]
 </span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3AeffectivePolicies%3AGetEffectivePoliciesResponse%27"><span class="hs-identifier hs-var hs-var">effectivePolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.EffectivePolicy.html#EffectivePolicy"><span class="hs-identifier hs-type">EffectivePolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -371,7 +371,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetEffectivePoliciesResponse%27"><span class="annot"><span class="annottext">GetEffectivePoliciesResponse -&gt; Int
 </span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3AhttpStatus%3AGetEffectivePoliciesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679831525"><span id="local-6989586621679831527"><span class="annot"><span class="annottext">GetEffectivePoliciesResponse
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679832495"><span id="local-6989586621679832497"><span class="annot"><span class="annottext">GetEffectivePoliciesResponse
 -&gt; GetEffectivePoliciesResponse -&gt; Bool
 (GetEffectivePoliciesResponse
  -&gt; GetEffectivePoliciesResponse -&gt; Bool)
@@ -387,7 +387,7 @@ $c/= :: GetEffectivePoliciesResponse
 -&gt; GetEffectivePoliciesResponse -&gt; Bool
 $c== :: GetEffectivePoliciesResponse
 -&gt; GetEffectivePoliciesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831517"><span id="local-6989586621679831519"><span id="local-6989586621679831521"><span id="local-6989586621679831523"><span class="annot"><span class="annottext">ReadPrec [GetEffectivePoliciesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832487"><span id="local-6989586621679832489"><span id="local-6989586621679832491"><span id="local-6989586621679832493"><span class="annot"><span class="annottext">ReadPrec [GetEffectivePoliciesResponse]
 ReadPrec GetEffectivePoliciesResponse
 Int -&gt; ReadS GetEffectivePoliciesResponse
 ReadS [GetEffectivePoliciesResponse]
@@ -407,7 +407,7 @@ readList :: ReadS [GetEffectivePoliciesResponse]
 $creadList :: ReadS [GetEffectivePoliciesResponse]
 readsPrec :: Int -&gt; ReadS GetEffectivePoliciesResponse
 $creadsPrec :: Int -&gt; ReadS GetEffectivePoliciesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831511"><span id="local-6989586621679831513"><span id="local-6989586621679831515"><span class="annot"><span class="annottext">Int -&gt; GetEffectivePoliciesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832481"><span id="local-6989586621679832483"><span id="local-6989586621679832485"><span class="annot"><span class="annottext">Int -&gt; GetEffectivePoliciesResponse -&gt; ShowS
 [GetEffectivePoliciesResponse] -&gt; ShowS
 GetEffectivePoliciesResponse -&gt; String
 (Int -&gt; GetEffectivePoliciesResponse -&gt; ShowS)
@@ -455,8 +455,8 @@ GetEffectivePoliciesResponse -&gt; Rep GetEffectivePoliciesResponse x
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse</span></a></span><span>
 </span><span id="line-174"></span><span id="newGetEffectivePoliciesResponse"><span class="annot"><span class="annottext">newGetEffectivePoliciesResponse :: Int -&gt; GetEffectivePoliciesResponse
-</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#newGetEffectivePoliciesResponse"><span class="hs-identifier hs-var hs-var">newGetEffectivePoliciesResponse</span></a></span></span><span> </span><span id="local-6989586621679831508"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831508"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.GetEffectivePolicies.html#newGetEffectivePoliciesResponse"><span class="hs-identifier hs-var hs-var">newGetEffectivePoliciesResponse</span></a></span></span><span> </span><span id="local-6989586621679832478"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679832478"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">GetEffectivePoliciesResponse' :: Maybe [EffectivePolicy] -&gt; Int -&gt; GetEffectivePoliciesResponse
 </span><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse%27"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse'</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:effectivePolicies:GetEffectivePoliciesResponse' :: Maybe [EffectivePolicy]
@@ -466,7 +466,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetEffectivePoliciesResponse' :: Int
 </span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3AhttpStatus%3AGetEffectivePoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831508"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679832478"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The effective policies.</span><span>
@@ -482,16 +482,16 @@ forall a. Maybe a
      (Maybe [EffectivePolicy])
      (Maybe [EffectivePolicy])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse%27"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831507"><span class="annot"><span class="annottext">Maybe [EffectivePolicy]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse%27"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832477"><span class="annot"><span class="annottext">Maybe [EffectivePolicy]
 effectivePolicies :: Maybe [EffectivePolicy]
 $sel:effectivePolicies:GetEffectivePoliciesResponse' :: GetEffectivePoliciesResponse -&gt; Maybe [EffectivePolicy]
-</span><a href="#local-6989586621679831507"><span class="hs-identifier hs-var hs-var">effectivePolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EffectivePolicy]
-</span><a href="#local-6989586621679831507"><span class="hs-identifier hs-var">effectivePolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831506"><span class="annot"><span class="annottext">s :: GetEffectivePoliciesResponse
-</span><a href="#local-6989586621679831506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse%27"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831505"><span class="annot"><span class="annottext">Maybe [EffectivePolicy]
-</span><a href="#local-6989586621679831505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEffectivePoliciesResponse
-</span><a href="#local-6989586621679831506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effectivePolicies:GetEffectivePoliciesResponse' :: Maybe [EffectivePolicy]
+</span><a href="#local-6989586621679832477"><span class="hs-identifier hs-var hs-var">effectivePolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EffectivePolicy]
+</span><a href="#local-6989586621679832477"><span class="hs-identifier hs-var">effectivePolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832476"><span class="annot"><span class="annottext">s :: GetEffectivePoliciesResponse
+</span><a href="#local-6989586621679832476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse%27"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832475"><span class="annot"><span class="annottext">Maybe [EffectivePolicy]
+</span><a href="#local-6989586621679832475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEffectivePoliciesResponse
+</span><a href="#local-6989586621679832476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effectivePolicies:GetEffectivePoliciesResponse' :: Maybe [EffectivePolicy]
 </span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3AeffectivePolicies%3AGetEffectivePoliciesResponse%27"><span class="hs-identifier hs-var">effectivePolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EffectivePolicy]
-</span><a href="#local-6989586621679831505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EffectivePolicy] -&gt; f (Maybe [EffectivePolicy]))
+</span><a href="#local-6989586621679832475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EffectivePolicy] -&gt; f (Maybe [EffectivePolicy]))
  -&gt; GetEffectivePoliciesResponse -&gt; f GetEffectivePoliciesResponse)
 -&gt; ((Maybe [EffectivePolicy] -&gt; f (Maybe [EffectivePolicy]))
     -&gt; Maybe [EffectivePolicy] -&gt; f (Maybe [EffectivePolicy]))
@@ -517,8 +517,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [EffectivePolicy]
   [EffectivePolicy]
   [EffectivePolicy]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#getEffectivePoliciesResponse_httpStatus"><span class="hs-identifier hs-type">getEffectivePoliciesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -530,16 +530,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      GetEffectivePoliciesResponse GetEffectivePoliciesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse%27"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831501"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse%27"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832471"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetEffectivePoliciesResponse' :: GetEffectivePoliciesResponse -&gt; Int
-</span><a href="#local-6989586621679831501"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831501"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831500"><span class="annot"><span class="annottext">s :: GetEffectivePoliciesResponse
-</span><a href="#local-6989586621679831500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse%27"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831499"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEffectivePoliciesResponse
-</span><a href="#local-6989586621679831500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetEffectivePoliciesResponse' :: Int
+</span><a href="#local-6989586621679832471"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679832471"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832470"><span class="annot"><span class="annottext">s :: GetEffectivePoliciesResponse
+</span><a href="#local-6989586621679832470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse%27"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832469"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679832469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEffectivePoliciesResponse
+</span><a href="#local-6989586621679832470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetEffectivePoliciesResponse' :: Int
 </span><a href="Network.AWS.IoT.GetEffectivePolicies.html#%24sel%3AhttpStatus%3AGetEffectivePoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679832469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831497"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832467"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetEffectivePolicies.html#GetEffectivePoliciesResponse"><span class="hs-identifier hs-type">GetEffectivePoliciesResponse</span></a></span></span><span>
 </span><span id="line-190"></span></pre></body></html>

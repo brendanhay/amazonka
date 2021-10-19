@@ -43,13 +43,13 @@
 </span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-45"></span><span>
-</span><span id="line-46"></span><span id="local-6989586621681080225"><span id="local-6989586621681080226"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceAttributeName"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceAttributeName.html#InstanceAttributeName"><span class="hs-identifier hs-var">InstanceAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceAttributeName%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceAttributeName.html#InstanceAttributeName%27"><span class="hs-identifier hs-var">InstanceAttributeName'</span></a></span></span><span>
+</span><span id="line-46"></span><span id="local-6989586621681114576"><span id="local-6989586621681114577"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceAttributeName"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceAttributeName.html#InstanceAttributeName"><span class="hs-identifier hs-var">InstanceAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceAttributeName%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceAttributeName.html#InstanceAttributeName%27"><span class="hs-identifier hs-var">InstanceAttributeName'</span></a></span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceAttributeName"><span class="annot"><span class="annottext">InstanceAttributeName -&gt; Text
 </span><a href="Network.AWS.EC2.Types.InstanceAttributeName.html#fromInstanceAttributeName"><span class="hs-identifier hs-var hs-var">fromInstanceAttributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-48"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681080217"><span id="local-6989586621681080219"><span id="local-6989586621681080221"><span class="annot"><span class="annottext">Int -&gt; InstanceAttributeName -&gt; ShowS
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681114568"><span id="local-6989586621681114570"><span id="local-6989586621681114572"><span class="annot"><span class="annottext">Int -&gt; InstanceAttributeName -&gt; ShowS
 [InstanceAttributeName] -&gt; ShowS
 InstanceAttributeName -&gt; String
 (Int -&gt; InstanceAttributeName -&gt; ShowS)
@@ -65,7 +65,7 @@ $cshow :: InstanceAttributeName -&gt; String
 showsPrec :: Int -&gt; InstanceAttributeName -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstanceAttributeName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681080208"><span id="local-6989586621681080210"><span id="local-6989586621681080212"><span id="local-6989586621681080214"><span class="annot"><span class="annottext">ReadPrec [InstanceAttributeName]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681114559"><span id="local-6989586621681114561"><span id="local-6989586621681114563"><span id="local-6989586621681114565"><span class="annot"><span class="annottext">ReadPrec [InstanceAttributeName]
 ReadPrec InstanceAttributeName
 Int -&gt; ReadS InstanceAttributeName
 ReadS [InstanceAttributeName]
@@ -86,7 +86,7 @@ $creadList :: ReadS [InstanceAttributeName]
 readsPrec :: Int -&gt; ReadS InstanceAttributeName
 $creadsPrec :: Int -&gt; ReadS InstanceAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681080203"><span id="local-6989586621681080205"><span class="annot"><span class="annottext">InstanceAttributeName -&gt; InstanceAttributeName -&gt; Bool
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681114554"><span id="local-6989586621681114556"><span class="annot"><span class="annottext">InstanceAttributeName -&gt; InstanceAttributeName -&gt; Bool
 (InstanceAttributeName -&gt; InstanceAttributeName -&gt; Bool)
 -&gt; (InstanceAttributeName -&gt; InstanceAttributeName -&gt; Bool)
 -&gt; Eq InstanceAttributeName
@@ -96,7 +96,7 @@ $c/= :: InstanceAttributeName -&gt; InstanceAttributeName -&gt; Bool
 == :: InstanceAttributeName -&gt; InstanceAttributeName -&gt; Bool
 $c== :: InstanceAttributeName -&gt; InstanceAttributeName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681080187"><span id="local-6989586621681080189"><span id="local-6989586621681080191"><span id="local-6989586621681080193"><span id="local-6989586621681080195"><span id="local-6989586621681080197"><span id="local-6989586621681080199"><span class="annot"><span class="annottext">Eq InstanceAttributeName
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681114538"><span id="local-6989586621681114540"><span id="local-6989586621681114542"><span id="local-6989586621681114544"><span id="local-6989586621681114546"><span id="local-6989586621681114548"><span id="local-6989586621681114550"><span class="annot"><span class="annottext">Eq InstanceAttributeName
 Eq InstanceAttributeName
 -&gt; (InstanceAttributeName -&gt; InstanceAttributeName -&gt; Ordering)
 -&gt; (InstanceAttributeName -&gt; InstanceAttributeName -&gt; Bool)
@@ -154,7 +154,7 @@ $cfrom :: forall x. InstanceAttributeName -&gt; Rep InstanceAttributeName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681080179"><span id="local-6989586621681080181"><span class="annot"><span class="annottext">Int -&gt; InstanceAttributeName -&gt; Int
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681114530"><span id="local-6989586621681114532"><span class="annot"><span class="annottext">Int -&gt; InstanceAttributeName -&gt; Int
 InstanceAttributeName -&gt; Int
 (Int -&gt; InstanceAttributeName -&gt; Int)
 -&gt; (InstanceAttributeName -&gt; Int) -&gt; Hashable InstanceAttributeName
@@ -164,54 +164,54 @@ $chash :: InstanceAttributeName -&gt; Int
 hashWithSalt :: Int -&gt; InstanceAttributeName -&gt; Int
 $chashWithSalt :: Int -&gt; InstanceAttributeName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681080176"><span class="annot"><span class="annottext">InstanceAttributeName -&gt; ()
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681114527"><span class="annot"><span class="annottext">InstanceAttributeName -&gt; ()
 (InstanceAttributeName -&gt; ()) -&gt; NFData InstanceAttributeName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstanceAttributeName -&gt; ()
 $crnf :: InstanceAttributeName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681080173"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceAttributeName
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681114524"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceAttributeName
 (Text -&gt; Either String InstanceAttributeName)
 -&gt; FromText InstanceAttributeName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstanceAttributeName
 $cfromText :: Text -&gt; Either String InstanceAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681080170"><span class="annot"><span class="annottext">InstanceAttributeName -&gt; Text
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681114521"><span class="annot"><span class="annottext">InstanceAttributeName -&gt; Text
 (InstanceAttributeName -&gt; Text) -&gt; ToText InstanceAttributeName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstanceAttributeName -&gt; Text
 $ctoText :: InstanceAttributeName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621681080167"><span class="annot"><span class="annottext">InstanceAttributeName -&gt; ByteString
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681114518"><span class="annot"><span class="annottext">InstanceAttributeName -&gt; ByteString
 (InstanceAttributeName -&gt; ByteString)
 -&gt; ToByteString InstanceAttributeName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstanceAttributeName -&gt; ByteString
 $ctoBS :: InstanceAttributeName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621681080164"><span class="annot"><span class="annottext">InstanceAttributeName -&gt; ByteStringBuilder
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621681114515"><span class="annot"><span class="annottext">InstanceAttributeName -&gt; ByteStringBuilder
 (InstanceAttributeName -&gt; ByteStringBuilder)
 -&gt; ToLog InstanceAttributeName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstanceAttributeName -&gt; ByteStringBuilder
 $cbuild :: InstanceAttributeName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621681080161"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceAttributeName -&gt; [Header]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621681114512"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceAttributeName -&gt; [Header]
 (HeaderName -&gt; InstanceAttributeName -&gt; [Header])
 -&gt; ToHeader InstanceAttributeName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstanceAttributeName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstanceAttributeName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621681080158"><span class="annot"><span class="annottext">InstanceAttributeName -&gt; QueryString
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621681114509"><span class="annot"><span class="annottext">InstanceAttributeName -&gt; QueryString
 (InstanceAttributeName -&gt; QueryString)
 -&gt; ToQuery InstanceAttributeName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstanceAttributeName -&gt; QueryString
 $ctoQuery :: InstanceAttributeName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621681080153"><span id="local-6989586621681080155"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceAttributeName]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621681114504"><span id="local-6989586621681114506"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceAttributeName]
 Value -&gt; Parser InstanceAttributeName
 (Value -&gt; Parser InstanceAttributeName)
 -&gt; (Value -&gt; Parser [InstanceAttributeName])
@@ -223,7 +223,7 @@ $cparseJSONList :: Value -&gt; Parser [InstanceAttributeName]
 parseJSON :: Value -&gt; Parser InstanceAttributeName
 $cparseJSON :: Value -&gt; Parser InstanceAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621681080148"><span id="local-6989586621681080150"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceAttributeName]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621681114499"><span id="local-6989586621681114501"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceAttributeName]
 FromJSONKeyFunction InstanceAttributeName
 FromJSONKeyFunction InstanceAttributeName
 -&gt; FromJSONKeyFunction [InstanceAttributeName]
@@ -235,7 +235,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstanceAttributeName]
 fromJSONKey :: FromJSONKeyFunction InstanceAttributeName
 $cfromJSONKey :: FromJSONKeyFunction InstanceAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621681080139"><span id="local-6989586621681080141"><span id="local-6989586621681080143"><span id="local-6989586621681080145"><span class="annot"><span class="annottext">[InstanceAttributeName] -&gt; Encoding
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621681114490"><span id="local-6989586621681114492"><span id="local-6989586621681114494"><span id="local-6989586621681114496"><span class="annot"><span class="annottext">[InstanceAttributeName] -&gt; Encoding
 [InstanceAttributeName] -&gt; Value
 InstanceAttributeName -&gt; Encoding
 InstanceAttributeName -&gt; Value
@@ -259,7 +259,7 @@ $ctoEncoding :: InstanceAttributeName -&gt; Encoding
 toJSON :: InstanceAttributeName -&gt; Value
 $ctoJSON :: InstanceAttributeName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621681080134"><span id="local-6989586621681080136"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceAttributeName]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621681114485"><span id="local-6989586621681114487"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceAttributeName]
 ToJSONKeyFunction InstanceAttributeName
 ToJSONKeyFunction InstanceAttributeName
 -&gt; ToJSONKeyFunction [InstanceAttributeName]
@@ -271,14 +271,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstanceAttributeName]
 toJSONKey :: ToJSONKeyFunction InstanceAttributeName
 $ctoJSONKey :: ToJSONKeyFunction InstanceAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621681080131"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceAttributeName
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621681114482"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceAttributeName
 ([Node] -&gt; Either String InstanceAttributeName)
 -&gt; FromXML InstanceAttributeName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstanceAttributeName
 $cparseXML :: [Node] -&gt; Either String InstanceAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621681080128"><span class="annot"><span class="annottext">InstanceAttributeName -&gt; XML
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621681114479"><span class="annot"><span class="annottext">InstanceAttributeName -&gt; XML
 (InstanceAttributeName -&gt; XML) -&gt; ToXML InstanceAttributeName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InstanceAttributeName -&gt; XML

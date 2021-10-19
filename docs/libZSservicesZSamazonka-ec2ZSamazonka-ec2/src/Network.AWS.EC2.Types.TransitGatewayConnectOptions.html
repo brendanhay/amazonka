@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the Connect attachment options.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTransitGatewayConnectOptions' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681135442"><span id="local-6989586621681135443"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransitGatewayConnectOptions"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectOptions.html#TransitGatewayConnectOptions"><span class="hs-identifier hs-var">TransitGatewayConnectOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGatewayConnectOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectOptions.html#TransitGatewayConnectOptions%27"><span class="hs-identifier hs-var">TransitGatewayConnectOptions'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681170573"><span id="local-6989586621681170574"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransitGatewayConnectOptions"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectOptions.html#TransitGatewayConnectOptions"><span class="hs-identifier hs-var">TransitGatewayConnectOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGatewayConnectOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectOptions.html#TransitGatewayConnectOptions%27"><span class="hs-identifier hs-var">TransitGatewayConnectOptions'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tunnel protocol.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aprotocol%3ATransitGatewayConnectOptions%27"><span class="annot"><span class="annottext">TransitGatewayConnectOptions -&gt; Maybe ProtocolValue
 </span><a href="Network.AWS.EC2.Types.TransitGatewayConnectOptions.html#%24sel%3Aprotocol%3ATransitGatewayConnectOptions%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProtocolValue.html#ProtocolValue"><span class="hs-identifier hs-type">ProtocolValue</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681135436"><span id="local-6989586621681135438"><span class="annot"><span class="annottext">TransitGatewayConnectOptions
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681170567"><span id="local-6989586621681170569"><span class="annot"><span class="annottext">TransitGatewayConnectOptions
 -&gt; TransitGatewayConnectOptions -&gt; Bool
 (TransitGatewayConnectOptions
  -&gt; TransitGatewayConnectOptions -&gt; Bool)
@@ -49,7 +49,7 @@ $c/= :: TransitGatewayConnectOptions
 -&gt; TransitGatewayConnectOptions -&gt; Bool
 $c== :: TransitGatewayConnectOptions
 -&gt; TransitGatewayConnectOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681135427"><span id="local-6989586621681135429"><span id="local-6989586621681135431"><span id="local-6989586621681135433"><span class="annot"><span class="annottext">ReadPrec [TransitGatewayConnectOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681170558"><span id="local-6989586621681170560"><span id="local-6989586621681170562"><span id="local-6989586621681170564"><span class="annot"><span class="annottext">ReadPrec [TransitGatewayConnectOptions]
 ReadPrec TransitGatewayConnectOptions
 Int -&gt; ReadS TransitGatewayConnectOptions
 ReadS [TransitGatewayConnectOptions]
@@ -69,7 +69,7 @@ readList :: ReadS [TransitGatewayConnectOptions]
 $creadList :: ReadS [TransitGatewayConnectOptions]
 readsPrec :: Int -&gt; ReadS TransitGatewayConnectOptions
 $creadsPrec :: Int -&gt; ReadS TransitGatewayConnectOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681135420"><span id="local-6989586621681135422"><span id="local-6989586621681135424"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayConnectOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681170551"><span id="local-6989586621681170553"><span id="local-6989586621681170555"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayConnectOptions -&gt; ShowS
 [TransitGatewayConnectOptions] -&gt; ShowS
 TransitGatewayConnectOptions -&gt; String
 (Int -&gt; TransitGatewayConnectOptions -&gt; ShowS)
@@ -136,21 +136,21 @@ forall a. Maybe a
      (Maybe ProtocolValue)
      (Maybe ProtocolValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectOptions.html#TransitGatewayConnectOptions%27"><span class="hs-identifier hs-type">TransitGatewayConnectOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135411"><span class="annot"><span class="annottext">Maybe ProtocolValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectOptions.html#TransitGatewayConnectOptions%27"><span class="hs-identifier hs-type">TransitGatewayConnectOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681170542"><span class="annot"><span class="annottext">Maybe ProtocolValue
 protocol :: Maybe ProtocolValue
 $sel:protocol:TransitGatewayConnectOptions' :: TransitGatewayConnectOptions -&gt; Maybe ProtocolValue
-</span><a href="#local-6989586621681135411"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProtocolValue
-</span><a href="#local-6989586621681135411"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135410"><span class="annot"><span class="annottext">s :: TransitGatewayConnectOptions
-</span><a href="#local-6989586621681135410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectOptions.html#TransitGatewayConnectOptions%27"><span class="hs-identifier hs-type">TransitGatewayConnectOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135409"><span class="annot"><span class="annottext">Maybe ProtocolValue
-</span><a href="#local-6989586621681135409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayConnectOptions
-</span><a href="#local-6989586621681135410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:TransitGatewayConnectOptions' :: Maybe ProtocolValue
+</span><a href="#local-6989586621681170542"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProtocolValue
+</span><a href="#local-6989586621681170542"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681170541"><span class="annot"><span class="annottext">s :: TransitGatewayConnectOptions
+</span><a href="#local-6989586621681170541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectOptions.html#TransitGatewayConnectOptions%27"><span class="hs-identifier hs-type">TransitGatewayConnectOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681170540"><span class="annot"><span class="annottext">Maybe ProtocolValue
+</span><a href="#local-6989586621681170540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayConnectOptions
+</span><a href="#local-6989586621681170541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:TransitGatewayConnectOptions' :: Maybe ProtocolValue
 </span><a href="Network.AWS.EC2.Types.TransitGatewayConnectOptions.html#%24sel%3Aprotocol%3ATransitGatewayConnectOptions%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProtocolValue
-</span><a href="#local-6989586621681135409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectOptions.html#TransitGatewayConnectOptions"><span class="hs-identifier hs-type">TransitGatewayConnectOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681170540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectOptions.html#TransitGatewayConnectOptions"><span class="hs-identifier hs-type">TransitGatewayConnectOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectOptions.html#TransitGatewayConnectOptions"><span class="hs-identifier hs-type">TransitGatewayConnectOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621681135406"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TransitGatewayConnectOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681135404"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681135404"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621681170537"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TransitGatewayConnectOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681170535"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681170535"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">Maybe ProtocolValue -&gt; TransitGatewayConnectOptions
 </span><a href="Network.AWS.EC2.Types.TransitGatewayConnectOptions.html#TransitGatewayConnectOptions%27"><span class="hs-identifier hs-var">TransitGatewayConnectOptions'</span></a></span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ProtocolValue -&gt; TransitGatewayConnectOptions)
@@ -158,14 +158,14 @@ $sel:protocol:TransitGatewayConnectOptions' :: TransitGatewayConnectOptions -&gt
 -&gt; Either String TransitGatewayConnectOptions
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681135404"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ProtocolValue)
+</span><a href="#local-6989586621681170535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ProtocolValue)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;protocol&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621681135398"><span id="local-6989586621681135400"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621681170529"><span id="local-6989586621681170531"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectOptions.html#TransitGatewayConnectOptions"><span class="hs-identifier hs-type">TransitGatewayConnectOptions</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681135395"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectOptions.html#TransitGatewayConnectOptions"><span class="hs-identifier hs-type">TransitGatewayConnectOptions</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681170526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectOptions.html#TransitGatewayConnectOptions"><span class="hs-identifier hs-type">TransitGatewayConnectOptions</span></a></span></span><span>
 </span><span id="line-68"></span></pre></body></html>

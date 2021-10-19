@@ -37,10 +37,10 @@
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_creationTime"><span class="hs-identifier">deauthorizeConnectionResponse_creationTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionState"><span class="hs-identifier">deauthorizeConnectionResponse_connectionState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionArn"><span class="hs-identifier">deauthorizeConnectionResponse_connectionArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_lastModifiedTime"><span class="hs-identifier">deauthorizeConnectionResponse_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_lastAuthorizedTime"><span class="hs-identifier">deauthorizeConnectionResponse_lastAuthorizedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_lastModifiedTime"><span class="hs-identifier">deauthorizeConnectionResponse_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_lastAuthorizedTime"><span class="hs-identifier">deauthorizeConnectionResponse_lastAuthorizedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionArn"><span class="hs-identifier">deauthorizeConnectionResponse_connectionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionState"><span class="hs-identifier">deauthorizeConnectionResponse_connectionState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_httpStatus"><span class="hs-identifier">deauthorizeConnectionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span class="hs-keyword">where</span><span>
@@ -53,12 +53,12 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDeauthorizeConnection' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679317825"><span id="local-6989586621679317826"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeauthorizeConnection"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-var">DeauthorizeConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeauthorizeConnection%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection%27"><span class="hs-identifier hs-var">DeauthorizeConnection'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679318037"><span id="local-6989586621679318038"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeauthorizeConnection"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-var">DeauthorizeConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeauthorizeConnection%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection%27"><span class="hs-identifier hs-var">DeauthorizeConnection'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the connection to remove authorization from.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Aname%3ADeauthorizeConnection%27"><span class="annot"><span class="annottext">DeauthorizeConnection -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3Aname%3ADeauthorizeConnection%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317819"><span id="local-6989586621679317821"><span class="annot"><span class="annottext">DeauthorizeConnection -&gt; DeauthorizeConnection -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318031"><span id="local-6989586621679318033"><span class="annot"><span class="annottext">DeauthorizeConnection -&gt; DeauthorizeConnection -&gt; Bool
 (DeauthorizeConnection -&gt; DeauthorizeConnection -&gt; Bool)
 -&gt; (DeauthorizeConnection -&gt; DeauthorizeConnection -&gt; Bool)
 -&gt; Eq DeauthorizeConnection
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeauthorizeConnection -&gt; DeauthorizeConnection -&gt; Bool
 == :: DeauthorizeConnection -&gt; DeauthorizeConnection -&gt; Bool
 $c== :: DeauthorizeConnection -&gt; DeauthorizeConnection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317810"><span id="local-6989586621679317812"><span id="local-6989586621679317814"><span id="local-6989586621679317816"><span class="annot"><span class="annottext">ReadPrec [DeauthorizeConnection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318022"><span id="local-6989586621679318024"><span id="local-6989586621679318026"><span id="local-6989586621679318028"><span class="annot"><span class="annottext">ReadPrec [DeauthorizeConnection]
 ReadPrec DeauthorizeConnection
 Int -&gt; ReadS DeauthorizeConnection
 ReadS [DeauthorizeConnection]
@@ -87,7 +87,7 @@ readList :: ReadS [DeauthorizeConnection]
 $creadList :: ReadS [DeauthorizeConnection]
 readsPrec :: Int -&gt; ReadS DeauthorizeConnection
 $creadsPrec :: Int -&gt; ReadS DeauthorizeConnection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317803"><span id="local-6989586621679317805"><span id="local-6989586621679317807"><span class="annot"><span class="annottext">Int -&gt; DeauthorizeConnection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318015"><span id="local-6989586621679318017"><span id="local-6989586621679318019"><span class="annot"><span class="annottext">Int -&gt; DeauthorizeConnection -&gt; ShowS
 [DeauthorizeConnection] -&gt; ShowS
 DeauthorizeConnection -&gt; String
 (Int -&gt; DeauthorizeConnection -&gt; ShowS)
@@ -127,12 +127,12 @@ $cfrom :: forall x. DeauthorizeConnection -&gt; Rep DeauthorizeConnection x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span><span>
 </span><span id="line-75"></span><span id="newDeauthorizeConnection"><span class="annot"><span class="annottext">newDeauthorizeConnection :: Text -&gt; DeauthorizeConnection
-</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#newDeauthorizeConnection"><span class="hs-identifier hs-var hs-var">newDeauthorizeConnection</span></a></span></span><span> </span><span id="local-6989586621679317798"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317798"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#newDeauthorizeConnection"><span class="hs-identifier hs-var hs-var">newDeauthorizeConnection</span></a></span></span><span> </span><span id="local-6989586621679318010"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318010"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DeauthorizeConnection' :: Text -&gt; DeauthorizeConnection
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection%27"><span class="hs-identifier hs-type">DeauthorizeConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeauthorizeConnection' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3Aname%3ADeauthorizeConnection%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317798"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679318010"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The name of the connection to remove authorization from.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnection_name"><span class="hs-identifier hs-type">deauthorizeConnection_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -142,27 +142,27 @@ $cfrom :: forall x. DeauthorizeConnection -&gt; Rep DeauthorizeConnection x
 -&gt; (DeauthorizeConnection -&gt; Text -&gt; DeauthorizeConnection)
 -&gt; Lens DeauthorizeConnection DeauthorizeConnection Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection%27"><span class="hs-identifier hs-type">DeauthorizeConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317795"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection%27"><span class="hs-identifier hs-type">DeauthorizeConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318007"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeauthorizeConnection' :: DeauthorizeConnection -&gt; Text
-</span><a href="#local-6989586621679317795"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317795"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317794"><span class="annot"><span class="annottext">s :: DeauthorizeConnection
-</span><a href="#local-6989586621679317794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection%27"><span class="hs-identifier hs-type">DeauthorizeConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317793"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnection
-</span><a href="#local-6989586621679317794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeauthorizeConnection' :: Text
+</span><a href="#local-6989586621679318007"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318007"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318006"><span class="annot"><span class="annottext">s :: DeauthorizeConnection
+</span><a href="#local-6989586621679318006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection%27"><span class="hs-identifier hs-type">DeauthorizeConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318005"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnection
+</span><a href="#local-6989586621679318006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeauthorizeConnection' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3Aname%3ADeauthorizeConnection%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679318005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679317789"><span class="annot"><span class="annottext">request :: DeauthorizeConnection -&gt; Request DeauthorizeConnection
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679318001"><span class="annot"><span class="annottext">request :: DeauthorizeConnection -&gt; Request DeauthorizeConnection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeauthorizeConnection -&gt; Request DeauthorizeConnection
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679317785"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679317997"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeauthorizeConnection
 -&gt; ClientResponse ClientBody
@@ -188,102 +188,105 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317782"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317782"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317781"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679317781"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317780"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679317780"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317994"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317994"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317993"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679317993"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317992"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317992"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe ConnectionState
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe POSIX
+-&gt; Maybe ConnectionState
 -&gt; Int
 -&gt; DeauthorizeConnectionResponse
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">DeauthorizeConnectionResponse'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe ConnectionState
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
- -&gt; Maybe POSIX
- -&gt; Maybe POSIX
+ -&gt; Maybe ConnectionState
  -&gt; Int
  -&gt; DeauthorizeConnectionResponse)
 -&gt; Either String (Maybe POSIX)
 -&gt; Either
      String
-     (Maybe ConnectionState
+     (Maybe POSIX
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe POSIX
+      -&gt; Maybe ConnectionState
       -&gt; Int
       -&gt; DeauthorizeConnectionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679317780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679317992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe ConnectionState
+  (Maybe POSIX
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
+   -&gt; Maybe ConnectionState
    -&gt; Int
    -&gt; DeauthorizeConnectionResponse)
--&gt; Either String (Maybe ConnectionState)
+-&gt; Either String (Maybe POSIX)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe POSIX
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ConnectionState
       -&gt; Int
       -&gt; DeauthorizeConnectionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679317780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConnectionState)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ConnectionState&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; Int
-   -&gt; DeauthorizeConnectionResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe POSIX
-      -&gt; Maybe POSIX -&gt; Int -&gt; DeauthorizeConnectionResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679317780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ConnectionArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe POSIX
-   -&gt; Maybe POSIX -&gt; Int -&gt; DeauthorizeConnectionResponse)
--&gt; Either String (Maybe POSIX)
--&gt; Either
-     String (Maybe POSIX -&gt; Int -&gt; DeauthorizeConnectionResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679317780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679317992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe POSIX -&gt; Int -&gt; DeauthorizeConnectionResponse)
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ConnectionState
+   -&gt; Int
+   -&gt; DeauthorizeConnectionResponse)
 -&gt; Either String (Maybe POSIX)
--&gt; Either String (Int -&gt; DeauthorizeConnectionResponse)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ConnectionState -&gt; Int -&gt; DeauthorizeConnectionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679317780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679317992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastAuthorizedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ConnectionState -&gt; Int -&gt; DeauthorizeConnectionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ConnectionState -&gt; Int -&gt; DeauthorizeConnectionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ConnectionState -&gt; Int -&gt; DeauthorizeConnectionResponse)
+-&gt; Either String (Maybe ConnectionState)
+-&gt; Either String (Int -&gt; DeauthorizeConnectionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConnectionState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectionState&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeauthorizeConnectionResponse)
 -&gt; Either String Int -&gt; Either String DeauthorizeConnectionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -292,15 +295,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317782"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317994"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317772"><span id="local-6989586621679317774"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317984"><span id="local-6989586621679317986"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317769"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317981"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679317765"><span class="annot"><span class="annottext">toHeaders :: DeauthorizeConnection -&gt; ResponseHeaders
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679317977"><span class="annot"><span class="annottext">toHeaders :: DeauthorizeConnection -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeauthorizeConnection -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -327,12 +330,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317755"><span id="local-6989586621679317757"><span id="local-6989586621679317759"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679317753"><span class="annot"><span class="annottext">toJSON :: DeauthorizeConnection -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection%27"><span class="hs-identifier hs-type">DeauthorizeConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317751"><span class="annot"><span class="annottext">Text
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317967"><span id="local-6989586621679317969"><span id="local-6989586621679317971"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679317965"><span class="annot"><span class="annottext">toJSON :: DeauthorizeConnection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection%27"><span class="hs-identifier hs-type">DeauthorizeConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317963"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeauthorizeConnection' :: DeauthorizeConnection -&gt; Text
-</span><a href="#local-6989586621679317751"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679317963"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -344,18 +347,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317751"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679317963"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679317745"><span class="annot"><span class="annottext">toPath :: DeauthorizeConnection -&gt; ByteString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679317957"><span class="annot"><span class="annottext">toPath :: DeauthorizeConnection -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeauthorizeConnection -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnection"><span class="hs-identifier hs-type">DeauthorizeConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679317741"><span class="annot"><span class="annottext">toQuery :: DeauthorizeConnection -&gt; QueryString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679317953"><span class="annot"><span class="annottext">toQuery :: DeauthorizeConnection -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeauthorizeConnection -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -363,27 +366,27 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newDeauthorizeConnectionResponse' smart constructor.</span><span>
-</span><span id="line-132"></span><span id="local-6989586621679317738"><span id="local-6989586621679317739"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeauthorizeConnectionResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-var">DeauthorizeConnectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeauthorizeConnectionResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">DeauthorizeConnectionResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span id="local-6989586621679317950"><span id="local-6989586621679317951"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeauthorizeConnectionResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-var">DeauthorizeConnectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeauthorizeConnectionResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">DeauthorizeConnectionResponse'</span></a></span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A time stamp for the time that the connection was created.</span><span>
 </span><span id="line-134"></span><span>    </span><span id="%24sel%3AcreationTime%3ADeauthorizeConnectionResponse%27"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse -&gt; Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AcreationTime%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The state of the connection.</span><span>
-</span><span id="line-136"></span><span>    </span><span id="%24sel%3AconnectionState%3ADeauthorizeConnectionResponse%27"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse -&gt; Maybe ConnectionState
-</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionState%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The ARN of the connection that authorization was removed from.</span><span>
-</span><span id="line-138"></span><span>    </span><span id="%24sel%3AconnectionArn%3ADeauthorizeConnectionResponse%27"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionArn%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var hs-var">connectionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | A time stamp for the time that the connection was last updated.</span><span>
-</span><span id="line-140"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ADeauthorizeConnectionResponse%27"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse -&gt; Maybe POSIX
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | A time stamp for the time that the connection was last updated.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ADeauthorizeConnectionResponse%27"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse -&gt; Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AlastModifiedTime%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | A time stamp for the time that the connection was last authorized.</span><span>
-</span><span id="line-142"></span><span>    </span><span id="%24sel%3AlastAuthorizedTime%3ADeauthorizeConnectionResponse%27"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse -&gt; Maybe POSIX
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | A time stamp for the time that the connection was last authorized.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AlastAuthorizedTime%3ADeauthorizeConnectionResponse%27"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse -&gt; Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AlastAuthorizedTime%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var hs-var">lastAuthorizedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The ARN of the connection that authorization was removed from.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AconnectionArn%3ADeauthorizeConnectionResponse%27"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionArn%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var hs-var">connectionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The state of the connection.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AconnectionState%3ADeauthorizeConnectionResponse%27"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse -&gt; Maybe ConnectionState
+</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionState%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeauthorizeConnectionResponse%27"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AhttpStatus%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317728"><span id="local-6989586621679317730"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317940"><span id="local-6989586621679317942"><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
 -&gt; DeauthorizeConnectionResponse -&gt; Bool
 (DeauthorizeConnectionResponse
  -&gt; DeauthorizeConnectionResponse -&gt; Bool)
@@ -399,7 +402,7 @@ $c/= :: DeauthorizeConnectionResponse
 -&gt; DeauthorizeConnectionResponse -&gt; Bool
 $c== :: DeauthorizeConnectionResponse
 -&gt; DeauthorizeConnectionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317720"><span id="local-6989586621679317722"><span id="local-6989586621679317724"><span id="local-6989586621679317726"><span class="annot"><span class="annottext">ReadPrec [DeauthorizeConnectionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317932"><span id="local-6989586621679317934"><span id="local-6989586621679317936"><span id="local-6989586621679317938"><span class="annot"><span class="annottext">ReadPrec [DeauthorizeConnectionResponse]
 ReadPrec DeauthorizeConnectionResponse
 Int -&gt; ReadS DeauthorizeConnectionResponse
 ReadS [DeauthorizeConnectionResponse]
@@ -419,7 +422,7 @@ readList :: ReadS [DeauthorizeConnectionResponse]
 $creadList :: ReadS [DeauthorizeConnectionResponse]
 readsPrec :: Int -&gt; ReadS DeauthorizeConnectionResponse
 $creadsPrec :: Int -&gt; ReadS DeauthorizeConnectionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317714"><span id="local-6989586621679317716"><span id="local-6989586621679317718"><span class="annot"><span class="annottext">Int -&gt; DeauthorizeConnectionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317926"><span id="local-6989586621679317928"><span id="local-6989586621679317930"><span class="annot"><span class="annottext">Int -&gt; DeauthorizeConnectionResponse -&gt; ShowS
 [DeauthorizeConnectionResponse] -&gt; ShowS
 DeauthorizeConnectionResponse -&gt; String
 (Int -&gt; DeauthorizeConnectionResponse -&gt; ShowS)
@@ -467,13 +470,13 @@ DeauthorizeConnectionResponse
 </span><span id="line-155"></span><span class="hs-comment">--</span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- 'creationTime', 'deauthorizeConnectionResponse_creationTime' - A time stamp for the time that the connection was created.</span><span>
 </span><span id="line-157"></span><span class="hs-comment">--</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- 'connectionState', 'deauthorizeConnectionResponse_connectionState' - The state of the connection.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'lastModifiedTime', 'deauthorizeConnectionResponse_lastModifiedTime' - A time stamp for the time that the connection was last updated.</span><span>
 </span><span id="line-159"></span><span class="hs-comment">--</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- 'connectionArn', 'deauthorizeConnectionResponse_connectionArn' - The ARN of the connection that authorization was removed from.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'lastAuthorizedTime', 'deauthorizeConnectionResponse_lastAuthorizedTime' - A time stamp for the time that the connection was last authorized.</span><span>
 </span><span id="line-161"></span><span class="hs-comment">--</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- 'lastModifiedTime', 'deauthorizeConnectionResponse_lastModifiedTime' - A time stamp for the time that the connection was last updated.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'connectionArn', 'deauthorizeConnectionResponse_connectionArn' - The ARN of the connection that authorization was removed from.</span><span>
 </span><span id="line-163"></span><span class="hs-comment">--</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- 'lastAuthorizedTime', 'deauthorizeConnectionResponse_lastAuthorizedTime' - A time stamp for the time that the connection was last authorized.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'connectionState', 'deauthorizeConnectionResponse_connectionState' - The state of the connection.</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- 'httpStatus', 'deauthorizeConnectionResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-167"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#newDeauthorizeConnectionResponse"><span class="hs-identifier hs-type">newDeauthorizeConnectionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -481,13 +484,13 @@ DeauthorizeConnectionResponse
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span>
 </span><span id="line-171"></span><span id="newDeauthorizeConnectionResponse"><span class="annot"><span class="annottext">newDeauthorizeConnectionResponse :: Int -&gt; DeauthorizeConnectionResponse
-</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#newDeauthorizeConnectionResponse"><span class="hs-identifier hs-var hs-var">newDeauthorizeConnectionResponse</span></a></span></span><span> </span><span id="local-6989586621679317711"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317711"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#newDeauthorizeConnectionResponse"><span class="hs-identifier hs-var hs-var">newDeauthorizeConnectionResponse</span></a></span></span><span> </span><span id="local-6989586621679317923"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317923"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse' :: Maybe POSIX
--&gt; Maybe ConnectionState
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe POSIX
+-&gt; Maybe ConnectionState
 -&gt; Int
 -&gt; DeauthorizeConnectionResponse
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span>
@@ -496,25 +499,25 @@ DeauthorizeConnectionResponse
 </span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionState:DeauthorizeConnectionResponse' :: Maybe ConnectionState
-</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionState%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">connectionState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionArn:DeauthorizeConnectionResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionArn%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">connectionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DeauthorizeConnectionResponse' :: Maybe POSIX
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DeauthorizeConnectionResponse' :: Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AlastModifiedTime%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastAuthorizedTime:DeauthorizeConnectionResponse' :: Maybe POSIX
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastAuthorizedTime:DeauthorizeConnectionResponse' :: Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AlastAuthorizedTime%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">lastAuthorizedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionArn:DeauthorizeConnectionResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionArn%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">connectionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionState:DeauthorizeConnectionResponse' :: Maybe ConnectionState
+</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionState%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">connectionState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeauthorizeConnectionResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AhttpStatus%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317711"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679317923"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | A time stamp for the time that the connection was created.</span><span>
@@ -530,16 +533,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317710"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317922"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:DeauthorizeConnectionResponse' :: DeauthorizeConnectionResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679317710"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679317710"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317709"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
-</span><a href="#local-6989586621679317709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317708"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679317708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
-</span><a href="#local-6989586621679317709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DeauthorizeConnectionResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679317922"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679317922"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317921"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317920"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679317920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DeauthorizeConnectionResponse' :: Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AcreationTime%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679317708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679317920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DeauthorizeConnectionResponse
  -&gt; f DeauthorizeConnectionResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -557,57 +560,9 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- | The state of the connection.</span><span>
-</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionState"><span class="hs-identifier hs-type">deauthorizeConnectionResponse_connectionState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span id="deauthorizeConnectionResponse_connectionState"><span class="annot"><span class="annottext">deauthorizeConnectionResponse_connectionState :: (Maybe ConnectionState -&gt; f (Maybe ConnectionState))
--&gt; DeauthorizeConnectionResponse -&gt; f DeauthorizeConnectionResponse
-</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionState"><span class="hs-identifier hs-var hs-var">deauthorizeConnectionResponse_connectionState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeauthorizeConnectionResponse -&gt; Maybe ConnectionState)
--&gt; (DeauthorizeConnectionResponse
-    -&gt; Maybe ConnectionState -&gt; DeauthorizeConnectionResponse)
--&gt; Lens
-     DeauthorizeConnectionResponse
-     DeauthorizeConnectionResponse
-     (Maybe ConnectionState)
-     (Maybe ConnectionState)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317704"><span class="annot"><span class="annottext">Maybe ConnectionState
-connectionState :: Maybe ConnectionState
-$sel:connectionState:DeauthorizeConnectionResponse' :: DeauthorizeConnectionResponse -&gt; Maybe ConnectionState
-</span><a href="#local-6989586621679317704"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
-</span><a href="#local-6989586621679317704"><span class="hs-identifier hs-var">connectionState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317703"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
-</span><a href="#local-6989586621679317703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317702"><span class="annot"><span class="annottext">Maybe ConnectionState
-</span><a href="#local-6989586621679317702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
-</span><a href="#local-6989586621679317703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionState:DeauthorizeConnectionResponse' :: Maybe ConnectionState
-</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionState%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">connectionState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
-</span><a href="#local-6989586621679317702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- | The ARN of the connection that authorization was removed from.</span><span>
-</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionArn"><span class="hs-identifier hs-type">deauthorizeConnectionResponse_connectionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span id="deauthorizeConnectionResponse_connectionArn"><span class="annot"><span class="annottext">deauthorizeConnectionResponse_connectionArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DeauthorizeConnectionResponse -&gt; f DeauthorizeConnectionResponse
-</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionArn"><span class="hs-identifier hs-var hs-var">deauthorizeConnectionResponse_connectionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeauthorizeConnectionResponse -&gt; Maybe Text)
--&gt; (DeauthorizeConnectionResponse
-    -&gt; Maybe Text -&gt; DeauthorizeConnectionResponse)
--&gt; Lens
-     DeauthorizeConnectionResponse
-     DeauthorizeConnectionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317701"><span class="annot"><span class="annottext">Maybe Text
-connectionArn :: Maybe Text
-$sel:connectionArn:DeauthorizeConnectionResponse' :: DeauthorizeConnectionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679317701"><span class="hs-identifier hs-var hs-var">connectionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317701"><span class="hs-identifier hs-var">connectionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317700"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
-</span><a href="#local-6989586621679317700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317699"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
-</span><a href="#local-6989586621679317700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionArn:DeauthorizeConnectionResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionArn%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">connectionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- | A time stamp for the time that the connection was last updated.</span><span>
-</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_lastModifiedTime"><span class="hs-identifier hs-type">deauthorizeConnectionResponse_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span id="deauthorizeConnectionResponse_lastModifiedTime"><span class="annot"><span class="annottext">deauthorizeConnectionResponse_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-186"></span><span class="hs-comment">-- | A time stamp for the time that the connection was last updated.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_lastModifiedTime"><span class="hs-identifier hs-type">deauthorizeConnectionResponse_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="deauthorizeConnectionResponse_lastModifiedTime"><span class="annot"><span class="annottext">deauthorizeConnectionResponse_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; DeauthorizeConnectionResponse -&gt; f DeauthorizeConnectionResponse
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_lastModifiedTime"><span class="hs-identifier hs-var hs-var">deauthorizeConnectionResponse_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeauthorizeConnectionResponse -&gt; Maybe POSIX)
 -&gt; (DeauthorizeConnectionResponse
@@ -618,16 +573,16 @@ $sel:connectionArn:DeauthorizeConnectionResponse' :: DeauthorizeConnectionRespon
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317698"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317916"><span class="annot"><span class="annottext">Maybe POSIX
 lastModifiedTime :: Maybe POSIX
 $sel:lastModifiedTime:DeauthorizeConnectionResponse' :: DeauthorizeConnectionResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679317698"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679317698"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317697"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
-</span><a href="#local-6989586621679317697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317696"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679317696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
-</span><a href="#local-6989586621679317697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DeauthorizeConnectionResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679317916"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679317916"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317915"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317914"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679317914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DeauthorizeConnectionResponse' :: Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AlastModifiedTime%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679317696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679317914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DeauthorizeConnectionResponse
  -&gt; f DeauthorizeConnectionResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -644,10 +599,10 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- | A time stamp for the time that the connection was last authorized.</span><span>
-</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_lastAuthorizedTime"><span class="hs-identifier hs-type">deauthorizeConnectionResponse_lastAuthorizedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-200"></span><span id="deauthorizeConnectionResponse_lastAuthorizedTime"><span class="annot"><span class="annottext">deauthorizeConnectionResponse_lastAuthorizedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | A time stamp for the time that the connection was last authorized.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_lastAuthorizedTime"><span class="hs-identifier hs-type">deauthorizeConnectionResponse_lastAuthorizedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="deauthorizeConnectionResponse_lastAuthorizedTime"><span class="annot"><span class="annottext">deauthorizeConnectionResponse_lastAuthorizedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; DeauthorizeConnectionResponse -&gt; f DeauthorizeConnectionResponse
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_lastAuthorizedTime"><span class="hs-identifier hs-var hs-var">deauthorizeConnectionResponse_lastAuthorizedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeauthorizeConnectionResponse -&gt; Maybe POSIX)
 -&gt; (DeauthorizeConnectionResponse
@@ -658,16 +613,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317695"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317913"><span class="annot"><span class="annottext">Maybe POSIX
 lastAuthorizedTime :: Maybe POSIX
 $sel:lastAuthorizedTime:DeauthorizeConnectionResponse' :: DeauthorizeConnectionResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679317695"><span class="hs-identifier hs-var hs-var">lastAuthorizedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679317695"><span class="hs-identifier hs-var">lastAuthorizedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317694"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
-</span><a href="#local-6989586621679317694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317693"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679317693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
-</span><a href="#local-6989586621679317694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAuthorizedTime:DeauthorizeConnectionResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679317913"><span class="hs-identifier hs-var hs-var">lastAuthorizedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679317913"><span class="hs-identifier hs-var">lastAuthorizedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317912"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317911"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679317911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAuthorizedTime:DeauthorizeConnectionResponse' :: Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AlastAuthorizedTime%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">lastAuthorizedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679317693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679317911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DeauthorizeConnectionResponse
  -&gt; f DeauthorizeConnectionResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -684,6 +639,54 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The ARN of the connection that authorization was removed from.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionArn"><span class="hs-identifier hs-type">deauthorizeConnectionResponse_connectionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="deauthorizeConnectionResponse_connectionArn"><span class="annot"><span class="annottext">deauthorizeConnectionResponse_connectionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeauthorizeConnectionResponse -&gt; f DeauthorizeConnectionResponse
+</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionArn"><span class="hs-identifier hs-var hs-var">deauthorizeConnectionResponse_connectionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeauthorizeConnectionResponse -&gt; Maybe Text)
+-&gt; (DeauthorizeConnectionResponse
+    -&gt; Maybe Text -&gt; DeauthorizeConnectionResponse)
+-&gt; Lens
+     DeauthorizeConnectionResponse
+     DeauthorizeConnectionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317910"><span class="annot"><span class="annottext">Maybe Text
+connectionArn :: Maybe Text
+$sel:connectionArn:DeauthorizeConnectionResponse' :: DeauthorizeConnectionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679317910"><span class="hs-identifier hs-var hs-var">connectionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317910"><span class="hs-identifier hs-var">connectionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317909"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317908"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionArn:DeauthorizeConnectionResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionArn%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">connectionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The state of the connection.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionState"><span class="hs-identifier hs-type">deauthorizeConnectionResponse_connectionState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="deauthorizeConnectionResponse_connectionState"><span class="annot"><span class="annottext">deauthorizeConnectionResponse_connectionState :: (Maybe ConnectionState -&gt; f (Maybe ConnectionState))
+-&gt; DeauthorizeConnectionResponse -&gt; f DeauthorizeConnectionResponse
+</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_connectionState"><span class="hs-identifier hs-var hs-var">deauthorizeConnectionResponse_connectionState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeauthorizeConnectionResponse -&gt; Maybe ConnectionState)
+-&gt; (DeauthorizeConnectionResponse
+    -&gt; Maybe ConnectionState -&gt; DeauthorizeConnectionResponse)
+-&gt; Lens
+     DeauthorizeConnectionResponse
+     DeauthorizeConnectionResponse
+     (Maybe ConnectionState)
+     (Maybe ConnectionState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317907"><span class="annot"><span class="annottext">Maybe ConnectionState
+connectionState :: Maybe ConnectionState
+$sel:connectionState:DeauthorizeConnectionResponse' :: DeauthorizeConnectionResponse -&gt; Maybe ConnectionState
+</span><a href="#local-6989586621679317907"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
+</span><a href="#local-6989586621679317907"><span class="hs-identifier hs-var">connectionState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317906"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317905"><span class="annot"><span class="annottext">Maybe ConnectionState
+</span><a href="#local-6989586621679317905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionState:DeauthorizeConnectionResponse' :: Maybe ConnectionState
+</span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AconnectionState%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">connectionState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
+</span><a href="#local-6989586621679317905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-203"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#deauthorizeConnectionResponse_httpStatus"><span class="hs-identifier hs-type">deauthorizeConnectionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -695,16 +698,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      DeauthorizeConnectionResponse DeauthorizeConnectionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317692"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317904"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeauthorizeConnectionResponse' :: DeauthorizeConnectionResponse -&gt; Int
-</span><a href="#local-6989586621679317692"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317692"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317691"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
-</span><a href="#local-6989586621679317691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317690"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
-</span><a href="#local-6989586621679317691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeauthorizeConnectionResponse' :: Int
+</span><a href="#local-6989586621679317904"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317904"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317903"><span class="annot"><span class="annottext">s :: DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse%27"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317902"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeauthorizeConnectionResponse
+</span><a href="#local-6989586621679317903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeauthorizeConnectionResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#%24sel%3AhttpStatus%3ADeauthorizeConnectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317688"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317900"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeauthorizeConnection.html#DeauthorizeConnectionResponse"><span class="hs-identifier hs-type">DeauthorizeConnectionResponse</span></a></span></span><span>
 </span><span id="line-207"></span></pre></body></html>

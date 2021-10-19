@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679164282"><span id="local-6989586621679164283"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HLSDiscontinuityMode"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.html#HLSDiscontinuityMode"><span class="hs-identifier hs-var">HLSDiscontinuityMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HLSDiscontinuityMode%27"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.html#HLSDiscontinuityMode%27"><span class="hs-identifier hs-var">HLSDiscontinuityMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679164293"><span id="local-6989586621679164294"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HLSDiscontinuityMode"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.html#HLSDiscontinuityMode"><span class="hs-identifier hs-var">HLSDiscontinuityMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HLSDiscontinuityMode%27"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.html#HLSDiscontinuityMode%27"><span class="hs-identifier hs-var">HLSDiscontinuityMode'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHLSDiscontinuityMode"><span class="annot"><span class="annottext">HLSDiscontinuityMode -&gt; Text
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode.html#fromHLSDiscontinuityMode"><span class="hs-identifier hs-var hs-var">fromHLSDiscontinuityMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164274"><span id="local-6989586621679164276"><span id="local-6989586621679164278"><span class="annot"><span class="annottext">Int -&gt; HLSDiscontinuityMode -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164285"><span id="local-6989586621679164287"><span id="local-6989586621679164289"><span class="annot"><span class="annottext">Int -&gt; HLSDiscontinuityMode -&gt; ShowS
 [HLSDiscontinuityMode] -&gt; ShowS
 HLSDiscontinuityMode -&gt; String
 (Int -&gt; HLSDiscontinuityMode -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: HLSDiscontinuityMode -&gt; String
 showsPrec :: Int -&gt; HLSDiscontinuityMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; HLSDiscontinuityMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679164265"><span id="local-6989586621679164267"><span id="local-6989586621679164269"><span id="local-6989586621679164271"><span class="annot"><span class="annottext">ReadPrec [HLSDiscontinuityMode]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679164276"><span id="local-6989586621679164278"><span id="local-6989586621679164280"><span id="local-6989586621679164282"><span class="annot"><span class="annottext">ReadPrec [HLSDiscontinuityMode]
 ReadPrec HLSDiscontinuityMode
 Int -&gt; ReadS HLSDiscontinuityMode
 ReadS [HLSDiscontinuityMode]
@@ -73,7 +73,7 @@ $creadList :: ReadS [HLSDiscontinuityMode]
 readsPrec :: Int -&gt; ReadS HLSDiscontinuityMode
 $creadsPrec :: Int -&gt; ReadS HLSDiscontinuityMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679164260"><span id="local-6989586621679164262"><span class="annot"><span class="annottext">HLSDiscontinuityMode -&gt; HLSDiscontinuityMode -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679164271"><span id="local-6989586621679164273"><span class="annot"><span class="annottext">HLSDiscontinuityMode -&gt; HLSDiscontinuityMode -&gt; Bool
 (HLSDiscontinuityMode -&gt; HLSDiscontinuityMode -&gt; Bool)
 -&gt; (HLSDiscontinuityMode -&gt; HLSDiscontinuityMode -&gt; Bool)
 -&gt; Eq HLSDiscontinuityMode
@@ -83,7 +83,7 @@ $c/= :: HLSDiscontinuityMode -&gt; HLSDiscontinuityMode -&gt; Bool
 == :: HLSDiscontinuityMode -&gt; HLSDiscontinuityMode -&gt; Bool
 $c== :: HLSDiscontinuityMode -&gt; HLSDiscontinuityMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679164244"><span id="local-6989586621679164246"><span id="local-6989586621679164248"><span id="local-6989586621679164250"><span id="local-6989586621679164252"><span id="local-6989586621679164254"><span id="local-6989586621679164256"><span class="annot"><span class="annottext">Eq HLSDiscontinuityMode
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679164255"><span id="local-6989586621679164257"><span id="local-6989586621679164259"><span id="local-6989586621679164261"><span id="local-6989586621679164263"><span id="local-6989586621679164265"><span id="local-6989586621679164267"><span class="annot"><span class="annottext">Eq HLSDiscontinuityMode
 Eq HLSDiscontinuityMode
 -&gt; (HLSDiscontinuityMode -&gt; HLSDiscontinuityMode -&gt; Ordering)
 -&gt; (HLSDiscontinuityMode -&gt; HLSDiscontinuityMode -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. HLSDiscontinuityMode -&gt; Rep HLSDiscontinuityMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164236"><span id="local-6989586621679164238"><span class="annot"><span class="annottext">Int -&gt; HLSDiscontinuityMode -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164247"><span id="local-6989586621679164249"><span class="annot"><span class="annottext">Int -&gt; HLSDiscontinuityMode -&gt; Int
 HLSDiscontinuityMode -&gt; Int
 (Int -&gt; HLSDiscontinuityMode -&gt; Int)
 -&gt; (HLSDiscontinuityMode -&gt; Int) -&gt; Hashable HLSDiscontinuityMode
@@ -151,54 +151,54 @@ $chash :: HLSDiscontinuityMode -&gt; Int
 hashWithSalt :: Int -&gt; HLSDiscontinuityMode -&gt; Int
 $chashWithSalt :: Int -&gt; HLSDiscontinuityMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679164233"><span class="annot"><span class="annottext">HLSDiscontinuityMode -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679164244"><span class="annot"><span class="annottext">HLSDiscontinuityMode -&gt; ()
 (HLSDiscontinuityMode -&gt; ()) -&gt; NFData HLSDiscontinuityMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HLSDiscontinuityMode -&gt; ()
 $crnf :: HLSDiscontinuityMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679164230"><span class="annot"><span class="annottext">Text -&gt; Either String HLSDiscontinuityMode
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679164241"><span class="annot"><span class="annottext">Text -&gt; Either String HLSDiscontinuityMode
 (Text -&gt; Either String HLSDiscontinuityMode)
 -&gt; FromText HLSDiscontinuityMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HLSDiscontinuityMode
 $cfromText :: Text -&gt; Either String HLSDiscontinuityMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679164227"><span class="annot"><span class="annottext">HLSDiscontinuityMode -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679164238"><span class="annot"><span class="annottext">HLSDiscontinuityMode -&gt; Text
 (HLSDiscontinuityMode -&gt; Text) -&gt; ToText HLSDiscontinuityMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HLSDiscontinuityMode -&gt; Text
 $ctoText :: HLSDiscontinuityMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679164224"><span class="annot"><span class="annottext">HLSDiscontinuityMode -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679164235"><span class="annot"><span class="annottext">HLSDiscontinuityMode -&gt; ByteString
 (HLSDiscontinuityMode -&gt; ByteString)
 -&gt; ToByteString HLSDiscontinuityMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HLSDiscontinuityMode -&gt; ByteString
 $ctoBS :: HLSDiscontinuityMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679164221"><span class="annot"><span class="annottext">HLSDiscontinuityMode -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679164232"><span class="annot"><span class="annottext">HLSDiscontinuityMode -&gt; ByteStringBuilder
 (HLSDiscontinuityMode -&gt; ByteStringBuilder)
 -&gt; ToLog HLSDiscontinuityMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HLSDiscontinuityMode -&gt; ByteStringBuilder
 $cbuild :: HLSDiscontinuityMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679164218"><span class="annot"><span class="annottext">HeaderName -&gt; HLSDiscontinuityMode -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679164229"><span class="annot"><span class="annottext">HeaderName -&gt; HLSDiscontinuityMode -&gt; [Header]
 (HeaderName -&gt; HLSDiscontinuityMode -&gt; [Header])
 -&gt; ToHeader HLSDiscontinuityMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HLSDiscontinuityMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HLSDiscontinuityMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679164215"><span class="annot"><span class="annottext">HLSDiscontinuityMode -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679164226"><span class="annot"><span class="annottext">HLSDiscontinuityMode -&gt; QueryString
 (HLSDiscontinuityMode -&gt; QueryString)
 -&gt; ToQuery HLSDiscontinuityMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HLSDiscontinuityMode -&gt; QueryString
 $ctoQuery :: HLSDiscontinuityMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679164210"><span id="local-6989586621679164212"><span class="annot"><span class="annottext">Value -&gt; Parser [HLSDiscontinuityMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679164221"><span id="local-6989586621679164223"><span class="annot"><span class="annottext">Value -&gt; Parser [HLSDiscontinuityMode]
 Value -&gt; Parser HLSDiscontinuityMode
 (Value -&gt; Parser HLSDiscontinuityMode)
 -&gt; (Value -&gt; Parser [HLSDiscontinuityMode])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [HLSDiscontinuityMode]
 parseJSON :: Value -&gt; Parser HLSDiscontinuityMode
 $cparseJSON :: Value -&gt; Parser HLSDiscontinuityMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679164205"><span id="local-6989586621679164207"><span class="annot"><span class="annottext">FromJSONKeyFunction [HLSDiscontinuityMode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679164216"><span id="local-6989586621679164218"><span class="annot"><span class="annottext">FromJSONKeyFunction [HLSDiscontinuityMode]
 FromJSONKeyFunction HLSDiscontinuityMode
 FromJSONKeyFunction HLSDiscontinuityMode
 -&gt; FromJSONKeyFunction [HLSDiscontinuityMode]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HLSDiscontinuityMode]
 fromJSONKey :: FromJSONKeyFunction HLSDiscontinuityMode
 $cfromJSONKey :: FromJSONKeyFunction HLSDiscontinuityMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679164196"><span id="local-6989586621679164198"><span id="local-6989586621679164200"><span id="local-6989586621679164202"><span class="annot"><span class="annottext">[HLSDiscontinuityMode] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679164207"><span id="local-6989586621679164209"><span id="local-6989586621679164211"><span id="local-6989586621679164213"><span class="annot"><span class="annottext">[HLSDiscontinuityMode] -&gt; Encoding
 [HLSDiscontinuityMode] -&gt; Value
 HLSDiscontinuityMode -&gt; Encoding
 HLSDiscontinuityMode -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: HLSDiscontinuityMode -&gt; Encoding
 toJSON :: HLSDiscontinuityMode -&gt; Value
 $ctoJSON :: HLSDiscontinuityMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679164191"><span id="local-6989586621679164193"><span class="annot"><span class="annottext">ToJSONKeyFunction [HLSDiscontinuityMode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679164202"><span id="local-6989586621679164204"><span class="annot"><span class="annottext">ToJSONKeyFunction [HLSDiscontinuityMode]
 ToJSONKeyFunction HLSDiscontinuityMode
 ToJSONKeyFunction HLSDiscontinuityMode
 -&gt; ToJSONKeyFunction [HLSDiscontinuityMode]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HLSDiscontinuityMode]
 toJSONKey :: ToJSONKeyFunction HLSDiscontinuityMode
 $ctoJSONKey :: ToJSONKeyFunction HLSDiscontinuityMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679164188"><span class="annot"><span class="annottext">[Node] -&gt; Either String HLSDiscontinuityMode
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679164199"><span class="annot"><span class="annottext">[Node] -&gt; Either String HLSDiscontinuityMode
 ([Node] -&gt; Either String HLSDiscontinuityMode)
 -&gt; FromXML HLSDiscontinuityMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HLSDiscontinuityMode
 $cparseXML :: [Node] -&gt; Either String HLSDiscontinuityMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679164185"><span class="annot"><span class="annottext">HLSDiscontinuityMode -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679164196"><span class="annot"><span class="annottext">HLSDiscontinuityMode -&gt; XML
 (HLSDiscontinuityMode -&gt; XML) -&gt; ToXML HLSDiscontinuityMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HLSDiscontinuityMode -&gt; XML

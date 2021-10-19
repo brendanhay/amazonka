@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679778222"><span id="local-6989586621679778223"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BehaviorCriteriaType"><span class="annot"><a href="Network.AWS.IoT.Types.BehaviorCriteriaType.html#BehaviorCriteriaType"><span class="hs-identifier hs-var">BehaviorCriteriaType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BehaviorCriteriaType%27"><span class="annot"><a href="Network.AWS.IoT.Types.BehaviorCriteriaType.html#BehaviorCriteriaType%27"><span class="hs-identifier hs-var">BehaviorCriteriaType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679779072"><span id="local-6989586621679779073"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BehaviorCriteriaType"><span class="annot"><a href="Network.AWS.IoT.Types.BehaviorCriteriaType.html#BehaviorCriteriaType"><span class="hs-identifier hs-var">BehaviorCriteriaType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BehaviorCriteriaType%27"><span class="annot"><a href="Network.AWS.IoT.Types.BehaviorCriteriaType.html#BehaviorCriteriaType%27"><span class="hs-identifier hs-var">BehaviorCriteriaType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBehaviorCriteriaType"><span class="annot"><span class="annottext">BehaviorCriteriaType -&gt; Text
 </span><a href="Network.AWS.IoT.Types.BehaviorCriteriaType.html#fromBehaviorCriteriaType"><span class="hs-identifier hs-var hs-var">fromBehaviorCriteriaType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679778214"><span id="local-6989586621679778216"><span id="local-6989586621679778218"><span class="annot"><span class="annottext">Int -&gt; BehaviorCriteriaType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679779064"><span id="local-6989586621679779066"><span id="local-6989586621679779068"><span class="annot"><span class="annottext">Int -&gt; BehaviorCriteriaType -&gt; ShowS
 [BehaviorCriteriaType] -&gt; ShowS
 BehaviorCriteriaType -&gt; String
 (Int -&gt; BehaviorCriteriaType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: BehaviorCriteriaType -&gt; String
 showsPrec :: Int -&gt; BehaviorCriteriaType -&gt; ShowS
 $cshowsPrec :: Int -&gt; BehaviorCriteriaType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679778205"><span id="local-6989586621679778207"><span id="local-6989586621679778209"><span id="local-6989586621679778211"><span class="annot"><span class="annottext">ReadPrec [BehaviorCriteriaType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679779055"><span id="local-6989586621679779057"><span id="local-6989586621679779059"><span id="local-6989586621679779061"><span class="annot"><span class="annottext">ReadPrec [BehaviorCriteriaType]
 ReadPrec BehaviorCriteriaType
 Int -&gt; ReadS BehaviorCriteriaType
 ReadS [BehaviorCriteriaType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [BehaviorCriteriaType]
 readsPrec :: Int -&gt; ReadS BehaviorCriteriaType
 $creadsPrec :: Int -&gt; ReadS BehaviorCriteriaType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679778200"><span id="local-6989586621679778202"><span class="annot"><span class="annottext">BehaviorCriteriaType -&gt; BehaviorCriteriaType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679779050"><span id="local-6989586621679779052"><span class="annot"><span class="annottext">BehaviorCriteriaType -&gt; BehaviorCriteriaType -&gt; Bool
 (BehaviorCriteriaType -&gt; BehaviorCriteriaType -&gt; Bool)
 -&gt; (BehaviorCriteriaType -&gt; BehaviorCriteriaType -&gt; Bool)
 -&gt; Eq BehaviorCriteriaType
@@ -83,7 +83,7 @@ $c/= :: BehaviorCriteriaType -&gt; BehaviorCriteriaType -&gt; Bool
 == :: BehaviorCriteriaType -&gt; BehaviorCriteriaType -&gt; Bool
 $c== :: BehaviorCriteriaType -&gt; BehaviorCriteriaType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679778184"><span id="local-6989586621679778186"><span id="local-6989586621679778188"><span id="local-6989586621679778190"><span id="local-6989586621679778192"><span id="local-6989586621679778194"><span id="local-6989586621679778196"><span class="annot"><span class="annottext">Eq BehaviorCriteriaType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679779034"><span id="local-6989586621679779036"><span id="local-6989586621679779038"><span id="local-6989586621679779040"><span id="local-6989586621679779042"><span id="local-6989586621679779044"><span id="local-6989586621679779046"><span class="annot"><span class="annottext">Eq BehaviorCriteriaType
 Eq BehaviorCriteriaType
 -&gt; (BehaviorCriteriaType -&gt; BehaviorCriteriaType -&gt; Ordering)
 -&gt; (BehaviorCriteriaType -&gt; BehaviorCriteriaType -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. BehaviorCriteriaType -&gt; Rep BehaviorCriteriaType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679778176"><span id="local-6989586621679778178"><span class="annot"><span class="annottext">Int -&gt; BehaviorCriteriaType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679779026"><span id="local-6989586621679779028"><span class="annot"><span class="annottext">Int -&gt; BehaviorCriteriaType -&gt; Int
 BehaviorCriteriaType -&gt; Int
 (Int -&gt; BehaviorCriteriaType -&gt; Int)
 -&gt; (BehaviorCriteriaType -&gt; Int) -&gt; Hashable BehaviorCriteriaType
@@ -151,54 +151,54 @@ $chash :: BehaviorCriteriaType -&gt; Int
 hashWithSalt :: Int -&gt; BehaviorCriteriaType -&gt; Int
 $chashWithSalt :: Int -&gt; BehaviorCriteriaType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679778173"><span class="annot"><span class="annottext">BehaviorCriteriaType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679779023"><span class="annot"><span class="annottext">BehaviorCriteriaType -&gt; ()
 (BehaviorCriteriaType -&gt; ()) -&gt; NFData BehaviorCriteriaType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BehaviorCriteriaType -&gt; ()
 $crnf :: BehaviorCriteriaType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679778170"><span class="annot"><span class="annottext">Text -&gt; Either String BehaviorCriteriaType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679779020"><span class="annot"><span class="annottext">Text -&gt; Either String BehaviorCriteriaType
 (Text -&gt; Either String BehaviorCriteriaType)
 -&gt; FromText BehaviorCriteriaType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BehaviorCriteriaType
 $cfromText :: Text -&gt; Either String BehaviorCriteriaType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679778167"><span class="annot"><span class="annottext">BehaviorCriteriaType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679779017"><span class="annot"><span class="annottext">BehaviorCriteriaType -&gt; Text
 (BehaviorCriteriaType -&gt; Text) -&gt; ToText BehaviorCriteriaType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BehaviorCriteriaType -&gt; Text
 $ctoText :: BehaviorCriteriaType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679778164"><span class="annot"><span class="annottext">BehaviorCriteriaType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679779014"><span class="annot"><span class="annottext">BehaviorCriteriaType -&gt; ByteString
 (BehaviorCriteriaType -&gt; ByteString)
 -&gt; ToByteString BehaviorCriteriaType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BehaviorCriteriaType -&gt; ByteString
 $ctoBS :: BehaviorCriteriaType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679778161"><span class="annot"><span class="annottext">BehaviorCriteriaType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679779011"><span class="annot"><span class="annottext">BehaviorCriteriaType -&gt; ByteStringBuilder
 (BehaviorCriteriaType -&gt; ByteStringBuilder)
 -&gt; ToLog BehaviorCriteriaType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BehaviorCriteriaType -&gt; ByteStringBuilder
 $cbuild :: BehaviorCriteriaType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679778158"><span class="annot"><span class="annottext">HeaderName -&gt; BehaviorCriteriaType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679779008"><span class="annot"><span class="annottext">HeaderName -&gt; BehaviorCriteriaType -&gt; [Header]
 (HeaderName -&gt; BehaviorCriteriaType -&gt; [Header])
 -&gt; ToHeader BehaviorCriteriaType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BehaviorCriteriaType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BehaviorCriteriaType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679778155"><span class="annot"><span class="annottext">BehaviorCriteriaType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679779005"><span class="annot"><span class="annottext">BehaviorCriteriaType -&gt; QueryString
 (BehaviorCriteriaType -&gt; QueryString)
 -&gt; ToQuery BehaviorCriteriaType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BehaviorCriteriaType -&gt; QueryString
 $ctoQuery :: BehaviorCriteriaType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679778150"><span id="local-6989586621679778152"><span class="annot"><span class="annottext">Value -&gt; Parser [BehaviorCriteriaType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679779000"><span id="local-6989586621679779002"><span class="annot"><span class="annottext">Value -&gt; Parser [BehaviorCriteriaType]
 Value -&gt; Parser BehaviorCriteriaType
 (Value -&gt; Parser BehaviorCriteriaType)
 -&gt; (Value -&gt; Parser [BehaviorCriteriaType])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [BehaviorCriteriaType]
 parseJSON :: Value -&gt; Parser BehaviorCriteriaType
 $cparseJSON :: Value -&gt; Parser BehaviorCriteriaType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679778145"><span id="local-6989586621679778147"><span class="annot"><span class="annottext">FromJSONKeyFunction [BehaviorCriteriaType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679778995"><span id="local-6989586621679778997"><span class="annot"><span class="annottext">FromJSONKeyFunction [BehaviorCriteriaType]
 FromJSONKeyFunction BehaviorCriteriaType
 FromJSONKeyFunction BehaviorCriteriaType
 -&gt; FromJSONKeyFunction [BehaviorCriteriaType]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BehaviorCriteriaType]
 fromJSONKey :: FromJSONKeyFunction BehaviorCriteriaType
 $cfromJSONKey :: FromJSONKeyFunction BehaviorCriteriaType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679778136"><span id="local-6989586621679778138"><span id="local-6989586621679778140"><span id="local-6989586621679778142"><span class="annot"><span class="annottext">[BehaviorCriteriaType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679778986"><span id="local-6989586621679778988"><span id="local-6989586621679778990"><span id="local-6989586621679778992"><span class="annot"><span class="annottext">[BehaviorCriteriaType] -&gt; Encoding
 [BehaviorCriteriaType] -&gt; Value
 BehaviorCriteriaType -&gt; Encoding
 BehaviorCriteriaType -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: BehaviorCriteriaType -&gt; Encoding
 toJSON :: BehaviorCriteriaType -&gt; Value
 $ctoJSON :: BehaviorCriteriaType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679778131"><span id="local-6989586621679778133"><span class="annot"><span class="annottext">ToJSONKeyFunction [BehaviorCriteriaType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679778981"><span id="local-6989586621679778983"><span class="annot"><span class="annottext">ToJSONKeyFunction [BehaviorCriteriaType]
 ToJSONKeyFunction BehaviorCriteriaType
 ToJSONKeyFunction BehaviorCriteriaType
 -&gt; ToJSONKeyFunction [BehaviorCriteriaType]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BehaviorCriteriaType]
 toJSONKey :: ToJSONKeyFunction BehaviorCriteriaType
 $ctoJSONKey :: ToJSONKeyFunction BehaviorCriteriaType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679778128"><span class="annot"><span class="annottext">[Node] -&gt; Either String BehaviorCriteriaType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679778978"><span class="annot"><span class="annottext">[Node] -&gt; Either String BehaviorCriteriaType
 ([Node] -&gt; Either String BehaviorCriteriaType)
 -&gt; FromXML BehaviorCriteriaType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BehaviorCriteriaType
 $cparseXML :: [Node] -&gt; Either String BehaviorCriteriaType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679778125"><span class="annot"><span class="annottext">BehaviorCriteriaType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679778975"><span class="annot"><span class="annottext">BehaviorCriteriaType -&gt; XML
 (BehaviorCriteriaType -&gt; XML) -&gt; ToXML BehaviorCriteriaType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BehaviorCriteriaType -&gt; XML

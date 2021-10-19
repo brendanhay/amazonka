@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- The default @nofile@ soft limit is @1024@ and hard limit is @4096@.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newUlimit' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679465626"><span id="local-6989586621679465627"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ulimit"><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-var">Ulimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ulimit%27"><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-var">Ulimit'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679466363"><span id="local-6989586621679466364"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ulimit"><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-var">Ulimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ulimit%27"><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-var">Ulimit'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @type@ of the @ulimit@.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Aname%3AUlimit%27"><span class="annot"><span class="annottext">Ulimit -&gt; UlimitName
 </span><a href="Network.AWS.ECS.Types.Ulimit.html#%24sel%3Aname%3AUlimit%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.UlimitName.html#UlimitName"><span class="hs-identifier hs-type">UlimitName</span></a></span><span class="hs-special">,</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AhardLimit%3AUlimit%27"><span class="annot"><span class="annottext">Ulimit -&gt; Int
 </span><a href="Network.AWS.ECS.Types.Ulimit.html#%24sel%3AhardLimit%3AUlimit%27"><span class="hs-identifier hs-var hs-var">hardLimit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465618"><span id="local-6989586621679465620"><span class="annot"><span class="annottext">Ulimit -&gt; Ulimit -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679466355"><span id="local-6989586621679466357"><span class="annot"><span class="annottext">Ulimit -&gt; Ulimit -&gt; Bool
 (Ulimit -&gt; Ulimit -&gt; Bool)
 -&gt; (Ulimit -&gt; Ulimit -&gt; Bool) -&gt; Eq Ulimit
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Ulimit -&gt; Ulimit -&gt; Bool
 == :: Ulimit -&gt; Ulimit -&gt; Bool
 $c== :: Ulimit -&gt; Ulimit -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465609"><span id="local-6989586621679465611"><span id="local-6989586621679465613"><span id="local-6989586621679465615"><span class="annot"><span class="annottext">ReadPrec [Ulimit]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679466346"><span id="local-6989586621679466348"><span id="local-6989586621679466350"><span id="local-6989586621679466352"><span class="annot"><span class="annottext">ReadPrec [Ulimit]
 ReadPrec Ulimit
 Int -&gt; ReadS Ulimit
 ReadS [Ulimit]
@@ -72,7 +72,7 @@ readList :: ReadS [Ulimit]
 $creadList :: ReadS [Ulimit]
 readsPrec :: Int -&gt; ReadS Ulimit
 $creadsPrec :: Int -&gt; ReadS Ulimit
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465602"><span id="local-6989586621679465604"><span id="local-6989586621679465606"><span class="annot"><span class="annottext">Int -&gt; Ulimit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679466339"><span id="local-6989586621679466341"><span id="local-6989586621679466343"><span class="annot"><span class="annottext">Int -&gt; Ulimit -&gt; ShowS
 [Ulimit] -&gt; ShowS
 Ulimit -&gt; String
 (Int -&gt; Ulimit -&gt; ShowS)
@@ -117,21 +117,21 @@ $cfrom :: forall x. Ulimit -&gt; Rep Ulimit x
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-type">Ulimit</span></a></span><span>
 </span><span id="line-67"></span><span id="newUlimit"><span class="annot"><span class="annottext">newUlimit :: UlimitName -&gt; Int -&gt; Int -&gt; Ulimit
-</span><a href="Network.AWS.ECS.Types.Ulimit.html#newUlimit"><span class="hs-identifier hs-var hs-var">newUlimit</span></a></span></span><span> </span><span id="local-6989586621679465596"><span class="annot"><span class="annottext">UlimitName
-</span><a href="#local-6989586621679465596"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679465595"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465595"><span class="hs-identifier hs-var">pSoftLimit_</span></a></span></span><span> </span><span id="local-6989586621679465594"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465594"><span class="hs-identifier hs-var">pHardLimit_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.Types.Ulimit.html#newUlimit"><span class="hs-identifier hs-var hs-var">newUlimit</span></a></span></span><span> </span><span id="local-6989586621679466333"><span class="annot"><span class="annottext">UlimitName
+</span><a href="#local-6989586621679466333"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679466332"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679466332"><span class="hs-identifier hs-var">pSoftLimit_</span></a></span></span><span> </span><span id="local-6989586621679466331"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679466331"><span class="hs-identifier hs-var">pHardLimit_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">Ulimit' :: UlimitName -&gt; Int -&gt; Int -&gt; Ulimit
 </span><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-type">Ulimit'</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:Ulimit' :: UlimitName
 </span><a href="Network.AWS.ECS.Types.Ulimit.html#%24sel%3Aname%3AUlimit%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UlimitName
-</span><a href="#local-6989586621679465596"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679466333"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:softLimit:Ulimit' :: Int
 </span><a href="Network.AWS.ECS.Types.Ulimit.html#%24sel%3AsoftLimit%3AUlimit%27"><span class="hs-identifier hs-var">softLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465595"><span class="hs-identifier hs-var">pSoftLimit_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679466332"><span class="hs-identifier hs-var">pSoftLimit_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:hardLimit:Ulimit' :: Int
 </span><a href="Network.AWS.ECS.Types.Ulimit.html#%24sel%3AhardLimit%3AUlimit%27"><span class="hs-identifier hs-var">hardLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465594"><span class="hs-identifier hs-var">pHardLimit_</span></a></span><span>
+</span><a href="#local-6989586621679466331"><span class="hs-identifier hs-var">pHardLimit_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The @type@ of the @ulimit@.</span><span>
@@ -141,16 +141,16 @@ $cfrom :: forall x. Ulimit -&gt; Rep Ulimit x
 -&gt; (Ulimit -&gt; UlimitName -&gt; Ulimit)
 -&gt; Lens Ulimit Ulimit UlimitName UlimitName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-type">Ulimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465590"><span class="annot"><span class="annottext">UlimitName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-type">Ulimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466327"><span class="annot"><span class="annottext">UlimitName
 name :: UlimitName
 $sel:name:Ulimit' :: Ulimit -&gt; UlimitName
-</span><a href="#local-6989586621679465590"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UlimitName
-</span><a href="#local-6989586621679465590"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465589"><span class="annot"><span class="annottext">s :: Ulimit
-</span><a href="#local-6989586621679465589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-type">Ulimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465588"><span class="annot"><span class="annottext">UlimitName
-</span><a href="#local-6989586621679465588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ulimit
-</span><a href="#local-6989586621679465589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Ulimit' :: UlimitName
+</span><a href="#local-6989586621679466327"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UlimitName
+</span><a href="#local-6989586621679466327"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679466326"><span class="annot"><span class="annottext">s :: Ulimit
+</span><a href="#local-6989586621679466326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-type">Ulimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679466325"><span class="annot"><span class="annottext">UlimitName
+</span><a href="#local-6989586621679466325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ulimit
+</span><a href="#local-6989586621679466326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Ulimit' :: UlimitName
 </span><a href="Network.AWS.ECS.Types.Ulimit.html#%24sel%3Aname%3AUlimit%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UlimitName
-</span><a href="#local-6989586621679465588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-type">Ulimit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679466325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-type">Ulimit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The soft limit for the ulimit type.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#ulimit_softLimit"><span class="hs-identifier hs-type">ulimit_softLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-type">Ulimit</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -158,16 +158,16 @@ $sel:name:Ulimit' :: Ulimit -&gt; UlimitName
 </span><a href="Network.AWS.ECS.Types.Ulimit.html#ulimit_softLimit"><span class="hs-identifier hs-var hs-var">ulimit_softLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ulimit -&gt; Int)
 -&gt; (Ulimit -&gt; Int -&gt; Ulimit) -&gt; Lens Ulimit Ulimit Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-type">Ulimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465586"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-type">Ulimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466323"><span class="annot"><span class="annottext">Int
 softLimit :: Int
 $sel:softLimit:Ulimit' :: Ulimit -&gt; Int
-</span><a href="#local-6989586621679465586"><span class="hs-identifier hs-var hs-var">softLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465586"><span class="hs-identifier hs-var">softLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465585"><span class="annot"><span class="annottext">s :: Ulimit
-</span><a href="#local-6989586621679465585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-type">Ulimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465584"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ulimit
-</span><a href="#local-6989586621679465585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:softLimit:Ulimit' :: Int
+</span><a href="#local-6989586621679466323"><span class="hs-identifier hs-var hs-var">softLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679466323"><span class="hs-identifier hs-var">softLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679466322"><span class="annot"><span class="annottext">s :: Ulimit
+</span><a href="#local-6989586621679466322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-type">Ulimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679466321"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679466321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ulimit
+</span><a href="#local-6989586621679466322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:softLimit:Ulimit' :: Int
 </span><a href="Network.AWS.ECS.Types.Ulimit.html#%24sel%3AsoftLimit%3AUlimit%27"><span class="hs-identifier hs-var">softLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-type">Ulimit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679466321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-type">Ulimit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The hard limit for the ulimit type.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#ulimit_hardLimit"><span class="hs-identifier hs-type">ulimit_hardLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-type">Ulimit</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -175,34 +175,34 @@ $sel:softLimit:Ulimit' :: Ulimit -&gt; Int
 </span><a href="Network.AWS.ECS.Types.Ulimit.html#ulimit_hardLimit"><span class="hs-identifier hs-var hs-var">ulimit_hardLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ulimit -&gt; Int)
 -&gt; (Ulimit -&gt; Int -&gt; Ulimit) -&gt; Lens Ulimit Ulimit Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-type">Ulimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465582"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-type">Ulimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466319"><span class="annot"><span class="annottext">Int
 hardLimit :: Int
 $sel:hardLimit:Ulimit' :: Ulimit -&gt; Int
-</span><a href="#local-6989586621679465582"><span class="hs-identifier hs-var hs-var">hardLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465582"><span class="hs-identifier hs-var">hardLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465581"><span class="annot"><span class="annottext">s :: Ulimit
-</span><a href="#local-6989586621679465581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-type">Ulimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465580"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ulimit
-</span><a href="#local-6989586621679465581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hardLimit:Ulimit' :: Int
+</span><a href="#local-6989586621679466319"><span class="hs-identifier hs-var hs-var">hardLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679466319"><span class="hs-identifier hs-var">hardLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679466318"><span class="annot"><span class="annottext">s :: Ulimit
+</span><a href="#local-6989586621679466318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-type">Ulimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679466317"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679466317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ulimit
+</span><a href="#local-6989586621679466318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hardLimit:Ulimit' :: Int
 </span><a href="Network.AWS.ECS.Types.Ulimit.html#%24sel%3AhardLimit%3AUlimit%27"><span class="hs-identifier hs-var">hardLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-type">Ulimit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679466317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-type">Ulimit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465577"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-type">Ulimit</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679465575"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Ulimit
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466314"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-type">Ulimit</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679466312"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Ulimit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Ulimit) -&gt; Value -&gt; Parser Ulimit
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Ulimit&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679465572"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679465572"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679466309"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679466309"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">UlimitName -&gt; Int -&gt; Int -&gt; Ulimit
 </span><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-var">Ulimit'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(UlimitName -&gt; Int -&gt; Int -&gt; Ulimit)
 -&gt; Parser UlimitName -&gt; Parser (Int -&gt; Int -&gt; Ulimit)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679465572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser UlimitName
+</span><a href="#local-6989586621679466309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser UlimitName
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -210,26 +210,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Int -&gt; Parser (Int -&gt; Ulimit)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679465572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+</span><a href="#local-6989586621679466309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;softLimit&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Int -&gt; Ulimit) -&gt; Parser Int -&gt; Parser Ulimit
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679465572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+</span><a href="#local-6989586621679466309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hardLimit&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465566"><span id="local-6989586621679465568"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-type">Ulimit</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466303"><span id="local-6989586621679466305"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-type">Ulimit</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465563"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-type">Ulimit</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466300"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-type">Ulimit</span></a></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465555"><span id="local-6989586621679465557"><span id="local-6989586621679465559"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-type">Ulimit</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679465553"><span class="annot"><span class="annottext">toJSON :: Ulimit -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-type">Ulimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465549"><span id="local-6989586621679465550"><span id="local-6989586621679465551"><span class="annot"><span class="annottext">Int
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466292"><span id="local-6989586621679466294"><span id="local-6989586621679466296"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit"><span class="hs-identifier hs-type">Ulimit</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679466290"><span class="annot"><span class="annottext">toJSON :: Ulimit -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Ulimit.html#Ulimit%27"><span class="hs-identifier hs-type">Ulimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466286"><span id="local-6989586621679466287"><span id="local-6989586621679466288"><span class="annot"><span class="annottext">Int
 UlimitName
 hardLimit :: Int
 softLimit :: Int
@@ -237,7 +237,7 @@ name :: UlimitName
 $sel:hardLimit:Ulimit' :: Ulimit -&gt; Int
 $sel:softLimit:Ulimit' :: Ulimit -&gt; Int
 $sel:name:Ulimit' :: Ulimit -&gt; UlimitName
-</span><a href="#local-6989586621679465549"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679466286"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -249,21 +249,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UlimitName -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">UlimitName
-</span><a href="#local-6989586621679465551"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679466288"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;softLimit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465550"><span class="hs-identifier hs-var">softLimit</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679466287"><span class="hs-identifier hs-var">softLimit</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hardLimit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465549"><span class="hs-identifier hs-var">hardLimit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679466286"><span class="hs-identifier hs-var">hardLimit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span></pre></body></html>

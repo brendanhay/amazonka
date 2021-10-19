@@ -45,7 +45,7 @@
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newStopAssessmentRun' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679251064"><span id="local-6989586621679251065"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopAssessmentRun"><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-var">StopAssessmentRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopAssessmentRun%27"><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun%27"><span class="hs-identifier hs-var">StopAssessmentRun'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679251437"><span id="local-6989586621679251438"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopAssessmentRun"><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-var">StopAssessmentRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopAssessmentRun%27"><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun%27"><span class="hs-identifier hs-var">StopAssessmentRun'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An input option that can be set to either START_EVALUATION or</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">-- SKIP_EVALUATION. START_EVALUATION (the default value), stops the AWS</span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">-- agent from collecting data and begins the results evaluation and the</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AassessmentRunArn%3AStopAssessmentRun%27"><span class="annot"><span class="annottext">StopAssessmentRun -&gt; Text
 </span><a href="Network.AWS.Inspector.StopAssessmentRun.html#%24sel%3AassessmentRunArn%3AStopAssessmentRun%27"><span class="hs-identifier hs-var hs-var">assessmentRunArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251057"><span id="local-6989586621679251059"><span class="annot"><span class="annottext">StopAssessmentRun -&gt; StopAssessmentRun -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251430"><span id="local-6989586621679251432"><span class="annot"><span class="annottext">StopAssessmentRun -&gt; StopAssessmentRun -&gt; Bool
 (StopAssessmentRun -&gt; StopAssessmentRun -&gt; Bool)
 -&gt; (StopAssessmentRun -&gt; StopAssessmentRun -&gt; Bool)
 -&gt; Eq StopAssessmentRun
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopAssessmentRun -&gt; StopAssessmentRun -&gt; Bool
 == :: StopAssessmentRun -&gt; StopAssessmentRun -&gt; Bool
 $c== :: StopAssessmentRun -&gt; StopAssessmentRun -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251048"><span id="local-6989586621679251050"><span id="local-6989586621679251052"><span id="local-6989586621679251054"><span class="annot"><span class="annottext">ReadPrec [StopAssessmentRun]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251421"><span id="local-6989586621679251423"><span id="local-6989586621679251425"><span id="local-6989586621679251427"><span class="annot"><span class="annottext">ReadPrec [StopAssessmentRun]
 ReadPrec StopAssessmentRun
 Int -&gt; ReadS StopAssessmentRun
 ReadS [StopAssessmentRun]
@@ -86,7 +86,7 @@ readList :: ReadS [StopAssessmentRun]
 $creadList :: ReadS [StopAssessmentRun]
 readsPrec :: Int -&gt; ReadS StopAssessmentRun
 $creadsPrec :: Int -&gt; ReadS StopAssessmentRun
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251041"><span id="local-6989586621679251043"><span id="local-6989586621679251045"><span class="annot"><span class="annottext">Int -&gt; StopAssessmentRun -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251414"><span id="local-6989586621679251416"><span id="local-6989586621679251418"><span class="annot"><span class="annottext">Int -&gt; StopAssessmentRun -&gt; ShowS
 [StopAssessmentRun] -&gt; ShowS
 StopAssessmentRun -&gt; String
 (Int -&gt; StopAssessmentRun -&gt; ShowS)
@@ -132,8 +132,8 @@ $cfrom :: forall x. StopAssessmentRun -&gt; Rep StopAssessmentRun x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-type">StopAssessmentRun</span></a></span><span>
 </span><span id="line-79"></span><span id="newStopAssessmentRun"><span class="annot"><span class="annottext">newStopAssessmentRun :: Text -&gt; StopAssessmentRun
-</span><a href="Network.AWS.Inspector.StopAssessmentRun.html#newStopAssessmentRun"><span class="hs-identifier hs-var hs-var">newStopAssessmentRun</span></a></span></span><span> </span><span id="local-6989586621679251036"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251036"><span class="hs-identifier hs-var">pAssessmentRunArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.StopAssessmentRun.html#newStopAssessmentRun"><span class="hs-identifier hs-var hs-var">newStopAssessmentRun</span></a></span></span><span> </span><span id="local-6989586621679251409"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251409"><span class="hs-identifier hs-var">pAssessmentRunArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">StopAssessmentRun' :: Maybe StopAction -&gt; Text -&gt; StopAssessmentRun
 </span><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun%27"><span class="hs-identifier hs-type">StopAssessmentRun'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stopAction:StopAssessmentRun' :: Maybe StopAction
@@ -142,7 +142,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:assessmentRunArn:StopAssessmentRun' :: Text
 </span><a href="Network.AWS.Inspector.StopAssessmentRun.html#%24sel%3AassessmentRunArn%3AStopAssessmentRun%27"><span class="hs-identifier hs-var">assessmentRunArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251036"><span class="hs-identifier hs-var">pAssessmentRunArn_</span></a></span><span>
+</span><a href="#local-6989586621679251409"><span class="hs-identifier hs-var">pAssessmentRunArn_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | An input option that can be set to either START_EVALUATION or</span><span>
@@ -161,16 +161,16 @@ forall a. Maybe a
      (Maybe StopAction)
      (Maybe StopAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun%27"><span class="hs-identifier hs-type">StopAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251033"><span class="annot"><span class="annottext">Maybe StopAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun%27"><span class="hs-identifier hs-type">StopAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251406"><span class="annot"><span class="annottext">Maybe StopAction
 stopAction :: Maybe StopAction
 $sel:stopAction:StopAssessmentRun' :: StopAssessmentRun -&gt; Maybe StopAction
-</span><a href="#local-6989586621679251033"><span class="hs-identifier hs-var hs-var">stopAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StopAction
-</span><a href="#local-6989586621679251033"><span class="hs-identifier hs-var">stopAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251032"><span class="annot"><span class="annottext">s :: StopAssessmentRun
-</span><a href="#local-6989586621679251032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun%27"><span class="hs-identifier hs-type">StopAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251031"><span class="annot"><span class="annottext">Maybe StopAction
-</span><a href="#local-6989586621679251031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopAssessmentRun
-</span><a href="#local-6989586621679251032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopAction:StopAssessmentRun' :: Maybe StopAction
+</span><a href="#local-6989586621679251406"><span class="hs-identifier hs-var hs-var">stopAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StopAction
+</span><a href="#local-6989586621679251406"><span class="hs-identifier hs-var">stopAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251405"><span class="annot"><span class="annottext">s :: StopAssessmentRun
+</span><a href="#local-6989586621679251405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun%27"><span class="hs-identifier hs-type">StopAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251404"><span class="annot"><span class="annottext">Maybe StopAction
+</span><a href="#local-6989586621679251404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopAssessmentRun
+</span><a href="#local-6989586621679251405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopAction:StopAssessmentRun' :: Maybe StopAction
 </span><a href="Network.AWS.Inspector.StopAssessmentRun.html#%24sel%3AstopAction%3AStopAssessmentRun%27"><span class="hs-identifier hs-var">stopAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StopAction
-</span><a href="#local-6989586621679251031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-type">StopAssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-type">StopAssessmentRun</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The ARN of the assessment run that you want to stop.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#stopAssessmentRun_assessmentRunArn"><span class="hs-identifier hs-type">stopAssessmentRun_assessmentRunArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-type">StopAssessmentRun</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -179,27 +179,27 @@ $sel:stopAction:StopAssessmentRun' :: StopAssessmentRun -&gt; Maybe StopAction
 -&gt; (StopAssessmentRun -&gt; Text -&gt; StopAssessmentRun)
 -&gt; Lens StopAssessmentRun StopAssessmentRun Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun%27"><span class="hs-identifier hs-type">StopAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251030"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun%27"><span class="hs-identifier hs-type">StopAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251403"><span class="annot"><span class="annottext">Text
 assessmentRunArn :: Text
 $sel:assessmentRunArn:StopAssessmentRun' :: StopAssessmentRun -&gt; Text
-</span><a href="#local-6989586621679251030"><span class="hs-identifier hs-var hs-var">assessmentRunArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251030"><span class="hs-identifier hs-var">assessmentRunArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251029"><span class="annot"><span class="annottext">s :: StopAssessmentRun
-</span><a href="#local-6989586621679251029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun%27"><span class="hs-identifier hs-type">StopAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251028"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopAssessmentRun
-</span><a href="#local-6989586621679251029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentRunArn:StopAssessmentRun' :: Text
+</span><a href="#local-6989586621679251403"><span class="hs-identifier hs-var hs-var">assessmentRunArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251403"><span class="hs-identifier hs-var">assessmentRunArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251402"><span class="annot"><span class="annottext">s :: StopAssessmentRun
+</span><a href="#local-6989586621679251402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun%27"><span class="hs-identifier hs-type">StopAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251401"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopAssessmentRun
+</span><a href="#local-6989586621679251402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentRunArn:StopAssessmentRun' :: Text
 </span><a href="Network.AWS.Inspector.StopAssessmentRun.html#%24sel%3AassessmentRunArn%3AStopAssessmentRun%27"><span class="hs-identifier hs-var">assessmentRunArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-type">StopAssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-type">StopAssessmentRun</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-type">StopAssessmentRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-type">StopAssessmentRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRunResponse"><span class="hs-identifier hs-type">StopAssessmentRunResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679251024"><span class="annot"><span class="annottext">request :: StopAssessmentRun -&gt; Request StopAssessmentRun
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679251397"><span class="annot"><span class="annottext">request :: StopAssessmentRun -&gt; Request StopAssessmentRun
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopAssessmentRun -&gt; Request StopAssessmentRun
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Inspector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679251020"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679251393"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopAssessmentRun
 -&gt; ClientResponse ClientBody
@@ -225,12 +225,12 @@ AWSResponse a
 StopAssessmentRunResponse
 </span><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRunResponse%27"><span class="hs-identifier hs-var">StopAssessmentRunResponse'</span></a></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251013"><span id="local-6989586621679251015"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-type">StopAssessmentRun</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251386"><span id="local-6989586621679251388"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-type">StopAssessmentRun</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251010"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-type">StopAssessmentRun</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251383"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-type">StopAssessmentRun</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-type">StopAssessmentRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679251006"><span class="annot"><span class="annottext">toHeaders :: StopAssessmentRun -&gt; [Header]
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679251379"><span class="annot"><span class="annottext">toHeaders :: StopAssessmentRun -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; StopAssessmentRun -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -257,15 +257,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250996"><span id="local-6989586621679250998"><span id="local-6989586621679251000"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-type">StopAssessmentRun</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679250994"><span class="annot"><span class="annottext">toJSON :: StopAssessmentRun -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun%27"><span class="hs-identifier hs-type">StopAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250991"><span id="local-6989586621679250992"><span class="annot"><span class="annottext">Maybe StopAction
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251369"><span id="local-6989586621679251371"><span id="local-6989586621679251373"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-type">StopAssessmentRun</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679251367"><span class="annot"><span class="annottext">toJSON :: StopAssessmentRun -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun%27"><span class="hs-identifier hs-type">StopAssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251364"><span id="local-6989586621679251365"><span class="annot"><span class="annottext">Maybe StopAction
 Text
 assessmentRunArn :: Text
 stopAction :: Maybe StopAction
 $sel:assessmentRunArn:StopAssessmentRun' :: StopAssessmentRun -&gt; Text
 $sel:stopAction:StopAssessmentRun' :: StopAssessmentRun -&gt; Maybe StopAction
-</span><a href="#local-6989586621679250991"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679251364"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -277,7 +277,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(StopAction -&gt; Pair) -&gt; Maybe StopAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StopAction
-</span><a href="#local-6989586621679250992"><span class="hs-identifier hs-var">stopAction</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251365"><span class="hs-identifier hs-var">stopAction</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -285,19 +285,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;assessmentRunArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250991"><span class="hs-identifier hs-var">assessmentRunArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251364"><span class="hs-identifier hs-var">assessmentRunArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-type">StopAssessmentRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679250984"><span class="annot"><span class="annottext">toPath :: StopAssessmentRun -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679251357"><span class="annot"><span class="annottext">toPath :: StopAssessmentRun -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopAssessmentRun -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRun"><span class="hs-identifier hs-type">StopAssessmentRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679250980"><span class="annot"><span class="annottext">toQuery :: StopAssessmentRun -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679251353"><span class="annot"><span class="annottext">toQuery :: StopAssessmentRun -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopAssessmentRun -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -305,10 +305,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newStopAssessmentRunResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679250977"><span id="local-6989586621679250978"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopAssessmentRunResponse"><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRunResponse"><span class="hs-identifier hs-var">StopAssessmentRunResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopAssessmentRunResponse%27"><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRunResponse%27"><span class="hs-identifier hs-var">StopAssessmentRunResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679251350"><span id="local-6989586621679251351"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopAssessmentRunResponse"><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRunResponse"><span class="hs-identifier hs-var">StopAssessmentRunResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopAssessmentRunResponse%27"><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRunResponse%27"><span class="hs-identifier hs-var">StopAssessmentRunResponse'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250973"><span id="local-6989586621679250975"><span class="annot"><span class="annottext">StopAssessmentRunResponse -&gt; StopAssessmentRunResponse -&gt; Bool
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251346"><span id="local-6989586621679251348"><span class="annot"><span class="annottext">StopAssessmentRunResponse -&gt; StopAssessmentRunResponse -&gt; Bool
 (StopAssessmentRunResponse -&gt; StopAssessmentRunResponse -&gt; Bool)
 -&gt; (StopAssessmentRunResponse -&gt; StopAssessmentRunResponse -&gt; Bool)
 -&gt; Eq StopAssessmentRunResponse
@@ -317,7 +317,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopAssessmentRunResponse -&gt; StopAssessmentRunResponse -&gt; Bool
 == :: StopAssessmentRunResponse -&gt; StopAssessmentRunResponse -&gt; Bool
 $c== :: StopAssessmentRunResponse -&gt; StopAssessmentRunResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250965"><span id="local-6989586621679250967"><span id="local-6989586621679250969"><span id="local-6989586621679250971"><span class="annot"><span class="annottext">ReadPrec [StopAssessmentRunResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251338"><span id="local-6989586621679251340"><span id="local-6989586621679251342"><span id="local-6989586621679251344"><span class="annot"><span class="annottext">ReadPrec [StopAssessmentRunResponse]
 ReadPrec StopAssessmentRunResponse
 Int -&gt; ReadS StopAssessmentRunResponse
 ReadS [StopAssessmentRunResponse]
@@ -337,7 +337,7 @@ readList :: ReadS [StopAssessmentRunResponse]
 $creadList :: ReadS [StopAssessmentRunResponse]
 readsPrec :: Int -&gt; ReadS StopAssessmentRunResponse
 $creadsPrec :: Int -&gt; ReadS StopAssessmentRunResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250959"><span id="local-6989586621679250961"><span id="local-6989586621679250963"><span class="annot"><span class="annottext">Int -&gt; StopAssessmentRunResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251332"><span id="local-6989586621679251334"><span id="local-6989586621679251336"><span class="annot"><span class="annottext">Int -&gt; StopAssessmentRunResponse -&gt; ShowS
 [StopAssessmentRunResponse] -&gt; ShowS
 StopAssessmentRunResponse -&gt; String
 (Int -&gt; StopAssessmentRunResponse -&gt; ShowS)
@@ -380,5 +380,5 @@ StopAssessmentRunResponse -&gt; Rep StopAssessmentRunResponse x
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">StopAssessmentRunResponse
 </span><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRunResponse%27"><span class="hs-identifier hs-var">StopAssessmentRunResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250955"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRunResponse"><span class="hs-identifier hs-type">StopAssessmentRunResponse</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251328"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.StopAssessmentRun.html#StopAssessmentRunResponse"><span class="hs-identifier hs-type">StopAssessmentRunResponse</span></a></span></span><span>
 </span><span id="line-156"></span></pre></body></html>

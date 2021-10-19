@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | State of HLS ID3 Segment Tagging</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679880139"><span id="local-6989586621679880140"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsId3SegmentTaggingState"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsId3SegmentTaggingState.html#HlsId3SegmentTaggingState"><span class="hs-identifier hs-var">HlsId3SegmentTaggingState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsId3SegmentTaggingState%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsId3SegmentTaggingState.html#HlsId3SegmentTaggingState%27"><span class="hs-identifier hs-var">HlsId3SegmentTaggingState'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679886800"><span id="local-6989586621679886801"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsId3SegmentTaggingState"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsId3SegmentTaggingState.html#HlsId3SegmentTaggingState"><span class="hs-identifier hs-var">HlsId3SegmentTaggingState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsId3SegmentTaggingState%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsId3SegmentTaggingState.html#HlsId3SegmentTaggingState%27"><span class="hs-identifier hs-var">HlsId3SegmentTaggingState'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsId3SegmentTaggingState"><span class="annot"><span class="annottext">HlsId3SegmentTaggingState -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.HlsId3SegmentTaggingState.html#fromHlsId3SegmentTaggingState"><span class="hs-identifier hs-var hs-var">fromHlsId3SegmentTaggingState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679880131"><span id="local-6989586621679880133"><span id="local-6989586621679880135"><span class="annot"><span class="annottext">Int -&gt; HlsId3SegmentTaggingState -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679886792"><span id="local-6989586621679886794"><span id="local-6989586621679886796"><span class="annot"><span class="annottext">Int -&gt; HlsId3SegmentTaggingState -&gt; ShowS
 [HlsId3SegmentTaggingState] -&gt; ShowS
 HlsId3SegmentTaggingState -&gt; String
 (Int -&gt; HlsId3SegmentTaggingState -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: HlsId3SegmentTaggingState -&gt; String
 showsPrec :: Int -&gt; HlsId3SegmentTaggingState -&gt; ShowS
 $cshowsPrec :: Int -&gt; HlsId3SegmentTaggingState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679880122"><span id="local-6989586621679880124"><span id="local-6989586621679880126"><span id="local-6989586621679880128"><span class="annot"><span class="annottext">ReadPrec [HlsId3SegmentTaggingState]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679886783"><span id="local-6989586621679886785"><span id="local-6989586621679886787"><span id="local-6989586621679886789"><span class="annot"><span class="annottext">ReadPrec [HlsId3SegmentTaggingState]
 ReadPrec HlsId3SegmentTaggingState
 Int -&gt; ReadS HlsId3SegmentTaggingState
 ReadS [HlsId3SegmentTaggingState]
@@ -73,7 +73,7 @@ $creadList :: ReadS [HlsId3SegmentTaggingState]
 readsPrec :: Int -&gt; ReadS HlsId3SegmentTaggingState
 $creadsPrec :: Int -&gt; ReadS HlsId3SegmentTaggingState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679880117"><span id="local-6989586621679880119"><span class="annot"><span class="annottext">HlsId3SegmentTaggingState -&gt; HlsId3SegmentTaggingState -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679886778"><span id="local-6989586621679886780"><span class="annot"><span class="annottext">HlsId3SegmentTaggingState -&gt; HlsId3SegmentTaggingState -&gt; Bool
 (HlsId3SegmentTaggingState -&gt; HlsId3SegmentTaggingState -&gt; Bool)
 -&gt; (HlsId3SegmentTaggingState -&gt; HlsId3SegmentTaggingState -&gt; Bool)
 -&gt; Eq HlsId3SegmentTaggingState
@@ -83,7 +83,7 @@ $c/= :: HlsId3SegmentTaggingState -&gt; HlsId3SegmentTaggingState -&gt; Bool
 == :: HlsId3SegmentTaggingState -&gt; HlsId3SegmentTaggingState -&gt; Bool
 $c== :: HlsId3SegmentTaggingState -&gt; HlsId3SegmentTaggingState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679880101"><span id="local-6989586621679880103"><span id="local-6989586621679880105"><span id="local-6989586621679880107"><span id="local-6989586621679880109"><span id="local-6989586621679880111"><span id="local-6989586621679880113"><span class="annot"><span class="annottext">Eq HlsId3SegmentTaggingState
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679886762"><span id="local-6989586621679886764"><span id="local-6989586621679886766"><span id="local-6989586621679886768"><span id="local-6989586621679886770"><span id="local-6989586621679886772"><span id="local-6989586621679886774"><span class="annot"><span class="annottext">Eq HlsId3SegmentTaggingState
 Eq HlsId3SegmentTaggingState
 -&gt; (HlsId3SegmentTaggingState
     -&gt; HlsId3SegmentTaggingState -&gt; Ordering)
@@ -148,7 +148,7 @@ HlsId3SegmentTaggingState -&gt; Rep HlsId3SegmentTaggingState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679880093"><span id="local-6989586621679880095"><span class="annot"><span class="annottext">Int -&gt; HlsId3SegmentTaggingState -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679886754"><span id="local-6989586621679886756"><span class="annot"><span class="annottext">Int -&gt; HlsId3SegmentTaggingState -&gt; Int
 HlsId3SegmentTaggingState -&gt; Int
 (Int -&gt; HlsId3SegmentTaggingState -&gt; Int)
 -&gt; (HlsId3SegmentTaggingState -&gt; Int)
@@ -159,56 +159,56 @@ $chash :: HlsId3SegmentTaggingState -&gt; Int
 hashWithSalt :: Int -&gt; HlsId3SegmentTaggingState -&gt; Int
 $chashWithSalt :: Int -&gt; HlsId3SegmentTaggingState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679880090"><span class="annot"><span class="annottext">HlsId3SegmentTaggingState -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679886751"><span class="annot"><span class="annottext">HlsId3SegmentTaggingState -&gt; ()
 (HlsId3SegmentTaggingState -&gt; ())
 -&gt; NFData HlsId3SegmentTaggingState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HlsId3SegmentTaggingState -&gt; ()
 $crnf :: HlsId3SegmentTaggingState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679880087"><span class="annot"><span class="annottext">Text -&gt; Either String HlsId3SegmentTaggingState
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679886748"><span class="annot"><span class="annottext">Text -&gt; Either String HlsId3SegmentTaggingState
 (Text -&gt; Either String HlsId3SegmentTaggingState)
 -&gt; FromText HlsId3SegmentTaggingState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HlsId3SegmentTaggingState
 $cfromText :: Text -&gt; Either String HlsId3SegmentTaggingState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679880084"><span class="annot"><span class="annottext">HlsId3SegmentTaggingState -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679886745"><span class="annot"><span class="annottext">HlsId3SegmentTaggingState -&gt; Text
 (HlsId3SegmentTaggingState -&gt; Text)
 -&gt; ToText HlsId3SegmentTaggingState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HlsId3SegmentTaggingState -&gt; Text
 $ctoText :: HlsId3SegmentTaggingState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679880081"><span class="annot"><span class="annottext">HlsId3SegmentTaggingState -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679886742"><span class="annot"><span class="annottext">HlsId3SegmentTaggingState -&gt; ByteString
 (HlsId3SegmentTaggingState -&gt; ByteString)
 -&gt; ToByteString HlsId3SegmentTaggingState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HlsId3SegmentTaggingState -&gt; ByteString
 $ctoBS :: HlsId3SegmentTaggingState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679880078"><span class="annot"><span class="annottext">HlsId3SegmentTaggingState -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679886739"><span class="annot"><span class="annottext">HlsId3SegmentTaggingState -&gt; ByteStringBuilder
 (HlsId3SegmentTaggingState -&gt; ByteStringBuilder)
 -&gt; ToLog HlsId3SegmentTaggingState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HlsId3SegmentTaggingState -&gt; ByteStringBuilder
 $cbuild :: HlsId3SegmentTaggingState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679880075"><span class="annot"><span class="annottext">HeaderName -&gt; HlsId3SegmentTaggingState -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679886736"><span class="annot"><span class="annottext">HeaderName -&gt; HlsId3SegmentTaggingState -&gt; [Header]
 (HeaderName -&gt; HlsId3SegmentTaggingState -&gt; [Header])
 -&gt; ToHeader HlsId3SegmentTaggingState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HlsId3SegmentTaggingState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HlsId3SegmentTaggingState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679880072"><span class="annot"><span class="annottext">HlsId3SegmentTaggingState -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679886733"><span class="annot"><span class="annottext">HlsId3SegmentTaggingState -&gt; QueryString
 (HlsId3SegmentTaggingState -&gt; QueryString)
 -&gt; ToQuery HlsId3SegmentTaggingState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HlsId3SegmentTaggingState -&gt; QueryString
 $ctoQuery :: HlsId3SegmentTaggingState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679880067"><span id="local-6989586621679880069"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsId3SegmentTaggingState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679886728"><span id="local-6989586621679886730"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsId3SegmentTaggingState]
 Value -&gt; Parser HlsId3SegmentTaggingState
 (Value -&gt; Parser HlsId3SegmentTaggingState)
 -&gt; (Value -&gt; Parser [HlsId3SegmentTaggingState])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [HlsId3SegmentTaggingState]
 parseJSON :: Value -&gt; Parser HlsId3SegmentTaggingState
 $cparseJSON :: Value -&gt; Parser HlsId3SegmentTaggingState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679880062"><span id="local-6989586621679880064"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsId3SegmentTaggingState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679886723"><span id="local-6989586621679886725"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsId3SegmentTaggingState]
 FromJSONKeyFunction HlsId3SegmentTaggingState
 FromJSONKeyFunction HlsId3SegmentTaggingState
 -&gt; FromJSONKeyFunction [HlsId3SegmentTaggingState]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HlsId3SegmentTaggingState]
 fromJSONKey :: FromJSONKeyFunction HlsId3SegmentTaggingState
 $cfromJSONKey :: FromJSONKeyFunction HlsId3SegmentTaggingState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679880053"><span id="local-6989586621679880055"><span id="local-6989586621679880057"><span id="local-6989586621679880059"><span class="annot"><span class="annottext">[HlsId3SegmentTaggingState] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679886714"><span id="local-6989586621679886716"><span id="local-6989586621679886718"><span id="local-6989586621679886720"><span class="annot"><span class="annottext">[HlsId3SegmentTaggingState] -&gt; Encoding
 [HlsId3SegmentTaggingState] -&gt; Value
 HlsId3SegmentTaggingState -&gt; Encoding
 HlsId3SegmentTaggingState -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: HlsId3SegmentTaggingState -&gt; Encoding
 toJSON :: HlsId3SegmentTaggingState -&gt; Value
 $ctoJSON :: HlsId3SegmentTaggingState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679880048"><span id="local-6989586621679880050"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsId3SegmentTaggingState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679886709"><span id="local-6989586621679886711"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsId3SegmentTaggingState]
 ToJSONKeyFunction HlsId3SegmentTaggingState
 ToJSONKeyFunction HlsId3SegmentTaggingState
 -&gt; ToJSONKeyFunction [HlsId3SegmentTaggingState]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HlsId3SegmentTaggingState]
 toJSONKey :: ToJSONKeyFunction HlsId3SegmentTaggingState
 $ctoJSONKey :: ToJSONKeyFunction HlsId3SegmentTaggingState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679880045"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsId3SegmentTaggingState
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679886706"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsId3SegmentTaggingState
 ([Node] -&gt; Either String HlsId3SegmentTaggingState)
 -&gt; FromXML HlsId3SegmentTaggingState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HlsId3SegmentTaggingState
 $cparseXML :: [Node] -&gt; Either String HlsId3SegmentTaggingState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679880042"><span class="annot"><span class="annottext">HlsId3SegmentTaggingState -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679886703"><span class="annot"><span class="annottext">HlsId3SegmentTaggingState -&gt; XML
 (HlsId3SegmentTaggingState -&gt; XML)
 -&gt; ToXML HlsId3SegmentTaggingState
 forall a. (a -&gt; XML) -&gt; ToXML a

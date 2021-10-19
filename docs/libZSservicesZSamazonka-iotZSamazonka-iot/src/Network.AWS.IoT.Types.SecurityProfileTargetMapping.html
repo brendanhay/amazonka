@@ -28,16 +28,16 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Information about a security profile and the target associated with it.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSecurityProfileTargetMapping' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679796409"><span id="local-6989586621679796410"></span></span><span class="hs-keyword">data</span><span> </span><span id="SecurityProfileTargetMapping"><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping"><span class="hs-identifier hs-var">SecurityProfileTargetMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecurityProfileTargetMapping%27"><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping%27"><span class="hs-identifier hs-var">SecurityProfileTargetMapping'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the target (thing group) associated with the security</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- profile.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Atarget%3ASecurityProfileTargetMapping%27"><span class="annot"><span class="annottext">SecurityProfileTargetMapping -&gt; Maybe SecurityProfileTarget
-</span><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#%24sel%3Atarget%3ASecurityProfileTargetMapping%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget"><span class="hs-identifier hs-type">SecurityProfileTarget</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Information that identifies the security profile.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AsecurityProfileIdentifier%3ASecurityProfileTargetMapping%27"><span class="annot"><span class="annottext">SecurityProfileTargetMapping -&gt; Maybe SecurityProfileIdentifier
-</span><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#%24sel%3AsecurityProfileIdentifier%3ASecurityProfileTargetMapping%27"><span class="hs-identifier hs-var hs-var">securityProfileIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileIdentifier.html#SecurityProfileIdentifier"><span class="hs-identifier hs-type">SecurityProfileIdentifier</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679797280"><span id="local-6989586621679797281"></span></span><span class="hs-keyword">data</span><span> </span><span id="SecurityProfileTargetMapping"><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping"><span class="hs-identifier hs-var">SecurityProfileTargetMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecurityProfileTargetMapping%27"><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping%27"><span class="hs-identifier hs-var">SecurityProfileTargetMapping'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information that identifies the security profile.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsecurityProfileIdentifier%3ASecurityProfileTargetMapping%27"><span class="annot"><span class="annottext">SecurityProfileTargetMapping -&gt; Maybe SecurityProfileIdentifier
+</span><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#%24sel%3AsecurityProfileIdentifier%3ASecurityProfileTargetMapping%27"><span class="hs-identifier hs-var hs-var">securityProfileIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileIdentifier.html#SecurityProfileIdentifier"><span class="hs-identifier hs-type">SecurityProfileIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Information about the target (thing group) associated with the security</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- profile.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Atarget%3ASecurityProfileTargetMapping%27"><span class="annot"><span class="annottext">SecurityProfileTargetMapping -&gt; Maybe SecurityProfileTarget
+</span><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#%24sel%3Atarget%3ASecurityProfileTargetMapping%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget"><span class="hs-identifier hs-type">SecurityProfileTarget</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679796402"><span id="local-6989586621679796404"><span class="annot"><span class="annottext">SecurityProfileTargetMapping
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797273"><span id="local-6989586621679797275"><span class="annot"><span class="annottext">SecurityProfileTargetMapping
 -&gt; SecurityProfileTargetMapping -&gt; Bool
 (SecurityProfileTargetMapping
  -&gt; SecurityProfileTargetMapping -&gt; Bool)
@@ -53,7 +53,7 @@ $c/= :: SecurityProfileTargetMapping
 -&gt; SecurityProfileTargetMapping -&gt; Bool
 $c== :: SecurityProfileTargetMapping
 -&gt; SecurityProfileTargetMapping -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796393"><span id="local-6989586621679796395"><span id="local-6989586621679796397"><span id="local-6989586621679796399"><span class="annot"><span class="annottext">ReadPrec [SecurityProfileTargetMapping]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797264"><span id="local-6989586621679797266"><span id="local-6989586621679797268"><span id="local-6989586621679797270"><span class="annot"><span class="annottext">ReadPrec [SecurityProfileTargetMapping]
 ReadPrec SecurityProfileTargetMapping
 Int -&gt; ReadS SecurityProfileTargetMapping
 ReadS [SecurityProfileTargetMapping]
@@ -73,7 +73,7 @@ readList :: ReadS [SecurityProfileTargetMapping]
 $creadList :: ReadS [SecurityProfileTargetMapping]
 readsPrec :: Int -&gt; ReadS SecurityProfileTargetMapping
 $creadsPrec :: Int -&gt; ReadS SecurityProfileTargetMapping
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796386"><span id="local-6989586621679796388"><span id="local-6989586621679796390"><span class="annot"><span class="annottext">Int -&gt; SecurityProfileTargetMapping -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797257"><span id="local-6989586621679797259"><span id="local-6989586621679797261"><span class="annot"><span class="annottext">Int -&gt; SecurityProfileTargetMapping -&gt; ShowS
 [SecurityProfileTargetMapping] -&gt; ShowS
 SecurityProfileTargetMapping -&gt; String
 (Int -&gt; SecurityProfileTargetMapping -&gt; ShowS)
@@ -113,56 +113,31 @@ SecurityProfileTargetMapping -&gt; Rep SecurityProfileTargetMapping x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'target', 'securityProfileTargetMapping_target' - Information about the target (thing group) associated with the security</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- profile.</span><span>
-</span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'securityProfileIdentifier', 'securityProfileTargetMapping_securityProfileIdentifier' - Information that identifies the security profile.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'securityProfileIdentifier', 'securityProfileTargetMapping_securityProfileIdentifier' - Information that identifies the security profile.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'target', 'securityProfileTargetMapping_target' - Information about the target (thing group) associated with the security</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- profile.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#newSecurityProfileTargetMapping"><span class="hs-identifier hs-type">newSecurityProfileTargetMapping</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping"><span class="hs-identifier hs-type">SecurityProfileTargetMapping</span></a></span><span>
 </span><span id="line-54"></span><span id="newSecurityProfileTargetMapping"><span class="annot"><span class="annottext">newSecurityProfileTargetMapping :: SecurityProfileTargetMapping
 </span><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#newSecurityProfileTargetMapping"><span class="hs-identifier hs-var hs-var">newSecurityProfileTargetMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">SecurityProfileTargetMapping' :: Maybe SecurityProfileTarget
--&gt; Maybe SecurityProfileIdentifier -&gt; SecurityProfileTargetMapping
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">SecurityProfileTargetMapping' :: Maybe SecurityProfileIdentifier
+-&gt; Maybe SecurityProfileTarget -&gt; SecurityProfileTargetMapping
 </span><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping%27"><span class="hs-identifier hs-type">SecurityProfileTargetMapping'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:target:SecurityProfileTargetMapping' :: Maybe SecurityProfileTarget
-</span><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#%24sel%3Atarget%3ASecurityProfileTargetMapping%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe SecurityProfileTarget
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:securityProfileIdentifier:SecurityProfileTargetMapping' :: Maybe SecurityProfileIdentifier
+</span><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#%24sel%3AsecurityProfileIdentifier%3ASecurityProfileTargetMapping%27"><span class="hs-identifier hs-var">securityProfileIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe SecurityProfileIdentifier
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityProfileIdentifier:SecurityProfileTargetMapping' :: Maybe SecurityProfileIdentifier
-</span><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#%24sel%3AsecurityProfileIdentifier%3ASecurityProfileTargetMapping%27"><span class="hs-identifier hs-var">securityProfileIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SecurityProfileIdentifier
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:SecurityProfileTargetMapping' :: Maybe SecurityProfileTarget
+</span><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#%24sel%3Atarget%3ASecurityProfileTargetMapping%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SecurityProfileTarget
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | Information about the target (thing group) associated with the security</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- profile.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#securityProfileTargetMapping_target"><span class="hs-identifier hs-type">securityProfileTargetMapping_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping"><span class="hs-identifier hs-type">SecurityProfileTargetMapping</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget"><span class="hs-identifier hs-type">SecurityProfileTarget</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="securityProfileTargetMapping_target"><span class="annot"><span class="annottext">securityProfileTargetMapping_target :: (Maybe SecurityProfileTarget -&gt; f (Maybe SecurityProfileTarget))
--&gt; SecurityProfileTargetMapping -&gt; f SecurityProfileTargetMapping
-</span><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#securityProfileTargetMapping_target"><span class="hs-identifier hs-var hs-var">securityProfileTargetMapping_target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SecurityProfileTargetMapping -&gt; Maybe SecurityProfileTarget)
--&gt; (SecurityProfileTargetMapping
-    -&gt; Maybe SecurityProfileTarget -&gt; SecurityProfileTargetMapping)
--&gt; Lens
-     SecurityProfileTargetMapping
-     SecurityProfileTargetMapping
-     (Maybe SecurityProfileTarget)
-     (Maybe SecurityProfileTarget)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping%27"><span class="hs-identifier hs-type">SecurityProfileTargetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796377"><span class="annot"><span class="annottext">Maybe SecurityProfileTarget
-target :: Maybe SecurityProfileTarget
-$sel:target:SecurityProfileTargetMapping' :: SecurityProfileTargetMapping -&gt; Maybe SecurityProfileTarget
-</span><a href="#local-6989586621679796377"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SecurityProfileTarget
-</span><a href="#local-6989586621679796377"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796376"><span class="annot"><span class="annottext">s :: SecurityProfileTargetMapping
-</span><a href="#local-6989586621679796376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping%27"><span class="hs-identifier hs-type">SecurityProfileTargetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796375"><span class="annot"><span class="annottext">Maybe SecurityProfileTarget
-</span><a href="#local-6989586621679796375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityProfileTargetMapping
-</span><a href="#local-6989586621679796376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:SecurityProfileTargetMapping' :: Maybe SecurityProfileTarget
-</span><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#%24sel%3Atarget%3ASecurityProfileTargetMapping%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SecurityProfileTarget
-</span><a href="#local-6989586621679796375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping"><span class="hs-identifier hs-type">SecurityProfileTargetMapping</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | Information that identifies the security profile.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#securityProfileTargetMapping_securityProfileIdentifier"><span class="hs-identifier hs-type">securityProfileTargetMapping_securityProfileIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping"><span class="hs-identifier hs-type">SecurityProfileTargetMapping</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileIdentifier.html#SecurityProfileIdentifier"><span class="hs-identifier hs-type">SecurityProfileIdentifier</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="securityProfileTargetMapping_securityProfileIdentifier"><span class="annot"><span class="annottext">securityProfileTargetMapping_securityProfileIdentifier :: (Maybe SecurityProfileIdentifier
+</span><span id="line-61"></span><span class="hs-comment">-- | Information that identifies the security profile.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#securityProfileTargetMapping_securityProfileIdentifier"><span class="hs-identifier hs-type">securityProfileTargetMapping_securityProfileIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping"><span class="hs-identifier hs-type">SecurityProfileTargetMapping</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileIdentifier.html#SecurityProfileIdentifier"><span class="hs-identifier hs-type">SecurityProfileIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="securityProfileTargetMapping_securityProfileIdentifier"><span class="annot"><span class="annottext">securityProfileTargetMapping_securityProfileIdentifier :: (Maybe SecurityProfileIdentifier
  -&gt; f (Maybe SecurityProfileIdentifier))
 -&gt; SecurityProfileTargetMapping -&gt; f SecurityProfileTargetMapping
 </span><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#securityProfileTargetMapping_securityProfileIdentifier"><span class="hs-identifier hs-var hs-var">securityProfileTargetMapping_securityProfileIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SecurityProfileTargetMapping -&gt; Maybe SecurityProfileIdentifier)
@@ -174,19 +149,44 @@ $sel:target:SecurityProfileTargetMapping' :: SecurityProfileTargetMapping -&gt; 
      (Maybe SecurityProfileIdentifier)
      (Maybe SecurityProfileIdentifier)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping%27"><span class="hs-identifier hs-type">SecurityProfileTargetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796373"><span class="annot"><span class="annottext">Maybe SecurityProfileIdentifier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping%27"><span class="hs-identifier hs-type">SecurityProfileTargetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797248"><span class="annot"><span class="annottext">Maybe SecurityProfileIdentifier
 securityProfileIdentifier :: Maybe SecurityProfileIdentifier
 $sel:securityProfileIdentifier:SecurityProfileTargetMapping' :: SecurityProfileTargetMapping -&gt; Maybe SecurityProfileIdentifier
-</span><a href="#local-6989586621679796373"><span class="hs-identifier hs-var hs-var">securityProfileIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SecurityProfileIdentifier
-</span><a href="#local-6989586621679796373"><span class="hs-identifier hs-var">securityProfileIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796372"><span class="annot"><span class="annottext">s :: SecurityProfileTargetMapping
-</span><a href="#local-6989586621679796372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping%27"><span class="hs-identifier hs-type">SecurityProfileTargetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796371"><span class="annot"><span class="annottext">Maybe SecurityProfileIdentifier
-</span><a href="#local-6989586621679796371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityProfileTargetMapping
-</span><a href="#local-6989586621679796372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileIdentifier:SecurityProfileTargetMapping' :: Maybe SecurityProfileIdentifier
+</span><a href="#local-6989586621679797248"><span class="hs-identifier hs-var hs-var">securityProfileIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SecurityProfileIdentifier
+</span><a href="#local-6989586621679797248"><span class="hs-identifier hs-var">securityProfileIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797247"><span class="annot"><span class="annottext">s :: SecurityProfileTargetMapping
+</span><a href="#local-6989586621679797247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping%27"><span class="hs-identifier hs-type">SecurityProfileTargetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797246"><span class="annot"><span class="annottext">Maybe SecurityProfileIdentifier
+</span><a href="#local-6989586621679797246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityProfileTargetMapping
+</span><a href="#local-6989586621679797247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileIdentifier:SecurityProfileTargetMapping' :: Maybe SecurityProfileIdentifier
 </span><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#%24sel%3AsecurityProfileIdentifier%3ASecurityProfileTargetMapping%27"><span class="hs-identifier hs-var">securityProfileIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SecurityProfileIdentifier
-</span><a href="#local-6989586621679796371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping"><span class="hs-identifier hs-type">SecurityProfileTargetMapping</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping"><span class="hs-identifier hs-type">SecurityProfileTargetMapping</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | Information about the target (thing group) associated with the security</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- profile.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#securityProfileTargetMapping_target"><span class="hs-identifier hs-type">securityProfileTargetMapping_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping"><span class="hs-identifier hs-type">SecurityProfileTargetMapping</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget"><span class="hs-identifier hs-type">SecurityProfileTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="securityProfileTargetMapping_target"><span class="annot"><span class="annottext">securityProfileTargetMapping_target :: (Maybe SecurityProfileTarget -&gt; f (Maybe SecurityProfileTarget))
+-&gt; SecurityProfileTargetMapping -&gt; f SecurityProfileTargetMapping
+</span><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#securityProfileTargetMapping_target"><span class="hs-identifier hs-var hs-var">securityProfileTargetMapping_target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SecurityProfileTargetMapping -&gt; Maybe SecurityProfileTarget)
+-&gt; (SecurityProfileTargetMapping
+    -&gt; Maybe SecurityProfileTarget -&gt; SecurityProfileTargetMapping)
+-&gt; Lens
+     SecurityProfileTargetMapping
+     SecurityProfileTargetMapping
+     (Maybe SecurityProfileTarget)
+     (Maybe SecurityProfileTarget)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping%27"><span class="hs-identifier hs-type">SecurityProfileTargetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797244"><span class="annot"><span class="annottext">Maybe SecurityProfileTarget
+target :: Maybe SecurityProfileTarget
+$sel:target:SecurityProfileTargetMapping' :: SecurityProfileTargetMapping -&gt; Maybe SecurityProfileTarget
+</span><a href="#local-6989586621679797244"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SecurityProfileTarget
+</span><a href="#local-6989586621679797244"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797243"><span class="annot"><span class="annottext">s :: SecurityProfileTargetMapping
+</span><a href="#local-6989586621679797243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping%27"><span class="hs-identifier hs-type">SecurityProfileTargetMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797242"><span class="annot"><span class="annottext">Maybe SecurityProfileTarget
+</span><a href="#local-6989586621679797242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityProfileTargetMapping
+</span><a href="#local-6989586621679797243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:SecurityProfileTargetMapping' :: Maybe SecurityProfileTarget
+</span><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#%24sel%3Atarget%3ASecurityProfileTargetMapping%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SecurityProfileTarget
+</span><a href="#local-6989586621679797242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping"><span class="hs-identifier hs-type">SecurityProfileTargetMapping</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796368"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping"><span class="hs-identifier hs-type">SecurityProfileTargetMapping</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679796366"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SecurityProfileTargetMapping
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797239"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping"><span class="hs-identifier hs-type">SecurityProfileTargetMapping</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679797237"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SecurityProfileTargetMapping
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SecurityProfileTargetMapping)
@@ -196,37 +196,37 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SecurityProfileTargetMapping&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679796363"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796363"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe SecurityProfileTarget
--&gt; Maybe SecurityProfileIdentifier -&gt; SecurityProfileTargetMapping
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679797234"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679797234"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe SecurityProfileIdentifier
+-&gt; Maybe SecurityProfileTarget -&gt; SecurityProfileTargetMapping
 </span><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping%27"><span class="hs-identifier hs-var">SecurityProfileTargetMapping'</span></a></span><span>
-</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SecurityProfileTarget
- -&gt; Maybe SecurityProfileIdentifier -&gt; SecurityProfileTargetMapping)
--&gt; Parser (Maybe SecurityProfileTarget)
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SecurityProfileIdentifier
+ -&gt; Maybe SecurityProfileTarget -&gt; SecurityProfileTargetMapping)
+-&gt; Parser (Maybe SecurityProfileIdentifier)
 -&gt; Parser
-     (Maybe SecurityProfileIdentifier -&gt; SecurityProfileTargetMapping)
+     (Maybe SecurityProfileTarget -&gt; SecurityProfileTargetMapping)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SecurityProfileTarget)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;target&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe SecurityProfileIdentifier -&gt; SecurityProfileTargetMapping)
--&gt; Parser (Maybe SecurityProfileIdentifier)
--&gt; Parser SecurityProfileTargetMapping
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SecurityProfileIdentifier)
+</span><a href="#local-6989586621679797234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SecurityProfileIdentifier)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;securityProfileIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SecurityProfileTarget -&gt; SecurityProfileTargetMapping)
+-&gt; Parser (Maybe SecurityProfileTarget)
+-&gt; Parser SecurityProfileTargetMapping
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679797234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SecurityProfileTarget)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;target&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679796357"><span id="local-6989586621679796359"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679797228"><span id="local-6989586621679797230"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping"><span class="hs-identifier hs-type">SecurityProfileTargetMapping</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796354"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping"><span class="hs-identifier hs-type">SecurityProfileTargetMapping</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797225"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTargetMapping.html#SecurityProfileTargetMapping"><span class="hs-identifier hs-type">SecurityProfileTargetMapping</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

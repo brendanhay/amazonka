@@ -29,24 +29,24 @@
 </span><span id="line-29"></span><span class="hs-comment">-- data in a CloudWatch metric.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newMetricFilter' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679223238"><span id="local-6989586621679223239"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricFilter"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-var">MetricFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricFilter%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-var">MetricFilter'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the metric filter.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AfilterName%3AMetricFilter%27"><span class="annot"><span class="annottext">MetricFilter -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AfilterName%3AMetricFilter%27"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The creation time of the metric filter, expressed as the number of</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- milliseconds after Jan 1, 1970 00:00:00 UTC.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcreationTime%3AMetricFilter%27"><span class="annot"><span class="annottext">MetricFilter -&gt; Maybe Natural
+</span><span id="line-32"></span><span id="local-6989586621679223378"><span id="local-6989586621679223379"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricFilter"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-var">MetricFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricFilter%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-var">MetricFilter'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The creation time of the metric filter, expressed as the number of</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- milliseconds after Jan 1, 1970 00:00:00 UTC.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcreationTime%3AMetricFilter%27"><span class="annot"><span class="annottext">MetricFilter -&gt; Maybe Natural
 </span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AcreationTime%3AMetricFilter%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AfilterPattern%3AMetricFilter%27"><span class="annot"><span class="annottext">MetricFilter -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AfilterPattern%3AMetricFilter%27"><span class="hs-identifier hs-var hs-var">filterPattern</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the log group.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlogGroupName%3AMetricFilter%27"><span class="annot"><span class="annottext">MetricFilter -&gt; Maybe Text
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the metric filter.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AfilterName%3AMetricFilter%27"><span class="annot"><span class="annottext">MetricFilter -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AfilterName%3AMetricFilter%27"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the log group.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlogGroupName%3AMetricFilter%27"><span class="annot"><span class="annottext">MetricFilter -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AlogGroupName%3AMetricFilter%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AfilterPattern%3AMetricFilter%27"><span class="annot"><span class="annottext">MetricFilter -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AfilterPattern%3AMetricFilter%27"><span class="hs-identifier hs-var hs-var">filterPattern</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The metric transformations.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AmetricTransformations%3AMetricFilter%27"><span class="annot"><span class="annottext">MetricFilter -&gt; Maybe (NonEmpty MetricTransformation)
 </span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AmetricTransformations%3AMetricFilter%27"><span class="hs-identifier hs-var hs-var">metricTransformations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223228"><span id="local-6989586621679223230"><span class="annot"><span class="annottext">MetricFilter -&gt; MetricFilter -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223368"><span id="local-6989586621679223370"><span class="annot"><span class="annottext">MetricFilter -&gt; MetricFilter -&gt; Bool
 (MetricFilter -&gt; MetricFilter -&gt; Bool)
 -&gt; (MetricFilter -&gt; MetricFilter -&gt; Bool) -&gt; Eq MetricFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MetricFilter -&gt; MetricFilter -&gt; Bool
 == :: MetricFilter -&gt; MetricFilter -&gt; Bool
 $c== :: MetricFilter -&gt; MetricFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223219"><span id="local-6989586621679223221"><span id="local-6989586621679223223"><span id="local-6989586621679223225"><span class="annot"><span class="annottext">ReadPrec [MetricFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223359"><span id="local-6989586621679223361"><span id="local-6989586621679223363"><span id="local-6989586621679223365"><span class="annot"><span class="annottext">ReadPrec [MetricFilter]
 ReadPrec MetricFilter
 Int -&gt; ReadS MetricFilter
 ReadS [MetricFilter]
@@ -74,7 +74,7 @@ readList :: ReadS [MetricFilter]
 $creadList :: ReadS [MetricFilter]
 readsPrec :: Int -&gt; ReadS MetricFilter
 $creadsPrec :: Int -&gt; ReadS MetricFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223212"><span id="local-6989586621679223214"><span id="local-6989586621679223216"><span class="annot"><span class="annottext">Int -&gt; MetricFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223352"><span id="local-6989586621679223354"><span id="local-6989586621679223356"><span class="annot"><span class="annottext">Int -&gt; MetricFilter -&gt; ShowS
 [MetricFilter] -&gt; ShowS
 MetricFilter -&gt; String
 (Int -&gt; MetricFilter -&gt; ShowS)
@@ -108,41 +108,41 @@ $cfrom :: forall x. MetricFilter -&gt; Rep MetricFilter x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'filterName', 'metricFilter_filterName' - The name of the metric filter.</span><span>
-</span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'creationTime', 'metricFilter_creationTime' - The creation time of the metric filter, expressed as the number of</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- milliseconds after Jan 1, 1970 00:00:00 UTC.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'creationTime', 'metricFilter_creationTime' - The creation time of the metric filter, expressed as the number of</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- milliseconds after Jan 1, 1970 00:00:00 UTC.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'filterName', 'metricFilter_filterName' - The name of the metric filter.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'filterPattern', 'metricFilter_filterPattern' - Undocumented member.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'logGroupName', 'metricFilter_logGroupName' - The name of the log group.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'logGroupName', 'metricFilter_logGroupName' - The name of the log group.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'filterPattern', 'metricFilter_filterPattern' - Undocumented member.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- 'metricTransformations', 'metricFilter_metricTransformations' - The metric transformations.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#newMetricFilter"><span class="hs-identifier hs-type">newMetricFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span>
 </span><span id="line-66"></span><span id="newMetricFilter"><span class="annot"><span class="annottext">newMetricFilter :: MetricFilter
 </span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#newMetricFilter"><span class="hs-identifier hs-var hs-var">newMetricFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">MetricFilter' :: Maybe Text
--&gt; Maybe Natural
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">MetricFilter' :: Maybe Natural
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe (NonEmpty MetricTransformation)
 -&gt; MetricFilter
 </span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filterName:MetricFilter' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AfilterName%3AMetricFilter%27"><span class="hs-identifier hs-var">filterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTime:MetricFilter' :: Maybe Natural
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:MetricFilter' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AcreationTime%3AMetricFilter%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterPattern:MetricFilter' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AfilterPattern%3AMetricFilter%27"><span class="hs-identifier hs-var">filterPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterName:MetricFilter' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AfilterName%3AMetricFilter%27"><span class="hs-identifier hs-var">filterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:logGroupName:MetricFilter' :: Maybe Text
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:logGroupName:MetricFilter' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AlogGroupName%3AMetricFilter%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterPattern:MetricFilter' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AfilterPattern%3AMetricFilter%27"><span class="hs-identifier hs-var">filterPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricTransformations:MetricFilter' :: Maybe (NonEmpty MetricTransformation)
@@ -151,79 +151,79 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | The name of the metric filter.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#metricFilter_filterName"><span class="hs-identifier hs-type">metricFilter_filterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="metricFilter_filterName"><span class="annot"><span class="annottext">metricFilter_filterName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MetricFilter -&gt; f MetricFilter
-</span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#metricFilter_filterName"><span class="hs-identifier hs-var hs-var">metricFilter_filterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricFilter -&gt; Maybe Text)
--&gt; (MetricFilter -&gt; Maybe Text -&gt; MetricFilter)
--&gt; Lens MetricFilter MetricFilter (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223203"><span class="annot"><span class="annottext">Maybe Text
-filterName :: Maybe Text
-$sel:filterName:MetricFilter' :: MetricFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679223203"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223203"><span class="hs-identifier hs-var">filterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223202"><span class="annot"><span class="annottext">s :: MetricFilter
-</span><a href="#local-6989586621679223202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223201"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricFilter
-</span><a href="#local-6989586621679223202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterName:MetricFilter' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AfilterName%3AMetricFilter%27"><span class="hs-identifier hs-var">filterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | The creation time of the metric filter, expressed as the number of</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- milliseconds after Jan 1, 1970 00:00:00 UTC.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#metricFilter_creationTime"><span class="hs-identifier hs-type">metricFilter_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="metricFilter_creationTime"><span class="annot"><span class="annottext">metricFilter_creationTime :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-75"></span><span class="hs-comment">-- | The creation time of the metric filter, expressed as the number of</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- milliseconds after Jan 1, 1970 00:00:00 UTC.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#metricFilter_creationTime"><span class="hs-identifier hs-type">metricFilter_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="metricFilter_creationTime"><span class="annot"><span class="annottext">metricFilter_creationTime :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; MetricFilter -&gt; f MetricFilter
 </span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#metricFilter_creationTime"><span class="hs-identifier hs-var hs-var">metricFilter_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricFilter -&gt; Maybe Natural)
 -&gt; (MetricFilter -&gt; Maybe Natural -&gt; MetricFilter)
 -&gt; Lens MetricFilter MetricFilter (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223199"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223343"><span class="annot"><span class="annottext">Maybe Natural
 creationTime :: Maybe Natural
 $sel:creationTime:MetricFilter' :: MetricFilter -&gt; Maybe Natural
-</span><a href="#local-6989586621679223199"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679223199"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223198"><span class="annot"><span class="annottext">s :: MetricFilter
-</span><a href="#local-6989586621679223198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223197"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679223197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricFilter
-</span><a href="#local-6989586621679223198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:MetricFilter' :: Maybe Natural
+</span><a href="#local-6989586621679223343"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679223343"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223342"><span class="annot"><span class="annottext">s :: MetricFilter
+</span><a href="#local-6989586621679223342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223341"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679223341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricFilter
+</span><a href="#local-6989586621679223342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:MetricFilter' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AcreationTime%3AMetricFilter%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679223197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#metricFilter_filterPattern"><span class="hs-identifier hs-type">metricFilter_filterPattern</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="metricFilter_filterPattern"><span class="annot"><span class="annottext">metricFilter_filterPattern :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MetricFilter -&gt; f MetricFilter
-</span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#metricFilter_filterPattern"><span class="hs-identifier hs-var hs-var">metricFilter_filterPattern</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricFilter -&gt; Maybe Text)
+</span><a href="#local-6989586621679223341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The name of the metric filter.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#metricFilter_filterName"><span class="hs-identifier hs-type">metricFilter_filterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="metricFilter_filterName"><span class="annot"><span class="annottext">metricFilter_filterName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MetricFilter -&gt; f MetricFilter
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#metricFilter_filterName"><span class="hs-identifier hs-var hs-var">metricFilter_filterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricFilter -&gt; Maybe Text)
 -&gt; (MetricFilter -&gt; Maybe Text -&gt; MetricFilter)
 -&gt; Lens MetricFilter MetricFilter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223195"><span class="annot"><span class="annottext">Maybe Text
-filterPattern :: Maybe Text
-$sel:filterPattern:MetricFilter' :: MetricFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679223195"><span class="hs-identifier hs-var hs-var">filterPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223195"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223194"><span class="annot"><span class="annottext">s :: MetricFilter
-</span><a href="#local-6989586621679223194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223193"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricFilter
-</span><a href="#local-6989586621679223194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterPattern:MetricFilter' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AfilterPattern%3AMetricFilter%27"><span class="hs-identifier hs-var">filterPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The name of the log group.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#metricFilter_logGroupName"><span class="hs-identifier hs-type">metricFilter_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="metricFilter_logGroupName"><span class="annot"><span class="annottext">metricFilter_logGroupName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MetricFilter -&gt; f MetricFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223339"><span class="annot"><span class="annottext">Maybe Text
+filterName :: Maybe Text
+$sel:filterName:MetricFilter' :: MetricFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679223339"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223339"><span class="hs-identifier hs-var">filterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223338"><span class="annot"><span class="annottext">s :: MetricFilter
+</span><a href="#local-6989586621679223338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223337"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricFilter
+</span><a href="#local-6989586621679223338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterName:MetricFilter' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AfilterName%3AMetricFilter%27"><span class="hs-identifier hs-var">filterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The name of the log group.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#metricFilter_logGroupName"><span class="hs-identifier hs-type">metricFilter_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="metricFilter_logGroupName"><span class="annot"><span class="annottext">metricFilter_logGroupName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MetricFilter -&gt; f MetricFilter
 </span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#metricFilter_logGroupName"><span class="hs-identifier hs-var hs-var">metricFilter_logGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricFilter -&gt; Maybe Text)
 -&gt; (MetricFilter -&gt; Maybe Text -&gt; MetricFilter)
 -&gt; Lens MetricFilter MetricFilter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223191"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223335"><span class="annot"><span class="annottext">Maybe Text
 logGroupName :: Maybe Text
 $sel:logGroupName:MetricFilter' :: MetricFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679223191"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223191"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223190"><span class="annot"><span class="annottext">s :: MetricFilter
-</span><a href="#local-6989586621679223190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223189"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricFilter
-</span><a href="#local-6989586621679223190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:MetricFilter' :: Maybe Text
+</span><a href="#local-6989586621679223335"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223335"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223334"><span class="annot"><span class="annottext">s :: MetricFilter
+</span><a href="#local-6989586621679223334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223333"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricFilter
+</span><a href="#local-6989586621679223334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:MetricFilter' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AlogGroupName%3AMetricFilter%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#metricFilter_filterPattern"><span class="hs-identifier hs-type">metricFilter_filterPattern</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="metricFilter_filterPattern"><span class="annot"><span class="annottext">metricFilter_filterPattern :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MetricFilter -&gt; f MetricFilter
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#metricFilter_filterPattern"><span class="hs-identifier hs-var hs-var">metricFilter_filterPattern</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricFilter -&gt; Maybe Text)
+-&gt; (MetricFilter -&gt; Maybe Text -&gt; MetricFilter)
+-&gt; Lens MetricFilter MetricFilter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223331"><span class="annot"><span class="annottext">Maybe Text
+filterPattern :: Maybe Text
+$sel:filterPattern:MetricFilter' :: MetricFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679223331"><span class="hs-identifier hs-var hs-var">filterPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223331"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223330"><span class="annot"><span class="annottext">s :: MetricFilter
+</span><a href="#local-6989586621679223330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223329"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricFilter
+</span><a href="#local-6989586621679223330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterPattern:MetricFilter' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AfilterPattern%3AMetricFilter%27"><span class="hs-identifier hs-var">filterPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The metric transformations.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#metricFilter_metricTransformations"><span class="hs-identifier hs-type">metricFilter_metricTransformations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -239,16 +239,16 @@ $sel:logGroupName:MetricFilter' :: MetricFilter -&gt; Maybe Text
      (Maybe (NonEmpty MetricTransformation))
      (Maybe (NonEmpty MetricTransformation))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223187"><span class="annot"><span class="annottext">Maybe (NonEmpty MetricTransformation)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223327"><span class="annot"><span class="annottext">Maybe (NonEmpty MetricTransformation)
 metricTransformations :: Maybe (NonEmpty MetricTransformation)
 $sel:metricTransformations:MetricFilter' :: MetricFilter -&gt; Maybe (NonEmpty MetricTransformation)
-</span><a href="#local-6989586621679223187"><span class="hs-identifier hs-var hs-var">metricTransformations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MetricTransformation)
-</span><a href="#local-6989586621679223187"><span class="hs-identifier hs-var">metricTransformations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223186"><span class="annot"><span class="annottext">s :: MetricFilter
-</span><a href="#local-6989586621679223186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223185"><span class="annot"><span class="annottext">Maybe (NonEmpty MetricTransformation)
-</span><a href="#local-6989586621679223185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricFilter
-</span><a href="#local-6989586621679223186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricTransformations:MetricFilter' :: Maybe (NonEmpty MetricTransformation)
+</span><a href="#local-6989586621679223327"><span class="hs-identifier hs-var hs-var">metricTransformations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MetricTransformation)
+</span><a href="#local-6989586621679223327"><span class="hs-identifier hs-var">metricTransformations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223326"><span class="annot"><span class="annottext">s :: MetricFilter
+</span><a href="#local-6989586621679223326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-type">MetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223325"><span class="annot"><span class="annottext">Maybe (NonEmpty MetricTransformation)
+</span><a href="#local-6989586621679223325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricFilter
+</span><a href="#local-6989586621679223326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricTransformations:MetricFilter' :: Maybe (NonEmpty MetricTransformation)
 </span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#%24sel%3AmetricTransformations%3AMetricFilter%27"><span class="hs-identifier hs-var">metricTransformations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MetricTransformation)
-</span><a href="#local-6989586621679223185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty MetricTransformation)
+</span><a href="#local-6989586621679223325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty MetricTransformation)
   -&gt; f (Maybe (NonEmpty MetricTransformation)))
  -&gt; MetricFilter -&gt; f MetricFilter)
 -&gt; ((Maybe (NonEmpty MetricTransformation)
@@ -278,11 +278,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty MetricTransformation)
   (NonEmpty MetricTransformation)
   (NonEmpty MetricTransformation)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223179"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679223177"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricFilter
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223319"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679223317"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MetricFilter) -&gt; Value -&gt; Parser MetricFilter
@@ -290,41 +290,41 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MetricFilter&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223174"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223174"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Natural
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223314"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223314"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe (NonEmpty MetricTransformation)
 -&gt; MetricFilter
 </span><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter%27"><span class="hs-identifier hs-var">MetricFilter'</span></a></span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Natural
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe (NonEmpty MetricTransformation)
  -&gt; MetricFilter)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Natural)
 -&gt; Parser
-     (Maybe Natural
+     (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe (NonEmpty MetricTransformation)
       -&gt; MetricFilter)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679223314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;filterName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Natural
+  (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe (NonEmpty MetricTransformation)
    -&gt; MetricFilter)
--&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
@@ -332,10 +332,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MetricFilter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679223314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;filterName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
@@ -347,10 +347,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe (NonEmpty MetricTransformation) -&gt; MetricFilter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679223314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;filterPattern&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;logGroupName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe (NonEmpty MetricTransformation) -&gt; MetricFilter)
@@ -358,22 +358,22 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (NonEmpty MetricTransformation) -&gt; MetricFilter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679223314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;logGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;filterPattern&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (NonEmpty MetricTransformation) -&gt; MetricFilter)
 -&gt; Parser (Maybe (NonEmpty MetricTransformation))
 -&gt; Parser MetricFilter
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty MetricTransformation))
+</span><a href="#local-6989586621679223314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty MetricTransformation))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metricTransformations&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223168"><span id="local-6989586621679223170"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223308"><span id="local-6989586621679223310"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223165"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223305"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span></span><span>
 </span><span id="line-112"></span></pre></body></html>

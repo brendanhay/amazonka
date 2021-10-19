@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679546838"><span id="local-6989586621679546839"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OwnerOverride"><span class="annot"><a href="Network.AWS.S3.Types.OwnerOverride.html#OwnerOverride"><span class="hs-identifier hs-var">OwnerOverride</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OwnerOverride%27"><span class="annot"><a href="Network.AWS.S3.Types.OwnerOverride.html#OwnerOverride%27"><span class="hs-identifier hs-var">OwnerOverride'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679547469"><span id="local-6989586621679547470"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OwnerOverride"><span class="annot"><a href="Network.AWS.S3.Types.OwnerOverride.html#OwnerOverride"><span class="hs-identifier hs-var">OwnerOverride</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OwnerOverride%27"><span class="annot"><a href="Network.AWS.S3.Types.OwnerOverride.html#OwnerOverride%27"><span class="hs-identifier hs-var">OwnerOverride'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOwnerOverride"><span class="annot"><span class="annottext">OwnerOverride -&gt; Text
 </span><a href="Network.AWS.S3.Types.OwnerOverride.html#fromOwnerOverride"><span class="hs-identifier hs-var hs-var">fromOwnerOverride</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679546830"><span id="local-6989586621679546832"><span id="local-6989586621679546834"><span class="annot"><span class="annottext">Int -&gt; OwnerOverride -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679547461"><span id="local-6989586621679547463"><span id="local-6989586621679547465"><span class="annot"><span class="annottext">Int -&gt; OwnerOverride -&gt; ShowS
 [OwnerOverride] -&gt; ShowS
 OwnerOverride -&gt; String
 (Int -&gt; OwnerOverride -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: OwnerOverride -&gt; String
 showsPrec :: Int -&gt; OwnerOverride -&gt; ShowS
 $cshowsPrec :: Int -&gt; OwnerOverride -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679546821"><span id="local-6989586621679546823"><span id="local-6989586621679546825"><span id="local-6989586621679546827"><span class="annot"><span class="annottext">ReadPrec [OwnerOverride]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679547452"><span id="local-6989586621679547454"><span id="local-6989586621679547456"><span id="local-6989586621679547458"><span class="annot"><span class="annottext">ReadPrec [OwnerOverride]
 ReadPrec OwnerOverride
 Int -&gt; ReadS OwnerOverride
 ReadS [OwnerOverride]
@@ -72,7 +72,7 @@ $creadList :: ReadS [OwnerOverride]
 readsPrec :: Int -&gt; ReadS OwnerOverride
 $creadsPrec :: Int -&gt; ReadS OwnerOverride
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679546816"><span id="local-6989586621679546818"><span class="annot"><span class="annottext">OwnerOverride -&gt; OwnerOverride -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679547447"><span id="local-6989586621679547449"><span class="annot"><span class="annottext">OwnerOverride -&gt; OwnerOverride -&gt; Bool
 (OwnerOverride -&gt; OwnerOverride -&gt; Bool)
 -&gt; (OwnerOverride -&gt; OwnerOverride -&gt; Bool) -&gt; Eq OwnerOverride
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: OwnerOverride -&gt; OwnerOverride -&gt; Bool
 == :: OwnerOverride -&gt; OwnerOverride -&gt; Bool
 $c== :: OwnerOverride -&gt; OwnerOverride -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679546800"><span id="local-6989586621679546802"><span id="local-6989586621679546804"><span id="local-6989586621679546806"><span id="local-6989586621679546808"><span id="local-6989586621679546810"><span id="local-6989586621679546812"><span class="annot"><span class="annottext">Eq OwnerOverride
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679547431"><span id="local-6989586621679547433"><span id="local-6989586621679547435"><span id="local-6989586621679547437"><span id="local-6989586621679547439"><span id="local-6989586621679547441"><span id="local-6989586621679547443"><span class="annot"><span class="annottext">Eq OwnerOverride
 Eq OwnerOverride
 -&gt; (OwnerOverride -&gt; OwnerOverride -&gt; Ordering)
 -&gt; (OwnerOverride -&gt; OwnerOverride -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. OwnerOverride -&gt; Rep OwnerOverride x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679546792"><span id="local-6989586621679546794"><span class="annot"><span class="annottext">Int -&gt; OwnerOverride -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679547423"><span id="local-6989586621679547425"><span class="annot"><span class="annottext">Int -&gt; OwnerOverride -&gt; Int
 OwnerOverride -&gt; Int
 (Int -&gt; OwnerOverride -&gt; Int)
 -&gt; (OwnerOverride -&gt; Int) -&gt; Hashable OwnerOverride
@@ -142,49 +142,49 @@ $chash :: OwnerOverride -&gt; Int
 hashWithSalt :: Int -&gt; OwnerOverride -&gt; Int
 $chashWithSalt :: Int -&gt; OwnerOverride -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679546789"><span class="annot"><span class="annottext">OwnerOverride -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679547420"><span class="annot"><span class="annottext">OwnerOverride -&gt; ()
 (OwnerOverride -&gt; ()) -&gt; NFData OwnerOverride
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OwnerOverride -&gt; ()
 $crnf :: OwnerOverride -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679546786"><span class="annot"><span class="annottext">Text -&gt; Either String OwnerOverride
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679547417"><span class="annot"><span class="annottext">Text -&gt; Either String OwnerOverride
 (Text -&gt; Either String OwnerOverride) -&gt; FromText OwnerOverride
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OwnerOverride
 $cfromText :: Text -&gt; Either String OwnerOverride
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679546783"><span class="annot"><span class="annottext">OwnerOverride -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679547414"><span class="annot"><span class="annottext">OwnerOverride -&gt; Text
 (OwnerOverride -&gt; Text) -&gt; ToText OwnerOverride
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OwnerOverride -&gt; Text
 $ctoText :: OwnerOverride -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679546780"><span class="annot"><span class="annottext">OwnerOverride -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679547411"><span class="annot"><span class="annottext">OwnerOverride -&gt; ByteString
 (OwnerOverride -&gt; ByteString) -&gt; ToByteString OwnerOverride
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OwnerOverride -&gt; ByteString
 $ctoBS :: OwnerOverride -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679546777"><span class="annot"><span class="annottext">OwnerOverride -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679547408"><span class="annot"><span class="annottext">OwnerOverride -&gt; ByteStringBuilder
 (OwnerOverride -&gt; ByteStringBuilder) -&gt; ToLog OwnerOverride
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OwnerOverride -&gt; ByteStringBuilder
 $cbuild :: OwnerOverride -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679546774"><span class="annot"><span class="annottext">HeaderName -&gt; OwnerOverride -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679547405"><span class="annot"><span class="annottext">HeaderName -&gt; OwnerOverride -&gt; [Header]
 (HeaderName -&gt; OwnerOverride -&gt; [Header]) -&gt; ToHeader OwnerOverride
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OwnerOverride -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OwnerOverride -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679546771"><span class="annot"><span class="annottext">OwnerOverride -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679547402"><span class="annot"><span class="annottext">OwnerOverride -&gt; QueryString
 (OwnerOverride -&gt; QueryString) -&gt; ToQuery OwnerOverride
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OwnerOverride -&gt; QueryString
 $ctoQuery :: OwnerOverride -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679546766"><span id="local-6989586621679546768"><span class="annot"><span class="annottext">Value -&gt; Parser [OwnerOverride]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679547397"><span id="local-6989586621679547399"><span class="annot"><span class="annottext">Value -&gt; Parser [OwnerOverride]
 Value -&gt; Parser OwnerOverride
 (Value -&gt; Parser OwnerOverride)
 -&gt; (Value -&gt; Parser [OwnerOverride]) -&gt; FromJSON OwnerOverride
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [OwnerOverride]
 parseJSON :: Value -&gt; Parser OwnerOverride
 $cparseJSON :: Value -&gt; Parser OwnerOverride
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679546761"><span id="local-6989586621679546763"><span class="annot"><span class="annottext">FromJSONKeyFunction [OwnerOverride]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679547392"><span id="local-6989586621679547394"><span class="annot"><span class="annottext">FromJSONKeyFunction [OwnerOverride]
 FromJSONKeyFunction OwnerOverride
 FromJSONKeyFunction OwnerOverride
 -&gt; FromJSONKeyFunction [OwnerOverride] -&gt; FromJSONKey OwnerOverride
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OwnerOverride]
 fromJSONKey :: FromJSONKeyFunction OwnerOverride
 $cfromJSONKey :: FromJSONKeyFunction OwnerOverride
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679546752"><span id="local-6989586621679546754"><span id="local-6989586621679546756"><span id="local-6989586621679546758"><span class="annot"><span class="annottext">[OwnerOverride] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679547383"><span id="local-6989586621679547385"><span id="local-6989586621679547387"><span id="local-6989586621679547389"><span class="annot"><span class="annottext">[OwnerOverride] -&gt; Encoding
 [OwnerOverride] -&gt; Value
 OwnerOverride -&gt; Encoding
 OwnerOverride -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: OwnerOverride -&gt; Encoding
 toJSON :: OwnerOverride -&gt; Value
 $ctoJSON :: OwnerOverride -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679546747"><span id="local-6989586621679546749"><span class="annot"><span class="annottext">ToJSONKeyFunction [OwnerOverride]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679547378"><span id="local-6989586621679547380"><span class="annot"><span class="annottext">ToJSONKeyFunction [OwnerOverride]
 ToJSONKeyFunction OwnerOverride
 ToJSONKeyFunction OwnerOverride
 -&gt; ToJSONKeyFunction [OwnerOverride] -&gt; ToJSONKey OwnerOverride
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OwnerOverride]
 toJSONKey :: ToJSONKeyFunction OwnerOverride
 $ctoJSONKey :: ToJSONKeyFunction OwnerOverride
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679546744"><span class="annot"><span class="annottext">[Node] -&gt; Either String OwnerOverride
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679547375"><span class="annot"><span class="annottext">[Node] -&gt; Either String OwnerOverride
 ([Node] -&gt; Either String OwnerOverride) -&gt; FromXML OwnerOverride
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OwnerOverride
 $cparseXML :: [Node] -&gt; Either String OwnerOverride
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679546741"><span class="annot"><span class="annottext">OwnerOverride -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679547372"><span class="annot"><span class="annottext">OwnerOverride -&gt; XML
 (OwnerOverride -&gt; XML) -&gt; ToXML OwnerOverride
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: OwnerOverride -&gt; XML

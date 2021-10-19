@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents an application source.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newApplicationSource' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679178693"><span id="local-6989586621679178694"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationSource"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource"><span class="hs-identifier hs-var">ApplicationSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationSource%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource%27"><span class="hs-identifier hs-var">ApplicationSource'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679178756"><span id="local-6989586621679178757"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationSource"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource"><span class="hs-identifier hs-var">ApplicationSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationSource%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource%27"><span class="hs-identifier hs-var">ApplicationSource'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A set of tags (up to 50).</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AtagFilters%3AApplicationSource%27"><span class="annot"><span class="annottext">ApplicationSource -&gt; Maybe [TagFilter]
 </span><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#%24sel%3AtagFilters%3AApplicationSource%27"><span class="hs-identifier hs-var hs-var">tagFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AcloudFormationStackARN%3AApplicationSource%27"><span class="annot"><span class="annottext">ApplicationSource -&gt; Maybe Text
 </span><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#%24sel%3AcloudFormationStackARN%3AApplicationSource%27"><span class="hs-identifier hs-var hs-var">cloudFormationStackARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178686"><span id="local-6989586621679178688"><span class="annot"><span class="annottext">ApplicationSource -&gt; ApplicationSource -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178749"><span id="local-6989586621679178751"><span class="annot"><span class="annottext">ApplicationSource -&gt; ApplicationSource -&gt; Bool
 (ApplicationSource -&gt; ApplicationSource -&gt; Bool)
 -&gt; (ApplicationSource -&gt; ApplicationSource -&gt; Bool)
 -&gt; Eq ApplicationSource
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ApplicationSource -&gt; ApplicationSource -&gt; Bool
 == :: ApplicationSource -&gt; ApplicationSource -&gt; Bool
 $c== :: ApplicationSource -&gt; ApplicationSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178677"><span id="local-6989586621679178679"><span id="local-6989586621679178681"><span id="local-6989586621679178683"><span class="annot"><span class="annottext">ReadPrec [ApplicationSource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178740"><span id="local-6989586621679178742"><span id="local-6989586621679178744"><span id="local-6989586621679178746"><span class="annot"><span class="annottext">ReadPrec [ApplicationSource]
 ReadPrec ApplicationSource
 Int -&gt; ReadS ApplicationSource
 ReadS [ApplicationSource]
@@ -64,7 +64,7 @@ readList :: ReadS [ApplicationSource]
 $creadList :: ReadS [ApplicationSource]
 readsPrec :: Int -&gt; ReadS ApplicationSource
 $creadsPrec :: Int -&gt; ReadS ApplicationSource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178670"><span id="local-6989586621679178672"><span id="local-6989586621679178674"><span class="annot"><span class="annottext">Int -&gt; ApplicationSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178733"><span id="local-6989586621679178735"><span id="local-6989586621679178737"><span class="annot"><span class="annottext">Int -&gt; ApplicationSource -&gt; ShowS
 [ApplicationSource] -&gt; ShowS
 ApplicationSource -&gt; String
 (Int -&gt; ApplicationSource -&gt; ShowS)
@@ -129,16 +129,16 @@ forall a. Maybe a
      (Maybe [TagFilter])
      (Maybe [TagFilter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource%27"><span class="hs-identifier hs-type">ApplicationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178661"><span class="annot"><span class="annottext">Maybe [TagFilter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource%27"><span class="hs-identifier hs-type">ApplicationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178724"><span class="annot"><span class="annottext">Maybe [TagFilter]
 tagFilters :: Maybe [TagFilter]
 $sel:tagFilters:ApplicationSource' :: ApplicationSource -&gt; Maybe [TagFilter]
-</span><a href="#local-6989586621679178661"><span class="hs-identifier hs-var hs-var">tagFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagFilter]
-</span><a href="#local-6989586621679178661"><span class="hs-identifier hs-var">tagFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178660"><span class="annot"><span class="annottext">s :: ApplicationSource
-</span><a href="#local-6989586621679178660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource%27"><span class="hs-identifier hs-type">ApplicationSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178659"><span class="annot"><span class="annottext">Maybe [TagFilter]
-</span><a href="#local-6989586621679178659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSource
-</span><a href="#local-6989586621679178660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagFilters:ApplicationSource' :: Maybe [TagFilter]
+</span><a href="#local-6989586621679178724"><span class="hs-identifier hs-var hs-var">tagFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagFilter]
+</span><a href="#local-6989586621679178724"><span class="hs-identifier hs-var">tagFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178723"><span class="annot"><span class="annottext">s :: ApplicationSource
+</span><a href="#local-6989586621679178723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource%27"><span class="hs-identifier hs-type">ApplicationSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178722"><span class="annot"><span class="annottext">Maybe [TagFilter]
+</span><a href="#local-6989586621679178722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSource
+</span><a href="#local-6989586621679178723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagFilters:ApplicationSource' :: Maybe [TagFilter]
 </span><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#%24sel%3AtagFilters%3AApplicationSource%27"><span class="hs-identifier hs-var">tagFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagFilter]
-</span><a href="#local-6989586621679178659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource"><span class="hs-identifier hs-type">ApplicationSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
+</span><a href="#local-6989586621679178722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource"><span class="hs-identifier hs-type">ApplicationSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
  -&gt; ApplicationSource -&gt; f ApplicationSource)
 -&gt; ((Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
     -&gt; Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
@@ -156,8 +156,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagFilter] [TagFilter] [TagFilter] [TagFilter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of a AWS CloudFormation stack.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#applicationSource_cloudFormationStackARN"><span class="hs-identifier hs-type">applicationSource_cloudFormationStackARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource"><span class="hs-identifier hs-type">ApplicationSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -168,19 +168,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      ApplicationSource ApplicationSource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource%27"><span class="hs-identifier hs-type">ApplicationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178654"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource%27"><span class="hs-identifier hs-type">ApplicationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178717"><span class="annot"><span class="annottext">Maybe Text
 cloudFormationStackARN :: Maybe Text
 $sel:cloudFormationStackARN:ApplicationSource' :: ApplicationSource -&gt; Maybe Text
-</span><a href="#local-6989586621679178654"><span class="hs-identifier hs-var hs-var">cloudFormationStackARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178654"><span class="hs-identifier hs-var">cloudFormationStackARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178653"><span class="annot"><span class="annottext">s :: ApplicationSource
-</span><a href="#local-6989586621679178653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource%27"><span class="hs-identifier hs-type">ApplicationSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178652"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSource
-</span><a href="#local-6989586621679178653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudFormationStackARN:ApplicationSource' :: Maybe Text
+</span><a href="#local-6989586621679178717"><span class="hs-identifier hs-var hs-var">cloudFormationStackARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178717"><span class="hs-identifier hs-var">cloudFormationStackARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178716"><span class="annot"><span class="annottext">s :: ApplicationSource
+</span><a href="#local-6989586621679178716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource%27"><span class="hs-identifier hs-type">ApplicationSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178715"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSource
+</span><a href="#local-6989586621679178716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudFormationStackARN:ApplicationSource' :: Maybe Text
 </span><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#%24sel%3AcloudFormationStackARN%3AApplicationSource%27"><span class="hs-identifier hs-var">cloudFormationStackARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource"><span class="hs-identifier hs-type">ApplicationSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource"><span class="hs-identifier hs-type">ApplicationSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178649"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource"><span class="hs-identifier hs-type">ApplicationSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679178647"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApplicationSource
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178712"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource"><span class="hs-identifier hs-type">ApplicationSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679178710"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApplicationSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ApplicationSource)
@@ -190,8 +190,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ApplicationSource&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178644"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178644"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178707"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178707"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TagFilter] -&gt; Maybe Text -&gt; ApplicationSource
 </span><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource%27"><span class="hs-identifier hs-var">ApplicationSource'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [TagFilter] -&gt; Maybe Text -&gt; ApplicationSource)
@@ -199,7 +199,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; ApplicationSource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [TagFilter]))
+</span><a href="#local-6989586621679178707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [TagFilter]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TagFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [TagFilter]))
@@ -212,25 +212,25 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser ApplicationSource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679178707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CloudFormationStackARN&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178637"><span id="local-6989586621679178639"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource"><span class="hs-identifier hs-type">ApplicationSource</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178700"><span id="local-6989586621679178702"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource"><span class="hs-identifier hs-type">ApplicationSource</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178634"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource"><span class="hs-identifier hs-type">ApplicationSource</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource"><span class="hs-identifier hs-type">ApplicationSource</span></a></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178626"><span id="local-6989586621679178628"><span id="local-6989586621679178630"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource"><span class="hs-identifier hs-type">ApplicationSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679178624"><span class="annot"><span class="annottext">toJSON :: ApplicationSource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource%27"><span class="hs-identifier hs-type">ApplicationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178621"><span id="local-6989586621679178622"><span class="annot"><span class="annottext">Maybe [TagFilter]
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178689"><span id="local-6989586621679178691"><span id="local-6989586621679178693"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource"><span class="hs-identifier hs-type">ApplicationSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679178687"><span class="annot"><span class="annottext">toJSON :: ApplicationSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource%27"><span class="hs-identifier hs-type">ApplicationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178684"><span id="local-6989586621679178685"><span class="annot"><span class="annottext">Maybe [TagFilter]
 Maybe Text
 cloudFormationStackARN :: Maybe Text
 tagFilters :: Maybe [TagFilter]
 $sel:cloudFormationStackARN:ApplicationSource' :: ApplicationSource -&gt; Maybe Text
 $sel:tagFilters:ApplicationSource' :: ApplicationSource -&gt; Maybe [TagFilter]
-</span><a href="#local-6989586621679178621"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679178684"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -242,7 +242,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([TagFilter] -&gt; Pair) -&gt; Maybe [TagFilter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagFilter]
-</span><a href="#local-6989586621679178622"><span class="hs-identifier hs-var">tagFilters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679178685"><span class="hs-identifier hs-var">tagFilters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CloudFormationStackARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -250,7 +250,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-85"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178621"><span class="hs-identifier hs-var">cloudFormationStackARN</span></a></span><span>
+</span><a href="#local-6989586621679178684"><span class="hs-identifier hs-var">cloudFormationStackARN</span></a></span><span>
 </span><span id="line-86"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span></pre></body></html>

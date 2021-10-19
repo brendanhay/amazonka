@@ -35,11 +35,11 @@
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#newLoggingStatus"><span class="hs-identifier">newLoggingStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_lastSuccessfulDeliveryTime"><span class="hs-identifier">loggingStatus_lastSuccessfulDeliveryTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_bucketName"><span class="hs-identifier">loggingStatus_bucketName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_loggingEnabled"><span class="hs-identifier">loggingStatus_loggingEnabled</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_s3KeyPrefix"><span class="hs-identifier">loggingStatus_s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_lastFailureTime"><span class="hs-identifier">loggingStatus_lastFailureTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_lastFailureTime"><span class="hs-identifier">loggingStatus_lastFailureTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_lastSuccessfulDeliveryTime"><span class="hs-identifier">loggingStatus_lastSuccessfulDeliveryTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_s3KeyPrefix"><span class="hs-identifier">loggingStatus_s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_bucketName"><span class="hs-identifier">loggingStatus_bucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_loggingEnabled"><span class="hs-identifier">loggingStatus_loggingEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_lastFailureMessage"><span class="hs-identifier">loggingStatus_lastFailureMessage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span class="hs-keyword">where</span><span>
@@ -54,14 +54,14 @@
 </span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newDisableLogging' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679511733"><span id="local-6989586621679511734"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableLogging"><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging"><span class="hs-identifier hs-var">DisableLogging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableLogging%27"><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging%27"><span class="hs-identifier hs-var">DisableLogging'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679512431"><span id="local-6989586621679512432"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableLogging"><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging"><span class="hs-identifier hs-var">DisableLogging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableLogging%27"><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging%27"><span class="hs-identifier hs-var">DisableLogging'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the cluster on which logging is to be stopped.</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Example: @examplecluster@</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3ADisableLogging%27"><span class="annot"><span class="annottext">DisableLogging -&gt; Text
 </span><a href="Network.AWS.Redshift.DisableLogging.html#%24sel%3AclusterIdentifier%3ADisableLogging%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679511727"><span id="local-6989586621679511729"><span class="annot"><span class="annottext">DisableLogging -&gt; DisableLogging -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679512425"><span id="local-6989586621679512427"><span class="annot"><span class="annottext">DisableLogging -&gt; DisableLogging -&gt; Bool
 (DisableLogging -&gt; DisableLogging -&gt; Bool)
 -&gt; (DisableLogging -&gt; DisableLogging -&gt; Bool) -&gt; Eq DisableLogging
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DisableLogging -&gt; DisableLogging -&gt; Bool
 == :: DisableLogging -&gt; DisableLogging -&gt; Bool
 $c== :: DisableLogging -&gt; DisableLogging -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511718"><span id="local-6989586621679511720"><span id="local-6989586621679511722"><span id="local-6989586621679511724"><span class="annot"><span class="annottext">ReadPrec [DisableLogging]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679512416"><span id="local-6989586621679512418"><span id="local-6989586621679512420"><span id="local-6989586621679512422"><span class="annot"><span class="annottext">ReadPrec [DisableLogging]
 ReadPrec DisableLogging
 Int -&gt; ReadS DisableLogging
 ReadS [DisableLogging]
@@ -89,7 +89,7 @@ readList :: ReadS [DisableLogging]
 $creadList :: ReadS [DisableLogging]
 readsPrec :: Int -&gt; ReadS DisableLogging
 $creadsPrec :: Int -&gt; ReadS DisableLogging
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511711"><span id="local-6989586621679511713"><span id="local-6989586621679511715"><span class="annot"><span class="annottext">Int -&gt; DisableLogging -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679512409"><span id="local-6989586621679512411"><span id="local-6989586621679512413"><span class="annot"><span class="annottext">Int -&gt; DisableLogging -&gt; ShowS
 [DisableLogging] -&gt; ShowS
 DisableLogging -&gt; String
 (Int -&gt; DisableLogging -&gt; ShowS)
@@ -131,14 +131,14 @@ $cfrom :: forall x. DisableLogging -&gt; Rep DisableLogging x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging"><span class="hs-identifier hs-type">DisableLogging</span></a></span><span>
 </span><span id="line-80"></span><span id="newDisableLogging"><span class="annot"><span class="annottext">newDisableLogging :: Text -&gt; DisableLogging
-</span><a href="Network.AWS.Redshift.DisableLogging.html#newDisableLogging"><span class="hs-identifier hs-var hs-var">newDisableLogging</span></a></span></span><span> </span><span id="local-6989586621679511706"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511706"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.DisableLogging.html#newDisableLogging"><span class="hs-identifier hs-var hs-var">newDisableLogging</span></a></span></span><span> </span><span id="local-6989586621679512404"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679512404"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">DisableLogging' :: Text -&gt; DisableLogging
 </span><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging%27"><span class="hs-identifier hs-type">DisableLogging'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:DisableLogging' :: Text
 </span><a href="Network.AWS.Redshift.DisableLogging.html#%24sel%3AclusterIdentifier%3ADisableLogging%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511706"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679512404"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The identifier of the cluster on which logging is to be stopped.</span><span>
@@ -150,25 +150,25 @@ $cfrom :: forall x. DisableLogging -&gt; Rep DisableLogging x
 -&gt; (DisableLogging -&gt; Text -&gt; DisableLogging)
 -&gt; Lens DisableLogging DisableLogging Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging%27"><span class="hs-identifier hs-type">DisableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511703"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging%27"><span class="hs-identifier hs-type">DisableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512401"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:DisableLogging' :: DisableLogging -&gt; Text
-</span><a href="#local-6989586621679511703"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511703"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511702"><span class="annot"><span class="annottext">s :: DisableLogging
-</span><a href="#local-6989586621679511702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging%27"><span class="hs-identifier hs-type">DisableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511701"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableLogging
-</span><a href="#local-6989586621679511702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:DisableLogging' :: Text
+</span><a href="#local-6989586621679512401"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679512401"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512400"><span class="annot"><span class="annottext">s :: DisableLogging
+</span><a href="#local-6989586621679512400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging%27"><span class="hs-identifier hs-type">DisableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512399"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679512399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableLogging
+</span><a href="#local-6989586621679512400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:DisableLogging' :: Text
 </span><a href="Network.AWS.Redshift.DisableLogging.html#%24sel%3AclusterIdentifier%3ADisableLogging%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging"><span class="hs-identifier hs-type">DisableLogging</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679512399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging"><span class="hs-identifier hs-type">DisableLogging</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging"><span class="hs-identifier hs-type">DisableLogging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging"><span class="hs-identifier hs-type">DisableLogging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#LoggingStatus"><span class="hs-identifier hs-type">LoggingStatus</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679511697"><span class="annot"><span class="annottext">request :: DisableLogging -&gt; Request DisableLogging
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679512395"><span class="annot"><span class="annottext">request :: DisableLogging -&gt; Request DisableLogging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DisableLogging -&gt; Request DisableLogging
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679511693"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679512391"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DisableLogging
 -&gt; ClientResponse ClientBody
@@ -197,20 +197,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DisableLoggingResult&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511690"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679511690"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679511689"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679511689"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679511688"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679511688"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String LoggingStatus
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512388"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679512388"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679512387"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679512387"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679512386"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679512386"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String LoggingStatus
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679511688"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679512386"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511683"><span id="local-6989586621679511685"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging"><span class="hs-identifier hs-type">DisableLogging</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679512381"><span id="local-6989586621679512383"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging"><span class="hs-identifier hs-type">DisableLogging</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511680"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging"><span class="hs-identifier hs-type">DisableLogging</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679512378"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging"><span class="hs-identifier hs-type">DisableLogging</span></a></span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging"><span class="hs-identifier hs-type">DisableLogging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679511676"><span class="annot"><span class="annottext">toHeaders :: DisableLogging -&gt; ResponseHeaders
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679512374"><span class="annot"><span class="annottext">toHeaders :: DisableLogging -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DisableLogging -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -218,18 +218,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging"><span class="hs-identifier hs-type">DisableLogging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679511671"><span class="annot"><span class="annottext">toPath :: DisableLogging -&gt; ByteString
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679512369"><span class="annot"><span class="annottext">toPath :: DisableLogging -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DisableLogging -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging"><span class="hs-identifier hs-type">DisableLogging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679511667"><span class="annot"><span class="annottext">toQuery :: DisableLogging -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging%27"><span class="hs-identifier hs-type">DisableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511665"><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679512365"><span class="annot"><span class="annottext">toQuery :: DisableLogging -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DisableLogging.html#DisableLogging%27"><span class="hs-identifier hs-type">DisableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512363"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:DisableLogging' :: DisableLogging -&gt; Text
-</span><a href="#local-6989586621679511665"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679512363"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -249,6 +249,6 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511665"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679512363"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span></pre></body></html>

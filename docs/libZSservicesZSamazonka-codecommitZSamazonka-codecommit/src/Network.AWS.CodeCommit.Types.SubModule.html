@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Returns information about a submodule reference in a repository folder.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSubModule' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679355091"><span id="local-6989586621679355092"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubModule"><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule"><span class="hs-identifier hs-var">SubModule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubModule%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule%27"><span class="hs-identifier hs-var">SubModule'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679355370"><span id="local-6989586621679355371"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubModule"><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule"><span class="hs-identifier hs-var">SubModule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubModule%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule%27"><span class="hs-identifier hs-var">SubModule'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The commit ID that contains the reference to the submodule.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AcommitId%3ASubModule%27"><span class="annot"><span class="annottext">SubModule -&gt; Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.SubModule.html#%24sel%3AcommitId%3ASubModule%27"><span class="hs-identifier hs-var hs-var">commitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3ArelativePath%3ASubModule%27"><span class="annot"><span class="annottext">SubModule -&gt; Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.SubModule.html#%24sel%3ArelativePath%3ASubModule%27"><span class="hs-identifier hs-var hs-var">relativePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679355083"><span id="local-6989586621679355085"><span class="annot"><span class="annottext">SubModule -&gt; SubModule -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679355362"><span id="local-6989586621679355364"><span class="annot"><span class="annottext">SubModule -&gt; SubModule -&gt; Bool
 (SubModule -&gt; SubModule -&gt; Bool)
 -&gt; (SubModule -&gt; SubModule -&gt; Bool) -&gt; Eq SubModule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SubModule -&gt; SubModule -&gt; Bool
 == :: SubModule -&gt; SubModule -&gt; Bool
 $c== :: SubModule -&gt; SubModule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355074"><span id="local-6989586621679355076"><span id="local-6989586621679355078"><span id="local-6989586621679355080"><span class="annot"><span class="annottext">ReadPrec [SubModule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355353"><span id="local-6989586621679355355"><span id="local-6989586621679355357"><span id="local-6989586621679355359"><span class="annot"><span class="annottext">ReadPrec [SubModule]
 ReadPrec SubModule
 Int -&gt; ReadS SubModule
 ReadS [SubModule]
@@ -67,7 +67,7 @@ readList :: ReadS [SubModule]
 $creadList :: ReadS [SubModule]
 readsPrec :: Int -&gt; ReadS SubModule
 $creadsPrec :: Int -&gt; ReadS SubModule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355067"><span id="local-6989586621679355069"><span id="local-6989586621679355071"><span class="annot"><span class="annottext">Int -&gt; SubModule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355346"><span id="local-6989586621679355348"><span id="local-6989586621679355350"><span class="annot"><span class="annottext">Int -&gt; SubModule -&gt; ShowS
 [SubModule] -&gt; ShowS
 SubModule -&gt; String
 (Int -&gt; SubModule -&gt; ShowS)
@@ -134,16 +134,16 @@ forall a. Maybe a
 -&gt; (SubModule -&gt; Maybe Text -&gt; SubModule)
 -&gt; Lens SubModule SubModule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule%27"><span class="hs-identifier hs-type">SubModule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355058"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule%27"><span class="hs-identifier hs-type">SubModule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355337"><span class="annot"><span class="annottext">Maybe Text
 commitId :: Maybe Text
 $sel:commitId:SubModule' :: SubModule -&gt; Maybe Text
-</span><a href="#local-6989586621679355058"><span class="hs-identifier hs-var hs-var">commitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355058"><span class="hs-identifier hs-var">commitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355057"><span class="annot"><span class="annottext">s :: SubModule
-</span><a href="#local-6989586621679355057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule%27"><span class="hs-identifier hs-type">SubModule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355056"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubModule
-</span><a href="#local-6989586621679355057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitId:SubModule' :: Maybe Text
+</span><a href="#local-6989586621679355337"><span class="hs-identifier hs-var hs-var">commitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355337"><span class="hs-identifier hs-var">commitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355336"><span class="annot"><span class="annottext">s :: SubModule
+</span><a href="#local-6989586621679355336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule%27"><span class="hs-identifier hs-type">SubModule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355335"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubModule
+</span><a href="#local-6989586621679355336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitId:SubModule' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.SubModule.html#%24sel%3AcommitId%3ASubModule%27"><span class="hs-identifier hs-var">commitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule"><span class="hs-identifier hs-type">SubModule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679355335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule"><span class="hs-identifier hs-type">SubModule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The fully qualified path to the folder that contains the reference to</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- the submodule.</span><span>
@@ -153,16 +153,16 @@ $sel:commitId:SubModule' :: SubModule -&gt; Maybe Text
 -&gt; (SubModule -&gt; Maybe Text -&gt; SubModule)
 -&gt; Lens SubModule SubModule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule%27"><span class="hs-identifier hs-type">SubModule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355054"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule%27"><span class="hs-identifier hs-type">SubModule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355333"><span class="annot"><span class="annottext">Maybe Text
 absolutePath :: Maybe Text
 $sel:absolutePath:SubModule' :: SubModule -&gt; Maybe Text
-</span><a href="#local-6989586621679355054"><span class="hs-identifier hs-var hs-var">absolutePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355054"><span class="hs-identifier hs-var">absolutePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355053"><span class="annot"><span class="annottext">s :: SubModule
-</span><a href="#local-6989586621679355053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule%27"><span class="hs-identifier hs-type">SubModule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355052"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubModule
-</span><a href="#local-6989586621679355053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:absolutePath:SubModule' :: Maybe Text
+</span><a href="#local-6989586621679355333"><span class="hs-identifier hs-var hs-var">absolutePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355333"><span class="hs-identifier hs-var">absolutePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355332"><span class="annot"><span class="annottext">s :: SubModule
+</span><a href="#local-6989586621679355332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule%27"><span class="hs-identifier hs-type">SubModule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355331"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubModule
+</span><a href="#local-6989586621679355332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:absolutePath:SubModule' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.SubModule.html#%24sel%3AabsolutePath%3ASubModule%27"><span class="hs-identifier hs-var">absolutePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule"><span class="hs-identifier hs-type">SubModule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679355331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule"><span class="hs-identifier hs-type">SubModule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The relative path of the submodule from the folder where the query</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- originated.</span><span>
@@ -172,27 +172,27 @@ $sel:absolutePath:SubModule' :: SubModule -&gt; Maybe Text
 -&gt; (SubModule -&gt; Maybe Text -&gt; SubModule)
 -&gt; Lens SubModule SubModule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule%27"><span class="hs-identifier hs-type">SubModule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355050"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule%27"><span class="hs-identifier hs-type">SubModule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355329"><span class="annot"><span class="annottext">Maybe Text
 relativePath :: Maybe Text
 $sel:relativePath:SubModule' :: SubModule -&gt; Maybe Text
-</span><a href="#local-6989586621679355050"><span class="hs-identifier hs-var hs-var">relativePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355050"><span class="hs-identifier hs-var">relativePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355049"><span class="annot"><span class="annottext">s :: SubModule
-</span><a href="#local-6989586621679355049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule%27"><span class="hs-identifier hs-type">SubModule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355048"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubModule
-</span><a href="#local-6989586621679355049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relativePath:SubModule' :: Maybe Text
+</span><a href="#local-6989586621679355329"><span class="hs-identifier hs-var hs-var">relativePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355329"><span class="hs-identifier hs-var">relativePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355328"><span class="annot"><span class="annottext">s :: SubModule
+</span><a href="#local-6989586621679355328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule%27"><span class="hs-identifier hs-type">SubModule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355327"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubModule
+</span><a href="#local-6989586621679355328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relativePath:SubModule' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.SubModule.html#%24sel%3ArelativePath%3ASubModule%27"><span class="hs-identifier hs-var">relativePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule"><span class="hs-identifier hs-type">SubModule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679355327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule"><span class="hs-identifier hs-type">SubModule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355045"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule"><span class="hs-identifier hs-type">SubModule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679355043"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SubModule
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355324"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule"><span class="hs-identifier hs-type">SubModule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679355322"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SubModule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser SubModule) -&gt; Value -&gt; Parser SubModule
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SubModule&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679355040"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355040"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679355319"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679355319"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; SubModule
 </span><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule%27"><span class="hs-identifier hs-var">SubModule'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; SubModule)
@@ -200,7 +200,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; SubModule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679355319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;commitId&quot;</span></span><span class="hs-special">)</span><span>
@@ -208,7 +208,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; SubModule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679355319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;absolutePath&quot;</span></span><span class="hs-special">)</span><span>
@@ -216,13 +216,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser SubModule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679355319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;relativePath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355034"><span id="local-6989586621679355036"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule"><span class="hs-identifier hs-type">SubModule</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355313"><span id="local-6989586621679355315"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule"><span class="hs-identifier hs-type">SubModule</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355031"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule"><span class="hs-identifier hs-type">SubModule</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355310"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule"><span class="hs-identifier hs-type">SubModule</span></a></span></span><span>
 </span><span id="line-93"></span></pre></body></html>

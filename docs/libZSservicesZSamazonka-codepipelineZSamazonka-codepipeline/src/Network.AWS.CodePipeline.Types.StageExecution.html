@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents information about the run of a stage.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStageExecution' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679282132"><span id="local-6989586621679282133"></span></span><span class="hs-keyword">data</span><span> </span><span id="StageExecution"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution"><span class="hs-identifier hs-var">StageExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StageExecution%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution%27"><span class="hs-identifier hs-var">StageExecution'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679282342"><span id="local-6989586621679282343"></span></span><span class="hs-keyword">data</span><span> </span><span id="StageExecution"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution"><span class="hs-identifier hs-var">StageExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StageExecution%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution%27"><span class="hs-identifier hs-var">StageExecution'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the pipeline execution associated with the stage.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3ApipelineExecutionId%3AStageExecution%27"><span class="annot"><span class="annottext">StageExecution -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.StageExecution.html#%24sel%3ApipelineExecutionId%3AStageExecution%27"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Astatus%3AStageExecution%27"><span class="annot"><span class="annottext">StageExecution -&gt; StageExecutionStatus
 </span><a href="Network.AWS.CodePipeline.Types.StageExecution.html#%24sel%3Astatus%3AStageExecution%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecutionStatus.html#StageExecutionStatus"><span class="hs-identifier hs-type">StageExecutionStatus</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282125"><span id="local-6989586621679282127"><span class="annot"><span class="annottext">StageExecution -&gt; StageExecution -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282335"><span id="local-6989586621679282337"><span class="annot"><span class="annottext">StageExecution -&gt; StageExecution -&gt; Bool
 (StageExecution -&gt; StageExecution -&gt; Bool)
 -&gt; (StageExecution -&gt; StageExecution -&gt; Bool) -&gt; Eq StageExecution
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StageExecution -&gt; StageExecution -&gt; Bool
 == :: StageExecution -&gt; StageExecution -&gt; Bool
 $c== :: StageExecution -&gt; StageExecution -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282116"><span id="local-6989586621679282118"><span id="local-6989586621679282120"><span id="local-6989586621679282122"><span class="annot"><span class="annottext">ReadPrec [StageExecution]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282326"><span id="local-6989586621679282328"><span id="local-6989586621679282330"><span id="local-6989586621679282332"><span class="annot"><span class="annottext">ReadPrec [StageExecution]
 ReadPrec StageExecution
 Int -&gt; ReadS StageExecution
 ReadS [StageExecution]
@@ -67,7 +67,7 @@ readList :: ReadS [StageExecution]
 $creadList :: ReadS [StageExecution]
 readsPrec :: Int -&gt; ReadS StageExecution
 $creadsPrec :: Int -&gt; ReadS StageExecution
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282109"><span id="local-6989586621679282111"><span id="local-6989586621679282113"><span class="annot"><span class="annottext">Int -&gt; StageExecution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282319"><span id="local-6989586621679282321"><span id="local-6989586621679282323"><span class="annot"><span class="annottext">Int -&gt; StageExecution -&gt; ShowS
 [StageExecution] -&gt; ShowS
 StageExecution -&gt; String
 (Int -&gt; StageExecution -&gt; ShowS)
@@ -115,18 +115,18 @@ $cfrom :: forall x. StageExecution -&gt; Rep StageExecution x
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecutionStatus.html#StageExecutionStatus"><span class="hs-identifier hs-type">StageExecutionStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution"><span class="hs-identifier hs-type">StageExecution</span></a></span><span>
 </span><span id="line-63"></span><span id="newStageExecution"><span class="annot"><span class="annottext">newStageExecution :: Text -&gt; StageExecutionStatus -&gt; StageExecution
-</span><a href="Network.AWS.CodePipeline.Types.StageExecution.html#newStageExecution"><span class="hs-identifier hs-var hs-var">newStageExecution</span></a></span></span><span> </span><span id="local-6989586621679282103"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679282103"><span class="hs-identifier hs-var">pPipelineExecutionId_</span></a></span></span><span> </span><span id="local-6989586621679282102"><span class="annot"><span class="annottext">StageExecutionStatus
-</span><a href="#local-6989586621679282102"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.Types.StageExecution.html#newStageExecution"><span class="hs-identifier hs-var hs-var">newStageExecution</span></a></span></span><span> </span><span id="local-6989586621679282313"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282313"><span class="hs-identifier hs-var">pPipelineExecutionId_</span></a></span></span><span> </span><span id="local-6989586621679282312"><span class="annot"><span class="annottext">StageExecutionStatus
+</span><a href="#local-6989586621679282312"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">StageExecution' :: Text -&gt; StageExecutionStatus -&gt; StageExecution
 </span><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution%27"><span class="hs-identifier hs-type">StageExecution'</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:StageExecution' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.StageExecution.html#%24sel%3ApipelineExecutionId%3AStageExecution%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679282103"><span class="hs-identifier hs-var">pPipelineExecutionId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679282313"><span class="hs-identifier hs-var">pPipelineExecutionId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:StageExecution' :: StageExecutionStatus
 </span><a href="Network.AWS.CodePipeline.Types.StageExecution.html#%24sel%3Astatus%3AStageExecution%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StageExecutionStatus
-</span><a href="#local-6989586621679282102"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679282312"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The ID of the pipeline execution associated with the stage.</span><span>
@@ -136,16 +136,16 @@ $cfrom :: forall x. StageExecution -&gt; Rep StageExecution x
 -&gt; (StageExecution -&gt; Text -&gt; StageExecution)
 -&gt; Lens StageExecution StageExecution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution%27"><span class="hs-identifier hs-type">StageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282098"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution%27"><span class="hs-identifier hs-type">StageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282308"><span class="annot"><span class="annottext">Text
 pipelineExecutionId :: Text
 $sel:pipelineExecutionId:StageExecution' :: StageExecution -&gt; Text
-</span><a href="#local-6989586621679282098"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679282098"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282097"><span class="annot"><span class="annottext">s :: StageExecution
-</span><a href="#local-6989586621679282097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution%27"><span class="hs-identifier hs-type">StageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282096"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679282096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StageExecution
-</span><a href="#local-6989586621679282097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:StageExecution' :: Text
+</span><a href="#local-6989586621679282308"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282308"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282307"><span class="annot"><span class="annottext">s :: StageExecution
+</span><a href="#local-6989586621679282307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution%27"><span class="hs-identifier hs-type">StageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282306"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StageExecution
+</span><a href="#local-6989586621679282307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:StageExecution' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.StageExecution.html#%24sel%3ApipelineExecutionId%3AStageExecution%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679282096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution"><span class="hs-identifier hs-type">StageExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution"><span class="hs-identifier hs-type">StageExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The status of the stage, or for a completed stage, the last status of</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- the stage.</span><span>
@@ -163,19 +163,19 @@ $sel:pipelineExecutionId:StageExecution' :: StageExecution -&gt; Text
      StageExecutionStatus
      StageExecutionStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution%27"><span class="hs-identifier hs-type">StageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282094"><span class="annot"><span class="annottext">StageExecutionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution%27"><span class="hs-identifier hs-type">StageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282304"><span class="annot"><span class="annottext">StageExecutionStatus
 status :: StageExecutionStatus
 $sel:status:StageExecution' :: StageExecution -&gt; StageExecutionStatus
-</span><a href="#local-6989586621679282094"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StageExecutionStatus
-</span><a href="#local-6989586621679282094"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282093"><span class="annot"><span class="annottext">s :: StageExecution
-</span><a href="#local-6989586621679282093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution%27"><span class="hs-identifier hs-type">StageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282092"><span class="annot"><span class="annottext">StageExecutionStatus
-</span><a href="#local-6989586621679282092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StageExecution
-</span><a href="#local-6989586621679282093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:StageExecution' :: StageExecutionStatus
+</span><a href="#local-6989586621679282304"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StageExecutionStatus
+</span><a href="#local-6989586621679282304"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282303"><span class="annot"><span class="annottext">s :: StageExecution
+</span><a href="#local-6989586621679282303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution%27"><span class="hs-identifier hs-type">StageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282302"><span class="annot"><span class="annottext">StageExecutionStatus
+</span><a href="#local-6989586621679282302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StageExecution
+</span><a href="#local-6989586621679282303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:StageExecution' :: StageExecutionStatus
 </span><a href="Network.AWS.CodePipeline.Types.StageExecution.html#%24sel%3Astatus%3AStageExecution%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StageExecutionStatus
-</span><a href="#local-6989586621679282092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution"><span class="hs-identifier hs-type">StageExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution"><span class="hs-identifier hs-type">StageExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282089"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution"><span class="hs-identifier hs-type">StageExecution</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679282087"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StageExecution
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282299"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution"><span class="hs-identifier hs-type">StageExecution</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679282297"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StageExecution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StageExecution)
@@ -185,15 +185,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StageExecution&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679282084"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679282084"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679282294"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679282294"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; StageExecutionStatus -&gt; StageExecution
 </span><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution%27"><span class="hs-identifier hs-var">StageExecution'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; StageExecutionStatus -&gt; StageExecution)
 -&gt; Parser Text -&gt; Parser (StageExecutionStatus -&gt; StageExecution)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679282084"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679282294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pipelineExecutionId&quot;</span></span><span class="hs-special">)</span><span>
@@ -201,13 +201,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser StageExecutionStatus -&gt; Parser StageExecution
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679282084"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser StageExecutionStatus
+</span><a href="#local-6989586621679282294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser StageExecutionStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282078"><span id="local-6989586621679282080"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution"><span class="hs-identifier hs-type">StageExecution</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282288"><span id="local-6989586621679282290"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution"><span class="hs-identifier hs-type">StageExecution</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282075"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution"><span class="hs-identifier hs-type">StageExecution</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282285"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageExecution.html#StageExecution"><span class="hs-identifier hs-type">StageExecution</span></a></span></span><span>
 </span><span id="line-95"></span></pre></body></html>

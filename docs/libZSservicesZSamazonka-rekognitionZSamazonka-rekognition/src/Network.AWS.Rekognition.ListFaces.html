@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newListFaces' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679340604"><span id="local-6989586621679340605"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFaces"><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-var">ListFaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFaces%27"><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces%27"><span class="hs-identifier hs-var">ListFaces'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679340910"><span id="local-6989586621679340911"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFaces"><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-var">ListFaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFaces%27"><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces%27"><span class="hs-identifier hs-var">ListFaces'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the previous response was incomplete (because there is more data to</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- retrieve), Amazon Rekognition returns a pagination token in the</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- response. You can use this pagination token to retrieve the next set of</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AcollectionId%3AListFaces%27"><span class="annot"><span class="annottext">ListFaces -&gt; Text
 </span><a href="Network.AWS.Rekognition.ListFaces.html#%24sel%3AcollectionId%3AListFaces%27"><span class="hs-identifier hs-var hs-var">collectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340596"><span id="local-6989586621679340598"><span class="annot"><span class="annottext">ListFaces -&gt; ListFaces -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340902"><span id="local-6989586621679340904"><span class="annot"><span class="annottext">ListFaces -&gt; ListFaces -&gt; Bool
 (ListFaces -&gt; ListFaces -&gt; Bool)
 -&gt; (ListFaces -&gt; ListFaces -&gt; Bool) -&gt; Eq ListFaces
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListFaces -&gt; ListFaces -&gt; Bool
 == :: ListFaces -&gt; ListFaces -&gt; Bool
 $c== :: ListFaces -&gt; ListFaces -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340587"><span id="local-6989586621679340589"><span id="local-6989586621679340591"><span id="local-6989586621679340593"><span class="annot"><span class="annottext">ReadPrec [ListFaces]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340893"><span id="local-6989586621679340895"><span id="local-6989586621679340897"><span id="local-6989586621679340899"><span class="annot"><span class="annottext">ReadPrec [ListFaces]
 ReadPrec ListFaces
 Int -&gt; ReadS ListFaces
 ReadS [ListFaces]
@@ -102,7 +102,7 @@ readList :: ReadS [ListFaces]
 $creadList :: ReadS [ListFaces]
 readsPrec :: Int -&gt; ReadS ListFaces
 $creadsPrec :: Int -&gt; ReadS ListFaces
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340580"><span id="local-6989586621679340582"><span id="local-6989586621679340584"><span class="annot"><span class="annottext">Int -&gt; ListFaces -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340886"><span id="local-6989586621679340888"><span id="local-6989586621679340890"><span class="annot"><span class="annottext">Int -&gt; ListFaces -&gt; ShowS
 [ListFaces] -&gt; ShowS
 ListFaces -&gt; String
 (Int -&gt; ListFaces -&gt; ShowS)
@@ -148,8 +148,8 @@ $cfrom :: forall x. ListFaces -&gt; Rep ListFaces x
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span><span>
 </span><span id="line-96"></span><span id="newListFaces"><span class="annot"><span class="annottext">newListFaces :: Text -&gt; ListFaces
-</span><a href="Network.AWS.Rekognition.ListFaces.html#newListFaces"><span class="hs-identifier hs-var hs-var">newListFaces</span></a></span></span><span> </span><span id="local-6989586621679340575"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679340575"><span class="hs-identifier hs-var">pCollectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.ListFaces.html#newListFaces"><span class="hs-identifier hs-var hs-var">newListFaces</span></a></span></span><span> </span><span id="local-6989586621679340881"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340881"><span class="hs-identifier hs-var">pCollectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">ListFaces' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListFaces
 </span><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces%27"><span class="hs-identifier hs-type">ListFaces'</span></a></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListFaces' :: Maybe Text
@@ -162,7 +162,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:collectionId:ListFaces' :: Text
 </span><a href="Network.AWS.Rekognition.ListFaces.html#%24sel%3AcollectionId%3AListFaces%27"><span class="hs-identifier hs-var">collectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679340575"><span class="hs-identifier hs-var">pCollectionId_</span></a></span><span>
+</span><a href="#local-6989586621679340881"><span class="hs-identifier hs-var">pCollectionId_</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | If the previous response was incomplete (because there is more data to</span><span>
@@ -175,16 +175,16 @@ forall a. Maybe a
 -&gt; (ListFaces -&gt; Maybe Text -&gt; ListFaces)
 -&gt; Lens ListFaces ListFaces (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces%27"><span class="hs-identifier hs-type">ListFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340573"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces%27"><span class="hs-identifier hs-type">ListFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340879"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListFaces' :: ListFaces -&gt; Maybe Text
-</span><a href="#local-6989586621679340573"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340573"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340572"><span class="annot"><span class="annottext">s :: ListFaces
-</span><a href="#local-6989586621679340572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces%27"><span class="hs-identifier hs-type">ListFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340571"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFaces
-</span><a href="#local-6989586621679340572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFaces' :: Maybe Text
+</span><a href="#local-6989586621679340879"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679340879"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340878"><span class="annot"><span class="annottext">s :: ListFaces
+</span><a href="#local-6989586621679340878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces%27"><span class="hs-identifier hs-type">ListFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340877"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679340877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFaces
+</span><a href="#local-6989586621679340878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFaces' :: Maybe Text
 </span><a href="Network.AWS.Rekognition.ListFaces.html#%24sel%3AnextToken%3AListFaces%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | Maximum number of faces to return.</span><span>
 </span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#listFaces_maxResults"><span class="hs-identifier hs-type">listFaces_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -193,16 +193,16 @@ $sel:nextToken:ListFaces' :: ListFaces -&gt; Maybe Text
 -&gt; (ListFaces -&gt; Maybe Natural -&gt; ListFaces)
 -&gt; Lens ListFaces ListFaces (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces%27"><span class="hs-identifier hs-type">ListFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340570"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces%27"><span class="hs-identifier hs-type">ListFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340876"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListFaces' :: ListFaces -&gt; Maybe Natural
-</span><a href="#local-6989586621679340570"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679340570"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340569"><span class="annot"><span class="annottext">s :: ListFaces
-</span><a href="#local-6989586621679340569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces%27"><span class="hs-identifier hs-type">ListFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340568"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679340568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFaces
-</span><a href="#local-6989586621679340569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListFaces' :: Maybe Natural
+</span><a href="#local-6989586621679340876"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679340876"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340875"><span class="annot"><span class="annottext">s :: ListFaces
+</span><a href="#local-6989586621679340875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces%27"><span class="hs-identifier hs-type">ListFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340874"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679340874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFaces
+</span><a href="#local-6989586621679340875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListFaces' :: Maybe Natural
 </span><a href="Network.AWS.Rekognition.ListFaces.html#%24sel%3AmaxResults%3AListFaces%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679340568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | ID of the collection from which to list the faces.</span><span>
 </span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#listFaces_collectionId"><span class="hs-identifier hs-type">listFaces_collectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -211,28 +211,28 @@ $sel:maxResults:ListFaces' :: ListFaces -&gt; Maybe Natural
 -&gt; (ListFaces -&gt; Text -&gt; ListFaces)
 -&gt; Lens ListFaces ListFaces Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces%27"><span class="hs-identifier hs-type">ListFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340567"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces%27"><span class="hs-identifier hs-type">ListFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340873"><span class="annot"><span class="annottext">Text
 collectionId :: Text
 $sel:collectionId:ListFaces' :: ListFaces -&gt; Text
-</span><a href="#local-6989586621679340567"><span class="hs-identifier hs-var hs-var">collectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679340567"><span class="hs-identifier hs-var">collectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340566"><span class="annot"><span class="annottext">s :: ListFaces
-</span><a href="#local-6989586621679340566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces%27"><span class="hs-identifier hs-type">ListFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340565"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679340565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFaces
-</span><a href="#local-6989586621679340566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:collectionId:ListFaces' :: Text
+</span><a href="#local-6989586621679340873"><span class="hs-identifier hs-var hs-var">collectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340873"><span class="hs-identifier hs-var">collectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340872"><span class="annot"><span class="annottext">s :: ListFaces
+</span><a href="#local-6989586621679340872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces%27"><span class="hs-identifier hs-type">ListFaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340871"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFaces
+</span><a href="#local-6989586621679340872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:collectionId:ListFaces' :: Text
 </span><a href="Network.AWS.Rekognition.ListFaces.html#%24sel%3AcollectionId%3AListFaces%27"><span class="hs-identifier hs-var">collectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679340565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679340561"><span class="annot"><span class="annottext">page :: ListFaces -&gt; AWSResponse ListFaces -&gt; Maybe ListFaces
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679340559"><span class="annot"><span class="annottext">ListFaces
-</span><a href="#local-6989586621679340559"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679340558"><span class="annot"><span class="annottext">AWSResponse ListFaces
-</span><a href="#local-6989586621679340558"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679340867"><span class="annot"><span class="annottext">page :: ListFaces -&gt; AWSResponse ListFaces -&gt; Maybe ListFaces
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679340865"><span class="annot"><span class="annottext">ListFaces
+</span><a href="#local-6989586621679340865"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679340864"><span class="annot"><span class="annottext">AWSResponse ListFaces
+</span><a href="#local-6989586621679340864"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-121"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFaces
 ListFacesResponse
-</span><a href="#local-6989586621679340558"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679340864"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">ListFacesResponse
 -&gt; Getting (First Text) ListFacesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -258,7 +258,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-126"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFaces
 ListFacesResponse
-</span><a href="#local-6989586621679340558"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679340864"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">ListFacesResponse
 -&gt; Getting (First [Face]) ListFacesResponse [Face] -&gt; Maybe [Face]
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -287,7 +287,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">ListFaces
-</span><a href="#local-6989586621679340559"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679340865"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">ListFaces -&gt; (ListFaces -&gt; ListFaces) -&gt; ListFaces
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -300,7 +300,7 @@ Lens ListFaces ListFaces (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFaces
 ListFacesResponse
-</span><a href="#local-6989586621679340558"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679340864"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">ListFacesResponse
 -&gt; Getting (First Text) ListFacesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -320,12 +320,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse"><span class="hs-identifier hs-type">ListFacesResponse</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679340548"><span class="annot"><span class="annottext">request :: ListFaces -&gt; Request ListFaces
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679340854"><span class="annot"><span class="annottext">request :: ListFaces -&gt; Request ListFaces
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListFaces -&gt; Request ListFaces
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Rekognition.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679340544"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679340850"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListFaces
 -&gt; ClientResponse ClientBody
@@ -349,10 +349,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679340541"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340541"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679340540"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679340540"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679340539"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679340539"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679340847"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679340847"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679340846"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679340846"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679340845"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340845"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe [Face] -&gt; Int -&gt; ListFacesResponse
 </span><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-var">ListFacesResponse'</span></a></span><span>
@@ -363,7 +363,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Maybe [Face] -&gt; Int -&gt; ListFacesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679340539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679340845"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FaceModelVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -373,7 +373,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe [Face] -&gt; Int -&gt; ListFacesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679340539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679340845"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -382,7 +382,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListFacesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679340539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Face]))
+</span><a href="#local-6989586621679340845"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Face]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Faces&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Face]))
@@ -399,15 +399,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340541"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340847"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340530"><span id="local-6989586621679340532"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340836"><span id="local-6989586621679340838"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span></span></span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340527"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340833"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679340523"><span class="annot"><span class="annottext">toHeaders :: ListFaces -&gt; ResponseHeaders
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679340829"><span class="annot"><span class="annottext">toHeaders :: ListFaces -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListFaces -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -434,9 +434,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340513"><span id="local-6989586621679340515"><span id="local-6989586621679340517"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679340511"><span class="annot"><span class="annottext">toJSON :: ListFaces -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces%27"><span class="hs-identifier hs-type">ListFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340507"><span id="local-6989586621679340508"><span id="local-6989586621679340509"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340819"><span id="local-6989586621679340821"><span id="local-6989586621679340823"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679340817"><span class="annot"><span class="annottext">toJSON :: ListFaces -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces%27"><span class="hs-identifier hs-type">ListFaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340813"><span id="local-6989586621679340814"><span id="local-6989586621679340815"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 collectionId :: Text
@@ -445,7 +445,7 @@ nextToken :: Maybe Text
 $sel:collectionId:ListFaces' :: ListFaces -&gt; Text
 $sel:maxResults:ListFaces' :: ListFaces -&gt; Maybe Natural
 $sel:nextToken:ListFaces' :: ListFaces -&gt; Maybe Text
-</span><a href="#local-6989586621679340507"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679340813"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -457,33 +457,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340509"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679340815"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679340508"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679340814"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CollectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679340507"><span class="hs-identifier hs-var">collectionId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340813"><span class="hs-identifier hs-var">collectionId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679340501"><span class="annot"><span class="annottext">toPath :: ListFaces -&gt; ByteString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679340807"><span class="annot"><span class="annottext">toPath :: ListFaces -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListFaces -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFaces"><span class="hs-identifier hs-type">ListFaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679340497"><span class="annot"><span class="annottext">toQuery :: ListFaces -&gt; QueryString
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679340803"><span class="annot"><span class="annottext">toQuery :: ListFaces -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListFaces -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -491,7 +491,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | /See:/ 'newListFacesResponse' smart constructor.</span><span>
-</span><span id="line-186"></span><span id="local-6989586621679340494"><span id="local-6989586621679340495"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFacesResponse"><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse"><span class="hs-identifier hs-var">ListFacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFacesResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-var">ListFacesResponse'</span></a></span></span><span>
+</span><span id="line-186"></span><span id="local-6989586621679340800"><span id="local-6989586621679340801"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFacesResponse"><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse"><span class="hs-identifier hs-var">ListFacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFacesResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-var">ListFacesResponse'</span></a></span></span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Version number of the face detection model associated with the input</span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-comment">-- collection (@CollectionId@).</span><span>
 </span><span id="line-189"></span><span>    </span><span id="%24sel%3AfaceModelVersion%3AListFacesResponse%27"><span class="annot"><span class="annottext">ListFacesResponse -&gt; Maybe Text
@@ -507,7 +507,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-196"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListFacesResponse%27"><span class="annot"><span class="annottext">ListFacesResponse -&gt; Int
 </span><a href="Network.AWS.Rekognition.ListFaces.html#%24sel%3AhttpStatus%3AListFacesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-197"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340486"><span id="local-6989586621679340488"><span class="annot"><span class="annottext">ListFacesResponse -&gt; ListFacesResponse -&gt; Bool
+</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340792"><span id="local-6989586621679340794"><span class="annot"><span class="annottext">ListFacesResponse -&gt; ListFacesResponse -&gt; Bool
 (ListFacesResponse -&gt; ListFacesResponse -&gt; Bool)
 -&gt; (ListFacesResponse -&gt; ListFacesResponse -&gt; Bool)
 -&gt; Eq ListFacesResponse
@@ -516,7 +516,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListFacesResponse -&gt; ListFacesResponse -&gt; Bool
 == :: ListFacesResponse -&gt; ListFacesResponse -&gt; Bool
 $c== :: ListFacesResponse -&gt; ListFacesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340478"><span id="local-6989586621679340480"><span id="local-6989586621679340482"><span id="local-6989586621679340484"><span class="annot"><span class="annottext">ReadPrec [ListFacesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340784"><span id="local-6989586621679340786"><span id="local-6989586621679340788"><span id="local-6989586621679340790"><span class="annot"><span class="annottext">ReadPrec [ListFacesResponse]
 ReadPrec ListFacesResponse
 Int -&gt; ReadS ListFacesResponse
 ReadS [ListFacesResponse]
@@ -536,7 +536,7 @@ readList :: ReadS [ListFacesResponse]
 $creadList :: ReadS [ListFacesResponse]
 readsPrec :: Int -&gt; ReadS ListFacesResponse
 $creadsPrec :: Int -&gt; ReadS ListFacesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340472"><span id="local-6989586621679340474"><span id="local-6989586621679340476"><span class="annot"><span class="annottext">Int -&gt; ListFacesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340778"><span id="local-6989586621679340780"><span id="local-6989586621679340782"><span class="annot"><span class="annottext">Int -&gt; ListFacesResponse -&gt; ShowS
 [ListFacesResponse] -&gt; ShowS
 ListFacesResponse -&gt; String
 (Int -&gt; ListFacesResponse -&gt; ShowS)
@@ -584,8 +584,8 @@ $cfrom :: forall x. ListFacesResponse -&gt; Rep ListFacesResponse x
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-220"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse"><span class="hs-identifier hs-type">ListFacesResponse</span></a></span><span>
 </span><span id="line-221"></span><span id="newListFacesResponse"><span class="annot"><span class="annottext">newListFacesResponse :: Int -&gt; ListFacesResponse
-</span><a href="Network.AWS.Rekognition.ListFaces.html#newListFacesResponse"><span class="hs-identifier hs-var hs-var">newListFacesResponse</span></a></span></span><span> </span><span id="local-6989586621679340469"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340469"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.ListFaces.html#newListFacesResponse"><span class="hs-identifier hs-var hs-var">newListFacesResponse</span></a></span></span><span> </span><span id="local-6989586621679340775"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679340775"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-222"></span><span>  </span><span class="annot"><span class="annottext">ListFacesResponse' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe [Face] -&gt; Int -&gt; ListFacesResponse
 </span><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-type">ListFacesResponse'</span></a></span><span>
@@ -604,7 +604,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListFacesResponse' :: Int
 </span><a href="Network.AWS.Rekognition.ListFaces.html#%24sel%3AhttpStatus%3AListFacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340469"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679340775"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-228"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | Version number of the face detection model associated with the input</span><span>
@@ -616,16 +616,16 @@ forall a. Maybe a
 -&gt; (ListFacesResponse -&gt; Maybe Text -&gt; ListFacesResponse)
 -&gt; Lens' ListFacesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-type">ListFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340468"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-type">ListFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340774"><span class="annot"><span class="annottext">Maybe Text
 faceModelVersion :: Maybe Text
 $sel:faceModelVersion:ListFacesResponse' :: ListFacesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679340468"><span class="hs-identifier hs-var hs-var">faceModelVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340468"><span class="hs-identifier hs-var">faceModelVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340467"><span class="annot"><span class="annottext">s :: ListFacesResponse
-</span><a href="#local-6989586621679340467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-type">ListFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340466"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacesResponse
-</span><a href="#local-6989586621679340467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceModelVersion:ListFacesResponse' :: Maybe Text
+</span><a href="#local-6989586621679340774"><span class="hs-identifier hs-var hs-var">faceModelVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679340774"><span class="hs-identifier hs-var">faceModelVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340773"><span class="annot"><span class="annottext">s :: ListFacesResponse
+</span><a href="#local-6989586621679340773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-type">ListFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340772"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679340772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacesResponse
+</span><a href="#local-6989586621679340773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceModelVersion:ListFacesResponse' :: Maybe Text
 </span><a href="Network.AWS.Rekognition.ListFaces.html#%24sel%3AfaceModelVersion%3AListFacesResponse%27"><span class="hs-identifier hs-var">faceModelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse"><span class="hs-identifier hs-type">ListFacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse"><span class="hs-identifier hs-type">ListFacesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | If the response is truncated, Amazon Rekognition returns this token that</span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- you can use in the subsequent request to retrieve the next set of faces.</span><span>
@@ -636,16 +636,16 @@ $sel:faceModelVersion:ListFacesResponse' :: ListFacesResponse -&gt; Maybe Text
 -&gt; (ListFacesResponse -&gt; Maybe Text -&gt; ListFacesResponse)
 -&gt; Lens' ListFacesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-type">ListFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340465"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-type">ListFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340771"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListFacesResponse' :: ListFacesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679340465"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340465"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340464"><span class="annot"><span class="annottext">s :: ListFacesResponse
-</span><a href="#local-6989586621679340464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-type">ListFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340463"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacesResponse
-</span><a href="#local-6989586621679340464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFacesResponse' :: Maybe Text
+</span><a href="#local-6989586621679340771"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679340771"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340770"><span class="annot"><span class="annottext">s :: ListFacesResponse
+</span><a href="#local-6989586621679340770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-type">ListFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340769"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679340769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacesResponse
+</span><a href="#local-6989586621679340770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFacesResponse' :: Maybe Text
 </span><a href="Network.AWS.Rekognition.ListFaces.html#%24sel%3AnextToken%3AListFacesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse"><span class="hs-identifier hs-type">ListFacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse"><span class="hs-identifier hs-type">ListFacesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | An array of @Face@ objects.</span><span>
 </span><span id="line-241"></span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#listFacesResponse_faces"><span class="hs-identifier hs-type">listFacesResponse_faces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse"><span class="hs-identifier hs-type">ListFacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Face.html#Face"><span class="hs-identifier hs-type">Face</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -655,16 +655,16 @@ $sel:nextToken:ListFacesResponse' :: ListFacesResponse -&gt; Maybe Text
 -&gt; (ListFacesResponse -&gt; Maybe [Face] -&gt; ListFacesResponse)
 -&gt; Lens' ListFacesResponse (Maybe [Face])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-type">ListFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340462"><span class="annot"><span class="annottext">Maybe [Face]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-type">ListFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340768"><span class="annot"><span class="annottext">Maybe [Face]
 faces :: Maybe [Face]
 $sel:faces:ListFacesResponse' :: ListFacesResponse -&gt; Maybe [Face]
-</span><a href="#local-6989586621679340462"><span class="hs-identifier hs-var hs-var">faces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Face]
-</span><a href="#local-6989586621679340462"><span class="hs-identifier hs-var">faces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340461"><span class="annot"><span class="annottext">s :: ListFacesResponse
-</span><a href="#local-6989586621679340461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-type">ListFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340460"><span class="annot"><span class="annottext">Maybe [Face]
-</span><a href="#local-6989586621679340460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacesResponse
-</span><a href="#local-6989586621679340461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faces:ListFacesResponse' :: Maybe [Face]
+</span><a href="#local-6989586621679340768"><span class="hs-identifier hs-var hs-var">faces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Face]
+</span><a href="#local-6989586621679340768"><span class="hs-identifier hs-var">faces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340767"><span class="annot"><span class="annottext">s :: ListFacesResponse
+</span><a href="#local-6989586621679340767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-type">ListFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340766"><span class="annot"><span class="annottext">Maybe [Face]
+</span><a href="#local-6989586621679340766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacesResponse
+</span><a href="#local-6989586621679340767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faces:ListFacesResponse' :: Maybe [Face]
 </span><a href="Network.AWS.Rekognition.ListFaces.html#%24sel%3Afaces%3AListFacesResponse%27"><span class="hs-identifier hs-var">faces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Face]
-</span><a href="#local-6989586621679340460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse"><span class="hs-identifier hs-type">ListFacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Face] -&gt; f (Maybe [Face]))
+</span><a href="#local-6989586621679340766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse"><span class="hs-identifier hs-type">ListFacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Face] -&gt; f (Maybe [Face]))
  -&gt; ListFacesResponse -&gt; f ListFacesResponse)
 -&gt; ((Maybe [Face] -&gt; f (Maybe [Face]))
     -&gt; Maybe [Face] -&gt; f (Maybe [Face]))
@@ -678,8 +678,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Face] [Face] [Face] [Face]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-245"></span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#listFacesResponse_httpStatus"><span class="hs-identifier hs-type">listFacesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse"><span class="hs-identifier hs-type">ListFacesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -688,16 +688,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListFacesResponse -&gt; Int -&gt; ListFacesResponse)
 -&gt; Lens ListFacesResponse ListFacesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-type">ListFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340457"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-type">ListFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340763"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListFacesResponse' :: ListFacesResponse -&gt; Int
-</span><a href="#local-6989586621679340457"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340457"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340456"><span class="annot"><span class="annottext">s :: ListFacesResponse
-</span><a href="#local-6989586621679340456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-type">ListFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340455"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacesResponse
-</span><a href="#local-6989586621679340456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListFacesResponse' :: Int
+</span><a href="#local-6989586621679340763"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679340763"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340762"><span class="annot"><span class="annottext">s :: ListFacesResponse
+</span><a href="#local-6989586621679340762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse%27"><span class="hs-identifier hs-type">ListFacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340761"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679340761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacesResponse
+</span><a href="#local-6989586621679340762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListFacesResponse' :: Int
 </span><a href="Network.AWS.Rekognition.ListFaces.html#%24sel%3AhttpStatus%3AListFacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse"><span class="hs-identifier hs-type">ListFacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse"><span class="hs-identifier hs-type">ListFacesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
-</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse"><span class="hs-identifier hs-type">ListFacesResponse</span></a></span></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340759"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListFaces.html#ListFacesResponse"><span class="hs-identifier hs-type">ListFacesResponse</span></a></span></span><span>
 </span><span id="line-249"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621681069011"><span id="local-6989586621681069012"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ElasticGpuState"><span class="annot"><a href="Network.AWS.EC2.Types.ElasticGpuState.html#ElasticGpuState"><span class="hs-identifier hs-var">ElasticGpuState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ElasticGpuState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ElasticGpuState.html#ElasticGpuState%27"><span class="hs-identifier hs-var">ElasticGpuState'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681102945"><span id="local-6989586621681102946"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ElasticGpuState"><span class="annot"><a href="Network.AWS.EC2.Types.ElasticGpuState.html#ElasticGpuState"><span class="hs-identifier hs-var">ElasticGpuState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ElasticGpuState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ElasticGpuState.html#ElasticGpuState%27"><span class="hs-identifier hs-var">ElasticGpuState'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromElasticGpuState"><span class="annot"><span class="annottext">ElasticGpuState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ElasticGpuState.html#fromElasticGpuState"><span class="hs-identifier hs-var hs-var">fromElasticGpuState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681069003"><span id="local-6989586621681069005"><span id="local-6989586621681069007"><span class="annot"><span class="annottext">Int -&gt; ElasticGpuState -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681102937"><span id="local-6989586621681102939"><span id="local-6989586621681102941"><span class="annot"><span class="annottext">Int -&gt; ElasticGpuState -&gt; ShowS
 [ElasticGpuState] -&gt; ShowS
 ElasticGpuState -&gt; String
 (Int -&gt; ElasticGpuState -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ElasticGpuState -&gt; String
 showsPrec :: Int -&gt; ElasticGpuState -&gt; ShowS
 $cshowsPrec :: Int -&gt; ElasticGpuState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621681068994"><span id="local-6989586621681068996"><span id="local-6989586621681068998"><span id="local-6989586621681069000"><span class="annot"><span class="annottext">ReadPrec [ElasticGpuState]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681102928"><span id="local-6989586621681102930"><span id="local-6989586621681102932"><span id="local-6989586621681102934"><span class="annot"><span class="annottext">ReadPrec [ElasticGpuState]
 ReadPrec ElasticGpuState
 Int -&gt; ReadS ElasticGpuState
 ReadS [ElasticGpuState]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ElasticGpuState]
 readsPrec :: Int -&gt; ReadS ElasticGpuState
 $creadsPrec :: Int -&gt; ReadS ElasticGpuState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681068989"><span id="local-6989586621681068991"><span class="annot"><span class="annottext">ElasticGpuState -&gt; ElasticGpuState -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681102923"><span id="local-6989586621681102925"><span class="annot"><span class="annottext">ElasticGpuState -&gt; ElasticGpuState -&gt; Bool
 (ElasticGpuState -&gt; ElasticGpuState -&gt; Bool)
 -&gt; (ElasticGpuState -&gt; ElasticGpuState -&gt; Bool)
 -&gt; Eq ElasticGpuState
@@ -82,7 +82,7 @@ $c/= :: ElasticGpuState -&gt; ElasticGpuState -&gt; Bool
 == :: ElasticGpuState -&gt; ElasticGpuState -&gt; Bool
 $c== :: ElasticGpuState -&gt; ElasticGpuState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681068973"><span id="local-6989586621681068975"><span id="local-6989586621681068977"><span id="local-6989586621681068979"><span id="local-6989586621681068981"><span id="local-6989586621681068983"><span id="local-6989586621681068985"><span class="annot"><span class="annottext">Eq ElasticGpuState
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681102907"><span id="local-6989586621681102909"><span id="local-6989586621681102911"><span id="local-6989586621681102913"><span id="local-6989586621681102915"><span id="local-6989586621681102917"><span id="local-6989586621681102919"><span class="annot"><span class="annottext">Eq ElasticGpuState
 Eq ElasticGpuState
 -&gt; (ElasticGpuState -&gt; ElasticGpuState -&gt; Ordering)
 -&gt; (ElasticGpuState -&gt; ElasticGpuState -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ElasticGpuState -&gt; Rep ElasticGpuState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681068965"><span id="local-6989586621681068967"><span class="annot"><span class="annottext">Int -&gt; ElasticGpuState -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681102899"><span id="local-6989586621681102901"><span class="annot"><span class="annottext">Int -&gt; ElasticGpuState -&gt; Int
 ElasticGpuState -&gt; Int
 (Int -&gt; ElasticGpuState -&gt; Int)
 -&gt; (ElasticGpuState -&gt; Int) -&gt; Hashable ElasticGpuState
@@ -143,50 +143,50 @@ $chash :: ElasticGpuState -&gt; Int
 hashWithSalt :: Int -&gt; ElasticGpuState -&gt; Int
 $chashWithSalt :: Int -&gt; ElasticGpuState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681068962"><span class="annot"><span class="annottext">ElasticGpuState -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681102896"><span class="annot"><span class="annottext">ElasticGpuState -&gt; ()
 (ElasticGpuState -&gt; ()) -&gt; NFData ElasticGpuState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ElasticGpuState -&gt; ()
 $crnf :: ElasticGpuState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681068959"><span class="annot"><span class="annottext">Text -&gt; Either String ElasticGpuState
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681102893"><span class="annot"><span class="annottext">Text -&gt; Either String ElasticGpuState
 (Text -&gt; Either String ElasticGpuState) -&gt; FromText ElasticGpuState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ElasticGpuState
 $cfromText :: Text -&gt; Either String ElasticGpuState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681068956"><span class="annot"><span class="annottext">ElasticGpuState -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681102890"><span class="annot"><span class="annottext">ElasticGpuState -&gt; Text
 (ElasticGpuState -&gt; Text) -&gt; ToText ElasticGpuState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ElasticGpuState -&gt; Text
 $ctoText :: ElasticGpuState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681068953"><span class="annot"><span class="annottext">ElasticGpuState -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681102887"><span class="annot"><span class="annottext">ElasticGpuState -&gt; ByteString
 (ElasticGpuState -&gt; ByteString) -&gt; ToByteString ElasticGpuState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ElasticGpuState -&gt; ByteString
 $ctoBS :: ElasticGpuState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681068950"><span class="annot"><span class="annottext">ElasticGpuState -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681102884"><span class="annot"><span class="annottext">ElasticGpuState -&gt; ByteStringBuilder
 (ElasticGpuState -&gt; ByteStringBuilder) -&gt; ToLog ElasticGpuState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ElasticGpuState -&gt; ByteStringBuilder
 $cbuild :: ElasticGpuState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681068947"><span class="annot"><span class="annottext">HeaderName -&gt; ElasticGpuState -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681102881"><span class="annot"><span class="annottext">HeaderName -&gt; ElasticGpuState -&gt; [Header]
 (HeaderName -&gt; ElasticGpuState -&gt; [Header])
 -&gt; ToHeader ElasticGpuState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ElasticGpuState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ElasticGpuState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681068944"><span class="annot"><span class="annottext">ElasticGpuState -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681102878"><span class="annot"><span class="annottext">ElasticGpuState -&gt; QueryString
 (ElasticGpuState -&gt; QueryString) -&gt; ToQuery ElasticGpuState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ElasticGpuState -&gt; QueryString
 $ctoQuery :: ElasticGpuState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681068939"><span id="local-6989586621681068941"><span class="annot"><span class="annottext">Value -&gt; Parser [ElasticGpuState]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681102873"><span id="local-6989586621681102875"><span class="annot"><span class="annottext">Value -&gt; Parser [ElasticGpuState]
 Value -&gt; Parser ElasticGpuState
 (Value -&gt; Parser ElasticGpuState)
 -&gt; (Value -&gt; Parser [ElasticGpuState]) -&gt; FromJSON ElasticGpuState
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [ElasticGpuState]
 parseJSON :: Value -&gt; Parser ElasticGpuState
 $cparseJSON :: Value -&gt; Parser ElasticGpuState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681068934"><span id="local-6989586621681068936"><span class="annot"><span class="annottext">FromJSONKeyFunction [ElasticGpuState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681102868"><span id="local-6989586621681102870"><span class="annot"><span class="annottext">FromJSONKeyFunction [ElasticGpuState]
 FromJSONKeyFunction ElasticGpuState
 FromJSONKeyFunction ElasticGpuState
 -&gt; FromJSONKeyFunction [ElasticGpuState]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ElasticGpuState]
 fromJSONKey :: FromJSONKeyFunction ElasticGpuState
 $cfromJSONKey :: FromJSONKeyFunction ElasticGpuState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681068925"><span id="local-6989586621681068927"><span id="local-6989586621681068929"><span id="local-6989586621681068931"><span class="annot"><span class="annottext">[ElasticGpuState] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681102859"><span id="local-6989586621681102861"><span id="local-6989586621681102863"><span id="local-6989586621681102865"><span class="annot"><span class="annottext">[ElasticGpuState] -&gt; Encoding
 [ElasticGpuState] -&gt; Value
 ElasticGpuState -&gt; Encoding
 ElasticGpuState -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: ElasticGpuState -&gt; Encoding
 toJSON :: ElasticGpuState -&gt; Value
 $ctoJSON :: ElasticGpuState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681068920"><span id="local-6989586621681068922"><span class="annot"><span class="annottext">ToJSONKeyFunction [ElasticGpuState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681102854"><span id="local-6989586621681102856"><span class="annot"><span class="annottext">ToJSONKeyFunction [ElasticGpuState]
 ToJSONKeyFunction ElasticGpuState
 ToJSONKeyFunction ElasticGpuState
 -&gt; ToJSONKeyFunction [ElasticGpuState] -&gt; ToJSONKey ElasticGpuState
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ElasticGpuState]
 toJSONKey :: ToJSONKeyFunction ElasticGpuState
 $ctoJSONKey :: ToJSONKeyFunction ElasticGpuState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681068917"><span class="annot"><span class="annottext">[Node] -&gt; Either String ElasticGpuState
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681102851"><span class="annot"><span class="annottext">[Node] -&gt; Either String ElasticGpuState
 ([Node] -&gt; Either String ElasticGpuState)
 -&gt; FromXML ElasticGpuState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ElasticGpuState
 $cparseXML :: [Node] -&gt; Either String ElasticGpuState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681068914"><span class="annot"><span class="annottext">ElasticGpuState -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681102848"><span class="annot"><span class="annottext">ElasticGpuState -&gt; XML
 (ElasticGpuState -&gt; XML) -&gt; ToXML ElasticGpuState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ElasticGpuState -&gt; XML

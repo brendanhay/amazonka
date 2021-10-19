@@ -74,7 +74,7 @@
 </span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | /See:/ 'newTagPolicy' smart constructor.</span><span>
-</span><span id="line-77"></span><span id="local-6989586621679435071"><span id="local-6989586621679435072"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagPolicy"><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy"><span class="hs-identifier hs-var">TagPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagPolicy%27"><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy%27"><span class="hs-identifier hs-var">TagPolicy'</span></a></span></span><span>
+</span><span id="line-77"></span><span id="local-6989586621679435611"><span id="local-6989586621679435612"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagPolicy"><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy"><span class="hs-identifier hs-var">TagPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagPolicy%27"><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy%27"><span class="hs-identifier hs-var">TagPolicy'</span></a></span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the IAM customer managed policy to which you want to add</span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-comment">-- tags.</span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -89,7 +89,7 @@
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3Atags%3ATagPolicy%27"><span class="annot"><span class="annottext">TagPolicy -&gt; [Tag]
 </span><a href="Network.AWS.IAM.TagPolicy.html#%24sel%3Atags%3ATagPolicy%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435064"><span id="local-6989586621679435066"><span class="annot"><span class="annottext">TagPolicy -&gt; TagPolicy -&gt; Bool
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435604"><span id="local-6989586621679435606"><span class="annot"><span class="annottext">TagPolicy -&gt; TagPolicy -&gt; Bool
 (TagPolicy -&gt; TagPolicy -&gt; Bool)
 -&gt; (TagPolicy -&gt; TagPolicy -&gt; Bool) -&gt; Eq TagPolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -97,7 +97,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagPolicy -&gt; TagPolicy -&gt; Bool
 == :: TagPolicy -&gt; TagPolicy -&gt; Bool
 $c== :: TagPolicy -&gt; TagPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435055"><span id="local-6989586621679435057"><span id="local-6989586621679435059"><span id="local-6989586621679435061"><span class="annot"><span class="annottext">ReadPrec [TagPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435595"><span id="local-6989586621679435597"><span id="local-6989586621679435599"><span id="local-6989586621679435601"><span class="annot"><span class="annottext">ReadPrec [TagPolicy]
 ReadPrec TagPolicy
 Int -&gt; ReadS TagPolicy
 ReadS [TagPolicy]
@@ -117,7 +117,7 @@ readList :: ReadS [TagPolicy]
 $creadList :: ReadS [TagPolicy]
 readsPrec :: Int -&gt; ReadS TagPolicy
 $creadsPrec :: Int -&gt; ReadS TagPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435048"><span id="local-6989586621679435050"><span id="local-6989586621679435052"><span class="annot"><span class="annottext">Int -&gt; TagPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435588"><span id="local-6989586621679435590"><span id="local-6989586621679435592"><span class="annot"><span class="annottext">Int -&gt; TagPolicy -&gt; ShowS
 [TagPolicy] -&gt; ShowS
 TagPolicy -&gt; String
 (Int -&gt; TagPolicy -&gt; ShowS)
@@ -165,13 +165,13 @@ $cfrom :: forall x. TagPolicy -&gt; Rep TagPolicy x
 </span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy"><span class="hs-identifier hs-type">TagPolicy</span></a></span><span>
 </span><span id="line-114"></span><span id="newTagPolicy"><span class="annot"><span class="annottext">newTagPolicy :: Text -&gt; TagPolicy
-</span><a href="Network.AWS.IAM.TagPolicy.html#newTagPolicy"><span class="hs-identifier hs-var hs-var">newTagPolicy</span></a></span></span><span> </span><span id="local-6989586621679435043"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679435043"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.TagPolicy.html#newTagPolicy"><span class="hs-identifier hs-var hs-var">newTagPolicy</span></a></span></span><span> </span><span id="local-6989586621679435583"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435583"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>  </span><span class="annot"><span class="annottext">TagPolicy' :: Text -&gt; [Tag] -&gt; TagPolicy
 </span><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy%27"><span class="hs-identifier hs-type">TagPolicy'</span></a></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policyArn:TagPolicy' :: Text
 </span><a href="Network.AWS.IAM.TagPolicy.html#%24sel%3ApolicyArn%3ATagPolicy%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679435043"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679435583"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TagPolicy' :: [Tag]
 </span><a href="Network.AWS.IAM.TagPolicy.html#%24sel%3Atags%3ATagPolicy%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
 forall a. Monoid a =&gt; a
@@ -191,16 +191,16 @@ forall a. Monoid a =&gt; a
 -&gt; (TagPolicy -&gt; Text -&gt; TagPolicy)
 -&gt; Lens TagPolicy TagPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy%27"><span class="hs-identifier hs-type">TagPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435040"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy%27"><span class="hs-identifier hs-type">TagPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435580"><span class="annot"><span class="annottext">Text
 policyArn :: Text
 $sel:policyArn:TagPolicy' :: TagPolicy -&gt; Text
-</span><a href="#local-6989586621679435040"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679435040"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435039"><span class="annot"><span class="annottext">s :: TagPolicy
-</span><a href="#local-6989586621679435039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy%27"><span class="hs-identifier hs-type">TagPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435038"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679435038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagPolicy
-</span><a href="#local-6989586621679435039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyArn:TagPolicy' :: Text
+</span><a href="#local-6989586621679435580"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435580"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435579"><span class="annot"><span class="annottext">s :: TagPolicy
+</span><a href="#local-6989586621679435579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy%27"><span class="hs-identifier hs-type">TagPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435578"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagPolicy
+</span><a href="#local-6989586621679435579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyArn:TagPolicy' :: Text
 </span><a href="Network.AWS.IAM.TagPolicy.html#%24sel%3ApolicyArn%3ATagPolicy%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679435038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy"><span class="hs-identifier hs-type">TagPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679435578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy"><span class="hs-identifier hs-type">TagPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The list of tags that you want to attach to the IAM customer managed</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- policy. Each tag consists of a key name and an associated value.</span><span>
@@ -210,33 +210,33 @@ $sel:policyArn:TagPolicy' :: TagPolicy -&gt; Text
 -&gt; (TagPolicy -&gt; [Tag] -&gt; TagPolicy)
 -&gt; Lens TagPolicy TagPolicy [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy%27"><span class="hs-identifier hs-type">TagPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435037"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy%27"><span class="hs-identifier hs-type">TagPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435577"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:TagPolicy' :: TagPolicy -&gt; [Tag]
-</span><a href="#local-6989586621679435037"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679435037"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435036"><span class="annot"><span class="annottext">s :: TagPolicy
-</span><a href="#local-6989586621679435036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy%27"><span class="hs-identifier hs-type">TagPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435035"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679435035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagPolicy
-</span><a href="#local-6989586621679435036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagPolicy' :: [Tag]
+</span><a href="#local-6989586621679435577"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679435577"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435576"><span class="annot"><span class="annottext">s :: TagPolicy
+</span><a href="#local-6989586621679435576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy%27"><span class="hs-identifier hs-type">TagPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435575"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679435575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagPolicy
+</span><a href="#local-6989586621679435576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagPolicy' :: [Tag]
 </span><a href="Network.AWS.IAM.TagPolicy.html#%24sel%3Atags%3ATagPolicy%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679435035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy"><span class="hs-identifier hs-type">TagPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; TagPolicy -&gt; f TagPolicy)
+</span><a href="#local-6989586621679435575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy"><span class="hs-identifier hs-type">TagPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; TagPolicy -&gt; f TagPolicy)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
 -&gt; TagPolicy
 -&gt; f TagPolicy
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy"><span class="hs-identifier hs-type">TagPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy"><span class="hs-identifier hs-type">TagPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicyResponse"><span class="hs-identifier hs-type">TagPolicyResponse</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679435029"><span class="annot"><span class="annottext">request :: TagPolicy -&gt; Request TagPolicy
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679435569"><span class="annot"><span class="annottext">request :: TagPolicy -&gt; Request TagPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TagPolicy -&gt; Request TagPolicy
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679435025"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679435565"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TagPolicy
 -&gt; ClientResponse ClientBody
@@ -259,12 +259,12 @@ AWSResponse a
 TagPolicyResponse
 </span><a href="Network.AWS.IAM.TagPolicy.html#TagPolicyResponse%27"><span class="hs-identifier hs-var">TagPolicyResponse'</span></a></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435018"><span id="local-6989586621679435020"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy"><span class="hs-identifier hs-type">TagPolicy</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435558"><span id="local-6989586621679435560"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy"><span class="hs-identifier hs-type">TagPolicy</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435015"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy"><span class="hs-identifier hs-type">TagPolicy</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435555"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy"><span class="hs-identifier hs-type">TagPolicy</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy"><span class="hs-identifier hs-type">TagPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679435011"><span class="annot"><span class="annottext">toHeaders :: TagPolicy -&gt; [Header]
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679435551"><span class="annot"><span class="annottext">toHeaders :: TagPolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; TagPolicy -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -272,21 +272,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy"><span class="hs-identifier hs-type">TagPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679435006"><span class="annot"><span class="annottext">toPath :: TagPolicy -&gt; ByteString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679435546"><span class="annot"><span class="annottext">toPath :: TagPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TagPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy"><span class="hs-identifier hs-type">TagPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679435002"><span class="annot"><span class="annottext">toQuery :: TagPolicy -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy%27"><span class="hs-identifier hs-type">TagPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434999"><span id="local-6989586621679435000"><span class="annot"><span class="annottext">[Tag]
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679435542"><span class="annot"><span class="annottext">toQuery :: TagPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicy%27"><span class="hs-identifier hs-type">TagPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435539"><span id="local-6989586621679435540"><span class="annot"><span class="annottext">[Tag]
 Text
 tags :: [Tag]
 policyArn :: Text
 $sel:tags:TagPolicy' :: TagPolicy -&gt; [Tag]
 $sel:policyArn:TagPolicy' :: TagPolicy -&gt; Text
-</span><a href="#local-6989586621679434999"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679435539"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -306,7 +306,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;PolicyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679435000"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679435540"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
@@ -316,14 +316,14 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679434999"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><a href="#local-6989586621679435539"><span class="hs-identifier hs-var">tags</span></a></span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | /See:/ 'newTagPolicyResponse' smart constructor.</span><span>
-</span><span id="line-162"></span><span id="local-6989586621679434995"><span id="local-6989586621679434996"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagPolicyResponse"><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicyResponse"><span class="hs-identifier hs-var">TagPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagPolicyResponse%27"><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicyResponse%27"><span class="hs-identifier hs-var">TagPolicyResponse'</span></a></span></span><span>
+</span><span id="line-162"></span><span id="local-6989586621679435535"><span id="local-6989586621679435536"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagPolicyResponse"><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicyResponse"><span class="hs-identifier hs-var">TagPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagPolicyResponse%27"><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicyResponse%27"><span class="hs-identifier hs-var">TagPolicyResponse'</span></a></span></span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434991"><span id="local-6989586621679434993"><span class="annot"><span class="annottext">TagPolicyResponse -&gt; TagPolicyResponse -&gt; Bool
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435531"><span id="local-6989586621679435533"><span class="annot"><span class="annottext">TagPolicyResponse -&gt; TagPolicyResponse -&gt; Bool
 (TagPolicyResponse -&gt; TagPolicyResponse -&gt; Bool)
 -&gt; (TagPolicyResponse -&gt; TagPolicyResponse -&gt; Bool)
 -&gt; Eq TagPolicyResponse
@@ -332,7 +332,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagPolicyResponse -&gt; TagPolicyResponse -&gt; Bool
 == :: TagPolicyResponse -&gt; TagPolicyResponse -&gt; Bool
 $c== :: TagPolicyResponse -&gt; TagPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434983"><span id="local-6989586621679434985"><span id="local-6989586621679434987"><span id="local-6989586621679434989"><span class="annot"><span class="annottext">ReadPrec [TagPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435523"><span id="local-6989586621679435525"><span id="local-6989586621679435527"><span id="local-6989586621679435529"><span class="annot"><span class="annottext">ReadPrec [TagPolicyResponse]
 ReadPrec TagPolicyResponse
 Int -&gt; ReadS TagPolicyResponse
 ReadS [TagPolicyResponse]
@@ -352,7 +352,7 @@ readList :: ReadS [TagPolicyResponse]
 $creadList :: ReadS [TagPolicyResponse]
 readsPrec :: Int -&gt; ReadS TagPolicyResponse
 $creadsPrec :: Int -&gt; ReadS TagPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434977"><span id="local-6989586621679434979"><span id="local-6989586621679434981"><span class="annot"><span class="annottext">Int -&gt; TagPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435517"><span id="local-6989586621679435519"><span id="local-6989586621679435521"><span class="annot"><span class="annottext">Int -&gt; TagPolicyResponse -&gt; ShowS
 [TagPolicyResponse] -&gt; ShowS
 TagPolicyResponse -&gt; String
 (Int -&gt; TagPolicyResponse -&gt; ShowS)
@@ -388,5 +388,5 @@ $cfrom :: forall x. TagPolicyResponse -&gt; Rep TagPolicyResponse x
 </span><a href="Network.AWS.IAM.TagPolicy.html#newTagPolicyResponse"><span class="hs-identifier hs-var hs-var">newTagPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TagPolicyResponse
 </span><a href="Network.AWS.IAM.TagPolicy.html#TagPolicyResponse%27"><span class="hs-identifier hs-var">TagPolicyResponse'</span></a></span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434973"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicyResponse"><span class="hs-identifier hs-type">TagPolicyResponse</span></a></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435513"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagPolicy.html#TagPolicyResponse"><span class="hs-identifier hs-type">TagPolicyResponse</span></a></span></span><span>
 </span><span id="line-176"></span></pre></body></html>

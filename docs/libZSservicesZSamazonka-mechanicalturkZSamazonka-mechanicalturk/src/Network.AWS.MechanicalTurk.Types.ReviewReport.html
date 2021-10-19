@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- HIT.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newReviewReport' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679246282"><span id="local-6989586621679246283"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReviewReport"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport"><span class="hs-identifier hs-var">ReviewReport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReviewReport%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport%27"><span class="hs-identifier hs-var">ReviewReport'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679246403"><span id="local-6989586621679246404"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReviewReport"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport"><span class="hs-identifier hs-var">ReviewReport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReviewReport%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport%27"><span class="hs-identifier hs-var">ReviewReport'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of ReviewAction objects for each action specified in the Review</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Policy.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AreviewActions%3AReviewReport%27"><span class="annot"><span class="annottext">ReviewReport -&gt; Maybe [ReviewActionDetail]
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AreviewResults%3AReviewReport%27"><span class="annot"><span class="annottext">ReviewReport -&gt; Maybe [ReviewResultDetail]
 </span><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#%24sel%3AreviewResults%3AReviewReport%27"><span class="hs-identifier hs-var hs-var">reviewResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewResultDetail.html#ReviewResultDetail"><span class="hs-identifier hs-type">ReviewResultDetail</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246275"><span id="local-6989586621679246277"><span class="annot"><span class="annottext">ReviewReport -&gt; ReviewReport -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246396"><span id="local-6989586621679246398"><span class="annot"><span class="annottext">ReviewReport -&gt; ReviewReport -&gt; Bool
 (ReviewReport -&gt; ReviewReport -&gt; Bool)
 -&gt; (ReviewReport -&gt; ReviewReport -&gt; Bool) -&gt; Eq ReviewReport
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReviewReport -&gt; ReviewReport -&gt; Bool
 == :: ReviewReport -&gt; ReviewReport -&gt; Bool
 $c== :: ReviewReport -&gt; ReviewReport -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246266"><span id="local-6989586621679246268"><span id="local-6989586621679246270"><span id="local-6989586621679246272"><span class="annot"><span class="annottext">ReadPrec [ReviewReport]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246387"><span id="local-6989586621679246389"><span id="local-6989586621679246391"><span id="local-6989586621679246393"><span class="annot"><span class="annottext">ReadPrec [ReviewReport]
 ReadPrec ReviewReport
 Int -&gt; ReadS ReviewReport
 ReadS [ReviewReport]
@@ -67,7 +67,7 @@ readList :: ReadS [ReviewReport]
 $creadList :: ReadS [ReviewReport]
 readsPrec :: Int -&gt; ReadS ReviewReport
 $creadsPrec :: Int -&gt; ReadS ReviewReport
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246259"><span id="local-6989586621679246261"><span id="local-6989586621679246263"><span class="annot"><span class="annottext">Int -&gt; ReviewReport -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246380"><span id="local-6989586621679246382"><span id="local-6989586621679246384"><span class="annot"><span class="annottext">Int -&gt; ReviewReport -&gt; ShowS
 [ReviewReport] -&gt; ShowS
 ReviewReport -&gt; String
 (Int -&gt; ReviewReport -&gt; ShowS)
@@ -136,16 +136,16 @@ forall a. Maybe a
      (Maybe [ReviewActionDetail])
      (Maybe [ReviewActionDetail])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport%27"><span class="hs-identifier hs-type">ReviewReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246250"><span class="annot"><span class="annottext">Maybe [ReviewActionDetail]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport%27"><span class="hs-identifier hs-type">ReviewReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246371"><span class="annot"><span class="annottext">Maybe [ReviewActionDetail]
 reviewActions :: Maybe [ReviewActionDetail]
 $sel:reviewActions:ReviewReport' :: ReviewReport -&gt; Maybe [ReviewActionDetail]
-</span><a href="#local-6989586621679246250"><span class="hs-identifier hs-var hs-var">reviewActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReviewActionDetail]
-</span><a href="#local-6989586621679246250"><span class="hs-identifier hs-var">reviewActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246249"><span class="annot"><span class="annottext">s :: ReviewReport
-</span><a href="#local-6989586621679246249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport%27"><span class="hs-identifier hs-type">ReviewReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246248"><span class="annot"><span class="annottext">Maybe [ReviewActionDetail]
-</span><a href="#local-6989586621679246248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReviewReport
-</span><a href="#local-6989586621679246249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reviewActions:ReviewReport' :: Maybe [ReviewActionDetail]
+</span><a href="#local-6989586621679246371"><span class="hs-identifier hs-var hs-var">reviewActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReviewActionDetail]
+</span><a href="#local-6989586621679246371"><span class="hs-identifier hs-var">reviewActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246370"><span class="annot"><span class="annottext">s :: ReviewReport
+</span><a href="#local-6989586621679246370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport%27"><span class="hs-identifier hs-type">ReviewReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246369"><span class="annot"><span class="annottext">Maybe [ReviewActionDetail]
+</span><a href="#local-6989586621679246369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReviewReport
+</span><a href="#local-6989586621679246370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reviewActions:ReviewReport' :: Maybe [ReviewActionDetail]
 </span><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#%24sel%3AreviewActions%3AReviewReport%27"><span class="hs-identifier hs-var">reviewActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReviewActionDetail]
-</span><a href="#local-6989586621679246248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport"><span class="hs-identifier hs-type">ReviewReport</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReviewActionDetail] -&gt; f (Maybe [ReviewActionDetail]))
+</span><a href="#local-6989586621679246369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport"><span class="hs-identifier hs-type">ReviewReport</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReviewActionDetail] -&gt; f (Maybe [ReviewActionDetail]))
  -&gt; ReviewReport -&gt; f ReviewReport)
 -&gt; ((Maybe [ReviewActionDetail] -&gt; f (Maybe [ReviewActionDetail]))
     -&gt; Maybe [ReviewActionDetail] -&gt; f (Maybe [ReviewActionDetail]))
@@ -171,8 +171,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ReviewActionDetail]
   [ReviewActionDetail]
   [ReviewActionDetail]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | A list of ReviewResults objects for each action specified in the Review</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- Policy.</span><span>
@@ -187,16 +187,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [ReviewResultDetail])
      (Maybe [ReviewResultDetail])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport%27"><span class="hs-identifier hs-type">ReviewReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246243"><span class="annot"><span class="annottext">Maybe [ReviewResultDetail]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport%27"><span class="hs-identifier hs-type">ReviewReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246364"><span class="annot"><span class="annottext">Maybe [ReviewResultDetail]
 reviewResults :: Maybe [ReviewResultDetail]
 $sel:reviewResults:ReviewReport' :: ReviewReport -&gt; Maybe [ReviewResultDetail]
-</span><a href="#local-6989586621679246243"><span class="hs-identifier hs-var hs-var">reviewResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReviewResultDetail]
-</span><a href="#local-6989586621679246243"><span class="hs-identifier hs-var">reviewResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246242"><span class="annot"><span class="annottext">s :: ReviewReport
-</span><a href="#local-6989586621679246242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport%27"><span class="hs-identifier hs-type">ReviewReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246241"><span class="annot"><span class="annottext">Maybe [ReviewResultDetail]
-</span><a href="#local-6989586621679246241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReviewReport
-</span><a href="#local-6989586621679246242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reviewResults:ReviewReport' :: Maybe [ReviewResultDetail]
+</span><a href="#local-6989586621679246364"><span class="hs-identifier hs-var hs-var">reviewResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReviewResultDetail]
+</span><a href="#local-6989586621679246364"><span class="hs-identifier hs-var">reviewResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246363"><span class="annot"><span class="annottext">s :: ReviewReport
+</span><a href="#local-6989586621679246363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport%27"><span class="hs-identifier hs-type">ReviewReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246362"><span class="annot"><span class="annottext">Maybe [ReviewResultDetail]
+</span><a href="#local-6989586621679246362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReviewReport
+</span><a href="#local-6989586621679246363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reviewResults:ReviewReport' :: Maybe [ReviewResultDetail]
 </span><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#%24sel%3AreviewResults%3AReviewReport%27"><span class="hs-identifier hs-var">reviewResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReviewResultDetail]
-</span><a href="#local-6989586621679246241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport"><span class="hs-identifier hs-type">ReviewReport</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReviewResultDetail] -&gt; f (Maybe [ReviewResultDetail]))
+</span><a href="#local-6989586621679246362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport"><span class="hs-identifier hs-type">ReviewReport</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReviewResultDetail] -&gt; f (Maybe [ReviewResultDetail]))
  -&gt; ReviewReport -&gt; f ReviewReport)
 -&gt; ((Maybe [ReviewResultDetail] -&gt; f (Maybe [ReviewResultDetail]))
     -&gt; Maybe [ReviewResultDetail] -&gt; f (Maybe [ReviewResultDetail]))
@@ -222,11 +222,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ReviewResultDetail]
   [ReviewResultDetail]
   [ReviewResultDetail]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246238"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport"><span class="hs-identifier hs-type">ReviewReport</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679246236"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReviewReport
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246359"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport"><span class="hs-identifier hs-type">ReviewReport</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679246357"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReviewReport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReviewReport) -&gt; Value -&gt; Parser ReviewReport
@@ -234,8 +234,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReviewReport&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679246233"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246233"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679246354"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246354"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ReviewActionDetail]
 -&gt; Maybe [ReviewResultDetail] -&gt; ReviewReport
 </span><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport%27"><span class="hs-identifier hs-var">ReviewReport'</span></a></span><span>
@@ -245,7 +245,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [ReviewResultDetail] -&gt; ReviewReport)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ReviewActionDetail]))
+</span><a href="#local-6989586621679246354"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ReviewActionDetail]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReviewActions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ReviewActionDetail]))
@@ -259,7 +259,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [ReviewResultDetail]) -&gt; Parser ReviewReport
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ReviewResultDetail]))
+</span><a href="#local-6989586621679246354"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ReviewResultDetail]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReviewResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ReviewResultDetail]))
@@ -271,7 +271,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246226"><span id="local-6989586621679246228"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport"><span class="hs-identifier hs-type">ReviewReport</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246347"><span id="local-6989586621679246349"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport"><span class="hs-identifier hs-type">ReviewReport</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246223"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport"><span class="hs-identifier hs-type">ReviewReport</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246344"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport"><span class="hs-identifier hs-type">ReviewReport</span></a></span></span><span>
 </span><span id="line-86"></span></pre></body></html>

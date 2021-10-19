@@ -42,13 +42,13 @@
 </span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-44"></span><span>
-</span><span id="line-45"></span><span id="local-6989586621679610189"><span id="local-6989586621679610190"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HeaderEnum"><span class="annot"><a href="Network.AWS.Lightsail.Types.HeaderEnum.html#HeaderEnum"><span class="hs-identifier hs-var">HeaderEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HeaderEnum%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.HeaderEnum.html#HeaderEnum%27"><span class="hs-identifier hs-var">HeaderEnum'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679611082"><span id="local-6989586621679611083"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HeaderEnum"><span class="annot"><a href="Network.AWS.Lightsail.Types.HeaderEnum.html#HeaderEnum"><span class="hs-identifier hs-var">HeaderEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HeaderEnum%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.HeaderEnum.html#HeaderEnum%27"><span class="hs-identifier hs-var">HeaderEnum'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHeaderEnum"><span class="annot"><span class="annottext">HeaderEnum -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.HeaderEnum.html#fromHeaderEnum"><span class="hs-identifier hs-var hs-var">fromHeaderEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679610181"><span id="local-6989586621679610183"><span id="local-6989586621679610185"><span class="annot"><span class="annottext">Int -&gt; HeaderEnum -&gt; ShowS
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679611074"><span id="local-6989586621679611076"><span id="local-6989586621679611078"><span class="annot"><span class="annottext">Int -&gt; HeaderEnum -&gt; ShowS
 [HeaderEnum] -&gt; ShowS
 HeaderEnum -&gt; String
 (Int -&gt; HeaderEnum -&gt; ShowS)
@@ -64,7 +64,7 @@ $cshow :: HeaderEnum -&gt; String
 showsPrec :: Int -&gt; HeaderEnum -&gt; ShowS
 $cshowsPrec :: Int -&gt; HeaderEnum -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679610172"><span id="local-6989586621679610174"><span id="local-6989586621679610176"><span id="local-6989586621679610178"><span class="annot"><span class="annottext">ReadPrec [HeaderEnum]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679611065"><span id="local-6989586621679611067"><span id="local-6989586621679611069"><span id="local-6989586621679611071"><span class="annot"><span class="annottext">ReadPrec [HeaderEnum]
 ReadPrec HeaderEnum
 Int -&gt; ReadS HeaderEnum
 ReadS [HeaderEnum]
@@ -85,7 +85,7 @@ $creadList :: ReadS [HeaderEnum]
 readsPrec :: Int -&gt; ReadS HeaderEnum
 $creadsPrec :: Int -&gt; ReadS HeaderEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679610167"><span id="local-6989586621679610169"><span class="annot"><span class="annottext">HeaderEnum -&gt; HeaderEnum -&gt; Bool
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679611060"><span id="local-6989586621679611062"><span class="annot"><span class="annottext">HeaderEnum -&gt; HeaderEnum -&gt; Bool
 (HeaderEnum -&gt; HeaderEnum -&gt; Bool)
 -&gt; (HeaderEnum -&gt; HeaderEnum -&gt; Bool) -&gt; Eq HeaderEnum
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -94,7 +94,7 @@ $c/= :: HeaderEnum -&gt; HeaderEnum -&gt; Bool
 == :: HeaderEnum -&gt; HeaderEnum -&gt; Bool
 $c== :: HeaderEnum -&gt; HeaderEnum -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679610151"><span id="local-6989586621679610153"><span id="local-6989586621679610155"><span id="local-6989586621679610157"><span id="local-6989586621679610159"><span id="local-6989586621679610161"><span id="local-6989586621679610163"><span class="annot"><span class="annottext">Eq HeaderEnum
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679611044"><span id="local-6989586621679611046"><span id="local-6989586621679611048"><span id="local-6989586621679611050"><span id="local-6989586621679611052"><span id="local-6989586621679611054"><span id="local-6989586621679611056"><span class="annot"><span class="annottext">Eq HeaderEnum
 Eq HeaderEnum
 -&gt; (HeaderEnum -&gt; HeaderEnum -&gt; Ordering)
 -&gt; (HeaderEnum -&gt; HeaderEnum -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. HeaderEnum -&gt; Rep HeaderEnum x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679610143"><span id="local-6989586621679610145"><span class="annot"><span class="annottext">Int -&gt; HeaderEnum -&gt; Int
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679611036"><span id="local-6989586621679611038"><span class="annot"><span class="annottext">Int -&gt; HeaderEnum -&gt; Int
 HeaderEnum -&gt; Int
 (Int -&gt; HeaderEnum -&gt; Int)
 -&gt; (HeaderEnum -&gt; Int) -&gt; Hashable HeaderEnum
@@ -154,49 +154,49 @@ $chash :: HeaderEnum -&gt; Int
 hashWithSalt :: Int -&gt; HeaderEnum -&gt; Int
 $chashWithSalt :: Int -&gt; HeaderEnum -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679610140"><span class="annot"><span class="annottext">HeaderEnum -&gt; ()
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679611033"><span class="annot"><span class="annottext">HeaderEnum -&gt; ()
 (HeaderEnum -&gt; ()) -&gt; NFData HeaderEnum
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HeaderEnum -&gt; ()
 $crnf :: HeaderEnum -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679610137"><span class="annot"><span class="annottext">Text -&gt; Either String HeaderEnum
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679611030"><span class="annot"><span class="annottext">Text -&gt; Either String HeaderEnum
 (Text -&gt; Either String HeaderEnum) -&gt; FromText HeaderEnum
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HeaderEnum
 $cfromText :: Text -&gt; Either String HeaderEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679610134"><span class="annot"><span class="annottext">HeaderEnum -&gt; Text
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679611027"><span class="annot"><span class="annottext">HeaderEnum -&gt; Text
 (HeaderEnum -&gt; Text) -&gt; ToText HeaderEnum
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HeaderEnum -&gt; Text
 $ctoText :: HeaderEnum -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679610131"><span class="annot"><span class="annottext">HeaderEnum -&gt; ByteString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679611024"><span class="annot"><span class="annottext">HeaderEnum -&gt; ByteString
 (HeaderEnum -&gt; ByteString) -&gt; ToByteString HeaderEnum
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HeaderEnum -&gt; ByteString
 $ctoBS :: HeaderEnum -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679610128"><span class="annot"><span class="annottext">HeaderEnum -&gt; ByteStringBuilder
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679611021"><span class="annot"><span class="annottext">HeaderEnum -&gt; ByteStringBuilder
 (HeaderEnum -&gt; ByteStringBuilder) -&gt; ToLog HeaderEnum
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HeaderEnum -&gt; ByteStringBuilder
 $cbuild :: HeaderEnum -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679610125"><span class="annot"><span class="annottext">HeaderName -&gt; HeaderEnum -&gt; [Header]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679611018"><span class="annot"><span class="annottext">HeaderName -&gt; HeaderEnum -&gt; [Header]
 (HeaderName -&gt; HeaderEnum -&gt; [Header]) -&gt; ToHeader HeaderEnum
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HeaderEnum -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HeaderEnum -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679610122"><span class="annot"><span class="annottext">HeaderEnum -&gt; QueryString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679611015"><span class="annot"><span class="annottext">HeaderEnum -&gt; QueryString
 (HeaderEnum -&gt; QueryString) -&gt; ToQuery HeaderEnum
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HeaderEnum -&gt; QueryString
 $ctoQuery :: HeaderEnum -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679610117"><span id="local-6989586621679610119"><span class="annot"><span class="annottext">Value -&gt; Parser [HeaderEnum]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679611010"><span id="local-6989586621679611012"><span class="annot"><span class="annottext">Value -&gt; Parser [HeaderEnum]
 Value -&gt; Parser HeaderEnum
 (Value -&gt; Parser HeaderEnum)
 -&gt; (Value -&gt; Parser [HeaderEnum]) -&gt; FromJSON HeaderEnum
@@ -207,7 +207,7 @@ $cparseJSONList :: Value -&gt; Parser [HeaderEnum]
 parseJSON :: Value -&gt; Parser HeaderEnum
 $cparseJSON :: Value -&gt; Parser HeaderEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679610112"><span id="local-6989586621679610114"><span class="annot"><span class="annottext">FromJSONKeyFunction [HeaderEnum]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679611005"><span id="local-6989586621679611007"><span class="annot"><span class="annottext">FromJSONKeyFunction [HeaderEnum]
 FromJSONKeyFunction HeaderEnum
 FromJSONKeyFunction HeaderEnum
 -&gt; FromJSONKeyFunction [HeaderEnum] -&gt; FromJSONKey HeaderEnum
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HeaderEnum]
 fromJSONKey :: FromJSONKeyFunction HeaderEnum
 $cfromJSONKey :: FromJSONKeyFunction HeaderEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679610103"><span id="local-6989586621679610105"><span id="local-6989586621679610107"><span id="local-6989586621679610109"><span class="annot"><span class="annottext">[HeaderEnum] -&gt; Encoding
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679610996"><span id="local-6989586621679610998"><span id="local-6989586621679611000"><span id="local-6989586621679611002"><span class="annot"><span class="annottext">[HeaderEnum] -&gt; Encoding
 [HeaderEnum] -&gt; Value
 HeaderEnum -&gt; Encoding
 HeaderEnum -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: HeaderEnum -&gt; Encoding
 toJSON :: HeaderEnum -&gt; Value
 $ctoJSON :: HeaderEnum -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679610098"><span id="local-6989586621679610100"><span class="annot"><span class="annottext">ToJSONKeyFunction [HeaderEnum]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679610991"><span id="local-6989586621679610993"><span class="annot"><span class="annottext">ToJSONKeyFunction [HeaderEnum]
 ToJSONKeyFunction HeaderEnum
 ToJSONKeyFunction HeaderEnum
 -&gt; ToJSONKeyFunction [HeaderEnum] -&gt; ToJSONKey HeaderEnum
@@ -253,13 +253,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HeaderEnum]
 toJSONKey :: ToJSONKeyFunction HeaderEnum
 $ctoJSONKey :: ToJSONKeyFunction HeaderEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679610095"><span class="annot"><span class="annottext">[Node] -&gt; Either String HeaderEnum
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679610988"><span class="annot"><span class="annottext">[Node] -&gt; Either String HeaderEnum
 ([Node] -&gt; Either String HeaderEnum) -&gt; FromXML HeaderEnum
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HeaderEnum
 $cparseXML :: [Node] -&gt; Either String HeaderEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679610092"><span class="annot"><span class="annottext">HeaderEnum -&gt; XML
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679610985"><span class="annot"><span class="annottext">HeaderEnum -&gt; XML
 (HeaderEnum -&gt; XML) -&gt; ToXML HeaderEnum
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HeaderEnum -&gt; XML

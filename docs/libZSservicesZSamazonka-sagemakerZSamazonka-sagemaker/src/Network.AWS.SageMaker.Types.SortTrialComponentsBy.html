@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680342508"><span id="local-6989586621680342509"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SortTrialComponentsBy"><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialComponentsBy.html#SortTrialComponentsBy"><span class="hs-identifier hs-var">SortTrialComponentsBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SortTrialComponentsBy%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialComponentsBy.html#SortTrialComponentsBy%27"><span class="hs-identifier hs-var">SortTrialComponentsBy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680343922"><span id="local-6989586621680343923"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SortTrialComponentsBy"><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialComponentsBy.html#SortTrialComponentsBy"><span class="hs-identifier hs-var">SortTrialComponentsBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SortTrialComponentsBy%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialComponentsBy.html#SortTrialComponentsBy%27"><span class="hs-identifier hs-var">SortTrialComponentsBy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSortTrialComponentsBy"><span class="annot"><span class="annottext">SortTrialComponentsBy -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.SortTrialComponentsBy.html#fromSortTrialComponentsBy"><span class="hs-identifier hs-var hs-var">fromSortTrialComponentsBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680342500"><span id="local-6989586621680342502"><span id="local-6989586621680342504"><span class="annot"><span class="annottext">Int -&gt; SortTrialComponentsBy -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680343914"><span id="local-6989586621680343916"><span id="local-6989586621680343918"><span class="annot"><span class="annottext">Int -&gt; SortTrialComponentsBy -&gt; ShowS
 [SortTrialComponentsBy] -&gt; ShowS
 SortTrialComponentsBy -&gt; String
 (Int -&gt; SortTrialComponentsBy -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: SortTrialComponentsBy -&gt; String
 showsPrec :: Int -&gt; SortTrialComponentsBy -&gt; ShowS
 $cshowsPrec :: Int -&gt; SortTrialComponentsBy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680342491"><span id="local-6989586621680342493"><span id="local-6989586621680342495"><span id="local-6989586621680342497"><span class="annot"><span class="annottext">ReadPrec [SortTrialComponentsBy]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680343905"><span id="local-6989586621680343907"><span id="local-6989586621680343909"><span id="local-6989586621680343911"><span class="annot"><span class="annottext">ReadPrec [SortTrialComponentsBy]
 ReadPrec SortTrialComponentsBy
 Int -&gt; ReadS SortTrialComponentsBy
 ReadS [SortTrialComponentsBy]
@@ -72,7 +72,7 @@ $creadList :: ReadS [SortTrialComponentsBy]
 readsPrec :: Int -&gt; ReadS SortTrialComponentsBy
 $creadsPrec :: Int -&gt; ReadS SortTrialComponentsBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680342486"><span id="local-6989586621680342488"><span class="annot"><span class="annottext">SortTrialComponentsBy -&gt; SortTrialComponentsBy -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680343900"><span id="local-6989586621680343902"><span class="annot"><span class="annottext">SortTrialComponentsBy -&gt; SortTrialComponentsBy -&gt; Bool
 (SortTrialComponentsBy -&gt; SortTrialComponentsBy -&gt; Bool)
 -&gt; (SortTrialComponentsBy -&gt; SortTrialComponentsBy -&gt; Bool)
 -&gt; Eq SortTrialComponentsBy
@@ -82,7 +82,7 @@ $c/= :: SortTrialComponentsBy -&gt; SortTrialComponentsBy -&gt; Bool
 == :: SortTrialComponentsBy -&gt; SortTrialComponentsBy -&gt; Bool
 $c== :: SortTrialComponentsBy -&gt; SortTrialComponentsBy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680342470"><span id="local-6989586621680342472"><span id="local-6989586621680342474"><span id="local-6989586621680342476"><span id="local-6989586621680342478"><span id="local-6989586621680342480"><span id="local-6989586621680342482"><span class="annot"><span class="annottext">Eq SortTrialComponentsBy
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680343884"><span id="local-6989586621680343886"><span id="local-6989586621680343888"><span id="local-6989586621680343890"><span id="local-6989586621680343892"><span id="local-6989586621680343894"><span id="local-6989586621680343896"><span class="annot"><span class="annottext">Eq SortTrialComponentsBy
 Eq SortTrialComponentsBy
 -&gt; (SortTrialComponentsBy -&gt; SortTrialComponentsBy -&gt; Ordering)
 -&gt; (SortTrialComponentsBy -&gt; SortTrialComponentsBy -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. SortTrialComponentsBy -&gt; Rep SortTrialComponentsBy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680342462"><span id="local-6989586621680342464"><span class="annot"><span class="annottext">Int -&gt; SortTrialComponentsBy -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680343876"><span id="local-6989586621680343878"><span class="annot"><span class="annottext">Int -&gt; SortTrialComponentsBy -&gt; Int
 SortTrialComponentsBy -&gt; Int
 (Int -&gt; SortTrialComponentsBy -&gt; Int)
 -&gt; (SortTrialComponentsBy -&gt; Int) -&gt; Hashable SortTrialComponentsBy
@@ -150,54 +150,54 @@ $chash :: SortTrialComponentsBy -&gt; Int
 hashWithSalt :: Int -&gt; SortTrialComponentsBy -&gt; Int
 $chashWithSalt :: Int -&gt; SortTrialComponentsBy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680342459"><span class="annot"><span class="annottext">SortTrialComponentsBy -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680343873"><span class="annot"><span class="annottext">SortTrialComponentsBy -&gt; ()
 (SortTrialComponentsBy -&gt; ()) -&gt; NFData SortTrialComponentsBy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SortTrialComponentsBy -&gt; ()
 $crnf :: SortTrialComponentsBy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680342456"><span class="annot"><span class="annottext">Text -&gt; Either String SortTrialComponentsBy
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680343870"><span class="annot"><span class="annottext">Text -&gt; Either String SortTrialComponentsBy
 (Text -&gt; Either String SortTrialComponentsBy)
 -&gt; FromText SortTrialComponentsBy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SortTrialComponentsBy
 $cfromText :: Text -&gt; Either String SortTrialComponentsBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680342453"><span class="annot"><span class="annottext">SortTrialComponentsBy -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680343867"><span class="annot"><span class="annottext">SortTrialComponentsBy -&gt; Text
 (SortTrialComponentsBy -&gt; Text) -&gt; ToText SortTrialComponentsBy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SortTrialComponentsBy -&gt; Text
 $ctoText :: SortTrialComponentsBy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680342450"><span class="annot"><span class="annottext">SortTrialComponentsBy -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680343864"><span class="annot"><span class="annottext">SortTrialComponentsBy -&gt; ByteString
 (SortTrialComponentsBy -&gt; ByteString)
 -&gt; ToByteString SortTrialComponentsBy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SortTrialComponentsBy -&gt; ByteString
 $ctoBS :: SortTrialComponentsBy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680342447"><span class="annot"><span class="annottext">SortTrialComponentsBy -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680343861"><span class="annot"><span class="annottext">SortTrialComponentsBy -&gt; ByteStringBuilder
 (SortTrialComponentsBy -&gt; ByteStringBuilder)
 -&gt; ToLog SortTrialComponentsBy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SortTrialComponentsBy -&gt; ByteStringBuilder
 $cbuild :: SortTrialComponentsBy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680342444"><span class="annot"><span class="annottext">HeaderName -&gt; SortTrialComponentsBy -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680343858"><span class="annot"><span class="annottext">HeaderName -&gt; SortTrialComponentsBy -&gt; [Header]
 (HeaderName -&gt; SortTrialComponentsBy -&gt; [Header])
 -&gt; ToHeader SortTrialComponentsBy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SortTrialComponentsBy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SortTrialComponentsBy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680342441"><span class="annot"><span class="annottext">SortTrialComponentsBy -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680343855"><span class="annot"><span class="annottext">SortTrialComponentsBy -&gt; QueryString
 (SortTrialComponentsBy -&gt; QueryString)
 -&gt; ToQuery SortTrialComponentsBy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SortTrialComponentsBy -&gt; QueryString
 $ctoQuery :: SortTrialComponentsBy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680342436"><span id="local-6989586621680342438"><span class="annot"><span class="annottext">Value -&gt; Parser [SortTrialComponentsBy]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680343850"><span id="local-6989586621680343852"><span class="annot"><span class="annottext">Value -&gt; Parser [SortTrialComponentsBy]
 Value -&gt; Parser SortTrialComponentsBy
 (Value -&gt; Parser SortTrialComponentsBy)
 -&gt; (Value -&gt; Parser [SortTrialComponentsBy])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [SortTrialComponentsBy]
 parseJSON :: Value -&gt; Parser SortTrialComponentsBy
 $cparseJSON :: Value -&gt; Parser SortTrialComponentsBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680342431"><span id="local-6989586621680342433"><span class="annot"><span class="annottext">FromJSONKeyFunction [SortTrialComponentsBy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680343845"><span id="local-6989586621680343847"><span class="annot"><span class="annottext">FromJSONKeyFunction [SortTrialComponentsBy]
 FromJSONKeyFunction SortTrialComponentsBy
 FromJSONKeyFunction SortTrialComponentsBy
 -&gt; FromJSONKeyFunction [SortTrialComponentsBy]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SortTrialComponentsBy]
 fromJSONKey :: FromJSONKeyFunction SortTrialComponentsBy
 $cfromJSONKey :: FromJSONKeyFunction SortTrialComponentsBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680342422"><span id="local-6989586621680342424"><span id="local-6989586621680342426"><span id="local-6989586621680342428"><span class="annot"><span class="annottext">[SortTrialComponentsBy] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680343836"><span id="local-6989586621680343838"><span id="local-6989586621680343840"><span id="local-6989586621680343842"><span class="annot"><span class="annottext">[SortTrialComponentsBy] -&gt; Encoding
 [SortTrialComponentsBy] -&gt; Value
 SortTrialComponentsBy -&gt; Encoding
 SortTrialComponentsBy -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: SortTrialComponentsBy -&gt; Encoding
 toJSON :: SortTrialComponentsBy -&gt; Value
 $ctoJSON :: SortTrialComponentsBy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680342417"><span id="local-6989586621680342419"><span class="annot"><span class="annottext">ToJSONKeyFunction [SortTrialComponentsBy]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680343831"><span id="local-6989586621680343833"><span class="annot"><span class="annottext">ToJSONKeyFunction [SortTrialComponentsBy]
 ToJSONKeyFunction SortTrialComponentsBy
 ToJSONKeyFunction SortTrialComponentsBy
 -&gt; ToJSONKeyFunction [SortTrialComponentsBy]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SortTrialComponentsBy]
 toJSONKey :: ToJSONKeyFunction SortTrialComponentsBy
 $ctoJSONKey :: ToJSONKeyFunction SortTrialComponentsBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680342414"><span class="annot"><span class="annottext">[Node] -&gt; Either String SortTrialComponentsBy
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680343828"><span class="annot"><span class="annottext">[Node] -&gt; Either String SortTrialComponentsBy
 ([Node] -&gt; Either String SortTrialComponentsBy)
 -&gt; FromXML SortTrialComponentsBy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SortTrialComponentsBy
 $cparseXML :: [Node] -&gt; Either String SortTrialComponentsBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680342411"><span class="annot"><span class="annottext">SortTrialComponentsBy -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680343825"><span class="annot"><span class="annottext">SortTrialComponentsBy -&gt; XML
 (SortTrialComponentsBy -&gt; XML) -&gt; ToXML SortTrialComponentsBy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SortTrialComponentsBy -&gt; XML

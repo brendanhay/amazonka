@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679365996"><span id="local-6989586621679365997"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DomainNameStatus"><span class="annot"><a href="Network.AWS.APIGateway.Types.DomainNameStatus.html#DomainNameStatus"><span class="hs-identifier hs-var">DomainNameStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainNameStatus%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.DomainNameStatus.html#DomainNameStatus%27"><span class="hs-identifier hs-var">DomainNameStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679366493"><span id="local-6989586621679366494"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DomainNameStatus"><span class="annot"><a href="Network.AWS.APIGateway.Types.DomainNameStatus.html#DomainNameStatus"><span class="hs-identifier hs-var">DomainNameStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainNameStatus%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.DomainNameStatus.html#DomainNameStatus%27"><span class="hs-identifier hs-var">DomainNameStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDomainNameStatus"><span class="annot"><span class="annottext">DomainNameStatus -&gt; Text
 </span><a href="Network.AWS.APIGateway.Types.DomainNameStatus.html#fromDomainNameStatus"><span class="hs-identifier hs-var hs-var">fromDomainNameStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365988"><span id="local-6989586621679365990"><span id="local-6989586621679365992"><span class="annot"><span class="annottext">Int -&gt; DomainNameStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366485"><span id="local-6989586621679366487"><span id="local-6989586621679366489"><span class="annot"><span class="annottext">Int -&gt; DomainNameStatus -&gt; ShowS
 [DomainNameStatus] -&gt; ShowS
 DomainNameStatus -&gt; String
 (Int -&gt; DomainNameStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: DomainNameStatus -&gt; String
 showsPrec :: Int -&gt; DomainNameStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; DomainNameStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679365979"><span id="local-6989586621679365981"><span id="local-6989586621679365983"><span id="local-6989586621679365985"><span class="annot"><span class="annottext">ReadPrec [DomainNameStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679366476"><span id="local-6989586621679366478"><span id="local-6989586621679366480"><span id="local-6989586621679366482"><span class="annot"><span class="annottext">ReadPrec [DomainNameStatus]
 ReadPrec DomainNameStatus
 Int -&gt; ReadS DomainNameStatus
 ReadS [DomainNameStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [DomainNameStatus]
 readsPrec :: Int -&gt; ReadS DomainNameStatus
 $creadsPrec :: Int -&gt; ReadS DomainNameStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679365974"><span id="local-6989586621679365976"><span class="annot"><span class="annottext">DomainNameStatus -&gt; DomainNameStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679366471"><span id="local-6989586621679366473"><span class="annot"><span class="annottext">DomainNameStatus -&gt; DomainNameStatus -&gt; Bool
 (DomainNameStatus -&gt; DomainNameStatus -&gt; Bool)
 -&gt; (DomainNameStatus -&gt; DomainNameStatus -&gt; Bool)
 -&gt; Eq DomainNameStatus
@@ -85,7 +85,7 @@ $c/= :: DomainNameStatus -&gt; DomainNameStatus -&gt; Bool
 == :: DomainNameStatus -&gt; DomainNameStatus -&gt; Bool
 $c== :: DomainNameStatus -&gt; DomainNameStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679365958"><span id="local-6989586621679365960"><span id="local-6989586621679365962"><span id="local-6989586621679365964"><span id="local-6989586621679365966"><span id="local-6989586621679365968"><span id="local-6989586621679365970"><span class="annot"><span class="annottext">Eq DomainNameStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679366455"><span id="local-6989586621679366457"><span id="local-6989586621679366459"><span id="local-6989586621679366461"><span id="local-6989586621679366463"><span id="local-6989586621679366465"><span id="local-6989586621679366467"><span class="annot"><span class="annottext">Eq DomainNameStatus
 Eq DomainNameStatus
 -&gt; (DomainNameStatus -&gt; DomainNameStatus -&gt; Ordering)
 -&gt; (DomainNameStatus -&gt; DomainNameStatus -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. DomainNameStatus -&gt; Rep DomainNameStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365950"><span id="local-6989586621679365952"><span class="annot"><span class="annottext">Int -&gt; DomainNameStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366447"><span id="local-6989586621679366449"><span class="annot"><span class="annottext">Int -&gt; DomainNameStatus -&gt; Int
 DomainNameStatus -&gt; Int
 (Int -&gt; DomainNameStatus -&gt; Int)
 -&gt; (DomainNameStatus -&gt; Int) -&gt; Hashable DomainNameStatus
@@ -146,51 +146,51 @@ $chash :: DomainNameStatus -&gt; Int
 hashWithSalt :: Int -&gt; DomainNameStatus -&gt; Int
 $chashWithSalt :: Int -&gt; DomainNameStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679365947"><span class="annot"><span class="annottext">DomainNameStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679366444"><span class="annot"><span class="annottext">DomainNameStatus -&gt; ()
 (DomainNameStatus -&gt; ()) -&gt; NFData DomainNameStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DomainNameStatus -&gt; ()
 $crnf :: DomainNameStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679365944"><span class="annot"><span class="annottext">Text -&gt; Either String DomainNameStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679366441"><span class="annot"><span class="annottext">Text -&gt; Either String DomainNameStatus
 (Text -&gt; Either String DomainNameStatus)
 -&gt; FromText DomainNameStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DomainNameStatus
 $cfromText :: Text -&gt; Either String DomainNameStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679365941"><span class="annot"><span class="annottext">DomainNameStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679366438"><span class="annot"><span class="annottext">DomainNameStatus -&gt; Text
 (DomainNameStatus -&gt; Text) -&gt; ToText DomainNameStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DomainNameStatus -&gt; Text
 $ctoText :: DomainNameStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679365938"><span class="annot"><span class="annottext">DomainNameStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679366435"><span class="annot"><span class="annottext">DomainNameStatus -&gt; ByteString
 (DomainNameStatus -&gt; ByteString) -&gt; ToByteString DomainNameStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DomainNameStatus -&gt; ByteString
 $ctoBS :: DomainNameStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679365935"><span class="annot"><span class="annottext">DomainNameStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679366432"><span class="annot"><span class="annottext">DomainNameStatus -&gt; ByteStringBuilder
 (DomainNameStatus -&gt; ByteStringBuilder) -&gt; ToLog DomainNameStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DomainNameStatus -&gt; ByteStringBuilder
 $cbuild :: DomainNameStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679365932"><span class="annot"><span class="annottext">HeaderName -&gt; DomainNameStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679366429"><span class="annot"><span class="annottext">HeaderName -&gt; DomainNameStatus -&gt; [Header]
 (HeaderName -&gt; DomainNameStatus -&gt; [Header])
 -&gt; ToHeader DomainNameStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DomainNameStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DomainNameStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679365929"><span class="annot"><span class="annottext">DomainNameStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679366426"><span class="annot"><span class="annottext">DomainNameStatus -&gt; QueryString
 (DomainNameStatus -&gt; QueryString) -&gt; ToQuery DomainNameStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DomainNameStatus -&gt; QueryString
 $ctoQuery :: DomainNameStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679365924"><span id="local-6989586621679365926"><span class="annot"><span class="annottext">Value -&gt; Parser [DomainNameStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679366421"><span id="local-6989586621679366423"><span class="annot"><span class="annottext">Value -&gt; Parser [DomainNameStatus]
 Value -&gt; Parser DomainNameStatus
 (Value -&gt; Parser DomainNameStatus)
 -&gt; (Value -&gt; Parser [DomainNameStatus])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [DomainNameStatus]
 parseJSON :: Value -&gt; Parser DomainNameStatus
 $cparseJSON :: Value -&gt; Parser DomainNameStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679365919"><span id="local-6989586621679365921"><span class="annot"><span class="annottext">FromJSONKeyFunction [DomainNameStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679366416"><span id="local-6989586621679366418"><span class="annot"><span class="annottext">FromJSONKeyFunction [DomainNameStatus]
 FromJSONKeyFunction DomainNameStatus
 FromJSONKeyFunction DomainNameStatus
 -&gt; FromJSONKeyFunction [DomainNameStatus]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DomainNameStatus]
 fromJSONKey :: FromJSONKeyFunction DomainNameStatus
 $cfromJSONKey :: FromJSONKeyFunction DomainNameStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679365910"><span id="local-6989586621679365912"><span id="local-6989586621679365914"><span id="local-6989586621679365916"><span class="annot"><span class="annottext">[DomainNameStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679366407"><span id="local-6989586621679366409"><span id="local-6989586621679366411"><span id="local-6989586621679366413"><span class="annot"><span class="annottext">[DomainNameStatus] -&gt; Encoding
 [DomainNameStatus] -&gt; Value
 DomainNameStatus -&gt; Encoding
 DomainNameStatus -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: DomainNameStatus -&gt; Encoding
 toJSON :: DomainNameStatus -&gt; Value
 $ctoJSON :: DomainNameStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679365905"><span id="local-6989586621679365907"><span class="annot"><span class="annottext">ToJSONKeyFunction [DomainNameStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679366402"><span id="local-6989586621679366404"><span class="annot"><span class="annottext">ToJSONKeyFunction [DomainNameStatus]
 ToJSONKeyFunction DomainNameStatus
 ToJSONKeyFunction DomainNameStatus
 -&gt; ToJSONKeyFunction [DomainNameStatus]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DomainNameStatus]
 toJSONKey :: ToJSONKeyFunction DomainNameStatus
 $ctoJSONKey :: ToJSONKeyFunction DomainNameStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679365902"><span class="annot"><span class="annottext">[Node] -&gt; Either String DomainNameStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679366399"><span class="annot"><span class="annottext">[Node] -&gt; Either String DomainNameStatus
 ([Node] -&gt; Either String DomainNameStatus)
 -&gt; FromXML DomainNameStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DomainNameStatus
 $cparseXML :: [Node] -&gt; Either String DomainNameStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679365899"><span class="annot"><span class="annottext">DomainNameStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679366396"><span class="annot"><span class="annottext">DomainNameStatus -&gt; XML
 (DomainNameStatus -&gt; XML) -&gt; ToXML DomainNameStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DomainNameStatus -&gt; XML

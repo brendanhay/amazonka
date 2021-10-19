@@ -28,28 +28,28 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a block device mapping.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLaunchTemplateBlockDeviceMappingRequest' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681148333"><span id="local-6989586621681148334"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplateBlockDeviceMappingRequest"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-var">LaunchTemplateBlockDeviceMappingRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateBlockDeviceMappingRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var">LaunchTemplateBlockDeviceMappingRequest'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Parameters used to automatically set up EBS volumes when the instance is</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- launched.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aebs%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest
+</span><span id="line-31"></span><span id="local-6989586621681183503"><span id="local-6989586621681183504"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplateBlockDeviceMappingRequest"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-var">LaunchTemplateBlockDeviceMappingRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateBlockDeviceMappingRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var">LaunchTemplateBlockDeviceMappingRequest'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The virtual device name (ephemeralN). Instance store volumes are</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- numbered starting from 0. An instance type with 2 available instance</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- store volumes can specify mappings for ephemeral0 and ephemeral1. The</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- number of available instance store volumes depends on the instance type.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- After you connect to the instance, you must mount the volume.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AvirtualName%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#%24sel%3AvirtualName%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var hs-var">virtualName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | To omit the device from the block device mapping, specify an empty</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- string.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AnoDevice%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#%24sel%3AnoDevice%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var hs-var">noDevice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Parameters used to automatically set up EBS volumes when the instance is</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- launched.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aebs%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest
 -&gt; Maybe LaunchTemplateEbsBlockDeviceRequest
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#%24sel%3Aebs%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var hs-var">ebs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateEbsBlockDeviceRequest.html#LaunchTemplateEbsBlockDeviceRequest"><span class="hs-identifier hs-type">LaunchTemplateEbsBlockDeviceRequest</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | To omit the device from the block device mapping, specify an empty</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- string.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AnoDevice%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#%24sel%3AnoDevice%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var hs-var">noDevice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The virtual device name (ephemeralN). Instance store volumes are</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- numbered starting from 0. An instance type with 2 available instance</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- store volumes can specify mappings for ephemeral0 and ephemeral1. The</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- number of available instance store volumes depends on the instance type.</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- After you connect to the instance, you must mount the volume.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AvirtualName%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#%24sel%3AvirtualName%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var hs-var">virtualName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The device name (for example, \/dev\/sdh or xvdh).</span><span>
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AdeviceName%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#%24sel%3AdeviceName%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681148324"><span id="local-6989586621681148326"><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681183494"><span id="local-6989586621681183496"><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest
 -&gt; LaunchTemplateBlockDeviceMappingRequest -&gt; Bool
 (LaunchTemplateBlockDeviceMappingRequest
  -&gt; LaunchTemplateBlockDeviceMappingRequest -&gt; Bool)
@@ -65,7 +65,7 @@ $c/= :: LaunchTemplateBlockDeviceMappingRequest
 -&gt; LaunchTemplateBlockDeviceMappingRequest -&gt; Bool
 $c== :: LaunchTemplateBlockDeviceMappingRequest
 -&gt; LaunchTemplateBlockDeviceMappingRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681148315"><span id="local-6989586621681148317"><span id="local-6989586621681148319"><span id="local-6989586621681148321"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateBlockDeviceMappingRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681183485"><span id="local-6989586621681183487"><span id="local-6989586621681183489"><span id="local-6989586621681183491"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateBlockDeviceMappingRequest]
 ReadPrec LaunchTemplateBlockDeviceMappingRequest
 Int -&gt; ReadS LaunchTemplateBlockDeviceMappingRequest
 ReadS [LaunchTemplateBlockDeviceMappingRequest]
@@ -85,7 +85,7 @@ readList :: ReadS [LaunchTemplateBlockDeviceMappingRequest]
 $creadList :: ReadS [LaunchTemplateBlockDeviceMappingRequest]
 readsPrec :: Int -&gt; ReadS LaunchTemplateBlockDeviceMappingRequest
 $creadsPrec :: Int -&gt; ReadS LaunchTemplateBlockDeviceMappingRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681148308"><span id="local-6989586621681148310"><span id="local-6989586621681148312"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateBlockDeviceMappingRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681183478"><span id="local-6989586621681183480"><span id="local-6989586621681183482"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateBlockDeviceMappingRequest -&gt; ShowS
 [LaunchTemplateBlockDeviceMappingRequest] -&gt; ShowS
 LaunchTemplateBlockDeviceMappingRequest -&gt; String
 (Int -&gt; LaunchTemplateBlockDeviceMappingRequest -&gt; ShowS)
@@ -131,40 +131,40 @@ LaunchTemplateBlockDeviceMappingRequest
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'ebs', 'launchTemplateBlockDeviceMappingRequest_ebs' - Parameters used to automatically set up EBS volumes when the instance is</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- launched.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'noDevice', 'launchTemplateBlockDeviceMappingRequest_noDevice' - To omit the device from the block device mapping, specify an empty</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- string.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'virtualName', 'launchTemplateBlockDeviceMappingRequest_virtualName' - The virtual device name (ephemeralN). Instance store volumes are</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- numbered starting from 0. An instance type with 2 available instance</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- store volumes can specify mappings for ephemeral0 and ephemeral1. The</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- number of available instance store volumes depends on the instance type.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- After you connect to the instance, you must mount the volume.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'virtualName', 'launchTemplateBlockDeviceMappingRequest_virtualName' - The virtual device name (ephemeralN). Instance store volumes are</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- numbered starting from 0. An instance type with 2 available instance</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- store volumes can specify mappings for ephemeral0 and ephemeral1. The</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- number of available instance store volumes depends on the instance type.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- After you connect to the instance, you must mount the volume.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'noDevice', 'launchTemplateBlockDeviceMappingRequest_noDevice' - To omit the device from the block device mapping, specify an empty</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- string.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'ebs', 'launchTemplateBlockDeviceMappingRequest_ebs' - Parameters used to automatically set up EBS volumes when the instance is</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- launched.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- 'deviceName', 'launchTemplateBlockDeviceMappingRequest_deviceName' - The device name (for example, \/dev\/sdh or xvdh).</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#newLaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">newLaunchTemplateBlockDeviceMappingRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span><span>
 </span><span id="line-72"></span><span id="newLaunchTemplateBlockDeviceMappingRequest"><span class="annot"><span class="annottext">newLaunchTemplateBlockDeviceMappingRequest :: LaunchTemplateBlockDeviceMappingRequest
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#newLaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-var hs-var">newLaunchTemplateBlockDeviceMappingRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest' :: Maybe LaunchTemplateEbsBlockDeviceRequest
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest' :: Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe LaunchTemplateEbsBlockDeviceRequest
 -&gt; Maybe Text
 -&gt; LaunchTemplateBlockDeviceMappingRequest
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ebs:LaunchTemplateBlockDeviceMappingRequest' :: Maybe LaunchTemplateEbsBlockDeviceRequest
-</span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#%24sel%3Aebs%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var">ebs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe LaunchTemplateEbsBlockDeviceRequest
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:virtualName:LaunchTemplateBlockDeviceMappingRequest' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#%24sel%3AvirtualName%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var">virtualName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:noDevice:LaunchTemplateBlockDeviceMappingRequest' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#%24sel%3AnoDevice%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var">noDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualName:LaunchTemplateBlockDeviceMappingRequest' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#%24sel%3AvirtualName%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var">virtualName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:ebs:LaunchTemplateBlockDeviceMappingRequest' :: Maybe LaunchTemplateEbsBlockDeviceRequest
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#%24sel%3Aebs%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var">ebs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateEbsBlockDeviceRequest
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceName:LaunchTemplateBlockDeviceMappingRequest' :: Maybe Text
@@ -173,10 +173,65 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | Parameters used to automatically set up EBS volumes when the instance is</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- launched.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#launchTemplateBlockDeviceMappingRequest_ebs"><span class="hs-identifier hs-type">launchTemplateBlockDeviceMappingRequest_ebs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateEbsBlockDeviceRequest.html#LaunchTemplateEbsBlockDeviceRequest"><span class="hs-identifier hs-type">LaunchTemplateEbsBlockDeviceRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="launchTemplateBlockDeviceMappingRequest_ebs"><span class="annot"><span class="annottext">launchTemplateBlockDeviceMappingRequest_ebs :: (Maybe LaunchTemplateEbsBlockDeviceRequest
+</span><span id="line-81"></span><span class="hs-comment">-- | The virtual device name (ephemeralN). Instance store volumes are</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- numbered starting from 0. An instance type with 2 available instance</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- store volumes can specify mappings for ephemeral0 and ephemeral1. The</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- number of available instance store volumes depends on the instance type.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- After you connect to the instance, you must mount the volume.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#launchTemplateBlockDeviceMappingRequest_virtualName"><span class="hs-identifier hs-type">launchTemplateBlockDeviceMappingRequest_virtualName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="launchTemplateBlockDeviceMappingRequest_virtualName"><span class="annot"><span class="annottext">launchTemplateBlockDeviceMappingRequest_virtualName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LaunchTemplateBlockDeviceMappingRequest
+-&gt; f LaunchTemplateBlockDeviceMappingRequest
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#launchTemplateBlockDeviceMappingRequest_virtualName"><span class="hs-identifier hs-var hs-var">launchTemplateBlockDeviceMappingRequest_virtualName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text)
+-&gt; (LaunchTemplateBlockDeviceMappingRequest
+    -&gt; Maybe Text -&gt; LaunchTemplateBlockDeviceMappingRequest)
+-&gt; Lens
+     LaunchTemplateBlockDeviceMappingRequest
+     LaunchTemplateBlockDeviceMappingRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681183469"><span class="annot"><span class="annottext">Maybe Text
+virtualName :: Maybe Text
+$sel:virtualName:LaunchTemplateBlockDeviceMappingRequest' :: LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text
+</span><a href="#local-6989586621681183469"><span class="hs-identifier hs-var hs-var">virtualName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681183469"><span class="hs-identifier hs-var">virtualName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681183468"><span class="annot"><span class="annottext">s :: LaunchTemplateBlockDeviceMappingRequest
+</span><a href="#local-6989586621681183468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681183467"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681183467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest
+</span><a href="#local-6989586621681183468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualName:LaunchTemplateBlockDeviceMappingRequest' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#%24sel%3AvirtualName%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var">virtualName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681183467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | To omit the device from the block device mapping, specify an empty</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- string.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#launchTemplateBlockDeviceMappingRequest_noDevice"><span class="hs-identifier hs-type">launchTemplateBlockDeviceMappingRequest_noDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="launchTemplateBlockDeviceMappingRequest_noDevice"><span class="annot"><span class="annottext">launchTemplateBlockDeviceMappingRequest_noDevice :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LaunchTemplateBlockDeviceMappingRequest
+-&gt; f LaunchTemplateBlockDeviceMappingRequest
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#launchTemplateBlockDeviceMappingRequest_noDevice"><span class="hs-identifier hs-var hs-var">launchTemplateBlockDeviceMappingRequest_noDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text)
+-&gt; (LaunchTemplateBlockDeviceMappingRequest
+    -&gt; Maybe Text -&gt; LaunchTemplateBlockDeviceMappingRequest)
+-&gt; Lens
+     LaunchTemplateBlockDeviceMappingRequest
+     LaunchTemplateBlockDeviceMappingRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681183465"><span class="annot"><span class="annottext">Maybe Text
+noDevice :: Maybe Text
+$sel:noDevice:LaunchTemplateBlockDeviceMappingRequest' :: LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text
+</span><a href="#local-6989586621681183465"><span class="hs-identifier hs-var hs-var">noDevice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681183465"><span class="hs-identifier hs-var">noDevice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681183464"><span class="annot"><span class="annottext">s :: LaunchTemplateBlockDeviceMappingRequest
+</span><a href="#local-6989586621681183464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681183463"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681183463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest
+</span><a href="#local-6989586621681183464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noDevice:LaunchTemplateBlockDeviceMappingRequest' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#%24sel%3AnoDevice%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var">noDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681183463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Parameters used to automatically set up EBS volumes when the instance is</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- launched.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#launchTemplateBlockDeviceMappingRequest_ebs"><span class="hs-identifier hs-type">launchTemplateBlockDeviceMappingRequest_ebs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateEbsBlockDeviceRequest.html#LaunchTemplateEbsBlockDeviceRequest"><span class="hs-identifier hs-type">LaunchTemplateEbsBlockDeviceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="launchTemplateBlockDeviceMappingRequest_ebs"><span class="annot"><span class="annottext">launchTemplateBlockDeviceMappingRequest_ebs :: (Maybe LaunchTemplateEbsBlockDeviceRequest
  -&gt; f (Maybe LaunchTemplateEbsBlockDeviceRequest))
 -&gt; LaunchTemplateBlockDeviceMappingRequest
 -&gt; f LaunchTemplateBlockDeviceMappingRequest
@@ -191,72 +246,17 @@ forall a. Maybe a
      (Maybe LaunchTemplateEbsBlockDeviceRequest)
      (Maybe LaunchTemplateEbsBlockDeviceRequest)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681148299"><span class="annot"><span class="annottext">Maybe LaunchTemplateEbsBlockDeviceRequest
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681183461"><span class="annot"><span class="annottext">Maybe LaunchTemplateEbsBlockDeviceRequest
 ebs :: Maybe LaunchTemplateEbsBlockDeviceRequest
 $sel:ebs:LaunchTemplateBlockDeviceMappingRequest' :: LaunchTemplateBlockDeviceMappingRequest
 -&gt; Maybe LaunchTemplateEbsBlockDeviceRequest
-</span><a href="#local-6989586621681148299"><span class="hs-identifier hs-var hs-var">ebs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateEbsBlockDeviceRequest
-</span><a href="#local-6989586621681148299"><span class="hs-identifier hs-var">ebs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681148298"><span class="annot"><span class="annottext">s :: LaunchTemplateBlockDeviceMappingRequest
-</span><a href="#local-6989586621681148298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681148297"><span class="annot"><span class="annottext">Maybe LaunchTemplateEbsBlockDeviceRequest
-</span><a href="#local-6989586621681148297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest
-</span><a href="#local-6989586621681148298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ebs:LaunchTemplateBlockDeviceMappingRequest' :: Maybe LaunchTemplateEbsBlockDeviceRequest
+</span><a href="#local-6989586621681183461"><span class="hs-identifier hs-var hs-var">ebs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateEbsBlockDeviceRequest
+</span><a href="#local-6989586621681183461"><span class="hs-identifier hs-var">ebs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681183460"><span class="annot"><span class="annottext">s :: LaunchTemplateBlockDeviceMappingRequest
+</span><a href="#local-6989586621681183460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681183459"><span class="annot"><span class="annottext">Maybe LaunchTemplateEbsBlockDeviceRequest
+</span><a href="#local-6989586621681183459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest
+</span><a href="#local-6989586621681183460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ebs:LaunchTemplateBlockDeviceMappingRequest' :: Maybe LaunchTemplateEbsBlockDeviceRequest
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#%24sel%3Aebs%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var">ebs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateEbsBlockDeviceRequest
-</span><a href="#local-6989586621681148297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | To omit the device from the block device mapping, specify an empty</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- string.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#launchTemplateBlockDeviceMappingRequest_noDevice"><span class="hs-identifier hs-type">launchTemplateBlockDeviceMappingRequest_noDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="launchTemplateBlockDeviceMappingRequest_noDevice"><span class="annot"><span class="annottext">launchTemplateBlockDeviceMappingRequest_noDevice :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LaunchTemplateBlockDeviceMappingRequest
--&gt; f LaunchTemplateBlockDeviceMappingRequest
-</span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#launchTemplateBlockDeviceMappingRequest_noDevice"><span class="hs-identifier hs-var hs-var">launchTemplateBlockDeviceMappingRequest_noDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text)
--&gt; (LaunchTemplateBlockDeviceMappingRequest
-    -&gt; Maybe Text -&gt; LaunchTemplateBlockDeviceMappingRequest)
--&gt; Lens
-     LaunchTemplateBlockDeviceMappingRequest
-     LaunchTemplateBlockDeviceMappingRequest
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681148295"><span class="annot"><span class="annottext">Maybe Text
-noDevice :: Maybe Text
-$sel:noDevice:LaunchTemplateBlockDeviceMappingRequest' :: LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text
-</span><a href="#local-6989586621681148295"><span class="hs-identifier hs-var hs-var">noDevice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681148295"><span class="hs-identifier hs-var">noDevice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681148294"><span class="annot"><span class="annottext">s :: LaunchTemplateBlockDeviceMappingRequest
-</span><a href="#local-6989586621681148294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681148293"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681148293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest
-</span><a href="#local-6989586621681148294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noDevice:LaunchTemplateBlockDeviceMappingRequest' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#%24sel%3AnoDevice%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var">noDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681148293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The virtual device name (ephemeralN). Instance store volumes are</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- numbered starting from 0. An instance type with 2 available instance</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- store volumes can specify mappings for ephemeral0 and ephemeral1. The</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- number of available instance store volumes depends on the instance type.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- After you connect to the instance, you must mount the volume.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#launchTemplateBlockDeviceMappingRequest_virtualName"><span class="hs-identifier hs-type">launchTemplateBlockDeviceMappingRequest_virtualName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="launchTemplateBlockDeviceMappingRequest_virtualName"><span class="annot"><span class="annottext">launchTemplateBlockDeviceMappingRequest_virtualName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LaunchTemplateBlockDeviceMappingRequest
--&gt; f LaunchTemplateBlockDeviceMappingRequest
-</span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#launchTemplateBlockDeviceMappingRequest_virtualName"><span class="hs-identifier hs-var hs-var">launchTemplateBlockDeviceMappingRequest_virtualName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text)
--&gt; (LaunchTemplateBlockDeviceMappingRequest
-    -&gt; Maybe Text -&gt; LaunchTemplateBlockDeviceMappingRequest)
--&gt; Lens
-     LaunchTemplateBlockDeviceMappingRequest
-     LaunchTemplateBlockDeviceMappingRequest
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681148291"><span class="annot"><span class="annottext">Maybe Text
-virtualName :: Maybe Text
-$sel:virtualName:LaunchTemplateBlockDeviceMappingRequest' :: LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text
-</span><a href="#local-6989586621681148291"><span class="hs-identifier hs-var hs-var">virtualName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681148291"><span class="hs-identifier hs-var">virtualName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681148290"><span class="annot"><span class="annottext">s :: LaunchTemplateBlockDeviceMappingRequest
-</span><a href="#local-6989586621681148290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681148289"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681148289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest
-</span><a href="#local-6989586621681148290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualName:LaunchTemplateBlockDeviceMappingRequest' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#%24sel%3AvirtualName%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var">virtualName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681148289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681183459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The device name (for example, \/dev\/sdh or xvdh).</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#launchTemplateBlockDeviceMappingRequest_deviceName"><span class="hs-identifier hs-type">launchTemplateBlockDeviceMappingRequest_deviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -272,65 +272,65 @@ $sel:virtualName:LaunchTemplateBlockDeviceMappingRequest' :: LaunchTemplateBlock
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681148287"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681183457"><span class="annot"><span class="annottext">Maybe Text
 deviceName :: Maybe Text
 $sel:deviceName:LaunchTemplateBlockDeviceMappingRequest' :: LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text
-</span><a href="#local-6989586621681148287"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681148287"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681148286"><span class="annot"><span class="annottext">s :: LaunchTemplateBlockDeviceMappingRequest
-</span><a href="#local-6989586621681148286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681148285"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681148285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest
-</span><a href="#local-6989586621681148286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceName:LaunchTemplateBlockDeviceMappingRequest' :: Maybe Text
+</span><a href="#local-6989586621681183457"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681183457"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681183456"><span class="annot"><span class="annottext">s :: LaunchTemplateBlockDeviceMappingRequest
+</span><a href="#local-6989586621681183456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681183455"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681183455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateBlockDeviceMappingRequest
+</span><a href="#local-6989586621681183456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceName:LaunchTemplateBlockDeviceMappingRequest' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#%24sel%3AdeviceName%3ALaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-var">deviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681148285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681183455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621681148281"><span id="local-6989586621681148283"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621681183451"><span id="local-6989586621681183453"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621681148278"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621681183448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest</span></a></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621681148274"><span class="annot"><span class="annottext">toQuery :: LaunchTemplateBlockDeviceMappingRequest -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681148269"><span id="local-6989586621681148270"><span id="local-6989586621681148271"><span id="local-6989586621681148272"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621681183444"><span class="annot"><span class="annottext">toQuery :: LaunchTemplateBlockDeviceMappingRequest -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest.html#LaunchTemplateBlockDeviceMappingRequest%27"><span class="hs-identifier hs-type">LaunchTemplateBlockDeviceMappingRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681183439"><span id="local-6989586621681183440"><span id="local-6989586621681183441"><span id="local-6989586621681183442"><span class="annot"><span class="annottext">Maybe Text
 Maybe LaunchTemplateEbsBlockDeviceRequest
 deviceName :: Maybe Text
-virtualName :: Maybe Text
-noDevice :: Maybe Text
 ebs :: Maybe LaunchTemplateEbsBlockDeviceRequest
+noDevice :: Maybe Text
+virtualName :: Maybe Text
 $sel:deviceName:LaunchTemplateBlockDeviceMappingRequest' :: LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text
-$sel:virtualName:LaunchTemplateBlockDeviceMappingRequest' :: LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text
-$sel:noDevice:LaunchTemplateBlockDeviceMappingRequest' :: LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text
 $sel:ebs:LaunchTemplateBlockDeviceMappingRequest' :: LaunchTemplateBlockDeviceMappingRequest
 -&gt; Maybe LaunchTemplateEbsBlockDeviceRequest
-</span><a href="#local-6989586621681148269"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:noDevice:LaunchTemplateBlockDeviceMappingRequest' :: LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text
+$sel:virtualName:LaunchTemplateBlockDeviceMappingRequest' :: LaunchTemplateBlockDeviceMappingRequest -&gt; Maybe Text
+</span><a href="#local-6989586621681183439"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Ebs&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
--&gt; Maybe LaunchTemplateEbsBlockDeviceRequest -&gt; QueryString
+</span><span class="hs-string">&quot;VirtualName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateEbsBlockDeviceRequest
-</span><a href="#local-6989586621681148272"><span class="hs-identifier hs-var">ebs</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681183442"><span class="hs-identifier hs-var">virtualName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NoDevice&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681148271"><span class="hs-identifier hs-var">noDevice</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681183441"><span class="hs-identifier hs-var">noDevice</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;VirtualName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+</span><span class="hs-string">&quot;Ebs&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+-&gt; Maybe LaunchTemplateEbsBlockDeviceRequest -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681148270"><span class="hs-identifier hs-var">virtualName</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateEbsBlockDeviceRequest
+</span><a href="#local-6989586621681183440"><span class="hs-identifier hs-var">ebs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DeviceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681148269"><span class="hs-identifier hs-var">deviceName</span></a></span><span>
+</span><a href="#local-6989586621681183439"><span class="hs-identifier hs-var">deviceName</span></a></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span></pre></body></html>

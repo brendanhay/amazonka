@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- AWS Cloud and on the device.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newEc2AmiResource' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679222976"><span id="local-6989586621679222977"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ec2AmiResource"><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource"><span class="hs-identifier hs-var">Ec2AmiResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ec2AmiResource%27"><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource%27"><span class="hs-identifier hs-var">Ec2AmiResource'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679223032"><span id="local-6989586621679223033"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ec2AmiResource"><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource"><span class="hs-identifier hs-var">Ec2AmiResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ec2AmiResource%27"><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource%27"><span class="hs-identifier hs-var">Ec2AmiResource'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the AMI on the Snow device.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AsnowballAmiId%3AEc2AmiResource%27"><span class="annot"><span class="annottext">Ec2AmiResource -&gt; Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#%24sel%3AsnowballAmiId%3AEc2AmiResource%27"><span class="hs-identifier hs-var hs-var">snowballAmiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AamiId%3AEc2AmiResource%27"><span class="annot"><span class="annottext">Ec2AmiResource -&gt; Text
 </span><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#%24sel%3AamiId%3AEc2AmiResource%27"><span class="hs-identifier hs-var hs-var">amiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222969"><span id="local-6989586621679222971"><span class="annot"><span class="annottext">Ec2AmiResource -&gt; Ec2AmiResource -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223025"><span id="local-6989586621679223027"><span class="annot"><span class="annottext">Ec2AmiResource -&gt; Ec2AmiResource -&gt; Bool
 (Ec2AmiResource -&gt; Ec2AmiResource -&gt; Bool)
 -&gt; (Ec2AmiResource -&gt; Ec2AmiResource -&gt; Bool) -&gt; Eq Ec2AmiResource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Ec2AmiResource -&gt; Ec2AmiResource -&gt; Bool
 == :: Ec2AmiResource -&gt; Ec2AmiResource -&gt; Bool
 $c== :: Ec2AmiResource -&gt; Ec2AmiResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222960"><span id="local-6989586621679222962"><span id="local-6989586621679222964"><span id="local-6989586621679222966"><span class="annot"><span class="annottext">ReadPrec [Ec2AmiResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223016"><span id="local-6989586621679223018"><span id="local-6989586621679223020"><span id="local-6989586621679223022"><span class="annot"><span class="annottext">ReadPrec [Ec2AmiResource]
 ReadPrec Ec2AmiResource
 Int -&gt; ReadS Ec2AmiResource
 ReadS [Ec2AmiResource]
@@ -65,7 +65,7 @@ readList :: ReadS [Ec2AmiResource]
 $creadList :: ReadS [Ec2AmiResource]
 readsPrec :: Int -&gt; ReadS Ec2AmiResource
 $creadsPrec :: Int -&gt; ReadS Ec2AmiResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222953"><span id="local-6989586621679222955"><span id="local-6989586621679222957"><span class="annot"><span class="annottext">Int -&gt; Ec2AmiResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223009"><span id="local-6989586621679223011"><span id="local-6989586621679223013"><span class="annot"><span class="annottext">Int -&gt; Ec2AmiResource -&gt; ShowS
 [Ec2AmiResource] -&gt; ShowS
 Ec2AmiResource -&gt; String
 (Int -&gt; Ec2AmiResource -&gt; ShowS)
@@ -107,8 +107,8 @@ $cfrom :: forall x. Ec2AmiResource -&gt; Rep Ec2AmiResource x
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource"><span class="hs-identifier hs-type">Ec2AmiResource</span></a></span><span>
 </span><span id="line-55"></span><span id="newEc2AmiResource"><span class="annot"><span class="annottext">newEc2AmiResource :: Text -&gt; Ec2AmiResource
-</span><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#newEc2AmiResource"><span class="hs-identifier hs-var hs-var">newEc2AmiResource</span></a></span></span><span> </span><span id="local-6989586621679222947"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222947"><span class="hs-identifier hs-var">pAmiId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#newEc2AmiResource"><span class="hs-identifier hs-var hs-var">newEc2AmiResource</span></a></span></span><span> </span><span id="local-6989586621679223003"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223003"><span class="hs-identifier hs-var">pAmiId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">Ec2AmiResource' :: Maybe Text -&gt; Text -&gt; Ec2AmiResource
 </span><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource%27"><span class="hs-identifier hs-type">Ec2AmiResource'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:snowballAmiId:Ec2AmiResource' :: Maybe Text
@@ -117,7 +117,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:amiId:Ec2AmiResource' :: Text
 </span><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#%24sel%3AamiId%3AEc2AmiResource%27"><span class="hs-identifier hs-var">amiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222947"><span class="hs-identifier hs-var">pAmiId_</span></a></span><span>
+</span><a href="#local-6989586621679223003"><span class="hs-identifier hs-var">pAmiId_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The ID of the AMI on the Snow device.</span><span>
@@ -128,16 +128,16 @@ forall a. Maybe a
 -&gt; (Ec2AmiResource -&gt; Maybe Text -&gt; Ec2AmiResource)
 -&gt; Lens Ec2AmiResource Ec2AmiResource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource%27"><span class="hs-identifier hs-type">Ec2AmiResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222943"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource%27"><span class="hs-identifier hs-type">Ec2AmiResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222999"><span class="annot"><span class="annottext">Maybe Text
 snowballAmiId :: Maybe Text
 $sel:snowballAmiId:Ec2AmiResource' :: Ec2AmiResource -&gt; Maybe Text
-</span><a href="#local-6989586621679222943"><span class="hs-identifier hs-var hs-var">snowballAmiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222943"><span class="hs-identifier hs-var">snowballAmiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222942"><span class="annot"><span class="annottext">s :: Ec2AmiResource
-</span><a href="#local-6989586621679222942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource%27"><span class="hs-identifier hs-type">Ec2AmiResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222941"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2AmiResource
-</span><a href="#local-6989586621679222942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snowballAmiId:Ec2AmiResource' :: Maybe Text
+</span><a href="#local-6989586621679222999"><span class="hs-identifier hs-var hs-var">snowballAmiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222999"><span class="hs-identifier hs-var">snowballAmiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222998"><span class="annot"><span class="annottext">s :: Ec2AmiResource
+</span><a href="#local-6989586621679222998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource%27"><span class="hs-identifier hs-type">Ec2AmiResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222997"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2AmiResource
+</span><a href="#local-6989586621679222998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snowballAmiId:Ec2AmiResource' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#%24sel%3AsnowballAmiId%3AEc2AmiResource%27"><span class="hs-identifier hs-var">snowballAmiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource"><span class="hs-identifier hs-type">Ec2AmiResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource"><span class="hs-identifier hs-type">Ec2AmiResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The ID of the AMI in Amazon EC2.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#ec2AmiResource_amiId"><span class="hs-identifier hs-type">ec2AmiResource_amiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource"><span class="hs-identifier hs-type">Ec2AmiResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -146,19 +146,19 @@ $sel:snowballAmiId:Ec2AmiResource' :: Ec2AmiResource -&gt; Maybe Text
 -&gt; (Ec2AmiResource -&gt; Text -&gt; Ec2AmiResource)
 -&gt; Lens Ec2AmiResource Ec2AmiResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource%27"><span class="hs-identifier hs-type">Ec2AmiResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222939"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource%27"><span class="hs-identifier hs-type">Ec2AmiResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222995"><span class="annot"><span class="annottext">Text
 amiId :: Text
 $sel:amiId:Ec2AmiResource' :: Ec2AmiResource -&gt; Text
-</span><a href="#local-6989586621679222939"><span class="hs-identifier hs-var hs-var">amiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222939"><span class="hs-identifier hs-var">amiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222938"><span class="annot"><span class="annottext">s :: Ec2AmiResource
-</span><a href="#local-6989586621679222938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource%27"><span class="hs-identifier hs-type">Ec2AmiResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222937"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2AmiResource
-</span><a href="#local-6989586621679222938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amiId:Ec2AmiResource' :: Text
+</span><a href="#local-6989586621679222995"><span class="hs-identifier hs-var hs-var">amiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222995"><span class="hs-identifier hs-var">amiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222994"><span class="annot"><span class="annottext">s :: Ec2AmiResource
+</span><a href="#local-6989586621679222994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource%27"><span class="hs-identifier hs-type">Ec2AmiResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222993"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2AmiResource
+</span><a href="#local-6989586621679222994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amiId:Ec2AmiResource' :: Text
 </span><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#%24sel%3AamiId%3AEc2AmiResource%27"><span class="hs-identifier hs-var">amiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource"><span class="hs-identifier hs-type">Ec2AmiResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource"><span class="hs-identifier hs-type">Ec2AmiResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222934"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource"><span class="hs-identifier hs-type">Ec2AmiResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679222932"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Ec2AmiResource
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222990"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource"><span class="hs-identifier hs-type">Ec2AmiResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679222988"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Ec2AmiResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Ec2AmiResource)
@@ -168,15 +168,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Ec2AmiResource&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222929"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222929"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222985"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222985"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Ec2AmiResource
 </span><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource%27"><span class="hs-identifier hs-var">Ec2AmiResource'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Ec2AmiResource)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Ec2AmiResource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222985"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SnowballAmiId&quot;</span></span><span class="hs-special">)</span><span>
@@ -184,25 +184,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser Ec2AmiResource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679222985"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AmiId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222922"><span id="local-6989586621679222924"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource"><span class="hs-identifier hs-type">Ec2AmiResource</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222978"><span id="local-6989586621679222980"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource"><span class="hs-identifier hs-type">Ec2AmiResource</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource"><span class="hs-identifier hs-type">Ec2AmiResource</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222975"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource"><span class="hs-identifier hs-type">Ec2AmiResource</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222911"><span id="local-6989586621679222913"><span id="local-6989586621679222915"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource"><span class="hs-identifier hs-type">Ec2AmiResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679222909"><span class="annot"><span class="annottext">toJSON :: Ec2AmiResource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource%27"><span class="hs-identifier hs-type">Ec2AmiResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222906"><span id="local-6989586621679222907"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222967"><span id="local-6989586621679222969"><span id="local-6989586621679222971"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource"><span class="hs-identifier hs-type">Ec2AmiResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679222965"><span class="annot"><span class="annottext">toJSON :: Ec2AmiResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource%27"><span class="hs-identifier hs-type">Ec2AmiResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222962"><span id="local-6989586621679222963"><span class="annot"><span class="annottext">Maybe Text
 Text
 amiId :: Text
 snowballAmiId :: Maybe Text
 $sel:amiId:Ec2AmiResource' :: Ec2AmiResource -&gt; Text
 $sel:snowballAmiId:Ec2AmiResource' :: Ec2AmiResource -&gt; Maybe Text
-</span><a href="#local-6989586621679222906"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679222962"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -214,14 +214,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222907"><span class="hs-identifier hs-var">snowballAmiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222963"><span class="hs-identifier hs-var">snowballAmiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AmiId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222906"><span class="hs-identifier hs-var">amiId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222962"><span class="hs-identifier hs-var">amiId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span></pre></body></html>

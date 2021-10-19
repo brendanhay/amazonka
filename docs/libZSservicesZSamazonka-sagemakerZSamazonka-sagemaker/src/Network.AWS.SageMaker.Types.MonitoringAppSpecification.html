@@ -26,28 +26,28 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Container image configuration object for the monitoring job.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMonitoringAppSpecification' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680318936"><span id="local-6989586621680318937"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoringAppSpecification"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-var">MonitoringAppSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringAppSpecification%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-var">MonitoringAppSpecification'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680320319"><span id="local-6989586621680320320"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoringAppSpecification"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-var">MonitoringAppSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringAppSpecification%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-var">MonitoringAppSpecification'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of arguments for the container used to run the monitoring job.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AcontainerArguments%3AMonitoringAppSpecification%27"><span class="annot"><span class="annottext">MonitoringAppSpecification -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3AcontainerArguments%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var hs-var">containerArguments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Specifies the entrypoint for a container used to run the monitoring job.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcontainerEntrypoint%3AMonitoringAppSpecification%27"><span class="annot"><span class="annottext">MonitoringAppSpecification -&gt; Maybe (NonEmpty Text)
-</span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3AcontainerEntrypoint%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var hs-var">containerEntrypoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | An Amazon S3 URI to a script that is called after analysis has been</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- performed. Applicable only for the built-in (first party) containers.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3ApostAnalyticsProcessorSourceUri%3AMonitoringAppSpecification%27"><span class="annot"><span class="annottext">MonitoringAppSpecification -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3ApostAnalyticsProcessorSourceUri%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var hs-var">postAnalyticsProcessorSourceUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | An Amazon S3 URI to a script that is called per row prior to running</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- analysis. It can base64 decode the payload and convert it into a flatted</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- json so that the built-in container can use the converted data.</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Applicable only for the built-in (first party) containers.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3ArecordPreprocessorSourceUri%3AMonitoringAppSpecification%27"><span class="annot"><span class="annottext">MonitoringAppSpecification -&gt; Maybe Text
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | An Amazon S3 URI to a script that is called per row prior to running</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- analysis. It can base64 decode the payload and convert it into a flatted</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- json so that the built-in container can use the converted data.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Applicable only for the built-in (first party) containers.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3ArecordPreprocessorSourceUri%3AMonitoringAppSpecification%27"><span class="annot"><span class="annottext">MonitoringAppSpecification -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3ArecordPreprocessorSourceUri%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var hs-var">recordPreprocessorSourceUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Specifies the entrypoint for a container used to run the monitoring job.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcontainerEntrypoint%3AMonitoringAppSpecification%27"><span class="annot"><span class="annottext">MonitoringAppSpecification -&gt; Maybe (NonEmpty Text)
+</span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3AcontainerEntrypoint%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var hs-var">containerEntrypoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | An Amazon S3 URI to a script that is called after analysis has been</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- performed. Applicable only for the built-in (first party) containers.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3ApostAnalyticsProcessorSourceUri%3AMonitoringAppSpecification%27"><span class="annot"><span class="annottext">MonitoringAppSpecification -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3ApostAnalyticsProcessorSourceUri%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var hs-var">postAnalyticsProcessorSourceUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The container image to be run by the monitoring job.</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AimageUri%3AMonitoringAppSpecification%27"><span class="annot"><span class="annottext">MonitoringAppSpecification -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3AimageUri%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var hs-var">imageUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680318926"><span id="local-6989586621680318928"><span class="annot"><span class="annottext">MonitoringAppSpecification -&gt; MonitoringAppSpecification -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680320309"><span id="local-6989586621680320311"><span class="annot"><span class="annottext">MonitoringAppSpecification -&gt; MonitoringAppSpecification -&gt; Bool
 (MonitoringAppSpecification -&gt; MonitoringAppSpecification -&gt; Bool)
 -&gt; (MonitoringAppSpecification
     -&gt; MonitoringAppSpecification -&gt; Bool)
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MonitoringAppSpecification -&gt; MonitoringAppSpecification -&gt; Bool
 == :: MonitoringAppSpecification -&gt; MonitoringAppSpecification -&gt; Bool
 $c== :: MonitoringAppSpecification -&gt; MonitoringAppSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680318917"><span id="local-6989586621680318919"><span id="local-6989586621680318921"><span id="local-6989586621680318923"><span class="annot"><span class="annottext">ReadPrec [MonitoringAppSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680320300"><span id="local-6989586621680320302"><span id="local-6989586621680320304"><span id="local-6989586621680320306"><span class="annot"><span class="annottext">ReadPrec [MonitoringAppSpecification]
 ReadPrec MonitoringAppSpecification
 Int -&gt; ReadS MonitoringAppSpecification
 ReadS [MonitoringAppSpecification]
@@ -77,7 +77,7 @@ readList :: ReadS [MonitoringAppSpecification]
 $creadList :: ReadS [MonitoringAppSpecification]
 readsPrec :: Int -&gt; ReadS MonitoringAppSpecification
 $creadsPrec :: Int -&gt; ReadS MonitoringAppSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680318910"><span id="local-6989586621680318912"><span id="local-6989586621680318914"><span class="annot"><span class="annottext">Int -&gt; MonitoringAppSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680320293"><span id="local-6989586621680320295"><span id="local-6989586621680320297"><span class="annot"><span class="annottext">Int -&gt; MonitoringAppSpecification -&gt; ShowS
 [MonitoringAppSpecification] -&gt; ShowS
 MonitoringAppSpecification -&gt; String
 (Int -&gt; MonitoringAppSpecification -&gt; ShowS)
@@ -119,15 +119,15 @@ MonitoringAppSpecification -&gt; Rep MonitoringAppSpecification x
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- 'containerArguments', 'monitoringAppSpecification_containerArguments' - An array of arguments for the container used to run the monitoring job.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'containerEntrypoint', 'monitoringAppSpecification_containerEntrypoint' - Specifies the entrypoint for a container used to run the monitoring job.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'postAnalyticsProcessorSourceUri', 'monitoringAppSpecification_postAnalyticsProcessorSourceUri' - An Amazon S3 URI to a script that is called after analysis has been</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- performed. Applicable only for the built-in (first party) containers.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'recordPreprocessorSourceUri', 'monitoringAppSpecification_recordPreprocessorSourceUri' - An Amazon S3 URI to a script that is called per row prior to running</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- analysis. It can base64 decode the payload and convert it into a flatted</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- json so that the built-in container can use the converted data.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Applicable only for the built-in (first party) containers.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'recordPreprocessorSourceUri', 'monitoringAppSpecification_recordPreprocessorSourceUri' - An Amazon S3 URI to a script that is called per row prior to running</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- analysis. It can base64 decode the payload and convert it into a flatted</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- json so that the built-in container can use the converted data.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- Applicable only for the built-in (first party) containers.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'containerEntrypoint', 'monitoringAppSpecification_containerEntrypoint' - Specifies the entrypoint for a container used to run the monitoring job.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'postAnalyticsProcessorSourceUri', 'monitoringAppSpecification_postAnalyticsProcessorSourceUri' - An Amazon S3 URI to a script that is called after analysis has been</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- performed. Applicable only for the built-in (first party) containers.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- 'imageUri', 'monitoringAppSpecification_imageUri' - The container image to be run by the monitoring job.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#newMonitoringAppSpecification"><span class="hs-identifier hs-type">newMonitoringAppSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -135,11 +135,11 @@ MonitoringAppSpecification -&gt; Rep MonitoringAppSpecification x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span>
 </span><span id="line-72"></span><span id="newMonitoringAppSpecification"><span class="annot"><span class="annottext">newMonitoringAppSpecification :: Text -&gt; MonitoringAppSpecification
-</span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#newMonitoringAppSpecification"><span class="hs-identifier hs-var hs-var">newMonitoringAppSpecification</span></a></span></span><span> </span><span id="local-6989586621680318904"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680318904"><span class="hs-identifier hs-var">pImageUri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#newMonitoringAppSpecification"><span class="hs-identifier hs-var hs-var">newMonitoringAppSpecification</span></a></span></span><span> </span><span id="local-6989586621680320287"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680320287"><span class="hs-identifier hs-var">pImageUri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">MonitoringAppSpecification' :: Maybe (NonEmpty Text)
--&gt; Maybe (NonEmpty Text)
 -&gt; Maybe Text
+-&gt; Maybe (NonEmpty Text)
 -&gt; Maybe Text
 -&gt; Text
 -&gt; MonitoringAppSpecification
@@ -149,22 +149,22 @@ MonitoringAppSpecification -&gt; Rep MonitoringAppSpecification x
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerEntrypoint:MonitoringAppSpecification' :: Maybe (NonEmpty Text)
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:recordPreprocessorSourceUri:MonitoringAppSpecification' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3ArecordPreprocessorSourceUri%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var">recordPreprocessorSourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerEntrypoint:MonitoringAppSpecification' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3AcontainerEntrypoint%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var">containerEntrypoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:postAnalyticsProcessorSourceUri:MonitoringAppSpecification' :: Maybe Text
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:postAnalyticsProcessorSourceUri:MonitoringAppSpecification' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3ApostAnalyticsProcessorSourceUri%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var">postAnalyticsProcessorSourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:recordPreprocessorSourceUri:MonitoringAppSpecification' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3ArecordPreprocessorSourceUri%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var">recordPreprocessorSourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageUri:MonitoringAppSpecification' :: Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3AimageUri%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var">imageUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680318904"><span class="hs-identifier hs-var">pImageUri_</span></a></span><span>
+</span><a href="#local-6989586621680320287"><span class="hs-identifier hs-var">pImageUri_</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | An array of arguments for the container used to run the monitoring job.</span><span>
@@ -180,16 +180,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680318900"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320283"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 containerArguments :: Maybe (NonEmpty Text)
 $sel:containerArguments:MonitoringAppSpecification' :: MonitoringAppSpecification -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621680318900"><span class="hs-identifier hs-var hs-var">containerArguments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621680318900"><span class="hs-identifier hs-var">containerArguments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680318899"><span class="annot"><span class="annottext">s :: MonitoringAppSpecification
-</span><a href="#local-6989586621680318899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680318898"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621680318898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringAppSpecification
-</span><a href="#local-6989586621680318899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerArguments:MonitoringAppSpecification' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680320283"><span class="hs-identifier hs-var hs-var">containerArguments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680320283"><span class="hs-identifier hs-var">containerArguments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680320282"><span class="annot"><span class="annottext">s :: MonitoringAppSpecification
+</span><a href="#local-6989586621680320282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680320281"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680320281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringAppSpecification
+</span><a href="#local-6989586621680320282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerArguments:MonitoringAppSpecification' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3AcontainerArguments%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var">containerArguments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621680318898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621680320281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; MonitoringAppSpecification -&gt; f MonitoringAppSpecification)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -209,85 +209,15 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | Specifies the entrypoint for a container used to run the monitoring job.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#monitoringAppSpecification_containerEntrypoint"><span class="hs-identifier hs-type">monitoringAppSpecification_containerEntrypoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="monitoringAppSpecification_containerEntrypoint"><span class="annot"><span class="annottext">monitoringAppSpecification_containerEntrypoint :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
--&gt; MonitoringAppSpecification -&gt; f MonitoringAppSpecification
-</span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#monitoringAppSpecification_containerEntrypoint"><span class="hs-identifier hs-var hs-var">monitoringAppSpecification_containerEntrypoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringAppSpecification -&gt; Maybe (NonEmpty Text))
--&gt; (MonitoringAppSpecification
-    -&gt; Maybe (NonEmpty Text) -&gt; MonitoringAppSpecification)
--&gt; Lens
-     MonitoringAppSpecification
-     MonitoringAppSpecification
-     (Maybe (NonEmpty Text))
-     (Maybe (NonEmpty Text))
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680318893"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-containerEntrypoint :: Maybe (NonEmpty Text)
-$sel:containerEntrypoint:MonitoringAppSpecification' :: MonitoringAppSpecification -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621680318893"><span class="hs-identifier hs-var hs-var">containerEntrypoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621680318893"><span class="hs-identifier hs-var">containerEntrypoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680318892"><span class="annot"><span class="annottext">s :: MonitoringAppSpecification
-</span><a href="#local-6989586621680318892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680318891"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621680318891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringAppSpecification
-</span><a href="#local-6989586621680318892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerEntrypoint:MonitoringAppSpecification' :: Maybe (NonEmpty Text)
-</span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3AcontainerEntrypoint%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var">containerEntrypoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621680318891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
- -&gt; MonitoringAppSpecification -&gt; f MonitoringAppSpecification)
--&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
-    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
--&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
--&gt; MonitoringAppSpecification
--&gt; f MonitoringAppSpecification
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
--&gt; Iso
-     (Maybe (NonEmpty Text))
-     (Maybe (NonEmpty Text))
-     (Maybe (NonEmpty Text))
-     (Maybe (NonEmpty Text))
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | An Amazon S3 URI to a script that is called after analysis has been</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- performed. Applicable only for the built-in (first party) containers.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#monitoringAppSpecification_postAnalyticsProcessorSourceUri"><span class="hs-identifier hs-type">monitoringAppSpecification_postAnalyticsProcessorSourceUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="monitoringAppSpecification_postAnalyticsProcessorSourceUri"><span class="annot"><span class="annottext">monitoringAppSpecification_postAnalyticsProcessorSourceUri :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MonitoringAppSpecification -&gt; f MonitoringAppSpecification
-</span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#monitoringAppSpecification_postAnalyticsProcessorSourceUri"><span class="hs-identifier hs-var hs-var">monitoringAppSpecification_postAnalyticsProcessorSourceUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringAppSpecification -&gt; Maybe Text)
--&gt; (MonitoringAppSpecification
-    -&gt; Maybe Text -&gt; MonitoringAppSpecification)
--&gt; Lens
-     MonitoringAppSpecification
-     MonitoringAppSpecification
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680318889"><span class="annot"><span class="annottext">Maybe Text
-postAnalyticsProcessorSourceUri :: Maybe Text
-$sel:postAnalyticsProcessorSourceUri:MonitoringAppSpecification' :: MonitoringAppSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621680318889"><span class="hs-identifier hs-var hs-var">postAnalyticsProcessorSourceUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680318889"><span class="hs-identifier hs-var">postAnalyticsProcessorSourceUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680318888"><span class="annot"><span class="annottext">s :: MonitoringAppSpecification
-</span><a href="#local-6989586621680318888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680318887"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680318887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringAppSpecification
-</span><a href="#local-6989586621680318888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:postAnalyticsProcessorSourceUri:MonitoringAppSpecification' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3ApostAnalyticsProcessorSourceUri%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var">postAnalyticsProcessorSourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680318887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | An Amazon S3 URI to a script that is called per row prior to running</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- analysis. It can base64 decode the payload and convert it into a flatted</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- json so that the built-in container can use the converted data.</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- Applicable only for the built-in (first party) containers.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#monitoringAppSpecification_recordPreprocessorSourceUri"><span class="hs-identifier hs-type">monitoringAppSpecification_recordPreprocessorSourceUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="monitoringAppSpecification_recordPreprocessorSourceUri"><span class="annot"><span class="annottext">monitoringAppSpecification_recordPreprocessorSourceUri :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-87"></span><span class="hs-comment">-- | An Amazon S3 URI to a script that is called per row prior to running</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- analysis. It can base64 decode the payload and convert it into a flatted</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- json so that the built-in container can use the converted data.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Applicable only for the built-in (first party) containers.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#monitoringAppSpecification_recordPreprocessorSourceUri"><span class="hs-identifier hs-type">monitoringAppSpecification_recordPreprocessorSourceUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="monitoringAppSpecification_recordPreprocessorSourceUri"><span class="annot"><span class="annottext">monitoringAppSpecification_recordPreprocessorSourceUri :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MonitoringAppSpecification -&gt; f MonitoringAppSpecification
 </span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#monitoringAppSpecification_recordPreprocessorSourceUri"><span class="hs-identifier hs-var hs-var">monitoringAppSpecification_recordPreprocessorSourceUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringAppSpecification -&gt; Maybe Text)
 -&gt; (MonitoringAppSpecification
@@ -298,16 +228,86 @@ $sel:postAnalyticsProcessorSourceUri:MonitoringAppSpecification' :: MonitoringAp
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680318885"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320276"><span class="annot"><span class="annottext">Maybe Text
 recordPreprocessorSourceUri :: Maybe Text
 $sel:recordPreprocessorSourceUri:MonitoringAppSpecification' :: MonitoringAppSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621680318885"><span class="hs-identifier hs-var hs-var">recordPreprocessorSourceUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680318885"><span class="hs-identifier hs-var">recordPreprocessorSourceUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680318884"><span class="annot"><span class="annottext">s :: MonitoringAppSpecification
-</span><a href="#local-6989586621680318884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680318883"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680318883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringAppSpecification
-</span><a href="#local-6989586621680318884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordPreprocessorSourceUri:MonitoringAppSpecification' :: Maybe Text
+</span><a href="#local-6989586621680320276"><span class="hs-identifier hs-var hs-var">recordPreprocessorSourceUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680320276"><span class="hs-identifier hs-var">recordPreprocessorSourceUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680320275"><span class="annot"><span class="annottext">s :: MonitoringAppSpecification
+</span><a href="#local-6989586621680320275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680320274"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680320274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringAppSpecification
+</span><a href="#local-6989586621680320275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordPreprocessorSourceUri:MonitoringAppSpecification' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3ArecordPreprocessorSourceUri%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var">recordPreprocessorSourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680318883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680320274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Specifies the entrypoint for a container used to run the monitoring job.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#monitoringAppSpecification_containerEntrypoint"><span class="hs-identifier hs-type">monitoringAppSpecification_containerEntrypoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="monitoringAppSpecification_containerEntrypoint"><span class="annot"><span class="annottext">monitoringAppSpecification_containerEntrypoint :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; MonitoringAppSpecification -&gt; f MonitoringAppSpecification
+</span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#monitoringAppSpecification_containerEntrypoint"><span class="hs-identifier hs-var hs-var">monitoringAppSpecification_containerEntrypoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringAppSpecification -&gt; Maybe (NonEmpty Text))
+-&gt; (MonitoringAppSpecification
+    -&gt; Maybe (NonEmpty Text) -&gt; MonitoringAppSpecification)
+-&gt; Lens
+     MonitoringAppSpecification
+     MonitoringAppSpecification
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320272"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+containerEntrypoint :: Maybe (NonEmpty Text)
+$sel:containerEntrypoint:MonitoringAppSpecification' :: MonitoringAppSpecification -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680320272"><span class="hs-identifier hs-var hs-var">containerEntrypoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680320272"><span class="hs-identifier hs-var">containerEntrypoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680320271"><span class="annot"><span class="annottext">s :: MonitoringAppSpecification
+</span><a href="#local-6989586621680320271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680320270"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680320270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringAppSpecification
+</span><a href="#local-6989586621680320271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerEntrypoint:MonitoringAppSpecification' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3AcontainerEntrypoint%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var">containerEntrypoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680320270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; MonitoringAppSpecification -&gt; f MonitoringAppSpecification)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; MonitoringAppSpecification
+-&gt; f MonitoringAppSpecification
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | An Amazon S3 URI to a script that is called after analysis has been</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- performed. Applicable only for the built-in (first party) containers.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#monitoringAppSpecification_postAnalyticsProcessorSourceUri"><span class="hs-identifier hs-type">monitoringAppSpecification_postAnalyticsProcessorSourceUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="monitoringAppSpecification_postAnalyticsProcessorSourceUri"><span class="annot"><span class="annottext">monitoringAppSpecification_postAnalyticsProcessorSourceUri :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MonitoringAppSpecification -&gt; f MonitoringAppSpecification
+</span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#monitoringAppSpecification_postAnalyticsProcessorSourceUri"><span class="hs-identifier hs-var hs-var">monitoringAppSpecification_postAnalyticsProcessorSourceUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringAppSpecification -&gt; Maybe Text)
+-&gt; (MonitoringAppSpecification
+    -&gt; Maybe Text -&gt; MonitoringAppSpecification)
+-&gt; Lens
+     MonitoringAppSpecification
+     MonitoringAppSpecification
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320268"><span class="annot"><span class="annottext">Maybe Text
+postAnalyticsProcessorSourceUri :: Maybe Text
+$sel:postAnalyticsProcessorSourceUri:MonitoringAppSpecification' :: MonitoringAppSpecification -&gt; Maybe Text
+</span><a href="#local-6989586621680320268"><span class="hs-identifier hs-var hs-var">postAnalyticsProcessorSourceUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680320268"><span class="hs-identifier hs-var">postAnalyticsProcessorSourceUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680320267"><span class="annot"><span class="annottext">s :: MonitoringAppSpecification
+</span><a href="#local-6989586621680320267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680320266"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680320266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringAppSpecification
+</span><a href="#local-6989586621680320267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:postAnalyticsProcessorSourceUri:MonitoringAppSpecification' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3ApostAnalyticsProcessorSourceUri%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var">postAnalyticsProcessorSourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680320266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The container image to be run by the monitoring job.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#monitoringAppSpecification_imageUri"><span class="hs-identifier hs-type">monitoringAppSpecification_imageUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -319,19 +319,19 @@ $sel:recordPreprocessorSourceUri:MonitoringAppSpecification' :: MonitoringAppSpe
 -&gt; Lens
      MonitoringAppSpecification MonitoringAppSpecification Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680318881"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320264"><span class="annot"><span class="annottext">Text
 imageUri :: Text
 $sel:imageUri:MonitoringAppSpecification' :: MonitoringAppSpecification -&gt; Text
-</span><a href="#local-6989586621680318881"><span class="hs-identifier hs-var hs-var">imageUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680318881"><span class="hs-identifier hs-var">imageUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680318880"><span class="annot"><span class="annottext">s :: MonitoringAppSpecification
-</span><a href="#local-6989586621680318880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680318879"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680318879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringAppSpecification
-</span><a href="#local-6989586621680318880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageUri:MonitoringAppSpecification' :: Text
+</span><a href="#local-6989586621680320264"><span class="hs-identifier hs-var hs-var">imageUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680320264"><span class="hs-identifier hs-var">imageUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680320263"><span class="annot"><span class="annottext">s :: MonitoringAppSpecification
+</span><a href="#local-6989586621680320263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680320262"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680320262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringAppSpecification
+</span><a href="#local-6989586621680320263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageUri:MonitoringAppSpecification' :: Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#%24sel%3AimageUri%3AMonitoringAppSpecification%27"><span class="hs-identifier hs-var">imageUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680318879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680320262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680318876"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621680318874"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonitoringAppSpecification
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320259"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621680320257"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonitoringAppSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MonitoringAppSpecification)
@@ -341,92 +341,100 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MonitoringAppSpecification&quot;</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680318871"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680318871"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680320254"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680320254"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
--&gt; Maybe (NonEmpty Text)
 -&gt; Maybe Text
+-&gt; Maybe (NonEmpty Text)
 -&gt; Maybe Text
 -&gt; Text
 -&gt; MonitoringAppSpecification
 </span><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-var">MonitoringAppSpecification'</span></a></span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Text)
- -&gt; Maybe (NonEmpty Text)
  -&gt; Maybe Text
+ -&gt; Maybe (NonEmpty Text)
  -&gt; Maybe Text
  -&gt; Text
  -&gt; MonitoringAppSpecification)
 -&gt; Parser (Maybe (NonEmpty Text))
 -&gt; Parser
-     (Maybe (NonEmpty Text)
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; MonitoringAppSpecification)
+     (Maybe Text
+      -&gt; Maybe (NonEmpty Text)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; MonitoringAppSpecification)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680318871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621680320254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContainerArguments&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (NonEmpty Text)
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; MonitoringAppSpecification)
--&gt; Parser (Maybe (NonEmpty Text))
+  (Maybe Text
+   -&gt; Maybe (NonEmpty Text)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; MonitoringAppSpecification)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; MonitoringAppSpecification)
+     (Maybe (NonEmpty Text)
+      -&gt; Maybe Text -&gt; Text -&gt; MonitoringAppSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680318871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621680320254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ContainerEntrypoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;RecordPreprocessorSourceUri&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; MonitoringAppSpecification)
--&gt; Parser (Maybe Text)
+  (Maybe (NonEmpty Text)
+   -&gt; Maybe Text -&gt; Text -&gt; MonitoringAppSpecification)
+-&gt; Parser (Maybe (NonEmpty Text))
 -&gt; Parser (Maybe Text -&gt; Text -&gt; MonitoringAppSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680318871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680320254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PostAnalyticsProcessorSourceUri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ContainerEntrypoint&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; MonitoringAppSpecification)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Text -&gt; MonitoringAppSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680318871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680320254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RecordPreprocessorSourceUri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;PostAnalyticsProcessorSourceUri&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; MonitoringAppSpecification)
 -&gt; Parser Text -&gt; Parser MonitoringAppSpecification
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680318871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680320254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImageUri&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680318864"><span id="local-6989586621680318866"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320247"><span id="local-6989586621680320249"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680318861"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320244"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680318853"><span id="local-6989586621680318855"><span id="local-6989586621680318857"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621680318851"><span class="annot"><span class="annottext">toJSON :: MonitoringAppSpecification -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680318845"><span id="local-6989586621680318846"><span id="local-6989586621680318847"><span id="local-6989586621680318848"><span id="local-6989586621680318849"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320236"><span id="local-6989586621680320238"><span id="local-6989586621680320240"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification"><span class="hs-identifier hs-type">MonitoringAppSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621680320234"><span class="annot"><span class="annottext">toJSON :: MonitoringAppSpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringAppSpecification.html#MonitoringAppSpecification%27"><span class="hs-identifier hs-type">MonitoringAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320228"><span id="local-6989586621680320229"><span id="local-6989586621680320230"><span id="local-6989586621680320231"><span id="local-6989586621680320232"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 Maybe Text
 Text
 imageUri :: Text
-recordPreprocessorSourceUri :: Maybe Text
 postAnalyticsProcessorSourceUri :: Maybe Text
 containerEntrypoint :: Maybe (NonEmpty Text)
+recordPreprocessorSourceUri :: Maybe Text
 containerArguments :: Maybe (NonEmpty Text)
 $sel:imageUri:MonitoringAppSpecification' :: MonitoringAppSpecification -&gt; Text
-$sel:recordPreprocessorSourceUri:MonitoringAppSpecification' :: MonitoringAppSpecification -&gt; Maybe Text
 $sel:postAnalyticsProcessorSourceUri:MonitoringAppSpecification' :: MonitoringAppSpecification -&gt; Maybe Text
 $sel:containerEntrypoint:MonitoringAppSpecification' :: MonitoringAppSpecification -&gt; Maybe (NonEmpty Text)
+$sel:recordPreprocessorSourceUri:MonitoringAppSpecification' :: MonitoringAppSpecification -&gt; Maybe Text
 $sel:containerArguments:MonitoringAppSpecification' :: MonitoringAppSpecification -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621680318845"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680320228"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -439,38 +447,38 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621680318849"><span class="hs-identifier hs-var">containerArguments</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680320232"><span class="hs-identifier hs-var">containerArguments</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordPreprocessorSourceUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680320231"><span class="hs-identifier hs-var">recordPreprocessorSourceUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContainerEntrypoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621680318848"><span class="hs-identifier hs-var">containerEntrypoint</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PostAnalyticsProcessorSourceUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680318847"><span class="hs-identifier hs-var">postAnalyticsProcessorSourceUri</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680320230"><span class="hs-identifier hs-var">containerEntrypoint</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RecordPreprocessorSourceUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;PostAnalyticsProcessorSourceUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680318846"><span class="hs-identifier hs-var">recordPreprocessorSourceUri</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680320229"><span class="hs-identifier hs-var">postAnalyticsProcessorSourceUri</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImageUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680318845"><span class="hs-identifier hs-var">imageUri</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680320228"><span class="hs-identifier hs-var">imageUri</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span></pre></body></html>

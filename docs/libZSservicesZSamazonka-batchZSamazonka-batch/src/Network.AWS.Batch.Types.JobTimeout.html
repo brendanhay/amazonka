@@ -26,14 +26,14 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An object representing a job timeout configuration.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newJobTimeout' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679261328"><span id="local-6989586621679261329"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobTimeout"><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout"><span class="hs-identifier hs-var">JobTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobTimeout%27"><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout%27"><span class="hs-identifier hs-var">JobTimeout'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679261610"><span id="local-6989586621679261611"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobTimeout"><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout"><span class="hs-identifier hs-var">JobTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobTimeout%27"><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout%27"><span class="hs-identifier hs-var">JobTimeout'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time duration in seconds (measured from the job attempt\'s</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- @startedAt@ timestamp) after which Batch terminates your jobs if they</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- have not finished. The minimum value for the timeout is 60 seconds.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AattemptDurationSeconds%3AJobTimeout%27"><span class="annot"><span class="annottext">JobTimeout -&gt; Maybe Int
 </span><a href="Network.AWS.Batch.Types.JobTimeout.html#%24sel%3AattemptDurationSeconds%3AJobTimeout%27"><span class="hs-identifier hs-var hs-var">attemptDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261322"><span id="local-6989586621679261324"><span class="annot"><span class="annottext">JobTimeout -&gt; JobTimeout -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261604"><span id="local-6989586621679261606"><span class="annot"><span class="annottext">JobTimeout -&gt; JobTimeout -&gt; Bool
 (JobTimeout -&gt; JobTimeout -&gt; Bool)
 -&gt; (JobTimeout -&gt; JobTimeout -&gt; Bool) -&gt; Eq JobTimeout
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JobTimeout -&gt; JobTimeout -&gt; Bool
 == :: JobTimeout -&gt; JobTimeout -&gt; Bool
 $c== :: JobTimeout -&gt; JobTimeout -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261313"><span id="local-6989586621679261315"><span id="local-6989586621679261317"><span id="local-6989586621679261319"><span class="annot"><span class="annottext">ReadPrec [JobTimeout]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261595"><span id="local-6989586621679261597"><span id="local-6989586621679261599"><span id="local-6989586621679261601"><span class="annot"><span class="annottext">ReadPrec [JobTimeout]
 ReadPrec JobTimeout
 Int -&gt; ReadS JobTimeout
 ReadS [JobTimeout]
@@ -61,7 +61,7 @@ readList :: ReadS [JobTimeout]
 $creadList :: ReadS [JobTimeout]
 readsPrec :: Int -&gt; ReadS JobTimeout
 $creadsPrec :: Int -&gt; ReadS JobTimeout
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261306"><span id="local-6989586621679261308"><span id="local-6989586621679261310"><span class="annot"><span class="annottext">Int -&gt; JobTimeout -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261588"><span id="local-6989586621679261590"><span id="local-6989586621679261592"><span class="annot"><span class="annottext">Int -&gt; JobTimeout -&gt; ShowS
 [JobTimeout] -&gt; ShowS
 JobTimeout -&gt; String
 (Int -&gt; JobTimeout -&gt; ShowS)
@@ -119,19 +119,19 @@ forall a. Maybe a
 -&gt; (JobTimeout -&gt; Maybe Int -&gt; JobTimeout)
 -&gt; Lens JobTimeout JobTimeout (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout%27"><span class="hs-identifier hs-type">JobTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261297"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout%27"><span class="hs-identifier hs-type">JobTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261579"><span class="annot"><span class="annottext">Maybe Int
 attemptDurationSeconds :: Maybe Int
 $sel:attemptDurationSeconds:JobTimeout' :: JobTimeout -&gt; Maybe Int
-</span><a href="#local-6989586621679261297"><span class="hs-identifier hs-var hs-var">attemptDurationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679261297"><span class="hs-identifier hs-var">attemptDurationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261296"><span class="annot"><span class="annottext">s :: JobTimeout
-</span><a href="#local-6989586621679261296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout%27"><span class="hs-identifier hs-type">JobTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261295"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679261295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTimeout
-</span><a href="#local-6989586621679261296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attemptDurationSeconds:JobTimeout' :: Maybe Int
+</span><a href="#local-6989586621679261579"><span class="hs-identifier hs-var hs-var">attemptDurationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679261579"><span class="hs-identifier hs-var">attemptDurationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261578"><span class="annot"><span class="annottext">s :: JobTimeout
+</span><a href="#local-6989586621679261578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout%27"><span class="hs-identifier hs-type">JobTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261577"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679261577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobTimeout
+</span><a href="#local-6989586621679261578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attemptDurationSeconds:JobTimeout' :: Maybe Int
 </span><a href="Network.AWS.Batch.Types.JobTimeout.html#%24sel%3AattemptDurationSeconds%3AJobTimeout%27"><span class="hs-identifier hs-var">attemptDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679261295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout"><span class="hs-identifier hs-type">JobTimeout</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout"><span class="hs-identifier hs-type">JobTimeout</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261292"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout"><span class="hs-identifier hs-type">JobTimeout</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679261290"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobTimeout
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261574"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout"><span class="hs-identifier hs-type">JobTimeout</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679261572"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobTimeout
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JobTimeout) -&gt; Value -&gt; Parser JobTimeout
@@ -139,30 +139,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JobTimeout&quot;</span></span><span>
-</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679261287"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261287"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679261569"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679261569"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; JobTimeout
 </span><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout%27"><span class="hs-identifier hs-var">JobTimeout'</span></a></span><span>
 </span><span id="line-68"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; JobTimeout)
 -&gt; Parser (Maybe Int) -&gt; Parser JobTimeout
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679261569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;attemptDurationSeconds&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261281"><span id="local-6989586621679261283"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout"><span class="hs-identifier hs-type">JobTimeout</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261563"><span id="local-6989586621679261565"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout"><span class="hs-identifier hs-type">JobTimeout</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261278"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout"><span class="hs-identifier hs-type">JobTimeout</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout"><span class="hs-identifier hs-type">JobTimeout</span></a></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261270"><span id="local-6989586621679261272"><span id="local-6989586621679261274"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout"><span class="hs-identifier hs-type">JobTimeout</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679261268"><span class="annot"><span class="annottext">toJSON :: JobTimeout -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout%27"><span class="hs-identifier hs-type">JobTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261266"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261552"><span id="local-6989586621679261554"><span id="local-6989586621679261556"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout"><span class="hs-identifier hs-type">JobTimeout</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679261550"><span class="annot"><span class="annottext">toJSON :: JobTimeout -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout%27"><span class="hs-identifier hs-type">JobTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261548"><span class="annot"><span class="annottext">Maybe Int
 attemptDurationSeconds :: Maybe Int
 $sel:attemptDurationSeconds:JobTimeout' :: JobTimeout -&gt; Maybe Int
-</span><a href="#local-6989586621679261266"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679261548"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -175,7 +175,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-80"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679261266"><span class="hs-identifier hs-var">attemptDurationSeconds</span></a></span><span>
+</span><a href="#local-6989586621679261548"><span class="hs-identifier hs-var">attemptDurationSeconds</span></a></span><span>
 </span><span id="line-81"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span></pre></body></html>

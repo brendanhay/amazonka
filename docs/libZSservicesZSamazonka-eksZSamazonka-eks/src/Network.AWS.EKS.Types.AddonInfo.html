@@ -27,19 +27,19 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about an add-on.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAddonInfo' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679264346"><span id="local-6989586621679264347"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddonInfo"><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-var">AddonInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddonInfo%27"><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo%27"><span class="hs-identifier hs-var">AddonInfo'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that represents information about available add-on versions</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- and compatible Kubernetes versions.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AaddonVersions%3AAddonInfo%27"><span class="annot"><span class="annottext">AddonInfo -&gt; Maybe [AddonVersionInfo]
-</span><a href="Network.AWS.EKS.Types.AddonInfo.html#%24sel%3AaddonVersions%3AAddonInfo%27"><span class="hs-identifier hs-var hs-var">addonVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonVersionInfo.html#AddonVersionInfo"><span class="hs-identifier hs-type">AddonVersionInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the add-on.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AaddonName%3AAddonInfo%27"><span class="annot"><span class="annottext">AddonInfo -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679264597"><span id="local-6989586621679264598"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddonInfo"><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-var">AddonInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddonInfo%27"><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo%27"><span class="hs-identifier hs-var">AddonInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the add-on.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AaddonName%3AAddonInfo%27"><span class="annot"><span class="annottext">AddonInfo -&gt; Maybe Text
 </span><a href="Network.AWS.EKS.Types.AddonInfo.html#%24sel%3AaddonName%3AAddonInfo%27"><span class="hs-identifier hs-var hs-var">addonName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The type of the add-on.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Atype%27%3AAddonInfo%27"><span class="annot"><span class="annottext">AddonInfo -&gt; Maybe Text
-</span><a href="Network.AWS.EKS.Types.AddonInfo.html#%24sel%3Atype%27%3AAddonInfo%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The type of the add-on.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Atype%27%3AAddonInfo%27"><span class="annot"><span class="annottext">AddonInfo -&gt; Maybe Text
+</span><a href="Network.AWS.EKS.Types.AddonInfo.html#%24sel%3Atype%27%3AAddonInfo%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | An object that represents information about available add-on versions</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- and compatible Kubernetes versions.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AaddonVersions%3AAddonInfo%27"><span class="annot"><span class="annottext">AddonInfo -&gt; Maybe [AddonVersionInfo]
+</span><a href="Network.AWS.EKS.Types.AddonInfo.html#%24sel%3AaddonVersions%3AAddonInfo%27"><span class="hs-identifier hs-var hs-var">addonVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonVersionInfo.html#AddonVersionInfo"><span class="hs-identifier hs-type">AddonVersionInfo</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264338"><span id="local-6989586621679264340"><span class="annot"><span class="annottext">AddonInfo -&gt; AddonInfo -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264589"><span id="local-6989586621679264591"><span class="annot"><span class="annottext">AddonInfo -&gt; AddonInfo -&gt; Bool
 (AddonInfo -&gt; AddonInfo -&gt; Bool)
 -&gt; (AddonInfo -&gt; AddonInfo -&gt; Bool) -&gt; Eq AddonInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddonInfo -&gt; AddonInfo -&gt; Bool
 == :: AddonInfo -&gt; AddonInfo -&gt; Bool
 $c== :: AddonInfo -&gt; AddonInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264329"><span id="local-6989586621679264331"><span id="local-6989586621679264333"><span id="local-6989586621679264335"><span class="annot"><span class="annottext">ReadPrec [AddonInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264580"><span id="local-6989586621679264582"><span id="local-6989586621679264584"><span id="local-6989586621679264586"><span class="annot"><span class="annottext">ReadPrec [AddonInfo]
 ReadPrec AddonInfo
 Int -&gt; ReadS AddonInfo
 ReadS [AddonInfo]
@@ -67,7 +67,7 @@ readList :: ReadS [AddonInfo]
 $creadList :: ReadS [AddonInfo]
 readsPrec :: Int -&gt; ReadS AddonInfo
 $creadsPrec :: Int -&gt; ReadS AddonInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264322"><span id="local-6989586621679264324"><span id="local-6989586621679264326"><span class="annot"><span class="annottext">Int -&gt; AddonInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264573"><span id="local-6989586621679264575"><span id="local-6989586621679264577"><span class="annot"><span class="annottext">Int -&gt; AddonInfo -&gt; ShowS
 [AddonInfo] -&gt; ShowS
 AddonInfo -&gt; String
 (Int -&gt; AddonInfo -&gt; ShowS)
@@ -100,36 +100,72 @@ $cfrom :: forall x. AddonInfo -&gt; Rep AddonInfo x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'addonVersions', 'addonInfo_addonVersions' - An object that represents information about available add-on versions</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- and compatible Kubernetes versions.</span><span>
-</span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'addonName', 'addonInfo_addonName' - The name of the add-on.</span><span>
-</span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'type'', 'addonInfo_type' - The type of the add-on.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'addonName', 'addonInfo_addonName' - The name of the add-on.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'type'', 'addonInfo_type' - The type of the add-on.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'addonVersions', 'addonInfo_addonVersions' - An object that represents information about available add-on versions</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- and compatible Kubernetes versions.</span><span>
 </span><span id="line-55"></span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#newAddonInfo"><span class="hs-identifier hs-type">newAddonInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span><span>
 </span><span id="line-57"></span><span id="newAddonInfo"><span class="annot"><span class="annottext">newAddonInfo :: AddonInfo
 </span><a href="Network.AWS.EKS.Types.AddonInfo.html#newAddonInfo"><span class="hs-identifier hs-var hs-var">newAddonInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">AddonInfo' :: Maybe [AddonVersionInfo] -&gt; Maybe Text -&gt; Maybe Text -&gt; AddonInfo
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">AddonInfo' :: Maybe Text -&gt; Maybe Text -&gt; Maybe [AddonVersionInfo] -&gt; AddonInfo
 </span><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo%27"><span class="hs-identifier hs-type">AddonInfo'</span></a></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:addonVersions:AddonInfo' :: Maybe [AddonVersionInfo]
-</span><a href="Network.AWS.EKS.Types.AddonInfo.html#%24sel%3AaddonVersions%3AAddonInfo%27"><span class="hs-identifier hs-var">addonVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AddonVersionInfo]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:addonName:AddonInfo' :: Maybe Text
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:addonName:AddonInfo' :: Maybe Text
 </span><a href="Network.AWS.EKS.Types.AddonInfo.html#%24sel%3AaddonName%3AAddonInfo%27"><span class="hs-identifier hs-var">addonName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':AddonInfo' :: Maybe Text
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':AddonInfo' :: Maybe Text
 </span><a href="Network.AWS.EKS.Types.AddonInfo.html#%24sel%3Atype%27%3AAddonInfo%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:addonVersions:AddonInfo' :: Maybe [AddonVersionInfo]
+</span><a href="Network.AWS.EKS.Types.AddonInfo.html#%24sel%3AaddonVersions%3AAddonInfo%27"><span class="hs-identifier hs-var">addonVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AddonVersionInfo]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | An object that represents information about available add-on versions</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- and compatible Kubernetes versions.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#addonInfo_addonVersions"><span class="hs-identifier hs-type">addonInfo_addonVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonVersionInfo.html#AddonVersionInfo"><span class="hs-identifier hs-type">AddonVersionInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="addonInfo_addonVersions"><span class="annot"><span class="annottext">addonInfo_addonVersions :: (Maybe [AddonVersionInfo] -&gt; f (Maybe [AddonVersionInfo]))
+</span><span id="line-64"></span><span class="hs-comment">-- | The name of the add-on.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#addonInfo_addonName"><span class="hs-identifier hs-type">addonInfo_addonName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="addonInfo_addonName"><span class="annot"><span class="annottext">addonInfo_addonName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AddonInfo -&gt; f AddonInfo
+</span><a href="Network.AWS.EKS.Types.AddonInfo.html#addonInfo_addonName"><span class="hs-identifier hs-var hs-var">addonInfo_addonName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddonInfo -&gt; Maybe Text)
+-&gt; (AddonInfo -&gt; Maybe Text -&gt; AddonInfo)
+-&gt; Lens AddonInfo AddonInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo%27"><span class="hs-identifier hs-type">AddonInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264564"><span class="annot"><span class="annottext">Maybe Text
+addonName :: Maybe Text
+$sel:addonName:AddonInfo' :: AddonInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679264564"><span class="hs-identifier hs-var hs-var">addonName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264564"><span class="hs-identifier hs-var">addonName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264563"><span class="annot"><span class="annottext">s :: AddonInfo
+</span><a href="#local-6989586621679264563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo%27"><span class="hs-identifier hs-type">AddonInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264562"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddonInfo
+</span><a href="#local-6989586621679264563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addonName:AddonInfo' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.AddonInfo.html#%24sel%3AaddonName%3AAddonInfo%27"><span class="hs-identifier hs-var">addonName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The type of the add-on.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#addonInfo_type"><span class="hs-identifier hs-type">addonInfo_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="addonInfo_type"><span class="annot"><span class="annottext">addonInfo_type :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AddonInfo -&gt; f AddonInfo
+</span><a href="Network.AWS.EKS.Types.AddonInfo.html#addonInfo_type"><span class="hs-identifier hs-var hs-var">addonInfo_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddonInfo -&gt; Maybe Text)
+-&gt; (AddonInfo -&gt; Maybe Text -&gt; AddonInfo)
+-&gt; Lens AddonInfo AddonInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo%27"><span class="hs-identifier hs-type">AddonInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264560"><span class="annot"><span class="annottext">Maybe Text
+type' :: Maybe Text
+$sel:type':AddonInfo' :: AddonInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679264560"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264560"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264559"><span class="annot"><span class="annottext">s :: AddonInfo
+</span><a href="#local-6989586621679264559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo%27"><span class="hs-identifier hs-type">AddonInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264558"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddonInfo
+</span><a href="#local-6989586621679264559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':AddonInfo' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.AddonInfo.html#%24sel%3Atype%27%3AAddonInfo%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | An object that represents information about available add-on versions</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- and compatible Kubernetes versions.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#addonInfo_addonVersions"><span class="hs-identifier hs-type">addonInfo_addonVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonVersionInfo.html#AddonVersionInfo"><span class="hs-identifier hs-type">AddonVersionInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="addonInfo_addonVersions"><span class="annot"><span class="annottext">addonInfo_addonVersions :: (Maybe [AddonVersionInfo] -&gt; f (Maybe [AddonVersionInfo]))
 -&gt; AddonInfo -&gt; f AddonInfo
 </span><a href="Network.AWS.EKS.Types.AddonInfo.html#addonInfo_addonVersions"><span class="hs-identifier hs-var hs-var">addonInfo_addonVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddonInfo -&gt; Maybe [AddonVersionInfo])
 -&gt; (AddonInfo -&gt; Maybe [AddonVersionInfo] -&gt; AddonInfo)
@@ -139,16 +175,16 @@ forall a. Maybe a
      (Maybe [AddonVersionInfo])
      (Maybe [AddonVersionInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo%27"><span class="hs-identifier hs-type">AddonInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264313"><span class="annot"><span class="annottext">Maybe [AddonVersionInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo%27"><span class="hs-identifier hs-type">AddonInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264556"><span class="annot"><span class="annottext">Maybe [AddonVersionInfo]
 addonVersions :: Maybe [AddonVersionInfo]
 $sel:addonVersions:AddonInfo' :: AddonInfo -&gt; Maybe [AddonVersionInfo]
-</span><a href="#local-6989586621679264313"><span class="hs-identifier hs-var hs-var">addonVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AddonVersionInfo]
-</span><a href="#local-6989586621679264313"><span class="hs-identifier hs-var">addonVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264312"><span class="annot"><span class="annottext">s :: AddonInfo
-</span><a href="#local-6989586621679264312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo%27"><span class="hs-identifier hs-type">AddonInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264311"><span class="annot"><span class="annottext">Maybe [AddonVersionInfo]
-</span><a href="#local-6989586621679264311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddonInfo
-</span><a href="#local-6989586621679264312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addonVersions:AddonInfo' :: Maybe [AddonVersionInfo]
+</span><a href="#local-6989586621679264556"><span class="hs-identifier hs-var hs-var">addonVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AddonVersionInfo]
+</span><a href="#local-6989586621679264556"><span class="hs-identifier hs-var">addonVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264555"><span class="annot"><span class="annottext">s :: AddonInfo
+</span><a href="#local-6989586621679264555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo%27"><span class="hs-identifier hs-type">AddonInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264554"><span class="annot"><span class="annottext">Maybe [AddonVersionInfo]
+</span><a href="#local-6989586621679264554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddonInfo
+</span><a href="#local-6989586621679264555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addonVersions:AddonInfo' :: Maybe [AddonVersionInfo]
 </span><a href="Network.AWS.EKS.Types.AddonInfo.html#%24sel%3AaddonVersions%3AAddonInfo%27"><span class="hs-identifier hs-var">addonVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AddonVersionInfo]
-</span><a href="#local-6989586621679264311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AddonVersionInfo] -&gt; f (Maybe [AddonVersionInfo]))
+</span><a href="#local-6989586621679264554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AddonVersionInfo] -&gt; f (Maybe [AddonVersionInfo]))
  -&gt; AddonInfo -&gt; f AddonInfo)
 -&gt; ((Maybe [AddonVersionInfo] -&gt; f (Maybe [AddonVersionInfo]))
     -&gt; Maybe [AddonVersionInfo] -&gt; f (Maybe [AddonVersionInfo]))
@@ -174,63 +210,44 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AddonVersionInfo]
   [AddonVersionInfo]
   [AddonVersionInfo]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | The name of the add-on.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#addonInfo_addonName"><span class="hs-identifier hs-type">addonInfo_addonName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="addonInfo_addonName"><span class="annot"><span class="annottext">addonInfo_addonName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AddonInfo -&gt; f AddonInfo
-</span><a href="Network.AWS.EKS.Types.AddonInfo.html#addonInfo_addonName"><span class="hs-identifier hs-var hs-var">addonInfo_addonName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddonInfo -&gt; Maybe Text)
--&gt; (AddonInfo -&gt; Maybe Text -&gt; AddonInfo)
--&gt; Lens AddonInfo AddonInfo (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo%27"><span class="hs-identifier hs-type">AddonInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264306"><span class="annot"><span class="annottext">Maybe Text
-addonName :: Maybe Text
-$sel:addonName:AddonInfo' :: AddonInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679264306"><span class="hs-identifier hs-var hs-var">addonName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264306"><span class="hs-identifier hs-var">addonName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264305"><span class="annot"><span class="annottext">s :: AddonInfo
-</span><a href="#local-6989586621679264305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo%27"><span class="hs-identifier hs-type">AddonInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264304"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddonInfo
-</span><a href="#local-6989586621679264305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addonName:AddonInfo' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.AddonInfo.html#%24sel%3AaddonName%3AAddonInfo%27"><span class="hs-identifier hs-var">addonName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The type of the add-on.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#addonInfo_type"><span class="hs-identifier hs-type">addonInfo_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="addonInfo_type"><span class="annot"><span class="annottext">addonInfo_type :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AddonInfo -&gt; f AddonInfo
-</span><a href="Network.AWS.EKS.Types.AddonInfo.html#addonInfo_type"><span class="hs-identifier hs-var hs-var">addonInfo_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddonInfo -&gt; Maybe Text)
--&gt; (AddonInfo -&gt; Maybe Text -&gt; AddonInfo)
--&gt; Lens AddonInfo AddonInfo (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo%27"><span class="hs-identifier hs-type">AddonInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264302"><span class="annot"><span class="annottext">Maybe Text
-type' :: Maybe Text
-$sel:type':AddonInfo' :: AddonInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679264302"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264302"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264301"><span class="annot"><span class="annottext">s :: AddonInfo
-</span><a href="#local-6989586621679264301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo%27"><span class="hs-identifier hs-type">AddonInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264300"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddonInfo
-</span><a href="#local-6989586621679264301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':AddonInfo' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.AddonInfo.html#%24sel%3Atype%27%3AAddonInfo%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264297"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679264295"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AddonInfo
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264548"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679264546"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AddonInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser AddonInfo) -&gt; Value -&gt; Parser AddonInfo
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AddonInfo&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679264292"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679264292"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AddonVersionInfo] -&gt; Maybe Text -&gt; Maybe Text -&gt; AddonInfo
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679264543"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264543"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe [AddonVersionInfo] -&gt; AddonInfo
 </span><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo%27"><span class="hs-identifier hs-var">AddonInfo'</span></a></span><span>
-</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AddonVersionInfo] -&gt; Maybe Text -&gt; Maybe Text -&gt; AddonInfo)
--&gt; Parser (Maybe [AddonVersionInfo])
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; AddonInfo)
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe [AddonVersionInfo] -&gt; AddonInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe [AddonVersionInfo] -&gt; AddonInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679264292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AddonVersionInfo]))
+</span><a href="#local-6989586621679264543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;addonName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [AddonVersionInfo] -&gt; AddonInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [AddonVersionInfo] -&gt; AddonInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [AddonVersionInfo] -&gt; AddonInfo)
+-&gt; Parser (Maybe [AddonVersionInfo]) -&gt; Parser AddonInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AddonVersionInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;addonVersions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AddonVersionInfo]))
@@ -239,25 +256,9 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AddonVersionInfo]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; AddonInfo)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; AddonInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679264292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;addonName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AddonInfo)
--&gt; Parser (Maybe Text) -&gt; Parser AddonInfo
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679264292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264285"><span id="local-6989586621679264287"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264536"><span id="local-6989586621679264538"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264533"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonInfo.html#AddonInfo"><span class="hs-identifier hs-type">AddonInfo</span></a></span></span><span>
 </span><span id="line-91"></span></pre></body></html>

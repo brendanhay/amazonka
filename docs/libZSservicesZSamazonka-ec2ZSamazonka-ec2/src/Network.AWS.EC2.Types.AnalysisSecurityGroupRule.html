@@ -28,31 +28,31 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a security group rule.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAnalysisSecurityGroupRule' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681102376"><span id="local-6989586621681102377"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnalysisSecurityGroupRule"><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-var">AnalysisSecurityGroupRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalysisSecurityGroupRule%27"><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">AnalysisSecurityGroupRule'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The security group ID.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsecurityGroupId%3AAnalysisSecurityGroupRule%27"><span class="annot"><span class="annottext">AnalysisSecurityGroupRule -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3AsecurityGroupId%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var hs-var">securityGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The port range.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AportRange%3AAnalysisSecurityGroupRule%27"><span class="annot"><span class="annottext">AnalysisSecurityGroupRule -&gt; Maybe PortRange
-</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3AportRange%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var hs-var">portRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The direction. The following are possible values:</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   egress</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   ingress</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Adirection%3AAnalysisSecurityGroupRule%27"><span class="annot"><span class="annottext">AnalysisSecurityGroupRule -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621681137081"><span id="local-6989586621681137082"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnalysisSecurityGroupRule"><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-var">AnalysisSecurityGroupRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalysisSecurityGroupRule%27"><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">AnalysisSecurityGroupRule'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The direction. The following are possible values:</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- -   egress</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   ingress</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Adirection%3AAnalysisSecurityGroupRule%27"><span class="annot"><span class="annottext">AnalysisSecurityGroupRule -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3Adirection%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var hs-var">direction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The prefix list ID.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AprefixListId%3AAnalysisSecurityGroupRule%27"><span class="annot"><span class="annottext">AnalysisSecurityGroupRule -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3AprefixListId%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var hs-var">prefixListId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The protocol name.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aprotocol%3AAnalysisSecurityGroupRule%27"><span class="annot"><span class="annottext">AnalysisSecurityGroupRule -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3Aprotocol%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The port range.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AportRange%3AAnalysisSecurityGroupRule%27"><span class="annot"><span class="annottext">AnalysisSecurityGroupRule -&gt; Maybe PortRange
+</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3AportRange%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var hs-var">portRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The security group ID.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AsecurityGroupId%3AAnalysisSecurityGroupRule%27"><span class="annot"><span class="annottext">AnalysisSecurityGroupRule -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3AsecurityGroupId%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var hs-var">securityGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The IPv4 address range, in CIDR notation.</span><span>
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3Acidr%3AAnalysisSecurityGroupRule%27"><span class="annot"><span class="annottext">AnalysisSecurityGroupRule -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3Acidr%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The protocol name.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aprotocol%3AAnalysisSecurityGroupRule%27"><span class="annot"><span class="annottext">AnalysisSecurityGroupRule -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3Aprotocol%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The prefix list ID.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AprefixListId%3AAnalysisSecurityGroupRule%27"><span class="annot"><span class="annottext">AnalysisSecurityGroupRule -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3AprefixListId%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var hs-var">prefixListId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681102365"><span id="local-6989586621681102367"><span class="annot"><span class="annottext">AnalysisSecurityGroupRule -&gt; AnalysisSecurityGroupRule -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681137070"><span id="local-6989586621681137072"><span class="annot"><span class="annottext">AnalysisSecurityGroupRule -&gt; AnalysisSecurityGroupRule -&gt; Bool
 (AnalysisSecurityGroupRule -&gt; AnalysisSecurityGroupRule -&gt; Bool)
 -&gt; (AnalysisSecurityGroupRule -&gt; AnalysisSecurityGroupRule -&gt; Bool)
 -&gt; Eq AnalysisSecurityGroupRule
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AnalysisSecurityGroupRule -&gt; AnalysisSecurityGroupRule -&gt; Bool
 == :: AnalysisSecurityGroupRule -&gt; AnalysisSecurityGroupRule -&gt; Bool
 $c== :: AnalysisSecurityGroupRule -&gt; AnalysisSecurityGroupRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681102356"><span id="local-6989586621681102358"><span id="local-6989586621681102360"><span id="local-6989586621681102362"><span class="annot"><span class="annottext">ReadPrec [AnalysisSecurityGroupRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681137061"><span id="local-6989586621681137063"><span id="local-6989586621681137065"><span id="local-6989586621681137067"><span class="annot"><span class="annottext">ReadPrec [AnalysisSecurityGroupRule]
 ReadPrec AnalysisSecurityGroupRule
 Int -&gt; ReadS AnalysisSecurityGroupRule
 ReadS [AnalysisSecurityGroupRule]
@@ -81,7 +81,7 @@ readList :: ReadS [AnalysisSecurityGroupRule]
 $creadList :: ReadS [AnalysisSecurityGroupRule]
 readsPrec :: Int -&gt; ReadS AnalysisSecurityGroupRule
 $creadsPrec :: Int -&gt; ReadS AnalysisSecurityGroupRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681102349"><span id="local-6989586621681102351"><span id="local-6989586621681102353"><span class="annot"><span class="annottext">Int -&gt; AnalysisSecurityGroupRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681137054"><span id="local-6989586621681137056"><span id="local-6989586621681137058"><span class="annot"><span class="annottext">Int -&gt; AnalysisSecurityGroupRule -&gt; ShowS
 [AnalysisSecurityGroupRule] -&gt; ShowS
 AnalysisSecurityGroupRule -&gt; String
 (Int -&gt; AnalysisSecurityGroupRule -&gt; ShowS)
@@ -121,115 +121,67 @@ AnalysisSecurityGroupRule -&gt; Rep AnalysisSecurityGroupRule x
 </span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'securityGroupId', 'analysisSecurityGroupRule_securityGroupId' - The security group ID.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'direction', 'analysisSecurityGroupRule_direction' - The direction. The following are possible values:</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'portRange', 'analysisSecurityGroupRule_portRange' - The port range.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- -   egress</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'direction', 'analysisSecurityGroupRule_direction' - The direction. The following are possible values:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- -   ingress</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- -   egress</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'protocol', 'analysisSecurityGroupRule_protocol' - The protocol name.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- -   ingress</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'portRange', 'analysisSecurityGroupRule_portRange' - The port range.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'prefixListId', 'analysisSecurityGroupRule_prefixListId' - The prefix list ID.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'securityGroupId', 'analysisSecurityGroupRule_securityGroupId' - The security group ID.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- 'cidr', 'analysisSecurityGroupRule_cidr' - The IPv4 address range, in CIDR notation.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'protocol', 'analysisSecurityGroupRule_protocol' - The protocol name.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'prefixListId', 'analysisSecurityGroupRule_prefixListId' - The prefix list ID.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#newAnalysisSecurityGroupRule"><span class="hs-identifier hs-type">newAnalysisSecurityGroupRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span>
 </span><span id="line-76"></span><span id="newAnalysisSecurityGroupRule"><span class="annot"><span class="annottext">newAnalysisSecurityGroupRule :: AnalysisSecurityGroupRule
 </span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#newAnalysisSecurityGroupRule"><span class="hs-identifier hs-var hs-var">newAnalysisSecurityGroupRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">AnalysisSecurityGroupRule' :: Maybe Text
--&gt; Maybe PortRange
 -&gt; Maybe Text
+-&gt; Maybe PortRange
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; AnalysisSecurityGroupRule
 </span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:securityGroupId:AnalysisSecurityGroupRule' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3AsecurityGroupId%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">securityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:direction:AnalysisSecurityGroupRule' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3Adirection%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">direction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:portRange:AnalysisSecurityGroupRule' :: Maybe PortRange
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:AnalysisSecurityGroupRule' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3Aprotocol%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:portRange:AnalysisSecurityGroupRule' :: Maybe PortRange
 </span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3AportRange%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">portRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PortRange
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:direction:AnalysisSecurityGroupRule' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3Adirection%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">direction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefixListId:AnalysisSecurityGroupRule' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3AprefixListId%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">prefixListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityGroupId:AnalysisSecurityGroupRule' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3AsecurityGroupId%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">securityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:cidr:AnalysisSecurityGroupRule' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3Acidr%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">cidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:AnalysisSecurityGroupRule' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3Aprotocol%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefixListId:AnalysisSecurityGroupRule' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3AprefixListId%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">prefixListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The security group ID.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_securityGroupId"><span class="hs-identifier hs-type">analysisSecurityGroupRule_securityGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="analysisSecurityGroupRule_securityGroupId"><span class="annot"><span class="annottext">analysisSecurityGroupRule_securityGroupId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AnalysisSecurityGroupRule -&gt; f AnalysisSecurityGroupRule
-</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_securityGroupId"><span class="hs-identifier hs-var hs-var">analysisSecurityGroupRule_securityGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisSecurityGroupRule -&gt; Maybe Text)
--&gt; (AnalysisSecurityGroupRule
-    -&gt; Maybe Text -&gt; AnalysisSecurityGroupRule)
--&gt; Lens
-     AnalysisSecurityGroupRule
-     AnalysisSecurityGroupRule
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681102340"><span class="annot"><span class="annottext">Maybe Text
-securityGroupId :: Maybe Text
-$sel:securityGroupId:AnalysisSecurityGroupRule' :: AnalysisSecurityGroupRule -&gt; Maybe Text
-</span><a href="#local-6989586621681102340"><span class="hs-identifier hs-var hs-var">securityGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102340"><span class="hs-identifier hs-var">securityGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681102339"><span class="annot"><span class="annottext">s :: AnalysisSecurityGroupRule
-</span><a href="#local-6989586621681102339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681102338"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisSecurityGroupRule
-</span><a href="#local-6989586621681102339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupId:AnalysisSecurityGroupRule' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3AsecurityGroupId%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">securityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The port range.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_portRange"><span class="hs-identifier hs-type">analysisSecurityGroupRule_portRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="analysisSecurityGroupRule_portRange"><span class="annot"><span class="annottext">analysisSecurityGroupRule_portRange :: (Maybe PortRange -&gt; f (Maybe PortRange))
--&gt; AnalysisSecurityGroupRule -&gt; f AnalysisSecurityGroupRule
-</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_portRange"><span class="hs-identifier hs-var hs-var">analysisSecurityGroupRule_portRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisSecurityGroupRule -&gt; Maybe PortRange)
--&gt; (AnalysisSecurityGroupRule
-    -&gt; Maybe PortRange -&gt; AnalysisSecurityGroupRule)
--&gt; Lens
-     AnalysisSecurityGroupRule
-     AnalysisSecurityGroupRule
-     (Maybe PortRange)
-     (Maybe PortRange)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681102336"><span class="annot"><span class="annottext">Maybe PortRange
-portRange :: Maybe PortRange
-$sel:portRange:AnalysisSecurityGroupRule' :: AnalysisSecurityGroupRule -&gt; Maybe PortRange
-</span><a href="#local-6989586621681102336"><span class="hs-identifier hs-var hs-var">portRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PortRange
-</span><a href="#local-6989586621681102336"><span class="hs-identifier hs-var">portRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681102335"><span class="annot"><span class="annottext">s :: AnalysisSecurityGroupRule
-</span><a href="#local-6989586621681102335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681102334"><span class="annot"><span class="annottext">Maybe PortRange
-</span><a href="#local-6989586621681102334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisSecurityGroupRule
-</span><a href="#local-6989586621681102335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portRange:AnalysisSecurityGroupRule' :: Maybe PortRange
-</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3AportRange%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">portRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PortRange
-</span><a href="#local-6989586621681102334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The direction. The following are possible values:</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- -   egress</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- -   ingress</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_direction"><span class="hs-identifier hs-type">analysisSecurityGroupRule_direction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="analysisSecurityGroupRule_direction"><span class="annot"><span class="annottext">analysisSecurityGroupRule_direction :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-87"></span><span class="hs-comment">-- | The direction. The following are possible values:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- -   egress</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- -   ingress</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_direction"><span class="hs-identifier hs-type">analysisSecurityGroupRule_direction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="analysisSecurityGroupRule_direction"><span class="annot"><span class="annottext">analysisSecurityGroupRule_direction :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AnalysisSecurityGroupRule -&gt; f AnalysisSecurityGroupRule
 </span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_direction"><span class="hs-identifier hs-var hs-var">analysisSecurityGroupRule_direction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisSecurityGroupRule -&gt; Maybe Text)
 -&gt; (AnalysisSecurityGroupRule
@@ -240,22 +192,22 @@ $sel:portRange:AnalysisSecurityGroupRule' :: AnalysisSecurityGroupRule -&gt; May
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681102332"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681137045"><span class="annot"><span class="annottext">Maybe Text
 direction :: Maybe Text
 $sel:direction:AnalysisSecurityGroupRule' :: AnalysisSecurityGroupRule -&gt; Maybe Text
-</span><a href="#local-6989586621681102332"><span class="hs-identifier hs-var hs-var">direction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102332"><span class="hs-identifier hs-var">direction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681102331"><span class="annot"><span class="annottext">s :: AnalysisSecurityGroupRule
-</span><a href="#local-6989586621681102331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681102330"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisSecurityGroupRule
-</span><a href="#local-6989586621681102331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:direction:AnalysisSecurityGroupRule' :: Maybe Text
+</span><a href="#local-6989586621681137045"><span class="hs-identifier hs-var hs-var">direction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681137045"><span class="hs-identifier hs-var">direction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681137044"><span class="annot"><span class="annottext">s :: AnalysisSecurityGroupRule
+</span><a href="#local-6989586621681137044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681137043"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681137043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisSecurityGroupRule
+</span><a href="#local-6989586621681137044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:direction:AnalysisSecurityGroupRule' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3Adirection%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">direction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | The prefix list ID.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_prefixListId"><span class="hs-identifier hs-type">analysisSecurityGroupRule_prefixListId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="analysisSecurityGroupRule_prefixListId"><span class="annot"><span class="annottext">analysisSecurityGroupRule_prefixListId :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621681137043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The protocol name.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_protocol"><span class="hs-identifier hs-type">analysisSecurityGroupRule_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="analysisSecurityGroupRule_protocol"><span class="annot"><span class="annottext">analysisSecurityGroupRule_protocol :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AnalysisSecurityGroupRule -&gt; f AnalysisSecurityGroupRule
-</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_prefixListId"><span class="hs-identifier hs-var hs-var">analysisSecurityGroupRule_prefixListId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisSecurityGroupRule -&gt; Maybe Text)
+</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_protocol"><span class="hs-identifier hs-var hs-var">analysisSecurityGroupRule_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisSecurityGroupRule -&gt; Maybe Text)
 -&gt; (AnalysisSecurityGroupRule
     -&gt; Maybe Text -&gt; AnalysisSecurityGroupRule)
 -&gt; Lens
@@ -264,16 +216,64 @@ $sel:direction:AnalysisSecurityGroupRule' :: AnalysisSecurityGroupRule -&gt; May
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681102328"><span class="annot"><span class="annottext">Maybe Text
-prefixListId :: Maybe Text
-$sel:prefixListId:AnalysisSecurityGroupRule' :: AnalysisSecurityGroupRule -&gt; Maybe Text
-</span><a href="#local-6989586621681102328"><span class="hs-identifier hs-var hs-var">prefixListId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102328"><span class="hs-identifier hs-var">prefixListId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681102327"><span class="annot"><span class="annottext">s :: AnalysisSecurityGroupRule
-</span><a href="#local-6989586621681102327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681102326"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisSecurityGroupRule
-</span><a href="#local-6989586621681102327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefixListId:AnalysisSecurityGroupRule' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3AprefixListId%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">prefixListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681137041"><span class="annot"><span class="annottext">Maybe Text
+protocol :: Maybe Text
+$sel:protocol:AnalysisSecurityGroupRule' :: AnalysisSecurityGroupRule -&gt; Maybe Text
+</span><a href="#local-6989586621681137041"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681137041"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681137040"><span class="annot"><span class="annottext">s :: AnalysisSecurityGroupRule
+</span><a href="#local-6989586621681137040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681137039"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681137039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisSecurityGroupRule
+</span><a href="#local-6989586621681137040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:AnalysisSecurityGroupRule' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3Aprotocol%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681137039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The port range.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_portRange"><span class="hs-identifier hs-type">analysisSecurityGroupRule_portRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="analysisSecurityGroupRule_portRange"><span class="annot"><span class="annottext">analysisSecurityGroupRule_portRange :: (Maybe PortRange -&gt; f (Maybe PortRange))
+-&gt; AnalysisSecurityGroupRule -&gt; f AnalysisSecurityGroupRule
+</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_portRange"><span class="hs-identifier hs-var hs-var">analysisSecurityGroupRule_portRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisSecurityGroupRule -&gt; Maybe PortRange)
+-&gt; (AnalysisSecurityGroupRule
+    -&gt; Maybe PortRange -&gt; AnalysisSecurityGroupRule)
+-&gt; Lens
+     AnalysisSecurityGroupRule
+     AnalysisSecurityGroupRule
+     (Maybe PortRange)
+     (Maybe PortRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681137037"><span class="annot"><span class="annottext">Maybe PortRange
+portRange :: Maybe PortRange
+$sel:portRange:AnalysisSecurityGroupRule' :: AnalysisSecurityGroupRule -&gt; Maybe PortRange
+</span><a href="#local-6989586621681137037"><span class="hs-identifier hs-var hs-var">portRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PortRange
+</span><a href="#local-6989586621681137037"><span class="hs-identifier hs-var">portRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681137036"><span class="annot"><span class="annottext">s :: AnalysisSecurityGroupRule
+</span><a href="#local-6989586621681137036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681137035"><span class="annot"><span class="annottext">Maybe PortRange
+</span><a href="#local-6989586621681137035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisSecurityGroupRule
+</span><a href="#local-6989586621681137036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portRange:AnalysisSecurityGroupRule' :: Maybe PortRange
+</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3AportRange%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">portRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PortRange
+</span><a href="#local-6989586621681137035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The security group ID.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_securityGroupId"><span class="hs-identifier hs-type">analysisSecurityGroupRule_securityGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="analysisSecurityGroupRule_securityGroupId"><span class="annot"><span class="annottext">analysisSecurityGroupRule_securityGroupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AnalysisSecurityGroupRule -&gt; f AnalysisSecurityGroupRule
+</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_securityGroupId"><span class="hs-identifier hs-var hs-var">analysisSecurityGroupRule_securityGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisSecurityGroupRule -&gt; Maybe Text)
+-&gt; (AnalysisSecurityGroupRule
+    -&gt; Maybe Text -&gt; AnalysisSecurityGroupRule)
+-&gt; Lens
+     AnalysisSecurityGroupRule
+     AnalysisSecurityGroupRule
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681137033"><span class="annot"><span class="annottext">Maybe Text
+securityGroupId :: Maybe Text
+$sel:securityGroupId:AnalysisSecurityGroupRule' :: AnalysisSecurityGroupRule -&gt; Maybe Text
+</span><a href="#local-6989586621681137033"><span class="hs-identifier hs-var hs-var">securityGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681137033"><span class="hs-identifier hs-var">securityGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681137032"><span class="annot"><span class="annottext">s :: AnalysisSecurityGroupRule
+</span><a href="#local-6989586621681137032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681137031"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681137031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisSecurityGroupRule
+</span><a href="#local-6989586621681137032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupId:AnalysisSecurityGroupRule' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3AsecurityGroupId%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">securityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681137031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The IPv4 address range, in CIDR notation.</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_cidr"><span class="hs-identifier hs-type">analysisSecurityGroupRule_cidr</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -288,22 +288,22 @@ $sel:prefixListId:AnalysisSecurityGroupRule' :: AnalysisSecurityGroupRule -&gt; 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681102324"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681137029"><span class="annot"><span class="annottext">Maybe Text
 cidr :: Maybe Text
 $sel:cidr:AnalysisSecurityGroupRule' :: AnalysisSecurityGroupRule -&gt; Maybe Text
-</span><a href="#local-6989586621681102324"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102324"><span class="hs-identifier hs-var">cidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681102323"><span class="annot"><span class="annottext">s :: AnalysisSecurityGroupRule
-</span><a href="#local-6989586621681102323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681102322"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisSecurityGroupRule
-</span><a href="#local-6989586621681102323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidr:AnalysisSecurityGroupRule' :: Maybe Text
+</span><a href="#local-6989586621681137029"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681137029"><span class="hs-identifier hs-var">cidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681137028"><span class="annot"><span class="annottext">s :: AnalysisSecurityGroupRule
+</span><a href="#local-6989586621681137028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681137027"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681137027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisSecurityGroupRule
+</span><a href="#local-6989586621681137028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidr:AnalysisSecurityGroupRule' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3Acidr%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">cidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681137027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The protocol name.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_protocol"><span class="hs-identifier hs-type">analysisSecurityGroupRule_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="analysisSecurityGroupRule_protocol"><span class="annot"><span class="annottext">analysisSecurityGroupRule_protocol :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-111"></span><span class="hs-comment">-- | The prefix list ID.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_prefixListId"><span class="hs-identifier hs-type">analysisSecurityGroupRule_prefixListId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="analysisSecurityGroupRule_prefixListId"><span class="annot"><span class="annottext">analysisSecurityGroupRule_prefixListId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AnalysisSecurityGroupRule -&gt; f AnalysisSecurityGroupRule
-</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_protocol"><span class="hs-identifier hs-var hs-var">analysisSecurityGroupRule_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisSecurityGroupRule -&gt; Maybe Text)
+</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#analysisSecurityGroupRule_prefixListId"><span class="hs-identifier hs-var hs-var">analysisSecurityGroupRule_prefixListId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisSecurityGroupRule -&gt; Maybe Text)
 -&gt; (AnalysisSecurityGroupRule
     -&gt; Maybe Text -&gt; AnalysisSecurityGroupRule)
 -&gt; Lens
@@ -312,32 +312,32 @@ $sel:cidr:AnalysisSecurityGroupRule' :: AnalysisSecurityGroupRule -&gt; Maybe Te
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681102320"><span class="annot"><span class="annottext">Maybe Text
-protocol :: Maybe Text
-$sel:protocol:AnalysisSecurityGroupRule' :: AnalysisSecurityGroupRule -&gt; Maybe Text
-</span><a href="#local-6989586621681102320"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102320"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681102319"><span class="annot"><span class="annottext">s :: AnalysisSecurityGroupRule
-</span><a href="#local-6989586621681102319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681102318"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisSecurityGroupRule
-</span><a href="#local-6989586621681102319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:AnalysisSecurityGroupRule' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3Aprotocol%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681137025"><span class="annot"><span class="annottext">Maybe Text
+prefixListId :: Maybe Text
+$sel:prefixListId:AnalysisSecurityGroupRule' :: AnalysisSecurityGroupRule -&gt; Maybe Text
+</span><a href="#local-6989586621681137025"><span class="hs-identifier hs-var hs-var">prefixListId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681137025"><span class="hs-identifier hs-var">prefixListId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681137024"><span class="annot"><span class="annottext">s :: AnalysisSecurityGroupRule
+</span><a href="#local-6989586621681137024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681137023"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681137023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisSecurityGroupRule
+</span><a href="#local-6989586621681137024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefixListId:AnalysisSecurityGroupRule' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#%24sel%3AprefixListId%3AAnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">prefixListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681137023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621681102315"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AnalysisSecurityGroupRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681102313"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681102313"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621681137020"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AnalysisSecurityGroupRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681137018"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681137018"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe PortRange
 -&gt; Maybe Text
+-&gt; Maybe PortRange
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; AnalysisSecurityGroupRule
 </span><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule%27"><span class="hs-identifier hs-var">AnalysisSecurityGroupRule'</span></a></span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe PortRange
  -&gt; Maybe Text
+ -&gt; Maybe PortRange
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
@@ -345,22 +345,43 @@ $sel:protocol:AnalysisSecurityGroupRule' :: AnalysisSecurityGroupRule -&gt; Mayb
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe PortRange
-      -&gt; Maybe Text
+     (Maybe Text
+      -&gt; Maybe PortRange
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; AnalysisSecurityGroupRule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681102313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681137018"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;securityGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;direction&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe PortRange
+  (Maybe Text
+   -&gt; Maybe PortRange
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AnalysisSecurityGroupRule)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe PortRange
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AnalysisSecurityGroupRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681137018"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;protocol&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe PortRange
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
@@ -369,34 +390,13 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; AnalysisSecurityGroupRule)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681102313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PortRange)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;portRange&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; AnalysisSecurityGroupRule)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text
       -&gt; Maybe Text -&gt; Maybe Text -&gt; AnalysisSecurityGroupRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681102313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681137018"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PortRange)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;direction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;portRange&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
@@ -406,17 +406,17 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Text -&gt; Maybe Text -&gt; AnalysisSecurityGroupRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681102313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681137018"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;prefixListId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;securityGroupId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either
   String (Maybe Text -&gt; Maybe Text -&gt; AnalysisSecurityGroupRule)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; AnalysisSecurityGroupRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681102313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681137018"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cidr&quot;</span></span><span class="hs-special">)</span><span>
@@ -425,12 +425,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String AnalysisSecurityGroupRule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681102313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681137018"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;protocol&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;prefixListId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681102307"><span id="local-6989586621681102309"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681137012"><span id="local-6989586621681137014"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681102304"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681137009"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisSecurityGroupRule.html#AnalysisSecurityGroupRule"><span class="hs-identifier hs-type">AnalysisSecurityGroupRule</span></a></span></span><span>
 </span><span id="line-128"></span></pre></body></html>

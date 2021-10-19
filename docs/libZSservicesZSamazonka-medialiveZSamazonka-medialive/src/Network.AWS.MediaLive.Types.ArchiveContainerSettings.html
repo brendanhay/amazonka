@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Archive Container Settings</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newArchiveContainerSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679904246"><span id="local-6989586621679904247"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArchiveContainerSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-var">ArchiveContainerSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArchiveContainerSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings%27"><span class="hs-identifier hs-var">ArchiveContainerSettings'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3ArawSettings%3AArchiveContainerSettings%27"><span class="annot"><span class="annottext">ArchiveContainerSettings -&gt; Maybe RawSettings
-</span><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#%24sel%3ArawSettings%3AArchiveContainerSettings%27"><span class="hs-identifier hs-var hs-var">rawSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings"><span class="hs-identifier hs-type">RawSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Am2tsSettings%3AArchiveContainerSettings%27"><span class="annot"><span class="annottext">ArchiveContainerSettings -&gt; Maybe M2tsSettings
-</span><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#%24sel%3Am2tsSettings%3AArchiveContainerSettings%27"><span class="hs-identifier hs-var hs-var">m2tsSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsSettings.html#M2tsSettings"><span class="hs-identifier hs-type">M2tsSettings</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679911742"><span id="local-6989586621679911743"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArchiveContainerSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-var">ArchiveContainerSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArchiveContainerSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings%27"><span class="hs-identifier hs-var">ArchiveContainerSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Am2tsSettings%3AArchiveContainerSettings%27"><span class="annot"><span class="annottext">ArchiveContainerSettings -&gt; Maybe M2tsSettings
+</span><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#%24sel%3Am2tsSettings%3AArchiveContainerSettings%27"><span class="hs-identifier hs-var hs-var">m2tsSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsSettings.html#M2tsSettings"><span class="hs-identifier hs-type">M2tsSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3ArawSettings%3AArchiveContainerSettings%27"><span class="annot"><span class="annottext">ArchiveContainerSettings -&gt; Maybe RawSettings
+</span><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#%24sel%3ArawSettings%3AArchiveContainerSettings%27"><span class="hs-identifier hs-var hs-var">rawSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings"><span class="hs-identifier hs-type">RawSettings</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679904239"><span id="local-6989586621679904241"><span class="annot"><span class="annottext">ArchiveContainerSettings -&gt; ArchiveContainerSettings -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679911735"><span id="local-6989586621679911737"><span class="annot"><span class="annottext">ArchiveContainerSettings -&gt; ArchiveContainerSettings -&gt; Bool
 (ArchiveContainerSettings -&gt; ArchiveContainerSettings -&gt; Bool)
 -&gt; (ArchiveContainerSettings -&gt; ArchiveContainerSettings -&gt; Bool)
 -&gt; Eq ArchiveContainerSettings
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ArchiveContainerSettings -&gt; ArchiveContainerSettings -&gt; Bool
 == :: ArchiveContainerSettings -&gt; ArchiveContainerSettings -&gt; Bool
 $c== :: ArchiveContainerSettings -&gt; ArchiveContainerSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679904230"><span id="local-6989586621679904232"><span id="local-6989586621679904234"><span id="local-6989586621679904236"><span class="annot"><span class="annottext">ReadPrec [ArchiveContainerSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911726"><span id="local-6989586621679911728"><span id="local-6989586621679911730"><span id="local-6989586621679911732"><span class="annot"><span class="annottext">ReadPrec [ArchiveContainerSettings]
 ReadPrec ArchiveContainerSettings
 Int -&gt; ReadS ArchiveContainerSettings
 ReadS [ArchiveContainerSettings]
@@ -63,7 +63,7 @@ readList :: ReadS [ArchiveContainerSettings]
 $creadList :: ReadS [ArchiveContainerSettings]
 readsPrec :: Int -&gt; ReadS ArchiveContainerSettings
 $creadsPrec :: Int -&gt; ReadS ArchiveContainerSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679904223"><span id="local-6989586621679904225"><span id="local-6989586621679904227"><span class="annot"><span class="annottext">Int -&gt; ArchiveContainerSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911719"><span id="local-6989586621679911721"><span id="local-6989586621679911723"><span class="annot"><span class="annottext">Int -&gt; ArchiveContainerSettings -&gt; ShowS
 [ArchiveContainerSettings] -&gt; ShowS
 ArchiveContainerSettings -&gt; String
 (Int -&gt; ArchiveContainerSettings -&gt; ShowS)
@@ -103,53 +103,29 @@ ArchiveContainerSettings -&gt; Rep ArchiveContainerSettings x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'rawSettings', 'archiveContainerSettings_rawSettings' - Undocumented member.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'm2tsSettings', 'archiveContainerSettings_m2tsSettings' - Undocumented member.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'm2tsSettings', 'archiveContainerSettings_m2tsSettings' - Undocumented member.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'rawSettings', 'archiveContainerSettings_rawSettings' - Undocumented member.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#newArchiveContainerSettings"><span class="hs-identifier hs-type">newArchiveContainerSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span><span>
 </span><span id="line-50"></span><span id="newArchiveContainerSettings"><span class="annot"><span class="annottext">newArchiveContainerSettings :: ArchiveContainerSettings
 </span><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#newArchiveContainerSettings"><span class="hs-identifier hs-var hs-var">newArchiveContainerSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ArchiveContainerSettings' :: Maybe RawSettings -&gt; Maybe M2tsSettings -&gt; ArchiveContainerSettings
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ArchiveContainerSettings' :: Maybe M2tsSettings -&gt; Maybe RawSettings -&gt; ArchiveContainerSettings
 </span><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings%27"><span class="hs-identifier hs-type">ArchiveContainerSettings'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rawSettings:ArchiveContainerSettings' :: Maybe RawSettings
-</span><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#%24sel%3ArawSettings%3AArchiveContainerSettings%27"><span class="hs-identifier hs-var">rawSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe RawSettings
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:m2tsSettings:ArchiveContainerSettings' :: Maybe M2tsSettings
+</span><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#%24sel%3Am2tsSettings%3AArchiveContainerSettings%27"><span class="hs-identifier hs-var">m2tsSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe M2tsSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:m2tsSettings:ArchiveContainerSettings' :: Maybe M2tsSettings
-</span><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#%24sel%3Am2tsSettings%3AArchiveContainerSettings%27"><span class="hs-identifier hs-var">m2tsSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe M2tsSettings
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:rawSettings:ArchiveContainerSettings' :: Maybe RawSettings
+</span><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#%24sel%3ArawSettings%3AArchiveContainerSettings%27"><span class="hs-identifier hs-var">rawSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RawSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#archiveContainerSettings_rawSettings"><span class="hs-identifier hs-type">archiveContainerSettings_rawSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings"><span class="hs-identifier hs-type">RawSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span id="archiveContainerSettings_rawSettings"><span class="annot"><span class="annottext">archiveContainerSettings_rawSettings :: (Maybe RawSettings -&gt; f (Maybe RawSettings))
--&gt; ArchiveContainerSettings -&gt; f ArchiveContainerSettings
-</span><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#archiveContainerSettings_rawSettings"><span class="hs-identifier hs-var hs-var">archiveContainerSettings_rawSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArchiveContainerSettings -&gt; Maybe RawSettings)
--&gt; (ArchiveContainerSettings
-    -&gt; Maybe RawSettings -&gt; ArchiveContainerSettings)
--&gt; Lens
-     ArchiveContainerSettings
-     ArchiveContainerSettings
-     (Maybe RawSettings)
-     (Maybe RawSettings)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings%27"><span class="hs-identifier hs-type">ArchiveContainerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679904214"><span class="annot"><span class="annottext">Maybe RawSettings
-rawSettings :: Maybe RawSettings
-$sel:rawSettings:ArchiveContainerSettings' :: ArchiveContainerSettings -&gt; Maybe RawSettings
-</span><a href="#local-6989586621679904214"><span class="hs-identifier hs-var hs-var">rawSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RawSettings
-</span><a href="#local-6989586621679904214"><span class="hs-identifier hs-var">rawSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679904213"><span class="annot"><span class="annottext">s :: ArchiveContainerSettings
-</span><a href="#local-6989586621679904213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings%27"><span class="hs-identifier hs-type">ArchiveContainerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679904212"><span class="annot"><span class="annottext">Maybe RawSettings
-</span><a href="#local-6989586621679904212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveContainerSettings
-</span><a href="#local-6989586621679904213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rawSettings:ArchiveContainerSettings' :: Maybe RawSettings
-</span><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#%24sel%3ArawSettings%3AArchiveContainerSettings%27"><span class="hs-identifier hs-var">rawSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RawSettings
-</span><a href="#local-6989586621679904212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#archiveContainerSettings_m2tsSettings"><span class="hs-identifier hs-type">archiveContainerSettings_m2tsSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsSettings.html#M2tsSettings"><span class="hs-identifier hs-type">M2tsSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="archiveContainerSettings_m2tsSettings"><span class="annot"><span class="annottext">archiveContainerSettings_m2tsSettings :: (Maybe M2tsSettings -&gt; f (Maybe M2tsSettings))
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#archiveContainerSettings_m2tsSettings"><span class="hs-identifier hs-type">archiveContainerSettings_m2tsSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsSettings.html#M2tsSettings"><span class="hs-identifier hs-type">M2tsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="archiveContainerSettings_m2tsSettings"><span class="annot"><span class="annottext">archiveContainerSettings_m2tsSettings :: (Maybe M2tsSettings -&gt; f (Maybe M2tsSettings))
 -&gt; ArchiveContainerSettings -&gt; f ArchiveContainerSettings
 </span><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#archiveContainerSettings_m2tsSettings"><span class="hs-identifier hs-var hs-var">archiveContainerSettings_m2tsSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArchiveContainerSettings -&gt; Maybe M2tsSettings)
 -&gt; (ArchiveContainerSettings
@@ -160,19 +136,43 @@ $sel:rawSettings:ArchiveContainerSettings' :: ArchiveContainerSettings -&gt; May
      (Maybe M2tsSettings)
      (Maybe M2tsSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings%27"><span class="hs-identifier hs-type">ArchiveContainerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679904210"><span class="annot"><span class="annottext">Maybe M2tsSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings%27"><span class="hs-identifier hs-type">ArchiveContainerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911710"><span class="annot"><span class="annottext">Maybe M2tsSettings
 m2tsSettings :: Maybe M2tsSettings
 $sel:m2tsSettings:ArchiveContainerSettings' :: ArchiveContainerSettings -&gt; Maybe M2tsSettings
-</span><a href="#local-6989586621679904210"><span class="hs-identifier hs-var hs-var">m2tsSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe M2tsSettings
-</span><a href="#local-6989586621679904210"><span class="hs-identifier hs-var">m2tsSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679904209"><span class="annot"><span class="annottext">s :: ArchiveContainerSettings
-</span><a href="#local-6989586621679904209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings%27"><span class="hs-identifier hs-type">ArchiveContainerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679904208"><span class="annot"><span class="annottext">Maybe M2tsSettings
-</span><a href="#local-6989586621679904208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveContainerSettings
-</span><a href="#local-6989586621679904209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:m2tsSettings:ArchiveContainerSettings' :: Maybe M2tsSettings
+</span><a href="#local-6989586621679911710"><span class="hs-identifier hs-var hs-var">m2tsSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe M2tsSettings
+</span><a href="#local-6989586621679911710"><span class="hs-identifier hs-var">m2tsSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911709"><span class="annot"><span class="annottext">s :: ArchiveContainerSettings
+</span><a href="#local-6989586621679911709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings%27"><span class="hs-identifier hs-type">ArchiveContainerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679911708"><span class="annot"><span class="annottext">Maybe M2tsSettings
+</span><a href="#local-6989586621679911708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveContainerSettings
+</span><a href="#local-6989586621679911709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:m2tsSettings:ArchiveContainerSettings' :: Maybe M2tsSettings
 </span><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#%24sel%3Am2tsSettings%3AArchiveContainerSettings%27"><span class="hs-identifier hs-var">m2tsSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe M2tsSettings
-</span><a href="#local-6989586621679904208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679911708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#archiveContainerSettings_rawSettings"><span class="hs-identifier hs-type">archiveContainerSettings_rawSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings"><span class="hs-identifier hs-type">RawSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="archiveContainerSettings_rawSettings"><span class="annot"><span class="annottext">archiveContainerSettings_rawSettings :: (Maybe RawSettings -&gt; f (Maybe RawSettings))
+-&gt; ArchiveContainerSettings -&gt; f ArchiveContainerSettings
+</span><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#archiveContainerSettings_rawSettings"><span class="hs-identifier hs-var hs-var">archiveContainerSettings_rawSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArchiveContainerSettings -&gt; Maybe RawSettings)
+-&gt; (ArchiveContainerSettings
+    -&gt; Maybe RawSettings -&gt; ArchiveContainerSettings)
+-&gt; Lens
+     ArchiveContainerSettings
+     ArchiveContainerSettings
+     (Maybe RawSettings)
+     (Maybe RawSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings%27"><span class="hs-identifier hs-type">ArchiveContainerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911706"><span class="annot"><span class="annottext">Maybe RawSettings
+rawSettings :: Maybe RawSettings
+$sel:rawSettings:ArchiveContainerSettings' :: ArchiveContainerSettings -&gt; Maybe RawSettings
+</span><a href="#local-6989586621679911706"><span class="hs-identifier hs-var hs-var">rawSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RawSettings
+</span><a href="#local-6989586621679911706"><span class="hs-identifier hs-var">rawSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911705"><span class="annot"><span class="annottext">s :: ArchiveContainerSettings
+</span><a href="#local-6989586621679911705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings%27"><span class="hs-identifier hs-type">ArchiveContainerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679911704"><span class="annot"><span class="annottext">Maybe RawSettings
+</span><a href="#local-6989586621679911704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveContainerSettings
+</span><a href="#local-6989586621679911705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rawSettings:ArchiveContainerSettings' :: Maybe RawSettings
+</span><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#%24sel%3ArawSettings%3AArchiveContainerSettings%27"><span class="hs-identifier hs-var">rawSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RawSettings
+</span><a href="#local-6989586621679911704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679904205"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679904203"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArchiveContainerSettings
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911701"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679911699"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArchiveContainerSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ArchiveContainerSettings)
@@ -182,62 +182,62 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ArchiveContainerSettings&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679904200"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679904200"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe RawSettings -&gt; Maybe M2tsSettings -&gt; ArchiveContainerSettings
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679911696"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679911696"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe M2tsSettings -&gt; Maybe RawSettings -&gt; ArchiveContainerSettings
 </span><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings%27"><span class="hs-identifier hs-var">ArchiveContainerSettings'</span></a></span><span>
-</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RawSettings
- -&gt; Maybe M2tsSettings -&gt; ArchiveContainerSettings)
--&gt; Parser (Maybe RawSettings)
--&gt; Parser (Maybe M2tsSettings -&gt; ArchiveContainerSettings)
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe M2tsSettings
+ -&gt; Maybe RawSettings -&gt; ArchiveContainerSettings)
+-&gt; Parser (Maybe M2tsSettings)
+-&gt; Parser (Maybe RawSettings -&gt; ArchiveContainerSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679904200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RawSettings)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;rawSettings&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe M2tsSettings -&gt; ArchiveContainerSettings)
--&gt; Parser (Maybe M2tsSettings) -&gt; Parser ArchiveContainerSettings
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679904200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe M2tsSettings)
+</span><a href="#local-6989586621679911696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe M2tsSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;m2tsSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe RawSettings -&gt; ArchiveContainerSettings)
+-&gt; Parser (Maybe RawSettings) -&gt; Parser ArchiveContainerSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679911696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RawSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rawSettings&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679904194"><span id="local-6989586621679904196"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911690"><span id="local-6989586621679911692"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679904191"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911687"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679904183"><span id="local-6989586621679904185"><span id="local-6989586621679904187"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679904181"><span class="annot"><span class="annottext">toJSON :: ArchiveContainerSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings%27"><span class="hs-identifier hs-type">ArchiveContainerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679904178"><span id="local-6989586621679904179"><span class="annot"><span class="annottext">Maybe M2tsSettings
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911679"><span id="local-6989586621679911681"><span id="local-6989586621679911683"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings"><span class="hs-identifier hs-type">ArchiveContainerSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679911677"><span class="annot"><span class="annottext">toJSON :: ArchiveContainerSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveContainerSettings.html#ArchiveContainerSettings%27"><span class="hs-identifier hs-type">ArchiveContainerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911674"><span id="local-6989586621679911675"><span class="annot"><span class="annottext">Maybe M2tsSettings
 Maybe RawSettings
-m2tsSettings :: Maybe M2tsSettings
 rawSettings :: Maybe RawSettings
-$sel:m2tsSettings:ArchiveContainerSettings' :: ArchiveContainerSettings -&gt; Maybe M2tsSettings
+m2tsSettings :: Maybe M2tsSettings
 $sel:rawSettings:ArchiveContainerSettings' :: ArchiveContainerSettings -&gt; Maybe RawSettings
-</span><a href="#local-6989586621679904178"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:m2tsSettings:ArchiveContainerSettings' :: ArchiveContainerSettings -&gt; Maybe M2tsSettings
+</span><a href="#local-6989586621679911674"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-83"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;rawSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RawSettings -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RawSettings -&gt; Pair) -&gt; Maybe RawSettings -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RawSettings
-</span><a href="#local-6989586621679904179"><span class="hs-identifier hs-var">rawSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;m2tsSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; M2tsSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(M2tsSettings -&gt; Pair) -&gt; Maybe M2tsSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe M2tsSettings
-</span><a href="#local-6989586621679904178"><span class="hs-identifier hs-var">m2tsSettings</span></a></span><span>
+</span><a href="#local-6989586621679911675"><span class="hs-identifier hs-var">m2tsSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rawSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RawSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RawSettings -&gt; Pair) -&gt; Maybe RawSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RawSettings
+</span><a href="#local-6989586621679911674"><span class="hs-identifier hs-var">rawSettings</span></a></span><span>
 </span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span></pre></body></html>

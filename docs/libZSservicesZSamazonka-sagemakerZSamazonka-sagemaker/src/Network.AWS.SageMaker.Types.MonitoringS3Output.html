@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- monitoring job.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMonitoringS3Output' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680331712"><span id="local-6989586621680331713"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoringS3Output"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output"><span class="hs-identifier hs-var">MonitoringS3Output</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringS3Output%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-var">MonitoringS3Output'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680333115"><span id="local-6989586621680333116"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoringS3Output"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output"><span class="hs-identifier hs-var">MonitoringS3Output</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringS3Output%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-var">MonitoringS3Output'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether to upload the results of the monitoring job continuously or</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- after the job completes.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3As3UploadMode%3AMonitoringS3Output%27"><span class="annot"><span class="annottext">MonitoringS3Output -&gt; Maybe ProcessingS3UploadMode
@@ -43,7 +43,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AlocalPath%3AMonitoringS3Output%27"><span class="annot"><span class="annottext">MonitoringS3Output -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#%24sel%3AlocalPath%3AMonitoringS3Output%27"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680331704"><span id="local-6989586621680331706"><span class="annot"><span class="annottext">MonitoringS3Output -&gt; MonitoringS3Output -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680333107"><span id="local-6989586621680333109"><span class="annot"><span class="annottext">MonitoringS3Output -&gt; MonitoringS3Output -&gt; Bool
 (MonitoringS3Output -&gt; MonitoringS3Output -&gt; Bool)
 -&gt; (MonitoringS3Output -&gt; MonitoringS3Output -&gt; Bool)
 -&gt; Eq MonitoringS3Output
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MonitoringS3Output -&gt; MonitoringS3Output -&gt; Bool
 == :: MonitoringS3Output -&gt; MonitoringS3Output -&gt; Bool
 $c== :: MonitoringS3Output -&gt; MonitoringS3Output -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680331695"><span id="local-6989586621680331697"><span id="local-6989586621680331699"><span id="local-6989586621680331701"><span class="annot"><span class="annottext">ReadPrec [MonitoringS3Output]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680333098"><span id="local-6989586621680333100"><span id="local-6989586621680333102"><span id="local-6989586621680333104"><span class="annot"><span class="annottext">ReadPrec [MonitoringS3Output]
 ReadPrec MonitoringS3Output
 Int -&gt; ReadS MonitoringS3Output
 ReadS [MonitoringS3Output]
@@ -72,7 +72,7 @@ readList :: ReadS [MonitoringS3Output]
 $creadList :: ReadS [MonitoringS3Output]
 readsPrec :: Int -&gt; ReadS MonitoringS3Output
 $creadsPrec :: Int -&gt; ReadS MonitoringS3Output
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680331688"><span id="local-6989586621680331690"><span id="local-6989586621680331692"><span class="annot"><span class="annottext">Int -&gt; MonitoringS3Output -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680333091"><span id="local-6989586621680333093"><span id="local-6989586621680333095"><span class="annot"><span class="annottext">Int -&gt; MonitoringS3Output -&gt; ShowS
 [MonitoringS3Output] -&gt; ShowS
 MonitoringS3Output -&gt; String
 (Int -&gt; MonitoringS3Output -&gt; ShowS)
@@ -122,9 +122,9 @@ $cfrom :: forall x. MonitoringS3Output -&gt; Rep MonitoringS3Output x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output"><span class="hs-identifier hs-type">MonitoringS3Output</span></a></span><span>
 </span><span id="line-68"></span><span id="newMonitoringS3Output"><span class="annot"><span class="annottext">newMonitoringS3Output :: Text -&gt; Text -&gt; MonitoringS3Output
-</span><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#newMonitoringS3Output"><span class="hs-identifier hs-var hs-var">newMonitoringS3Output</span></a></span></span><span> </span><span id="local-6989586621680331682"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680331682"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span id="local-6989586621680331681"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680331681"><span class="hs-identifier hs-var">pLocalPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#newMonitoringS3Output"><span class="hs-identifier hs-var hs-var">newMonitoringS3Output</span></a></span></span><span> </span><span id="local-6989586621680333085"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680333085"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span id="local-6989586621680333084"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680333084"><span class="hs-identifier hs-var">pLocalPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">MonitoringS3Output' :: Maybe ProcessingS3UploadMode -&gt; Text -&gt; Text -&gt; MonitoringS3Output
 </span><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-type">MonitoringS3Output'</span></a></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3UploadMode:MonitoringS3Output' :: Maybe ProcessingS3UploadMode
@@ -133,10 +133,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Uri:MonitoringS3Output' :: Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#%24sel%3As3Uri%3AMonitoringS3Output%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680331682"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680333085"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:localPath:MonitoringS3Output' :: Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#%24sel%3AlocalPath%3AMonitoringS3Output%27"><span class="hs-identifier hs-var">localPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680331681"><span class="hs-identifier hs-var">pLocalPath_</span></a></span><span>
+</span><a href="#local-6989586621680333084"><span class="hs-identifier hs-var">pLocalPath_</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | Whether to upload the results of the monitoring job continuously or</span><span>
@@ -153,16 +153,16 @@ forall a. Maybe a
      (Maybe ProcessingS3UploadMode)
      (Maybe ProcessingS3UploadMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-type">MonitoringS3Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680331677"><span class="annot"><span class="annottext">Maybe ProcessingS3UploadMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-type">MonitoringS3Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680333080"><span class="annot"><span class="annottext">Maybe ProcessingS3UploadMode
 s3UploadMode :: Maybe ProcessingS3UploadMode
 $sel:s3UploadMode:MonitoringS3Output' :: MonitoringS3Output -&gt; Maybe ProcessingS3UploadMode
-</span><a href="#local-6989586621680331677"><span class="hs-identifier hs-var hs-var">s3UploadMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingS3UploadMode
-</span><a href="#local-6989586621680331677"><span class="hs-identifier hs-var">s3UploadMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680331676"><span class="annot"><span class="annottext">s :: MonitoringS3Output
-</span><a href="#local-6989586621680331676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-type">MonitoringS3Output'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680331675"><span class="annot"><span class="annottext">Maybe ProcessingS3UploadMode
-</span><a href="#local-6989586621680331675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringS3Output
-</span><a href="#local-6989586621680331676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3UploadMode:MonitoringS3Output' :: Maybe ProcessingS3UploadMode
+</span><a href="#local-6989586621680333080"><span class="hs-identifier hs-var hs-var">s3UploadMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingS3UploadMode
+</span><a href="#local-6989586621680333080"><span class="hs-identifier hs-var">s3UploadMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680333079"><span class="annot"><span class="annottext">s :: MonitoringS3Output
+</span><a href="#local-6989586621680333079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-type">MonitoringS3Output'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680333078"><span class="annot"><span class="annottext">Maybe ProcessingS3UploadMode
+</span><a href="#local-6989586621680333078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringS3Output
+</span><a href="#local-6989586621680333079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3UploadMode:MonitoringS3Output' :: Maybe ProcessingS3UploadMode
 </span><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#%24sel%3As3UploadMode%3AMonitoringS3Output%27"><span class="hs-identifier hs-var">s3UploadMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingS3UploadMode
-</span><a href="#local-6989586621680331675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output"><span class="hs-identifier hs-type">MonitoringS3Output</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680333078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output"><span class="hs-identifier hs-type">MonitoringS3Output</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | A URI that identifies the Amazon S3 storage location where Amazon</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- SageMaker saves the results of a monitoring job.</span><span>
@@ -172,16 +172,16 @@ $sel:s3UploadMode:MonitoringS3Output' :: MonitoringS3Output -&gt; Maybe Processi
 -&gt; (MonitoringS3Output -&gt; Text -&gt; MonitoringS3Output)
 -&gt; Lens MonitoringS3Output MonitoringS3Output Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-type">MonitoringS3Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680331673"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-type">MonitoringS3Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680333076"><span class="annot"><span class="annottext">Text
 s3Uri :: Text
 $sel:s3Uri:MonitoringS3Output' :: MonitoringS3Output -&gt; Text
-</span><a href="#local-6989586621680331673"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680331673"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680331672"><span class="annot"><span class="annottext">s :: MonitoringS3Output
-</span><a href="#local-6989586621680331672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-type">MonitoringS3Output'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680331671"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680331671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringS3Output
-</span><a href="#local-6989586621680331672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:MonitoringS3Output' :: Text
+</span><a href="#local-6989586621680333076"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680333076"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680333075"><span class="annot"><span class="annottext">s :: MonitoringS3Output
+</span><a href="#local-6989586621680333075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-type">MonitoringS3Output'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680333074"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680333074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringS3Output
+</span><a href="#local-6989586621680333075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:MonitoringS3Output' :: Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#%24sel%3As3Uri%3AMonitoringS3Output%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680331671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output"><span class="hs-identifier hs-type">MonitoringS3Output</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680333074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output"><span class="hs-identifier hs-type">MonitoringS3Output</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The local path to the Amazon S3 storage location where Amazon SageMaker</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- saves the results of a monitoring job. LocalPath is an absolute path for</span><span>
@@ -192,19 +192,19 @@ $sel:s3Uri:MonitoringS3Output' :: MonitoringS3Output -&gt; Text
 -&gt; (MonitoringS3Output -&gt; Text -&gt; MonitoringS3Output)
 -&gt; Lens MonitoringS3Output MonitoringS3Output Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-type">MonitoringS3Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680331669"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-type">MonitoringS3Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680333072"><span class="annot"><span class="annottext">Text
 localPath :: Text
 $sel:localPath:MonitoringS3Output' :: MonitoringS3Output -&gt; Text
-</span><a href="#local-6989586621680331669"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680331669"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680331668"><span class="annot"><span class="annottext">s :: MonitoringS3Output
-</span><a href="#local-6989586621680331668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-type">MonitoringS3Output'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680331667"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680331667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringS3Output
-</span><a href="#local-6989586621680331668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localPath:MonitoringS3Output' :: Text
+</span><a href="#local-6989586621680333072"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680333072"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680333071"><span class="annot"><span class="annottext">s :: MonitoringS3Output
+</span><a href="#local-6989586621680333071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-type">MonitoringS3Output'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680333070"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680333070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringS3Output
+</span><a href="#local-6989586621680333071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localPath:MonitoringS3Output' :: Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#%24sel%3AlocalPath%3AMonitoringS3Output%27"><span class="hs-identifier hs-var">localPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680331667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output"><span class="hs-identifier hs-type">MonitoringS3Output</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680333070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output"><span class="hs-identifier hs-type">MonitoringS3Output</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680331664"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output"><span class="hs-identifier hs-type">MonitoringS3Output</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621680331662"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonitoringS3Output
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680333067"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output"><span class="hs-identifier hs-type">MonitoringS3Output</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621680333065"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonitoringS3Output
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MonitoringS3Output)
@@ -214,8 +214,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MonitoringS3Output&quot;</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680331659"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680331659"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680333062"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680333062"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe ProcessingS3UploadMode -&gt; Text -&gt; Text -&gt; MonitoringS3Output
 </span><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-var">MonitoringS3Output'</span></a></span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ProcessingS3UploadMode
@@ -224,7 +224,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; MonitoringS3Output)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680331659"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProcessingS3UploadMode)
+</span><a href="#local-6989586621680333062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProcessingS3UploadMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3UploadMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -232,7 +232,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; MonitoringS3Output)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680331659"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680333062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span class="hs-special">)</span><span>
@@ -240,19 +240,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser MonitoringS3Output
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680331659"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680333062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LocalPath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680331652"><span id="local-6989586621680331654"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output"><span class="hs-identifier hs-type">MonitoringS3Output</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680333055"><span id="local-6989586621680333057"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output"><span class="hs-identifier hs-type">MonitoringS3Output</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680331649"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output"><span class="hs-identifier hs-type">MonitoringS3Output</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680333052"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output"><span class="hs-identifier hs-type">MonitoringS3Output</span></a></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680331641"><span id="local-6989586621680331643"><span id="local-6989586621680331645"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output"><span class="hs-identifier hs-type">MonitoringS3Output</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621680331639"><span class="annot"><span class="annottext">toJSON :: MonitoringS3Output -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-type">MonitoringS3Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680331635"><span id="local-6989586621680331636"><span id="local-6989586621680331637"><span class="annot"><span class="annottext">Maybe ProcessingS3UploadMode
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680333044"><span id="local-6989586621680333046"><span id="local-6989586621680333048"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output"><span class="hs-identifier hs-type">MonitoringS3Output</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621680333042"><span class="annot"><span class="annottext">toJSON :: MonitoringS3Output -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringS3Output.html#MonitoringS3Output%27"><span class="hs-identifier hs-type">MonitoringS3Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680333038"><span id="local-6989586621680333039"><span id="local-6989586621680333040"><span class="annot"><span class="annottext">Maybe ProcessingS3UploadMode
 Text
 localPath :: Text
 s3Uri :: Text
@@ -260,7 +260,7 @@ s3UploadMode :: Maybe ProcessingS3UploadMode
 $sel:localPath:MonitoringS3Output' :: MonitoringS3Output -&gt; Text
 $sel:s3Uri:MonitoringS3Output' :: MonitoringS3Output -&gt; Text
 $sel:s3UploadMode:MonitoringS3Output' :: MonitoringS3Output -&gt; Maybe ProcessingS3UploadMode
-</span><a href="#local-6989586621680331635"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680333038"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -273,21 +273,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ProcessingS3UploadMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingS3UploadMode
-</span><a href="#local-6989586621680331637"><span class="hs-identifier hs-var">s3UploadMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680333040"><span class="hs-identifier hs-var">s3UploadMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680331636"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680333039"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LocalPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680331635"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680333038"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span></pre></body></html>

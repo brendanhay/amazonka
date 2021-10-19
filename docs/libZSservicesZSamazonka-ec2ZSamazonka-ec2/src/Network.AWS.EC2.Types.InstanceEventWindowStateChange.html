@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | The state of the event window.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInstanceEventWindowStateChange' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681081112"><span id="local-6989586621681081113"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceEventWindowStateChange"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange"><span class="hs-identifier hs-var">InstanceEventWindowStateChange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceEventWindowStateChange%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange%27"><span class="hs-identifier hs-var">InstanceEventWindowStateChange'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the event window.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AinstanceEventWindowId%3AInstanceEventWindowStateChange%27"><span class="annot"><span class="annottext">InstanceEventWindowStateChange -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#%24sel%3AinstanceEventWindowId%3AInstanceEventWindowStateChange%27"><span class="hs-identifier hs-var hs-var">instanceEventWindowId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The current state of the event window.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astate%3AInstanceEventWindowStateChange%27"><span class="annot"><span class="annottext">InstanceEventWindowStateChange -&gt; Maybe InstanceEventWindowState
-</span><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#%24sel%3Astate%3AInstanceEventWindowStateChange%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowState.html#InstanceEventWindowState"><span class="hs-identifier hs-type">InstanceEventWindowState</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681115464"><span id="local-6989586621681115465"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceEventWindowStateChange"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange"><span class="hs-identifier hs-var">InstanceEventWindowStateChange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceEventWindowStateChange%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange%27"><span class="hs-identifier hs-var">InstanceEventWindowStateChange'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of the event window.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astate%3AInstanceEventWindowStateChange%27"><span class="annot"><span class="annottext">InstanceEventWindowStateChange -&gt; Maybe InstanceEventWindowState
+</span><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#%24sel%3Astate%3AInstanceEventWindowStateChange%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowState.html#InstanceEventWindowState"><span class="hs-identifier hs-type">InstanceEventWindowState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the event window.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AinstanceEventWindowId%3AInstanceEventWindowStateChange%27"><span class="annot"><span class="annottext">InstanceEventWindowStateChange -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#%24sel%3AinstanceEventWindowId%3AInstanceEventWindowStateChange%27"><span class="hs-identifier hs-var hs-var">instanceEventWindowId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681081105"><span id="local-6989586621681081107"><span class="annot"><span class="annottext">InstanceEventWindowStateChange
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681115457"><span id="local-6989586621681115459"><span class="annot"><span class="annottext">InstanceEventWindowStateChange
 -&gt; InstanceEventWindowStateChange -&gt; Bool
 (InstanceEventWindowStateChange
  -&gt; InstanceEventWindowStateChange -&gt; Bool)
@@ -52,7 +52,7 @@ $c/= :: InstanceEventWindowStateChange
 -&gt; InstanceEventWindowStateChange -&gt; Bool
 $c== :: InstanceEventWindowStateChange
 -&gt; InstanceEventWindowStateChange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681081096"><span id="local-6989586621681081098"><span id="local-6989586621681081100"><span id="local-6989586621681081102"><span class="annot"><span class="annottext">ReadPrec [InstanceEventWindowStateChange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681115448"><span id="local-6989586621681115450"><span id="local-6989586621681115452"><span id="local-6989586621681115454"><span class="annot"><span class="annottext">ReadPrec [InstanceEventWindowStateChange]
 ReadPrec InstanceEventWindowStateChange
 Int -&gt; ReadS InstanceEventWindowStateChange
 ReadS [InstanceEventWindowStateChange]
@@ -72,7 +72,7 @@ readList :: ReadS [InstanceEventWindowStateChange]
 $creadList :: ReadS [InstanceEventWindowStateChange]
 readsPrec :: Int -&gt; ReadS InstanceEventWindowStateChange
 $creadsPrec :: Int -&gt; ReadS InstanceEventWindowStateChange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681081089"><span id="local-6989586621681081091"><span id="local-6989586621681081093"><span class="annot"><span class="annottext">Int -&gt; InstanceEventWindowStateChange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681115441"><span id="local-6989586621681115443"><span id="local-6989586621681115445"><span class="annot"><span class="annottext">Int -&gt; InstanceEventWindowStateChange -&gt; ShowS
 [InstanceEventWindowStateChange] -&gt; ShowS
 InstanceEventWindowStateChange -&gt; String
 (Int -&gt; InstanceEventWindowStateChange -&gt; ShowS)
@@ -118,55 +118,30 @@ InstanceEventWindowStateChange
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'instanceEventWindowId', 'instanceEventWindowStateChange_instanceEventWindowId' - The ID of the event window.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'state', 'instanceEventWindowStateChange_state' - The current state of the event window.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'state', 'instanceEventWindowStateChange_state' - The current state of the event window.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'instanceEventWindowId', 'instanceEventWindowStateChange_instanceEventWindowId' - The ID of the event window.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#newInstanceEventWindowStateChange"><span class="hs-identifier hs-type">newInstanceEventWindowStateChange</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange"><span class="hs-identifier hs-type">InstanceEventWindowStateChange</span></a></span><span>
 </span><span id="line-52"></span><span id="newInstanceEventWindowStateChange"><span class="annot"><span class="annottext">newInstanceEventWindowStateChange :: InstanceEventWindowStateChange
 </span><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#newInstanceEventWindowStateChange"><span class="hs-identifier hs-var hs-var">newInstanceEventWindowStateChange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">InstanceEventWindowStateChange' :: Maybe Text
--&gt; Maybe InstanceEventWindowState -&gt; InstanceEventWindowStateChange
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">InstanceEventWindowStateChange' :: Maybe InstanceEventWindowState
+-&gt; Maybe Text -&gt; InstanceEventWindowStateChange
 </span><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange%27"><span class="hs-identifier hs-type">InstanceEventWindowStateChange'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceEventWindowId:InstanceEventWindowStateChange' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#%24sel%3AinstanceEventWindowId%3AInstanceEventWindowStateChange%27"><span class="hs-identifier hs-var">instanceEventWindowId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:InstanceEventWindowStateChange' :: Maybe InstanceEventWindowState
+</span><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#%24sel%3Astate%3AInstanceEventWindowStateChange%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe InstanceEventWindowState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:InstanceEventWindowStateChange' :: Maybe InstanceEventWindowState
-</span><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#%24sel%3Astate%3AInstanceEventWindowStateChange%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceEventWindowState
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceEventWindowId:InstanceEventWindowStateChange' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#%24sel%3AinstanceEventWindowId%3AInstanceEventWindowStateChange%27"><span class="hs-identifier hs-var">instanceEventWindowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | The ID of the event window.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#instanceEventWindowStateChange_instanceEventWindowId"><span class="hs-identifier hs-type">instanceEventWindowStateChange_instanceEventWindowId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange"><span class="hs-identifier hs-type">InstanceEventWindowStateChange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="instanceEventWindowStateChange_instanceEventWindowId"><span class="annot"><span class="annottext">instanceEventWindowStateChange_instanceEventWindowId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InstanceEventWindowStateChange
--&gt; f InstanceEventWindowStateChange
-</span><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#instanceEventWindowStateChange_instanceEventWindowId"><span class="hs-identifier hs-var hs-var">instanceEventWindowStateChange_instanceEventWindowId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceEventWindowStateChange -&gt; Maybe Text)
--&gt; (InstanceEventWindowStateChange
-    -&gt; Maybe Text -&gt; InstanceEventWindowStateChange)
--&gt; Lens
-     InstanceEventWindowStateChange
-     InstanceEventWindowStateChange
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange%27"><span class="hs-identifier hs-type">InstanceEventWindowStateChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681081080"><span class="annot"><span class="annottext">Maybe Text
-instanceEventWindowId :: Maybe Text
-$sel:instanceEventWindowId:InstanceEventWindowStateChange' :: InstanceEventWindowStateChange -&gt; Maybe Text
-</span><a href="#local-6989586621681081080"><span class="hs-identifier hs-var hs-var">instanceEventWindowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681081080"><span class="hs-identifier hs-var">instanceEventWindowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681081079"><span class="annot"><span class="annottext">s :: InstanceEventWindowStateChange
-</span><a href="#local-6989586621681081079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange%27"><span class="hs-identifier hs-type">InstanceEventWindowStateChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681081078"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681081078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEventWindowStateChange
-</span><a href="#local-6989586621681081079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceEventWindowId:InstanceEventWindowStateChange' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#%24sel%3AinstanceEventWindowId%3AInstanceEventWindowStateChange%27"><span class="hs-identifier hs-var">instanceEventWindowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681081078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange"><span class="hs-identifier hs-type">InstanceEventWindowStateChange</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The current state of the event window.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#instanceEventWindowStateChange_state"><span class="hs-identifier hs-type">instanceEventWindowStateChange_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange"><span class="hs-identifier hs-type">InstanceEventWindowStateChange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowState.html#InstanceEventWindowState"><span class="hs-identifier hs-type">InstanceEventWindowState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="instanceEventWindowStateChange_state"><span class="annot"><span class="annottext">instanceEventWindowStateChange_state :: (Maybe InstanceEventWindowState
+</span><span id="line-59"></span><span class="hs-comment">-- | The current state of the event window.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#instanceEventWindowStateChange_state"><span class="hs-identifier hs-type">instanceEventWindowStateChange_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange"><span class="hs-identifier hs-type">InstanceEventWindowStateChange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowState.html#InstanceEventWindowState"><span class="hs-identifier hs-type">InstanceEventWindowState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="instanceEventWindowStateChange_state"><span class="annot"><span class="annottext">instanceEventWindowStateChange_state :: (Maybe InstanceEventWindowState
  -&gt; f (Maybe InstanceEventWindowState))
 -&gt; InstanceEventWindowStateChange
 -&gt; f InstanceEventWindowStateChange
@@ -180,54 +155,74 @@ $sel:instanceEventWindowId:InstanceEventWindowStateChange' :: InstanceEventWindo
      (Maybe InstanceEventWindowState)
      (Maybe InstanceEventWindowState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange%27"><span class="hs-identifier hs-type">InstanceEventWindowStateChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681081076"><span class="annot"><span class="annottext">Maybe InstanceEventWindowState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange%27"><span class="hs-identifier hs-type">InstanceEventWindowStateChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681115432"><span class="annot"><span class="annottext">Maybe InstanceEventWindowState
 state :: Maybe InstanceEventWindowState
 $sel:state:InstanceEventWindowStateChange' :: InstanceEventWindowStateChange -&gt; Maybe InstanceEventWindowState
-</span><a href="#local-6989586621681081076"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceEventWindowState
-</span><a href="#local-6989586621681081076"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681081075"><span class="annot"><span class="annottext">s :: InstanceEventWindowStateChange
-</span><a href="#local-6989586621681081075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange%27"><span class="hs-identifier hs-type">InstanceEventWindowStateChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681081074"><span class="annot"><span class="annottext">Maybe InstanceEventWindowState
-</span><a href="#local-6989586621681081074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEventWindowStateChange
-</span><a href="#local-6989586621681081075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:InstanceEventWindowStateChange' :: Maybe InstanceEventWindowState
+</span><a href="#local-6989586621681115432"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceEventWindowState
+</span><a href="#local-6989586621681115432"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681115431"><span class="annot"><span class="annottext">s :: InstanceEventWindowStateChange
+</span><a href="#local-6989586621681115431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange%27"><span class="hs-identifier hs-type">InstanceEventWindowStateChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681115430"><span class="annot"><span class="annottext">Maybe InstanceEventWindowState
+</span><a href="#local-6989586621681115430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEventWindowStateChange
+</span><a href="#local-6989586621681115431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:InstanceEventWindowStateChange' :: Maybe InstanceEventWindowState
 </span><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#%24sel%3Astate%3AInstanceEventWindowStateChange%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceEventWindowState
-</span><a href="#local-6989586621681081074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange"><span class="hs-identifier hs-type">InstanceEventWindowStateChange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681115430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange"><span class="hs-identifier hs-type">InstanceEventWindowStateChange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The ID of the event window.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#instanceEventWindowStateChange_instanceEventWindowId"><span class="hs-identifier hs-type">instanceEventWindowStateChange_instanceEventWindowId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange"><span class="hs-identifier hs-type">InstanceEventWindowStateChange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="instanceEventWindowStateChange_instanceEventWindowId"><span class="annot"><span class="annottext">instanceEventWindowStateChange_instanceEventWindowId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceEventWindowStateChange
+-&gt; f InstanceEventWindowStateChange
+</span><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#instanceEventWindowStateChange_instanceEventWindowId"><span class="hs-identifier hs-var hs-var">instanceEventWindowStateChange_instanceEventWindowId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceEventWindowStateChange -&gt; Maybe Text)
+-&gt; (InstanceEventWindowStateChange
+    -&gt; Maybe Text -&gt; InstanceEventWindowStateChange)
+-&gt; Lens
+     InstanceEventWindowStateChange
+     InstanceEventWindowStateChange
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange%27"><span class="hs-identifier hs-type">InstanceEventWindowStateChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681115428"><span class="annot"><span class="annottext">Maybe Text
+instanceEventWindowId :: Maybe Text
+$sel:instanceEventWindowId:InstanceEventWindowStateChange' :: InstanceEventWindowStateChange -&gt; Maybe Text
+</span><a href="#local-6989586621681115428"><span class="hs-identifier hs-var hs-var">instanceEventWindowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681115428"><span class="hs-identifier hs-var">instanceEventWindowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681115427"><span class="annot"><span class="annottext">s :: InstanceEventWindowStateChange
+</span><a href="#local-6989586621681115427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange%27"><span class="hs-identifier hs-type">InstanceEventWindowStateChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681115426"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681115426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEventWindowStateChange
+</span><a href="#local-6989586621681115427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceEventWindowId:InstanceEventWindowStateChange' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#%24sel%3AinstanceEventWindowId%3AInstanceEventWindowStateChange%27"><span class="hs-identifier hs-var">instanceEventWindowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681115426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange"><span class="hs-identifier hs-type">InstanceEventWindowStateChange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange"><span class="hs-identifier hs-type">InstanceEventWindowStateChange</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621681081071"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceEventWindowStateChange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681081069"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681081069"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe InstanceEventWindowState -&gt; InstanceEventWindowStateChange
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621681115423"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceEventWindowStateChange
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681115421"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681115421"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe InstanceEventWindowState
+-&gt; Maybe Text -&gt; InstanceEventWindowStateChange
 </span><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange%27"><span class="hs-identifier hs-var">InstanceEventWindowStateChange'</span></a></span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe InstanceEventWindowState
- -&gt; InstanceEventWindowStateChange)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe InstanceEventWindowState -&gt; InstanceEventWindowStateChange)
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe InstanceEventWindowState
+ -&gt; Maybe Text -&gt; InstanceEventWindowStateChange)
+-&gt; Either String (Maybe InstanceEventWindowState)
+-&gt; Either String (Maybe Text -&gt; InstanceEventWindowStateChange)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681081069"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;instanceEventWindowId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe InstanceEventWindowState -&gt; InstanceEventWindowStateChange)
--&gt; Either String (Maybe InstanceEventWindowState)
--&gt; Either String InstanceEventWindowStateChange
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681081069"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InstanceEventWindowState)
+</span><a href="#local-6989586621681115421"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InstanceEventWindowState)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; InstanceEventWindowStateChange)
+-&gt; Either String (Maybe Text)
+-&gt; Either String InstanceEventWindowStateChange
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681115421"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceEventWindowId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621681081063"><span id="local-6989586621681081065"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621681115415"><span id="local-6989586621681115417"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange"><span class="hs-identifier hs-type">InstanceEventWindowStateChange</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621681081060"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621681115412"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowStateChange.html#InstanceEventWindowStateChange"><span class="hs-identifier hs-type">InstanceEventWindowStateChange</span></a></span></span><span>
 </span><span id="line-80"></span></pre></body></html>

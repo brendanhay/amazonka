@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679447807"><span id="local-6989586621679447808"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CapacityProviderStatus"><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStatus.html#CapacityProviderStatus"><span class="hs-identifier hs-var">CapacityProviderStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityProviderStatus%27"><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStatus.html#CapacityProviderStatus%27"><span class="hs-identifier hs-var">CapacityProviderStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679448518"><span id="local-6989586621679448519"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CapacityProviderStatus"><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStatus.html#CapacityProviderStatus"><span class="hs-identifier hs-var">CapacityProviderStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityProviderStatus%27"><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStatus.html#CapacityProviderStatus%27"><span class="hs-identifier hs-var">CapacityProviderStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCapacityProviderStatus"><span class="annot"><span class="annottext">CapacityProviderStatus -&gt; Text
 </span><a href="Network.AWS.ECS.Types.CapacityProviderStatus.html#fromCapacityProviderStatus"><span class="hs-identifier hs-var hs-var">fromCapacityProviderStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679447799"><span id="local-6989586621679447801"><span id="local-6989586621679447803"><span class="annot"><span class="annottext">Int -&gt; CapacityProviderStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679448510"><span id="local-6989586621679448512"><span id="local-6989586621679448514"><span class="annot"><span class="annottext">Int -&gt; CapacityProviderStatus -&gt; ShowS
 [CapacityProviderStatus] -&gt; ShowS
 CapacityProviderStatus -&gt; String
 (Int -&gt; CapacityProviderStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CapacityProviderStatus -&gt; String
 showsPrec :: Int -&gt; CapacityProviderStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; CapacityProviderStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679447790"><span id="local-6989586621679447792"><span id="local-6989586621679447794"><span id="local-6989586621679447796"><span class="annot"><span class="annottext">ReadPrec [CapacityProviderStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679448501"><span id="local-6989586621679448503"><span id="local-6989586621679448505"><span id="local-6989586621679448507"><span class="annot"><span class="annottext">ReadPrec [CapacityProviderStatus]
 ReadPrec CapacityProviderStatus
 Int -&gt; ReadS CapacityProviderStatus
 ReadS [CapacityProviderStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CapacityProviderStatus]
 readsPrec :: Int -&gt; ReadS CapacityProviderStatus
 $creadsPrec :: Int -&gt; ReadS CapacityProviderStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679447785"><span id="local-6989586621679447787"><span class="annot"><span class="annottext">CapacityProviderStatus -&gt; CapacityProviderStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679448496"><span id="local-6989586621679448498"><span class="annot"><span class="annottext">CapacityProviderStatus -&gt; CapacityProviderStatus -&gt; Bool
 (CapacityProviderStatus -&gt; CapacityProviderStatus -&gt; Bool)
 -&gt; (CapacityProviderStatus -&gt; CapacityProviderStatus -&gt; Bool)
 -&gt; Eq CapacityProviderStatus
@@ -82,7 +82,7 @@ $c/= :: CapacityProviderStatus -&gt; CapacityProviderStatus -&gt; Bool
 == :: CapacityProviderStatus -&gt; CapacityProviderStatus -&gt; Bool
 $c== :: CapacityProviderStatus -&gt; CapacityProviderStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679447769"><span id="local-6989586621679447771"><span id="local-6989586621679447773"><span id="local-6989586621679447775"><span id="local-6989586621679447777"><span id="local-6989586621679447779"><span id="local-6989586621679447781"><span class="annot"><span class="annottext">Eq CapacityProviderStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679448480"><span id="local-6989586621679448482"><span id="local-6989586621679448484"><span id="local-6989586621679448486"><span id="local-6989586621679448488"><span id="local-6989586621679448490"><span id="local-6989586621679448492"><span class="annot"><span class="annottext">Eq CapacityProviderStatus
 Eq CapacityProviderStatus
 -&gt; (CapacityProviderStatus -&gt; CapacityProviderStatus -&gt; Ordering)
 -&gt; (CapacityProviderStatus -&gt; CapacityProviderStatus -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. CapacityProviderStatus -&gt; Rep CapacityProviderStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679447761"><span id="local-6989586621679447763"><span class="annot"><span class="annottext">Int -&gt; CapacityProviderStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679448472"><span id="local-6989586621679448474"><span class="annot"><span class="annottext">Int -&gt; CapacityProviderStatus -&gt; Int
 CapacityProviderStatus -&gt; Int
 (Int -&gt; CapacityProviderStatus -&gt; Int)
 -&gt; (CapacityProviderStatus -&gt; Int)
@@ -152,54 +152,54 @@ $chash :: CapacityProviderStatus -&gt; Int
 hashWithSalt :: Int -&gt; CapacityProviderStatus -&gt; Int
 $chashWithSalt :: Int -&gt; CapacityProviderStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679447758"><span class="annot"><span class="annottext">CapacityProviderStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679448469"><span class="annot"><span class="annottext">CapacityProviderStatus -&gt; ()
 (CapacityProviderStatus -&gt; ()) -&gt; NFData CapacityProviderStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CapacityProviderStatus -&gt; ()
 $crnf :: CapacityProviderStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679447755"><span class="annot"><span class="annottext">Text -&gt; Either String CapacityProviderStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679448466"><span class="annot"><span class="annottext">Text -&gt; Either String CapacityProviderStatus
 (Text -&gt; Either String CapacityProviderStatus)
 -&gt; FromText CapacityProviderStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CapacityProviderStatus
 $cfromText :: Text -&gt; Either String CapacityProviderStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679447752"><span class="annot"><span class="annottext">CapacityProviderStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679448463"><span class="annot"><span class="annottext">CapacityProviderStatus -&gt; Text
 (CapacityProviderStatus -&gt; Text) -&gt; ToText CapacityProviderStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CapacityProviderStatus -&gt; Text
 $ctoText :: CapacityProviderStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679447749"><span class="annot"><span class="annottext">CapacityProviderStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679448460"><span class="annot"><span class="annottext">CapacityProviderStatus -&gt; ByteString
 (CapacityProviderStatus -&gt; ByteString)
 -&gt; ToByteString CapacityProviderStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CapacityProviderStatus -&gt; ByteString
 $ctoBS :: CapacityProviderStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679447746"><span class="annot"><span class="annottext">CapacityProviderStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679448457"><span class="annot"><span class="annottext">CapacityProviderStatus -&gt; ByteStringBuilder
 (CapacityProviderStatus -&gt; ByteStringBuilder)
 -&gt; ToLog CapacityProviderStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CapacityProviderStatus -&gt; ByteStringBuilder
 $cbuild :: CapacityProviderStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679447743"><span class="annot"><span class="annottext">HeaderName -&gt; CapacityProviderStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679448454"><span class="annot"><span class="annottext">HeaderName -&gt; CapacityProviderStatus -&gt; [Header]
 (HeaderName -&gt; CapacityProviderStatus -&gt; [Header])
 -&gt; ToHeader CapacityProviderStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CapacityProviderStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CapacityProviderStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679447740"><span class="annot"><span class="annottext">CapacityProviderStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679448451"><span class="annot"><span class="annottext">CapacityProviderStatus -&gt; QueryString
 (CapacityProviderStatus -&gt; QueryString)
 -&gt; ToQuery CapacityProviderStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CapacityProviderStatus -&gt; QueryString
 $ctoQuery :: CapacityProviderStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679447735"><span id="local-6989586621679447737"><span class="annot"><span class="annottext">Value -&gt; Parser [CapacityProviderStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679448446"><span id="local-6989586621679448448"><span class="annot"><span class="annottext">Value -&gt; Parser [CapacityProviderStatus]
 Value -&gt; Parser CapacityProviderStatus
 (Value -&gt; Parser CapacityProviderStatus)
 -&gt; (Value -&gt; Parser [CapacityProviderStatus])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [CapacityProviderStatus]
 parseJSON :: Value -&gt; Parser CapacityProviderStatus
 $cparseJSON :: Value -&gt; Parser CapacityProviderStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679447730"><span id="local-6989586621679447732"><span class="annot"><span class="annottext">FromJSONKeyFunction [CapacityProviderStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679448441"><span id="local-6989586621679448443"><span class="annot"><span class="annottext">FromJSONKeyFunction [CapacityProviderStatus]
 FromJSONKeyFunction CapacityProviderStatus
 FromJSONKeyFunction CapacityProviderStatus
 -&gt; FromJSONKeyFunction [CapacityProviderStatus]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CapacityProviderStatus]
 fromJSONKey :: FromJSONKeyFunction CapacityProviderStatus
 $cfromJSONKey :: FromJSONKeyFunction CapacityProviderStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679447721"><span id="local-6989586621679447723"><span id="local-6989586621679447725"><span id="local-6989586621679447727"><span class="annot"><span class="annottext">[CapacityProviderStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679448432"><span id="local-6989586621679448434"><span id="local-6989586621679448436"><span id="local-6989586621679448438"><span class="annot"><span class="annottext">[CapacityProviderStatus] -&gt; Encoding
 [CapacityProviderStatus] -&gt; Value
 CapacityProviderStatus -&gt; Encoding
 CapacityProviderStatus -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: CapacityProviderStatus -&gt; Encoding
 toJSON :: CapacityProviderStatus -&gt; Value
 $ctoJSON :: CapacityProviderStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679447716"><span id="local-6989586621679447718"><span class="annot"><span class="annottext">ToJSONKeyFunction [CapacityProviderStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679448427"><span id="local-6989586621679448429"><span class="annot"><span class="annottext">ToJSONKeyFunction [CapacityProviderStatus]
 ToJSONKeyFunction CapacityProviderStatus
 ToJSONKeyFunction CapacityProviderStatus
 -&gt; ToJSONKeyFunction [CapacityProviderStatus]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CapacityProviderStatus]
 toJSONKey :: ToJSONKeyFunction CapacityProviderStatus
 $ctoJSONKey :: ToJSONKeyFunction CapacityProviderStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679447713"><span class="annot"><span class="annottext">[Node] -&gt; Either String CapacityProviderStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679448424"><span class="annot"><span class="annottext">[Node] -&gt; Either String CapacityProviderStatus
 ([Node] -&gt; Either String CapacityProviderStatus)
 -&gt; FromXML CapacityProviderStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CapacityProviderStatus
 $cparseXML :: [Node] -&gt; Either String CapacityProviderStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679447710"><span class="annot"><span class="annottext">CapacityProviderStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679448421"><span class="annot"><span class="annottext">CapacityProviderStatus -&gt; XML
 (CapacityProviderStatus -&gt; XML) -&gt; ToXML CapacityProviderStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CapacityProviderStatus -&gt; XML

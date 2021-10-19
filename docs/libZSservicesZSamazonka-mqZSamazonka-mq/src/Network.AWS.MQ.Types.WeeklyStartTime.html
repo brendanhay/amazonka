@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- to apply pending updates or patches to the broker.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newWeeklyStartTime' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679225150"><span id="local-6989586621679225151"></span></span><span class="hs-keyword">data</span><span> </span><span id="WeeklyStartTime"><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-var">WeeklyStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WeeklyStartTime%27"><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-var">WeeklyStartTime'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679225314"><span id="local-6989586621679225315"></span></span><span class="hs-keyword">data</span><span> </span><span id="WeeklyStartTime"><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-var">WeeklyStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WeeklyStartTime%27"><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-var">WeeklyStartTime'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time zone, UTC by default, in either the Country\/City format, or</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the UTC offset format.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AtimeZone%3AWeeklyStartTime%27"><span class="annot"><span class="annottext">WeeklyStartTime -&gt; Maybe Text
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AdayOfWeek%3AWeeklyStartTime%27"><span class="annot"><span class="annottext">WeeklyStartTime -&gt; DayOfWeek
 </span><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#%24sel%3AdayOfWeek%3AWeeklyStartTime%27"><span class="hs-identifier hs-var hs-var">dayOfWeek</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.DayOfWeek.html#DayOfWeek"><span class="hs-identifier hs-type">DayOfWeek</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225142"><span id="local-6989586621679225144"><span class="annot"><span class="annottext">WeeklyStartTime -&gt; WeeklyStartTime -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225306"><span id="local-6989586621679225308"><span class="annot"><span class="annottext">WeeklyStartTime -&gt; WeeklyStartTime -&gt; Bool
 (WeeklyStartTime -&gt; WeeklyStartTime -&gt; Bool)
 -&gt; (WeeklyStartTime -&gt; WeeklyStartTime -&gt; Bool)
 -&gt; Eq WeeklyStartTime
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WeeklyStartTime -&gt; WeeklyStartTime -&gt; Bool
 == :: WeeklyStartTime -&gt; WeeklyStartTime -&gt; Bool
 $c== :: WeeklyStartTime -&gt; WeeklyStartTime -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225133"><span id="local-6989586621679225135"><span id="local-6989586621679225137"><span id="local-6989586621679225139"><span class="annot"><span class="annottext">ReadPrec [WeeklyStartTime]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225297"><span id="local-6989586621679225299"><span id="local-6989586621679225301"><span id="local-6989586621679225303"><span class="annot"><span class="annottext">ReadPrec [WeeklyStartTime]
 ReadPrec WeeklyStartTime
 Int -&gt; ReadS WeeklyStartTime
 ReadS [WeeklyStartTime]
@@ -69,7 +69,7 @@ readList :: ReadS [WeeklyStartTime]
 $creadList :: ReadS [WeeklyStartTime]
 readsPrec :: Int -&gt; ReadS WeeklyStartTime
 $creadsPrec :: Int -&gt; ReadS WeeklyStartTime
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225126"><span id="local-6989586621679225128"><span id="local-6989586621679225130"><span class="annot"><span class="annottext">Int -&gt; WeeklyStartTime -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225290"><span id="local-6989586621679225292"><span id="local-6989586621679225294"><span class="annot"><span class="annottext">Int -&gt; WeeklyStartTime -&gt; ShowS
 [WeeklyStartTime] -&gt; ShowS
 WeeklyStartTime -&gt; String
 (Int -&gt; WeeklyStartTime -&gt; ShowS)
@@ -116,9 +116,9 @@ $cfrom :: forall x. WeeklyStartTime -&gt; Rep WeeklyStartTime x
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.Types.DayOfWeek.html#DayOfWeek"><span class="hs-identifier hs-type">DayOfWeek</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-type">WeeklyStartTime</span></a></span><span>
 </span><span id="line-62"></span><span id="newWeeklyStartTime"><span class="annot"><span class="annottext">newWeeklyStartTime :: Text -&gt; DayOfWeek -&gt; WeeklyStartTime
-</span><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#newWeeklyStartTime"><span class="hs-identifier hs-var hs-var">newWeeklyStartTime</span></a></span></span><span> </span><span id="local-6989586621679225120"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225120"><span class="hs-identifier hs-var">pTimeOfDay_</span></a></span></span><span> </span><span id="local-6989586621679225119"><span class="annot"><span class="annottext">DayOfWeek
-</span><a href="#local-6989586621679225119"><span class="hs-identifier hs-var">pDayOfWeek_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#newWeeklyStartTime"><span class="hs-identifier hs-var hs-var">newWeeklyStartTime</span></a></span></span><span> </span><span id="local-6989586621679225284"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225284"><span class="hs-identifier hs-var">pTimeOfDay_</span></a></span></span><span> </span><span id="local-6989586621679225283"><span class="annot"><span class="annottext">DayOfWeek
+</span><a href="#local-6989586621679225283"><span class="hs-identifier hs-var">pDayOfWeek_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">WeeklyStartTime' :: Maybe Text -&gt; Text -&gt; DayOfWeek -&gt; WeeklyStartTime
 </span><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-type">WeeklyStartTime'</span></a></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timeZone:WeeklyStartTime' :: Maybe Text
@@ -127,10 +127,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeOfDay:WeeklyStartTime' :: Text
 </span><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#%24sel%3AtimeOfDay%3AWeeklyStartTime%27"><span class="hs-identifier hs-var">timeOfDay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225120"><span class="hs-identifier hs-var">pTimeOfDay_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225284"><span class="hs-identifier hs-var">pTimeOfDay_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:dayOfWeek:WeeklyStartTime' :: DayOfWeek
 </span><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#%24sel%3AdayOfWeek%3AWeeklyStartTime%27"><span class="hs-identifier hs-var">dayOfWeek</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DayOfWeek
-</span><a href="#local-6989586621679225119"><span class="hs-identifier hs-var">pDayOfWeek_</span></a></span><span>
+</span><a href="#local-6989586621679225283"><span class="hs-identifier hs-var">pDayOfWeek_</span></a></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The time zone, UTC by default, in either the Country\/City format, or</span><span>
@@ -142,16 +142,16 @@ forall a. Maybe a
 -&gt; (WeeklyStartTime -&gt; Maybe Text -&gt; WeeklyStartTime)
 -&gt; Lens WeeklyStartTime WeeklyStartTime (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-type">WeeklyStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225115"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-type">WeeklyStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225279"><span class="annot"><span class="annottext">Maybe Text
 timeZone :: Maybe Text
 $sel:timeZone:WeeklyStartTime' :: WeeklyStartTime -&gt; Maybe Text
-</span><a href="#local-6989586621679225115"><span class="hs-identifier hs-var hs-var">timeZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225115"><span class="hs-identifier hs-var">timeZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225114"><span class="annot"><span class="annottext">s :: WeeklyStartTime
-</span><a href="#local-6989586621679225114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-type">WeeklyStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225113"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WeeklyStartTime
-</span><a href="#local-6989586621679225114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeZone:WeeklyStartTime' :: Maybe Text
+</span><a href="#local-6989586621679225279"><span class="hs-identifier hs-var hs-var">timeZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225279"><span class="hs-identifier hs-var">timeZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225278"><span class="annot"><span class="annottext">s :: WeeklyStartTime
+</span><a href="#local-6989586621679225278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-type">WeeklyStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225277"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WeeklyStartTime
+</span><a href="#local-6989586621679225278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeZone:WeeklyStartTime' :: Maybe Text
 </span><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#%24sel%3AtimeZone%3AWeeklyStartTime%27"><span class="hs-identifier hs-var">timeZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-type">WeeklyStartTime</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-type">WeeklyStartTime</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | Required. The time, in 24-hour format.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#weeklyStartTime_timeOfDay"><span class="hs-identifier hs-type">weeklyStartTime_timeOfDay</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-type">WeeklyStartTime</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -160,16 +160,16 @@ $sel:timeZone:WeeklyStartTime' :: WeeklyStartTime -&gt; Maybe Text
 -&gt; (WeeklyStartTime -&gt; Text -&gt; WeeklyStartTime)
 -&gt; Lens WeeklyStartTime WeeklyStartTime Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-type">WeeklyStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225111"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-type">WeeklyStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225275"><span class="annot"><span class="annottext">Text
 timeOfDay :: Text
 $sel:timeOfDay:WeeklyStartTime' :: WeeklyStartTime -&gt; Text
-</span><a href="#local-6989586621679225111"><span class="hs-identifier hs-var hs-var">timeOfDay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225111"><span class="hs-identifier hs-var">timeOfDay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225110"><span class="annot"><span class="annottext">s :: WeeklyStartTime
-</span><a href="#local-6989586621679225110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-type">WeeklyStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225109"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WeeklyStartTime
-</span><a href="#local-6989586621679225110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeOfDay:WeeklyStartTime' :: Text
+</span><a href="#local-6989586621679225275"><span class="hs-identifier hs-var hs-var">timeOfDay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225275"><span class="hs-identifier hs-var">timeOfDay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225274"><span class="annot"><span class="annottext">s :: WeeklyStartTime
+</span><a href="#local-6989586621679225274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-type">WeeklyStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225273"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WeeklyStartTime
+</span><a href="#local-6989586621679225274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeOfDay:WeeklyStartTime' :: Text
 </span><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#%24sel%3AtimeOfDay%3AWeeklyStartTime%27"><span class="hs-identifier hs-var">timeOfDay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-type">WeeklyStartTime</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-type">WeeklyStartTime</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | Required. The day of the week.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#weeklyStartTime_dayOfWeek"><span class="hs-identifier hs-type">weeklyStartTime_dayOfWeek</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-type">WeeklyStartTime</span></a></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.DayOfWeek.html#DayOfWeek"><span class="hs-identifier hs-type">DayOfWeek</span></a></span><span>
@@ -178,19 +178,19 @@ $sel:timeOfDay:WeeklyStartTime' :: WeeklyStartTime -&gt; Text
 -&gt; (WeeklyStartTime -&gt; DayOfWeek -&gt; WeeklyStartTime)
 -&gt; Lens WeeklyStartTime WeeklyStartTime DayOfWeek DayOfWeek
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-type">WeeklyStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225107"><span class="annot"><span class="annottext">DayOfWeek
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-type">WeeklyStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225271"><span class="annot"><span class="annottext">DayOfWeek
 dayOfWeek :: DayOfWeek
 $sel:dayOfWeek:WeeklyStartTime' :: WeeklyStartTime -&gt; DayOfWeek
-</span><a href="#local-6989586621679225107"><span class="hs-identifier hs-var hs-var">dayOfWeek</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DayOfWeek
-</span><a href="#local-6989586621679225107"><span class="hs-identifier hs-var">dayOfWeek</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225106"><span class="annot"><span class="annottext">s :: WeeklyStartTime
-</span><a href="#local-6989586621679225106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-type">WeeklyStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225105"><span class="annot"><span class="annottext">DayOfWeek
-</span><a href="#local-6989586621679225105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WeeklyStartTime
-</span><a href="#local-6989586621679225106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dayOfWeek:WeeklyStartTime' :: DayOfWeek
+</span><a href="#local-6989586621679225271"><span class="hs-identifier hs-var hs-var">dayOfWeek</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DayOfWeek
+</span><a href="#local-6989586621679225271"><span class="hs-identifier hs-var">dayOfWeek</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225270"><span class="annot"><span class="annottext">s :: WeeklyStartTime
+</span><a href="#local-6989586621679225270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-type">WeeklyStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225269"><span class="annot"><span class="annottext">DayOfWeek
+</span><a href="#local-6989586621679225269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WeeklyStartTime
+</span><a href="#local-6989586621679225270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dayOfWeek:WeeklyStartTime' :: DayOfWeek
 </span><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#%24sel%3AdayOfWeek%3AWeeklyStartTime%27"><span class="hs-identifier hs-var">dayOfWeek</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DayOfWeek
-</span><a href="#local-6989586621679225105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-type">WeeklyStartTime</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-type">WeeklyStartTime</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225102"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-type">WeeklyStartTime</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679225100"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WeeklyStartTime
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225266"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-type">WeeklyStartTime</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679225264"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WeeklyStartTime
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser WeeklyStartTime)
@@ -200,8 +200,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WeeklyStartTime&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225097"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225097"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225261"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225261"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; DayOfWeek -&gt; WeeklyStartTime
 </span><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-var">WeeklyStartTime'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; DayOfWeek -&gt; WeeklyStartTime)
@@ -209,7 +209,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; DayOfWeek -&gt; WeeklyStartTime)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679225261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeZone&quot;</span></span><span class="hs-special">)</span><span>
@@ -217,7 +217,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (DayOfWeek -&gt; WeeklyStartTime)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679225261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeOfDay&quot;</span></span><span class="hs-special">)</span><span>
@@ -225,19 +225,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser DayOfWeek -&gt; Parser WeeklyStartTime
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DayOfWeek
+</span><a href="#local-6989586621679225261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DayOfWeek
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dayOfWeek&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225090"><span id="local-6989586621679225092"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-type">WeeklyStartTime</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225254"><span id="local-6989586621679225256"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-type">WeeklyStartTime</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225087"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-type">WeeklyStartTime</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225251"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-type">WeeklyStartTime</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225079"><span id="local-6989586621679225081"><span id="local-6989586621679225083"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-type">WeeklyStartTime</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679225077"><span class="annot"><span class="annottext">toJSON :: WeeklyStartTime -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-type">WeeklyStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225073"><span id="local-6989586621679225074"><span id="local-6989586621679225075"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225243"><span id="local-6989586621679225245"><span id="local-6989586621679225247"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime"><span class="hs-identifier hs-type">WeeklyStartTime</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679225241"><span class="annot"><span class="annottext">toJSON :: WeeklyStartTime -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.WeeklyStartTime.html#WeeklyStartTime%27"><span class="hs-identifier hs-type">WeeklyStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225237"><span id="local-6989586621679225238"><span id="local-6989586621679225239"><span class="annot"><span class="annottext">Maybe Text
 Text
 DayOfWeek
 dayOfWeek :: DayOfWeek
@@ -246,7 +246,7 @@ timeZone :: Maybe Text
 $sel:dayOfWeek:WeeklyStartTime' :: WeeklyStartTime -&gt; DayOfWeek
 $sel:timeOfDay:WeeklyStartTime' :: WeeklyStartTime -&gt; Text
 $sel:timeZone:WeeklyStartTime' :: WeeklyStartTime -&gt; Maybe Text
-</span><a href="#local-6989586621679225073"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679225237"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -258,21 +258,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225075"><span class="hs-identifier hs-var">timeZone</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225239"><span class="hs-identifier hs-var">timeZone</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeOfDay&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225074"><span class="hs-identifier hs-var">timeOfDay</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225238"><span class="hs-identifier hs-var">timeOfDay</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dayOfWeek&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DayOfWeek -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DayOfWeek
-</span><a href="#local-6989586621679225073"><span class="hs-identifier hs-var">dayOfWeek</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225237"><span class="hs-identifier hs-var">dayOfWeek</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span></pre></body></html>

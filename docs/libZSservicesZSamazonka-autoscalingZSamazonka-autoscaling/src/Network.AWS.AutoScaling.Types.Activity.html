@@ -29,35 +29,35 @@
 </span><span id="line-29"></span><span class="hs-comment">-- size or replacing an instance.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newActivity' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679331826"><span id="local-6989586621679331827"></span></span><span class="hs-keyword">data</span><span> </span><span id="Activity"><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-var">Activity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Activity%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-var">Activity'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A friendly, more verbose description of the activity status.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AstatusMessage%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Maybe Text
+</span><span id="line-32"></span><span id="local-6989586621679332488"><span id="local-6989586621679332489"></span></span><span class="hs-keyword">data</span><span> </span><span id="Activity"><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-var">Activity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Activity%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-var">Activity'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value between 0 and 100 that indicates the progress of the activity.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aprogress%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Maybe Int
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3Aprogress%3AActivity%27"><span class="hs-identifier hs-var hs-var">progress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A friendly, more verbose description of the activity status.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AstatusMessage%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Maybe Text
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AstatusMessage%3AActivity%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Auto Scaling group.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AautoScalingGroupARN%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Maybe Text
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AautoScalingGroupARN%3AActivity%27"><span class="hs-identifier hs-var hs-var">autoScalingGroupARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The end time of the activity.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AendTime%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Maybe ISO8601
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AendTime%3AActivity%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The state of the Auto Scaling group, which is either @InService@ or</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @Deleted@.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AautoScalingGroupState%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Maybe Text
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The state of the Auto Scaling group, which is either @InService@ or</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @Deleted@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AautoScalingGroupState%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Maybe Text
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AautoScalingGroupState%3AActivity%27"><span class="hs-identifier hs-var hs-var">autoScalingGroupState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The end time of the activity.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AendTime%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Maybe ISO8601
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AendTime%3AActivity%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The details about the activity.</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Adetails%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Maybe Text
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3Adetails%3AActivity%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | A friendly, more verbose description of the activity.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Adescription%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Maybe Text
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Auto Scaling group.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AautoScalingGroupARN%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Maybe Text
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AautoScalingGroupARN%3AActivity%27"><span class="hs-identifier hs-var hs-var">autoScalingGroupARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A friendly, more verbose description of the activity.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Adescription%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Maybe Text
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3Adescription%3AActivity%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A value between 0 and 100 that indicates the progress of the activity.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aprogress%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Maybe Int
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3Aprogress%3AActivity%27"><span class="hs-identifier hs-var hs-var">progress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AautoScalingGroupName%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Maybe Text
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AautoScalingGroupName%3AActivity%27"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The ID of the activity.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AactivityId%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Text
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The ID of the activity.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AactivityId%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Text
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AactivityId%3AActivity%27"><span class="hs-identifier hs-var hs-var">activityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AautoScalingGroupName%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Text
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AautoScalingGroupName%3AActivity%27"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The reason the activity began.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3Acause%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Text
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3Acause%3AActivity%27"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AstatusCode%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; ScalingActivityStatusCode
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AstatusCode%3AActivity%27"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ScalingActivityStatusCode.html#ScalingActivityStatusCode"><span class="hs-identifier hs-type">ScalingActivityStatusCode</span></a></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331809"><span id="local-6989586621679331811"><span class="annot"><span class="annottext">Activity -&gt; Activity -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332471"><span id="local-6989586621679332473"><span class="annot"><span class="annottext">Activity -&gt; Activity -&gt; Bool
 (Activity -&gt; Activity -&gt; Bool)
 -&gt; (Activity -&gt; Activity -&gt; Bool) -&gt; Eq Activity
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Activity -&gt; Activity -&gt; Bool
 == :: Activity -&gt; Activity -&gt; Bool
 $c== :: Activity -&gt; Activity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331800"><span id="local-6989586621679331802"><span id="local-6989586621679331804"><span id="local-6989586621679331806"><span class="annot"><span class="annottext">ReadPrec [Activity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332462"><span id="local-6989586621679332464"><span id="local-6989586621679332466"><span id="local-6989586621679332468"><span class="annot"><span class="annottext">ReadPrec [Activity]
 ReadPrec Activity
 Int -&gt; ReadS Activity
 ReadS [Activity]
@@ -96,7 +96,7 @@ readList :: ReadS [Activity]
 $creadList :: ReadS [Activity]
 readsPrec :: Int -&gt; ReadS Activity
 $creadsPrec :: Int -&gt; ReadS Activity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331793"><span id="local-6989586621679331795"><span id="local-6989586621679331797"><span class="annot"><span class="annottext">Int -&gt; Activity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332455"><span id="local-6989586621679332457"><span id="local-6989586621679332459"><span class="annot"><span class="annottext">Int -&gt; Activity -&gt; ShowS
 [Activity] -&gt; ShowS
 Activity -&gt; String
 (Int -&gt; Activity -&gt; ShowS)
@@ -127,24 +127,24 @@ $cfrom :: forall x. Activity -&gt; Rep Activity x
 </span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'statusMessage', 'activity_statusMessage' - A friendly, more verbose description of the activity status.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'progress', 'activity_progress' - A value between 0 and 100 that indicates the progress of the activity.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'autoScalingGroupARN', 'activity_autoScalingGroupARN' - The Amazon Resource Name (ARN) of the Auto Scaling group.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'statusMessage', 'activity_statusMessage' - A friendly, more verbose description of the activity status.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'endTime', 'activity_endTime' - The end time of the activity.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'autoScalingGroupState', 'activity_autoScalingGroupState' - The state of the Auto Scaling group, which is either @InService@ or</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- @Deleted@.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'autoScalingGroupState', 'activity_autoScalingGroupState' - The state of the Auto Scaling group, which is either @InService@ or</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- @Deleted@.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'endTime', 'activity_endTime' - The end time of the activity.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- 'details', 'activity_details' - The details about the activity.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'description', 'activity_description' - A friendly, more verbose description of the activity.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'autoScalingGroupARN', 'activity_autoScalingGroupARN' - The Amazon Resource Name (ARN) of the Auto Scaling group.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'progress', 'activity_progress' - A value between 0 and 100 that indicates the progress of the activity.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'description', 'activity_description' - A friendly, more verbose description of the activity.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'autoScalingGroupName', 'activity_autoScalingGroupName' - The name of the Auto Scaling group.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'activityId', 'activity_activityId' - The ID of the activity.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'activityId', 'activity_activityId' - The ID of the activity.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'autoScalingGroupName', 'activity_autoScalingGroupName' - The name of the Auto Scaling group.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- 'cause', 'activity_cause' - The reason the activity began.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
@@ -154,76 +154,80 @@ $cfrom :: forall x. Activity -&gt; Rep Activity x
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#newActivity"><span class="hs-identifier hs-type">newActivity</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'activityId'</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'cause'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'autoScalingGroupName'</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'startTime'</span><span>
-</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'statusCode'</span><span>
-</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ScalingActivityStatusCode.html#ScalingActivityStatusCode"><span class="hs-identifier hs-type">ScalingActivityStatusCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span>
-</span><span id="line-103"></span><span id="newActivity"><span class="annot"><span class="annottext">newActivity :: Text -&gt; Text -&gt; UTCTime -&gt; ScalingActivityStatusCode -&gt; Activity
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'cause'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'startTime'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'statusCode'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ScalingActivityStatusCode.html#ScalingActivityStatusCode"><span class="hs-identifier hs-type">ScalingActivityStatusCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span>
+</span><span id="line-105"></span><span id="newActivity"><span class="annot"><span class="annottext">newActivity :: Text
+-&gt; Text -&gt; Text -&gt; UTCTime -&gt; ScalingActivityStatusCode -&gt; Activity
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#newActivity"><span class="hs-identifier hs-var hs-var">newActivity</span></a></span></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679331787"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331787"><span class="hs-identifier hs-var">pActivityId_</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679331786"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331786"><span class="hs-identifier hs-var">pCause_</span></a></span></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679331785"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679331785"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679331784"><span class="annot"><span class="annottext">ScalingActivityStatusCode
-</span><a href="#local-6989586621679331784"><span class="hs-identifier hs-var">pStatusCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">Activity' :: Maybe Text
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679332449"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679332449"><span class="hs-identifier hs-var">pActivityId_</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679332448"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679332448"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679332447"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679332447"><span class="hs-identifier hs-var">pCause_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679332446"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679332446"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679332445"><span class="annot"><span class="annottext">ScalingActivityStatusCode
+</span><a href="#local-6989586621679332445"><span class="hs-identifier hs-var">pStatusCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">Activity' :: Maybe Int
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe ISO8601
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Int
--&gt; Maybe Text
+-&gt; Text
 -&gt; Text
 -&gt; Text
 -&gt; ISO8601
 -&gt; ScalingActivityStatusCode
 -&gt; Activity
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statusMessage:Activity' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AstatusMessage%3AActivity%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoScalingGroupARN:Activity' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AautoScalingGroupARN%3AActivity%27"><span class="hs-identifier hs-var">autoScalingGroupARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:endTime:Activity' :: Maybe ISO8601
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AendTime%3AActivity%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoScalingGroupState:Activity' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AautoScalingGroupState%3AActivity%27"><span class="hs-identifier hs-var">autoScalingGroupState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:details:Activity' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3Adetails%3AActivity%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:Activity' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3Adescription%3AActivity%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:progress:Activity' :: Maybe Int
+</span><span id="line-112"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:progress:Activity' :: Maybe Int
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3Aprogress%3AActivity%27"><span class="hs-identifier hs-var">progress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:Activity' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AautoScalingGroupName%3AActivity%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:statusMessage:Activity' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AstatusMessage%3AActivity%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:activityId:Activity' :: Text
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoScalingGroupState:Activity' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AautoScalingGroupState%3AActivity%27"><span class="hs-identifier hs-var">autoScalingGroupState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:endTime:Activity' :: Maybe ISO8601
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AendTime%3AActivity%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:details:Activity' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3Adetails%3AActivity%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoScalingGroupARN:Activity' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AautoScalingGroupARN%3AActivity%27"><span class="hs-identifier hs-var">autoScalingGroupARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:Activity' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3Adescription%3AActivity%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:activityId:Activity' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AactivityId%3AActivity%27"><span class="hs-identifier hs-var">activityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331787"><span class="hs-identifier hs-var">pActivityId_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:cause:Activity' :: Text
+</span><a href="#local-6989586621679332449"><span class="hs-identifier hs-var">pActivityId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:Activity' :: Text
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AautoScalingGroupName%3AActivity%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679332448"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:cause:Activity' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3Acause%3AActivity%27"><span class="hs-identifier hs-var">cause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331786"><span class="hs-identifier hs-var">pCause_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:startTime:Activity' :: ISO8601
+</span><a href="#local-6989586621679332447"><span class="hs-identifier hs-var">pCause_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:startTime:Activity' :: ISO8601
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AstartTime%3AActivity%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
 -&gt; Tagged ISO8601 (Identity ISO8601)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -232,65 +236,84 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; ISO8601
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679331785"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:statusCode:Activity' :: ScalingActivityStatusCode
+</span><a href="#local-6989586621679332446"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:statusCode:Activity' :: ScalingActivityStatusCode
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AstatusCode%3AActivity%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalingActivityStatusCode
-</span><a href="#local-6989586621679331784"><span class="hs-identifier hs-var">pStatusCode_</span></a></span><span>
-</span><span id="line-121"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | A friendly, more verbose description of the activity status.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_statusMessage"><span class="hs-identifier hs-type">activity_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="activity_statusMessage"><span class="annot"><span class="annottext">activity_statusMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Activity -&gt; f Activity
+</span><a href="#local-6989586621679332445"><span class="hs-identifier hs-var">pStatusCode_</span></a></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | A value between 0 and 100 that indicates the progress of the activity.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_progress"><span class="hs-identifier hs-type">activity_progress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="activity_progress"><span class="annot"><span class="annottext">activity_progress :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Activity -&gt; f Activity
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_progress"><span class="hs-identifier hs-var hs-var">activity_progress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Activity -&gt; Maybe Int)
+-&gt; (Activity -&gt; Maybe Int -&gt; Activity)
+-&gt; Lens Activity Activity (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332439"><span class="annot"><span class="annottext">Maybe Int
+progress :: Maybe Int
+$sel:progress:Activity' :: Activity -&gt; Maybe Int
+</span><a href="#local-6989586621679332439"><span class="hs-identifier hs-var hs-var">progress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679332439"><span class="hs-identifier hs-var">progress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332438"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679332438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332437"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679332437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679332438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progress:Activity' :: Maybe Int
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3Aprogress%3AActivity%27"><span class="hs-identifier hs-var">progress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679332437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | A friendly, more verbose description of the activity status.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_statusMessage"><span class="hs-identifier hs-type">activity_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="activity_statusMessage"><span class="annot"><span class="annottext">activity_statusMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Activity -&gt; f Activity
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_statusMessage"><span class="hs-identifier hs-var hs-var">activity_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Activity -&gt; Maybe Text)
 -&gt; (Activity -&gt; Maybe Text -&gt; Activity)
 -&gt; Lens Activity Activity (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331778"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332435"><span class="annot"><span class="annottext">Maybe Text
 statusMessage :: Maybe Text
 $sel:statusMessage:Activity' :: Activity -&gt; Maybe Text
-</span><a href="#local-6989586621679331778"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331778"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331777"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679331777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331776"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679331777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:Activity' :: Maybe Text
+</span><a href="#local-6989586621679332435"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332435"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332434"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679332434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332433"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679332434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:Activity' :: Maybe Text
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AstatusMessage%3AActivity%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Auto Scaling group.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_autoScalingGroupARN"><span class="hs-identifier hs-type">activity_autoScalingGroupARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="activity_autoScalingGroupARN"><span class="annot"><span class="annottext">activity_autoScalingGroupARN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Activity -&gt; f Activity
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_autoScalingGroupARN"><span class="hs-identifier hs-var hs-var">activity_autoScalingGroupARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Activity -&gt; Maybe Text)
+</span><a href="#local-6989586621679332433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The state of the Auto Scaling group, which is either @InService@ or</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- @Deleted@.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_autoScalingGroupState"><span class="hs-identifier hs-type">activity_autoScalingGroupState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="activity_autoScalingGroupState"><span class="annot"><span class="annottext">activity_autoScalingGroupState :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Activity -&gt; f Activity
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_autoScalingGroupState"><span class="hs-identifier hs-var hs-var">activity_autoScalingGroupState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Activity -&gt; Maybe Text)
 -&gt; (Activity -&gt; Maybe Text -&gt; Activity)
 -&gt; Lens Activity Activity (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331774"><span class="annot"><span class="annottext">Maybe Text
-autoScalingGroupARN :: Maybe Text
-$sel:autoScalingGroupARN:Activity' :: Activity -&gt; Maybe Text
-</span><a href="#local-6989586621679331774"><span class="hs-identifier hs-var hs-var">autoScalingGroupARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331774"><span class="hs-identifier hs-var">autoScalingGroupARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331773"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679331773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331772"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679331773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupARN:Activity' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AautoScalingGroupARN%3AActivity%27"><span class="hs-identifier hs-var">autoScalingGroupARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- | The end time of the activity.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_endTime"><span class="hs-identifier hs-type">activity_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="activity_endTime"><span class="annot"><span class="annottext">activity_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Activity -&gt; f Activity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332431"><span class="annot"><span class="annottext">Maybe Text
+autoScalingGroupState :: Maybe Text
+$sel:autoScalingGroupState:Activity' :: Activity -&gt; Maybe Text
+</span><a href="#local-6989586621679332431"><span class="hs-identifier hs-var hs-var">autoScalingGroupState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332431"><span class="hs-identifier hs-var">autoScalingGroupState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332430"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679332430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332429"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679332430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupState:Activity' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AautoScalingGroupState%3AActivity%27"><span class="hs-identifier hs-var">autoScalingGroupState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The end time of the activity.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_endTime"><span class="hs-identifier hs-type">activity_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="activity_endTime"><span class="annot"><span class="annottext">activity_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Activity -&gt; f Activity
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_endTime"><span class="hs-identifier hs-var hs-var">activity_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Activity -&gt; Maybe ISO8601)
 -&gt; (Activity -&gt; Maybe ISO8601 -&gt; Activity)
 -&gt; Lens Activity Activity (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331770"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332427"><span class="annot"><span class="annottext">Maybe ISO8601
 endTime :: Maybe ISO8601
 $sel:endTime:Activity' :: Activity -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679331770"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679331770"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331769"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679331769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331768"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679331768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679331769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:Activity' :: Maybe ISO8601
+</span><a href="#local-6989586621679332427"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679332427"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332426"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679332426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332425"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679332425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679332426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:Activity' :: Maybe ISO8601
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AendTime%3AActivity%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679331768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601)) -&gt; Activity -&gt; f Activity)
+</span><a href="#local-6989586621679332425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601)) -&gt; Activity -&gt; f Activity)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -306,151 +329,132 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | The state of the Auto Scaling group, which is either @InService@ or</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- @Deleted@.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_autoScalingGroupState"><span class="hs-identifier hs-type">activity_autoScalingGroupState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="activity_autoScalingGroupState"><span class="annot"><span class="annottext">activity_autoScalingGroupState :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Activity -&gt; f Activity
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_autoScalingGroupState"><span class="hs-identifier hs-var hs-var">activity_autoScalingGroupState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Activity -&gt; Maybe Text)
--&gt; (Activity -&gt; Maybe Text -&gt; Activity)
--&gt; Lens Activity Activity (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331764"><span class="annot"><span class="annottext">Maybe Text
-autoScalingGroupState :: Maybe Text
-$sel:autoScalingGroupState:Activity' :: Activity -&gt; Maybe Text
-</span><a href="#local-6989586621679331764"><span class="hs-identifier hs-var hs-var">autoScalingGroupState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331764"><span class="hs-identifier hs-var">autoScalingGroupState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331763"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679331763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331762"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679331763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupState:Activity' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AautoScalingGroupState%3AActivity%27"><span class="hs-identifier hs-var">autoScalingGroupState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | The details about the activity.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_details"><span class="hs-identifier hs-type">activity_details</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="activity_details"><span class="annot"><span class="annottext">activity_details :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Activity -&gt; f Activity
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The details about the activity.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_details"><span class="hs-identifier hs-type">activity_details</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="activity_details"><span class="annot"><span class="annottext">activity_details :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Activity -&gt; f Activity
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_details"><span class="hs-identifier hs-var hs-var">activity_details</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Activity -&gt; Maybe Text)
 -&gt; (Activity -&gt; Maybe Text -&gt; Activity)
 -&gt; Lens Activity Activity (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331760"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332421"><span class="annot"><span class="annottext">Maybe Text
 details :: Maybe Text
 $sel:details:Activity' :: Activity -&gt; Maybe Text
-</span><a href="#local-6989586621679331760"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331760"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331759"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679331759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331758"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679331759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:Activity' :: Maybe Text
+</span><a href="#local-6989586621679332421"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332421"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332420"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679332420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332419"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679332420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:Activity' :: Maybe Text
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3Adetails%3AActivity%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | A friendly, more verbose description of the activity.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_description"><span class="hs-identifier hs-type">activity_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="activity_description"><span class="annot"><span class="annottext">activity_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Activity -&gt; f Activity
+</span><a href="#local-6989586621679332419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Auto Scaling group.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_autoScalingGroupARN"><span class="hs-identifier hs-type">activity_autoScalingGroupARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="activity_autoScalingGroupARN"><span class="annot"><span class="annottext">activity_autoScalingGroupARN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Activity -&gt; f Activity
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_autoScalingGroupARN"><span class="hs-identifier hs-var hs-var">activity_autoScalingGroupARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Activity -&gt; Maybe Text)
+-&gt; (Activity -&gt; Maybe Text -&gt; Activity)
+-&gt; Lens Activity Activity (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332417"><span class="annot"><span class="annottext">Maybe Text
+autoScalingGroupARN :: Maybe Text
+$sel:autoScalingGroupARN:Activity' :: Activity -&gt; Maybe Text
+</span><a href="#local-6989586621679332417"><span class="hs-identifier hs-var hs-var">autoScalingGroupARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332417"><span class="hs-identifier hs-var">autoScalingGroupARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332416"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679332416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332415"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679332416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupARN:Activity' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AautoScalingGroupARN%3AActivity%27"><span class="hs-identifier hs-var">autoScalingGroupARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | A friendly, more verbose description of the activity.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_description"><span class="hs-identifier hs-type">activity_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="activity_description"><span class="annot"><span class="annottext">activity_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Activity -&gt; f Activity
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_description"><span class="hs-identifier hs-var hs-var">activity_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Activity -&gt; Maybe Text)
 -&gt; (Activity -&gt; Maybe Text -&gt; Activity)
 -&gt; Lens Activity Activity (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331756"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332413"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:Activity' :: Activity -&gt; Maybe Text
-</span><a href="#local-6989586621679331756"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331756"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331755"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679331755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331754"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679331755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Activity' :: Maybe Text
+</span><a href="#local-6989586621679332413"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332413"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332412"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679332412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332411"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679332412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Activity' :: Maybe Text
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3Adescription%3AActivity%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | A value between 0 and 100 that indicates the progress of the activity.</span><span>
-</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_progress"><span class="hs-identifier hs-type">activity_progress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span id="activity_progress"><span class="annot"><span class="annottext">activity_progress :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Activity -&gt; f Activity
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_progress"><span class="hs-identifier hs-var hs-var">activity_progress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Activity -&gt; Maybe Int)
--&gt; (Activity -&gt; Maybe Int -&gt; Activity)
--&gt; Lens Activity Activity (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331752"><span class="annot"><span class="annottext">Maybe Int
-progress :: Maybe Int
-$sel:progress:Activity' :: Activity -&gt; Maybe Int
-</span><a href="#local-6989586621679331752"><span class="hs-identifier hs-var hs-var">progress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679331752"><span class="hs-identifier hs-var">progress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331751"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679331751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331750"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679331750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679331751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progress:Activity' :: Maybe Int
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3Aprogress%3AActivity%27"><span class="hs-identifier hs-var">progress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679331750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
-</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_autoScalingGroupName"><span class="hs-identifier hs-type">activity_autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span id="activity_autoScalingGroupName"><span class="annot"><span class="annottext">activity_autoScalingGroupName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Activity -&gt; f Activity
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_autoScalingGroupName"><span class="hs-identifier hs-var hs-var">activity_autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Activity -&gt; Maybe Text)
--&gt; (Activity -&gt; Maybe Text -&gt; Activity)
--&gt; Lens Activity Activity (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331748"><span class="annot"><span class="annottext">Maybe Text
-autoScalingGroupName :: Maybe Text
-$sel:autoScalingGroupName:Activity' :: Activity -&gt; Maybe Text
-</span><a href="#local-6989586621679331748"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331748"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331747"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679331747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331746"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679331747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:Activity' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AautoScalingGroupName%3AActivity%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- | The ID of the activity.</span><span>
-</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_activityId"><span class="hs-identifier hs-type">activity_activityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-158"></span><span id="activity_activityId"><span class="annot"><span class="annottext">activity_activityId :: (Text -&gt; f Text) -&gt; Activity -&gt; f Activity
+</span><a href="#local-6989586621679332411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The ID of the activity.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_activityId"><span class="hs-identifier hs-type">activity_activityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-157"></span><span id="activity_activityId"><span class="annot"><span class="annottext">activity_activityId :: (Text -&gt; f Text) -&gt; Activity -&gt; f Activity
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_activityId"><span class="hs-identifier hs-var hs-var">activity_activityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Activity -&gt; Text)
 -&gt; (Activity -&gt; Text -&gt; Activity)
 -&gt; Lens Activity Activity Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331744"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332409"><span class="annot"><span class="annottext">Text
 activityId :: Text
 $sel:activityId:Activity' :: Activity -&gt; Text
-</span><a href="#local-6989586621679331744"><span class="hs-identifier hs-var hs-var">activityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331744"><span class="hs-identifier hs-var">activityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331743"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679331743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331742"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679331743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activityId:Activity' :: Text
+</span><a href="#local-6989586621679332409"><span class="hs-identifier hs-var hs-var">activityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679332409"><span class="hs-identifier hs-var">activityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332408"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679332408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332407"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679332407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679332408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activityId:Activity' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AactivityId%3AActivity%27"><span class="hs-identifier hs-var">activityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- | The reason the activity began.</span><span>
-</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_cause"><span class="hs-identifier hs-type">activity_cause</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-162"></span><span id="activity_cause"><span class="annot"><span class="annottext">activity_cause :: (Text -&gt; f Text) -&gt; Activity -&gt; f Activity
+</span><a href="#local-6989586621679332407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_autoScalingGroupName"><span class="hs-identifier hs-type">activity_autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-161"></span><span id="activity_autoScalingGroupName"><span class="annot"><span class="annottext">activity_autoScalingGroupName :: (Text -&gt; f Text) -&gt; Activity -&gt; f Activity
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_autoScalingGroupName"><span class="hs-identifier hs-var hs-var">activity_autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Activity -&gt; Text)
+-&gt; (Activity -&gt; Text -&gt; Activity)
+-&gt; Lens Activity Activity Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332405"><span class="annot"><span class="annottext">Text
+autoScalingGroupName :: Text
+$sel:autoScalingGroupName:Activity' :: Activity -&gt; Text
+</span><a href="#local-6989586621679332405"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679332405"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332404"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679332404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332403"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679332403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679332404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:Activity' :: Text
+</span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AautoScalingGroupName%3AActivity%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679332403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The reason the activity began.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_cause"><span class="hs-identifier hs-type">activity_cause</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-165"></span><span id="activity_cause"><span class="annot"><span class="annottext">activity_cause :: (Text -&gt; f Text) -&gt; Activity -&gt; f Activity
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_cause"><span class="hs-identifier hs-var hs-var">activity_cause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Activity -&gt; Text)
 -&gt; (Activity -&gt; Text -&gt; Activity)
 -&gt; Lens Activity Activity Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331740"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332401"><span class="annot"><span class="annottext">Text
 cause :: Text
 $sel:cause:Activity' :: Activity -&gt; Text
-</span><a href="#local-6989586621679331740"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331740"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331739"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679331739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331738"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679331739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cause:Activity' :: Text
+</span><a href="#local-6989586621679332401"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679332401"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332400"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679332400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332399"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679332399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679332400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cause:Activity' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3Acause%3AActivity%27"><span class="hs-identifier hs-var">cause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- | The start time of the activity.</span><span>
-</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_startTime"><span class="hs-identifier hs-type">activity_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
-</span><span id="line-166"></span><span id="activity_startTime"><span class="annot"><span class="annottext">activity_startTime :: (UTCTime -&gt; f UTCTime) -&gt; Activity -&gt; f Activity
+</span><a href="#local-6989586621679332399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The start time of the activity.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_startTime"><span class="hs-identifier hs-type">activity_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-169"></span><span id="activity_startTime"><span class="annot"><span class="annottext">activity_startTime :: (UTCTime -&gt; f UTCTime) -&gt; Activity -&gt; f Activity
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_startTime"><span class="hs-identifier hs-var hs-var">activity_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Activity -&gt; ISO8601)
 -&gt; (Activity -&gt; ISO8601 -&gt; Activity)
 -&gt; Lens Activity Activity ISO8601 ISO8601
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331736"><span class="annot"><span class="annottext">ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332397"><span class="annot"><span class="annottext">ISO8601
 startTime :: ISO8601
 $sel:startTime:Activity' :: Activity -&gt; ISO8601
-</span><a href="#local-6989586621679331736"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679331736"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331735"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679331735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331734"><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679331734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679331735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:Activity' :: ISO8601
+</span><a href="#local-6989586621679332397"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679332397"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332396"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679332396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332395"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679332395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679332396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:Activity' :: ISO8601
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AstartTime%3AActivity%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679331734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; Activity -&gt; f Activity)
+</span><a href="#local-6989586621679332395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; Activity -&gt; f Activity)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; Activity
@@ -459,10 +463,10 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- | The current status of the activity.</span><span>
-</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_statusCode"><span class="hs-identifier hs-type">activity_statusCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ScalingActivityStatusCode.html#ScalingActivityStatusCode"><span class="hs-identifier hs-type">ScalingActivityStatusCode</span></a></span><span>
-</span><span id="line-170"></span><span id="activity_statusCode"><span class="annot"><span class="annottext">activity_statusCode :: (ScalingActivityStatusCode -&gt; f ScalingActivityStatusCode)
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The current status of the activity.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_statusCode"><span class="hs-identifier hs-type">activity_statusCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ScalingActivityStatusCode.html#ScalingActivityStatusCode"><span class="hs-identifier hs-type">ScalingActivityStatusCode</span></a></span><span>
+</span><span id="line-173"></span><span id="activity_statusCode"><span class="annot"><span class="annottext">activity_statusCode :: (ScalingActivityStatusCode -&gt; f ScalingActivityStatusCode)
 -&gt; Activity -&gt; f Activity
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#activity_statusCode"><span class="hs-identifier hs-var hs-var">activity_statusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Activity -&gt; ScalingActivityStatusCode)
 -&gt; (Activity -&gt; ScalingActivityStatusCode -&gt; Activity)
@@ -472,48 +476,83 @@ forall (a :: Format). Iso' (Time a) UTCTime
      ScalingActivityStatusCode
      ScalingActivityStatusCode
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331732"><span class="annot"><span class="annottext">ScalingActivityStatusCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332393"><span class="annot"><span class="annottext">ScalingActivityStatusCode
 statusCode :: ScalingActivityStatusCode
 $sel:statusCode:Activity' :: Activity -&gt; ScalingActivityStatusCode
-</span><a href="#local-6989586621679331732"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingActivityStatusCode
-</span><a href="#local-6989586621679331732"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331731"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679331731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331730"><span class="annot"><span class="annottext">ScalingActivityStatusCode
-</span><a href="#local-6989586621679331730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679331731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCode:Activity' :: ScalingActivityStatusCode
+</span><a href="#local-6989586621679332393"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingActivityStatusCode
+</span><a href="#local-6989586621679332393"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332392"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679332392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332391"><span class="annot"><span class="annottext">ScalingActivityStatusCode
+</span><a href="#local-6989586621679332391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679332392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCode:Activity' :: ScalingActivityStatusCode
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#%24sel%3AstatusCode%3AActivity%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalingActivityStatusCode
-</span><a href="#local-6989586621679331730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679331727"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Activity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679331725"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331725"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679332388"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Activity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679332386"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679332386"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe ISO8601
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Int
--&gt; Maybe Text
+-&gt; Text
 -&gt; Text
 -&gt; Text
 -&gt; ISO8601
 -&gt; ScalingActivityStatusCode
 -&gt; Activity
 </span><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity%27"><span class="hs-identifier hs-var">Activity'</span></a></span><span>
-</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe ISO8601
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe Int
- -&gt; Maybe Text
+ -&gt; Text
  -&gt; Text
  -&gt; Text
  -&gt; ISO8601
  -&gt; ScalingActivityStatusCode
  -&gt; Activity)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; ScalingActivityStatusCode
+      -&gt; Activity)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679332386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Progress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; ScalingActivityStatusCode
+   -&gt; Activity)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
@@ -522,28 +561,26 @@ $sel:statusCode:Activity' :: Activity -&gt; ScalingActivityStatusCode
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
+      -&gt; Text
       -&gt; Text
       -&gt; Text
       -&gt; ISO8601
       -&gt; ScalingActivityStatusCode
       -&gt; Activity)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679332386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe ISO8601
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
+   -&gt; Text
    -&gt; Text
    -&gt; Text
    -&gt; ISO8601
@@ -556,8 +593,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
+      -&gt; Text
       -&gt; Text
       -&gt; Text
       -&gt; ISO8601
@@ -565,18 +601,17 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Activity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679332386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AutoScalingGroupARN&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;AutoScalingGroupState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe ISO8601
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
+   -&gt; Text
    -&gt; Text
    -&gt; Text
    -&gt; ISO8601
@@ -588,8 +623,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
+      -&gt; Text
       -&gt; Text
       -&gt; Text
       -&gt; ISO8601
@@ -597,137 +631,107 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Activity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679332386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; Text
-   -&gt; Text
-   -&gt; ISO8601
-   -&gt; ScalingActivityStatusCode
-   -&gt; Activity)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; Text
-      -&gt; Text
-      -&gt; ISO8601
-      -&gt; ScalingActivityStatusCode
-      -&gt; Activity)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AutoScalingGroupState&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; Text
-   -&gt; Text
-   -&gt; ISO8601
-   -&gt; ScalingActivityStatusCode
-   -&gt; Activity)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; Text
-      -&gt; Text
-      -&gt; ISO8601
-      -&gt; ScalingActivityStatusCode
-      -&gt; Activity)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Details&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; Text
-   -&gt; Text
-   -&gt; ISO8601
-   -&gt; ScalingActivityStatusCode
-   -&gt; Activity)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Int
-      -&gt; Maybe Text
-      -&gt; Text
-      -&gt; Text
-      -&gt; ISO8601
-      -&gt; ScalingActivityStatusCode
-      -&gt; Activity)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Int
-   -&gt; Maybe Text
-   -&gt; Text
-   -&gt; Text
-   -&gt; ISO8601
-   -&gt; ScalingActivityStatusCode
-   -&gt; Activity)
--&gt; Either String (Maybe Int)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Text
-      -&gt; Text
-      -&gt; ISO8601
-      -&gt; ScalingActivityStatusCode
-      -&gt; Activity)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Progress&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
    -&gt; Text
    -&gt; Text
    -&gt; ISO8601
    -&gt; ScalingActivityStatusCode
    -&gt; Activity)
 -&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; ScalingActivityStatusCode
+      -&gt; Activity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679332386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Details&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; ScalingActivityStatusCode
+   -&gt; Activity)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; ScalingActivityStatusCode
+      -&gt; Activity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679332386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutoScalingGroupARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; ScalingActivityStatusCode
+   -&gt; Activity)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; ScalingActivityStatusCode
+      -&gt; Activity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679332386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; ScalingActivityStatusCode
+   -&gt; Activity)
+-&gt; Either String Text
 -&gt; Either
      String
      (Text -&gt; Text -&gt; ISO8601 -&gt; ScalingActivityStatusCode -&gt; Activity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AutoScalingGroupName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><a href="#local-6989586621679332386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActivityId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Text -&gt; Text -&gt; ISO8601 -&gt; ScalingActivityStatusCode -&gt; Activity)
 -&gt; Either String Text
@@ -735,40 +739,40 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Text -&gt; ISO8601 -&gt; ScalingActivityStatusCode -&gt; Activity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679332386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ActivityId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;AutoScalingGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">Either
   String (Text -&gt; ISO8601 -&gt; ScalingActivityStatusCode -&gt; Activity)
 -&gt; Either String Text
 -&gt; Either String (ISO8601 -&gt; ScalingActivityStatusCode -&gt; Activity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679332386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Cause&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">Either String (ISO8601 -&gt; ScalingActivityStatusCode -&gt; Activity)
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">Either String (ISO8601 -&gt; ScalingActivityStatusCode -&gt; Activity)
 -&gt; Either String ISO8601
 -&gt; Either String (ScalingActivityStatusCode -&gt; Activity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+</span><a href="#local-6989586621679332386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">Either String (ScalingActivityStatusCode -&gt; Activity)
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">Either String (ScalingActivityStatusCode -&gt; Activity)
 -&gt; Either String ScalingActivityStatusCode
 -&gt; Either String Activity
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679331725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ScalingActivityStatusCode
+</span><a href="#local-6989586621679332386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ScalingActivityStatusCode
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StatusCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331718"><span id="local-6989586621679331720"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span></span></span><span>
-</span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331715"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span></span><span>
-</span><span id="line-191"></span></pre></body></html>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332379"><span id="local-6989586621679332381"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span></span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332376"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span></span><span>
+</span><span id="line-194"></span></pre></body></html>

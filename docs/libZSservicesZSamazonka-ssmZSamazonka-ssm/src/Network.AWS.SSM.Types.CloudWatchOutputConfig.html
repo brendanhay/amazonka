@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- Logs.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCloudWatchOutputConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679788037"><span id="local-6989586621679788038"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchOutputConfig"><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig"><span class="hs-identifier hs-var">CloudWatchOutputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchOutputConfig%27"><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig%27"><span class="hs-identifier hs-var">CloudWatchOutputConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679789658"><span id="local-6989586621679789659"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchOutputConfig"><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig"><span class="hs-identifier hs-var">CloudWatchOutputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchOutputConfig%27"><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig%27"><span class="hs-identifier hs-var">CloudWatchOutputConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the CloudWatch Logs log group where you want to send command</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- output. If you don\'t specify a group name, Amazon Web Services Systems</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Manager automatically creates a log group for you. The log group uses</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AcloudWatchOutputEnabled%3ACloudWatchOutputConfig%27"><span class="annot"><span class="annottext">CloudWatchOutputConfig -&gt; Maybe Bool
 </span><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#%24sel%3AcloudWatchOutputEnabled%3ACloudWatchOutputConfig%27"><span class="hs-identifier hs-var hs-var">cloudWatchOutputEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679788030"><span id="local-6989586621679788032"><span class="annot"><span class="annottext">CloudWatchOutputConfig -&gt; CloudWatchOutputConfig -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679789651"><span id="local-6989586621679789653"><span class="annot"><span class="annottext">CloudWatchOutputConfig -&gt; CloudWatchOutputConfig -&gt; Bool
 (CloudWatchOutputConfig -&gt; CloudWatchOutputConfig -&gt; Bool)
 -&gt; (CloudWatchOutputConfig -&gt; CloudWatchOutputConfig -&gt; Bool)
 -&gt; Eq CloudWatchOutputConfig
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CloudWatchOutputConfig -&gt; CloudWatchOutputConfig -&gt; Bool
 == :: CloudWatchOutputConfig -&gt; CloudWatchOutputConfig -&gt; Bool
 $c== :: CloudWatchOutputConfig -&gt; CloudWatchOutputConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679788021"><span id="local-6989586621679788023"><span id="local-6989586621679788025"><span id="local-6989586621679788027"><span class="annot"><span class="annottext">ReadPrec [CloudWatchOutputConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789642"><span id="local-6989586621679789644"><span id="local-6989586621679789646"><span id="local-6989586621679789648"><span class="annot"><span class="annottext">ReadPrec [CloudWatchOutputConfig]
 ReadPrec CloudWatchOutputConfig
 Int -&gt; ReadS CloudWatchOutputConfig
 ReadS [CloudWatchOutputConfig]
@@ -69,7 +69,7 @@ readList :: ReadS [CloudWatchOutputConfig]
 $creadList :: ReadS [CloudWatchOutputConfig]
 readsPrec :: Int -&gt; ReadS CloudWatchOutputConfig
 $creadsPrec :: Int -&gt; ReadS CloudWatchOutputConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679788014"><span id="local-6989586621679788016"><span id="local-6989586621679788018"><span class="annot"><span class="annottext">Int -&gt; CloudWatchOutputConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789635"><span id="local-6989586621679789637"><span id="local-6989586621679789639"><span class="annot"><span class="annottext">Int -&gt; CloudWatchOutputConfig -&gt; ShowS
 [CloudWatchOutputConfig] -&gt; ShowS
 CloudWatchOutputConfig -&gt; String
 (Int -&gt; CloudWatchOutputConfig -&gt; ShowS)
@@ -146,16 +146,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig%27"><span class="hs-identifier hs-type">CloudWatchOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788005"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig%27"><span class="hs-identifier hs-type">CloudWatchOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789626"><span class="annot"><span class="annottext">Maybe Text
 cloudWatchLogGroupName :: Maybe Text
 $sel:cloudWatchLogGroupName:CloudWatchOutputConfig' :: CloudWatchOutputConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679788005"><span class="hs-identifier hs-var hs-var">cloudWatchLogGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788005"><span class="hs-identifier hs-var">cloudWatchLogGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788004"><span class="annot"><span class="annottext">s :: CloudWatchOutputConfig
-</span><a href="#local-6989586621679788004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig%27"><span class="hs-identifier hs-type">CloudWatchOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788003"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchOutputConfig
-</span><a href="#local-6989586621679788004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLogGroupName:CloudWatchOutputConfig' :: Maybe Text
+</span><a href="#local-6989586621679789626"><span class="hs-identifier hs-var hs-var">cloudWatchLogGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679789626"><span class="hs-identifier hs-var">cloudWatchLogGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789625"><span class="annot"><span class="annottext">s :: CloudWatchOutputConfig
+</span><a href="#local-6989586621679789625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig%27"><span class="hs-identifier hs-type">CloudWatchOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789624"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679789624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchOutputConfig
+</span><a href="#local-6989586621679789625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLogGroupName:CloudWatchOutputConfig' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#%24sel%3AcloudWatchLogGroupName%3ACloudWatchOutputConfig%27"><span class="hs-identifier hs-var">cloudWatchLogGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig"><span class="hs-identifier hs-type">CloudWatchOutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679789624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig"><span class="hs-identifier hs-type">CloudWatchOutputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | Enables Systems Manager to send command output to CloudWatch Logs.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#cloudWatchOutputConfig_cloudWatchOutputEnabled"><span class="hs-identifier hs-type">cloudWatchOutputConfig_cloudWatchOutputEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig"><span class="hs-identifier hs-type">CloudWatchOutputConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -169,19 +169,19 @@ $sel:cloudWatchLogGroupName:CloudWatchOutputConfig' :: CloudWatchOutputConfig -&
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig%27"><span class="hs-identifier hs-type">CloudWatchOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788001"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig%27"><span class="hs-identifier hs-type">CloudWatchOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789622"><span class="annot"><span class="annottext">Maybe Bool
 cloudWatchOutputEnabled :: Maybe Bool
 $sel:cloudWatchOutputEnabled:CloudWatchOutputConfig' :: CloudWatchOutputConfig -&gt; Maybe Bool
-</span><a href="#local-6989586621679788001"><span class="hs-identifier hs-var hs-var">cloudWatchOutputEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679788001"><span class="hs-identifier hs-var">cloudWatchOutputEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788000"><span class="annot"><span class="annottext">s :: CloudWatchOutputConfig
-</span><a href="#local-6989586621679788000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig%27"><span class="hs-identifier hs-type">CloudWatchOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679787999"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679787999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchOutputConfig
-</span><a href="#local-6989586621679788000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchOutputEnabled:CloudWatchOutputConfig' :: Maybe Bool
+</span><a href="#local-6989586621679789622"><span class="hs-identifier hs-var hs-var">cloudWatchOutputEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679789622"><span class="hs-identifier hs-var">cloudWatchOutputEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789621"><span class="annot"><span class="annottext">s :: CloudWatchOutputConfig
+</span><a href="#local-6989586621679789621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig%27"><span class="hs-identifier hs-type">CloudWatchOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789620"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679789620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchOutputConfig
+</span><a href="#local-6989586621679789621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchOutputEnabled:CloudWatchOutputConfig' :: Maybe Bool
 </span><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#%24sel%3AcloudWatchOutputEnabled%3ACloudWatchOutputConfig%27"><span class="hs-identifier hs-var">cloudWatchOutputEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679787999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig"><span class="hs-identifier hs-type">CloudWatchOutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679789620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig"><span class="hs-identifier hs-type">CloudWatchOutputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787996"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig"><span class="hs-identifier hs-type">CloudWatchOutputConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679787994"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchOutputConfig
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789617"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig"><span class="hs-identifier hs-type">CloudWatchOutputConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679789615"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchOutputConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CloudWatchOutputConfig)
@@ -191,8 +191,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CloudWatchOutputConfig&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679787991"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679787991"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679789612"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679789612"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Bool -&gt; CloudWatchOutputConfig
 </span><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig%27"><span class="hs-identifier hs-var">CloudWatchOutputConfig'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Bool -&gt; CloudWatchOutputConfig)
@@ -200,7 +200,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Bool -&gt; CloudWatchOutputConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679787991"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679789612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CloudWatchLogGroupName&quot;</span></span><span class="hs-special">)</span><span>
@@ -208,25 +208,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser CloudWatchOutputConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679787991"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679789612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CloudWatchOutputEnabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787985"><span id="local-6989586621679787987"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig"><span class="hs-identifier hs-type">CloudWatchOutputConfig</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789606"><span id="local-6989586621679789608"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig"><span class="hs-identifier hs-type">CloudWatchOutputConfig</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787982"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig"><span class="hs-identifier hs-type">CloudWatchOutputConfig</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789603"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig"><span class="hs-identifier hs-type">CloudWatchOutputConfig</span></a></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787974"><span id="local-6989586621679787976"><span id="local-6989586621679787978"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig"><span class="hs-identifier hs-type">CloudWatchOutputConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679787972"><span class="annot"><span class="annottext">toJSON :: CloudWatchOutputConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig%27"><span class="hs-identifier hs-type">CloudWatchOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679787969"><span id="local-6989586621679787970"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789595"><span id="local-6989586621679789597"><span id="local-6989586621679789599"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig"><span class="hs-identifier hs-type">CloudWatchOutputConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679789593"><span class="annot"><span class="annottext">toJSON :: CloudWatchOutputConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig%27"><span class="hs-identifier hs-type">CloudWatchOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789590"><span id="local-6989586621679789591"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 cloudWatchOutputEnabled :: Maybe Bool
 cloudWatchLogGroupName :: Maybe Text
 $sel:cloudWatchOutputEnabled:CloudWatchOutputConfig' :: CloudWatchOutputConfig -&gt; Maybe Bool
 $sel:cloudWatchLogGroupName:CloudWatchOutputConfig' :: CloudWatchOutputConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679787969"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679789590"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -239,7 +239,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679787970"><span class="hs-identifier hs-var">cloudWatchLogGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679789591"><span class="hs-identifier hs-var">cloudWatchLogGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CloudWatchOutputEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -247,7 +247,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679787969"><span class="hs-identifier hs-var">cloudWatchOutputEnabled</span></a></span><span>
+</span><a href="#local-6989586621679789590"><span class="hs-identifier hs-var">cloudWatchOutputEnabled</span></a></span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>

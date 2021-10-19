@@ -27,19 +27,19 @@
 </span><span id="line-27"></span><span class="hs-comment">-- a topic\'s attributes, use @GetTopicAttributes@.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTopic' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679192526"><span id="local-6989586621679192527"></span></span><span class="hs-keyword">data</span><span> </span><span id="Topic"><span class="annot"><a href="Network.AWS.SNS.Types.Topic.html#Topic"><span class="hs-identifier hs-var">Topic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Topic%27"><span class="annot"><a href="Network.AWS.SNS.Types.Topic.html#Topic%27"><span class="hs-identifier hs-var">Topic'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679192655"><span id="local-6989586621679192656"></span></span><span class="hs-keyword">data</span><span> </span><span id="Topic"><span class="annot"><a href="Network.AWS.SNS.Types.Topic.html#Topic"><span class="hs-identifier hs-var">Topic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Topic%27"><span class="annot"><a href="Network.AWS.SNS.Types.Topic.html#Topic%27"><span class="hs-identifier hs-var">Topic'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The topic\'s ARN.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AtopicArn%3ATopic%27"><span class="annot"><span class="annottext">Topic -&gt; Maybe Text
 </span><a href="Network.AWS.SNS.Types.Topic.html#%24sel%3AtopicArn%3ATopic%27"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192520"><span id="local-6989586621679192522"><span class="annot"><span class="annottext">Topic -&gt; Topic -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192649"><span id="local-6989586621679192651"><span class="annot"><span class="annottext">Topic -&gt; Topic -&gt; Bool
 (Topic -&gt; Topic -&gt; Bool) -&gt; (Topic -&gt; Topic -&gt; Bool) -&gt; Eq Topic
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Topic -&gt; Topic -&gt; Bool
 $c/= :: Topic -&gt; Topic -&gt; Bool
 == :: Topic -&gt; Topic -&gt; Bool
 $c== :: Topic -&gt; Topic -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192511"><span id="local-6989586621679192513"><span id="local-6989586621679192515"><span id="local-6989586621679192517"><span class="annot"><span class="annottext">ReadPrec [Topic]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192640"><span id="local-6989586621679192642"><span id="local-6989586621679192644"><span id="local-6989586621679192646"><span class="annot"><span class="annottext">ReadPrec [Topic]
 ReadPrec Topic
 Int -&gt; ReadS Topic
 ReadS [Topic]
@@ -59,7 +59,7 @@ readList :: ReadS [Topic]
 $creadList :: ReadS [Topic]
 readsPrec :: Int -&gt; ReadS Topic
 $creadsPrec :: Int -&gt; ReadS Topic
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192504"><span id="local-6989586621679192506"><span id="local-6989586621679192508"><span class="annot"><span class="annottext">Int -&gt; Topic -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192633"><span id="local-6989586621679192635"><span id="local-6989586621679192637"><span class="annot"><span class="annottext">Int -&gt; Topic -&gt; ShowS
 [Topic] -&gt; ShowS
 Topic -&gt; String
 (Int -&gt; Topic -&gt; ShowS)
@@ -107,32 +107,32 @@ forall a. Maybe a
 -&gt; (Topic -&gt; Maybe Text -&gt; Topic)
 -&gt; Lens Topic Topic (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192495"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192624"><span class="annot"><span class="annottext">Maybe Text
 topicArn :: Maybe Text
 $sel:topicArn:Topic' :: Topic -&gt; Maybe Text
-</span><a href="#local-6989586621679192495"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679192495"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192494"><span class="annot"><span class="annottext">s :: Topic
-</span><a href="#local-6989586621679192494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192493"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679192493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Topic
-</span><a href="#local-6989586621679192494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:Topic' :: Maybe Text
+</span><a href="#local-6989586621679192624"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679192624"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192623"><span class="annot"><span class="annottext">s :: Topic
+</span><a href="#local-6989586621679192623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192622"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679192622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Topic
+</span><a href="#local-6989586621679192623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:Topic' :: Maybe Text
 </span><a href="Network.AWS.SNS.Types.Topic.html#%24sel%3AtopicArn%3ATopic%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679192493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679192622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679192490"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Topic
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679192488"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679192488"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679192619"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Topic
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679192617"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679192617"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Topic
 </span><a href="Network.AWS.SNS.Types.Topic.html#Topic%27"><span class="hs-identifier hs-var">Topic'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Topic)
 -&gt; Either String (Maybe Text) -&gt; Either String Topic
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679192488"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679192617"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192482"><span id="local-6989586621679192484"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192611"><span id="local-6989586621679192613"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span></span></span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192479"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192608"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span></span><span>
 </span><span id="line-60"></span></pre></body></html>

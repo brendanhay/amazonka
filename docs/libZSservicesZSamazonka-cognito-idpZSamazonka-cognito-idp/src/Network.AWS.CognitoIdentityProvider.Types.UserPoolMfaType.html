@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679436161"><span id="local-6989586621679436162"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UserPoolMfaType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserPoolMfaType.html#UserPoolMfaType"><span class="hs-identifier hs-var">UserPoolMfaType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserPoolMfaType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserPoolMfaType.html#UserPoolMfaType%27"><span class="hs-identifier hs-var">UserPoolMfaType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679436626"><span id="local-6989586621679436627"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UserPoolMfaType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserPoolMfaType.html#UserPoolMfaType"><span class="hs-identifier hs-var">UserPoolMfaType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserPoolMfaType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserPoolMfaType.html#UserPoolMfaType%27"><span class="hs-identifier hs-var">UserPoolMfaType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUserPoolMfaType"><span class="annot"><span class="annottext">UserPoolMfaType -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.UserPoolMfaType.html#fromUserPoolMfaType"><span class="hs-identifier hs-var hs-var">fromUserPoolMfaType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436153"><span id="local-6989586621679436155"><span id="local-6989586621679436157"><span class="annot"><span class="annottext">Int -&gt; UserPoolMfaType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436618"><span id="local-6989586621679436620"><span id="local-6989586621679436622"><span class="annot"><span class="annottext">Int -&gt; UserPoolMfaType -&gt; ShowS
 [UserPoolMfaType] -&gt; ShowS
 UserPoolMfaType -&gt; String
 (Int -&gt; UserPoolMfaType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: UserPoolMfaType -&gt; String
 showsPrec :: Int -&gt; UserPoolMfaType -&gt; ShowS
 $cshowsPrec :: Int -&gt; UserPoolMfaType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679436144"><span id="local-6989586621679436146"><span id="local-6989586621679436148"><span id="local-6989586621679436150"><span class="annot"><span class="annottext">ReadPrec [UserPoolMfaType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679436609"><span id="local-6989586621679436611"><span id="local-6989586621679436613"><span id="local-6989586621679436615"><span class="annot"><span class="annottext">ReadPrec [UserPoolMfaType]
 ReadPrec UserPoolMfaType
 Int -&gt; ReadS UserPoolMfaType
 ReadS [UserPoolMfaType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [UserPoolMfaType]
 readsPrec :: Int -&gt; ReadS UserPoolMfaType
 $creadsPrec :: Int -&gt; ReadS UserPoolMfaType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679436139"><span id="local-6989586621679436141"><span class="annot"><span class="annottext">UserPoolMfaType -&gt; UserPoolMfaType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679436604"><span id="local-6989586621679436606"><span class="annot"><span class="annottext">UserPoolMfaType -&gt; UserPoolMfaType -&gt; Bool
 (UserPoolMfaType -&gt; UserPoolMfaType -&gt; Bool)
 -&gt; (UserPoolMfaType -&gt; UserPoolMfaType -&gt; Bool)
 -&gt; Eq UserPoolMfaType
@@ -83,7 +83,7 @@ $c/= :: UserPoolMfaType -&gt; UserPoolMfaType -&gt; Bool
 == :: UserPoolMfaType -&gt; UserPoolMfaType -&gt; Bool
 $c== :: UserPoolMfaType -&gt; UserPoolMfaType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679436123"><span id="local-6989586621679436125"><span id="local-6989586621679436127"><span id="local-6989586621679436129"><span id="local-6989586621679436131"><span id="local-6989586621679436133"><span id="local-6989586621679436135"><span class="annot"><span class="annottext">Eq UserPoolMfaType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679436588"><span id="local-6989586621679436590"><span id="local-6989586621679436592"><span id="local-6989586621679436594"><span id="local-6989586621679436596"><span id="local-6989586621679436598"><span id="local-6989586621679436600"><span class="annot"><span class="annottext">Eq UserPoolMfaType
 Eq UserPoolMfaType
 -&gt; (UserPoolMfaType -&gt; UserPoolMfaType -&gt; Ordering)
 -&gt; (UserPoolMfaType -&gt; UserPoolMfaType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. UserPoolMfaType -&gt; Rep UserPoolMfaType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436115"><span id="local-6989586621679436117"><span class="annot"><span class="annottext">Int -&gt; UserPoolMfaType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436580"><span id="local-6989586621679436582"><span class="annot"><span class="annottext">Int -&gt; UserPoolMfaType -&gt; Int
 UserPoolMfaType -&gt; Int
 (Int -&gt; UserPoolMfaType -&gt; Int)
 -&gt; (UserPoolMfaType -&gt; Int) -&gt; Hashable UserPoolMfaType
@@ -144,50 +144,50 @@ $chash :: UserPoolMfaType -&gt; Int
 hashWithSalt :: Int -&gt; UserPoolMfaType -&gt; Int
 $chashWithSalt :: Int -&gt; UserPoolMfaType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679436112"><span class="annot"><span class="annottext">UserPoolMfaType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679436577"><span class="annot"><span class="annottext">UserPoolMfaType -&gt; ()
 (UserPoolMfaType -&gt; ()) -&gt; NFData UserPoolMfaType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UserPoolMfaType -&gt; ()
 $crnf :: UserPoolMfaType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679436109"><span class="annot"><span class="annottext">Text -&gt; Either String UserPoolMfaType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679436574"><span class="annot"><span class="annottext">Text -&gt; Either String UserPoolMfaType
 (Text -&gt; Either String UserPoolMfaType) -&gt; FromText UserPoolMfaType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UserPoolMfaType
 $cfromText :: Text -&gt; Either String UserPoolMfaType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679436106"><span class="annot"><span class="annottext">UserPoolMfaType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679436571"><span class="annot"><span class="annottext">UserPoolMfaType -&gt; Text
 (UserPoolMfaType -&gt; Text) -&gt; ToText UserPoolMfaType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UserPoolMfaType -&gt; Text
 $ctoText :: UserPoolMfaType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679436103"><span class="annot"><span class="annottext">UserPoolMfaType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679436568"><span class="annot"><span class="annottext">UserPoolMfaType -&gt; ByteString
 (UserPoolMfaType -&gt; ByteString) -&gt; ToByteString UserPoolMfaType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UserPoolMfaType -&gt; ByteString
 $ctoBS :: UserPoolMfaType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679436100"><span class="annot"><span class="annottext">UserPoolMfaType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679436565"><span class="annot"><span class="annottext">UserPoolMfaType -&gt; ByteStringBuilder
 (UserPoolMfaType -&gt; ByteStringBuilder) -&gt; ToLog UserPoolMfaType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UserPoolMfaType -&gt; ByteStringBuilder
 $cbuild :: UserPoolMfaType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679436097"><span class="annot"><span class="annottext">HeaderName -&gt; UserPoolMfaType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679436562"><span class="annot"><span class="annottext">HeaderName -&gt; UserPoolMfaType -&gt; [Header]
 (HeaderName -&gt; UserPoolMfaType -&gt; [Header])
 -&gt; ToHeader UserPoolMfaType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UserPoolMfaType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UserPoolMfaType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679436094"><span class="annot"><span class="annottext">UserPoolMfaType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679436559"><span class="annot"><span class="annottext">UserPoolMfaType -&gt; QueryString
 (UserPoolMfaType -&gt; QueryString) -&gt; ToQuery UserPoolMfaType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UserPoolMfaType -&gt; QueryString
 $ctoQuery :: UserPoolMfaType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679436089"><span id="local-6989586621679436091"><span class="annot"><span class="annottext">Value -&gt; Parser [UserPoolMfaType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679436554"><span id="local-6989586621679436556"><span class="annot"><span class="annottext">Value -&gt; Parser [UserPoolMfaType]
 Value -&gt; Parser UserPoolMfaType
 (Value -&gt; Parser UserPoolMfaType)
 -&gt; (Value -&gt; Parser [UserPoolMfaType]) -&gt; FromJSON UserPoolMfaType
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [UserPoolMfaType]
 parseJSON :: Value -&gt; Parser UserPoolMfaType
 $cparseJSON :: Value -&gt; Parser UserPoolMfaType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679436084"><span id="local-6989586621679436086"><span class="annot"><span class="annottext">FromJSONKeyFunction [UserPoolMfaType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679436549"><span id="local-6989586621679436551"><span class="annot"><span class="annottext">FromJSONKeyFunction [UserPoolMfaType]
 FromJSONKeyFunction UserPoolMfaType
 FromJSONKeyFunction UserPoolMfaType
 -&gt; FromJSONKeyFunction [UserPoolMfaType]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UserPoolMfaType]
 fromJSONKey :: FromJSONKeyFunction UserPoolMfaType
 $cfromJSONKey :: FromJSONKeyFunction UserPoolMfaType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679436075"><span id="local-6989586621679436077"><span id="local-6989586621679436079"><span id="local-6989586621679436081"><span class="annot"><span class="annottext">[UserPoolMfaType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679436540"><span id="local-6989586621679436542"><span id="local-6989586621679436544"><span id="local-6989586621679436546"><span class="annot"><span class="annottext">[UserPoolMfaType] -&gt; Encoding
 [UserPoolMfaType] -&gt; Value
 UserPoolMfaType -&gt; Encoding
 UserPoolMfaType -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: UserPoolMfaType -&gt; Encoding
 toJSON :: UserPoolMfaType -&gt; Value
 $ctoJSON :: UserPoolMfaType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679436070"><span id="local-6989586621679436072"><span class="annot"><span class="annottext">ToJSONKeyFunction [UserPoolMfaType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679436535"><span id="local-6989586621679436537"><span class="annot"><span class="annottext">ToJSONKeyFunction [UserPoolMfaType]
 ToJSONKeyFunction UserPoolMfaType
 ToJSONKeyFunction UserPoolMfaType
 -&gt; ToJSONKeyFunction [UserPoolMfaType] -&gt; ToJSONKey UserPoolMfaType
@@ -245,14 +245,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UserPoolMfaType]
 toJSONKey :: ToJSONKeyFunction UserPoolMfaType
 $ctoJSONKey :: ToJSONKeyFunction UserPoolMfaType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679436067"><span class="annot"><span class="annottext">[Node] -&gt; Either String UserPoolMfaType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679436532"><span class="annot"><span class="annottext">[Node] -&gt; Either String UserPoolMfaType
 ([Node] -&gt; Either String UserPoolMfaType)
 -&gt; FromXML UserPoolMfaType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UserPoolMfaType
 $cparseXML :: [Node] -&gt; Either String UserPoolMfaType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679436064"><span class="annot"><span class="annottext">UserPoolMfaType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679436529"><span class="annot"><span class="annottext">UserPoolMfaType -&gt; XML
 (UserPoolMfaType -&gt; XML) -&gt; ToXML UserPoolMfaType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UserPoolMfaType -&gt; XML

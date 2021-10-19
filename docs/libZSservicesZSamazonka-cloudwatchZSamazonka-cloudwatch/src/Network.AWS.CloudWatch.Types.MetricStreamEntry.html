@@ -28,34 +28,34 @@
 </span><span id="line-28"></span><span class="hs-comment">-- stream.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMetricStreamEntry' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679255180"><span id="local-6989586621679255181"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricStreamEntry"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-var">MetricStreamEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricStreamEntry%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-var">MetricStreamEntry'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the Kinesis Firehose devlivery stream that is used for this</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- metric stream.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AfirehoseArn%3AMetricStreamEntry%27"><span class="annot"><span class="annottext">MetricStreamEntry -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AfirehoseArn%3AMetricStreamEntry%27"><span class="hs-identifier hs-var hs-var">firehoseArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679255508"><span id="local-6989586621679255509"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricStreamEntry"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-var">MetricStreamEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricStreamEntry%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-var">MetricStreamEntry'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of this stream. Valid values are @running@ and</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @stopped@.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astate%3AMetricStreamEntry%27"><span class="annot"><span class="annottext">MetricStreamEntry -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3Astate%3AMetricStreamEntry%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ARN of the metric stream.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aarn%3AMetricStreamEntry%27"><span class="annot"><span class="annottext">MetricStreamEntry -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3Aarn%3AMetricStreamEntry%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The date that the metric stream was originally created.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcreationDate%3AMetricStreamEntry%27"><span class="annot"><span class="annottext">MetricStreamEntry -&gt; Maybe ISO8601
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AcreationDate%3AMetricStreamEntry%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the metric stream.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aname%3AMetricStreamEntry%27"><span class="annot"><span class="annottext">MetricStreamEntry -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3Aname%3AMetricStreamEntry%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The date that the configuration of this metric stream was most recently</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlastUpdateDate%3AMetricStreamEntry%27"><span class="annot"><span class="annottext">MetricStreamEntry -&gt; Maybe ISO8601
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ARN of the Kinesis Firehose devlivery stream that is used for this</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- metric stream.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AfirehoseArn%3AMetricStreamEntry%27"><span class="annot"><span class="annottext">MetricStreamEntry -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AfirehoseArn%3AMetricStreamEntry%27"><span class="hs-identifier hs-var hs-var">firehoseArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The output format of this metric stream. Valid values are @json@ and</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @opentelemetry0.7@.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AoutputFormat%3AMetricStreamEntry%27"><span class="annot"><span class="annottext">MetricStreamEntry -&gt; Maybe MetricStreamOutputFormat
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AoutputFormat%3AMetricStreamEntry%27"><span class="hs-identifier hs-var hs-var">outputFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat"><span class="hs-identifier hs-type">MetricStreamOutputFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The date that the configuration of this metric stream was most recently</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AlastUpdateDate%3AMetricStreamEntry%27"><span class="annot"><span class="annottext">MetricStreamEntry -&gt; Maybe ISO8601
 </span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AlastUpdateDate%3AMetricStreamEntry%27"><span class="hs-identifier hs-var hs-var">lastUpdateDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The current state of this stream. Valid values are @running@ and</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @stopped@.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3Astate%3AMetricStreamEntry%27"><span class="annot"><span class="annottext">MetricStreamEntry -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3Astate%3AMetricStreamEntry%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The output format of this metric stream. Valid values are @json@ and</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- @opentelemetry0.7@.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AoutputFormat%3AMetricStreamEntry%27"><span class="annot"><span class="annottext">MetricStreamEntry -&gt; Maybe MetricStreamOutputFormat
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AoutputFormat%3AMetricStreamEntry%27"><span class="hs-identifier hs-var hs-var">outputFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat"><span class="hs-identifier hs-type">MetricStreamOutputFormat</span></a></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name of the metric stream.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aname%3AMetricStreamEntry%27"><span class="annot"><span class="annottext">MetricStreamEntry -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3Aname%3AMetricStreamEntry%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The date that the metric stream was originally created.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AcreationDate%3AMetricStreamEntry%27"><span class="annot"><span class="annottext">MetricStreamEntry -&gt; Maybe ISO8601
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AcreationDate%3AMetricStreamEntry%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255168"><span id="local-6989586621679255170"><span class="annot"><span class="annottext">MetricStreamEntry -&gt; MetricStreamEntry -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255496"><span id="local-6989586621679255498"><span class="annot"><span class="annottext">MetricStreamEntry -&gt; MetricStreamEntry -&gt; Bool
 (MetricStreamEntry -&gt; MetricStreamEntry -&gt; Bool)
 -&gt; (MetricStreamEntry -&gt; MetricStreamEntry -&gt; Bool)
 -&gt; Eq MetricStreamEntry
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MetricStreamEntry -&gt; MetricStreamEntry -&gt; Bool
 == :: MetricStreamEntry -&gt; MetricStreamEntry -&gt; Bool
 $c== :: MetricStreamEntry -&gt; MetricStreamEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255159"><span id="local-6989586621679255161"><span id="local-6989586621679255163"><span id="local-6989586621679255165"><span class="annot"><span class="annottext">ReadPrec [MetricStreamEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255487"><span id="local-6989586621679255489"><span id="local-6989586621679255491"><span id="local-6989586621679255493"><span class="annot"><span class="annottext">ReadPrec [MetricStreamEntry]
 ReadPrec MetricStreamEntry
 Int -&gt; ReadS MetricStreamEntry
 ReadS [MetricStreamEntry]
@@ -84,7 +84,7 @@ readList :: ReadS [MetricStreamEntry]
 $creadList :: ReadS [MetricStreamEntry]
 readsPrec :: Int -&gt; ReadS MetricStreamEntry
 $creadsPrec :: Int -&gt; ReadS MetricStreamEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255152"><span id="local-6989586621679255154"><span id="local-6989586621679255156"><span class="annot"><span class="annottext">Int -&gt; MetricStreamEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255480"><span id="local-6989586621679255482"><span id="local-6989586621679255484"><span class="annot"><span class="annottext">Int -&gt; MetricStreamEntry -&gt; ShowS
 [MetricStreamEntry] -&gt; ShowS
 MetricStreamEntry -&gt; String
 (Int -&gt; MetricStreamEntry -&gt; ShowS)
@@ -118,86 +118,86 @@ $cfrom :: forall x. MetricStreamEntry -&gt; Rep MetricStreamEntry x
 </span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'firehoseArn', 'metricStreamEntry_firehoseArn' - The ARN of the Kinesis Firehose devlivery stream that is used for this</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- metric stream.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'state', 'metricStreamEntry_state' - The current state of this stream. Valid values are @running@ and</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- @stopped@.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- 'arn', 'metricStreamEntry_arn' - The ARN of the metric stream.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'creationDate', 'metricStreamEntry_creationDate' - The date that the metric stream was originally created.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'name', 'metricStreamEntry_name' - The name of the metric stream.</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'lastUpdateDate', 'metricStreamEntry_lastUpdateDate' - The date that the configuration of this metric stream was most recently</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- updated.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'state', 'metricStreamEntry_state' - The current state of this stream. Valid values are @running@ and</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- @stopped@.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'outputFormat', 'metricStreamEntry_outputFormat' - The output format of this metric stream. Valid values are @json@ and</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- @opentelemetry0.7@.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'firehoseArn', 'metricStreamEntry_firehoseArn' - The ARN of the Kinesis Firehose devlivery stream that is used for this</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- metric stream.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'outputFormat', 'metricStreamEntry_outputFormat' - The output format of this metric stream. Valid values are @json@ and</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- @opentelemetry0.7@.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'lastUpdateDate', 'metricStreamEntry_lastUpdateDate' - The date that the configuration of this metric stream was most recently</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'name', 'metricStreamEntry_name' - The name of the metric stream.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'creationDate', 'metricStreamEntry_creationDate' - The date that the metric stream was originally created.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#newMetricStreamEntry"><span class="hs-identifier hs-type">newMetricStreamEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span>
 </span><span id="line-80"></span><span id="newMetricStreamEntry"><span class="annot"><span class="annottext">newMetricStreamEntry :: MetricStreamEntry
 </span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#newMetricStreamEntry"><span class="hs-identifier hs-var hs-var">newMetricStreamEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">MetricStreamEntry' :: Maybe Text
 -&gt; Maybe Text
--&gt; Maybe ISO8601
--&gt; Maybe Text
--&gt; Maybe ISO8601
 -&gt; Maybe Text
 -&gt; Maybe MetricStreamOutputFormat
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
 -&gt; MetricStreamEntry
 </span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:firehoseArn:MetricStreamEntry' :: Maybe Text
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AfirehoseArn%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">firehoseArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:MetricStreamEntry' :: Maybe Text
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3Astate%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:MetricStreamEntry' :: Maybe Text
 </span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3Aarn%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:MetricStreamEntry' :: Maybe ISO8601
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AcreationDate%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:firehoseArn:MetricStreamEntry' :: Maybe Text
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AfirehoseArn%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">firehoseArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:MetricStreamEntry' :: Maybe Text
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3Aname%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputFormat:MetricStreamEntry' :: Maybe MetricStreamOutputFormat
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AoutputFormat%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">outputFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricStreamOutputFormat
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateDate:MetricStreamEntry' :: Maybe ISO8601
 </span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AlastUpdateDate%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">lastUpdateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:MetricStreamEntry' :: Maybe Text
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3Astate%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:MetricStreamEntry' :: Maybe Text
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3Aname%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputFormat:MetricStreamEntry' :: Maybe MetricStreamOutputFormat
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AoutputFormat%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">outputFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricStreamOutputFormat
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:MetricStreamEntry' :: Maybe ISO8601
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AcreationDate%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The ARN of the Kinesis Firehose devlivery stream that is used for this</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- metric stream.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_firehoseArn"><span class="hs-identifier hs-type">metricStreamEntry_firehoseArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="metricStreamEntry_firehoseArn"><span class="annot"><span class="annottext">metricStreamEntry_firehoseArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-91"></span><span class="hs-comment">-- | The current state of this stream. Valid values are @running@ and</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- @stopped@.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_state"><span class="hs-identifier hs-type">metricStreamEntry_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="metricStreamEntry_state"><span class="annot"><span class="annottext">metricStreamEntry_state :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MetricStreamEntry -&gt; f MetricStreamEntry
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_firehoseArn"><span class="hs-identifier hs-var hs-var">metricStreamEntry_firehoseArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricStreamEntry -&gt; Maybe Text)
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_state"><span class="hs-identifier hs-var hs-var">metricStreamEntry_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricStreamEntry -&gt; Maybe Text)
 -&gt; (MetricStreamEntry -&gt; Maybe Text -&gt; MetricStreamEntry)
 -&gt; Lens
      MetricStreamEntry MetricStreamEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255143"><span class="annot"><span class="annottext">Maybe Text
-firehoseArn :: Maybe Text
-$sel:firehoseArn:MetricStreamEntry' :: MetricStreamEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679255143"><span class="hs-identifier hs-var hs-var">firehoseArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255143"><span class="hs-identifier hs-var">firehoseArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255142"><span class="annot"><span class="annottext">s :: MetricStreamEntry
-</span><a href="#local-6989586621679255142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255141"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStreamEntry
-</span><a href="#local-6989586621679255142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firehoseArn:MetricStreamEntry' :: Maybe Text
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AfirehoseArn%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">firehoseArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255471"><span class="annot"><span class="annottext">Maybe Text
+state :: Maybe Text
+$sel:state:MetricStreamEntry' :: MetricStreamEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679255471"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255471"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255470"><span class="annot"><span class="annottext">s :: MetricStreamEntry
+</span><a href="#local-6989586621679255470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255469"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStreamEntry
+</span><a href="#local-6989586621679255470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:MetricStreamEntry' :: Maybe Text
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3Astate%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The ARN of the metric stream.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_arn"><span class="hs-identifier hs-type">metricStreamEntry_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -208,135 +208,42 @@ $sel:firehoseArn:MetricStreamEntry' :: MetricStreamEntry -&gt; Maybe Text
 -&gt; Lens
      MetricStreamEntry MetricStreamEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255139"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255467"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:MetricStreamEntry' :: MetricStreamEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679255139"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255139"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255138"><span class="annot"><span class="annottext">s :: MetricStreamEntry
-</span><a href="#local-6989586621679255138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255137"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStreamEntry
-</span><a href="#local-6989586621679255138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:MetricStreamEntry' :: Maybe Text
+</span><a href="#local-6989586621679255467"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255467"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255466"><span class="annot"><span class="annottext">s :: MetricStreamEntry
+</span><a href="#local-6989586621679255466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255465"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStreamEntry
+</span><a href="#local-6989586621679255466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:MetricStreamEntry' :: Maybe Text
 </span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3Aarn%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The date that the metric stream was originally created.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_creationDate"><span class="hs-identifier hs-type">metricStreamEntry_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="metricStreamEntry_creationDate"><span class="annot"><span class="annottext">metricStreamEntry_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-100"></span><span class="hs-comment">-- | The ARN of the Kinesis Firehose devlivery stream that is used for this</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- metric stream.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_firehoseArn"><span class="hs-identifier hs-type">metricStreamEntry_firehoseArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="metricStreamEntry_firehoseArn"><span class="annot"><span class="annottext">metricStreamEntry_firehoseArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MetricStreamEntry -&gt; f MetricStreamEntry
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_creationDate"><span class="hs-identifier hs-var hs-var">metricStreamEntry_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricStreamEntry -&gt; Maybe ISO8601)
--&gt; (MetricStreamEntry -&gt; Maybe ISO8601 -&gt; MetricStreamEntry)
--&gt; Lens
-     MetricStreamEntry MetricStreamEntry (Maybe ISO8601) (Maybe ISO8601)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255135"><span class="annot"><span class="annottext">Maybe ISO8601
-creationDate :: Maybe ISO8601
-$sel:creationDate:MetricStreamEntry' :: MetricStreamEntry -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679255135"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679255135"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255134"><span class="annot"><span class="annottext">s :: MetricStreamEntry
-</span><a href="#local-6989586621679255134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255133"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679255133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStreamEntry
-</span><a href="#local-6989586621679255134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:MetricStreamEntry' :: Maybe ISO8601
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AcreationDate%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679255133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
- -&gt; MetricStreamEntry -&gt; f MetricStreamEntry)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; MetricStreamEntry
--&gt; f MetricStreamEntry
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
--&gt; Iso
-     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | The name of the metric stream.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_name"><span class="hs-identifier hs-type">metricStreamEntry_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="metricStreamEntry_name"><span class="annot"><span class="annottext">metricStreamEntry_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MetricStreamEntry -&gt; f MetricStreamEntry
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_name"><span class="hs-identifier hs-var hs-var">metricStreamEntry_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricStreamEntry -&gt; Maybe Text)
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_firehoseArn"><span class="hs-identifier hs-var hs-var">metricStreamEntry_firehoseArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricStreamEntry -&gt; Maybe Text)
 -&gt; (MetricStreamEntry -&gt; Maybe Text -&gt; MetricStreamEntry)
 -&gt; Lens
      MetricStreamEntry MetricStreamEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255128"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:MetricStreamEntry' :: MetricStreamEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679255128"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255128"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255127"><span class="annot"><span class="annottext">s :: MetricStreamEntry
-</span><a href="#local-6989586621679255127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255126"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStreamEntry
-</span><a href="#local-6989586621679255127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MetricStreamEntry' :: Maybe Text
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3Aname%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The date that the configuration of this metric stream was most recently</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- updated.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_lastUpdateDate"><span class="hs-identifier hs-type">metricStreamEntry_lastUpdateDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="metricStreamEntry_lastUpdateDate"><span class="annot"><span class="annottext">metricStreamEntry_lastUpdateDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; MetricStreamEntry -&gt; f MetricStreamEntry
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_lastUpdateDate"><span class="hs-identifier hs-var hs-var">metricStreamEntry_lastUpdateDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricStreamEntry -&gt; Maybe ISO8601)
--&gt; (MetricStreamEntry -&gt; Maybe ISO8601 -&gt; MetricStreamEntry)
--&gt; Lens
-     MetricStreamEntry MetricStreamEntry (Maybe ISO8601) (Maybe ISO8601)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255124"><span class="annot"><span class="annottext">Maybe ISO8601
-lastUpdateDate :: Maybe ISO8601
-$sel:lastUpdateDate:MetricStreamEntry' :: MetricStreamEntry -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679255124"><span class="hs-identifier hs-var hs-var">lastUpdateDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679255124"><span class="hs-identifier hs-var">lastUpdateDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255123"><span class="annot"><span class="annottext">s :: MetricStreamEntry
-</span><a href="#local-6989586621679255123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255122"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679255122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStreamEntry
-</span><a href="#local-6989586621679255123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateDate:MetricStreamEntry' :: Maybe ISO8601
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AlastUpdateDate%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">lastUpdateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679255122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
- -&gt; MetricStreamEntry -&gt; f MetricStreamEntry)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; MetricStreamEntry
--&gt; f MetricStreamEntry
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
--&gt; Iso
-     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The current state of this stream. Valid values are @running@ and</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- @stopped@.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_state"><span class="hs-identifier hs-type">metricStreamEntry_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="metricStreamEntry_state"><span class="annot"><span class="annottext">metricStreamEntry_state :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MetricStreamEntry -&gt; f MetricStreamEntry
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_state"><span class="hs-identifier hs-var hs-var">metricStreamEntry_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricStreamEntry -&gt; Maybe Text)
--&gt; (MetricStreamEntry -&gt; Maybe Text -&gt; MetricStreamEntry)
--&gt; Lens
-     MetricStreamEntry MetricStreamEntry (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255120"><span class="annot"><span class="annottext">Maybe Text
-state :: Maybe Text
-$sel:state:MetricStreamEntry' :: MetricStreamEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679255120"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255120"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255119"><span class="annot"><span class="annottext">s :: MetricStreamEntry
-</span><a href="#local-6989586621679255119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255118"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStreamEntry
-</span><a href="#local-6989586621679255119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:MetricStreamEntry' :: Maybe Text
-</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3Astate%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The output format of this metric stream. Valid values are @json@ and</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- @opentelemetry0.7@.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_outputFormat"><span class="hs-identifier hs-type">metricStreamEntry_outputFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat"><span class="hs-identifier hs-type">MetricStreamOutputFormat</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="metricStreamEntry_outputFormat"><span class="annot"><span class="annottext">metricStreamEntry_outputFormat :: (Maybe MetricStreamOutputFormat
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255463"><span class="annot"><span class="annottext">Maybe Text
+firehoseArn :: Maybe Text
+$sel:firehoseArn:MetricStreamEntry' :: MetricStreamEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679255463"><span class="hs-identifier hs-var hs-var">firehoseArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255463"><span class="hs-identifier hs-var">firehoseArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255462"><span class="annot"><span class="annottext">s :: MetricStreamEntry
+</span><a href="#local-6989586621679255462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255461"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStreamEntry
+</span><a href="#local-6989586621679255462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firehoseArn:MetricStreamEntry' :: Maybe Text
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AfirehoseArn%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">firehoseArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The output format of this metric stream. Valid values are @json@ and</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- @opentelemetry0.7@.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_outputFormat"><span class="hs-identifier hs-type">metricStreamEntry_outputFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat"><span class="hs-identifier hs-type">MetricStreamOutputFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="metricStreamEntry_outputFormat"><span class="annot"><span class="annottext">metricStreamEntry_outputFormat :: (Maybe MetricStreamOutputFormat
  -&gt; f (Maybe MetricStreamOutputFormat))
 -&gt; MetricStreamEntry -&gt; f MetricStreamEntry
 </span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_outputFormat"><span class="hs-identifier hs-var hs-var">metricStreamEntry_outputFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricStreamEntry -&gt; Maybe MetricStreamOutputFormat)
@@ -348,159 +255,240 @@ $sel:state:MetricStreamEntry' :: MetricStreamEntry -&gt; Maybe Text
      (Maybe MetricStreamOutputFormat)
      (Maybe MetricStreamOutputFormat)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255116"><span class="annot"><span class="annottext">Maybe MetricStreamOutputFormat
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255459"><span class="annot"><span class="annottext">Maybe MetricStreamOutputFormat
 outputFormat :: Maybe MetricStreamOutputFormat
 $sel:outputFormat:MetricStreamEntry' :: MetricStreamEntry -&gt; Maybe MetricStreamOutputFormat
-</span><a href="#local-6989586621679255116"><span class="hs-identifier hs-var hs-var">outputFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricStreamOutputFormat
-</span><a href="#local-6989586621679255116"><span class="hs-identifier hs-var">outputFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255115"><span class="annot"><span class="annottext">s :: MetricStreamEntry
-</span><a href="#local-6989586621679255115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255114"><span class="annot"><span class="annottext">Maybe MetricStreamOutputFormat
-</span><a href="#local-6989586621679255114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStreamEntry
-</span><a href="#local-6989586621679255115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputFormat:MetricStreamEntry' :: Maybe MetricStreamOutputFormat
+</span><a href="#local-6989586621679255459"><span class="hs-identifier hs-var hs-var">outputFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricStreamOutputFormat
+</span><a href="#local-6989586621679255459"><span class="hs-identifier hs-var">outputFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255458"><span class="annot"><span class="annottext">s :: MetricStreamEntry
+</span><a href="#local-6989586621679255458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255457"><span class="annot"><span class="annottext">Maybe MetricStreamOutputFormat
+</span><a href="#local-6989586621679255457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStreamEntry
+</span><a href="#local-6989586621679255458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputFormat:MetricStreamEntry' :: Maybe MetricStreamOutputFormat
 </span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AoutputFormat%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">outputFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricStreamOutputFormat
-</span><a href="#local-6989586621679255114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The date that the configuration of this metric stream was most recently</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_lastUpdateDate"><span class="hs-identifier hs-type">metricStreamEntry_lastUpdateDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="metricStreamEntry_lastUpdateDate"><span class="annot"><span class="annottext">metricStreamEntry_lastUpdateDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MetricStreamEntry -&gt; f MetricStreamEntry
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_lastUpdateDate"><span class="hs-identifier hs-var hs-var">metricStreamEntry_lastUpdateDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricStreamEntry -&gt; Maybe ISO8601)
+-&gt; (MetricStreamEntry -&gt; Maybe ISO8601 -&gt; MetricStreamEntry)
+-&gt; Lens
+     MetricStreamEntry MetricStreamEntry (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255455"><span class="annot"><span class="annottext">Maybe ISO8601
+lastUpdateDate :: Maybe ISO8601
+$sel:lastUpdateDate:MetricStreamEntry' :: MetricStreamEntry -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679255455"><span class="hs-identifier hs-var hs-var">lastUpdateDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679255455"><span class="hs-identifier hs-var">lastUpdateDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255454"><span class="annot"><span class="annottext">s :: MetricStreamEntry
+</span><a href="#local-6989586621679255454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255453"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679255453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStreamEntry
+</span><a href="#local-6989586621679255454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateDate:MetricStreamEntry' :: Maybe ISO8601
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AlastUpdateDate%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">lastUpdateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679255453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; MetricStreamEntry -&gt; f MetricStreamEntry)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MetricStreamEntry
+-&gt; f MetricStreamEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The name of the metric stream.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_name"><span class="hs-identifier hs-type">metricStreamEntry_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="metricStreamEntry_name"><span class="annot"><span class="annottext">metricStreamEntry_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MetricStreamEntry -&gt; f MetricStreamEntry
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_name"><span class="hs-identifier hs-var hs-var">metricStreamEntry_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricStreamEntry -&gt; Maybe Text)
+-&gt; (MetricStreamEntry -&gt; Maybe Text -&gt; MetricStreamEntry)
+-&gt; Lens
+     MetricStreamEntry MetricStreamEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255448"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:MetricStreamEntry' :: MetricStreamEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679255448"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255448"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255447"><span class="annot"><span class="annottext">s :: MetricStreamEntry
+</span><a href="#local-6989586621679255447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255446"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStreamEntry
+</span><a href="#local-6989586621679255447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MetricStreamEntry' :: Maybe Text
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3Aname%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The date that the metric stream was originally created.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_creationDate"><span class="hs-identifier hs-type">metricStreamEntry_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="metricStreamEntry_creationDate"><span class="annot"><span class="annottext">metricStreamEntry_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MetricStreamEntry -&gt; f MetricStreamEntry
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#metricStreamEntry_creationDate"><span class="hs-identifier hs-var hs-var">metricStreamEntry_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricStreamEntry -&gt; Maybe ISO8601)
+-&gt; (MetricStreamEntry -&gt; Maybe ISO8601 -&gt; MetricStreamEntry)
+-&gt; Lens
+     MetricStreamEntry MetricStreamEntry (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255444"><span class="annot"><span class="annottext">Maybe ISO8601
+creationDate :: Maybe ISO8601
+$sel:creationDate:MetricStreamEntry' :: MetricStreamEntry -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679255444"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679255444"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255443"><span class="annot"><span class="annottext">s :: MetricStreamEntry
+</span><a href="#local-6989586621679255443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-type">MetricStreamEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255442"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679255442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStreamEntry
+</span><a href="#local-6989586621679255443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:MetricStreamEntry' :: Maybe ISO8601
+</span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#%24sel%3AcreationDate%3AMetricStreamEntry%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679255442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; MetricStreamEntry -&gt; f MetricStreamEntry)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MetricStreamEntry
+-&gt; f MetricStreamEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679255111"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MetricStreamEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679255109"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679255109"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679255439"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MetricStreamEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679255437"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679255437"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
--&gt; Maybe ISO8601
--&gt; Maybe Text
--&gt; Maybe ISO8601
 -&gt; Maybe Text
 -&gt; Maybe MetricStreamOutputFormat
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
 -&gt; MetricStreamEntry
 </span><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry%27"><span class="hs-identifier hs-var">MetricStreamEntry'</span></a></span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe ISO8601
- -&gt; Maybe Text
- -&gt; Maybe ISO8601
  -&gt; Maybe Text
  -&gt; Maybe MetricStreamOutputFormat
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe ISO8601
  -&gt; MetricStreamEntry)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe ISO8601
-      -&gt; Maybe Text
-      -&gt; Maybe ISO8601
       -&gt; Maybe Text
       -&gt; Maybe MetricStreamOutputFormat
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
       -&gt; MetricStreamEntry)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679255109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679255437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FirehoseArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe Text
-   -&gt; Maybe ISO8601
    -&gt; Maybe Text
    -&gt; Maybe MetricStreamOutputFormat
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
    -&gt; MetricStreamEntry)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe ISO8601
-      -&gt; Maybe Text
+     (Maybe Text
+      -&gt; Maybe MetricStreamOutputFormat
       -&gt; Maybe ISO8601
       -&gt; Maybe Text
-      -&gt; Maybe MetricStreamOutputFormat
+      -&gt; Maybe ISO8601
       -&gt; MetricStreamEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679255109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679255437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe ISO8601
-   -&gt; Maybe Text
+  (Maybe Text
+   -&gt; Maybe MetricStreamOutputFormat
    -&gt; Maybe ISO8601
    -&gt; Maybe Text
-   -&gt; Maybe MetricStreamOutputFormat
+   -&gt; Maybe ISO8601
    -&gt; MetricStreamEntry)
--&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
+     (Maybe MetricStreamOutputFormat
       -&gt; Maybe ISO8601
       -&gt; Maybe Text
-      -&gt; Maybe MetricStreamOutputFormat
+      -&gt; Maybe ISO8601
       -&gt; MetricStreamEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679255109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679255437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;FirehoseArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
+  (Maybe MetricStreamOutputFormat
    -&gt; Maybe ISO8601
    -&gt; Maybe Text
-   -&gt; Maybe MetricStreamOutputFormat
+   -&gt; Maybe ISO8601
    -&gt; MetricStreamEntry)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe ISO8601
-      -&gt; Maybe Text
-      -&gt; Maybe MetricStreamOutputFormat
-      -&gt; MetricStreamEntry)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679255109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ISO8601
-   -&gt; Maybe Text
-   -&gt; Maybe MetricStreamOutputFormat
-   -&gt; MetricStreamEntry)
--&gt; Either String (Maybe ISO8601)
--&gt; Either
-     String
-     (Maybe Text -&gt; Maybe MetricStreamOutputFormat -&gt; MetricStreamEntry)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679255109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastUpdateDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text -&gt; Maybe MetricStreamOutputFormat -&gt; MetricStreamEntry)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe MetricStreamOutputFormat -&gt; MetricStreamEntry)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679255109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe MetricStreamOutputFormat -&gt; MetricStreamEntry)
 -&gt; Either String (Maybe MetricStreamOutputFormat)
--&gt; Either String MetricStreamEntry
+-&gt; Either
+     String
+     (Maybe ISO8601 -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; MetricStreamEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679255109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe MetricStreamOutputFormat)
+</span><a href="#local-6989586621679255437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe MetricStreamOutputFormat)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OutputFormat&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601 -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; MetricStreamEntry)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe Text -&gt; Maybe ISO8601 -&gt; MetricStreamEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679255437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdateDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe ISO8601 -&gt; MetricStreamEntry)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe ISO8601 -&gt; MetricStreamEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679255437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; MetricStreamEntry)
+-&gt; Either String (Maybe ISO8601) -&gt; Either String MetricStreamEntry
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679255437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255103"><span id="local-6989586621679255105"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255431"><span id="local-6989586621679255433"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span></span></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255100"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255428"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span></span><span>
 </span><span id="line-137"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679248768"><span id="local-6989586621679248769"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StopAction"><span class="annot"><a href="Network.AWS.Inspector.Types.StopAction.html#StopAction"><span class="hs-identifier hs-var">StopAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopAction%27"><span class="annot"><a href="Network.AWS.Inspector.Types.StopAction.html#StopAction%27"><span class="hs-identifier hs-var">StopAction'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679249131"><span id="local-6989586621679249132"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StopAction"><span class="annot"><a href="Network.AWS.Inspector.Types.StopAction.html#StopAction"><span class="hs-identifier hs-var">StopAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopAction%27"><span class="annot"><a href="Network.AWS.Inspector.Types.StopAction.html#StopAction%27"><span class="hs-identifier hs-var">StopAction'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStopAction"><span class="annot"><span class="annottext">StopAction -&gt; Text
 </span><a href="Network.AWS.Inspector.Types.StopAction.html#fromStopAction"><span class="hs-identifier hs-var hs-var">fromStopAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248760"><span id="local-6989586621679248762"><span id="local-6989586621679248764"><span class="annot"><span class="annottext">Int -&gt; StopAction -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249123"><span id="local-6989586621679249125"><span id="local-6989586621679249127"><span class="annot"><span class="annottext">Int -&gt; StopAction -&gt; ShowS
 [StopAction] -&gt; ShowS
 StopAction -&gt; String
 (Int -&gt; StopAction -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: StopAction -&gt; String
 showsPrec :: Int -&gt; StopAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; StopAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679248751"><span id="local-6989586621679248753"><span id="local-6989586621679248755"><span id="local-6989586621679248757"><span class="annot"><span class="annottext">ReadPrec [StopAction]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679249114"><span id="local-6989586621679249116"><span id="local-6989586621679249118"><span id="local-6989586621679249120"><span class="annot"><span class="annottext">ReadPrec [StopAction]
 ReadPrec StopAction
 Int -&gt; ReadS StopAction
 ReadS [StopAction]
@@ -72,7 +72,7 @@ $creadList :: ReadS [StopAction]
 readsPrec :: Int -&gt; ReadS StopAction
 $creadsPrec :: Int -&gt; ReadS StopAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679248746"><span id="local-6989586621679248748"><span class="annot"><span class="annottext">StopAction -&gt; StopAction -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679249109"><span id="local-6989586621679249111"><span class="annot"><span class="annottext">StopAction -&gt; StopAction -&gt; Bool
 (StopAction -&gt; StopAction -&gt; Bool)
 -&gt; (StopAction -&gt; StopAction -&gt; Bool) -&gt; Eq StopAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: StopAction -&gt; StopAction -&gt; Bool
 == :: StopAction -&gt; StopAction -&gt; Bool
 $c== :: StopAction -&gt; StopAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679248730"><span id="local-6989586621679248732"><span id="local-6989586621679248734"><span id="local-6989586621679248736"><span id="local-6989586621679248738"><span id="local-6989586621679248740"><span id="local-6989586621679248742"><span class="annot"><span class="annottext">Eq StopAction
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679249093"><span id="local-6989586621679249095"><span id="local-6989586621679249097"><span id="local-6989586621679249099"><span id="local-6989586621679249101"><span id="local-6989586621679249103"><span id="local-6989586621679249105"><span class="annot"><span class="annottext">Eq StopAction
 Eq StopAction
 -&gt; (StopAction -&gt; StopAction -&gt; Ordering)
 -&gt; (StopAction -&gt; StopAction -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. StopAction -&gt; Rep StopAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248722"><span id="local-6989586621679248724"><span class="annot"><span class="annottext">Int -&gt; StopAction -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249085"><span id="local-6989586621679249087"><span class="annot"><span class="annottext">Int -&gt; StopAction -&gt; Int
 StopAction -&gt; Int
 (Int -&gt; StopAction -&gt; Int)
 -&gt; (StopAction -&gt; Int) -&gt; Hashable StopAction
@@ -141,49 +141,49 @@ $chash :: StopAction -&gt; Int
 hashWithSalt :: Int -&gt; StopAction -&gt; Int
 $chashWithSalt :: Int -&gt; StopAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679248719"><span class="annot"><span class="annottext">StopAction -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679249082"><span class="annot"><span class="annottext">StopAction -&gt; ()
 (StopAction -&gt; ()) -&gt; NFData StopAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StopAction -&gt; ()
 $crnf :: StopAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679248716"><span class="annot"><span class="annottext">Text -&gt; Either String StopAction
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679249079"><span class="annot"><span class="annottext">Text -&gt; Either String StopAction
 (Text -&gt; Either String StopAction) -&gt; FromText StopAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StopAction
 $cfromText :: Text -&gt; Either String StopAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679248713"><span class="annot"><span class="annottext">StopAction -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679249076"><span class="annot"><span class="annottext">StopAction -&gt; Text
 (StopAction -&gt; Text) -&gt; ToText StopAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StopAction -&gt; Text
 $ctoText :: StopAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679248710"><span class="annot"><span class="annottext">StopAction -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679249073"><span class="annot"><span class="annottext">StopAction -&gt; ByteString
 (StopAction -&gt; ByteString) -&gt; ToByteString StopAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StopAction -&gt; ByteString
 $ctoBS :: StopAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679248707"><span class="annot"><span class="annottext">StopAction -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679249070"><span class="annot"><span class="annottext">StopAction -&gt; ByteStringBuilder
 (StopAction -&gt; ByteStringBuilder) -&gt; ToLog StopAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StopAction -&gt; ByteStringBuilder
 $cbuild :: StopAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679248704"><span class="annot"><span class="annottext">HeaderName -&gt; StopAction -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679249067"><span class="annot"><span class="annottext">HeaderName -&gt; StopAction -&gt; [Header]
 (HeaderName -&gt; StopAction -&gt; [Header]) -&gt; ToHeader StopAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StopAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StopAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248701"><span class="annot"><span class="annottext">StopAction -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679249064"><span class="annot"><span class="annottext">StopAction -&gt; QueryString
 (StopAction -&gt; QueryString) -&gt; ToQuery StopAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StopAction -&gt; QueryString
 $ctoQuery :: StopAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248696"><span id="local-6989586621679248698"><span class="annot"><span class="annottext">Value -&gt; Parser [StopAction]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679249059"><span id="local-6989586621679249061"><span class="annot"><span class="annottext">Value -&gt; Parser [StopAction]
 Value -&gt; Parser StopAction
 (Value -&gt; Parser StopAction)
 -&gt; (Value -&gt; Parser [StopAction]) -&gt; FromJSON StopAction
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [StopAction]
 parseJSON :: Value -&gt; Parser StopAction
 $cparseJSON :: Value -&gt; Parser StopAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679248691"><span id="local-6989586621679248693"><span class="annot"><span class="annottext">FromJSONKeyFunction [StopAction]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679249054"><span id="local-6989586621679249056"><span class="annot"><span class="annottext">FromJSONKeyFunction [StopAction]
 FromJSONKeyFunction StopAction
 FromJSONKeyFunction StopAction
 -&gt; FromJSONKeyFunction [StopAction] -&gt; FromJSONKey StopAction
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StopAction]
 fromJSONKey :: FromJSONKeyFunction StopAction
 $cfromJSONKey :: FromJSONKeyFunction StopAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679248682"><span id="local-6989586621679248684"><span id="local-6989586621679248686"><span id="local-6989586621679248688"><span class="annot"><span class="annottext">[StopAction] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679249045"><span id="local-6989586621679249047"><span id="local-6989586621679249049"><span id="local-6989586621679249051"><span class="annot"><span class="annottext">[StopAction] -&gt; Encoding
 [StopAction] -&gt; Value
 StopAction -&gt; Encoding
 StopAction -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: StopAction -&gt; Encoding
 toJSON :: StopAction -&gt; Value
 $ctoJSON :: StopAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679248677"><span id="local-6989586621679248679"><span class="annot"><span class="annottext">ToJSONKeyFunction [StopAction]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679249040"><span id="local-6989586621679249042"><span class="annot"><span class="annottext">ToJSONKeyFunction [StopAction]
 ToJSONKeyFunction StopAction
 ToJSONKeyFunction StopAction
 -&gt; ToJSONKeyFunction [StopAction] -&gt; ToJSONKey StopAction
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StopAction]
 toJSONKey :: ToJSONKeyFunction StopAction
 $ctoJSONKey :: ToJSONKeyFunction StopAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679248674"><span class="annot"><span class="annottext">[Node] -&gt; Either String StopAction
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679249037"><span class="annot"><span class="annottext">[Node] -&gt; Either String StopAction
 ([Node] -&gt; Either String StopAction) -&gt; FromXML StopAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StopAction
 $cparseXML :: [Node] -&gt; Either String StopAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679248671"><span class="annot"><span class="annottext">StopAction -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679249034"><span class="annot"><span class="annottext">StopAction -&gt; XML
 (StopAction -&gt; XML) -&gt; ToXML StopAction
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StopAction -&gt; XML

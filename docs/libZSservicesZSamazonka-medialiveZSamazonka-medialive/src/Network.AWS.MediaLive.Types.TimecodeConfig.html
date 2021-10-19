@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Timecode Config</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTimecodeConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679919853"><span id="local-6989586621679919854"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimecodeConfig"><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-var">TimecodeConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimecodeConfig%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig%27"><span class="hs-identifier hs-var">TimecodeConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679927364"><span id="local-6989586621679927365"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimecodeConfig"><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-var">TimecodeConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimecodeConfig%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig%27"><span class="hs-identifier hs-var">TimecodeConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Threshold in frames beyond which output timecode is resynchronized to</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the input timecode. Discrepancies below this threshold are permitted to</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- avoid unnecessary discontinuities in the output timecode. No timecode</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Asource%3ATimecodeConfig%27"><span class="annot"><span class="annottext">TimecodeConfig -&gt; TimecodeConfigSource
 </span><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#%24sel%3Asource%3ATimecodeConfig%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfigSource.html#TimecodeConfigSource"><span class="hs-identifier hs-type">TimecodeConfigSource</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679919846"><span id="local-6989586621679919848"><span class="annot"><span class="annottext">TimecodeConfig -&gt; TimecodeConfig -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679927357"><span id="local-6989586621679927359"><span class="annot"><span class="annottext">TimecodeConfig -&gt; TimecodeConfig -&gt; Bool
 (TimecodeConfig -&gt; TimecodeConfig -&gt; Bool)
 -&gt; (TimecodeConfig -&gt; TimecodeConfig -&gt; Bool) -&gt; Eq TimecodeConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TimecodeConfig -&gt; TimecodeConfig -&gt; Bool
 == :: TimecodeConfig -&gt; TimecodeConfig -&gt; Bool
 $c== :: TimecodeConfig -&gt; TimecodeConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679919837"><span id="local-6989586621679919839"><span id="local-6989586621679919841"><span id="local-6989586621679919843"><span class="annot"><span class="annottext">ReadPrec [TimecodeConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679927348"><span id="local-6989586621679927350"><span id="local-6989586621679927352"><span id="local-6989586621679927354"><span class="annot"><span class="annottext">ReadPrec [TimecodeConfig]
 ReadPrec TimecodeConfig
 Int -&gt; ReadS TimecodeConfig
 ReadS [TimecodeConfig]
@@ -72,7 +72,7 @@ readList :: ReadS [TimecodeConfig]
 $creadList :: ReadS [TimecodeConfig]
 readsPrec :: Int -&gt; ReadS TimecodeConfig
 $creadsPrec :: Int -&gt; ReadS TimecodeConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679919830"><span id="local-6989586621679919832"><span id="local-6989586621679919834"><span class="annot"><span class="annottext">Int -&gt; TimecodeConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679927341"><span id="local-6989586621679927343"><span id="local-6989586621679927345"><span class="annot"><span class="annottext">Int -&gt; TimecodeConfig -&gt; ShowS
 [TimecodeConfig] -&gt; ShowS
 TimecodeConfig -&gt; String
 (Int -&gt; TimecodeConfig -&gt; ShowS)
@@ -123,8 +123,8 @@ $cfrom :: forall x. TimecodeConfig -&gt; Rep TimecodeConfig x
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfigSource.html#TimecodeConfigSource"><span class="hs-identifier hs-type">TimecodeConfigSource</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span><span>
 </span><span id="line-71"></span><span id="newTimecodeConfig"><span class="annot"><span class="annottext">newTimecodeConfig :: TimecodeConfigSource -&gt; TimecodeConfig
-</span><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#newTimecodeConfig"><span class="hs-identifier hs-var hs-var">newTimecodeConfig</span></a></span></span><span> </span><span id="local-6989586621679919824"><span class="annot"><span class="annottext">TimecodeConfigSource
-</span><a href="#local-6989586621679919824"><span class="hs-identifier hs-var">pSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#newTimecodeConfig"><span class="hs-identifier hs-var hs-var">newTimecodeConfig</span></a></span></span><span> </span><span id="local-6989586621679927335"><span class="annot"><span class="annottext">TimecodeConfigSource
+</span><a href="#local-6989586621679927335"><span class="hs-identifier hs-var">pSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">TimecodeConfig' :: Maybe Natural -&gt; TimecodeConfigSource -&gt; TimecodeConfig
 </span><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig%27"><span class="hs-identifier hs-type">TimecodeConfig'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:syncThreshold:TimecodeConfig' :: Maybe Natural
@@ -133,7 +133,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:TimecodeConfig' :: TimecodeConfigSource
 </span><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#%24sel%3Asource%3ATimecodeConfig%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TimecodeConfigSource
-</span><a href="#local-6989586621679919824"><span class="hs-identifier hs-var">pSource_</span></a></span><span>
+</span><a href="#local-6989586621679927335"><span class="hs-identifier hs-var">pSource_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | Threshold in frames beyond which output timecode is resynchronized to</span><span>
@@ -148,16 +148,16 @@ forall a. Maybe a
 -&gt; Lens
      TimecodeConfig TimecodeConfig (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig%27"><span class="hs-identifier hs-type">TimecodeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919820"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig%27"><span class="hs-identifier hs-type">TimecodeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679927331"><span class="annot"><span class="annottext">Maybe Natural
 syncThreshold :: Maybe Natural
 $sel:syncThreshold:TimecodeConfig' :: TimecodeConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621679919820"><span class="hs-identifier hs-var hs-var">syncThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679919820"><span class="hs-identifier hs-var">syncThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919819"><span class="annot"><span class="annottext">s :: TimecodeConfig
-</span><a href="#local-6989586621679919819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig%27"><span class="hs-identifier hs-type">TimecodeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919818"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679919818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimecodeConfig
-</span><a href="#local-6989586621679919819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:syncThreshold:TimecodeConfig' :: Maybe Natural
+</span><a href="#local-6989586621679927331"><span class="hs-identifier hs-var hs-var">syncThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679927331"><span class="hs-identifier hs-var">syncThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679927330"><span class="annot"><span class="annottext">s :: TimecodeConfig
+</span><a href="#local-6989586621679927330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig%27"><span class="hs-identifier hs-type">TimecodeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679927329"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679927329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimecodeConfig
+</span><a href="#local-6989586621679927330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:syncThreshold:TimecodeConfig' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#%24sel%3AsyncThreshold%3ATimecodeConfig%27"><span class="hs-identifier hs-var">syncThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679919818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679927329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | Identifies the source for the timecode that will be associated with the</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- events outputs. -Embedded (embedded): Initialize the output timecode</span><span>
@@ -177,19 +177,19 @@ $sel:syncThreshold:TimecodeConfig' :: TimecodeConfig -&gt; Maybe Natural
      TimecodeConfigSource
      TimecodeConfigSource
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig%27"><span class="hs-identifier hs-type">TimecodeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919816"><span class="annot"><span class="annottext">TimecodeConfigSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig%27"><span class="hs-identifier hs-type">TimecodeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679927327"><span class="annot"><span class="annottext">TimecodeConfigSource
 source :: TimecodeConfigSource
 $sel:source:TimecodeConfig' :: TimecodeConfig -&gt; TimecodeConfigSource
-</span><a href="#local-6989586621679919816"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimecodeConfigSource
-</span><a href="#local-6989586621679919816"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919815"><span class="annot"><span class="annottext">s :: TimecodeConfig
-</span><a href="#local-6989586621679919815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig%27"><span class="hs-identifier hs-type">TimecodeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919814"><span class="annot"><span class="annottext">TimecodeConfigSource
-</span><a href="#local-6989586621679919814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimecodeConfig
-</span><a href="#local-6989586621679919815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:TimecodeConfig' :: TimecodeConfigSource
+</span><a href="#local-6989586621679927327"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimecodeConfigSource
+</span><a href="#local-6989586621679927327"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679927326"><span class="annot"><span class="annottext">s :: TimecodeConfig
+</span><a href="#local-6989586621679927326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig%27"><span class="hs-identifier hs-type">TimecodeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679927325"><span class="annot"><span class="annottext">TimecodeConfigSource
+</span><a href="#local-6989586621679927325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimecodeConfig
+</span><a href="#local-6989586621679927326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:TimecodeConfig' :: TimecodeConfigSource
 </span><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#%24sel%3Asource%3ATimecodeConfig%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TimecodeConfigSource
-</span><a href="#local-6989586621679919814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679927325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919811"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679919809"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimecodeConfig
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679927322"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679927320"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimecodeConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TimecodeConfig)
@@ -199,8 +199,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TimecodeConfig&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679919806"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919806"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679927317"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679927317"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; TimecodeConfigSource -&gt; TimecodeConfig
 </span><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig%27"><span class="hs-identifier hs-var">TimecodeConfig'</span></a></span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; TimecodeConfigSource -&gt; TimecodeConfig)
@@ -208,7 +208,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (TimecodeConfigSource -&gt; TimecodeConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919806"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679927317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;syncThreshold&quot;</span></span><span class="hs-special">)</span><span>
@@ -216,25 +216,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser TimecodeConfigSource -&gt; Parser TimecodeConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919806"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TimecodeConfigSource
+</span><a href="#local-6989586621679927317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TimecodeConfigSource
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;source&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919799"><span id="local-6989586621679919801"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679927310"><span id="local-6989586621679927312"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919796"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679927307"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919788"><span id="local-6989586621679919790"><span id="local-6989586621679919792"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679919786"><span class="annot"><span class="annottext">toJSON :: TimecodeConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig%27"><span class="hs-identifier hs-type">TimecodeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919783"><span id="local-6989586621679919784"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679927299"><span id="local-6989586621679927301"><span id="local-6989586621679927303"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig"><span class="hs-identifier hs-type">TimecodeConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679927297"><span class="annot"><span class="annottext">toJSON :: TimecodeConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TimecodeConfig.html#TimecodeConfig%27"><span class="hs-identifier hs-type">TimecodeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679927294"><span id="local-6989586621679927295"><span class="annot"><span class="annottext">Maybe Natural
 TimecodeConfigSource
 source :: TimecodeConfigSource
 syncThreshold :: Maybe Natural
 $sel:source:TimecodeConfig' :: TimecodeConfig -&gt; TimecodeConfigSource
 $sel:syncThreshold:TimecodeConfig' :: TimecodeConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621679919783"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679927294"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -246,14 +246,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679919784"><span class="hs-identifier hs-var">syncThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679927295"><span class="hs-identifier hs-var">syncThreshold</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;source&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimecodeConfigSource -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TimecodeConfigSource
-</span><a href="#local-6989586621679919783"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679927294"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span></pre></body></html>

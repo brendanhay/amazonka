@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- database.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRedshiftDatabase' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679252562"><span id="local-6989586621679252563"></span></span><span class="hs-keyword">data</span><span> </span><span id="RedshiftDatabase"><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase"><span class="hs-identifier hs-var">RedshiftDatabase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedshiftDatabase%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase%27"><span class="hs-identifier hs-var">RedshiftDatabase'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679252646"><span id="local-6989586621679252647"></span></span><span class="hs-keyword">data</span><span> </span><span id="RedshiftDatabase"><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase"><span class="hs-identifier hs-var">RedshiftDatabase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedshiftDatabase%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase%27"><span class="hs-identifier hs-var">RedshiftDatabase'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdatabaseName%3ARedshiftDatabase%27"><span class="annot"><span class="annottext">RedshiftDatabase -&gt; Text
 </span><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#%24sel%3AdatabaseName%3ARedshiftDatabase%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3ARedshiftDatabase%27"><span class="annot"><span class="annottext">RedshiftDatabase -&gt; Text
 </span><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#%24sel%3AclusterIdentifier%3ARedshiftDatabase%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252555"><span id="local-6989586621679252557"><span class="annot"><span class="annottext">RedshiftDatabase -&gt; RedshiftDatabase -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252639"><span id="local-6989586621679252641"><span class="annot"><span class="annottext">RedshiftDatabase -&gt; RedshiftDatabase -&gt; Bool
 (RedshiftDatabase -&gt; RedshiftDatabase -&gt; Bool)
 -&gt; (RedshiftDatabase -&gt; RedshiftDatabase -&gt; Bool)
 -&gt; Eq RedshiftDatabase
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RedshiftDatabase -&gt; RedshiftDatabase -&gt; Bool
 == :: RedshiftDatabase -&gt; RedshiftDatabase -&gt; Bool
 $c== :: RedshiftDatabase -&gt; RedshiftDatabase -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252546"><span id="local-6989586621679252548"><span id="local-6989586621679252550"><span id="local-6989586621679252552"><span class="annot"><span class="annottext">ReadPrec [RedshiftDatabase]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252630"><span id="local-6989586621679252632"><span id="local-6989586621679252634"><span id="local-6989586621679252636"><span class="annot"><span class="annottext">ReadPrec [RedshiftDatabase]
 ReadPrec RedshiftDatabase
 Int -&gt; ReadS RedshiftDatabase
 ReadS [RedshiftDatabase]
@@ -62,7 +62,7 @@ readList :: ReadS [RedshiftDatabase]
 $creadList :: ReadS [RedshiftDatabase]
 readsPrec :: Int -&gt; ReadS RedshiftDatabase
 $creadsPrec :: Int -&gt; ReadS RedshiftDatabase
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252539"><span id="local-6989586621679252541"><span id="local-6989586621679252543"><span class="annot"><span class="annottext">Int -&gt; RedshiftDatabase -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252623"><span id="local-6989586621679252625"><span id="local-6989586621679252627"><span class="annot"><span class="annottext">Int -&gt; RedshiftDatabase -&gt; ShowS
 [RedshiftDatabase] -&gt; ShowS
 RedshiftDatabase -&gt; String
 (Int -&gt; RedshiftDatabase -&gt; ShowS)
@@ -107,18 +107,18 @@ $cfrom :: forall x. RedshiftDatabase -&gt; Rep RedshiftDatabase x
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase"><span class="hs-identifier hs-type">RedshiftDatabase</span></a></span><span>
 </span><span id="line-53"></span><span id="newRedshiftDatabase"><span class="annot"><span class="annottext">newRedshiftDatabase :: Text -&gt; Text -&gt; RedshiftDatabase
 </span><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#newRedshiftDatabase"><span class="hs-identifier hs-var hs-var">newRedshiftDatabase</span></a></span></span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679252533"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252533"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679252532"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252532"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679252617"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252617"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679252616"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252616"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">RedshiftDatabase' :: Text -&gt; Text -&gt; RedshiftDatabase
 </span><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase%27"><span class="hs-identifier hs-type">RedshiftDatabase'</span></a></span><span>
 </span><span id="line-57"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:databaseName:RedshiftDatabase' :: Text
 </span><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#%24sel%3AdatabaseName%3ARedshiftDatabase%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252533"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252617"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:RedshiftDatabase' :: Text
 </span><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#%24sel%3AclusterIdentifier%3ARedshiftDatabase%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252532"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679252616"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -128,16 +128,16 @@ $cfrom :: forall x. RedshiftDatabase -&gt; Rep RedshiftDatabase x
 -&gt; (RedshiftDatabase -&gt; Text -&gt; RedshiftDatabase)
 -&gt; Lens RedshiftDatabase RedshiftDatabase Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase%27"><span class="hs-identifier hs-type">RedshiftDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252528"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase%27"><span class="hs-identifier hs-type">RedshiftDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252612"><span class="annot"><span class="annottext">Text
 databaseName :: Text
 $sel:databaseName:RedshiftDatabase' :: RedshiftDatabase -&gt; Text
-</span><a href="#local-6989586621679252528"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252528"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252527"><span class="annot"><span class="annottext">s :: RedshiftDatabase
-</span><a href="#local-6989586621679252527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase%27"><span class="hs-identifier hs-type">RedshiftDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252526"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDatabase
-</span><a href="#local-6989586621679252527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:RedshiftDatabase' :: Text
+</span><a href="#local-6989586621679252612"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252612"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252611"><span class="annot"><span class="annottext">s :: RedshiftDatabase
+</span><a href="#local-6989586621679252611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase%27"><span class="hs-identifier hs-type">RedshiftDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252610"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDatabase
+</span><a href="#local-6989586621679252611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:RedshiftDatabase' :: Text
 </span><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#%24sel%3AdatabaseName%3ARedshiftDatabase%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase"><span class="hs-identifier hs-type">RedshiftDatabase</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase"><span class="hs-identifier hs-type">RedshiftDatabase</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#redshiftDatabase_clusterIdentifier"><span class="hs-identifier hs-type">redshiftDatabase_clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase"><span class="hs-identifier hs-type">RedshiftDatabase</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -146,19 +146,19 @@ $sel:databaseName:RedshiftDatabase' :: RedshiftDatabase -&gt; Text
 -&gt; (RedshiftDatabase -&gt; Text -&gt; RedshiftDatabase)
 -&gt; Lens RedshiftDatabase RedshiftDatabase Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase%27"><span class="hs-identifier hs-type">RedshiftDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252524"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase%27"><span class="hs-identifier hs-type">RedshiftDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252608"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:RedshiftDatabase' :: RedshiftDatabase -&gt; Text
-</span><a href="#local-6989586621679252524"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252524"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252523"><span class="annot"><span class="annottext">s :: RedshiftDatabase
-</span><a href="#local-6989586621679252523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase%27"><span class="hs-identifier hs-type">RedshiftDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252522"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDatabase
-</span><a href="#local-6989586621679252523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:RedshiftDatabase' :: Text
+</span><a href="#local-6989586621679252608"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252608"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252607"><span class="annot"><span class="annottext">s :: RedshiftDatabase
+</span><a href="#local-6989586621679252607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase%27"><span class="hs-identifier hs-type">RedshiftDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252606"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDatabase
+</span><a href="#local-6989586621679252607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:RedshiftDatabase' :: Text
 </span><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#%24sel%3AclusterIdentifier%3ARedshiftDatabase%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase"><span class="hs-identifier hs-type">RedshiftDatabase</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase"><span class="hs-identifier hs-type">RedshiftDatabase</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252519"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase"><span class="hs-identifier hs-type">RedshiftDatabase</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679252517"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RedshiftDatabase
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252603"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase"><span class="hs-identifier hs-type">RedshiftDatabase</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679252601"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RedshiftDatabase
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RedshiftDatabase)
@@ -168,15 +168,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RedshiftDatabase&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252514"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252514"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252598"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252598"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; RedshiftDatabase
 </span><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase%27"><span class="hs-identifier hs-var">RedshiftDatabase'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; RedshiftDatabase)
 -&gt; Parser Text -&gt; Parser (Text -&gt; RedshiftDatabase)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252514"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679252598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span class="hs-special">)</span><span>
@@ -184,24 +184,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser RedshiftDatabase
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252514"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679252598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252508"><span id="local-6989586621679252510"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase"><span class="hs-identifier hs-type">RedshiftDatabase</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252592"><span id="local-6989586621679252594"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase"><span class="hs-identifier hs-type">RedshiftDatabase</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252505"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase"><span class="hs-identifier hs-type">RedshiftDatabase</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252589"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase"><span class="hs-identifier hs-type">RedshiftDatabase</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252497"><span id="local-6989586621679252499"><span id="local-6989586621679252501"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase"><span class="hs-identifier hs-type">RedshiftDatabase</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679252495"><span class="annot"><span class="annottext">toJSON :: RedshiftDatabase -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase%27"><span class="hs-identifier hs-type">RedshiftDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252492"><span id="local-6989586621679252493"><span class="annot"><span class="annottext">Text
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252581"><span id="local-6989586621679252583"><span id="local-6989586621679252585"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase"><span class="hs-identifier hs-type">RedshiftDatabase</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679252579"><span class="annot"><span class="annottext">toJSON :: RedshiftDatabase -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RedshiftDatabase.html#RedshiftDatabase%27"><span class="hs-identifier hs-type">RedshiftDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252576"><span id="local-6989586621679252577"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 databaseName :: Text
 $sel:clusterIdentifier:RedshiftDatabase' :: RedshiftDatabase -&gt; Text
 $sel:databaseName:RedshiftDatabase' :: RedshiftDatabase -&gt; Text
-</span><a href="#local-6989586621679252492"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679252576"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -213,7 +213,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252493"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252577"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -221,7 +221,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252492"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252576"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

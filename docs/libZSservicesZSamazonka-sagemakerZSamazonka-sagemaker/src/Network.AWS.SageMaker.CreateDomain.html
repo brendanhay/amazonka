@@ -72,10 +72,10 @@
 </span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#newCreateDomain"><span class="hs-identifier">newCreateDomain</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_kmsKeyId"><span class="hs-identifier">createDomain_kmsKeyId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_tags"><span class="hs-identifier">createDomain_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_homeEfsFileSystemKmsKeyId"><span class="hs-identifier">createDomain_homeEfsFileSystemKmsKeyId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_appNetworkAccessType"><span class="hs-identifier">createDomain_appNetworkAccessType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_homeEfsFileSystemKmsKeyId"><span class="hs-identifier">createDomain_homeEfsFileSystemKmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_kmsKeyId"><span class="hs-identifier">createDomain_kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_appNetworkAccessType"><span class="hs-identifier">createDomain_appNetworkAccessType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_tags"><span class="hs-identifier">createDomain_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_domainName"><span class="hs-identifier">createDomain_domainName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_authMode"><span class="hs-identifier">createDomain_authMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_defaultUserSettings"><span class="hs-identifier">createDomain_defaultUserSettings</span></a></span><span class="hs-special">,</span><span>
@@ -101,33 +101,33 @@
 </span><span id="line-101"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | /See:/ 'newCreateDomain' smart constructor.</span><span>
-</span><span id="line-104"></span><span id="local-6989586621680419541"><span id="local-6989586621680419542"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomain"><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-var">CreateDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomain%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-var">CreateDomain'</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | SageMaker uses Amazon Web Services KMS to encrypt the EFS volume</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- attached to the domain with an Amazon Web Services managed key by</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- default. For more control, specify a customer managed key.</span><span>
-</span><span id="line-108"></span><span>    </span><span id="%24sel%3AkmsKeyId%3ACreateDomain%27"><span class="annot"><span class="annottext">CreateDomain -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AkmsKeyId%3ACreateDomain%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | Tags to associated with the Domain. Each tag consists of a key and an</span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- optional value. Tag keys must be unique per resource. Tags are</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- searchable using the @Search@ API.</span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- Tags that you specify for the Domain are also added to all Apps that the</span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- Domain launches.</span><span>
-</span><span id="line-115"></span><span>    </span><span id="%24sel%3Atags%3ACreateDomain%27"><span class="annot"><span class="annottext">CreateDomain -&gt; Maybe [Tag]
-</span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3Atags%3ACreateDomain%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | This member is deprecated and replaced with @KmsKeyId@.</span><span>
-</span><span id="line-117"></span><span>    </span><span id="%24sel%3AhomeEfsFileSystemKmsKeyId%3ACreateDomain%27"><span class="annot"><span class="annottext">CreateDomain -&gt; Maybe Text
+</span><span id="line-104"></span><span id="local-6989586621680421197"><span id="local-6989586621680421198"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomain"><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-var">CreateDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomain%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-var">CreateDomain'</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This member is deprecated and replaced with @KmsKeyId@.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AhomeEfsFileSystemKmsKeyId%3ACreateDomain%27"><span class="annot"><span class="annottext">CreateDomain -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AhomeEfsFileSystemKmsKeyId%3ACreateDomain%27"><span class="hs-identifier hs-var hs-var">homeEfsFileSystemKmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | Specifies the VPC used for non-EFS traffic. The default value is</span><span>
-</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- @PublicInternetOnly@.</span><span>
-</span><span id="line-120"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- -   @PublicInternetOnly@ - Non-EFS traffic is through a VPC managed by</span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-comment">--     Amazon SageMaker, which allows direct internet access</span><span>
-</span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- -   @VpcOnly@ - All Studio traffic is through the specified VPC and</span><span>
-</span><span id="line-125"></span><span>    </span><span class="hs-comment">--     subnets</span><span>
-</span><span id="line-126"></span><span>    </span><span id="%24sel%3AappNetworkAccessType%3ACreateDomain%27"><span class="annot"><span class="annottext">CreateDomain -&gt; Maybe AppNetworkAccessType
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | SageMaker uses Amazon Web Services KMS to encrypt the EFS volume</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- attached to the domain with an Amazon Web Services managed key by</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- default. For more control, specify a customer managed key.</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3AkmsKeyId%3ACreateDomain%27"><span class="annot"><span class="annottext">CreateDomain -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AkmsKeyId%3ACreateDomain%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- | Specifies the VPC used for non-EFS traffic. The default value is</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- @PublicInternetOnly@.</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- -   @PublicInternetOnly@ - Non-EFS traffic is through a VPC managed by</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--     Amazon SageMaker, which allows direct internet access</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- -   @VpcOnly@ - All Studio traffic is through the specified VPC and</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--     subnets</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AappNetworkAccessType%3ACreateDomain%27"><span class="annot"><span class="annottext">CreateDomain -&gt; Maybe AppNetworkAccessType
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AappNetworkAccessType%3ACreateDomain%27"><span class="hs-identifier hs-var hs-var">appNetworkAccessType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppNetworkAccessType.html#AppNetworkAccessType"><span class="hs-identifier hs-type">AppNetworkAccessType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | Tags to associated with the Domain. Each tag consists of a key and an</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- optional value. Tag keys must be unique per resource. Tags are</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- searchable using the @Search@ API.</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- Tags that you specify for the Domain are also added to all Apps that the</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- Domain launches.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3Atags%3ACreateDomain%27"><span class="annot"><span class="annottext">CreateDomain -&gt; Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3Atags%3ACreateDomain%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | A name for the domain.</span><span>
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3AdomainName%3ACreateDomain%27"><span class="annot"><span class="annottext">CreateDomain -&gt; Text
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AdomainName%3ACreateDomain%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -151,7 +151,7 @@
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3AvpcId%3ACreateDomain%27"><span class="annot"><span class="annottext">CreateDomain -&gt; Text
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AvpcId%3ACreateDomain%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680419527"><span id="local-6989586621680419529"><span class="annot"><span class="annottext">CreateDomain -&gt; CreateDomain -&gt; Bool
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680421183"><span id="local-6989586621680421185"><span class="annot"><span class="annottext">CreateDomain -&gt; CreateDomain -&gt; Bool
 (CreateDomain -&gt; CreateDomain -&gt; Bool)
 -&gt; (CreateDomain -&gt; CreateDomain -&gt; Bool) -&gt; Eq CreateDomain
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -159,7 +159,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDomain -&gt; CreateDomain -&gt; Bool
 == :: CreateDomain -&gt; CreateDomain -&gt; Bool
 $c== :: CreateDomain -&gt; CreateDomain -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680419518"><span id="local-6989586621680419520"><span id="local-6989586621680419522"><span id="local-6989586621680419524"><span class="annot"><span class="annottext">ReadPrec [CreateDomain]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680421174"><span id="local-6989586621680421176"><span id="local-6989586621680421178"><span id="local-6989586621680421180"><span class="annot"><span class="annottext">ReadPrec [CreateDomain]
 ReadPrec CreateDomain
 Int -&gt; ReadS CreateDomain
 ReadS [CreateDomain]
@@ -179,7 +179,7 @@ readList :: ReadS [CreateDomain]
 $creadList :: ReadS [CreateDomain]
 readsPrec :: Int -&gt; ReadS CreateDomain
 $creadsPrec :: Int -&gt; ReadS CreateDomain
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680419511"><span id="local-6989586621680419513"><span id="local-6989586621680419515"><span class="annot"><span class="annottext">Int -&gt; CreateDomain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680421167"><span id="local-6989586621680421169"><span id="local-6989586621680421171"><span class="annot"><span class="annottext">Int -&gt; CreateDomain -&gt; ShowS
 [CreateDomain] -&gt; ShowS
 CreateDomain -&gt; String
 (Int -&gt; CreateDomain -&gt; ShowS)
@@ -213,27 +213,27 @@ $cfrom :: forall x. CreateDomain -&gt; Rep CreateDomain x
 </span><span id="line-152"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-154"></span><span class="hs-comment">--</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- 'kmsKeyId', 'createDomain_kmsKeyId' - SageMaker uses Amazon Web Services KMS to encrypt the EFS volume</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- attached to the domain with an Amazon Web Services managed key by</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- default. For more control, specify a customer managed key.</span><span>
-</span><span id="line-158"></span><span class="hs-comment">--</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- 'tags', 'createDomain_tags' - Tags to associated with the Domain. Each tag consists of a key and an</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- optional value. Tag keys must be unique per resource. Tags are</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- searchable using the @Search@ API.</span><span>
-</span><span id="line-162"></span><span class="hs-comment">--</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- Tags that you specify for the Domain are also added to all Apps that the</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- Domain launches.</span><span>
-</span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- 'homeEfsFileSystemKmsKeyId', 'createDomain_homeEfsFileSystemKmsKeyId' - This member is deprecated and replaced with @KmsKeyId@.</span><span>
-</span><span id="line-167"></span><span class="hs-comment">--</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- 'appNetworkAccessType', 'createDomain_appNetworkAccessType' - Specifies the VPC used for non-EFS traffic. The default value is</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- @PublicInternetOnly@.</span><span>
-</span><span id="line-170"></span><span class="hs-comment">--</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- -   @PublicInternetOnly@ - Non-EFS traffic is through a VPC managed by</span><span>
-</span><span id="line-172"></span><span class="hs-comment">--     Amazon SageMaker, which allows direct internet access</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'homeEfsFileSystemKmsKeyId', 'createDomain_homeEfsFileSystemKmsKeyId' - This member is deprecated and replaced with @KmsKeyId@.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'kmsKeyId', 'createDomain_kmsKeyId' - SageMaker uses Amazon Web Services KMS to encrypt the EFS volume</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- attached to the domain with an Amazon Web Services managed key by</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- default. For more control, specify a customer managed key.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'appNetworkAccessType', 'createDomain_appNetworkAccessType' - Specifies the VPC used for non-EFS traffic. The default value is</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- @PublicInternetOnly@.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   @PublicInternetOnly@ - Non-EFS traffic is through a VPC managed by</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--     Amazon SageMaker, which allows direct internet access</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- -   @VpcOnly@ - All Studio traffic is through the specified VPC and</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--     subnets</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'tags', 'createDomain_tags' - Tags to associated with the Domain. Each tag consists of a key and an</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- optional value. Tag keys must be unique per resource. Tags are</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- searchable using the @Search@ API.</span><span>
 </span><span id="line-173"></span><span class="hs-comment">--</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- -   @VpcOnly@ - All Studio traffic is through the specified VPC and</span><span>
-</span><span id="line-175"></span><span class="hs-comment">--     subnets</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Tags that you specify for the Domain are also added to all Apps that the</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Domain launches.</span><span>
 </span><span id="line-176"></span><span class="hs-comment">--</span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- 'domainName', 'createDomain_domainName' - A name for the domain.</span><span>
 </span><span id="line-178"></span><span class="hs-comment">--</span><span>
@@ -270,20 +270,20 @@ $cfrom :: forall x. CreateDomain -&gt; Rep CreateDomain x
 -&gt; Text
 -&gt; CreateDomain
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#newCreateDomain"><span class="hs-identifier hs-var hs-var">newCreateDomain</span></a></span></span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621680419506"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680419506"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621680419505"><span class="annot"><span class="annottext">AuthMode
-</span><a href="#local-6989586621680419505"><span class="hs-identifier hs-var">pAuthMode_</span></a></span></span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621680419504"><span class="annot"><span class="annottext">UserSettings
-</span><a href="#local-6989586621680419504"><span class="hs-identifier hs-var">pDefaultUserSettings_</span></a></span></span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621680419503"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680419503"><span class="hs-identifier hs-var">pSubnetIds_</span></a></span></span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621680419502"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680419502"><span class="hs-identifier hs-var">pVpcId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621680421162"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421162"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621680421161"><span class="annot"><span class="annottext">AuthMode
+</span><a href="#local-6989586621680421161"><span class="hs-identifier hs-var">pAuthMode_</span></a></span></span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621680421160"><span class="annot"><span class="annottext">UserSettings
+</span><a href="#local-6989586621680421160"><span class="hs-identifier hs-var">pDefaultUserSettings_</span></a></span></span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621680421159"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621680421159"><span class="hs-identifier hs-var">pSubnetIds_</span></a></span></span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621680421158"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421158"><span class="hs-identifier hs-var">pVpcId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-211"></span><span>    </span><span class="annot"><span class="annottext">CreateDomain' :: Maybe Text
--&gt; Maybe [Tag]
 -&gt; Maybe Text
 -&gt; Maybe AppNetworkAccessType
+-&gt; Maybe [Tag]
 -&gt; Text
 -&gt; AuthMode
 -&gt; UserSettings
@@ -291,88 +291,137 @@ $cfrom :: forall x. CreateDomain -&gt; Rep CreateDomain x
 -&gt; Text
 -&gt; CreateDomain
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span>
-</span><span id="line-212"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kmsKeyId:CreateDomain' :: Maybe Text
+</span><span id="line-212"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:homeEfsFileSystemKmsKeyId:CreateDomain' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AhomeEfsFileSystemKmsKeyId%3ACreateDomain%27"><span class="hs-identifier hs-var">homeEfsFileSystemKmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">$sel:kmsKeyId:CreateDomain' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AkmsKeyId%3ACreateDomain%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateDomain' :: Maybe [Tag]
-</span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3Atags%3ACreateDomain%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">$sel:homeEfsFileSystemKmsKeyId:CreateDomain' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AhomeEfsFileSystemKmsKeyId%3ACreateDomain%27"><span class="hs-identifier hs-var">homeEfsFileSystemKmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">$sel:appNetworkAccessType:CreateDomain' :: Maybe AppNetworkAccessType
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AappNetworkAccessType%3ACreateDomain%27"><span class="hs-identifier hs-var">appNetworkAccessType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppNetworkAccessType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainName:CreateDomain' :: Text
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateDomain' :: Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3Atags%3ACreateDomain%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainName:CreateDomain' :: Text
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AdomainName%3ACreateDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680419506"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">$sel:authMode:CreateDomain' :: AuthMode
+</span><a href="#local-6989586621680421162"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:authMode:CreateDomain' :: AuthMode
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AauthMode%3ACreateDomain%27"><span class="hs-identifier hs-var">authMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AuthMode
-</span><a href="#local-6989586621680419505"><span class="hs-identifier hs-var">pAuthMode_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:defaultUserSettings:CreateDomain' :: UserSettings
+</span><a href="#local-6989586621680421161"><span class="hs-identifier hs-var">pAuthMode_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">$sel:defaultUserSettings:CreateDomain' :: UserSettings
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AdefaultUserSettings%3ACreateDomain%27"><span class="hs-identifier hs-var">defaultUserSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UserSettings
-</span><a href="#local-6989586621680419504"><span class="hs-identifier hs-var">pDefaultUserSettings_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">$sel:subnetIds:CreateDomain' :: NonEmpty Text
+</span><a href="#local-6989586621680421160"><span class="hs-identifier hs-var">pDefaultUserSettings_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">$sel:subnetIds:CreateDomain' :: NonEmpty Text
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AsubnetIds%3ACreateDomain%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680419503"><span class="hs-identifier hs-var">pSubnetIds_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">$sel:vpcId:CreateDomain' :: Text
+</span><a href="#local-6989586621680421159"><span class="hs-identifier hs-var">pSubnetIds_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">$sel:vpcId:CreateDomain' :: Text
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AvpcId%3ACreateDomain%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680419502"><span class="hs-identifier hs-var">pVpcId_</span></a></span><span>
-</span><span id="line-221"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- | SageMaker uses Amazon Web Services KMS to encrypt the EFS volume</span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- attached to the domain with an Amazon Web Services managed key by</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- default. For more control, specify a customer managed key.</span><span>
-</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_kmsKeyId"><span class="hs-identifier hs-type">createDomain_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-227"></span><span id="createDomain_kmsKeyId"><span class="annot"><span class="annottext">createDomain_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateDomain -&gt; f CreateDomain
+</span><a href="#local-6989586621680421158"><span class="hs-identifier hs-var">pVpcId_</span></a></span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | This member is deprecated and replaced with @KmsKeyId@.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_homeEfsFileSystemKmsKeyId"><span class="hs-identifier hs-type">createDomain_homeEfsFileSystemKmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="createDomain_homeEfsFileSystemKmsKeyId"><span class="annot"><span class="annottext">createDomain_homeEfsFileSystemKmsKeyId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateDomain -&gt; f CreateDomain
+</span><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_homeEfsFileSystemKmsKeyId"><span class="hs-identifier hs-var hs-var">createDomain_homeEfsFileSystemKmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomain -&gt; Maybe Text)
+-&gt; (CreateDomain -&gt; Maybe Text -&gt; CreateDomain)
+-&gt; Lens CreateDomain CreateDomain (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421153"><span class="annot"><span class="annottext">Maybe Text
+homeEfsFileSystemKmsKeyId :: Maybe Text
+$sel:homeEfsFileSystemKmsKeyId:CreateDomain' :: CreateDomain -&gt; Maybe Text
+</span><a href="#local-6989586621680421153"><span class="hs-identifier hs-var hs-var">homeEfsFileSystemKmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680421153"><span class="hs-identifier hs-var">homeEfsFileSystemKmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421152"><span class="annot"><span class="annottext">s :: CreateDomain
+</span><a href="#local-6989586621680421152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421151"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680421151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
+</span><a href="#local-6989586621680421152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:homeEfsFileSystemKmsKeyId:CreateDomain' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AhomeEfsFileSystemKmsKeyId%3ACreateDomain%27"><span class="hs-identifier hs-var">homeEfsFileSystemKmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680421151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | SageMaker uses Amazon Web Services KMS to encrypt the EFS volume</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- attached to the domain with an Amazon Web Services managed key by</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- default. For more control, specify a customer managed key.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_kmsKeyId"><span class="hs-identifier hs-type">createDomain_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="createDomain_kmsKeyId"><span class="annot"><span class="annottext">createDomain_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateDomain -&gt; f CreateDomain
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_kmsKeyId"><span class="hs-identifier hs-var hs-var">createDomain_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomain -&gt; Maybe Text)
 -&gt; (CreateDomain -&gt; Maybe Text -&gt; CreateDomain)
 -&gt; Lens CreateDomain CreateDomain (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419497"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421150"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyId :: Maybe Text
 $sel:kmsKeyId:CreateDomain' :: CreateDomain -&gt; Maybe Text
-</span><a href="#local-6989586621680419497"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680419497"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419496"><span class="annot"><span class="annottext">s :: CreateDomain
-</span><a href="#local-6989586621680419496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419495"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680419495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
-</span><a href="#local-6989586621680419496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:CreateDomain' :: Maybe Text
+</span><a href="#local-6989586621680421150"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680421150"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421149"><span class="annot"><span class="annottext">s :: CreateDomain
+</span><a href="#local-6989586621680421149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421148"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680421148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
+</span><a href="#local-6989586621680421149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:CreateDomain' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AkmsKeyId%3ACreateDomain%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680419495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- | Tags to associated with the Domain. Each tag consists of a key and an</span><span>
-</span><span id="line-230"></span><span class="hs-comment">-- optional value. Tag keys must be unique per resource. Tags are</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- searchable using the @Search@ API.</span><span>
-</span><span id="line-232"></span><span class="hs-comment">--</span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- Tags that you specify for the Domain are also added to all Apps that the</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- Domain launches.</span><span>
-</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_tags"><span class="hs-identifier hs-type">createDomain_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-236"></span><span id="createDomain_tags"><span class="annot"><span class="annottext">createDomain_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateDomain -&gt; f CreateDomain
+</span><a href="#local-6989586621680421148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | Specifies the VPC used for non-EFS traffic. The default value is</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- @PublicInternetOnly@.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- -   @PublicInternetOnly@ - Non-EFS traffic is through a VPC managed by</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--     Amazon SageMaker, which allows direct internet access</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- -   @VpcOnly@ - All Studio traffic is through the specified VPC and</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     subnets</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_appNetworkAccessType"><span class="hs-identifier hs-type">createDomain_appNetworkAccessType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppNetworkAccessType.html#AppNetworkAccessType"><span class="hs-identifier hs-type">AppNetworkAccessType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="createDomain_appNetworkAccessType"><span class="annot"><span class="annottext">createDomain_appNetworkAccessType :: (Maybe AppNetworkAccessType -&gt; f (Maybe AppNetworkAccessType))
+-&gt; CreateDomain -&gt; f CreateDomain
+</span><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_appNetworkAccessType"><span class="hs-identifier hs-var hs-var">createDomain_appNetworkAccessType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomain -&gt; Maybe AppNetworkAccessType)
+-&gt; (CreateDomain -&gt; Maybe AppNetworkAccessType -&gt; CreateDomain)
+-&gt; Lens
+     CreateDomain
+     CreateDomain
+     (Maybe AppNetworkAccessType)
+     (Maybe AppNetworkAccessType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421147"><span class="annot"><span class="annottext">Maybe AppNetworkAccessType
+appNetworkAccessType :: Maybe AppNetworkAccessType
+$sel:appNetworkAccessType:CreateDomain' :: CreateDomain -&gt; Maybe AppNetworkAccessType
+</span><a href="#local-6989586621680421147"><span class="hs-identifier hs-var hs-var">appNetworkAccessType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppNetworkAccessType
+</span><a href="#local-6989586621680421147"><span class="hs-identifier hs-var">appNetworkAccessType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421146"><span class="annot"><span class="annottext">s :: CreateDomain
+</span><a href="#local-6989586621680421146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421145"><span class="annot"><span class="annottext">Maybe AppNetworkAccessType
+</span><a href="#local-6989586621680421145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
+</span><a href="#local-6989586621680421146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appNetworkAccessType:CreateDomain' :: Maybe AppNetworkAccessType
+</span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AappNetworkAccessType%3ACreateDomain%27"><span class="hs-identifier hs-var">appNetworkAccessType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppNetworkAccessType
+</span><a href="#local-6989586621680421145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | Tags to associated with the Domain. Each tag consists of a key and an</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- optional value. Tag keys must be unique per resource. Tags are</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- searchable using the @Search@ API.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- Tags that you specify for the Domain are also added to all Apps that the</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- Domain launches.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_tags"><span class="hs-identifier hs-type">createDomain_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="createDomain_tags"><span class="annot"><span class="annottext">createDomain_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateDomain -&gt; f CreateDomain
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_tags"><span class="hs-identifier hs-var hs-var">createDomain_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomain -&gt; Maybe [Tag])
 -&gt; (CreateDomain -&gt; Maybe [Tag] -&gt; CreateDomain)
 -&gt; Lens CreateDomain CreateDomain (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419494"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421144"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateDomain' :: CreateDomain -&gt; Maybe [Tag]
-</span><a href="#local-6989586621680419494"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680419494"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419493"><span class="annot"><span class="annottext">s :: CreateDomain
-</span><a href="#local-6989586621680419493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419492"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680419492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
-</span><a href="#local-6989586621680419493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDomain' :: Maybe [Tag]
+</span><a href="#local-6989586621680421144"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680421144"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421143"><span class="annot"><span class="annottext">s :: CreateDomain
+</span><a href="#local-6989586621680421143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421142"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680421142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
+</span><a href="#local-6989586621680421143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDomain' :: Maybe [Tag]
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3Atags%3ACreateDomain%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680419492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621680421142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateDomain -&gt; f CreateDomain)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -386,135 +435,87 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-237"></span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- | This member is deprecated and replaced with @KmsKeyId@.</span><span>
-</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_homeEfsFileSystemKmsKeyId"><span class="hs-identifier hs-type">createDomain_homeEfsFileSystemKmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-240"></span><span id="createDomain_homeEfsFileSystemKmsKeyId"><span class="annot"><span class="annottext">createDomain_homeEfsFileSystemKmsKeyId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateDomain -&gt; f CreateDomain
-</span><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_homeEfsFileSystemKmsKeyId"><span class="hs-identifier hs-var hs-var">createDomain_homeEfsFileSystemKmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomain -&gt; Maybe Text)
--&gt; (CreateDomain -&gt; Maybe Text -&gt; CreateDomain)
--&gt; Lens CreateDomain CreateDomain (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419489"><span class="annot"><span class="annottext">Maybe Text
-homeEfsFileSystemKmsKeyId :: Maybe Text
-$sel:homeEfsFileSystemKmsKeyId:CreateDomain' :: CreateDomain -&gt; Maybe Text
-</span><a href="#local-6989586621680419489"><span class="hs-identifier hs-var hs-var">homeEfsFileSystemKmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680419489"><span class="hs-identifier hs-var">homeEfsFileSystemKmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419488"><span class="annot"><span class="annottext">s :: CreateDomain
-</span><a href="#local-6989586621680419488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419487"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680419487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
-</span><a href="#local-6989586621680419488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:homeEfsFileSystemKmsKeyId:CreateDomain' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AhomeEfsFileSystemKmsKeyId%3ACreateDomain%27"><span class="hs-identifier hs-var">homeEfsFileSystemKmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680419487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- | Specifies the VPC used for non-EFS traffic. The default value is</span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- @PublicInternetOnly@.</span><span>
-</span><span id="line-244"></span><span class="hs-comment">--</span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- -   @PublicInternetOnly@ - Non-EFS traffic is through a VPC managed by</span><span>
-</span><span id="line-246"></span><span class="hs-comment">--     Amazon SageMaker, which allows direct internet access</span><span>
-</span><span id="line-247"></span><span class="hs-comment">--</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- -   @VpcOnly@ - All Studio traffic is through the specified VPC and</span><span>
-</span><span id="line-249"></span><span class="hs-comment">--     subnets</span><span>
-</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_appNetworkAccessType"><span class="hs-identifier hs-type">createDomain_appNetworkAccessType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppNetworkAccessType.html#AppNetworkAccessType"><span class="hs-identifier hs-type">AppNetworkAccessType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-251"></span><span id="createDomain_appNetworkAccessType"><span class="annot"><span class="annottext">createDomain_appNetworkAccessType :: (Maybe AppNetworkAccessType -&gt; f (Maybe AppNetworkAccessType))
--&gt; CreateDomain -&gt; f CreateDomain
-</span><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_appNetworkAccessType"><span class="hs-identifier hs-var hs-var">createDomain_appNetworkAccessType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomain -&gt; Maybe AppNetworkAccessType)
--&gt; (CreateDomain -&gt; Maybe AppNetworkAccessType -&gt; CreateDomain)
--&gt; Lens
-     CreateDomain
-     CreateDomain
-     (Maybe AppNetworkAccessType)
-     (Maybe AppNetworkAccessType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419486"><span class="annot"><span class="annottext">Maybe AppNetworkAccessType
-appNetworkAccessType :: Maybe AppNetworkAccessType
-$sel:appNetworkAccessType:CreateDomain' :: CreateDomain -&gt; Maybe AppNetworkAccessType
-</span><a href="#local-6989586621680419486"><span class="hs-identifier hs-var hs-var">appNetworkAccessType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppNetworkAccessType
-</span><a href="#local-6989586621680419486"><span class="hs-identifier hs-var">appNetworkAccessType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419485"><span class="annot"><span class="annottext">s :: CreateDomain
-</span><a href="#local-6989586621680419485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419484"><span class="annot"><span class="annottext">Maybe AppNetworkAccessType
-</span><a href="#local-6989586621680419484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
-</span><a href="#local-6989586621680419485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appNetworkAccessType:CreateDomain' :: Maybe AppNetworkAccessType
-</span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AappNetworkAccessType%3ACreateDomain%27"><span class="hs-identifier hs-var">appNetworkAccessType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppNetworkAccessType
-</span><a href="#local-6989586621680419484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- | A name for the domain.</span><span>
-</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_domainName"><span class="hs-identifier hs-type">createDomain_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-255"></span><span id="createDomain_domainName"><span class="annot"><span class="annottext">createDomain_domainName :: (Text -&gt; f Text) -&gt; CreateDomain -&gt; f CreateDomain
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | A name for the domain.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_domainName"><span class="hs-identifier hs-type">createDomain_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-256"></span><span id="createDomain_domainName"><span class="annot"><span class="annottext">createDomain_domainName :: (Text -&gt; f Text) -&gt; CreateDomain -&gt; f CreateDomain
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_domainName"><span class="hs-identifier hs-var hs-var">createDomain_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomain -&gt; Text)
 -&gt; (CreateDomain -&gt; Text -&gt; CreateDomain)
 -&gt; Lens CreateDomain CreateDomain Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419483"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421139"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:CreateDomain' :: CreateDomain -&gt; Text
-</span><a href="#local-6989586621680419483"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680419483"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419482"><span class="annot"><span class="annottext">s :: CreateDomain
-</span><a href="#local-6989586621680419482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419481"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680419481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
-</span><a href="#local-6989586621680419482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:CreateDomain' :: Text
+</span><a href="#local-6989586621680421139"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421139"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421138"><span class="annot"><span class="annottext">s :: CreateDomain
+</span><a href="#local-6989586621680421138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421137"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
+</span><a href="#local-6989586621680421138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:CreateDomain' :: Text
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AdomainName%3ACreateDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680419481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-256"></span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- | The mode of authentication that members use to access the domain.</span><span>
-</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_authMode"><span class="hs-identifier hs-type">createDomain_authMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AuthMode.html#AuthMode"><span class="hs-identifier hs-type">AuthMode</span></a></span><span>
-</span><span id="line-259"></span><span id="createDomain_authMode"><span class="annot"><span class="annottext">createDomain_authMode :: (AuthMode -&gt; f AuthMode) -&gt; CreateDomain -&gt; f CreateDomain
+</span><a href="#local-6989586621680421137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The mode of authentication that members use to access the domain.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_authMode"><span class="hs-identifier hs-type">createDomain_authMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AuthMode.html#AuthMode"><span class="hs-identifier hs-type">AuthMode</span></a></span><span>
+</span><span id="line-260"></span><span id="createDomain_authMode"><span class="annot"><span class="annottext">createDomain_authMode :: (AuthMode -&gt; f AuthMode) -&gt; CreateDomain -&gt; f CreateDomain
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_authMode"><span class="hs-identifier hs-var hs-var">createDomain_authMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomain -&gt; AuthMode)
 -&gt; (CreateDomain -&gt; AuthMode -&gt; CreateDomain)
 -&gt; Lens CreateDomain CreateDomain AuthMode AuthMode
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419480"><span class="annot"><span class="annottext">AuthMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421136"><span class="annot"><span class="annottext">AuthMode
 authMode :: AuthMode
 $sel:authMode:CreateDomain' :: CreateDomain -&gt; AuthMode
-</span><a href="#local-6989586621680419480"><span class="hs-identifier hs-var hs-var">authMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthMode
-</span><a href="#local-6989586621680419480"><span class="hs-identifier hs-var">authMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419479"><span class="annot"><span class="annottext">s :: CreateDomain
-</span><a href="#local-6989586621680419479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419478"><span class="annot"><span class="annottext">AuthMode
-</span><a href="#local-6989586621680419478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
-</span><a href="#local-6989586621680419479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authMode:CreateDomain' :: AuthMode
+</span><a href="#local-6989586621680421136"><span class="hs-identifier hs-var hs-var">authMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthMode
+</span><a href="#local-6989586621680421136"><span class="hs-identifier hs-var">authMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421135"><span class="annot"><span class="annottext">s :: CreateDomain
+</span><a href="#local-6989586621680421135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421134"><span class="annot"><span class="annottext">AuthMode
+</span><a href="#local-6989586621680421134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
+</span><a href="#local-6989586621680421135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authMode:CreateDomain' :: AuthMode
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AauthMode%3ACreateDomain%27"><span class="hs-identifier hs-var">authMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AuthMode
-</span><a href="#local-6989586621680419478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-260"></span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- | The default settings to use to create a user profile when @UserSettings@</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- isn\'t specified in the call to the @CreateUserProfile@ API.</span><span>
-</span><span id="line-263"></span><span class="hs-comment">--</span><span>
-</span><span id="line-264"></span><span class="hs-comment">-- @SecurityGroups@ is aggregated when specified in both calls. For all</span><span>
-</span><span id="line-265"></span><span class="hs-comment">-- other settings in @UserSettings@, the values specified in</span><span>
-</span><span id="line-266"></span><span class="hs-comment">-- @CreateUserProfile@ take precedence over those specified in</span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- @CreateDomain@.</span><span>
-</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_defaultUserSettings"><span class="hs-identifier hs-type">createDomain_defaultUserSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span>
-</span><span id="line-269"></span><span id="createDomain_defaultUserSettings"><span class="annot"><span class="annottext">createDomain_defaultUserSettings :: (UserSettings -&gt; f UserSettings) -&gt; CreateDomain -&gt; f CreateDomain
+</span><a href="#local-6989586621680421134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | The default settings to use to create a user profile when @UserSettings@</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- isn\'t specified in the call to the @CreateUserProfile@ API.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- @SecurityGroups@ is aggregated when specified in both calls. For all</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- other settings in @UserSettings@, the values specified in</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- @CreateUserProfile@ take precedence over those specified in</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- @CreateDomain@.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_defaultUserSettings"><span class="hs-identifier hs-type">createDomain_defaultUserSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span>
+</span><span id="line-270"></span><span id="createDomain_defaultUserSettings"><span class="annot"><span class="annottext">createDomain_defaultUserSettings :: (UserSettings -&gt; f UserSettings) -&gt; CreateDomain -&gt; f CreateDomain
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_defaultUserSettings"><span class="hs-identifier hs-var hs-var">createDomain_defaultUserSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomain -&gt; UserSettings)
 -&gt; (CreateDomain -&gt; UserSettings -&gt; CreateDomain)
 -&gt; Lens CreateDomain CreateDomain UserSettings UserSettings
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419477"><span class="annot"><span class="annottext">UserSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421133"><span class="annot"><span class="annottext">UserSettings
 defaultUserSettings :: UserSettings
 $sel:defaultUserSettings:CreateDomain' :: CreateDomain -&gt; UserSettings
-</span><a href="#local-6989586621680419477"><span class="hs-identifier hs-var hs-var">defaultUserSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSettings
-</span><a href="#local-6989586621680419477"><span class="hs-identifier hs-var">defaultUserSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419476"><span class="annot"><span class="annottext">s :: CreateDomain
-</span><a href="#local-6989586621680419476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419475"><span class="annot"><span class="annottext">UserSettings
-</span><a href="#local-6989586621680419475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
-</span><a href="#local-6989586621680419476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultUserSettings:CreateDomain' :: UserSettings
+</span><a href="#local-6989586621680421133"><span class="hs-identifier hs-var hs-var">defaultUserSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSettings
+</span><a href="#local-6989586621680421133"><span class="hs-identifier hs-var">defaultUserSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421132"><span class="annot"><span class="annottext">s :: CreateDomain
+</span><a href="#local-6989586621680421132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421131"><span class="annot"><span class="annottext">UserSettings
+</span><a href="#local-6989586621680421131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
+</span><a href="#local-6989586621680421132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultUserSettings:CreateDomain' :: UserSettings
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AdefaultUserSettings%3ACreateDomain%27"><span class="hs-identifier hs-var">defaultUserSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UserSettings
-</span><a href="#local-6989586621680419475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-270"></span><span>
-</span><span id="line-271"></span><span class="hs-comment">-- | The VPC subnets that Studio uses for communication.</span><span>
-</span><span id="line-272"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_subnetIds"><span class="hs-identifier hs-type">createDomain_subnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-273"></span><span id="createDomain_subnetIds"><span class="annot"><span class="annottext">createDomain_subnetIds :: (NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621680421131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | The VPC subnets that Studio uses for communication.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_subnetIds"><span class="hs-identifier hs-type">createDomain_subnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="createDomain_subnetIds"><span class="annot"><span class="annottext">createDomain_subnetIds :: (NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; CreateDomain -&gt; f CreateDomain
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_subnetIds"><span class="hs-identifier hs-var hs-var">createDomain_subnetIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomain -&gt; NonEmpty Text)
 -&gt; (CreateDomain -&gt; NonEmpty Text -&gt; CreateDomain)
 -&gt; Lens CreateDomain CreateDomain (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419474"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421130"><span class="annot"><span class="annottext">NonEmpty Text
 subnetIds :: NonEmpty Text
 $sel:subnetIds:CreateDomain' :: CreateDomain -&gt; NonEmpty Text
-</span><a href="#local-6989586621680419474"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680419474"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419473"><span class="annot"><span class="annottext">s :: CreateDomain
-</span><a href="#local-6989586621680419473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419472"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680419472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
-</span><a href="#local-6989586621680419473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:CreateDomain' :: NonEmpty Text
+</span><a href="#local-6989586621680421130"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621680421130"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421129"><span class="annot"><span class="annottext">s :: CreateDomain
+</span><a href="#local-6989586621680421129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421128"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621680421128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
+</span><a href="#local-6989586621680421129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:CreateDomain' :: NonEmpty Text
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AsubnetIds%3ACreateDomain%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680419472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621680421128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; CreateDomain -&gt; f CreateDomain)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -524,42 +525,42 @@ $sel:subnetIds:CreateDomain' :: CreateDomain -&gt; NonEmpty Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-274"></span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- | The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for</span><span>
-</span><span id="line-276"></span><span class="hs-comment">-- communication.</span><span>
-</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_vpcId"><span class="hs-identifier hs-type">createDomain_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-278"></span><span id="createDomain_vpcId"><span class="annot"><span class="annottext">createDomain_vpcId :: (Text -&gt; f Text) -&gt; CreateDomain -&gt; f CreateDomain
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- communication.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_vpcId"><span class="hs-identifier hs-type">createDomain_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-279"></span><span id="createDomain_vpcId"><span class="annot"><span class="annottext">createDomain_vpcId :: (Text -&gt; f Text) -&gt; CreateDomain -&gt; f CreateDomain
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#createDomain_vpcId"><span class="hs-identifier hs-var hs-var">createDomain_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomain -&gt; Text)
 -&gt; (CreateDomain -&gt; Text -&gt; CreateDomain)
 -&gt; Lens CreateDomain CreateDomain Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419471"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421127"><span class="annot"><span class="annottext">Text
 vpcId :: Text
 $sel:vpcId:CreateDomain' :: CreateDomain -&gt; Text
-</span><a href="#local-6989586621680419471"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680419471"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419470"><span class="annot"><span class="annottext">s :: CreateDomain
-</span><a href="#local-6989586621680419470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419469"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680419469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
-</span><a href="#local-6989586621680419470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:CreateDomain' :: Text
+</span><a href="#local-6989586621680421127"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421127"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421126"><span class="annot"><span class="annottext">s :: CreateDomain
+</span><a href="#local-6989586621680421126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421125"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680421125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomain
+</span><a href="#local-6989586621680421126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:CreateDomain' :: Text
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AvpcId%3ACreateDomain%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680419469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-279"></span><span>
-</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-281"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span>
-</span><span id="line-282"></span><span>  </span><span id="local-6989586621680419465"><span class="annot"><span class="annottext">request :: CreateDomain -&gt; Request CreateDomain
+</span><a href="#local-6989586621680421125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-282"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span>
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621680421121"><span class="annot"><span class="annottext">request :: CreateDomain -&gt; Request CreateDomain
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDomain -&gt; Request CreateDomain
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-283"></span><span>  </span><span id="local-6989586621680419461"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621680421117"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateDomain
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse CreateDomain)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-284"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-285"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; Object
  -&gt; Either String (AWSResponse CreateDomain))
@@ -577,31 +578,31 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-285"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680419458"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680419458"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680419457"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680419457"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680419456"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680419456"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-286"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateDomainResponse
+</span><span id="line-286"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680421114"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680421114"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680421113"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680421113"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680421112"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680421112"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-287"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateDomainResponse
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-var">CreateDomainResponse'</span></a></span><span>
-</span><span id="line-287"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateDomainResponse)
+</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateDomainResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; CreateDomainResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680419456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680421112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DomainArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateDomainResponse)
+</span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateDomainResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; CreateDomainResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680419456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680421112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Url&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateDomainResponse)
+</span><span id="line-290"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateDomainResponse)
 -&gt; Either String Int -&gt; Either String CreateDomainResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
@@ -609,42 +610,42 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680419458"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-290"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-291"></span><span>
-</span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680419448"><span id="local-6989586621680419450"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span></span></span><span>
-</span><span id="line-293"></span><span>
-</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680419445"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span></span><span>
-</span><span id="line-295"></span><span>
-</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-297"></span><span>  </span><span id="local-6989586621680419441"><span class="annot"><span class="annottext">toHeaders :: CreateDomain -&gt; ResponseHeaders
+</span><a href="#local-6989586621680421114"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680421104"><span id="local-6989586621680421106"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span></span></span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680421101"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span></span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-298"></span><span>  </span><span id="local-6989586621680421097"><span class="annot"><span class="annottext">toHeaders :: CreateDomain -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-298"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDomain -&gt; ResponseHeaders
+</span><span id="line-299"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDomain -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
-</span><span id="line-299"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+</span><span id="line-300"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-300"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-301"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
-</span><span id="line-301"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-302"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SageMaker.CreateDomain&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-302"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-303"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
-</span><span id="line-303"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-304"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-304"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-305"></span><span>                      </span><span class="hs-special">)</span><span>
-</span><span id="line-306"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-307"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-308"></span><span>
-</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680419431"><span id="local-6989586621680419433"><span id="local-6989586621680419435"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-310"></span><span>  </span><span id="local-6989586621680419429"><span class="annot"><span class="annottext">toJSON :: CreateDomain -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419419"><span id="local-6989586621680419420"><span id="local-6989586621680419421"><span id="local-6989586621680419422"><span id="local-6989586621680419423"><span id="local-6989586621680419424"><span id="local-6989586621680419425"><span id="local-6989586621680419426"><span id="local-6989586621680419427"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-305"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-306"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-308"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680421087"><span id="local-6989586621680421089"><span id="local-6989586621680421091"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-311"></span><span>  </span><span id="local-6989586621680421085"><span class="annot"><span class="annottext">toJSON :: CreateDomain -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain%27"><span class="hs-identifier hs-type">CreateDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421075"><span id="local-6989586621680421076"><span id="local-6989586621680421077"><span id="local-6989586621680421078"><span id="local-6989586621680421079"><span id="local-6989586621680421080"><span id="local-6989586621680421081"><span id="local-6989586621680421082"><span id="local-6989586621680421083"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe Text
 Maybe AppNetworkAccessType
 NonEmpty Text
@@ -656,47 +657,40 @@ subnetIds :: NonEmpty Text
 defaultUserSettings :: UserSettings
 authMode :: AuthMode
 domainName :: Text
-appNetworkAccessType :: Maybe AppNetworkAccessType
-homeEfsFileSystemKmsKeyId :: Maybe Text
 tags :: Maybe [Tag]
+appNetworkAccessType :: Maybe AppNetworkAccessType
 kmsKeyId :: Maybe Text
+homeEfsFileSystemKmsKeyId :: Maybe Text
 $sel:vpcId:CreateDomain' :: CreateDomain -&gt; Text
 $sel:subnetIds:CreateDomain' :: CreateDomain -&gt; NonEmpty Text
 $sel:defaultUserSettings:CreateDomain' :: CreateDomain -&gt; UserSettings
 $sel:authMode:CreateDomain' :: CreateDomain -&gt; AuthMode
 $sel:domainName:CreateDomain' :: CreateDomain -&gt; Text
-$sel:appNetworkAccessType:CreateDomain' :: CreateDomain -&gt; Maybe AppNetworkAccessType
-$sel:homeEfsFileSystemKmsKeyId:CreateDomain' :: CreateDomain -&gt; Maybe Text
 $sel:tags:CreateDomain' :: CreateDomain -&gt; Maybe [Tag]
+$sel:appNetworkAccessType:CreateDomain' :: CreateDomain -&gt; Maybe AppNetworkAccessType
 $sel:kmsKeyId:CreateDomain' :: CreateDomain -&gt; Maybe Text
-</span><a href="#local-6989586621680419419"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-311"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:homeEfsFileSystemKmsKeyId:CreateDomain' :: CreateDomain -&gt; Maybe Text
+</span><a href="#local-6989586621680421075"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-312"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-312"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-313"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-313"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-314"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HomeEfsFileSystemKmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680421083"><span class="hs-identifier hs-var">homeEfsFileSystemKmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680419427"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-314"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680419426"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-315"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;HomeEfsFileSystemKmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-316"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680419425"><span class="hs-identifier hs-var">homeEfsFileSystemKmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680421082"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-317"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AppNetworkAccessType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AppNetworkAccessType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -705,74 +699,81 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AppNetworkAccessType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AppNetworkAccessType
-</span><a href="#local-6989586621680419424"><span class="hs-identifier hs-var">appNetworkAccessType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-319"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621680421081"><span class="hs-identifier hs-var">appNetworkAccessType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680421080"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680419423"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-320"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621680421079"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AuthMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AuthMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AuthMode
-</span><a href="#local-6989586621680419422"><span class="hs-identifier hs-var">authMode</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-321"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621680421078"><span class="hs-identifier hs-var">authMode</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
-</span><span id="line-322"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-323"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultUserSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UserSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">UserSettings
-</span><a href="#local-6989586621680419421"><span class="hs-identifier hs-var">defaultUserSettings</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-323"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621680421077"><span class="hs-identifier hs-var">defaultUserSettings</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubnetIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680419420"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-324"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621680421076"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VpcId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680419419"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-325"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-326"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-327"></span><span>
-</span><span id="line-328"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-329"></span><span>  </span><span id="local-6989586621680419413"><span class="annot"><span class="annottext">toPath :: CreateDomain -&gt; ByteString
+</span><a href="#local-6989586621680421075"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-327"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-330"></span><span>  </span><span id="local-6989586621680421069"><span class="annot"><span class="annottext">toPath :: CreateDomain -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDomain -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
-</span><span id="line-330"></span><span>
-</span><span id="line-331"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-332"></span><span>  </span><span id="local-6989586621680419409"><span class="annot"><span class="annottext">toQuery :: CreateDomain -&gt; QueryString
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomain"><span class="hs-identifier hs-type">CreateDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-333"></span><span>  </span><span id="local-6989586621680421065"><span class="annot"><span class="annottext">toQuery :: CreateDomain -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDomain -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-333"></span><span>
-</span><span id="line-334"></span><span class="hs-comment">-- | /See:/ 'newCreateDomainResponse' smart constructor.</span><span>
-</span><span id="line-335"></span><span id="local-6989586621680419406"><span id="local-6989586621680419407"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomainResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-var">CreateDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomainResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-var">CreateDomainResponse'</span></a></span></span><span>
-</span><span id="line-336"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the created domain.</span><span>
-</span><span id="line-337"></span><span>    </span><span id="%24sel%3AdomainArn%3ACreateDomainResponse%27"><span class="annot"><span class="annottext">CreateDomainResponse -&gt; Maybe Text
+</span><span id="line-334"></span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- | /See:/ 'newCreateDomainResponse' smart constructor.</span><span>
+</span><span id="line-336"></span><span id="local-6989586621680421062"><span id="local-6989586621680421063"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomainResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-var">CreateDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomainResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-var">CreateDomainResponse'</span></a></span></span><span>
+</span><span id="line-337"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the created domain.</span><span>
+</span><span id="line-338"></span><span>    </span><span id="%24sel%3AdomainArn%3ACreateDomainResponse%27"><span class="annot"><span class="annottext">CreateDomainResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AdomainArn%3ACreateDomainResponse%27"><span class="hs-identifier hs-var hs-var">domainArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-338"></span><span>    </span><span class="hs-comment">-- | The URL to the created domain.</span><span>
-</span><span id="line-339"></span><span>    </span><span id="%24sel%3Aurl%3ACreateDomainResponse%27"><span class="annot"><span class="annottext">CreateDomainResponse -&gt; Maybe Text
+</span><span id="line-339"></span><span>    </span><span class="hs-comment">-- | The URL to the created domain.</span><span>
+</span><span id="line-340"></span><span>    </span><span id="%24sel%3Aurl%3ACreateDomainResponse%27"><span class="annot"><span class="annottext">CreateDomainResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3Aurl%3ACreateDomainResponse%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-340"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-341"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDomainResponse%27"><span class="annot"><span class="annottext">CreateDomainResponse -&gt; Int
+</span><span id="line-341"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-342"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDomainResponse%27"><span class="annot"><span class="annottext">CreateDomainResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AhttpStatus%3ACreateDomainResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-342"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-343"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680419399"><span id="local-6989586621680419401"><span class="annot"><span class="annottext">CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
+</span><span id="line-343"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-344"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680421055"><span id="local-6989586621680421057"><span class="annot"><span class="annottext">CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
 (CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool)
 -&gt; (CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool)
 -&gt; Eq CreateDomainResponse
@@ -781,7 +782,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
 == :: CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
 $c== :: CreateDomainResponse -&gt; CreateDomainResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680419391"><span id="local-6989586621680419393"><span id="local-6989586621680419395"><span id="local-6989586621680419397"><span class="annot"><span class="annottext">ReadPrec [CreateDomainResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680421047"><span id="local-6989586621680421049"><span id="local-6989586621680421051"><span id="local-6989586621680421053"><span class="annot"><span class="annottext">ReadPrec [CreateDomainResponse]
 ReadPrec CreateDomainResponse
 Int -&gt; ReadS CreateDomainResponse
 ReadS [CreateDomainResponse]
@@ -801,7 +802,7 @@ readList :: ReadS [CreateDomainResponse]
 $creadList :: ReadS [CreateDomainResponse]
 readsPrec :: Int -&gt; ReadS CreateDomainResponse
 $creadsPrec :: Int -&gt; ReadS CreateDomainResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680419385"><span id="local-6989586621680419387"><span id="local-6989586621680419389"><span class="annot"><span class="annottext">Int -&gt; CreateDomainResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680421041"><span id="local-6989586621680421043"><span id="local-6989586621680421045"><span class="annot"><span class="annottext">Int -&gt; CreateDomainResponse -&gt; ShowS
 [CreateDomainResponse] -&gt; ShowS
 CreateDomainResponse -&gt; String
 (Int -&gt; CreateDomainResponse -&gt; ShowS)
@@ -826,99 +827,99 @@ forall a.
 $cto :: forall x. Rep CreateDomainResponse x -&gt; CreateDomainResponse
 $cfrom :: forall x. CreateDomainResponse -&gt; Rep CreateDomainResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-344"></span><span>
-</span><span id="line-345"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-346"></span><span class="hs-comment">-- Create a value of 'CreateDomainResponse' with all optional fields omitted.</span><span>
-</span><span id="line-347"></span><span class="hs-comment">--</span><span>
-</span><span id="line-348"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-349"></span><span class="hs-comment">--</span><span>
-</span><span id="line-350"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-351"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-352"></span><span class="hs-comment">--</span><span>
-</span><span id="line-353"></span><span class="hs-comment">-- 'domainArn', 'createDomainResponse_domainArn' - The Amazon Resource Name (ARN) of the created domain.</span><span>
-</span><span id="line-354"></span><span class="hs-comment">--</span><span>
-</span><span id="line-355"></span><span class="hs-comment">-- 'url', 'createDomainResponse_url' - The URL to the created domain.</span><span>
-</span><span id="line-356"></span><span class="hs-comment">--</span><span>
-</span><span id="line-357"></span><span class="hs-comment">-- 'httpStatus', 'createDomainResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-358"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#newCreateDomainResponse"><span class="hs-identifier hs-type">newCreateDomainResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-359"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-360"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-361"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span>
-</span><span id="line-362"></span><span id="newCreateDomainResponse"><span class="annot"><span class="annottext">newCreateDomainResponse :: Int -&gt; CreateDomainResponse
-</span><a href="Network.AWS.SageMaker.CreateDomain.html#newCreateDomainResponse"><span class="hs-identifier hs-var hs-var">newCreateDomainResponse</span></a></span></span><span> </span><span id="local-6989586621680419382"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680419382"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-363"></span><span>  </span><span class="annot"><span class="annottext">CreateDomainResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateDomainResponse
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- Create a value of 'CreateDomainResponse' with all optional fields omitted.</span><span>
+</span><span id="line-348"></span><span class="hs-comment">--</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- 'domainArn', 'createDomainResponse_domainArn' - The Amazon Resource Name (ARN) of the created domain.</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- 'url', 'createDomainResponse_url' - The URL to the created domain.</span><span>
+</span><span id="line-357"></span><span class="hs-comment">--</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- 'httpStatus', 'createDomainResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-359"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#newCreateDomainResponse"><span class="hs-identifier hs-type">newCreateDomainResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-360"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-361"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-362"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span>
+</span><span id="line-363"></span><span id="newCreateDomainResponse"><span class="annot"><span class="annottext">newCreateDomainResponse :: Int -&gt; CreateDomainResponse
+</span><a href="Network.AWS.SageMaker.CreateDomain.html#newCreateDomainResponse"><span class="hs-identifier hs-var hs-var">newCreateDomainResponse</span></a></span></span><span> </span><span id="local-6989586621680421038"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680421038"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-364"></span><span>  </span><span class="annot"><span class="annottext">CreateDomainResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateDomainResponse
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span>
-</span><span id="line-364"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainArn:CreateDomainResponse' :: Maybe Text
+</span><span id="line-365"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainArn:CreateDomainResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AdomainArn%3ACreateDomainResponse%27"><span class="hs-identifier hs-var">domainArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-365"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:CreateDomainResponse' :: Maybe Text
+</span><span id="line-366"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:CreateDomainResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3Aurl%3ACreateDomainResponse%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-366"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDomainResponse' :: Int
+</span><span id="line-367"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDomainResponse' :: Int
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AhttpStatus%3ACreateDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680419382"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-367"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-368"></span><span>
-</span><span id="line-369"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the created domain.</span><span>
-</span><span id="line-370"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomainResponse_domainArn"><span class="hs-identifier hs-type">createDomainResponse_domainArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-371"></span><span id="createDomainResponse_domainArn"><span class="annot"><span class="annottext">createDomainResponse_domainArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621680421038"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-368"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-369"></span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the created domain.</span><span>
+</span><span id="line-371"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomainResponse_domainArn"><span class="hs-identifier hs-type">createDomainResponse_domainArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-372"></span><span id="createDomainResponse_domainArn"><span class="annot"><span class="annottext">createDomainResponse_domainArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreateDomainResponse -&gt; f CreateDomainResponse
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#createDomainResponse_domainArn"><span class="hs-identifier hs-var hs-var">createDomainResponse_domainArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomainResponse -&gt; Maybe Text)
 -&gt; (CreateDomainResponse -&gt; Maybe Text -&gt; CreateDomainResponse)
 -&gt; Lens
      CreateDomainResponse CreateDomainResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419381"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421037"><span class="annot"><span class="annottext">Maybe Text
 domainArn :: Maybe Text
 $sel:domainArn:CreateDomainResponse' :: CreateDomainResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680419381"><span class="hs-identifier hs-var hs-var">domainArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680419381"><span class="hs-identifier hs-var">domainArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419380"><span class="annot"><span class="annottext">s :: CreateDomainResponse
-</span><a href="#local-6989586621680419380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419379"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680419379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainResponse
-</span><a href="#local-6989586621680419380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainArn:CreateDomainResponse' :: Maybe Text
+</span><a href="#local-6989586621680421037"><span class="hs-identifier hs-var hs-var">domainArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680421037"><span class="hs-identifier hs-var">domainArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421036"><span class="annot"><span class="annottext">s :: CreateDomainResponse
+</span><a href="#local-6989586621680421036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421035"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680421035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainResponse
+</span><a href="#local-6989586621680421036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainArn:CreateDomainResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AdomainArn%3ACreateDomainResponse%27"><span class="hs-identifier hs-var">domainArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680419379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-372"></span><span>
-</span><span id="line-373"></span><span class="hs-comment">-- | The URL to the created domain.</span><span>
-</span><span id="line-374"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomainResponse_url"><span class="hs-identifier hs-type">createDomainResponse_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-375"></span><span id="createDomainResponse_url"><span class="annot"><span class="annottext">createDomainResponse_url :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621680421035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-373"></span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- | The URL to the created domain.</span><span>
+</span><span id="line-375"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomainResponse_url"><span class="hs-identifier hs-type">createDomainResponse_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span id="createDomainResponse_url"><span class="annot"><span class="annottext">createDomainResponse_url :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreateDomainResponse -&gt; f CreateDomainResponse
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#createDomainResponse_url"><span class="hs-identifier hs-var hs-var">createDomainResponse_url</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomainResponse -&gt; Maybe Text)
 -&gt; (CreateDomainResponse -&gt; Maybe Text -&gt; CreateDomainResponse)
 -&gt; Lens
      CreateDomainResponse CreateDomainResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419378"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421034"><span class="annot"><span class="annottext">Maybe Text
 url :: Maybe Text
 $sel:url:CreateDomainResponse' :: CreateDomainResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680419378"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680419378"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419377"><span class="annot"><span class="annottext">s :: CreateDomainResponse
-</span><a href="#local-6989586621680419377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419376"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680419376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainResponse
-</span><a href="#local-6989586621680419377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:CreateDomainResponse' :: Maybe Text
+</span><a href="#local-6989586621680421034"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680421034"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421033"><span class="annot"><span class="annottext">s :: CreateDomainResponse
+</span><a href="#local-6989586621680421033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421032"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680421032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainResponse
+</span><a href="#local-6989586621680421033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:CreateDomainResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3Aurl%3ACreateDomainResponse%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680419376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-376"></span><span>
-</span><span id="line-377"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-378"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomainResponse_httpStatus"><span class="hs-identifier hs-type">createDomainResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-379"></span><span id="createDomainResponse_httpStatus"><span class="annot"><span class="annottext">createDomainResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateDomainResponse -&gt; f CreateDomainResponse
+</span><a href="#local-6989586621680421032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-379"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#createDomainResponse_httpStatus"><span class="hs-identifier hs-type">createDomainResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-380"></span><span id="createDomainResponse_httpStatus"><span class="annot"><span class="annottext">createDomainResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateDomainResponse -&gt; f CreateDomainResponse
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#createDomainResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createDomainResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDomainResponse -&gt; Int)
 -&gt; (CreateDomainResponse -&gt; Int -&gt; CreateDomainResponse)
 -&gt; Lens CreateDomainResponse CreateDomainResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419375"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680421031"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateDomainResponse' :: CreateDomainResponse -&gt; Int
-</span><a href="#local-6989586621680419375"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680419375"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419374"><span class="annot"><span class="annottext">s :: CreateDomainResponse
-</span><a href="#local-6989586621680419374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419373"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680419373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainResponse
-</span><a href="#local-6989586621680419374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDomainResponse' :: Int
+</span><a href="#local-6989586621680421031"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680421031"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680421030"><span class="annot"><span class="annottext">s :: CreateDomainResponse
+</span><a href="#local-6989586621680421030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse%27"><span class="hs-identifier hs-type">CreateDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680421029"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680421029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainResponse
+</span><a href="#local-6989586621680421030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDomainResponse' :: Int
 </span><a href="Network.AWS.SageMaker.CreateDomain.html#%24sel%3AhttpStatus%3ACreateDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680419373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-380"></span><span>
-</span><span id="line-381"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680419371"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span></span><span>
-</span><span id="line-382"></span></pre></body></html>
+</span><a href="#local-6989586621680421029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-381"></span><span>
+</span><span id="line-382"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680421027"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDomain.html#CreateDomainResponse"><span class="hs-identifier hs-type">CreateDomainResponse</span></a></span></span><span>
+</span><span id="line-383"></span></pre></body></html>

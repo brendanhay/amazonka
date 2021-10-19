@@ -24,7 +24,7 @@
 </span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-25"></span><span>
 </span><span id="line-26"></span><span class="hs-comment">-- | /See:/ 'newIdentity' smart constructor.</span><span>
-</span><span id="line-27"></span><span id="local-6989586621679136553"><span id="local-6989586621679136554"></span></span><span class="hs-keyword">data</span><span> </span><span id="Identity"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity"><span class="hs-identifier hs-var">Identity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Identity%27"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity%27"><span class="hs-identifier hs-var">Identity'</span></a></span></span><span>
+</span><span id="line-27"></span><span id="local-6989586621679136552"><span id="local-6989586621679136553"></span></span><span class="hs-keyword">data</span><span> </span><span id="Identity"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity"><span class="hs-identifier hs-var">Identity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Identity%27"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity%27"><span class="hs-identifier hs-var">Identity'</span></a></span></span><span>
 </span><span id="line-28"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The source IP address of the TCP connection making the request to API</span><span>
 </span><span id="line-29"></span><span>    </span><span class="hs-comment">-- Gateway.</span><span>
 </span><span id="line-30"></span><span>    </span><span id="%24sel%3AsourceIp%3AIdentity%27"><span class="annot"><span class="annottext">Identity -&gt; Text
@@ -33,7 +33,7 @@
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AuserAgent%3AIdentity%27"><span class="annot"><span class="annottext">Identity -&gt; Text
 </span><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#%24sel%3AuserAgent%3AIdentity%27"><span class="hs-identifier hs-var hs-var">userAgent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679136546"><span id="local-6989586621679136548"><span class="annot"><span class="annottext">Identity -&gt; Identity -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679136545"><span id="local-6989586621679136547"><span class="annot"><span class="annottext">Identity -&gt; Identity -&gt; Bool
 (Identity -&gt; Identity -&gt; Bool)
 -&gt; (Identity -&gt; Identity -&gt; Bool) -&gt; Eq Identity
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Identity -&gt; Identity -&gt; Bool
 == :: Identity -&gt; Identity -&gt; Bool
 $c== :: Identity -&gt; Identity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136537"><span id="local-6989586621679136539"><span id="local-6989586621679136541"><span id="local-6989586621679136543"><span class="annot"><span class="annottext">ReadPrec [Identity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136536"><span id="local-6989586621679136538"><span id="local-6989586621679136540"><span id="local-6989586621679136542"><span class="annot"><span class="annottext">ReadPrec [Identity]
 ReadPrec Identity
 Int -&gt; ReadS Identity
 ReadS [Identity]
@@ -61,7 +61,7 @@ readList :: ReadS [Identity]
 $creadList :: ReadS [Identity]
 readsPrec :: Int -&gt; ReadS Identity
 $creadsPrec :: Int -&gt; ReadS Identity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136530"><span id="local-6989586621679136532"><span id="local-6989586621679136534"><span class="annot"><span class="annottext">Int -&gt; Identity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136529"><span id="local-6989586621679136531"><span id="local-6989586621679136533"><span class="annot"><span class="annottext">Int -&gt; Identity -&gt; ShowS
 [Identity] -&gt; ShowS
 Identity -&gt; String
 (Int -&gt; Identity -&gt; ShowS)
@@ -103,17 +103,17 @@ $cfrom :: forall x. Identity -&gt; Rep Identity x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span>
 </span><span id="line-54"></span><span id="newIdentity"><span class="annot"><span class="annottext">newIdentity :: Text -&gt; Text -&gt; Identity
-</span><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#newIdentity"><span class="hs-identifier hs-var hs-var">newIdentity</span></a></span></span><span> </span><span id="local-6989586621679136524"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136524"><span class="hs-identifier hs-var">pSourceIp_</span></a></span></span><span> </span><span id="local-6989586621679136523"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136523"><span class="hs-identifier hs-var">pUserAgent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#newIdentity"><span class="hs-identifier hs-var hs-var">newIdentity</span></a></span></span><span> </span><span id="local-6989586621679136523"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136523"><span class="hs-identifier hs-var">pSourceIp_</span></a></span></span><span> </span><span id="local-6989586621679136522"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136522"><span class="hs-identifier hs-var">pUserAgent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">Identity' :: Text -&gt; Text -&gt; Identity
 </span><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity%27"><span class="hs-identifier hs-type">Identity'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceIp:Identity' :: Text
 </span><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#%24sel%3AsourceIp%3AIdentity%27"><span class="hs-identifier hs-var">sourceIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136524"><span class="hs-identifier hs-var">pSourceIp_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679136523"><span class="hs-identifier hs-var">pSourceIp_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:userAgent:Identity' :: Text
 </span><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#%24sel%3AuserAgent%3AIdentity%27"><span class="hs-identifier hs-var">userAgent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136523"><span class="hs-identifier hs-var">pUserAgent_</span></a></span><span>
+</span><a href="#local-6989586621679136522"><span class="hs-identifier hs-var">pUserAgent_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The source IP address of the TCP connection making the request to API</span><span>
@@ -124,16 +124,16 @@ $cfrom :: forall x. Identity -&gt; Rep Identity x
 -&gt; (Identity -&gt; Text -&gt; Identity)
 -&gt; Lens Identity Identity Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity%27"><span class="hs-identifier hs-type">Identity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136519"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity%27"><span class="hs-identifier hs-type">Identity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136518"><span class="annot"><span class="annottext">Text
 sourceIp :: Text
 $sel:sourceIp:Identity' :: Identity -&gt; Text
-</span><a href="#local-6989586621679136519"><span class="hs-identifier hs-var hs-var">sourceIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136519"><span class="hs-identifier hs-var">sourceIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136518"><span class="annot"><span class="annottext">s :: Identity
-</span><a href="#local-6989586621679136518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity%27"><span class="hs-identifier hs-type">Identity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136517"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Identity
-</span><a href="#local-6989586621679136518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIp:Identity' :: Text
+</span><a href="#local-6989586621679136518"><span class="hs-identifier hs-var hs-var">sourceIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136518"><span class="hs-identifier hs-var">sourceIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136517"><span class="annot"><span class="annottext">s :: Identity
+</span><a href="#local-6989586621679136517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity%27"><span class="hs-identifier hs-type">Identity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136516"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Identity
+</span><a href="#local-6989586621679136517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIp:Identity' :: Text
 </span><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#%24sel%3AsourceIp%3AIdentity%27"><span class="hs-identifier hs-var">sourceIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679136516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The User Agent of the API caller.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#identity_userAgent"><span class="hs-identifier hs-type">identity_userAgent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -142,47 +142,47 @@ $sel:sourceIp:Identity' :: Identity -&gt; Text
 -&gt; (Identity -&gt; Text -&gt; Identity)
 -&gt; Lens Identity Identity Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity%27"><span class="hs-identifier hs-type">Identity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136515"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity%27"><span class="hs-identifier hs-type">Identity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136514"><span class="annot"><span class="annottext">Text
 userAgent :: Text
 $sel:userAgent:Identity' :: Identity -&gt; Text
-</span><a href="#local-6989586621679136515"><span class="hs-identifier hs-var hs-var">userAgent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136515"><span class="hs-identifier hs-var">userAgent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136514"><span class="annot"><span class="annottext">s :: Identity
-</span><a href="#local-6989586621679136514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity%27"><span class="hs-identifier hs-type">Identity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136513"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Identity
-</span><a href="#local-6989586621679136514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAgent:Identity' :: Text
+</span><a href="#local-6989586621679136514"><span class="hs-identifier hs-var hs-var">userAgent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136514"><span class="hs-identifier hs-var">userAgent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136513"><span class="annot"><span class="annottext">s :: Identity
+</span><a href="#local-6989586621679136513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity%27"><span class="hs-identifier hs-type">Identity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136512"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Identity
+</span><a href="#local-6989586621679136513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAgent:Identity' :: Text
 </span><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#%24sel%3AuserAgent%3AIdentity%27"><span class="hs-identifier hs-var">userAgent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679136512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136510"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679136508"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Identity
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136509"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679136507"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Identity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Identity) -&gt; Value -&gt; Parser Identity
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Identity&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679136505"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679136505"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679136504"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679136504"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Identity
 </span><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity%27"><span class="hs-identifier hs-var">Identity'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Identity)
 -&gt; Parser Text -&gt; Parser (Text -&gt; Identity)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679136505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679136504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceIp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Identity) -&gt; Parser Text -&gt; Parser Identity
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679136505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679136504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;userAgent&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136499"><span id="local-6989586621679136501"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136498"><span id="local-6989586621679136500"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136496"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- or build artifact.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInputArtifact' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679278166"><span id="local-6989586621679278167"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputArtifact"><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact"><span class="hs-identifier hs-var">InputArtifact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputArtifact%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact%27"><span class="hs-identifier hs-var">InputArtifact'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679278366"><span id="local-6989586621679278367"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputArtifact"><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact"><span class="hs-identifier hs-var">InputArtifact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputArtifact%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact%27"><span class="hs-identifier hs-var">InputArtifact'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the artifact to be worked on (for example, \&quot;My App\&quot;).</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- The input artifact of an action must exactly match the output artifact</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Aname%3AInputArtifact%27"><span class="annot"><span class="annottext">InputArtifact -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#%24sel%3Aname%3AInputArtifact%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278160"><span id="local-6989586621679278162"><span class="annot"><span class="annottext">InputArtifact -&gt; InputArtifact -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278360"><span id="local-6989586621679278362"><span class="annot"><span class="annottext">InputArtifact -&gt; InputArtifact -&gt; Bool
 (InputArtifact -&gt; InputArtifact -&gt; Bool)
 -&gt; (InputArtifact -&gt; InputArtifact -&gt; Bool) -&gt; Eq InputArtifact
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InputArtifact -&gt; InputArtifact -&gt; Bool
 == :: InputArtifact -&gt; InputArtifact -&gt; Bool
 $c== :: InputArtifact -&gt; InputArtifact -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278151"><span id="local-6989586621679278153"><span id="local-6989586621679278155"><span id="local-6989586621679278157"><span class="annot"><span class="annottext">ReadPrec [InputArtifact]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278351"><span id="local-6989586621679278353"><span id="local-6989586621679278355"><span id="local-6989586621679278357"><span class="annot"><span class="annottext">ReadPrec [InputArtifact]
 ReadPrec InputArtifact
 Int -&gt; ReadS InputArtifact
 ReadS [InputArtifact]
@@ -66,7 +66,7 @@ readList :: ReadS [InputArtifact]
 $creadList :: ReadS [InputArtifact]
 readsPrec :: Int -&gt; ReadS InputArtifact
 $creadsPrec :: Int -&gt; ReadS InputArtifact
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278144"><span id="local-6989586621679278146"><span id="local-6989586621679278148"><span class="annot"><span class="annottext">Int -&gt; InputArtifact -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278344"><span id="local-6989586621679278346"><span id="local-6989586621679278348"><span class="annot"><span class="annottext">Int -&gt; InputArtifact -&gt; ShowS
 [InputArtifact] -&gt; ShowS
 InputArtifact -&gt; String
 (Int -&gt; InputArtifact -&gt; ShowS)
@@ -112,12 +112,12 @@ $cfrom :: forall x. InputArtifact -&gt; Rep InputArtifact x
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact"><span class="hs-identifier hs-type">InputArtifact</span></a></span><span>
 </span><span id="line-61"></span><span id="newInputArtifact"><span class="annot"><span class="annottext">newInputArtifact :: Text -&gt; InputArtifact
-</span><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#newInputArtifact"><span class="hs-identifier hs-var hs-var">newInputArtifact</span></a></span></span><span> </span><span id="local-6989586621679278138"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278138"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#newInputArtifact"><span class="hs-identifier hs-var hs-var">newInputArtifact</span></a></span></span><span> </span><span id="local-6989586621679278338"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278338"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">InputArtifact' :: Text -&gt; InputArtifact
 </span><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact%27"><span class="hs-identifier hs-type">InputArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InputArtifact' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#%24sel%3Aname%3AInputArtifact%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278138"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679278338"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The name of the artifact to be worked on (for example, \&quot;My App\&quot;).</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
@@ -132,19 +132,19 @@ $cfrom :: forall x. InputArtifact -&gt; Rep InputArtifact x
 -&gt; (InputArtifact -&gt; Text -&gt; InputArtifact)
 -&gt; Lens InputArtifact InputArtifact Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact%27"><span class="hs-identifier hs-type">InputArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278134"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact%27"><span class="hs-identifier hs-type">InputArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278334"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:InputArtifact' :: InputArtifact -&gt; Text
-</span><a href="#local-6989586621679278134"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278134"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278133"><span class="annot"><span class="annottext">s :: InputArtifact
-</span><a href="#local-6989586621679278133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact%27"><span class="hs-identifier hs-type">InputArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278132"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputArtifact
-</span><a href="#local-6989586621679278133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InputArtifact' :: Text
+</span><a href="#local-6989586621679278334"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278334"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278333"><span class="annot"><span class="annottext">s :: InputArtifact
+</span><a href="#local-6989586621679278333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact%27"><span class="hs-identifier hs-type">InputArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278332"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputArtifact
+</span><a href="#local-6989586621679278333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InputArtifact' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#%24sel%3Aname%3AInputArtifact%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact"><span class="hs-identifier hs-type">InputArtifact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact"><span class="hs-identifier hs-type">InputArtifact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278129"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact"><span class="hs-identifier hs-type">InputArtifact</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679278127"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputArtifact
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278329"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact"><span class="hs-identifier hs-type">InputArtifact</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679278327"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputArtifact
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InputArtifact)
@@ -154,28 +154,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InputArtifact&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278124"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278124"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278324"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278324"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; InputArtifact
 </span><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact%27"><span class="hs-identifier hs-var">InputArtifact'</span></a></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; InputArtifact) -&gt; Parser Text -&gt; Parser InputArtifact
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679278324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278118"><span id="local-6989586621679278120"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact"><span class="hs-identifier hs-type">InputArtifact</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278318"><span id="local-6989586621679278320"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact"><span class="hs-identifier hs-type">InputArtifact</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact"><span class="hs-identifier hs-type">InputArtifact</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278315"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact"><span class="hs-identifier hs-type">InputArtifact</span></a></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278107"><span id="local-6989586621679278109"><span id="local-6989586621679278111"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact"><span class="hs-identifier hs-type">InputArtifact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679278105"><span class="annot"><span class="annottext">toJSON :: InputArtifact -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact%27"><span class="hs-identifier hs-type">InputArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278103"><span class="annot"><span class="annottext">Text
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278307"><span id="local-6989586621679278309"><span id="local-6989586621679278311"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact"><span class="hs-identifier hs-type">InputArtifact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679278305"><span class="annot"><span class="annottext">toJSON :: InputArtifact -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.InputArtifact.html#InputArtifact%27"><span class="hs-identifier hs-type">InputArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278303"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:InputArtifact' :: InputArtifact -&gt; Text
-</span><a href="#local-6989586621679278103"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679278303"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -187,6 +187,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278103"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679278303"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

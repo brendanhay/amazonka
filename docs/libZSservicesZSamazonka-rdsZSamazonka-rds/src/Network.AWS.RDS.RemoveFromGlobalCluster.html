@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newRemoveFromGlobalCluster' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679778464"><span id="local-6989586621679778465"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveFromGlobalCluster"><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster"><span class="hs-identifier hs-var">RemoveFromGlobalCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveFromGlobalCluster%27"><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster%27"><span class="hs-identifier hs-var">RemoveFromGlobalCluster'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679779562"><span id="local-6989586621679779563"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveFromGlobalCluster"><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster"><span class="hs-identifier hs-var">RemoveFromGlobalCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveFromGlobalCluster%27"><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster%27"><span class="hs-identifier hs-var">RemoveFromGlobalCluster'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) identifying the cluster that was detached</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- from the Aurora global database cluster.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AdbClusterIdentifier%3ARemoveFromGlobalCluster%27"><span class="annot"><span class="annottext">RemoveFromGlobalCluster -&gt; Maybe Text
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AglobalClusterIdentifier%3ARemoveFromGlobalCluster%27"><span class="annot"><span class="annottext">RemoveFromGlobalCluster -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3ARemoveFromGlobalCluster%27"><span class="hs-identifier hs-var hs-var">globalClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679778457"><span id="local-6989586621679778459"><span class="annot"><span class="annottext">RemoveFromGlobalCluster -&gt; RemoveFromGlobalCluster -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679779555"><span id="local-6989586621679779557"><span class="annot"><span class="annottext">RemoveFromGlobalCluster -&gt; RemoveFromGlobalCluster -&gt; Bool
 (RemoveFromGlobalCluster -&gt; RemoveFromGlobalCluster -&gt; Bool)
 -&gt; (RemoveFromGlobalCluster -&gt; RemoveFromGlobalCluster -&gt; Bool)
 -&gt; Eq RemoveFromGlobalCluster
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoveFromGlobalCluster -&gt; RemoveFromGlobalCluster -&gt; Bool
 == :: RemoveFromGlobalCluster -&gt; RemoveFromGlobalCluster -&gt; Bool
 $c== :: RemoveFromGlobalCluster -&gt; RemoveFromGlobalCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778448"><span id="local-6989586621679778450"><span id="local-6989586621679778452"><span id="local-6989586621679778454"><span class="annot"><span class="annottext">ReadPrec [RemoveFromGlobalCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779546"><span id="local-6989586621679779548"><span id="local-6989586621679779550"><span id="local-6989586621679779552"><span class="annot"><span class="annottext">ReadPrec [RemoveFromGlobalCluster]
 ReadPrec RemoveFromGlobalCluster
 Int -&gt; ReadS RemoveFromGlobalCluster
 ReadS [RemoveFromGlobalCluster]
@@ -92,7 +92,7 @@ readList :: ReadS [RemoveFromGlobalCluster]
 $creadList :: ReadS [RemoveFromGlobalCluster]
 readsPrec :: Int -&gt; ReadS RemoveFromGlobalCluster
 $creadsPrec :: Int -&gt; ReadS RemoveFromGlobalCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778441"><span id="local-6989586621679778443"><span id="local-6989586621679778445"><span class="annot"><span class="annottext">Int -&gt; RemoveFromGlobalCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779539"><span id="local-6989586621679779541"><span id="local-6989586621679779543"><span class="annot"><span class="annottext">Int -&gt; RemoveFromGlobalCluster -&gt; ShowS
 [RemoveFromGlobalCluster] -&gt; ShowS
 RemoveFromGlobalCluster -&gt; String
 (Int -&gt; RemoveFromGlobalCluster -&gt; ShowS)
@@ -164,16 +164,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster%27"><span class="hs-identifier hs-type">RemoveFromGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778434"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster%27"><span class="hs-identifier hs-type">RemoveFromGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779532"><span class="annot"><span class="annottext">Maybe Text
 dbClusterIdentifier :: Maybe Text
 $sel:dbClusterIdentifier:RemoveFromGlobalCluster' :: RemoveFromGlobalCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679778434"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679778434"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778433"><span class="annot"><span class="annottext">s :: RemoveFromGlobalCluster
-</span><a href="#local-6989586621679778433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster%27"><span class="hs-identifier hs-type">RemoveFromGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778432"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679778432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFromGlobalCluster
-</span><a href="#local-6989586621679778433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:RemoveFromGlobalCluster' :: Maybe Text
+</span><a href="#local-6989586621679779532"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679779532"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779531"><span class="annot"><span class="annottext">s :: RemoveFromGlobalCluster
+</span><a href="#local-6989586621679779531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster%27"><span class="hs-identifier hs-type">RemoveFromGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779530"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679779530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFromGlobalCluster
+</span><a href="#local-6989586621679779531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:RemoveFromGlobalCluster' :: Maybe Text
 </span><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#%24sel%3AdbClusterIdentifier%3ARemoveFromGlobalCluster%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679778432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster"><span class="hs-identifier hs-type">RemoveFromGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679779530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster"><span class="hs-identifier hs-type">RemoveFromGlobalCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The cluster identifier to detach from the Aurora global database</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- cluster.</span><span>
@@ -189,28 +189,28 @@ $sel:dbClusterIdentifier:RemoveFromGlobalCluster' :: RemoveFromGlobalCluster -&g
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster%27"><span class="hs-identifier hs-type">RemoveFromGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778431"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster%27"><span class="hs-identifier hs-type">RemoveFromGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779529"><span class="annot"><span class="annottext">Maybe Text
 globalClusterIdentifier :: Maybe Text
 $sel:globalClusterIdentifier:RemoveFromGlobalCluster' :: RemoveFromGlobalCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679778431"><span class="hs-identifier hs-var hs-var">globalClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679778431"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778430"><span class="annot"><span class="annottext">s :: RemoveFromGlobalCluster
-</span><a href="#local-6989586621679778430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster%27"><span class="hs-identifier hs-type">RemoveFromGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778429"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679778429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFromGlobalCluster
-</span><a href="#local-6989586621679778430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalClusterIdentifier:RemoveFromGlobalCluster' :: Maybe Text
+</span><a href="#local-6989586621679779529"><span class="hs-identifier hs-var hs-var">globalClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679779529"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779528"><span class="annot"><span class="annottext">s :: RemoveFromGlobalCluster
+</span><a href="#local-6989586621679779528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster%27"><span class="hs-identifier hs-type">RemoveFromGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779527"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679779527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFromGlobalCluster
+</span><a href="#local-6989586621679779528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalClusterIdentifier:RemoveFromGlobalCluster' :: Maybe Text
 </span><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3ARemoveFromGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679778429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster"><span class="hs-identifier hs-type">RemoveFromGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679779527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster"><span class="hs-identifier hs-type">RemoveFromGlobalCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster"><span class="hs-identifier hs-type">RemoveFromGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster"><span class="hs-identifier hs-type">RemoveFromGlobalCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse"><span class="hs-identifier hs-type">RemoveFromGlobalClusterResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679778425"><span class="annot"><span class="annottext">request :: RemoveFromGlobalCluster -&gt; Request RemoveFromGlobalCluster
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679779523"><span class="annot"><span class="annottext">request :: RemoveFromGlobalCluster -&gt; Request RemoveFromGlobalCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; RemoveFromGlobalCluster -&gt; Request RemoveFromGlobalCluster
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679778421"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679779519"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RemoveFromGlobalCluster
 -&gt; ClientResponse ClientBody
@@ -241,10 +241,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RemoveFromGlobalClusterResult&quot;</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679778418"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679778418"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679778417"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679778417"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679778416"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679778416"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679779516"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679779516"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679779515"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679779515"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679779514"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679779514"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe GlobalCluster -&gt; Int -&gt; RemoveFromGlobalClusterResponse
 </span><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse%27"><span class="hs-identifier hs-var">RemoveFromGlobalClusterResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GlobalCluster -&gt; Int -&gt; RemoveFromGlobalClusterResponse)
@@ -252,7 +252,7 @@ Text
 -&gt; Either String (Int -&gt; RemoveFromGlobalClusterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679778416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe GlobalCluster)
+</span><a href="#local-6989586621679779514"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe GlobalCluster)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GlobalCluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -265,15 +265,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679778418"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679779516"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778408"><span id="local-6989586621679778410"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster"><span class="hs-identifier hs-type">RemoveFromGlobalCluster</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779506"><span id="local-6989586621679779508"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster"><span class="hs-identifier hs-type">RemoveFromGlobalCluster</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778405"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster"><span class="hs-identifier hs-type">RemoveFromGlobalCluster</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster"><span class="hs-identifier hs-type">RemoveFromGlobalCluster</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster"><span class="hs-identifier hs-type">RemoveFromGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679778401"><span class="annot"><span class="annottext">toHeaders :: RemoveFromGlobalCluster -&gt; ResponseHeaders
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679779499"><span class="annot"><span class="annottext">toHeaders :: RemoveFromGlobalCluster -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RemoveFromGlobalCluster -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -281,20 +281,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster"><span class="hs-identifier hs-type">RemoveFromGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679778396"><span class="annot"><span class="annottext">toPath :: RemoveFromGlobalCluster -&gt; ByteString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679779494"><span class="annot"><span class="annottext">toPath :: RemoveFromGlobalCluster -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RemoveFromGlobalCluster -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster"><span class="hs-identifier hs-type">RemoveFromGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679778392"><span class="annot"><span class="annottext">toQuery :: RemoveFromGlobalCluster -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster%27"><span class="hs-identifier hs-type">RemoveFromGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778389"><span id="local-6989586621679778390"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679779490"><span class="annot"><span class="annottext">toQuery :: RemoveFromGlobalCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalCluster%27"><span class="hs-identifier hs-type">RemoveFromGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779487"><span id="local-6989586621679779488"><span class="annot"><span class="annottext">Maybe Text
 globalClusterIdentifier :: Maybe Text
 dbClusterIdentifier :: Maybe Text
 $sel:globalClusterIdentifier:RemoveFromGlobalCluster' :: RemoveFromGlobalCluster -&gt; Maybe Text
 $sel:dbClusterIdentifier:RemoveFromGlobalCluster' :: RemoveFromGlobalCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679778389"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679779487"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -314,24 +314,24 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;DbClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679778390"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679779488"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;GlobalClusterIdentifier&quot;</span></span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679778389"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679779487"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newRemoveFromGlobalClusterResponse' smart constructor.</span><span>
-</span><span id="line-135"></span><span id="local-6989586621679778386"><span id="local-6989586621679778387"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveFromGlobalClusterResponse"><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse"><span class="hs-identifier hs-var">RemoveFromGlobalClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveFromGlobalClusterResponse%27"><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse%27"><span class="hs-identifier hs-var">RemoveFromGlobalClusterResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span id="local-6989586621679779484"><span id="local-6989586621679779485"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveFromGlobalClusterResponse"><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse"><span class="hs-identifier hs-var">RemoveFromGlobalClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveFromGlobalClusterResponse%27"><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse%27"><span class="hs-identifier hs-var">RemoveFromGlobalClusterResponse'</span></a></span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AglobalCluster%3ARemoveFromGlobalClusterResponse%27"><span class="annot"><span class="annottext">RemoveFromGlobalClusterResponse -&gt; Maybe GlobalCluster
 </span><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#%24sel%3AglobalCluster%3ARemoveFromGlobalClusterResponse%27"><span class="hs-identifier hs-var hs-var">globalCluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARemoveFromGlobalClusterResponse%27"><span class="annot"><span class="annottext">RemoveFromGlobalClusterResponse -&gt; Int
 </span><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#%24sel%3AhttpStatus%3ARemoveFromGlobalClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679778380"><span id="local-6989586621679778382"><span class="annot"><span class="annottext">RemoveFromGlobalClusterResponse
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679779478"><span id="local-6989586621679779480"><span class="annot"><span class="annottext">RemoveFromGlobalClusterResponse
 -&gt; RemoveFromGlobalClusterResponse -&gt; Bool
 (RemoveFromGlobalClusterResponse
  -&gt; RemoveFromGlobalClusterResponse -&gt; Bool)
@@ -347,7 +347,7 @@ $c/= :: RemoveFromGlobalClusterResponse
 -&gt; RemoveFromGlobalClusterResponse -&gt; Bool
 $c== :: RemoveFromGlobalClusterResponse
 -&gt; RemoveFromGlobalClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778372"><span id="local-6989586621679778374"><span id="local-6989586621679778376"><span id="local-6989586621679778378"><span class="annot"><span class="annottext">ReadPrec [RemoveFromGlobalClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779470"><span id="local-6989586621679779472"><span id="local-6989586621679779474"><span id="local-6989586621679779476"><span class="annot"><span class="annottext">ReadPrec [RemoveFromGlobalClusterResponse]
 ReadPrec RemoveFromGlobalClusterResponse
 Int -&gt; ReadS RemoveFromGlobalClusterResponse
 ReadS [RemoveFromGlobalClusterResponse]
@@ -367,7 +367,7 @@ readList :: ReadS [RemoveFromGlobalClusterResponse]
 $creadList :: ReadS [RemoveFromGlobalClusterResponse]
 readsPrec :: Int -&gt; ReadS RemoveFromGlobalClusterResponse
 $creadsPrec :: Int -&gt; ReadS RemoveFromGlobalClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778366"><span id="local-6989586621679778368"><span id="local-6989586621679778370"><span class="annot"><span class="annottext">Int -&gt; RemoveFromGlobalClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779464"><span id="local-6989586621679779466"><span id="local-6989586621679779468"><span class="annot"><span class="annottext">Int -&gt; RemoveFromGlobalClusterResponse -&gt; ShowS
 [RemoveFromGlobalClusterResponse] -&gt; ShowS
 RemoveFromGlobalClusterResponse -&gt; String
 (Int -&gt; RemoveFromGlobalClusterResponse -&gt; ShowS)
@@ -421,8 +421,8 @@ RemoveFromGlobalClusterResponse
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse"><span class="hs-identifier hs-type">RemoveFromGlobalClusterResponse</span></a></span><span>
 </span><span id="line-157"></span><span id="newRemoveFromGlobalClusterResponse"><span class="annot"><span class="annottext">newRemoveFromGlobalClusterResponse :: Int -&gt; RemoveFromGlobalClusterResponse
-</span><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#newRemoveFromGlobalClusterResponse"><span class="hs-identifier hs-var hs-var">newRemoveFromGlobalClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679778363"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679778363"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#newRemoveFromGlobalClusterResponse"><span class="hs-identifier hs-var hs-var">newRemoveFromGlobalClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679779461"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679779461"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">RemoveFromGlobalClusterResponse' :: Maybe GlobalCluster -&gt; Int -&gt; RemoveFromGlobalClusterResponse
 </span><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse%27"><span class="hs-identifier hs-type">RemoveFromGlobalClusterResponse'</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalCluster:RemoveFromGlobalClusterResponse' :: Maybe GlobalCluster
@@ -432,7 +432,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveFromGlobalClusterResponse' :: Int
 </span><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#%24sel%3AhttpStatus%3ARemoveFromGlobalClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679778363"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679779461"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -449,16 +449,16 @@ forall a. Maybe a
      (Maybe GlobalCluster)
      (Maybe GlobalCluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse%27"><span class="hs-identifier hs-type">RemoveFromGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778362"><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse%27"><span class="hs-identifier hs-type">RemoveFromGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779460"><span class="annot"><span class="annottext">Maybe GlobalCluster
 globalCluster :: Maybe GlobalCluster
 $sel:globalCluster:RemoveFromGlobalClusterResponse' :: RemoveFromGlobalClusterResponse -&gt; Maybe GlobalCluster
-</span><a href="#local-6989586621679778362"><span class="hs-identifier hs-var hs-var">globalCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalCluster
-</span><a href="#local-6989586621679778362"><span class="hs-identifier hs-var">globalCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778361"><span class="annot"><span class="annottext">s :: RemoveFromGlobalClusterResponse
-</span><a href="#local-6989586621679778361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse%27"><span class="hs-identifier hs-type">RemoveFromGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778360"><span class="annot"><span class="annottext">Maybe GlobalCluster
-</span><a href="#local-6989586621679778360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFromGlobalClusterResponse
-</span><a href="#local-6989586621679778361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalCluster:RemoveFromGlobalClusterResponse' :: Maybe GlobalCluster
+</span><a href="#local-6989586621679779460"><span class="hs-identifier hs-var hs-var">globalCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><a href="#local-6989586621679779460"><span class="hs-identifier hs-var">globalCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779459"><span class="annot"><span class="annottext">s :: RemoveFromGlobalClusterResponse
+</span><a href="#local-6989586621679779459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse%27"><span class="hs-identifier hs-type">RemoveFromGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779458"><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><a href="#local-6989586621679779458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFromGlobalClusterResponse
+</span><a href="#local-6989586621679779459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalCluster:RemoveFromGlobalClusterResponse' :: Maybe GlobalCluster
 </span><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#%24sel%3AglobalCluster%3ARemoveFromGlobalClusterResponse%27"><span class="hs-identifier hs-var">globalCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalCluster
-</span><a href="#local-6989586621679778360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse"><span class="hs-identifier hs-type">RemoveFromGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679779458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse"><span class="hs-identifier hs-type">RemoveFromGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-169"></span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#removeFromGlobalClusterResponse_httpStatus"><span class="hs-identifier hs-type">removeFromGlobalClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse"><span class="hs-identifier hs-type">RemoveFromGlobalClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -474,18 +474,18 @@ $sel:globalCluster:RemoveFromGlobalClusterResponse' :: RemoveFromGlobalClusterRe
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse%27"><span class="hs-identifier hs-type">RemoveFromGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778359"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse%27"><span class="hs-identifier hs-type">RemoveFromGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779457"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RemoveFromGlobalClusterResponse' :: RemoveFromGlobalClusterResponse -&gt; Int
-</span><a href="#local-6989586621679778359"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679778359"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778358"><span class="annot"><span class="annottext">s :: RemoveFromGlobalClusterResponse
-</span><a href="#local-6989586621679778358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse%27"><span class="hs-identifier hs-type">RemoveFromGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778357"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679778357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFromGlobalClusterResponse
-</span><a href="#local-6989586621679778358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveFromGlobalClusterResponse' :: Int
+</span><a href="#local-6989586621679779457"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679779457"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779456"><span class="annot"><span class="annottext">s :: RemoveFromGlobalClusterResponse
+</span><a href="#local-6989586621679779456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse%27"><span class="hs-identifier hs-type">RemoveFromGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779455"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679779455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFromGlobalClusterResponse
+</span><a href="#local-6989586621679779456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveFromGlobalClusterResponse' :: Int
 </span><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#%24sel%3AhttpStatus%3ARemoveFromGlobalClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679778357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse"><span class="hs-identifier hs-type">RemoveFromGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679779455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse"><span class="hs-identifier hs-type">RemoveFromGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679778355"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679779453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.RemoveFromGlobalCluster.html#RemoveFromGlobalClusterResponse"><span class="hs-identifier hs-type">RemoveFromGlobalClusterResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

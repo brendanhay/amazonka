@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- run the @ResumeCluster@ API operation.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newResumeClusterMessage' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679495629"><span id="local-6989586621679495630"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResumeClusterMessage"><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage"><span class="hs-identifier hs-var">ResumeClusterMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResumeClusterMessage%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage%27"><span class="hs-identifier hs-var">ResumeClusterMessage'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679496279"><span id="local-6989586621679496280"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResumeClusterMessage"><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage"><span class="hs-identifier hs-var">ResumeClusterMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResumeClusterMessage%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage%27"><span class="hs-identifier hs-var">ResumeClusterMessage'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the cluster to be resumed.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3AResumeClusterMessage%27"><span class="annot"><span class="annottext">ResumeClusterMessage -&gt; Text
 </span><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#%24sel%3AclusterIdentifier%3AResumeClusterMessage%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679495623"><span id="local-6989586621679495625"><span class="annot"><span class="annottext">ResumeClusterMessage -&gt; ResumeClusterMessage -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679496273"><span id="local-6989586621679496275"><span class="annot"><span class="annottext">ResumeClusterMessage -&gt; ResumeClusterMessage -&gt; Bool
 (ResumeClusterMessage -&gt; ResumeClusterMessage -&gt; Bool)
 -&gt; (ResumeClusterMessage -&gt; ResumeClusterMessage -&gt; Bool)
 -&gt; Eq ResumeClusterMessage
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResumeClusterMessage -&gt; ResumeClusterMessage -&gt; Bool
 == :: ResumeClusterMessage -&gt; ResumeClusterMessage -&gt; Bool
 $c== :: ResumeClusterMessage -&gt; ResumeClusterMessage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679495614"><span id="local-6989586621679495616"><span id="local-6989586621679495618"><span id="local-6989586621679495620"><span class="annot"><span class="annottext">ReadPrec [ResumeClusterMessage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679496264"><span id="local-6989586621679496266"><span id="local-6989586621679496268"><span id="local-6989586621679496270"><span class="annot"><span class="annottext">ReadPrec [ResumeClusterMessage]
 ReadPrec ResumeClusterMessage
 Int -&gt; ReadS ResumeClusterMessage
 ReadS [ResumeClusterMessage]
@@ -62,7 +62,7 @@ readList :: ReadS [ResumeClusterMessage]
 $creadList :: ReadS [ResumeClusterMessage]
 readsPrec :: Int -&gt; ReadS ResumeClusterMessage
 $creadsPrec :: Int -&gt; ReadS ResumeClusterMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679495607"><span id="local-6989586621679495609"><span id="local-6989586621679495611"><span class="annot"><span class="annottext">Int -&gt; ResumeClusterMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679496257"><span id="local-6989586621679496259"><span id="local-6989586621679496261"><span class="annot"><span class="annottext">Int -&gt; ResumeClusterMessage -&gt; ShowS
 [ResumeClusterMessage] -&gt; ShowS
 ResumeClusterMessage -&gt; String
 (Int -&gt; ResumeClusterMessage -&gt; ShowS)
@@ -102,14 +102,14 @@ $cfrom :: forall x. ResumeClusterMessage -&gt; Rep ResumeClusterMessage x
 </span><span id="line-48"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage"><span class="hs-identifier hs-type">ResumeClusterMessage</span></a></span><span>
 </span><span id="line-50"></span><span id="newResumeClusterMessage"><span class="annot"><span class="annottext">newResumeClusterMessage :: Text -&gt; ResumeClusterMessage
-</span><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#newResumeClusterMessage"><span class="hs-identifier hs-var hs-var">newResumeClusterMessage</span></a></span></span><span> </span><span id="local-6989586621679495601"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679495601"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#newResumeClusterMessage"><span class="hs-identifier hs-var hs-var">newResumeClusterMessage</span></a></span></span><span> </span><span id="local-6989586621679496251"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679496251"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ResumeClusterMessage' :: Text -&gt; ResumeClusterMessage
 </span><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage%27"><span class="hs-identifier hs-type">ResumeClusterMessage'</span></a></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:ResumeClusterMessage' :: Text
 </span><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#%24sel%3AclusterIdentifier%3AResumeClusterMessage%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679495601"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679496251"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | The identifier of the cluster to be resumed.</span><span>
@@ -119,42 +119,42 @@ $cfrom :: forall x. ResumeClusterMessage -&gt; Rep ResumeClusterMessage x
 -&gt; (ResumeClusterMessage -&gt; Text -&gt; ResumeClusterMessage)
 -&gt; Lens ResumeClusterMessage ResumeClusterMessage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage%27"><span class="hs-identifier hs-type">ResumeClusterMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495597"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage%27"><span class="hs-identifier hs-type">ResumeClusterMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679496247"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:ResumeClusterMessage' :: ResumeClusterMessage -&gt; Text
-</span><a href="#local-6989586621679495597"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679495597"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495596"><span class="annot"><span class="annottext">s :: ResumeClusterMessage
-</span><a href="#local-6989586621679495596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage%27"><span class="hs-identifier hs-type">ResumeClusterMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495595"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679495595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeClusterMessage
-</span><a href="#local-6989586621679495596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:ResumeClusterMessage' :: Text
+</span><a href="#local-6989586621679496247"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679496247"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679496246"><span class="annot"><span class="annottext">s :: ResumeClusterMessage
+</span><a href="#local-6989586621679496246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage%27"><span class="hs-identifier hs-type">ResumeClusterMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679496245"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679496245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeClusterMessage
+</span><a href="#local-6989586621679496246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:ResumeClusterMessage' :: Text
 </span><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#%24sel%3AclusterIdentifier%3AResumeClusterMessage%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679495595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage"><span class="hs-identifier hs-type">ResumeClusterMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679496245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage"><span class="hs-identifier hs-type">ResumeClusterMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage"><span class="hs-identifier hs-type">ResumeClusterMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679495592"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ResumeClusterMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679495590"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679495590"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679496242"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ResumeClusterMessage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679496240"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679496240"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; ResumeClusterMessage
 </span><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage%27"><span class="hs-identifier hs-var">ResumeClusterMessage'</span></a></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; ResumeClusterMessage)
 -&gt; Either String Text -&gt; Either String ResumeClusterMessage
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679495590"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679496240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679495584"><span id="local-6989586621679495586"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage"><span class="hs-identifier hs-type">ResumeClusterMessage</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679496234"><span id="local-6989586621679496236"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage"><span class="hs-identifier hs-type">ResumeClusterMessage</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679495581"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage"><span class="hs-identifier hs-type">ResumeClusterMessage</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679496231"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage"><span class="hs-identifier hs-type">ResumeClusterMessage</span></a></span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage"><span class="hs-identifier hs-type">ResumeClusterMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679495577"><span class="annot"><span class="annottext">toQuery :: ResumeClusterMessage -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage%27"><span class="hs-identifier hs-type">ResumeClusterMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495575"><span class="annot"><span class="annottext">Text
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679496227"><span class="annot"><span class="annottext">toQuery :: ResumeClusterMessage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ResumeClusterMessage.html#ResumeClusterMessage%27"><span class="hs-identifier hs-type">ResumeClusterMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679496225"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:ResumeClusterMessage' :: ResumeClusterMessage -&gt; Text
-</span><a href="#local-6989586621679495575"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679496225"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -162,5 +162,5 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679495575"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679496225"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-73"></span></pre></body></html>

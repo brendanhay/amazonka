@@ -49,13 +49,13 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | Represents the input of a @GetApplication@ operation.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newGetApplication' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679322990"><span id="local-6989586621679322991"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApplication"><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication"><span class="hs-identifier hs-var">GetApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApplication%27"><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication%27"><span class="hs-identifier hs-var">GetApplication'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679323309"><span id="local-6989586621679323310"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApplication"><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication"><span class="hs-identifier hs-var">GetApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApplication%27"><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication%27"><span class="hs-identifier hs-var">GetApplication'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of an AWS CodeDeploy application associated with the IAM user</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- or AWS account.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AapplicationName%3AGetApplication%27"><span class="annot"><span class="annottext">GetApplication -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.GetApplication.html#%24sel%3AapplicationName%3AGetApplication%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322984"><span id="local-6989586621679322986"><span class="annot"><span class="annottext">GetApplication -&gt; GetApplication -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323303"><span id="local-6989586621679323305"><span class="annot"><span class="annottext">GetApplication -&gt; GetApplication -&gt; Bool
 (GetApplication -&gt; GetApplication -&gt; Bool)
 -&gt; (GetApplication -&gt; GetApplication -&gt; Bool) -&gt; Eq GetApplication
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetApplication -&gt; GetApplication -&gt; Bool
 == :: GetApplication -&gt; GetApplication -&gt; Bool
 $c== :: GetApplication -&gt; GetApplication -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322975"><span id="local-6989586621679322977"><span id="local-6989586621679322979"><span id="local-6989586621679322981"><span class="annot"><span class="annottext">ReadPrec [GetApplication]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323294"><span id="local-6989586621679323296"><span id="local-6989586621679323298"><span id="local-6989586621679323300"><span class="annot"><span class="annottext">ReadPrec [GetApplication]
 ReadPrec GetApplication
 Int -&gt; ReadS GetApplication
 ReadS [GetApplication]
@@ -83,7 +83,7 @@ readList :: ReadS [GetApplication]
 $creadList :: ReadS [GetApplication]
 readsPrec :: Int -&gt; ReadS GetApplication
 $creadsPrec :: Int -&gt; ReadS GetApplication
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322968"><span id="local-6989586621679322970"><span id="local-6989586621679322972"><span class="annot"><span class="annottext">Int -&gt; GetApplication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323287"><span id="local-6989586621679323289"><span id="local-6989586621679323291"><span class="annot"><span class="annottext">Int -&gt; GetApplication -&gt; ShowS
 [GetApplication] -&gt; ShowS
 GetApplication -&gt; String
 (Int -&gt; GetApplication -&gt; ShowS)
@@ -124,14 +124,14 @@ $cfrom :: forall x. GetApplication -&gt; Rep GetApplication x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span><span>
 </span><span id="line-73"></span><span id="newGetApplication"><span class="annot"><span class="annottext">newGetApplication :: Text -&gt; GetApplication
-</span><a href="Network.AWS.CodeDeploy.GetApplication.html#newGetApplication"><span class="hs-identifier hs-var hs-var">newGetApplication</span></a></span></span><span> </span><span id="local-6989586621679322963"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322963"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeDeploy.GetApplication.html#newGetApplication"><span class="hs-identifier hs-var hs-var">newGetApplication</span></a></span></span><span> </span><span id="local-6989586621679323282"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323282"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">GetApplication' :: Text -&gt; GetApplication
 </span><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication%27"><span class="hs-identifier hs-type">GetApplication'</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationName:GetApplication' :: Text
 </span><a href="Network.AWS.CodeDeploy.GetApplication.html#%24sel%3AapplicationName%3AGetApplication%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322963"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span>
+</span><a href="#local-6989586621679323282"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The name of an AWS CodeDeploy application associated with the IAM user</span><span>
@@ -142,27 +142,27 @@ $cfrom :: forall x. GetApplication -&gt; Rep GetApplication x
 -&gt; (GetApplication -&gt; Text -&gt; GetApplication)
 -&gt; Lens GetApplication GetApplication Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication%27"><span class="hs-identifier hs-type">GetApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322960"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication%27"><span class="hs-identifier hs-type">GetApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323279"><span class="annot"><span class="annottext">Text
 applicationName :: Text
 $sel:applicationName:GetApplication' :: GetApplication -&gt; Text
-</span><a href="#local-6989586621679322960"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322960"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322959"><span class="annot"><span class="annottext">s :: GetApplication
-</span><a href="#local-6989586621679322959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication%27"><span class="hs-identifier hs-type">GetApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322958"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplication
-</span><a href="#local-6989586621679322959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:GetApplication' :: Text
+</span><a href="#local-6989586621679323279"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323279"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323278"><span class="annot"><span class="annottext">s :: GetApplication
+</span><a href="#local-6989586621679323278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication%27"><span class="hs-identifier hs-type">GetApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323277"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplication
+</span><a href="#local-6989586621679323278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:GetApplication' :: Text
 </span><a href="Network.AWS.CodeDeploy.GetApplication.html#%24sel%3AapplicationName%3AGetApplication%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679323277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679322954"><span class="annot"><span class="annottext">request :: GetApplication -&gt; Request GetApplication
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679323273"><span class="annot"><span class="annottext">request :: GetApplication -&gt; Request GetApplication
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetApplication -&gt; Request GetApplication
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeDeploy.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679322950"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679323269"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetApplication
 -&gt; ClientResponse ClientBody
@@ -186,10 +186,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679322947"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322947"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679322946"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679322946"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679322945"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679322945"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679323266"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323266"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679323265"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679323265"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679323264"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679323264"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe ApplicationInfo -&gt; Int -&gt; GetApplicationResponse
 </span><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-var">GetApplicationResponse'</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ApplicationInfo -&gt; Int -&gt; GetApplicationResponse)
@@ -197,7 +197,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetApplicationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679322945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ApplicationInfo)
+</span><a href="#local-6989586621679323264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ApplicationInfo)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;application&quot;</span></span><span class="hs-special">)</span><span>
@@ -209,15 +209,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322947"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679323266"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322937"><span id="local-6989586621679322939"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323256"><span id="local-6989586621679323258"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322934"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323253"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679322930"><span class="annot"><span class="annottext">toHeaders :: GetApplication -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679323249"><span class="annot"><span class="annottext">toHeaders :: GetApplication -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetApplication -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -244,12 +244,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322920"><span id="local-6989586621679322922"><span id="local-6989586621679322924"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679322918"><span class="annot"><span class="annottext">toJSON :: GetApplication -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication%27"><span class="hs-identifier hs-type">GetApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322916"><span class="annot"><span class="annottext">Text
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323239"><span id="local-6989586621679323241"><span id="local-6989586621679323243"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679323237"><span class="annot"><span class="annottext">toJSON :: GetApplication -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication%27"><span class="hs-identifier hs-type">GetApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323235"><span class="annot"><span class="annottext">Text
 applicationName :: Text
 $sel:applicationName:GetApplication' :: GetApplication -&gt; Text
-</span><a href="#local-6989586621679322916"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679323235"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -262,19 +262,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;applicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322916"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679323235"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679322910"><span class="annot"><span class="annottext">toPath :: GetApplication -&gt; ByteString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679323229"><span class="annot"><span class="annottext">toPath :: GetApplication -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetApplication -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplication"><span class="hs-identifier hs-type">GetApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679322906"><span class="annot"><span class="annottext">toQuery :: GetApplication -&gt; QueryString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679323225"><span class="annot"><span class="annottext">toQuery :: GetApplication -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetApplication -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -284,7 +284,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-131"></span><span class="hs-comment">-- | Represents the output of a @GetApplication@ operation.</span><span>
 </span><span id="line-132"></span><span class="hs-comment">--</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- /See:/ 'newGetApplicationResponse' smart constructor.</span><span>
-</span><span id="line-134"></span><span id="local-6989586621679322903"><span id="local-6989586621679322904"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApplicationResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-var">GetApplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApplicationResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-var">GetApplicationResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span id="local-6989586621679323222"><span id="local-6989586621679323223"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApplicationResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-var">GetApplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApplicationResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-var">GetApplicationResponse'</span></a></span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the application.</span><span>
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3Aapplication%3AGetApplicationResponse%27"><span class="annot"><span class="annottext">GetApplicationResponse -&gt; Maybe ApplicationInfo
 </span><a href="Network.AWS.CodeDeploy.GetApplication.html#%24sel%3Aapplication%3AGetApplicationResponse%27"><span class="hs-identifier hs-var hs-var">application</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ApplicationInfo.html#ApplicationInfo"><span class="hs-identifier hs-type">ApplicationInfo</span></a></span><span class="hs-special">,</span><span>
@@ -292,7 +292,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetApplicationResponse%27"><span class="annot"><span class="annottext">GetApplicationResponse -&gt; Int
 </span><a href="Network.AWS.CodeDeploy.GetApplication.html#%24sel%3AhttpStatus%3AGetApplicationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322897"><span id="local-6989586621679322899"><span class="annot"><span class="annottext">GetApplicationResponse -&gt; GetApplicationResponse -&gt; Bool
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323216"><span id="local-6989586621679323218"><span class="annot"><span class="annottext">GetApplicationResponse -&gt; GetApplicationResponse -&gt; Bool
 (GetApplicationResponse -&gt; GetApplicationResponse -&gt; Bool)
 -&gt; (GetApplicationResponse -&gt; GetApplicationResponse -&gt; Bool)
 -&gt; Eq GetApplicationResponse
@@ -301,7 +301,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetApplicationResponse -&gt; GetApplicationResponse -&gt; Bool
 == :: GetApplicationResponse -&gt; GetApplicationResponse -&gt; Bool
 $c== :: GetApplicationResponse -&gt; GetApplicationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322889"><span id="local-6989586621679322891"><span id="local-6989586621679322893"><span id="local-6989586621679322895"><span class="annot"><span class="annottext">ReadPrec [GetApplicationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323208"><span id="local-6989586621679323210"><span id="local-6989586621679323212"><span id="local-6989586621679323214"><span class="annot"><span class="annottext">ReadPrec [GetApplicationResponse]
 ReadPrec GetApplicationResponse
 Int -&gt; ReadS GetApplicationResponse
 ReadS [GetApplicationResponse]
@@ -321,7 +321,7 @@ readList :: ReadS [GetApplicationResponse]
 $creadList :: ReadS [GetApplicationResponse]
 readsPrec :: Int -&gt; ReadS GetApplicationResponse
 $creadsPrec :: Int -&gt; ReadS GetApplicationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322883"><span id="local-6989586621679322885"><span id="local-6989586621679322887"><span class="annot"><span class="annottext">Int -&gt; GetApplicationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323202"><span id="local-6989586621679323204"><span id="local-6989586621679323206"><span class="annot"><span class="annottext">Int -&gt; GetApplicationResponse -&gt; ShowS
 [GetApplicationResponse] -&gt; ShowS
 GetApplicationResponse -&gt; String
 (Int -&gt; GetApplicationResponse -&gt; ShowS)
@@ -364,8 +364,8 @@ $cfrom :: forall x. GetApplicationResponse -&gt; Rep GetApplicationResponse x
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span>
 </span><span id="line-157"></span><span id="newGetApplicationResponse"><span class="annot"><span class="annottext">newGetApplicationResponse :: Int -&gt; GetApplicationResponse
-</span><a href="Network.AWS.CodeDeploy.GetApplication.html#newGetApplicationResponse"><span class="hs-identifier hs-var hs-var">newGetApplicationResponse</span></a></span></span><span> </span><span id="local-6989586621679322880"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322880"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeDeploy.GetApplication.html#newGetApplicationResponse"><span class="hs-identifier hs-var hs-var">newGetApplicationResponse</span></a></span></span><span> </span><span id="local-6989586621679323199"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323199"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">GetApplicationResponse' :: Maybe ApplicationInfo -&gt; Int -&gt; GetApplicationResponse
 </span><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:application:GetApplicationResponse' :: Maybe ApplicationInfo
@@ -375,7 +375,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetApplicationResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.GetApplication.html#%24sel%3AhttpStatus%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322880"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679323199"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | Information about the application.</span><span>
@@ -391,16 +391,16 @@ forall a. Maybe a
      (Maybe ApplicationInfo)
      (Maybe ApplicationInfo)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322879"><span class="annot"><span class="annottext">Maybe ApplicationInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323198"><span class="annot"><span class="annottext">Maybe ApplicationInfo
 application :: Maybe ApplicationInfo
 $sel:application:GetApplicationResponse' :: GetApplicationResponse -&gt; Maybe ApplicationInfo
-</span><a href="#local-6989586621679322879"><span class="hs-identifier hs-var hs-var">application</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationInfo
-</span><a href="#local-6989586621679322879"><span class="hs-identifier hs-var">application</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322878"><span class="annot"><span class="annottext">s :: GetApplicationResponse
-</span><a href="#local-6989586621679322878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322877"><span class="annot"><span class="annottext">Maybe ApplicationInfo
-</span><a href="#local-6989586621679322877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationResponse
-</span><a href="#local-6989586621679322878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:application:GetApplicationResponse' :: Maybe ApplicationInfo
+</span><a href="#local-6989586621679323198"><span class="hs-identifier hs-var hs-var">application</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationInfo
+</span><a href="#local-6989586621679323198"><span class="hs-identifier hs-var">application</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323197"><span class="annot"><span class="annottext">s :: GetApplicationResponse
+</span><a href="#local-6989586621679323197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323196"><span class="annot"><span class="annottext">Maybe ApplicationInfo
+</span><a href="#local-6989586621679323196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationResponse
+</span><a href="#local-6989586621679323197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:application:GetApplicationResponse' :: Maybe ApplicationInfo
 </span><a href="Network.AWS.CodeDeploy.GetApplication.html#%24sel%3Aapplication%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">application</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationInfo
-</span><a href="#local-6989586621679322877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679323196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-169"></span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#getApplicationResponse_httpStatus"><span class="hs-identifier hs-type">getApplicationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -410,16 +410,16 @@ $sel:application:GetApplicationResponse' :: GetApplicationResponse -&gt; Maybe A
 -&gt; (GetApplicationResponse -&gt; Int -&gt; GetApplicationResponse)
 -&gt; Lens GetApplicationResponse GetApplicationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322876"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323195"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetApplicationResponse' :: GetApplicationResponse -&gt; Int
-</span><a href="#local-6989586621679322876"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322876"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322875"><span class="annot"><span class="annottext">s :: GetApplicationResponse
-</span><a href="#local-6989586621679322875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322874"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationResponse
-</span><a href="#local-6989586621679322875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetApplicationResponse' :: Int
+</span><a href="#local-6989586621679323195"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323195"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323194"><span class="annot"><span class="annottext">s :: GetApplicationResponse
+</span><a href="#local-6989586621679323194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse%27"><span class="hs-identifier hs-type">GetApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323193"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationResponse
+</span><a href="#local-6989586621679323194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetApplicationResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.GetApplication.html#%24sel%3AhttpStatus%3AGetApplicationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679323193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322872"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323191"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetApplication.html#GetApplicationResponse"><span class="hs-identifier hs-type">GetApplicationResponse</span></a></span></span><span>
 </span><span id="line-173"></span></pre></body></html>

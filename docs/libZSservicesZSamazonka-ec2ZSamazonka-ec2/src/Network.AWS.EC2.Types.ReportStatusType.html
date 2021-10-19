@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681108627"><span id="local-6989586621681108628"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReportStatusType"><span class="annot"><a href="Network.AWS.EC2.Types.ReportStatusType.html#ReportStatusType"><span class="hs-identifier hs-var">ReportStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportStatusType%27"><span class="annot"><a href="Network.AWS.EC2.Types.ReportStatusType.html#ReportStatusType%27"><span class="hs-identifier hs-var">ReportStatusType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681143343"><span id="local-6989586621681143344"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReportStatusType"><span class="annot"><a href="Network.AWS.EC2.Types.ReportStatusType.html#ReportStatusType"><span class="hs-identifier hs-var">ReportStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportStatusType%27"><span class="annot"><a href="Network.AWS.EC2.Types.ReportStatusType.html#ReportStatusType%27"><span class="hs-identifier hs-var">ReportStatusType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReportStatusType"><span class="annot"><span class="annottext">ReportStatusType -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ReportStatusType.html#fromReportStatusType"><span class="hs-identifier hs-var hs-var">fromReportStatusType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681108619"><span id="local-6989586621681108621"><span id="local-6989586621681108623"><span class="annot"><span class="annottext">Int -&gt; ReportStatusType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681143335"><span id="local-6989586621681143337"><span id="local-6989586621681143339"><span class="annot"><span class="annottext">Int -&gt; ReportStatusType -&gt; ShowS
 [ReportStatusType] -&gt; ShowS
 ReportStatusType -&gt; String
 (Int -&gt; ReportStatusType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ReportStatusType -&gt; String
 showsPrec :: Int -&gt; ReportStatusType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReportStatusType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681108610"><span id="local-6989586621681108612"><span id="local-6989586621681108614"><span id="local-6989586621681108616"><span class="annot"><span class="annottext">ReadPrec [ReportStatusType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681143326"><span id="local-6989586621681143328"><span id="local-6989586621681143330"><span id="local-6989586621681143332"><span class="annot"><span class="annottext">ReadPrec [ReportStatusType]
 ReadPrec ReportStatusType
 Int -&gt; ReadS ReportStatusType
 ReadS [ReportStatusType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ReportStatusType]
 readsPrec :: Int -&gt; ReadS ReportStatusType
 $creadsPrec :: Int -&gt; ReadS ReportStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681108605"><span id="local-6989586621681108607"><span class="annot"><span class="annottext">ReportStatusType -&gt; ReportStatusType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681143321"><span id="local-6989586621681143323"><span class="annot"><span class="annottext">ReportStatusType -&gt; ReportStatusType -&gt; Bool
 (ReportStatusType -&gt; ReportStatusType -&gt; Bool)
 -&gt; (ReportStatusType -&gt; ReportStatusType -&gt; Bool)
 -&gt; Eq ReportStatusType
@@ -83,7 +83,7 @@ $c/= :: ReportStatusType -&gt; ReportStatusType -&gt; Bool
 == :: ReportStatusType -&gt; ReportStatusType -&gt; Bool
 $c== :: ReportStatusType -&gt; ReportStatusType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681108589"><span id="local-6989586621681108591"><span id="local-6989586621681108593"><span id="local-6989586621681108595"><span id="local-6989586621681108597"><span id="local-6989586621681108599"><span id="local-6989586621681108601"><span class="annot"><span class="annottext">Eq ReportStatusType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681143305"><span id="local-6989586621681143307"><span id="local-6989586621681143309"><span id="local-6989586621681143311"><span id="local-6989586621681143313"><span id="local-6989586621681143315"><span id="local-6989586621681143317"><span class="annot"><span class="annottext">Eq ReportStatusType
 Eq ReportStatusType
 -&gt; (ReportStatusType -&gt; ReportStatusType -&gt; Ordering)
 -&gt; (ReportStatusType -&gt; ReportStatusType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ReportStatusType -&gt; Rep ReportStatusType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681108581"><span id="local-6989586621681108583"><span class="annot"><span class="annottext">Int -&gt; ReportStatusType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681143297"><span id="local-6989586621681143299"><span class="annot"><span class="annottext">Int -&gt; ReportStatusType -&gt; Int
 ReportStatusType -&gt; Int
 (Int -&gt; ReportStatusType -&gt; Int)
 -&gt; (ReportStatusType -&gt; Int) -&gt; Hashable ReportStatusType
@@ -144,51 +144,51 @@ $chash :: ReportStatusType -&gt; Int
 hashWithSalt :: Int -&gt; ReportStatusType -&gt; Int
 $chashWithSalt :: Int -&gt; ReportStatusType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681108578"><span class="annot"><span class="annottext">ReportStatusType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681143294"><span class="annot"><span class="annottext">ReportStatusType -&gt; ()
 (ReportStatusType -&gt; ()) -&gt; NFData ReportStatusType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReportStatusType -&gt; ()
 $crnf :: ReportStatusType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681108575"><span class="annot"><span class="annottext">Text -&gt; Either String ReportStatusType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681143291"><span class="annot"><span class="annottext">Text -&gt; Either String ReportStatusType
 (Text -&gt; Either String ReportStatusType)
 -&gt; FromText ReportStatusType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReportStatusType
 $cfromText :: Text -&gt; Either String ReportStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681108572"><span class="annot"><span class="annottext">ReportStatusType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681143288"><span class="annot"><span class="annottext">ReportStatusType -&gt; Text
 (ReportStatusType -&gt; Text) -&gt; ToText ReportStatusType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReportStatusType -&gt; Text
 $ctoText :: ReportStatusType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681108569"><span class="annot"><span class="annottext">ReportStatusType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681143285"><span class="annot"><span class="annottext">ReportStatusType -&gt; ByteString
 (ReportStatusType -&gt; ByteString) -&gt; ToByteString ReportStatusType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReportStatusType -&gt; ByteString
 $ctoBS :: ReportStatusType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681108566"><span class="annot"><span class="annottext">ReportStatusType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681143282"><span class="annot"><span class="annottext">ReportStatusType -&gt; ByteStringBuilder
 (ReportStatusType -&gt; ByteStringBuilder) -&gt; ToLog ReportStatusType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReportStatusType -&gt; ByteStringBuilder
 $cbuild :: ReportStatusType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681108563"><span class="annot"><span class="annottext">HeaderName -&gt; ReportStatusType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681143279"><span class="annot"><span class="annottext">HeaderName -&gt; ReportStatusType -&gt; [Header]
 (HeaderName -&gt; ReportStatusType -&gt; [Header])
 -&gt; ToHeader ReportStatusType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReportStatusType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReportStatusType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681108560"><span class="annot"><span class="annottext">ReportStatusType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681143276"><span class="annot"><span class="annottext">ReportStatusType -&gt; QueryString
 (ReportStatusType -&gt; QueryString) -&gt; ToQuery ReportStatusType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReportStatusType -&gt; QueryString
 $ctoQuery :: ReportStatusType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681108555"><span id="local-6989586621681108557"><span class="annot"><span class="annottext">Value -&gt; Parser [ReportStatusType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681143271"><span id="local-6989586621681143273"><span class="annot"><span class="annottext">Value -&gt; Parser [ReportStatusType]
 Value -&gt; Parser ReportStatusType
 (Value -&gt; Parser ReportStatusType)
 -&gt; (Value -&gt; Parser [ReportStatusType])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [ReportStatusType]
 parseJSON :: Value -&gt; Parser ReportStatusType
 $cparseJSON :: Value -&gt; Parser ReportStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681108550"><span id="local-6989586621681108552"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReportStatusType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681143266"><span id="local-6989586621681143268"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReportStatusType]
 FromJSONKeyFunction ReportStatusType
 FromJSONKeyFunction ReportStatusType
 -&gt; FromJSONKeyFunction [ReportStatusType]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReportStatusType]
 fromJSONKey :: FromJSONKeyFunction ReportStatusType
 $cfromJSONKey :: FromJSONKeyFunction ReportStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681108541"><span id="local-6989586621681108543"><span id="local-6989586621681108545"><span id="local-6989586621681108547"><span class="annot"><span class="annottext">[ReportStatusType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681143257"><span id="local-6989586621681143259"><span id="local-6989586621681143261"><span id="local-6989586621681143263"><span class="annot"><span class="annottext">[ReportStatusType] -&gt; Encoding
 [ReportStatusType] -&gt; Value
 ReportStatusType -&gt; Encoding
 ReportStatusType -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: ReportStatusType -&gt; Encoding
 toJSON :: ReportStatusType -&gt; Value
 $ctoJSON :: ReportStatusType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681108536"><span id="local-6989586621681108538"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReportStatusType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681143252"><span id="local-6989586621681143254"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReportStatusType]
 ToJSONKeyFunction ReportStatusType
 ToJSONKeyFunction ReportStatusType
 -&gt; ToJSONKeyFunction [ReportStatusType]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReportStatusType]
 toJSONKey :: ToJSONKeyFunction ReportStatusType
 $ctoJSONKey :: ToJSONKeyFunction ReportStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681108533"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReportStatusType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681143249"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReportStatusType
 ([Node] -&gt; Either String ReportStatusType)
 -&gt; FromXML ReportStatusType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReportStatusType
 $cparseXML :: [Node] -&gt; Either String ReportStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681108530"><span class="annot"><span class="annottext">ReportStatusType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681143246"><span class="annot"><span class="annottext">ReportStatusType -&gt; XML
 (ReportStatusType -&gt; XML) -&gt; ToXML ReportStatusType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReportStatusType -&gt; XML

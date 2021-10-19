@@ -88,7 +88,7 @@
 </span><span id="line-88"></span><span class="hs-comment">-- | Represents the input for @CreateStream@.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- /See:/ 'newCreateStream' smart constructor.</span><span>
-</span><span id="line-91"></span><span id="local-6989586621679205510"><span id="local-6989586621679205511"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStream"><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-var">CreateStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStream%27"><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-var">CreateStream'</span></a></span></span><span>
+</span><span id="line-91"></span><span id="local-6989586621679205629"><span id="local-6989586621679205630"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStream"><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-var">CreateStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStream%27"><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-var">CreateStream'</span></a></span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A name to identify the stream. The stream name is scoped to the AWS</span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-comment">-- account used by the application that creates the stream. It is also</span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-comment">-- scoped by AWS Region. That is, two streams in two different AWS accounts</span><span>
@@ -102,7 +102,7 @@
 </span><span id="line-101"></span><span>    </span><span id="%24sel%3AshardCount%3ACreateStream%27"><span class="annot"><span class="annottext">CreateStream -&gt; Natural
 </span><a href="Network.AWS.Kinesis.CreateStream.html#%24sel%3AshardCount%3ACreateStream%27"><span class="hs-identifier hs-var hs-var">shardCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-103"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205503"><span id="local-6989586621679205505"><span class="annot"><span class="annottext">CreateStream -&gt; CreateStream -&gt; Bool
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205622"><span id="local-6989586621679205624"><span class="annot"><span class="annottext">CreateStream -&gt; CreateStream -&gt; Bool
 (CreateStream -&gt; CreateStream -&gt; Bool)
 -&gt; (CreateStream -&gt; CreateStream -&gt; Bool) -&gt; Eq CreateStream
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -110,7 +110,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateStream -&gt; CreateStream -&gt; Bool
 == :: CreateStream -&gt; CreateStream -&gt; Bool
 $c== :: CreateStream -&gt; CreateStream -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205494"><span id="local-6989586621679205496"><span id="local-6989586621679205498"><span id="local-6989586621679205500"><span class="annot"><span class="annottext">ReadPrec [CreateStream]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205613"><span id="local-6989586621679205615"><span id="local-6989586621679205617"><span id="local-6989586621679205619"><span class="annot"><span class="annottext">ReadPrec [CreateStream]
 ReadPrec CreateStream
 Int -&gt; ReadS CreateStream
 ReadS [CreateStream]
@@ -130,7 +130,7 @@ readList :: ReadS [CreateStream]
 $creadList :: ReadS [CreateStream]
 readsPrec :: Int -&gt; ReadS CreateStream
 $creadsPrec :: Int -&gt; ReadS CreateStream
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205487"><span id="local-6989586621679205489"><span id="local-6989586621679205491"><span class="annot"><span class="annottext">Int -&gt; CreateStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205606"><span id="local-6989586621679205608"><span id="local-6989586621679205610"><span class="annot"><span class="annottext">Int -&gt; CreateStream -&gt; ShowS
 [CreateStream] -&gt; ShowS
 CreateStream -&gt; String
 (Int -&gt; CreateStream -&gt; ShowS)
@@ -180,17 +180,17 @@ $cfrom :: forall x. CreateStream -&gt; Rep CreateStream x
 </span><span id="line-126"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span>
 </span><span id="line-128"></span><span id="newCreateStream"><span class="annot"><span class="annottext">newCreateStream :: Text -&gt; Natural -&gt; CreateStream
-</span><a href="Network.AWS.Kinesis.CreateStream.html#newCreateStream"><span class="hs-identifier hs-var hs-var">newCreateStream</span></a></span></span><span> </span><span id="local-6989586621679205482"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679205482"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span> </span><span id="local-6989586621679205481"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679205481"><span class="hs-identifier hs-var">pShardCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Kinesis.CreateStream.html#newCreateStream"><span class="hs-identifier hs-var hs-var">newCreateStream</span></a></span></span><span> </span><span id="local-6989586621679205601"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205601"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span> </span><span id="local-6989586621679205600"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679205600"><span class="hs-identifier hs-var">pShardCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>  </span><span class="annot"><span class="annottext">CreateStream' :: Text -&gt; Natural -&gt; CreateStream
 </span><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamName:CreateStream' :: Text
 </span><a href="Network.AWS.Kinesis.CreateStream.html#%24sel%3AstreamName%3ACreateStream%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679205482"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679205601"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:shardCount:CreateStream' :: Natural
 </span><a href="Network.AWS.Kinesis.CreateStream.html#%24sel%3AshardCount%3ACreateStream%27"><span class="hs-identifier hs-var">shardCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679205481"><span class="hs-identifier hs-var">pShardCount_</span></a></span><span>
+</span><a href="#local-6989586621679205600"><span class="hs-identifier hs-var">pShardCount_</span></a></span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | A name to identify the stream. The stream name is scoped to the AWS</span><span>
@@ -204,16 +204,16 @@ $cfrom :: forall x. CreateStream -&gt; Rep CreateStream x
 -&gt; (CreateStream -&gt; Text -&gt; CreateStream)
 -&gt; Lens CreateStream CreateStream Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205478"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205597"><span class="annot"><span class="annottext">Text
 streamName :: Text
 $sel:streamName:CreateStream' :: CreateStream -&gt; Text
-</span><a href="#local-6989586621679205478"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679205478"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205477"><span class="annot"><span class="annottext">s :: CreateStream
-</span><a href="#local-6989586621679205477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205476"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679205476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStream
-</span><a href="#local-6989586621679205477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:CreateStream' :: Text
+</span><a href="#local-6989586621679205597"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205597"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205596"><span class="annot"><span class="annottext">s :: CreateStream
+</span><a href="#local-6989586621679205596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205595"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStream
+</span><a href="#local-6989586621679205596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:CreateStream' :: Text
 </span><a href="Network.AWS.Kinesis.CreateStream.html#%24sel%3AstreamName%3ACreateStream%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679205476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679205595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The number of shards that the stream will use. The throughput of the</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- stream is a function of the number of shards; more shards are required</span><span>
@@ -224,25 +224,25 @@ $sel:streamName:CreateStream' :: CreateStream -&gt; Text
 -&gt; (CreateStream -&gt; Natural -&gt; CreateStream)
 -&gt; Lens CreateStream CreateStream Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205475"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205594"><span class="annot"><span class="annottext">Natural
 shardCount :: Natural
 $sel:shardCount:CreateStream' :: CreateStream -&gt; Natural
-</span><a href="#local-6989586621679205475"><span class="hs-identifier hs-var hs-var">shardCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679205475"><span class="hs-identifier hs-var">shardCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205474"><span class="annot"><span class="annottext">s :: CreateStream
-</span><a href="#local-6989586621679205474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205473"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679205473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStream
-</span><a href="#local-6989586621679205474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardCount:CreateStream' :: Natural
+</span><a href="#local-6989586621679205594"><span class="hs-identifier hs-var hs-var">shardCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679205594"><span class="hs-identifier hs-var">shardCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205593"><span class="annot"><span class="annottext">s :: CreateStream
+</span><a href="#local-6989586621679205593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205592"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679205592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStream
+</span><a href="#local-6989586621679205593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardCount:CreateStream' :: Natural
 </span><a href="Network.AWS.Kinesis.CreateStream.html#%24sel%3AshardCount%3ACreateStream%27"><span class="hs-identifier hs-var">shardCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679205473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679205592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679205469"><span class="annot"><span class="annottext">request :: CreateStream -&gt; Request CreateStream
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679205588"><span class="annot"><span class="annottext">request :: CreateStream -&gt; Request CreateStream
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateStream -&gt; Request CreateStream
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Kinesis.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679205465"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679205584"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateStream
 -&gt; ClientResponse ClientBody
@@ -265,12 +265,12 @@ AWSResponse a
 CreateStreamResponse
 </span><a href="Network.AWS.Kinesis.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-var">CreateStreamResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205458"><span id="local-6989586621679205460"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205577"><span id="local-6989586621679205579"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205455"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205574"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679205451"><span class="annot"><span class="annottext">toHeaders :: CreateStream -&gt; [Header]
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679205570"><span class="annot"><span class="annottext">toHeaders :: CreateStream -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; CreateStream -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -297,15 +297,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205441"><span id="local-6989586621679205443"><span id="local-6989586621679205445"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679205439"><span class="annot"><span class="annottext">toJSON :: CreateStream -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205436"><span id="local-6989586621679205437"><span class="annot"><span class="annottext">Natural
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205560"><span id="local-6989586621679205562"><span id="local-6989586621679205564"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679205558"><span class="annot"><span class="annottext">toJSON :: CreateStream -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205555"><span id="local-6989586621679205556"><span class="annot"><span class="annottext">Natural
 Text
 shardCount :: Natural
 streamName :: Text
 $sel:shardCount:CreateStream' :: CreateStream -&gt; Natural
 $sel:streamName:CreateStream' :: CreateStream -&gt; Text
-</span><a href="#local-6989586621679205436"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679205555"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -317,26 +317,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679205437"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679205556"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ShardCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679205436"><span class="hs-identifier hs-var">shardCount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679205555"><span class="hs-identifier hs-var">shardCount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679205430"><span class="annot"><span class="annottext">toPath :: CreateStream -&gt; ByteString
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679205549"><span class="annot"><span class="annottext">toPath :: CreateStream -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateStream -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679205426"><span class="annot"><span class="annottext">toQuery :: CreateStream -&gt; QueryString
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679205545"><span class="annot"><span class="annottext">toQuery :: CreateStream -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateStream -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -344,10 +344,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | /See:/ 'newCreateStreamResponse' smart constructor.</span><span>
-</span><span id="line-188"></span><span id="local-6989586621679205423"><span id="local-6989586621679205424"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStreamResponse"><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-var">CreateStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStreamResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-var">CreateStreamResponse'</span></a></span></span><span>
+</span><span id="line-188"></span><span id="local-6989586621679205542"><span id="local-6989586621679205543"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStreamResponse"><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-var">CreateStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStreamResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-var">CreateStreamResponse'</span></a></span></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205419"><span id="local-6989586621679205421"><span class="annot"><span class="annottext">CreateStreamResponse -&gt; CreateStreamResponse -&gt; Bool
+</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205538"><span id="local-6989586621679205540"><span class="annot"><span class="annottext">CreateStreamResponse -&gt; CreateStreamResponse -&gt; Bool
 (CreateStreamResponse -&gt; CreateStreamResponse -&gt; Bool)
 -&gt; (CreateStreamResponse -&gt; CreateStreamResponse -&gt; Bool)
 -&gt; Eq CreateStreamResponse
@@ -356,7 +356,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateStreamResponse -&gt; CreateStreamResponse -&gt; Bool
 == :: CreateStreamResponse -&gt; CreateStreamResponse -&gt; Bool
 $c== :: CreateStreamResponse -&gt; CreateStreamResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205411"><span id="local-6989586621679205413"><span id="local-6989586621679205415"><span id="local-6989586621679205417"><span class="annot"><span class="annottext">ReadPrec [CreateStreamResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205530"><span id="local-6989586621679205532"><span id="local-6989586621679205534"><span id="local-6989586621679205536"><span class="annot"><span class="annottext">ReadPrec [CreateStreamResponse]
 ReadPrec CreateStreamResponse
 Int -&gt; ReadS CreateStreamResponse
 ReadS [CreateStreamResponse]
@@ -376,7 +376,7 @@ readList :: ReadS [CreateStreamResponse]
 $creadList :: ReadS [CreateStreamResponse]
 readsPrec :: Int -&gt; ReadS CreateStreamResponse
 $creadsPrec :: Int -&gt; ReadS CreateStreamResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205405"><span id="local-6989586621679205407"><span id="local-6989586621679205409"><span class="annot"><span class="annottext">Int -&gt; CreateStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205524"><span id="local-6989586621679205526"><span id="local-6989586621679205528"><span class="annot"><span class="annottext">Int -&gt; CreateStreamResponse -&gt; ShowS
 [CreateStreamResponse] -&gt; ShowS
 CreateStreamResponse -&gt; String
 (Int -&gt; CreateStreamResponse -&gt; ShowS)
@@ -412,5 +412,5 @@ $cfrom :: forall x. CreateStreamResponse -&gt; Rep CreateStreamResponse x
 </span><a href="Network.AWS.Kinesis.CreateStream.html#newCreateStreamResponse"><span class="hs-identifier hs-var hs-var">newCreateStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CreateStreamResponse
 </span><a href="Network.AWS.Kinesis.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-var">CreateStreamResponse'</span></a></span><span>
 </span><span id="line-200"></span><span>
-</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205401"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span></span><span>
 </span><span id="line-202"></span></pre></body></html>

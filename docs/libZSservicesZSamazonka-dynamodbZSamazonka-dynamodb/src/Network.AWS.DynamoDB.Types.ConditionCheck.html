@@ -29,19 +29,19 @@
 </span><span id="line-29"></span><span class="hs-comment">-- the condition of specific attributes of the item.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newConditionCheck' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679379565"><span id="local-6989586621679379566"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConditionCheck"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-var">ConditionCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConditionCheck%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-var">ConditionCheck'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- the @ConditionCheck@ condition fails. For</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @ReturnValuesOnConditionCheckFailure@, the valid values are: NONE and</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- ALL_OLD.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AreturnValuesOnConditionCheckFailure%3AConditionCheck%27"><span class="annot"><span class="annottext">ConditionCheck -&gt; Maybe ReturnValuesOnConditionCheckFailure
-</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AreturnValuesOnConditionCheckFailure%3AConditionCheck%27"><span class="hs-identifier hs-var hs-var">returnValuesOnConditionCheckFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReturnValuesOnConditionCheckFailure.html#ReturnValuesOnConditionCheckFailure"><span class="hs-identifier hs-type">ReturnValuesOnConditionCheckFailure</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | One or more values that can be substituted in an expression.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AexpressionAttributeValues%3AConditionCheck%27"><span class="annot"><span class="annottext">ConditionCheck -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AexpressionAttributeValues%3AConditionCheck%27"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | One or more substitution tokens for attribute names in an expression.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AexpressionAttributeNames%3AConditionCheck%27"><span class="annot"><span class="annottext">ConditionCheck -&gt; Maybe (HashMap Text Text)
+</span><span id="line-32"></span><span id="local-6989586621679380261"><span id="local-6989586621679380262"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConditionCheck"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-var">ConditionCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConditionCheck%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-var">ConditionCheck'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more substitution tokens for attribute names in an expression.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AexpressionAttributeNames%3AConditionCheck%27"><span class="annot"><span class="annottext">ConditionCheck -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AexpressionAttributeNames%3AConditionCheck%27"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | One or more values that can be substituted in an expression.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AexpressionAttributeValues%3AConditionCheck%27"><span class="annot"><span class="annottext">ConditionCheck -&gt; Maybe (HashMap Text AttributeValue)
+</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AexpressionAttributeValues%3AConditionCheck%27"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- the @ConditionCheck@ condition fails. For</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @ReturnValuesOnConditionCheckFailure@, the valid values are: NONE and</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- ALL_OLD.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AreturnValuesOnConditionCheckFailure%3AConditionCheck%27"><span class="annot"><span class="annottext">ConditionCheck -&gt; Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AreturnValuesOnConditionCheckFailure%3AConditionCheck%27"><span class="hs-identifier hs-var hs-var">returnValuesOnConditionCheckFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReturnValuesOnConditionCheckFailure.html#ReturnValuesOnConditionCheckFailure"><span class="hs-identifier hs-type">ReturnValuesOnConditionCheckFailure</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The primary key of the item to be checked. Each element consists of an</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- attribute name and a value for that attribute.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Akey%3AConditionCheck%27"><span class="annot"><span class="annottext">ConditionCheck -&gt; HashMap Text AttributeValue
@@ -54,7 +54,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AconditionExpression%3AConditionCheck%27"><span class="annot"><span class="annottext">ConditionCheck -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AconditionExpression%3AConditionCheck%27"><span class="hs-identifier hs-var hs-var">conditionExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379554"><span id="local-6989586621679379556"><span class="annot"><span class="annottext">ConditionCheck -&gt; ConditionCheck -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679380250"><span id="local-6989586621679380252"><span class="annot"><span class="annottext">ConditionCheck -&gt; ConditionCheck -&gt; Bool
 (ConditionCheck -&gt; ConditionCheck -&gt; Bool)
 -&gt; (ConditionCheck -&gt; ConditionCheck -&gt; Bool) -&gt; Eq ConditionCheck
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConditionCheck -&gt; ConditionCheck -&gt; Bool
 == :: ConditionCheck -&gt; ConditionCheck -&gt; Bool
 $c== :: ConditionCheck -&gt; ConditionCheck -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379545"><span id="local-6989586621679379547"><span id="local-6989586621679379549"><span id="local-6989586621679379551"><span class="annot"><span class="annottext">ReadPrec [ConditionCheck]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380241"><span id="local-6989586621679380243"><span id="local-6989586621679380245"><span id="local-6989586621679380247"><span class="annot"><span class="annottext">ReadPrec [ConditionCheck]
 ReadPrec ConditionCheck
 Int -&gt; ReadS ConditionCheck
 ReadS [ConditionCheck]
@@ -82,7 +82,7 @@ readList :: ReadS [ConditionCheck]
 $creadList :: ReadS [ConditionCheck]
 readsPrec :: Int -&gt; ReadS ConditionCheck
 $creadsPrec :: Int -&gt; ReadS ConditionCheck
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379538"><span id="local-6989586621679379540"><span id="local-6989586621679379542"><span class="annot"><span class="annottext">Int -&gt; ConditionCheck -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380234"><span id="local-6989586621679380236"><span id="local-6989586621679380238"><span class="annot"><span class="annottext">Int -&gt; ConditionCheck -&gt; ShowS
 [ConditionCheck] -&gt; ShowS
 ConditionCheck -&gt; String
 (Int -&gt; ConditionCheck -&gt; ShowS)
@@ -116,14 +116,14 @@ $cfrom :: forall x. ConditionCheck -&gt; Rep ConditionCheck x
 </span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'returnValuesOnConditionCheckFailure', 'conditionCheck_returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- the @ConditionCheck@ condition fails. For</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- @ReturnValuesOnConditionCheckFailure@, the valid values are: NONE and</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- ALL_OLD.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'expressionAttributeValues', 'conditionCheck_expressionAttributeValues' - One or more values that can be substituted in an expression.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'expressionAttributeNames', 'conditionCheck_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'expressionAttributeNames', 'conditionCheck_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'expressionAttributeValues', 'conditionCheck_expressionAttributeValues' - One or more values that can be substituted in an expression.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'returnValuesOnConditionCheckFailure', 'conditionCheck_returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- the @ConditionCheck@ condition fails. For</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- @ReturnValuesOnConditionCheckFailure@, the valid values are: NONE and</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- ALL_OLD.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- 'key', 'conditionCheck_key' - The primary key of the item to be checked. Each element consists of an</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- attribute name and a value for that attribute.</span><span>
@@ -139,73 +139,96 @@ $cfrom :: forall x. ConditionCheck -&gt; Rep ConditionCheck x
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span>
 </span><span id="line-83"></span><span id="newConditionCheck"><span class="annot"><span class="annottext">newConditionCheck :: Text -&gt; Text -&gt; ConditionCheck
-</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#newConditionCheck"><span class="hs-identifier hs-var hs-var">newConditionCheck</span></a></span></span><span> </span><span id="local-6989586621679379532"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379532"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span id="local-6989586621679379531"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379531"><span class="hs-identifier hs-var">pConditionExpression_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">ConditionCheck' :: Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#newConditionCheck"><span class="hs-identifier hs-var hs-var">newConditionCheck</span></a></span></span><span> </span><span id="local-6989586621679380228"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679380228"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span id="local-6989586621679380227"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679380227"><span class="hs-identifier hs-var">pConditionExpression_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">ConditionCheck' :: Maybe (HashMap Text Text)
 -&gt; Maybe (HashMap Text AttributeValue)
--&gt; Maybe (HashMap Text Text)
+-&gt; Maybe ReturnValuesOnConditionCheckFailure
 -&gt; HashMap Text AttributeValue
 -&gt; Text
 -&gt; Text
 -&gt; ConditionCheck
 </span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:returnValuesOnConditionCheckFailure:ConditionCheck' :: Maybe ReturnValuesOnConditionCheckFailure
-</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AreturnValuesOnConditionCheckFailure%3AConditionCheck%27"><span class="hs-identifier hs-var">returnValuesOnConditionCheckFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:ConditionCheck' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AexpressionAttributeNames%3AConditionCheck%27"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:expressionAttributeValues:ConditionCheck' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AexpressionAttributeValues%3AConditionCheck%27"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:ConditionCheck' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AexpressionAttributeNames%3AConditionCheck%27"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:returnValuesOnConditionCheckFailure:ConditionCheck' :: Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AreturnValuesOnConditionCheckFailure%3AConditionCheck%27"><span class="hs-identifier hs-var">returnValuesOnConditionCheckFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:ConditionCheck' :: HashMap Text AttributeValue
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:ConditionCheck' :: HashMap Text AttributeValue
 </span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3Akey%3AConditionCheck%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:ConditionCheck' :: Text
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:ConditionCheck' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AtableName%3AConditionCheck%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379532"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:conditionExpression:ConditionCheck' :: Text
+</span><a href="#local-6989586621679380228"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:conditionExpression:ConditionCheck' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AconditionExpression%3AConditionCheck%27"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379531"><span class="hs-identifier hs-var">pConditionExpression_</span></a></span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- the @ConditionCheck@ condition fails. For</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- @ReturnValuesOnConditionCheckFailure@, the valid values are: NONE and</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- ALL_OLD.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_returnValuesOnConditionCheckFailure"><span class="hs-identifier hs-type">conditionCheck_returnValuesOnConditionCheckFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReturnValuesOnConditionCheckFailure.html#ReturnValuesOnConditionCheckFailure"><span class="hs-identifier hs-type">ReturnValuesOnConditionCheckFailure</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="conditionCheck_returnValuesOnConditionCheckFailure"><span class="annot"><span class="annottext">conditionCheck_returnValuesOnConditionCheckFailure :: (Maybe ReturnValuesOnConditionCheckFailure
- -&gt; f (Maybe ReturnValuesOnConditionCheckFailure))
+</span><a href="#local-6989586621679380227"><span class="hs-identifier hs-var">pConditionExpression_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | One or more substitution tokens for attribute names in an expression.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_expressionAttributeNames"><span class="hs-identifier hs-type">conditionCheck_expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="conditionCheck_expressionAttributeNames"><span class="annot"><span class="annottext">conditionCheck_expressionAttributeNames :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; ConditionCheck -&gt; f ConditionCheck
-</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_returnValuesOnConditionCheckFailure"><span class="hs-identifier hs-var hs-var">conditionCheck_returnValuesOnConditionCheckFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConditionCheck -&gt; Maybe ReturnValuesOnConditionCheckFailure)
--&gt; (ConditionCheck
-    -&gt; Maybe ReturnValuesOnConditionCheckFailure -&gt; ConditionCheck)
+</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_expressionAttributeNames"><span class="hs-identifier hs-var hs-var">conditionCheck_expressionAttributeNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConditionCheck -&gt; Maybe (HashMap Text Text))
+-&gt; (ConditionCheck -&gt; Maybe (HashMap Text Text) -&gt; ConditionCheck)
 -&gt; Lens
      ConditionCheck
      ConditionCheck
-     (Maybe ReturnValuesOnConditionCheckFailure)
-     (Maybe ReturnValuesOnConditionCheckFailure)
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379527"><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
-returnValuesOnConditionCheckFailure :: Maybe ReturnValuesOnConditionCheckFailure
-$sel:returnValuesOnConditionCheckFailure:ConditionCheck' :: ConditionCheck -&gt; Maybe ReturnValuesOnConditionCheckFailure
-</span><a href="#local-6989586621679379527"><span class="hs-identifier hs-var hs-var">returnValuesOnConditionCheckFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
-</span><a href="#local-6989586621679379527"><span class="hs-identifier hs-var">returnValuesOnConditionCheckFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379526"><span class="annot"><span class="annottext">s :: ConditionCheck
-</span><a href="#local-6989586621679379526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379525"><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
-</span><a href="#local-6989586621679379525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConditionCheck
-</span><a href="#local-6989586621679379526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnValuesOnConditionCheckFailure:ConditionCheck' :: Maybe ReturnValuesOnConditionCheckFailure
-</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AreturnValuesOnConditionCheckFailure%3AConditionCheck%27"><span class="hs-identifier hs-var">returnValuesOnConditionCheckFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
-</span><a href="#local-6989586621679379525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | One or more values that can be substituted in an expression.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_expressionAttributeValues"><span class="hs-identifier hs-type">conditionCheck_expressionAttributeValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="conditionCheck_expressionAttributeValues"><span class="annot"><span class="annottext">conditionCheck_expressionAttributeValues :: (Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380223"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+expressionAttributeNames :: Maybe (HashMap Text Text)
+$sel:expressionAttributeNames:ConditionCheck' :: ConditionCheck -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679380223"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679380223"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380222"><span class="annot"><span class="annottext">s :: ConditionCheck
+</span><a href="#local-6989586621679380222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380221"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679380221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConditionCheck
+</span><a href="#local-6989586621679380222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:ConditionCheck' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AexpressionAttributeNames%3AConditionCheck%27"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679380221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; ConditionCheck -&gt; f ConditionCheck)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ConditionCheck
+-&gt; f ConditionCheck
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | One or more values that can be substituted in an expression.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_expressionAttributeValues"><span class="hs-identifier hs-type">conditionCheck_expressionAttributeValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="conditionCheck_expressionAttributeValues"><span class="annot"><span class="annottext">conditionCheck_expressionAttributeValues :: (Maybe (HashMap Text AttributeValue)
  -&gt; f (Maybe (HashMap Text AttributeValue)))
 -&gt; ConditionCheck -&gt; f ConditionCheck
 </span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_expressionAttributeValues"><span class="hs-identifier hs-var hs-var">conditionCheck_expressionAttributeValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConditionCheck -&gt; Maybe (HashMap Text AttributeValue))
@@ -217,16 +240,16 @@ $sel:returnValuesOnConditionCheckFailure:ConditionCheck' :: ConditionCheck -&gt;
      (Maybe (HashMap Text AttributeValue))
      (Maybe (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379523"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380216"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 expressionAttributeValues :: Maybe (HashMap Text AttributeValue)
 $sel:expressionAttributeValues:ConditionCheck' :: ConditionCheck -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679379523"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679379523"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379522"><span class="annot"><span class="annottext">s :: ConditionCheck
-</span><a href="#local-6989586621679379522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379521"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679379521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConditionCheck
-</span><a href="#local-6989586621679379522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeValues:ConditionCheck' :: Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679380216"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679380216"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380215"><span class="annot"><span class="annottext">s :: ConditionCheck
+</span><a href="#local-6989586621679380215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380214"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679380214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConditionCheck
+</span><a href="#local-6989586621679380215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeValues:ConditionCheck' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AexpressionAttributeValues%3AConditionCheck%27"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679379521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679380214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
   -&gt; f (Maybe (HashMap Text AttributeValue)))
  -&gt; ConditionCheck -&gt; f ConditionCheck)
 -&gt; ((Maybe (HashMap Text AttributeValue)
@@ -256,63 +279,41 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text AttributeValue)
   (HashMap Text AttributeValue)
   (HashMap Text AttributeValue)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | One or more substitution tokens for attribute names in an expression.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_expressionAttributeNames"><span class="hs-identifier hs-type">conditionCheck_expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="conditionCheck_expressionAttributeNames"><span class="annot"><span class="annottext">conditionCheck_expressionAttributeNames :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- the @ConditionCheck@ condition fails. For</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- @ReturnValuesOnConditionCheckFailure@, the valid values are: NONE and</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- ALL_OLD.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_returnValuesOnConditionCheckFailure"><span class="hs-identifier hs-type">conditionCheck_returnValuesOnConditionCheckFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReturnValuesOnConditionCheckFailure.html#ReturnValuesOnConditionCheckFailure"><span class="hs-identifier hs-type">ReturnValuesOnConditionCheckFailure</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="conditionCheck_returnValuesOnConditionCheckFailure"><span class="annot"><span class="annottext">conditionCheck_returnValuesOnConditionCheckFailure :: (Maybe ReturnValuesOnConditionCheckFailure
+ -&gt; f (Maybe ReturnValuesOnConditionCheckFailure))
 -&gt; ConditionCheck -&gt; f ConditionCheck
-</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_expressionAttributeNames"><span class="hs-identifier hs-var hs-var">conditionCheck_expressionAttributeNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConditionCheck -&gt; Maybe (HashMap Text Text))
--&gt; (ConditionCheck -&gt; Maybe (HashMap Text Text) -&gt; ConditionCheck)
+</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_returnValuesOnConditionCheckFailure"><span class="hs-identifier hs-var hs-var">conditionCheck_returnValuesOnConditionCheckFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConditionCheck -&gt; Maybe ReturnValuesOnConditionCheckFailure)
+-&gt; (ConditionCheck
+    -&gt; Maybe ReturnValuesOnConditionCheckFailure -&gt; ConditionCheck)
 -&gt; Lens
      ConditionCheck
      ConditionCheck
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
+     (Maybe ReturnValuesOnConditionCheckFailure)
+     (Maybe ReturnValuesOnConditionCheckFailure)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379516"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-expressionAttributeNames :: Maybe (HashMap Text Text)
-$sel:expressionAttributeNames:ConditionCheck' :: ConditionCheck -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679379516"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679379516"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379515"><span class="annot"><span class="annottext">s :: ConditionCheck
-</span><a href="#local-6989586621679379515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379514"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679379514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConditionCheck
-</span><a href="#local-6989586621679379515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:ConditionCheck' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AexpressionAttributeNames%3AConditionCheck%27"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679379514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
- -&gt; ConditionCheck -&gt; f ConditionCheck)
--&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
-    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
--&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
--&gt; ConditionCheck
--&gt; f ConditionCheck
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
--&gt; Iso
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | The primary key of the item to be checked. Each element consists of an</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- attribute name and a value for that attribute.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_key"><span class="hs-identifier hs-type">conditionCheck_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="conditionCheck_key"><span class="annot"><span class="annottext">conditionCheck_key :: (HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380212"><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+returnValuesOnConditionCheckFailure :: Maybe ReturnValuesOnConditionCheckFailure
+$sel:returnValuesOnConditionCheckFailure:ConditionCheck' :: ConditionCheck -&gt; Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="#local-6989586621679380212"><span class="hs-identifier hs-var hs-var">returnValuesOnConditionCheckFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="#local-6989586621679380212"><span class="hs-identifier hs-var">returnValuesOnConditionCheckFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380211"><span class="annot"><span class="annottext">s :: ConditionCheck
+</span><a href="#local-6989586621679380211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380210"><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="#local-6989586621679380210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConditionCheck
+</span><a href="#local-6989586621679380211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnValuesOnConditionCheckFailure:ConditionCheck' :: Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AreturnValuesOnConditionCheckFailure%3AConditionCheck%27"><span class="hs-identifier hs-var">returnValuesOnConditionCheckFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="#local-6989586621679380210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The primary key of the item to be checked. Each element consists of an</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- attribute name and a value for that attribute.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_key"><span class="hs-identifier hs-type">conditionCheck_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="conditionCheck_key"><span class="annot"><span class="annottext">conditionCheck_key :: (HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
 -&gt; ConditionCheck -&gt; f ConditionCheck
 </span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_key"><span class="hs-identifier hs-var hs-var">conditionCheck_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConditionCheck -&gt; HashMap Text AttributeValue)
 -&gt; (ConditionCheck
@@ -323,16 +324,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (HashMap Text AttributeValue)
      (HashMap Text AttributeValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379512"><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380208"><span class="annot"><span class="annottext">HashMap Text AttributeValue
 key :: HashMap Text AttributeValue
 $sel:key:ConditionCheck' :: ConditionCheck -&gt; HashMap Text AttributeValue
-</span><a href="#local-6989586621679379512"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
-</span><a href="#local-6989586621679379512"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379511"><span class="annot"><span class="annottext">s :: ConditionCheck
-</span><a href="#local-6989586621679379511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379510"><span class="annot"><span class="annottext">HashMap Text AttributeValue
-</span><a href="#local-6989586621679379510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConditionCheck
-</span><a href="#local-6989586621679379511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ConditionCheck' :: HashMap Text AttributeValue
+</span><a href="#local-6989586621679380208"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><a href="#local-6989586621679380208"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380207"><span class="annot"><span class="annottext">s :: ConditionCheck
+</span><a href="#local-6989586621679380207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380206"><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><a href="#local-6989586621679380206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConditionCheck
+</span><a href="#local-6989586621679380207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ConditionCheck' :: HashMap Text AttributeValue
 </span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3Akey%3AConditionCheck%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
-</span><a href="#local-6989586621679379510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
+</span><a href="#local-6989586621679380206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
  -&gt; ConditionCheck -&gt; f ConditionCheck)
 -&gt; ((HashMap Text AttributeValue
      -&gt; f (HashMap Text AttributeValue))
@@ -343,53 +344,53 @@ $sel:key:ConditionCheck' :: ConditionCheck -&gt; HashMap Text AttributeValue
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
 -&gt; HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | Name of the table for the check item request.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_tableName"><span class="hs-identifier hs-type">conditionCheck_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-116"></span><span id="conditionCheck_tableName"><span class="annot"><span class="annottext">conditionCheck_tableName :: (Text -&gt; f Text) -&gt; ConditionCheck -&gt; f ConditionCheck
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Name of the table for the check item request.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_tableName"><span class="hs-identifier hs-type">conditionCheck_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span id="conditionCheck_tableName"><span class="annot"><span class="annottext">conditionCheck_tableName :: (Text -&gt; f Text) -&gt; ConditionCheck -&gt; f ConditionCheck
 </span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_tableName"><span class="hs-identifier hs-var hs-var">conditionCheck_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConditionCheck -&gt; Text)
 -&gt; (ConditionCheck -&gt; Text -&gt; ConditionCheck)
 -&gt; Lens ConditionCheck ConditionCheck Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379508"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380204"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:ConditionCheck' :: ConditionCheck -&gt; Text
-</span><a href="#local-6989586621679379508"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379508"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379507"><span class="annot"><span class="annottext">s :: ConditionCheck
-</span><a href="#local-6989586621679379507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379506"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConditionCheck
-</span><a href="#local-6989586621679379507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:ConditionCheck' :: Text
+</span><a href="#local-6989586621679380204"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679380204"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380203"><span class="annot"><span class="annottext">s :: ConditionCheck
+</span><a href="#local-6989586621679380203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380202"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679380202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConditionCheck
+</span><a href="#local-6989586621679380203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:ConditionCheck' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AtableName%3AConditionCheck%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | A condition that must be satisfied in order for a conditional update to</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- succeed.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_conditionExpression"><span class="hs-identifier hs-type">conditionCheck_conditionExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-121"></span><span id="conditionCheck_conditionExpression"><span class="annot"><span class="annottext">conditionCheck_conditionExpression :: (Text -&gt; f Text) -&gt; ConditionCheck -&gt; f ConditionCheck
+</span><a href="#local-6989586621679380202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | A condition that must be satisfied in order for a conditional update to</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- succeed.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_conditionExpression"><span class="hs-identifier hs-type">conditionCheck_conditionExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-122"></span><span id="conditionCheck_conditionExpression"><span class="annot"><span class="annottext">conditionCheck_conditionExpression :: (Text -&gt; f Text) -&gt; ConditionCheck -&gt; f ConditionCheck
 </span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#conditionCheck_conditionExpression"><span class="hs-identifier hs-var hs-var">conditionCheck_conditionExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConditionCheck -&gt; Text)
 -&gt; (ConditionCheck -&gt; Text -&gt; ConditionCheck)
 -&gt; Lens ConditionCheck ConditionCheck Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379504"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380200"><span class="annot"><span class="annottext">Text
 conditionExpression :: Text
 $sel:conditionExpression:ConditionCheck' :: ConditionCheck -&gt; Text
-</span><a href="#local-6989586621679379504"><span class="hs-identifier hs-var hs-var">conditionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379504"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379503"><span class="annot"><span class="annottext">s :: ConditionCheck
-</span><a href="#local-6989586621679379503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379502"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConditionCheck
-</span><a href="#local-6989586621679379503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionExpression:ConditionCheck' :: Text
+</span><a href="#local-6989586621679380200"><span class="hs-identifier hs-var hs-var">conditionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679380200"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380199"><span class="annot"><span class="annottext">s :: ConditionCheck
+</span><a href="#local-6989586621679380199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380198"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679380198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConditionCheck
+</span><a href="#local-6989586621679380199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionExpression:ConditionCheck' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#%24sel%3AconditionExpression%3AConditionCheck%27"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379498"><span id="local-6989586621679379500"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span></span></span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span></span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379487"><span id="local-6989586621679379489"><span id="local-6989586621679379491"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679379485"><span class="annot"><span class="annottext">toJSON :: ConditionCheck -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379478"><span id="local-6989586621679379479"><span id="local-6989586621679379480"><span id="local-6989586621679379481"><span id="local-6989586621679379482"><span id="local-6989586621679379483"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679380198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380194"><span id="local-6989586621679380196"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380191"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380183"><span id="local-6989586621679380185"><span id="local-6989586621679380187"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679380181"><span class="annot"><span class="annottext">toJSON :: ConditionCheck -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck%27"><span class="hs-identifier hs-type">ConditionCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380174"><span id="local-6989586621679380175"><span id="local-6989586621679380176"><span id="local-6989586621679380177"><span id="local-6989586621679380178"><span id="local-6989586621679380179"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 Maybe (HashMap Text AttributeValue)
 Maybe ReturnValuesOnConditionCheckFailure
 Text
@@ -397,70 +398,70 @@ HashMap Text AttributeValue
 conditionExpression :: Text
 tableName :: Text
 key :: HashMap Text AttributeValue
-expressionAttributeNames :: Maybe (HashMap Text Text)
-expressionAttributeValues :: Maybe (HashMap Text AttributeValue)
 returnValuesOnConditionCheckFailure :: Maybe ReturnValuesOnConditionCheckFailure
+expressionAttributeValues :: Maybe (HashMap Text AttributeValue)
+expressionAttributeNames :: Maybe (HashMap Text Text)
 $sel:conditionExpression:ConditionCheck' :: ConditionCheck -&gt; Text
 $sel:tableName:ConditionCheck' :: ConditionCheck -&gt; Text
 $sel:key:ConditionCheck' :: ConditionCheck -&gt; HashMap Text AttributeValue
-$sel:expressionAttributeNames:ConditionCheck' :: ConditionCheck -&gt; Maybe (HashMap Text Text)
-$sel:expressionAttributeValues:ConditionCheck' :: ConditionCheck -&gt; Maybe (HashMap Text AttributeValue)
 $sel:returnValuesOnConditionCheckFailure:ConditionCheck' :: ConditionCheck -&gt; Maybe ReturnValuesOnConditionCheckFailure
-</span><a href="#local-6989586621679379478"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:expressionAttributeValues:ConditionCheck' :: ConditionCheck -&gt; Maybe (HashMap Text AttributeValue)
+$sel:expressionAttributeNames:ConditionCheck' :: ConditionCheck -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679380174"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-131"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReturnValuesOnConditionCheckFailure&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReturnValuesOnConditionCheckFailure -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">(ReturnValuesOnConditionCheckFailure -&gt; Pair)
--&gt; Maybe ReturnValuesOnConditionCheckFailure -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
-</span><a href="#local-6989586621679379483"><span class="hs-identifier hs-var">returnValuesOnConditionCheckFailure</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ExpressionAttributeValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValue -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text AttributeValue -&gt; Pair)
--&gt; Maybe (HashMap Text AttributeValue) -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679379482"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExpressionAttributeNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679379481"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679380179"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExpressionAttributeValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text AttributeValue -&gt; Pair)
+-&gt; Maybe (HashMap Text AttributeValue) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679380178"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReturnValuesOnConditionCheckFailure&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReturnValuesOnConditionCheckFailure -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">(ReturnValuesOnConditionCheckFailure -&gt; Pair)
+-&gt; Maybe ReturnValuesOnConditionCheckFailure -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="#local-6989586621679380177"><span class="hs-identifier hs-var">returnValuesOnConditionCheckFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
-</span><a href="#local-6989586621679379480"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679380176"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379479"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679380175"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
-</span><span id="line-140"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-141"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConditionExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379478"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span></pre></body></html>
+</span><a href="#local-6989586621679380174"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span></pre></body></html>

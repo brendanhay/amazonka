@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-40"></span><span>
-</span><span id="line-41"></span><span id="local-6989586621679188599"><span id="local-6989586621679188600"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="KeyUsageName"><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsageName.html#KeyUsageName"><span class="hs-identifier hs-var">KeyUsageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyUsageName%27"><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsageName.html#KeyUsageName%27"><span class="hs-identifier hs-var">KeyUsageName'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679188682"><span id="local-6989586621679188683"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="KeyUsageName"><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsageName.html#KeyUsageName"><span class="hs-identifier hs-var">KeyUsageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyUsageName%27"><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsageName.html#KeyUsageName%27"><span class="hs-identifier hs-var">KeyUsageName'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromKeyUsageName"><span class="annot"><span class="annottext">KeyUsageName -&gt; Text
 </span><a href="Network.AWS.CertificateManager.Types.KeyUsageName.html#fromKeyUsageName"><span class="hs-identifier hs-var hs-var">fromKeyUsageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679188591"><span id="local-6989586621679188593"><span id="local-6989586621679188595"><span class="annot"><span class="annottext">Int -&gt; KeyUsageName -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679188674"><span id="local-6989586621679188676"><span id="local-6989586621679188678"><span class="annot"><span class="annottext">Int -&gt; KeyUsageName -&gt; ShowS
 [KeyUsageName] -&gt; ShowS
 KeyUsageName -&gt; String
 (Int -&gt; KeyUsageName -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: KeyUsageName -&gt; String
 showsPrec :: Int -&gt; KeyUsageName -&gt; ShowS
 $cshowsPrec :: Int -&gt; KeyUsageName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679188582"><span id="local-6989586621679188584"><span id="local-6989586621679188586"><span id="local-6989586621679188588"><span class="annot"><span class="annottext">ReadPrec [KeyUsageName]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679188665"><span id="local-6989586621679188667"><span id="local-6989586621679188669"><span id="local-6989586621679188671"><span class="annot"><span class="annottext">ReadPrec [KeyUsageName]
 ReadPrec KeyUsageName
 Int -&gt; ReadS KeyUsageName
 ReadS [KeyUsageName]
@@ -81,7 +81,7 @@ $creadList :: ReadS [KeyUsageName]
 readsPrec :: Int -&gt; ReadS KeyUsageName
 $creadsPrec :: Int -&gt; ReadS KeyUsageName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679188577"><span id="local-6989586621679188579"><span class="annot"><span class="annottext">KeyUsageName -&gt; KeyUsageName -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679188660"><span id="local-6989586621679188662"><span class="annot"><span class="annottext">KeyUsageName -&gt; KeyUsageName -&gt; Bool
 (KeyUsageName -&gt; KeyUsageName -&gt; Bool)
 -&gt; (KeyUsageName -&gt; KeyUsageName -&gt; Bool) -&gt; Eq KeyUsageName
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ $c/= :: KeyUsageName -&gt; KeyUsageName -&gt; Bool
 == :: KeyUsageName -&gt; KeyUsageName -&gt; Bool
 $c== :: KeyUsageName -&gt; KeyUsageName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679188561"><span id="local-6989586621679188563"><span id="local-6989586621679188565"><span id="local-6989586621679188567"><span id="local-6989586621679188569"><span id="local-6989586621679188571"><span id="local-6989586621679188573"><span class="annot"><span class="annottext">Eq KeyUsageName
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679188644"><span id="local-6989586621679188646"><span id="local-6989586621679188648"><span id="local-6989586621679188650"><span id="local-6989586621679188652"><span id="local-6989586621679188654"><span id="local-6989586621679188656"><span class="annot"><span class="annottext">Eq KeyUsageName
 Eq KeyUsageName
 -&gt; (KeyUsageName -&gt; KeyUsageName -&gt; Ordering)
 -&gt; (KeyUsageName -&gt; KeyUsageName -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. KeyUsageName -&gt; Rep KeyUsageName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679188553"><span id="local-6989586621679188555"><span class="annot"><span class="annottext">Int -&gt; KeyUsageName -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679188636"><span id="local-6989586621679188638"><span class="annot"><span class="annottext">Int -&gt; KeyUsageName -&gt; Int
 KeyUsageName -&gt; Int
 (Int -&gt; KeyUsageName -&gt; Int)
 -&gt; (KeyUsageName -&gt; Int) -&gt; Hashable KeyUsageName
@@ -151,49 +151,49 @@ $chash :: KeyUsageName -&gt; Int
 hashWithSalt :: Int -&gt; KeyUsageName -&gt; Int
 $chashWithSalt :: Int -&gt; KeyUsageName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679188550"><span class="annot"><span class="annottext">KeyUsageName -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679188633"><span class="annot"><span class="annottext">KeyUsageName -&gt; ()
 (KeyUsageName -&gt; ()) -&gt; NFData KeyUsageName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: KeyUsageName -&gt; ()
 $crnf :: KeyUsageName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679188547"><span class="annot"><span class="annottext">Text -&gt; Either String KeyUsageName
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679188630"><span class="annot"><span class="annottext">Text -&gt; Either String KeyUsageName
 (Text -&gt; Either String KeyUsageName) -&gt; FromText KeyUsageName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String KeyUsageName
 $cfromText :: Text -&gt; Either String KeyUsageName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679188544"><span class="annot"><span class="annottext">KeyUsageName -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679188627"><span class="annot"><span class="annottext">KeyUsageName -&gt; Text
 (KeyUsageName -&gt; Text) -&gt; ToText KeyUsageName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: KeyUsageName -&gt; Text
 $ctoText :: KeyUsageName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679188541"><span class="annot"><span class="annottext">KeyUsageName -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679188624"><span class="annot"><span class="annottext">KeyUsageName -&gt; ByteString
 (KeyUsageName -&gt; ByteString) -&gt; ToByteString KeyUsageName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: KeyUsageName -&gt; ByteString
 $ctoBS :: KeyUsageName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679188538"><span class="annot"><span class="annottext">KeyUsageName -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679188621"><span class="annot"><span class="annottext">KeyUsageName -&gt; ByteStringBuilder
 (KeyUsageName -&gt; ByteStringBuilder) -&gt; ToLog KeyUsageName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: KeyUsageName -&gt; ByteStringBuilder
 $cbuild :: KeyUsageName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679188535"><span class="annot"><span class="annottext">HeaderName -&gt; KeyUsageName -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679188618"><span class="annot"><span class="annottext">HeaderName -&gt; KeyUsageName -&gt; [Header]
 (HeaderName -&gt; KeyUsageName -&gt; [Header]) -&gt; ToHeader KeyUsageName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; KeyUsageName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; KeyUsageName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679188532"><span class="annot"><span class="annottext">KeyUsageName -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679188615"><span class="annot"><span class="annottext">KeyUsageName -&gt; QueryString
 (KeyUsageName -&gt; QueryString) -&gt; ToQuery KeyUsageName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: KeyUsageName -&gt; QueryString
 $ctoQuery :: KeyUsageName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679188527"><span id="local-6989586621679188529"><span class="annot"><span class="annottext">Value -&gt; Parser [KeyUsageName]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679188610"><span id="local-6989586621679188612"><span class="annot"><span class="annottext">Value -&gt; Parser [KeyUsageName]
 Value -&gt; Parser KeyUsageName
 (Value -&gt; Parser KeyUsageName)
 -&gt; (Value -&gt; Parser [KeyUsageName]) -&gt; FromJSON KeyUsageName
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [KeyUsageName]
 parseJSON :: Value -&gt; Parser KeyUsageName
 $cparseJSON :: Value -&gt; Parser KeyUsageName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679188522"><span id="local-6989586621679188524"><span class="annot"><span class="annottext">FromJSONKeyFunction [KeyUsageName]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679188605"><span id="local-6989586621679188607"><span class="annot"><span class="annottext">FromJSONKeyFunction [KeyUsageName]
 FromJSONKeyFunction KeyUsageName
 FromJSONKeyFunction KeyUsageName
 -&gt; FromJSONKeyFunction [KeyUsageName] -&gt; FromJSONKey KeyUsageName
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [KeyUsageName]
 fromJSONKey :: FromJSONKeyFunction KeyUsageName
 $cfromJSONKey :: FromJSONKeyFunction KeyUsageName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679188513"><span id="local-6989586621679188515"><span id="local-6989586621679188517"><span id="local-6989586621679188519"><span class="annot"><span class="annottext">[KeyUsageName] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679188596"><span id="local-6989586621679188598"><span id="local-6989586621679188600"><span id="local-6989586621679188602"><span class="annot"><span class="annottext">[KeyUsageName] -&gt; Encoding
 [KeyUsageName] -&gt; Value
 KeyUsageName -&gt; Encoding
 KeyUsageName -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: KeyUsageName -&gt; Encoding
 toJSON :: KeyUsageName -&gt; Value
 $ctoJSON :: KeyUsageName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679188508"><span id="local-6989586621679188510"><span class="annot"><span class="annottext">ToJSONKeyFunction [KeyUsageName]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679188591"><span id="local-6989586621679188593"><span class="annot"><span class="annottext">ToJSONKeyFunction [KeyUsageName]
 ToJSONKeyFunction KeyUsageName
 ToJSONKeyFunction KeyUsageName
 -&gt; ToJSONKeyFunction [KeyUsageName] -&gt; ToJSONKey KeyUsageName
@@ -250,13 +250,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [KeyUsageName]
 toJSONKey :: ToJSONKeyFunction KeyUsageName
 $ctoJSONKey :: ToJSONKeyFunction KeyUsageName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679188505"><span class="annot"><span class="annottext">[Node] -&gt; Either String KeyUsageName
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679188588"><span class="annot"><span class="annottext">[Node] -&gt; Either String KeyUsageName
 ([Node] -&gt; Either String KeyUsageName) -&gt; FromXML KeyUsageName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String KeyUsageName
 $cparseXML :: [Node] -&gt; Either String KeyUsageName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679188502"><span class="annot"><span class="annottext">KeyUsageName -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679188585"><span class="annot"><span class="annottext">KeyUsageName -&gt; XML
 (KeyUsageName -&gt; XML) -&gt; ToXML KeyUsageName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: KeyUsageName -&gt; XML

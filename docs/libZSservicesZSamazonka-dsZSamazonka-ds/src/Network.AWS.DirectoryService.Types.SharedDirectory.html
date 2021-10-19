@@ -30,45 +30,45 @@
 </span><span id="line-30"></span><span class="hs-comment">-- accepted.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newSharedDirectory' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679299999"><span id="local-6989586621679300000"></span></span><span class="hs-keyword">data</span><span> </span><span id="SharedDirectory"><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-var">SharedDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SharedDirectory%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-var">SharedDirectory'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time that the shared directory was created.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcreatedDateTime%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe POSIX
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AcreatedDateTime%3ASharedDirectory%27"><span class="hs-identifier hs-var hs-var">createdDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The date and time that the shared directory was last updated.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlastUpdatedDateTime%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe POSIX
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AlastUpdatedDateTime%3ASharedDirectory%27"><span class="hs-identifier hs-var hs-var">lastUpdatedDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A directory share request that is sent by the directory owner to the</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- directory consumer. The request includes a typed message to help the</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- directory consumer administrator determine whether to approve or reject</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- the share invitation.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AshareNotes%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AshareNotes%3ASharedDirectory%27"><span class="hs-identifier hs-var hs-var">shareNotes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Identifier of the directory consumer account that has access to the</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- shared directory (@OwnerDirectoryId@) in the directory owner account.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AsharedAccountId%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe Text
+</span><span id="line-33"></span><span id="local-6989586621679300199"><span id="local-6989586621679300200"></span></span><span class="hs-keyword">data</span><span> </span><span id="SharedDirectory"><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-var">SharedDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SharedDirectory%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-var">SharedDirectory'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifier of the directory consumer account that has access to the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- shared directory (@OwnerDirectoryId@) in the directory owner account.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AsharedAccountId%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe Text
 </span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AsharedAccountId%3ASharedDirectory%27"><span class="hs-identifier hs-var hs-var">sharedAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Identifier of the directory in the directory owner account.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AownerDirectoryId%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe Text
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AownerDirectoryId%3ASharedDirectory%27"><span class="hs-identifier hs-var hs-var">ownerDirectoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The method used when sharing a directory to determine whether the</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- directory should be shared within your Amazon Web Services organization</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- (@ORGANIZATIONS@) or with any Amazon Web Services account by sending a</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- shared directory request (@HANDSHAKE@).</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AshareMethod%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe ShareMethod
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AshareMethod%3ASharedDirectory%27"><span class="hs-identifier hs-var hs-var">shareMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ShareMethod.html#ShareMethod"><span class="hs-identifier hs-type">ShareMethod</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Current directory status of the shared Managed Microsoft AD directory.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AshareStatus%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe ShareStatus
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Identifier of the directory owner account, which contains the directory</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- that has been shared to the consumer account.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AownerAccountId%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AownerAccountId%3ASharedDirectory%27"><span class="hs-identifier hs-var hs-var">ownerAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The date and time that the shared directory was last updated.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AlastUpdatedDateTime%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe POSIX
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AlastUpdatedDateTime%3ASharedDirectory%27"><span class="hs-identifier hs-var hs-var">lastUpdatedDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Current directory status of the shared Managed Microsoft AD directory.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AshareStatus%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe ShareStatus
 </span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AshareStatus%3ASharedDirectory%27"><span class="hs-identifier hs-var hs-var">shareStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ShareStatus.html#ShareStatus"><span class="hs-identifier hs-type">ShareStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Identifier of the shared directory in the directory consumer account.</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- This identifier is different for each directory owner account.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AsharedDirectoryId%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe Text
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The method used when sharing a directory to determine whether the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- directory should be shared within your Amazon Web Services organization</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- (@ORGANIZATIONS@) or with any Amazon Web Services account by sending a</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- shared directory request (@HANDSHAKE@).</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AshareMethod%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe ShareMethod
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AshareMethod%3ASharedDirectory%27"><span class="hs-identifier hs-var hs-var">shareMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ShareMethod.html#ShareMethod"><span class="hs-identifier hs-type">ShareMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Identifier of the directory in the directory owner account.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AownerDirectoryId%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AownerDirectoryId%3ASharedDirectory%27"><span class="hs-identifier hs-var hs-var">ownerDirectoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Identifier of the shared directory in the directory consumer account.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- This identifier is different for each directory owner account.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AsharedDirectoryId%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe Text
 </span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AsharedDirectoryId%3ASharedDirectory%27"><span class="hs-identifier hs-var hs-var">sharedDirectoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Identifier of the directory owner account, which contains the directory</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- that has been shared to the consumer account.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AownerAccountId%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe Text
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AownerAccountId%3ASharedDirectory%27"><span class="hs-identifier hs-var hs-var">ownerAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | A directory share request that is sent by the directory owner to the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- directory consumer. The request includes a typed message to help the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- directory consumer administrator determine whether to approve or reject</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- the share invitation.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AshareNotes%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AshareNotes%3ASharedDirectory%27"><span class="hs-identifier hs-var hs-var">shareNotes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The date and time that the shared directory was created.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AcreatedDateTime%3ASharedDirectory%27"><span class="annot"><span class="annottext">SharedDirectory -&gt; Maybe POSIX
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AcreatedDateTime%3ASharedDirectory%27"><span class="hs-identifier hs-var hs-var">createdDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299985"><span id="local-6989586621679299987"><span class="annot"><span class="annottext">SharedDirectory -&gt; SharedDirectory -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300185"><span id="local-6989586621679300187"><span class="annot"><span class="annottext">SharedDirectory -&gt; SharedDirectory -&gt; Bool
 (SharedDirectory -&gt; SharedDirectory -&gt; Bool)
 -&gt; (SharedDirectory -&gt; SharedDirectory -&gt; Bool)
 -&gt; Eq SharedDirectory
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SharedDirectory -&gt; SharedDirectory -&gt; Bool
 == :: SharedDirectory -&gt; SharedDirectory -&gt; Bool
 $c== :: SharedDirectory -&gt; SharedDirectory -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299978"><span id="local-6989586621679299980"><span id="local-6989586621679299982"><span class="annot"><span class="annottext">Int -&gt; SharedDirectory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300178"><span id="local-6989586621679300180"><span id="local-6989586621679300182"><span class="annot"><span class="annottext">Int -&gt; SharedDirectory -&gt; ShowS
 [SharedDirectory] -&gt; ShowS
 SharedDirectory -&gt; String
 (Int -&gt; SharedDirectory -&gt; ShowS)
@@ -111,137 +111,143 @@ $cfrom :: forall x. SharedDirectory -&gt; Rep SharedDirectory x
 </span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'createdDateTime', 'sharedDirectory_createdDateTime' - The date and time that the shared directory was created.</span><span>
-</span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'lastUpdatedDateTime', 'sharedDirectory_lastUpdatedDateTime' - The date and time that the shared directory was last updated.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'shareNotes', 'sharedDirectory_shareNotes' - A directory share request that is sent by the directory owner to the</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- directory consumer. The request includes a typed message to help the</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- directory consumer administrator determine whether to approve or reject</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- the share invitation.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'sharedAccountId', 'sharedDirectory_sharedAccountId' - Identifier of the directory consumer account that has access to the</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- shared directory (@OwnerDirectoryId@) in the directory owner account.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'ownerDirectoryId', 'sharedDirectory_ownerDirectoryId' - Identifier of the directory in the directory owner account.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'shareMethod', 'sharedDirectory_shareMethod' - The method used when sharing a directory to determine whether the</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- directory should be shared within your Amazon Web Services organization</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- (@ORGANIZATIONS@) or with any Amazon Web Services account by sending a</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- shared directory request (@HANDSHAKE@).</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'shareStatus', 'sharedDirectory_shareStatus' - Current directory status of the shared Managed Microsoft AD directory.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'sharedDirectoryId', 'sharedDirectory_sharedDirectoryId' - Identifier of the shared directory in the directory consumer account.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- This identifier is different for each directory owner account.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'ownerAccountId', 'sharedDirectory_ownerAccountId' - Identifier of the directory owner account, which contains the directory</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- that has been shared to the consumer account.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'sharedAccountId', 'sharedDirectory_sharedAccountId' - Identifier of the directory consumer account that has access to the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- shared directory (@OwnerDirectoryId@) in the directory owner account.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'ownerAccountId', 'sharedDirectory_ownerAccountId' - Identifier of the directory owner account, which contains the directory</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- that has been shared to the consumer account.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'lastUpdatedDateTime', 'sharedDirectory_lastUpdatedDateTime' - The date and time that the shared directory was last updated.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'shareStatus', 'sharedDirectory_shareStatus' - Current directory status of the shared Managed Microsoft AD directory.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'shareMethod', 'sharedDirectory_shareMethod' - The method used when sharing a directory to determine whether the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- directory should be shared within your Amazon Web Services organization</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- (@ORGANIZATIONS@) or with any Amazon Web Services account by sending a</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- shared directory request (@HANDSHAKE@).</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'ownerDirectoryId', 'sharedDirectory_ownerDirectoryId' - Identifier of the directory in the directory owner account.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'sharedDirectoryId', 'sharedDirectory_sharedDirectoryId' - Identifier of the shared directory in the directory consumer account.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- This identifier is different for each directory owner account.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'shareNotes', 'sharedDirectory_shareNotes' - A directory share request that is sent by the directory owner to the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- directory consumer. The request includes a typed message to help the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- directory consumer administrator determine whether to approve or reject</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- the share invitation.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'createdDateTime', 'sharedDirectory_createdDateTime' - The date and time that the shared directory was created.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#newSharedDirectory"><span class="hs-identifier hs-type">newSharedDirectory</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span>
 </span><span id="line-100"></span><span id="newSharedDirectory"><span class="annot"><span class="annottext">newSharedDirectory :: SharedDirectory
 </span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#newSharedDirectory"><span class="hs-identifier hs-var hs-var">newSharedDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">SharedDirectory' :: Maybe POSIX
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">SharedDirectory' :: Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe (Sensitive Text)
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe ShareMethod
 -&gt; Maybe ShareStatus
+-&gt; Maybe ShareMethod
 -&gt; Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe POSIX
 -&gt; SharedDirectory
 </span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdDateTime:SharedDirectory' :: Maybe POSIX
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AcreatedDateTime%3ASharedDirectory%27"><span class="hs-identifier hs-var">createdDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedDateTime:SharedDirectory' :: Maybe POSIX
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AlastUpdatedDateTime%3ASharedDirectory%27"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:shareNotes:SharedDirectory' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AshareNotes%3ASharedDirectory%27"><span class="hs-identifier hs-var">shareNotes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:sharedAccountId:SharedDirectory' :: Maybe Text
+</span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sharedAccountId:SharedDirectory' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AsharedAccountId%3ASharedDirectory%27"><span class="hs-identifier hs-var">sharedAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerDirectoryId:SharedDirectory' :: Maybe Text
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AownerDirectoryId%3ASharedDirectory%27"><span class="hs-identifier hs-var">ownerDirectoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerAccountId:SharedDirectory' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AownerAccountId%3ASharedDirectory%27"><span class="hs-identifier hs-var">ownerAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:shareMethod:SharedDirectory' :: Maybe ShareMethod
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AshareMethod%3ASharedDirectory%27"><span class="hs-identifier hs-var">shareMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShareMethod
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedDateTime:SharedDirectory' :: Maybe POSIX
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AlastUpdatedDateTime%3ASharedDirectory%27"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:shareStatus:SharedDirectory' :: Maybe ShareStatus
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:shareStatus:SharedDirectory' :: Maybe ShareStatus
 </span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AshareStatus%3ASharedDirectory%27"><span class="hs-identifier hs-var">shareStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShareStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:sharedDirectoryId:SharedDirectory' :: Maybe Text
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:shareMethod:SharedDirectory' :: Maybe ShareMethod
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AshareMethod%3ASharedDirectory%27"><span class="hs-identifier hs-var">shareMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShareMethod
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerDirectoryId:SharedDirectory' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AownerDirectoryId%3ASharedDirectory%27"><span class="hs-identifier hs-var">ownerDirectoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:sharedDirectoryId:SharedDirectory' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AsharedDirectoryId%3ASharedDirectory%27"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerAccountId:SharedDirectory' :: Maybe Text
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AownerAccountId%3ASharedDirectory%27"><span class="hs-identifier hs-var">ownerAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:shareNotes:SharedDirectory' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AshareNotes%3ASharedDirectory%27"><span class="hs-identifier hs-var">shareNotes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdDateTime:SharedDirectory' :: Maybe POSIX
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AcreatedDateTime%3ASharedDirectory%27"><span class="hs-identifier hs-var">createdDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The date and time that the shared directory was created.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_createdDateTime"><span class="hs-identifier hs-type">sharedDirectory_createdDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="sharedDirectory_createdDateTime"><span class="annot"><span class="annottext">sharedDirectory_createdDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-113"></span><span class="hs-comment">-- | Identifier of the directory consumer account that has access to the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- shared directory (@OwnerDirectoryId@) in the directory owner account.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_sharedAccountId"><span class="hs-identifier hs-type">sharedDirectory_sharedAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="sharedDirectory_sharedAccountId"><span class="annot"><span class="annottext">sharedDirectory_sharedAccountId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; SharedDirectory -&gt; f SharedDirectory
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_createdDateTime"><span class="hs-identifier hs-var hs-var">sharedDirectory_createdDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SharedDirectory -&gt; Maybe POSIX)
--&gt; (SharedDirectory -&gt; Maybe POSIX -&gt; SharedDirectory)
--&gt; Lens SharedDirectory SharedDirectory (Maybe POSIX) (Maybe POSIX)
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_sharedAccountId"><span class="hs-identifier hs-var hs-var">sharedDirectory_sharedAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SharedDirectory -&gt; Maybe Text)
+-&gt; (SharedDirectory -&gt; Maybe Text -&gt; SharedDirectory)
+-&gt; Lens SharedDirectory SharedDirectory (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299969"><span class="annot"><span class="annottext">Maybe POSIX
-createdDateTime :: Maybe POSIX
-$sel:createdDateTime:SharedDirectory' :: SharedDirectory -&gt; Maybe POSIX
-</span><a href="#local-6989586621679299969"><span class="hs-identifier hs-var hs-var">createdDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679299969"><span class="hs-identifier hs-var">createdDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299968"><span class="annot"><span class="annottext">s :: SharedDirectory
-</span><a href="#local-6989586621679299968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299967"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679299967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
-</span><a href="#local-6989586621679299968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDateTime:SharedDirectory' :: Maybe POSIX
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AcreatedDateTime%3ASharedDirectory%27"><span class="hs-identifier hs-var">createdDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679299967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; SharedDirectory -&gt; f SharedDirectory)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; SharedDirectory
--&gt; f SharedDirectory
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | The date and time that the shared directory was last updated.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_lastUpdatedDateTime"><span class="hs-identifier hs-type">sharedDirectory_lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="sharedDirectory_lastUpdatedDateTime"><span class="annot"><span class="annottext">sharedDirectory_lastUpdatedDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300169"><span class="annot"><span class="annottext">Maybe Text
+sharedAccountId :: Maybe Text
+$sel:sharedAccountId:SharedDirectory' :: SharedDirectory -&gt; Maybe Text
+</span><a href="#local-6989586621679300169"><span class="hs-identifier hs-var hs-var">sharedAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300169"><span class="hs-identifier hs-var">sharedAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300168"><span class="annot"><span class="annottext">s :: SharedDirectory
+</span><a href="#local-6989586621679300168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300167"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
+</span><a href="#local-6989586621679300168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedAccountId:SharedDirectory' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AsharedAccountId%3ASharedDirectory%27"><span class="hs-identifier hs-var">sharedAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | Identifier of the directory owner account, which contains the directory</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- that has been shared to the consumer account.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_ownerAccountId"><span class="hs-identifier hs-type">sharedDirectory_ownerAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="sharedDirectory_ownerAccountId"><span class="annot"><span class="annottext">sharedDirectory_ownerAccountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SharedDirectory -&gt; f SharedDirectory
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_ownerAccountId"><span class="hs-identifier hs-var hs-var">sharedDirectory_ownerAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SharedDirectory -&gt; Maybe Text)
+-&gt; (SharedDirectory -&gt; Maybe Text -&gt; SharedDirectory)
+-&gt; Lens SharedDirectory SharedDirectory (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300165"><span class="annot"><span class="annottext">Maybe Text
+ownerAccountId :: Maybe Text
+$sel:ownerAccountId:SharedDirectory' :: SharedDirectory -&gt; Maybe Text
+</span><a href="#local-6989586621679300165"><span class="hs-identifier hs-var hs-var">ownerAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300165"><span class="hs-identifier hs-var">ownerAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300164"><span class="annot"><span class="annottext">s :: SharedDirectory
+</span><a href="#local-6989586621679300164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300163"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
+</span><a href="#local-6989586621679300164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerAccountId:SharedDirectory' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AownerAccountId%3ASharedDirectory%27"><span class="hs-identifier hs-var">ownerAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The date and time that the shared directory was last updated.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_lastUpdatedDateTime"><span class="hs-identifier hs-type">sharedDirectory_lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="sharedDirectory_lastUpdatedDateTime"><span class="annot"><span class="annottext">sharedDirectory_lastUpdatedDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; SharedDirectory -&gt; f SharedDirectory
 </span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_lastUpdatedDateTime"><span class="hs-identifier hs-var hs-var">sharedDirectory_lastUpdatedDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SharedDirectory -&gt; Maybe POSIX)
 -&gt; (SharedDirectory -&gt; Maybe POSIX -&gt; SharedDirectory)
 -&gt; Lens SharedDirectory SharedDirectory (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299962"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300161"><span class="annot"><span class="annottext">Maybe POSIX
 lastUpdatedDateTime :: Maybe POSIX
 $sel:lastUpdatedDateTime:SharedDirectory' :: SharedDirectory -&gt; Maybe POSIX
-</span><a href="#local-6989586621679299962"><span class="hs-identifier hs-var hs-var">lastUpdatedDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679299962"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299961"><span class="annot"><span class="annottext">s :: SharedDirectory
-</span><a href="#local-6989586621679299961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299960"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679299960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
-</span><a href="#local-6989586621679299961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedDateTime:SharedDirectory' :: Maybe POSIX
+</span><a href="#local-6989586621679300161"><span class="hs-identifier hs-var hs-var">lastUpdatedDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679300161"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300160"><span class="annot"><span class="annottext">s :: SharedDirectory
+</span><a href="#local-6989586621679300160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300159"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679300159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
+</span><a href="#local-6989586621679300160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedDateTime:SharedDirectory' :: Maybe POSIX
 </span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AlastUpdatedDateTime%3ASharedDirectory%27"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679299960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679300159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; SharedDirectory -&gt; f SharedDirectory)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -257,13 +263,101 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | A directory share request that is sent by the directory owner to the</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- directory consumer. The request includes a typed message to help the</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- directory consumer administrator determine whether to approve or reject</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- the share invitation.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_shareNotes"><span class="hs-identifier hs-type">sharedDirectory_shareNotes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="sharedDirectory_shareNotes"><span class="annot"><span class="annottext">sharedDirectory_shareNotes :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Current directory status of the shared Managed Microsoft AD directory.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_shareStatus"><span class="hs-identifier hs-type">sharedDirectory_shareStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ShareStatus.html#ShareStatus"><span class="hs-identifier hs-type">ShareStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="sharedDirectory_shareStatus"><span class="annot"><span class="annottext">sharedDirectory_shareStatus :: (Maybe ShareStatus -&gt; f (Maybe ShareStatus))
+-&gt; SharedDirectory -&gt; f SharedDirectory
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_shareStatus"><span class="hs-identifier hs-var hs-var">sharedDirectory_shareStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SharedDirectory -&gt; Maybe ShareStatus)
+-&gt; (SharedDirectory -&gt; Maybe ShareStatus -&gt; SharedDirectory)
+-&gt; Lens
+     SharedDirectory
+     SharedDirectory
+     (Maybe ShareStatus)
+     (Maybe ShareStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300154"><span class="annot"><span class="annottext">Maybe ShareStatus
+shareStatus :: Maybe ShareStatus
+$sel:shareStatus:SharedDirectory' :: SharedDirectory -&gt; Maybe ShareStatus
+</span><a href="#local-6989586621679300154"><span class="hs-identifier hs-var hs-var">shareStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ShareStatus
+</span><a href="#local-6989586621679300154"><span class="hs-identifier hs-var">shareStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300153"><span class="annot"><span class="annottext">s :: SharedDirectory
+</span><a href="#local-6989586621679300153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300152"><span class="annot"><span class="annottext">Maybe ShareStatus
+</span><a href="#local-6989586621679300152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
+</span><a href="#local-6989586621679300153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shareStatus:SharedDirectory' :: Maybe ShareStatus
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AshareStatus%3ASharedDirectory%27"><span class="hs-identifier hs-var">shareStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShareStatus
+</span><a href="#local-6989586621679300152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The method used when sharing a directory to determine whether the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- directory should be shared within your Amazon Web Services organization</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- (@ORGANIZATIONS@) or with any Amazon Web Services account by sending a</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- shared directory request (@HANDSHAKE@).</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_shareMethod"><span class="hs-identifier hs-type">sharedDirectory_shareMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ShareMethod.html#ShareMethod"><span class="hs-identifier hs-type">ShareMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="sharedDirectory_shareMethod"><span class="annot"><span class="annottext">sharedDirectory_shareMethod :: (Maybe ShareMethod -&gt; f (Maybe ShareMethod))
+-&gt; SharedDirectory -&gt; f SharedDirectory
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_shareMethod"><span class="hs-identifier hs-var hs-var">sharedDirectory_shareMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SharedDirectory -&gt; Maybe ShareMethod)
+-&gt; (SharedDirectory -&gt; Maybe ShareMethod -&gt; SharedDirectory)
+-&gt; Lens
+     SharedDirectory
+     SharedDirectory
+     (Maybe ShareMethod)
+     (Maybe ShareMethod)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300150"><span class="annot"><span class="annottext">Maybe ShareMethod
+shareMethod :: Maybe ShareMethod
+$sel:shareMethod:SharedDirectory' :: SharedDirectory -&gt; Maybe ShareMethod
+</span><a href="#local-6989586621679300150"><span class="hs-identifier hs-var hs-var">shareMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ShareMethod
+</span><a href="#local-6989586621679300150"><span class="hs-identifier hs-var">shareMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300149"><span class="annot"><span class="annottext">s :: SharedDirectory
+</span><a href="#local-6989586621679300149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300148"><span class="annot"><span class="annottext">Maybe ShareMethod
+</span><a href="#local-6989586621679300148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
+</span><a href="#local-6989586621679300149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shareMethod:SharedDirectory' :: Maybe ShareMethod
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AshareMethod%3ASharedDirectory%27"><span class="hs-identifier hs-var">shareMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShareMethod
+</span><a href="#local-6989586621679300148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Identifier of the directory in the directory owner account.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_ownerDirectoryId"><span class="hs-identifier hs-type">sharedDirectory_ownerDirectoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="sharedDirectory_ownerDirectoryId"><span class="annot"><span class="annottext">sharedDirectory_ownerDirectoryId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SharedDirectory -&gt; f SharedDirectory
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_ownerDirectoryId"><span class="hs-identifier hs-var hs-var">sharedDirectory_ownerDirectoryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SharedDirectory -&gt; Maybe Text)
+-&gt; (SharedDirectory -&gt; Maybe Text -&gt; SharedDirectory)
+-&gt; Lens SharedDirectory SharedDirectory (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300146"><span class="annot"><span class="annottext">Maybe Text
+ownerDirectoryId :: Maybe Text
+$sel:ownerDirectoryId:SharedDirectory' :: SharedDirectory -&gt; Maybe Text
+</span><a href="#local-6989586621679300146"><span class="hs-identifier hs-var hs-var">ownerDirectoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300146"><span class="hs-identifier hs-var">ownerDirectoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300145"><span class="annot"><span class="annottext">s :: SharedDirectory
+</span><a href="#local-6989586621679300145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300144"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
+</span><a href="#local-6989586621679300145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerDirectoryId:SharedDirectory' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AownerDirectoryId%3ASharedDirectory%27"><span class="hs-identifier hs-var">ownerDirectoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | Identifier of the shared directory in the directory consumer account.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- This identifier is different for each directory owner account.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_sharedDirectoryId"><span class="hs-identifier hs-type">sharedDirectory_sharedDirectoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="sharedDirectory_sharedDirectoryId"><span class="annot"><span class="annottext">sharedDirectory_sharedDirectoryId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SharedDirectory -&gt; f SharedDirectory
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_sharedDirectoryId"><span class="hs-identifier hs-var hs-var">sharedDirectory_sharedDirectoryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SharedDirectory -&gt; Maybe Text)
+-&gt; (SharedDirectory -&gt; Maybe Text -&gt; SharedDirectory)
+-&gt; Lens SharedDirectory SharedDirectory (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300142"><span class="annot"><span class="annottext">Maybe Text
+sharedDirectoryId :: Maybe Text
+$sel:sharedDirectoryId:SharedDirectory' :: SharedDirectory -&gt; Maybe Text
+</span><a href="#local-6989586621679300142"><span class="hs-identifier hs-var hs-var">sharedDirectoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300142"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300141"><span class="annot"><span class="annottext">s :: SharedDirectory
+</span><a href="#local-6989586621679300141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300140"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
+</span><a href="#local-6989586621679300141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedDirectoryId:SharedDirectory' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AsharedDirectoryId%3ASharedDirectory%27"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | A directory share request that is sent by the directory owner to the</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- directory consumer. The request includes a typed message to help the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- directory consumer administrator determine whether to approve or reject</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- the share invitation.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_shareNotes"><span class="hs-identifier hs-type">sharedDirectory_shareNotes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="sharedDirectory_shareNotes"><span class="annot"><span class="annottext">sharedDirectory_shareNotes :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; SharedDirectory -&gt; f SharedDirectory
 </span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_shareNotes"><span class="hs-identifier hs-var hs-var">sharedDirectory_shareNotes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SharedDirectory -&gt; Maybe (Sensitive Text))
 -&gt; (SharedDirectory -&gt; Maybe (Sensitive Text) -&gt; SharedDirectory)
@@ -273,16 +367,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299958"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300138"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 shareNotes :: Maybe (Sensitive Text)
 $sel:shareNotes:SharedDirectory' :: SharedDirectory -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679299958"><span class="hs-identifier hs-var hs-var">shareNotes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679299958"><span class="hs-identifier hs-var">shareNotes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299957"><span class="annot"><span class="annottext">s :: SharedDirectory
-</span><a href="#local-6989586621679299957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299956"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679299956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
-</span><a href="#local-6989586621679299957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shareNotes:SharedDirectory' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679300138"><span class="hs-identifier hs-var hs-var">shareNotes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679300138"><span class="hs-identifier hs-var">shareNotes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300137"><span class="annot"><span class="annottext">s :: SharedDirectory
+</span><a href="#local-6989586621679300137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300136"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679300136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
+</span><a href="#local-6989586621679300137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shareNotes:SharedDirectory' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AshareNotes%3ASharedDirectory%27"><span class="hs-identifier hs-var">shareNotes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679299956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679300136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; SharedDirectory -&gt; f SharedDirectory)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -302,137 +396,43 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | Identifier of the directory consumer account that has access to the</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- shared directory (@OwnerDirectoryId@) in the directory owner account.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_sharedAccountId"><span class="hs-identifier hs-type">sharedDirectory_sharedAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="sharedDirectory_sharedAccountId"><span class="annot"><span class="annottext">sharedDirectory_sharedAccountId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The date and time that the shared directory was created.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_createdDateTime"><span class="hs-identifier hs-type">sharedDirectory_createdDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="sharedDirectory_createdDateTime"><span class="annot"><span class="annottext">sharedDirectory_createdDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; SharedDirectory -&gt; f SharedDirectory
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_sharedAccountId"><span class="hs-identifier hs-var hs-var">sharedDirectory_sharedAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SharedDirectory -&gt; Maybe Text)
--&gt; (SharedDirectory -&gt; Maybe Text -&gt; SharedDirectory)
--&gt; Lens SharedDirectory SharedDirectory (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_createdDateTime"><span class="hs-identifier hs-var hs-var">sharedDirectory_createdDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SharedDirectory -&gt; Maybe POSIX)
+-&gt; (SharedDirectory -&gt; Maybe POSIX -&gt; SharedDirectory)
+-&gt; Lens SharedDirectory SharedDirectory (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299953"><span class="annot"><span class="annottext">Maybe Text
-sharedAccountId :: Maybe Text
-$sel:sharedAccountId:SharedDirectory' :: SharedDirectory -&gt; Maybe Text
-</span><a href="#local-6989586621679299953"><span class="hs-identifier hs-var hs-var">sharedAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299953"><span class="hs-identifier hs-var">sharedAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299952"><span class="annot"><span class="annottext">s :: SharedDirectory
-</span><a href="#local-6989586621679299952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299951"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
-</span><a href="#local-6989586621679299952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedAccountId:SharedDirectory' :: Maybe Text
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AsharedAccountId%3ASharedDirectory%27"><span class="hs-identifier hs-var">sharedAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | Identifier of the directory in the directory owner account.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_ownerDirectoryId"><span class="hs-identifier hs-type">sharedDirectory_ownerDirectoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="sharedDirectory_ownerDirectoryId"><span class="annot"><span class="annottext">sharedDirectory_ownerDirectoryId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; SharedDirectory -&gt; f SharedDirectory
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_ownerDirectoryId"><span class="hs-identifier hs-var hs-var">sharedDirectory_ownerDirectoryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SharedDirectory -&gt; Maybe Text)
--&gt; (SharedDirectory -&gt; Maybe Text -&gt; SharedDirectory)
--&gt; Lens SharedDirectory SharedDirectory (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299949"><span class="annot"><span class="annottext">Maybe Text
-ownerDirectoryId :: Maybe Text
-$sel:ownerDirectoryId:SharedDirectory' :: SharedDirectory -&gt; Maybe Text
-</span><a href="#local-6989586621679299949"><span class="hs-identifier hs-var hs-var">ownerDirectoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299949"><span class="hs-identifier hs-var">ownerDirectoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299948"><span class="annot"><span class="annottext">s :: SharedDirectory
-</span><a href="#local-6989586621679299948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299947"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
-</span><a href="#local-6989586621679299948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerDirectoryId:SharedDirectory' :: Maybe Text
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AownerDirectoryId%3ASharedDirectory%27"><span class="hs-identifier hs-var">ownerDirectoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | The method used when sharing a directory to determine whether the</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- directory should be shared within your Amazon Web Services organization</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- (@ORGANIZATIONS@) or with any Amazon Web Services account by sending a</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- shared directory request (@HANDSHAKE@).</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_shareMethod"><span class="hs-identifier hs-type">sharedDirectory_shareMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ShareMethod.html#ShareMethod"><span class="hs-identifier hs-type">ShareMethod</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="sharedDirectory_shareMethod"><span class="annot"><span class="annottext">sharedDirectory_shareMethod :: (Maybe ShareMethod -&gt; f (Maybe ShareMethod))
--&gt; SharedDirectory -&gt; f SharedDirectory
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_shareMethod"><span class="hs-identifier hs-var hs-var">sharedDirectory_shareMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SharedDirectory -&gt; Maybe ShareMethod)
--&gt; (SharedDirectory -&gt; Maybe ShareMethod -&gt; SharedDirectory)
--&gt; Lens
-     SharedDirectory
-     SharedDirectory
-     (Maybe ShareMethod)
-     (Maybe ShareMethod)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299945"><span class="annot"><span class="annottext">Maybe ShareMethod
-shareMethod :: Maybe ShareMethod
-$sel:shareMethod:SharedDirectory' :: SharedDirectory -&gt; Maybe ShareMethod
-</span><a href="#local-6989586621679299945"><span class="hs-identifier hs-var hs-var">shareMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ShareMethod
-</span><a href="#local-6989586621679299945"><span class="hs-identifier hs-var">shareMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299944"><span class="annot"><span class="annottext">s :: SharedDirectory
-</span><a href="#local-6989586621679299944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299943"><span class="annot"><span class="annottext">Maybe ShareMethod
-</span><a href="#local-6989586621679299943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
-</span><a href="#local-6989586621679299944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shareMethod:SharedDirectory' :: Maybe ShareMethod
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AshareMethod%3ASharedDirectory%27"><span class="hs-identifier hs-var">shareMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShareMethod
-</span><a href="#local-6989586621679299943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | Current directory status of the shared Managed Microsoft AD directory.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_shareStatus"><span class="hs-identifier hs-type">sharedDirectory_shareStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ShareStatus.html#ShareStatus"><span class="hs-identifier hs-type">ShareStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="sharedDirectory_shareStatus"><span class="annot"><span class="annottext">sharedDirectory_shareStatus :: (Maybe ShareStatus -&gt; f (Maybe ShareStatus))
--&gt; SharedDirectory -&gt; f SharedDirectory
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_shareStatus"><span class="hs-identifier hs-var hs-var">sharedDirectory_shareStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SharedDirectory -&gt; Maybe ShareStatus)
--&gt; (SharedDirectory -&gt; Maybe ShareStatus -&gt; SharedDirectory)
--&gt; Lens
-     SharedDirectory
-     SharedDirectory
-     (Maybe ShareStatus)
-     (Maybe ShareStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299941"><span class="annot"><span class="annottext">Maybe ShareStatus
-shareStatus :: Maybe ShareStatus
-$sel:shareStatus:SharedDirectory' :: SharedDirectory -&gt; Maybe ShareStatus
-</span><a href="#local-6989586621679299941"><span class="hs-identifier hs-var hs-var">shareStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ShareStatus
-</span><a href="#local-6989586621679299941"><span class="hs-identifier hs-var">shareStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299940"><span class="annot"><span class="annottext">s :: SharedDirectory
-</span><a href="#local-6989586621679299940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299939"><span class="annot"><span class="annottext">Maybe ShareStatus
-</span><a href="#local-6989586621679299939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
-</span><a href="#local-6989586621679299940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shareStatus:SharedDirectory' :: Maybe ShareStatus
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AshareStatus%3ASharedDirectory%27"><span class="hs-identifier hs-var">shareStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShareStatus
-</span><a href="#local-6989586621679299939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | Identifier of the shared directory in the directory consumer account.</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- This identifier is different for each directory owner account.</span><span>
-</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_sharedDirectoryId"><span class="hs-identifier hs-type">sharedDirectory_sharedDirectoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span id="sharedDirectory_sharedDirectoryId"><span class="annot"><span class="annottext">sharedDirectory_sharedDirectoryId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; SharedDirectory -&gt; f SharedDirectory
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_sharedDirectoryId"><span class="hs-identifier hs-var hs-var">sharedDirectory_sharedDirectoryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SharedDirectory -&gt; Maybe Text)
--&gt; (SharedDirectory -&gt; Maybe Text -&gt; SharedDirectory)
--&gt; Lens SharedDirectory SharedDirectory (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299937"><span class="annot"><span class="annottext">Maybe Text
-sharedDirectoryId :: Maybe Text
-$sel:sharedDirectoryId:SharedDirectory' :: SharedDirectory -&gt; Maybe Text
-</span><a href="#local-6989586621679299937"><span class="hs-identifier hs-var hs-var">sharedDirectoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299937"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299936"><span class="annot"><span class="annottext">s :: SharedDirectory
-</span><a href="#local-6989586621679299936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299935"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
-</span><a href="#local-6989586621679299936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedDirectoryId:SharedDirectory' :: Maybe Text
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AsharedDirectoryId%3ASharedDirectory%27"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- | Identifier of the directory owner account, which contains the directory</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- that has been shared to the consumer account.</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_ownerAccountId"><span class="hs-identifier hs-type">sharedDirectory_ownerAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="sharedDirectory_ownerAccountId"><span class="annot"><span class="annottext">sharedDirectory_ownerAccountId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; SharedDirectory -&gt; f SharedDirectory
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#sharedDirectory_ownerAccountId"><span class="hs-identifier hs-var hs-var">sharedDirectory_ownerAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SharedDirectory -&gt; Maybe Text)
--&gt; (SharedDirectory -&gt; Maybe Text -&gt; SharedDirectory)
--&gt; Lens SharedDirectory SharedDirectory (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299933"><span class="annot"><span class="annottext">Maybe Text
-ownerAccountId :: Maybe Text
-$sel:ownerAccountId:SharedDirectory' :: SharedDirectory -&gt; Maybe Text
-</span><a href="#local-6989586621679299933"><span class="hs-identifier hs-var hs-var">ownerAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299933"><span class="hs-identifier hs-var">ownerAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299932"><span class="annot"><span class="annottext">s :: SharedDirectory
-</span><a href="#local-6989586621679299932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299931"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
-</span><a href="#local-6989586621679299932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerAccountId:SharedDirectory' :: Maybe Text
-</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AownerAccountId%3ASharedDirectory%27"><span class="hs-identifier hs-var">ownerAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300133"><span class="annot"><span class="annottext">Maybe POSIX
+createdDateTime :: Maybe POSIX
+$sel:createdDateTime:SharedDirectory' :: SharedDirectory -&gt; Maybe POSIX
+</span><a href="#local-6989586621679300133"><span class="hs-identifier hs-var hs-var">createdDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679300133"><span class="hs-identifier hs-var">createdDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300132"><span class="annot"><span class="annottext">s :: SharedDirectory
+</span><a href="#local-6989586621679300132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-type">SharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300131"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679300131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedDirectory
+</span><a href="#local-6989586621679300132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDateTime:SharedDirectory' :: Maybe POSIX
+</span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#%24sel%3AcreatedDateTime%3ASharedDirectory%27"><span class="hs-identifier hs-var">createdDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679300131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; SharedDirectory -&gt; f SharedDirectory)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SharedDirectory
+-&gt; f SharedDirectory
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299928"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679299926"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SharedDirectory
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300128"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679300126"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SharedDirectory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SharedDirectory)
@@ -442,182 +442,186 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SharedDirectory&quot;</span></span><span>
-</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299923"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299923"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300123"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300123"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe (Sensitive Text)
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe ShareMethod
 -&gt; Maybe ShareStatus
+-&gt; Maybe ShareMethod
 -&gt; Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe POSIX
 -&gt; SharedDirectory
 </span><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory%27"><span class="hs-identifier hs-var">SharedDirectory'</span></a></span><span>
-</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe POSIX
- -&gt; Maybe (Sensitive Text)
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe ShareMethod
  -&gt; Maybe ShareStatus
+ -&gt; Maybe ShareMethod
  -&gt; Maybe Text
  -&gt; Maybe Text
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe POSIX
  -&gt; SharedDirectory)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ShareMethod
+     (Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Maybe ShareStatus
+      -&gt; Maybe ShareMethod
       -&gt; Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe POSIX
       -&gt; SharedDirectory)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreatedDateTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ShareMethod
-   -&gt; Maybe ShareStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; SharedDirectory)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe (Sensitive Text)
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ShareMethod
-      -&gt; Maybe ShareStatus
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; SharedDirectory)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastUpdatedDateTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (Sensitive Text)
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ShareMethod
-   -&gt; Maybe ShareStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; SharedDirectory)
--&gt; Parser (Maybe (Sensitive Text))
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ShareMethod
-      -&gt; Maybe ShareStatus
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; SharedDirectory)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ShareNotes&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ShareMethod
-   -&gt; Maybe ShareStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; SharedDirectory)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe ShareMethod
-      -&gt; Maybe ShareStatus
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; SharedDirectory)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679300123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SharedAccountId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe ShareMethod
+   -&gt; Maybe POSIX
    -&gt; Maybe ShareStatus
+   -&gt; Maybe ShareMethod
    -&gt; Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe POSIX
    -&gt; SharedDirectory)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe ShareMethod
+     (Maybe POSIX
       -&gt; Maybe ShareStatus
+      -&gt; Maybe ShareMethod
       -&gt; Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe POSIX
       -&gt; SharedDirectory)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OwnerDirectoryId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ShareMethod
-   -&gt; Maybe ShareStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; SharedDirectory)
--&gt; Parser (Maybe ShareMethod)
--&gt; Parser
-     (Maybe ShareStatus -&gt; Maybe Text -&gt; Maybe Text -&gt; SharedDirectory)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ShareMethod)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ShareMethod&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ShareStatus -&gt; Maybe Text -&gt; Maybe Text -&gt; SharedDirectory)
--&gt; Parser (Maybe ShareStatus)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; SharedDirectory)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ShareStatus)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ShareStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; SharedDirectory)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; SharedDirectory)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SharedDirectoryId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; SharedDirectory)
--&gt; Parser (Maybe Text) -&gt; Parser SharedDirectory
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679300123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OwnerAccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe ShareStatus
+   -&gt; Maybe ShareMethod
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe POSIX
+   -&gt; SharedDirectory)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe ShareStatus
+      -&gt; Maybe ShareMethod
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe POSIX
+      -&gt; SharedDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ShareStatus
+   -&gt; Maybe ShareMethod
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe POSIX
+   -&gt; SharedDirectory)
+-&gt; Parser (Maybe ShareStatus)
+-&gt; Parser
+     (Maybe ShareMethod
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe POSIX
+      -&gt; SharedDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ShareStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ShareStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ShareMethod
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe POSIX
+   -&gt; SharedDirectory)
+-&gt; Parser (Maybe ShareMethod)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe POSIX
+      -&gt; SharedDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ShareMethod)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ShareMethod&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe POSIX
+   -&gt; SharedDirectory)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (Sensitive Text) -&gt; Maybe POSIX -&gt; SharedDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OwnerDirectoryId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (Sensitive Text) -&gt; Maybe POSIX -&gt; SharedDirectory)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (Sensitive Text) -&gt; Maybe POSIX -&gt; SharedDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SharedDirectoryId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (Sensitive Text) -&gt; Maybe POSIX -&gt; SharedDirectory)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser (Maybe POSIX -&gt; SharedDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ShareNotes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; SharedDirectory)
+-&gt; Parser (Maybe POSIX) -&gt; Parser SharedDirectory
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedDateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299917"><span id="local-6989586621679299919"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300117"><span id="local-6989586621679300119"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span></span></span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299914"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300114"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span></span><span>
 </span><span id="line-178"></span></pre></body></html>

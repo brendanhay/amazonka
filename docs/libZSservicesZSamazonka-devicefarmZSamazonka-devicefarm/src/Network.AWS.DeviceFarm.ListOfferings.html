@@ -57,14 +57,14 @@
 </span><span id="line-57"></span><span class="hs-comment">-- | Represents the request to list all offerings.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newListOfferings' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679378353"><span id="local-6989586621679378354"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOfferings"><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-var">ListOfferings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOfferings%27"><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-var">ListOfferings'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679378622"><span id="local-6989586621679378623"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOfferings"><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-var">ListOfferings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOfferings%27"><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-var">ListOfferings'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- list.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AnextToken%3AListOfferings%27"><span class="annot"><span class="annottext">ListOfferings -&gt; Maybe Text
 </span><a href="Network.AWS.DeviceFarm.ListOfferings.html#%24sel%3AnextToken%3AListOfferings%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378347"><span id="local-6989586621679378349"><span class="annot"><span class="annottext">ListOfferings -&gt; ListOfferings -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378616"><span id="local-6989586621679378618"><span class="annot"><span class="annottext">ListOfferings -&gt; ListOfferings -&gt; Bool
 (ListOfferings -&gt; ListOfferings -&gt; Bool)
 -&gt; (ListOfferings -&gt; ListOfferings -&gt; Bool) -&gt; Eq ListOfferings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListOfferings -&gt; ListOfferings -&gt; Bool
 == :: ListOfferings -&gt; ListOfferings -&gt; Bool
 $c== :: ListOfferings -&gt; ListOfferings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378338"><span id="local-6989586621679378340"><span id="local-6989586621679378342"><span id="local-6989586621679378344"><span class="annot"><span class="annottext">ReadPrec [ListOfferings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378607"><span id="local-6989586621679378609"><span id="local-6989586621679378611"><span id="local-6989586621679378613"><span class="annot"><span class="annottext">ReadPrec [ListOfferings]
 ReadPrec ListOfferings
 Int -&gt; ReadS ListOfferings
 ReadS [ListOfferings]
@@ -92,7 +92,7 @@ readList :: ReadS [ListOfferings]
 $creadList :: ReadS [ListOfferings]
 readsPrec :: Int -&gt; ReadS ListOfferings
 $creadsPrec :: Int -&gt; ReadS ListOfferings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378331"><span id="local-6989586621679378333"><span id="local-6989586621679378335"><span class="annot"><span class="annottext">Int -&gt; ListOfferings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378600"><span id="local-6989586621679378602"><span id="local-6989586621679378604"><span class="annot"><span class="annottext">Int -&gt; ListOfferings -&gt; ShowS
 [ListOfferings] -&gt; ShowS
 ListOfferings -&gt; String
 (Int -&gt; ListOfferings -&gt; ShowS)
@@ -148,28 +148,28 @@ forall a. Maybe a
 -&gt; (ListOfferings -&gt; Maybe Text -&gt; ListOfferings)
 -&gt; Lens ListOfferings ListOfferings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378325"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378594"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListOfferings' :: ListOfferings -&gt; Maybe Text
-</span><a href="#local-6989586621679378325"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378325"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378324"><span class="annot"><span class="annottext">s :: ListOfferings
-</span><a href="#local-6989586621679378324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378323"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferings
-</span><a href="#local-6989586621679378324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOfferings' :: Maybe Text
+</span><a href="#local-6989586621679378594"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378594"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378593"><span class="annot"><span class="annottext">s :: ListOfferings
+</span><a href="#local-6989586621679378593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378592"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferings
+</span><a href="#local-6989586621679378593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOfferings' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.ListOfferings.html#%24sel%3AnextToken%3AListOfferings%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679378319"><span class="annot"><span class="annottext">page :: ListOfferings -&gt; AWSResponse ListOfferings -&gt; Maybe ListOfferings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679378317"><span class="annot"><span class="annottext">ListOfferings
-</span><a href="#local-6989586621679378317"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679378316"><span class="annot"><span class="annottext">AWSResponse ListOfferings
-</span><a href="#local-6989586621679378316"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679378588"><span class="annot"><span class="annottext">page :: ListOfferings -&gt; AWSResponse ListOfferings -&gt; Maybe ListOfferings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679378586"><span class="annot"><span class="annottext">ListOfferings
+</span><a href="#local-6989586621679378586"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679378585"><span class="annot"><span class="annottext">AWSResponse ListOfferings
+</span><a href="#local-6989586621679378585"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-93"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOfferings
 ListOfferingsResponse
-</span><a href="#local-6989586621679378316"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679378585"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">ListOfferingsResponse
 -&gt; Getting (First Text) ListOfferingsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -197,7 +197,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-98"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOfferings
 ListOfferingsResponse
-</span><a href="#local-6989586621679378316"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679378585"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">ListOfferingsResponse
 -&gt; Getting (First [Offering]) ListOfferingsResponse [Offering]
 -&gt; Maybe [Offering]
@@ -230,7 +230,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">ListOfferings
-</span><a href="#local-6989586621679378317"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679378586"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">ListOfferings -&gt; (ListOfferings -&gt; ListOfferings) -&gt; ListOfferings
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -243,7 +243,7 @@ Lens ListOfferings ListOfferings (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOfferings
 ListOfferingsResponse
-</span><a href="#local-6989586621679378316"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679378585"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">ListOfferingsResponse
 -&gt; Getting (First Text) ListOfferingsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -267,12 +267,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-111"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679378306"><span class="annot"><span class="annottext">request :: ListOfferings -&gt; Request ListOfferings
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679378575"><span class="annot"><span class="annottext">request :: ListOfferings -&gt; Request ListOfferings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListOfferings -&gt; Request ListOfferings
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679378302"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679378571"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListOfferings
 -&gt; ClientResponse ClientBody
@@ -296,10 +296,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378299"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378299"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679378298"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679378298"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679378297"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378297"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378568"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378568"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679378567"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679378567"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679378566"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378566"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Offering] -&gt; Int -&gt; ListOfferingsResponse
 </span><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-var">ListOfferingsResponse'</span></a></span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Offering] -&gt; Int -&gt; ListOfferingsResponse)
@@ -307,7 +307,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Offering] -&gt; Int -&gt; ListOfferingsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378297"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679378566"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -316,7 +316,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListOfferingsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378297"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Offering]))
+</span><a href="#local-6989586621679378566"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Offering]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;offerings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Offering]))
@@ -333,15 +333,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378299"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378568"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378288"><span id="local-6989586621679378290"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378557"><span id="local-6989586621679378559"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378285"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378554"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679378281"><span class="annot"><span class="annottext">toHeaders :: ListOfferings -&gt; ResponseHeaders
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679378550"><span class="annot"><span class="annottext">toHeaders :: ListOfferings -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListOfferings -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -368,12 +368,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378271"><span id="local-6989586621679378273"><span id="local-6989586621679378275"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679378269"><span class="annot"><span class="annottext">toJSON :: ListOfferings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378267"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378540"><span id="local-6989586621679378542"><span id="local-6989586621679378544"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679378538"><span class="annot"><span class="annottext">toJSON :: ListOfferings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings%27"><span class="hs-identifier hs-type">ListOfferings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378536"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListOfferings' :: ListOfferings -&gt; Maybe Text
-</span><a href="#local-6989586621679378267"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679378536"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -385,18 +385,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378267"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679378536"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679378261"><span class="annot"><span class="annottext">toPath :: ListOfferings -&gt; ByteString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679378530"><span class="annot"><span class="annottext">toPath :: ListOfferings -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListOfferings -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferings"><span class="hs-identifier hs-type">ListOfferings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679378257"><span class="annot"><span class="annottext">toQuery :: ListOfferings -&gt; QueryString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679378526"><span class="annot"><span class="annottext">toQuery :: ListOfferings -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListOfferings -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -406,7 +406,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-155"></span><span class="hs-comment">-- | Represents the return values of the list of offerings.</span><span>
 </span><span id="line-156"></span><span class="hs-comment">--</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- /See:/ 'newListOfferingsResponse' smart constructor.</span><span>
-</span><span id="line-158"></span><span id="local-6989586621679378254"><span id="local-6989586621679378255"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOfferingsResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-var">ListOfferingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOfferingsResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-var">ListOfferingsResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span id="local-6989586621679378523"><span id="local-6989586621679378524"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOfferingsResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-var">ListOfferingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOfferingsResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-var">ListOfferingsResponse'</span></a></span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-comment">-- list.</span><span>
@@ -419,7 +419,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListOfferingsResponse%27"><span class="annot"><span class="annottext">ListOfferingsResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.ListOfferings.html#%24sel%3AhttpStatus%3AListOfferingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378247"><span id="local-6989586621679378249"><span class="annot"><span class="annottext">ListOfferingsResponse -&gt; ListOfferingsResponse -&gt; Bool
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378516"><span id="local-6989586621679378518"><span class="annot"><span class="annottext">ListOfferingsResponse -&gt; ListOfferingsResponse -&gt; Bool
 (ListOfferingsResponse -&gt; ListOfferingsResponse -&gt; Bool)
 -&gt; (ListOfferingsResponse -&gt; ListOfferingsResponse -&gt; Bool)
 -&gt; Eq ListOfferingsResponse
@@ -428,7 +428,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListOfferingsResponse -&gt; ListOfferingsResponse -&gt; Bool
 == :: ListOfferingsResponse -&gt; ListOfferingsResponse -&gt; Bool
 $c== :: ListOfferingsResponse -&gt; ListOfferingsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378239"><span id="local-6989586621679378241"><span id="local-6989586621679378243"><span id="local-6989586621679378245"><span class="annot"><span class="annottext">ReadPrec [ListOfferingsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378508"><span id="local-6989586621679378510"><span id="local-6989586621679378512"><span id="local-6989586621679378514"><span class="annot"><span class="annottext">ReadPrec [ListOfferingsResponse]
 ReadPrec ListOfferingsResponse
 Int -&gt; ReadS ListOfferingsResponse
 ReadS [ListOfferingsResponse]
@@ -448,7 +448,7 @@ readList :: ReadS [ListOfferingsResponse]
 $creadList :: ReadS [ListOfferingsResponse]
 readsPrec :: Int -&gt; ReadS ListOfferingsResponse
 $creadsPrec :: Int -&gt; ReadS ListOfferingsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378233"><span id="local-6989586621679378235"><span id="local-6989586621679378237"><span class="annot"><span class="annottext">Int -&gt; ListOfferingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378502"><span id="local-6989586621679378504"><span id="local-6989586621679378506"><span class="annot"><span class="annottext">Int -&gt; ListOfferingsResponse -&gt; ShowS
 [ListOfferingsResponse] -&gt; ShowS
 ListOfferingsResponse -&gt; String
 (Int -&gt; ListOfferingsResponse -&gt; ShowS)
@@ -494,8 +494,8 @@ $cfrom :: forall x. ListOfferingsResponse -&gt; Rep ListOfferingsResponse x
 </span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-188"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span>
 </span><span id="line-189"></span><span id="newListOfferingsResponse"><span class="annot"><span class="annottext">newListOfferingsResponse :: Int -&gt; ListOfferingsResponse
-</span><a href="Network.AWS.DeviceFarm.ListOfferings.html#newListOfferingsResponse"><span class="hs-identifier hs-var hs-var">newListOfferingsResponse</span></a></span></span><span> </span><span id="local-6989586621679378230"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378230"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.ListOfferings.html#newListOfferingsResponse"><span class="hs-identifier hs-var hs-var">newListOfferingsResponse</span></a></span></span><span> </span><span id="local-6989586621679378499"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378499"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">ListOfferingsResponse' :: Maybe Text -&gt; Maybe [Offering] -&gt; Int -&gt; ListOfferingsResponse
 </span><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListOfferingsResponse' :: Maybe Text
@@ -508,7 +508,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListOfferingsResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.ListOfferings.html#%24sel%3AhttpStatus%3AListOfferingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378230"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679378499"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
@@ -521,16 +521,16 @@ forall a. Maybe a
 -&gt; (ListOfferingsResponse -&gt; Maybe Text -&gt; ListOfferingsResponse)
 -&gt; Lens' ListOfferingsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378229"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378498"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListOfferingsResponse' :: ListOfferingsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679378229"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378229"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378228"><span class="annot"><span class="annottext">s :: ListOfferingsResponse
-</span><a href="#local-6989586621679378228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378227"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferingsResponse
-</span><a href="#local-6989586621679378228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOfferingsResponse' :: Maybe Text
+</span><a href="#local-6989586621679378498"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378498"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378497"><span class="annot"><span class="annottext">s :: ListOfferingsResponse
+</span><a href="#local-6989586621679378497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378496"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferingsResponse
+</span><a href="#local-6989586621679378497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOfferingsResponse' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.ListOfferings.html#%24sel%3AnextToken%3AListOfferingsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | A value that represents the list offering results.</span><span>
 </span><span id="line-203"></span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#listOfferingsResponse_offerings"><span class="hs-identifier hs-type">listOfferingsResponse_offerings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Offering.html#Offering"><span class="hs-identifier hs-type">Offering</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -541,16 +541,16 @@ $sel:nextToken:ListOfferingsResponse' :: ListOfferingsResponse -&gt; Maybe Text
     -&gt; Maybe [Offering] -&gt; ListOfferingsResponse)
 -&gt; Lens' ListOfferingsResponse (Maybe [Offering])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378226"><span class="annot"><span class="annottext">Maybe [Offering]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378495"><span class="annot"><span class="annottext">Maybe [Offering]
 offerings :: Maybe [Offering]
 $sel:offerings:ListOfferingsResponse' :: ListOfferingsResponse -&gt; Maybe [Offering]
-</span><a href="#local-6989586621679378226"><span class="hs-identifier hs-var hs-var">offerings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Offering]
-</span><a href="#local-6989586621679378226"><span class="hs-identifier hs-var">offerings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378225"><span class="annot"><span class="annottext">s :: ListOfferingsResponse
-</span><a href="#local-6989586621679378225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378224"><span class="annot"><span class="annottext">Maybe [Offering]
-</span><a href="#local-6989586621679378224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferingsResponse
-</span><a href="#local-6989586621679378225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offerings:ListOfferingsResponse' :: Maybe [Offering]
+</span><a href="#local-6989586621679378495"><span class="hs-identifier hs-var hs-var">offerings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Offering]
+</span><a href="#local-6989586621679378495"><span class="hs-identifier hs-var">offerings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378494"><span class="annot"><span class="annottext">s :: ListOfferingsResponse
+</span><a href="#local-6989586621679378494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378493"><span class="annot"><span class="annottext">Maybe [Offering]
+</span><a href="#local-6989586621679378493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferingsResponse
+</span><a href="#local-6989586621679378494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offerings:ListOfferingsResponse' :: Maybe [Offering]
 </span><a href="Network.AWS.DeviceFarm.ListOfferings.html#%24sel%3Aofferings%3AListOfferingsResponse%27"><span class="hs-identifier hs-var">offerings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Offering]
-</span><a href="#local-6989586621679378224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Offering] -&gt; f (Maybe [Offering]))
+</span><a href="#local-6989586621679378493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Offering] -&gt; f (Maybe [Offering]))
  -&gt; ListOfferingsResponse -&gt; f ListOfferingsResponse)
 -&gt; ((Maybe [Offering] -&gt; f (Maybe [Offering]))
     -&gt; Maybe [Offering] -&gt; f (Maybe [Offering]))
@@ -568,8 +568,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Offering] [Offering] [Offering] [Offering]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-207"></span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#listOfferingsResponse_httpStatus"><span class="hs-identifier hs-type">listOfferingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -578,16 +578,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListOfferingsResponse -&gt; Int -&gt; ListOfferingsResponse)
 -&gt; Lens ListOfferingsResponse ListOfferingsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378221"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378490"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListOfferingsResponse' :: ListOfferingsResponse -&gt; Int
-</span><a href="#local-6989586621679378221"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378221"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378220"><span class="annot"><span class="annottext">s :: ListOfferingsResponse
-</span><a href="#local-6989586621679378220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378219"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferingsResponse
-</span><a href="#local-6989586621679378220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListOfferingsResponse' :: Int
+</span><a href="#local-6989586621679378490"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378490"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378489"><span class="annot"><span class="annottext">s :: ListOfferingsResponse
+</span><a href="#local-6989586621679378489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse%27"><span class="hs-identifier hs-type">ListOfferingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378488"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOfferingsResponse
+</span><a href="#local-6989586621679378489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListOfferingsResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.ListOfferings.html#%24sel%3AhttpStatus%3AListOfferingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378217"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378486"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListOfferings.html#ListOfferingsResponse"><span class="hs-identifier hs-type">ListOfferingsResponse</span></a></span></span><span>
 </span><span id="line-211"></span></pre></body></html>

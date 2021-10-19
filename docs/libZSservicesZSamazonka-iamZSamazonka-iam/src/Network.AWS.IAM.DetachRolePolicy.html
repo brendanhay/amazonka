@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDetachRolePolicy' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679453126"><span id="local-6989586621679453127"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachRolePolicy"><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy"><span class="hs-identifier hs-var">DetachRolePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachRolePolicy%27"><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy%27"><span class="hs-identifier hs-var">DetachRolePolicy'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679453753"><span id="local-6989586621679453754"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachRolePolicy"><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy"><span class="hs-identifier hs-var">DetachRolePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachRolePolicy%27"><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy%27"><span class="hs-identifier hs-var">DetachRolePolicy'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name (friendly name, not ARN) of the IAM role to detach the policy</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- from.</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3ApolicyArn%3ADetachRolePolicy%27"><span class="annot"><span class="annottext">DetachRolePolicy -&gt; Text
 </span><a href="Network.AWS.IAM.DetachRolePolicy.html#%24sel%3ApolicyArn%3ADetachRolePolicy%27"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453119"><span id="local-6989586621679453121"><span class="annot"><span class="annottext">DetachRolePolicy -&gt; DetachRolePolicy -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453746"><span id="local-6989586621679453748"><span class="annot"><span class="annottext">DetachRolePolicy -&gt; DetachRolePolicy -&gt; Bool
 (DetachRolePolicy -&gt; DetachRolePolicy -&gt; Bool)
 -&gt; (DetachRolePolicy -&gt; DetachRolePolicy -&gt; Bool)
 -&gt; Eq DetachRolePolicy
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetachRolePolicy -&gt; DetachRolePolicy -&gt; Bool
 == :: DetachRolePolicy -&gt; DetachRolePolicy -&gt; Bool
 $c== :: DetachRolePolicy -&gt; DetachRolePolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453110"><span id="local-6989586621679453112"><span id="local-6989586621679453114"><span id="local-6989586621679453116"><span class="annot"><span class="annottext">ReadPrec [DetachRolePolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453737"><span id="local-6989586621679453739"><span id="local-6989586621679453741"><span id="local-6989586621679453743"><span class="annot"><span class="annottext">ReadPrec [DetachRolePolicy]
 ReadPrec DetachRolePolicy
 Int -&gt; ReadS DetachRolePolicy
 ReadS [DetachRolePolicy]
@@ -96,7 +96,7 @@ readList :: ReadS [DetachRolePolicy]
 $creadList :: ReadS [DetachRolePolicy]
 readsPrec :: Int -&gt; ReadS DetachRolePolicy
 $creadsPrec :: Int -&gt; ReadS DetachRolePolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453103"><span id="local-6989586621679453105"><span id="local-6989586621679453107"><span class="annot"><span class="annottext">Int -&gt; DetachRolePolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453730"><span id="local-6989586621679453732"><span id="local-6989586621679453734"><span class="annot"><span class="annottext">Int -&gt; DetachRolePolicy -&gt; ShowS
 [DetachRolePolicy] -&gt; ShowS
 DetachRolePolicy -&gt; String
 (Int -&gt; DetachRolePolicy -&gt; ShowS)
@@ -150,17 +150,17 @@ $cfrom :: forall x. DetachRolePolicy -&gt; Rep DetachRolePolicy x
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy"><span class="hs-identifier hs-type">DetachRolePolicy</span></a></span><span>
 </span><span id="line-97"></span><span id="newDetachRolePolicy"><span class="annot"><span class="annottext">newDetachRolePolicy :: Text -&gt; Text -&gt; DetachRolePolicy
-</span><a href="Network.AWS.IAM.DetachRolePolicy.html#newDetachRolePolicy"><span class="hs-identifier hs-var hs-var">newDetachRolePolicy</span></a></span></span><span> </span><span id="local-6989586621679453098"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453098"><span class="hs-identifier hs-var">pRoleName_</span></a></span></span><span> </span><span id="local-6989586621679453097"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453097"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.DetachRolePolicy.html#newDetachRolePolicy"><span class="hs-identifier hs-var hs-var">newDetachRolePolicy</span></a></span></span><span> </span><span id="local-6989586621679453725"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453725"><span class="hs-identifier hs-var">pRoleName_</span></a></span></span><span> </span><span id="local-6989586621679453724"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453724"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">DetachRolePolicy' :: Text -&gt; Text -&gt; DetachRolePolicy
 </span><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy%27"><span class="hs-identifier hs-type">DetachRolePolicy'</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleName:DetachRolePolicy' :: Text
 </span><a href="Network.AWS.IAM.DetachRolePolicy.html#%24sel%3AroleName%3ADetachRolePolicy%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453098"><span class="hs-identifier hs-var">pRoleName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679453725"><span class="hs-identifier hs-var">pRoleName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyArn:DetachRolePolicy' :: Text
 </span><a href="Network.AWS.IAM.DetachRolePolicy.html#%24sel%3ApolicyArn%3ADetachRolePolicy%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453097"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span><span>
+</span><a href="#local-6989586621679453724"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The name (friendly name, not ARN) of the IAM role to detach the policy</span><span>
@@ -176,16 +176,16 @@ $cfrom :: forall x. DetachRolePolicy -&gt; Rep DetachRolePolicy x
 -&gt; (DetachRolePolicy -&gt; Text -&gt; DetachRolePolicy)
 -&gt; Lens DetachRolePolicy DetachRolePolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy%27"><span class="hs-identifier hs-type">DetachRolePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453094"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy%27"><span class="hs-identifier hs-type">DetachRolePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453721"><span class="annot"><span class="annottext">Text
 roleName :: Text
 $sel:roleName:DetachRolePolicy' :: DetachRolePolicy -&gt; Text
-</span><a href="#local-6989586621679453094"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453094"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453093"><span class="annot"><span class="annottext">s :: DetachRolePolicy
-</span><a href="#local-6989586621679453093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy%27"><span class="hs-identifier hs-type">DetachRolePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453092"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachRolePolicy
-</span><a href="#local-6989586621679453093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:DetachRolePolicy' :: Text
+</span><a href="#local-6989586621679453721"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453721"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453720"><span class="annot"><span class="annottext">s :: DetachRolePolicy
+</span><a href="#local-6989586621679453720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy%27"><span class="hs-identifier hs-type">DetachRolePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453719"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachRolePolicy
+</span><a href="#local-6989586621679453720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:DetachRolePolicy' :: Text
 </span><a href="Network.AWS.IAM.DetachRolePolicy.html#%24sel%3AroleName%3ADetachRolePolicy%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy"><span class="hs-identifier hs-type">DetachRolePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy"><span class="hs-identifier hs-type">DetachRolePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.</span><span>
 </span><span id="line-114"></span><span class="hs-comment">--</span><span>
@@ -198,27 +198,27 @@ $sel:roleName:DetachRolePolicy' :: DetachRolePolicy -&gt; Text
 -&gt; (DetachRolePolicy -&gt; Text -&gt; DetachRolePolicy)
 -&gt; Lens DetachRolePolicy DetachRolePolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy%27"><span class="hs-identifier hs-type">DetachRolePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453091"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy%27"><span class="hs-identifier hs-type">DetachRolePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453718"><span class="annot"><span class="annottext">Text
 policyArn :: Text
 $sel:policyArn:DetachRolePolicy' :: DetachRolePolicy -&gt; Text
-</span><a href="#local-6989586621679453091"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453091"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453090"><span class="annot"><span class="annottext">s :: DetachRolePolicy
-</span><a href="#local-6989586621679453090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy%27"><span class="hs-identifier hs-type">DetachRolePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453089"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachRolePolicy
-</span><a href="#local-6989586621679453090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyArn:DetachRolePolicy' :: Text
+</span><a href="#local-6989586621679453718"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453718"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453717"><span class="annot"><span class="annottext">s :: DetachRolePolicy
+</span><a href="#local-6989586621679453717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy%27"><span class="hs-identifier hs-type">DetachRolePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453716"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachRolePolicy
+</span><a href="#local-6989586621679453717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyArn:DetachRolePolicy' :: Text
 </span><a href="Network.AWS.IAM.DetachRolePolicy.html#%24sel%3ApolicyArn%3ADetachRolePolicy%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy"><span class="hs-identifier hs-type">DetachRolePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy"><span class="hs-identifier hs-type">DetachRolePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy"><span class="hs-identifier hs-type">DetachRolePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-123"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy"><span class="hs-identifier hs-type">DetachRolePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicyResponse"><span class="hs-identifier hs-type">DetachRolePolicyResponse</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679453085"><span class="annot"><span class="annottext">request :: DetachRolePolicy -&gt; Request DetachRolePolicy
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679453712"><span class="annot"><span class="annottext">request :: DetachRolePolicy -&gt; Request DetachRolePolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DetachRolePolicy -&gt; Request DetachRolePolicy
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679453081"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679453708"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DetachRolePolicy
 -&gt; ClientResponse ClientBody
@@ -242,12 +242,12 @@ AWSResponse a
 DetachRolePolicyResponse
 </span><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicyResponse%27"><span class="hs-identifier hs-var">DetachRolePolicyResponse'</span></a></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453074"><span id="local-6989586621679453076"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy"><span class="hs-identifier hs-type">DetachRolePolicy</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453701"><span id="local-6989586621679453703"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy"><span class="hs-identifier hs-type">DetachRolePolicy</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453071"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy"><span class="hs-identifier hs-type">DetachRolePolicy</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy"><span class="hs-identifier hs-type">DetachRolePolicy</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy"><span class="hs-identifier hs-type">DetachRolePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679453067"><span class="annot"><span class="annottext">toHeaders :: DetachRolePolicy -&gt; [Header]
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679453694"><span class="annot"><span class="annottext">toHeaders :: DetachRolePolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DetachRolePolicy -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -255,20 +255,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy"><span class="hs-identifier hs-type">DetachRolePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679453062"><span class="annot"><span class="annottext">toPath :: DetachRolePolicy -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679453689"><span class="annot"><span class="annottext">toPath :: DetachRolePolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DetachRolePolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy"><span class="hs-identifier hs-type">DetachRolePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679453058"><span class="annot"><span class="annottext">toQuery :: DetachRolePolicy -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy%27"><span class="hs-identifier hs-type">DetachRolePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453055"><span id="local-6989586621679453056"><span class="annot"><span class="annottext">Text
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679453685"><span class="annot"><span class="annottext">toQuery :: DetachRolePolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicy%27"><span class="hs-identifier hs-type">DetachRolePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453682"><span id="local-6989586621679453683"><span class="annot"><span class="annottext">Text
 policyArn :: Text
 roleName :: Text
 $sel:policyArn:DetachRolePolicy' :: DetachRolePolicy -&gt; Text
 $sel:roleName:DetachRolePolicy' :: DetachRolePolicy -&gt; Text
-</span><a href="#local-6989586621679453055"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679453682"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -288,19 +288,19 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;RoleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453056"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679453683"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PolicyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453055"><span class="hs-identifier hs-var">policyArn</span></a></span><span>
+</span><a href="#local-6989586621679453682"><span class="hs-identifier hs-var">policyArn</span></a></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newDetachRolePolicyResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679453052"><span id="local-6989586621679453053"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachRolePolicyResponse"><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicyResponse"><span class="hs-identifier hs-var">DetachRolePolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachRolePolicyResponse%27"><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicyResponse%27"><span class="hs-identifier hs-var">DetachRolePolicyResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679453679"><span id="local-6989586621679453680"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachRolePolicyResponse"><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicyResponse"><span class="hs-identifier hs-var">DetachRolePolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachRolePolicyResponse%27"><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicyResponse%27"><span class="hs-identifier hs-var">DetachRolePolicyResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453048"><span id="local-6989586621679453050"><span class="annot"><span class="annottext">DetachRolePolicyResponse -&gt; DetachRolePolicyResponse -&gt; Bool
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453675"><span id="local-6989586621679453677"><span class="annot"><span class="annottext">DetachRolePolicyResponse -&gt; DetachRolePolicyResponse -&gt; Bool
 (DetachRolePolicyResponse -&gt; DetachRolePolicyResponse -&gt; Bool)
 -&gt; (DetachRolePolicyResponse -&gt; DetachRolePolicyResponse -&gt; Bool)
 -&gt; Eq DetachRolePolicyResponse
@@ -309,7 +309,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetachRolePolicyResponse -&gt; DetachRolePolicyResponse -&gt; Bool
 == :: DetachRolePolicyResponse -&gt; DetachRolePolicyResponse -&gt; Bool
 $c== :: DetachRolePolicyResponse -&gt; DetachRolePolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453040"><span id="local-6989586621679453042"><span id="local-6989586621679453044"><span id="local-6989586621679453046"><span class="annot"><span class="annottext">ReadPrec [DetachRolePolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453667"><span id="local-6989586621679453669"><span id="local-6989586621679453671"><span id="local-6989586621679453673"><span class="annot"><span class="annottext">ReadPrec [DetachRolePolicyResponse]
 ReadPrec DetachRolePolicyResponse
 Int -&gt; ReadS DetachRolePolicyResponse
 ReadS [DetachRolePolicyResponse]
@@ -329,7 +329,7 @@ readList :: ReadS [DetachRolePolicyResponse]
 $creadList :: ReadS [DetachRolePolicyResponse]
 readsPrec :: Int -&gt; ReadS DetachRolePolicyResponse
 $creadsPrec :: Int -&gt; ReadS DetachRolePolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453034"><span id="local-6989586621679453036"><span id="local-6989586621679453038"><span class="annot"><span class="annottext">Int -&gt; DetachRolePolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453661"><span id="local-6989586621679453663"><span id="local-6989586621679453665"><span class="annot"><span class="annottext">Int -&gt; DetachRolePolicyResponse -&gt; ShowS
 [DetachRolePolicyResponse] -&gt; ShowS
 DetachRolePolicyResponse -&gt; String
 (Int -&gt; DetachRolePolicyResponse -&gt; ShowS)
@@ -372,5 +372,5 @@ DetachRolePolicyResponse -&gt; Rep DetachRolePolicyResponse x
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">DetachRolePolicyResponse
 </span><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicyResponse%27"><span class="hs-identifier hs-var">DetachRolePolicyResponse'</span></a></span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453030"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicyResponse"><span class="hs-identifier hs-type">DetachRolePolicyResponse</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453657"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DetachRolePolicy.html#DetachRolePolicyResponse"><span class="hs-identifier hs-type">DetachRolePolicyResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

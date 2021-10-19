@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679259230"><span id="local-6989586621679259231"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MailboxExportJobState"><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJobState.html#MailboxExportJobState"><span class="hs-identifier hs-var">MailboxExportJobState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MailboxExportJobState%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJobState.html#MailboxExportJobState%27"><span class="hs-identifier hs-var">MailboxExportJobState'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679279811"><span id="local-6989586621679279812"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MailboxExportJobState"><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJobState.html#MailboxExportJobState"><span class="hs-identifier hs-var">MailboxExportJobState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MailboxExportJobState%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJobState.html#MailboxExportJobState%27"><span class="hs-identifier hs-var">MailboxExportJobState'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMailboxExportJobState"><span class="annot"><span class="annottext">MailboxExportJobState -&gt; Text
 </span><a href="Network.AWS.WorkMail.Types.MailboxExportJobState.html#fromMailboxExportJobState"><span class="hs-identifier hs-var hs-var">fromMailboxExportJobState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259222"><span id="local-6989586621679259224"><span id="local-6989586621679259226"><span class="annot"><span class="annottext">Int -&gt; MailboxExportJobState -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679279803"><span id="local-6989586621679279805"><span id="local-6989586621679279807"><span class="annot"><span class="annottext">Int -&gt; MailboxExportJobState -&gt; ShowS
 [MailboxExportJobState] -&gt; ShowS
 MailboxExportJobState -&gt; String
 (Int -&gt; MailboxExportJobState -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: MailboxExportJobState -&gt; String
 showsPrec :: Int -&gt; MailboxExportJobState -&gt; ShowS
 $cshowsPrec :: Int -&gt; MailboxExportJobState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679259213"><span id="local-6989586621679259215"><span id="local-6989586621679259217"><span id="local-6989586621679259219"><span class="annot"><span class="annottext">ReadPrec [MailboxExportJobState]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679279794"><span id="local-6989586621679279796"><span id="local-6989586621679279798"><span id="local-6989586621679279800"><span class="annot"><span class="annottext">ReadPrec [MailboxExportJobState]
 ReadPrec MailboxExportJobState
 Int -&gt; ReadS MailboxExportJobState
 ReadS [MailboxExportJobState]
@@ -74,7 +74,7 @@ $creadList :: ReadS [MailboxExportJobState]
 readsPrec :: Int -&gt; ReadS MailboxExportJobState
 $creadsPrec :: Int -&gt; ReadS MailboxExportJobState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679259208"><span id="local-6989586621679259210"><span class="annot"><span class="annottext">MailboxExportJobState -&gt; MailboxExportJobState -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679279789"><span id="local-6989586621679279791"><span class="annot"><span class="annottext">MailboxExportJobState -&gt; MailboxExportJobState -&gt; Bool
 (MailboxExportJobState -&gt; MailboxExportJobState -&gt; Bool)
 -&gt; (MailboxExportJobState -&gt; MailboxExportJobState -&gt; Bool)
 -&gt; Eq MailboxExportJobState
@@ -84,7 +84,7 @@ $c/= :: MailboxExportJobState -&gt; MailboxExportJobState -&gt; Bool
 == :: MailboxExportJobState -&gt; MailboxExportJobState -&gt; Bool
 $c== :: MailboxExportJobState -&gt; MailboxExportJobState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679259192"><span id="local-6989586621679259194"><span id="local-6989586621679259196"><span id="local-6989586621679259198"><span id="local-6989586621679259200"><span id="local-6989586621679259202"><span id="local-6989586621679259204"><span class="annot"><span class="annottext">Eq MailboxExportJobState
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679279773"><span id="local-6989586621679279775"><span id="local-6989586621679279777"><span id="local-6989586621679279779"><span id="local-6989586621679279781"><span id="local-6989586621679279783"><span id="local-6989586621679279785"><span class="annot"><span class="annottext">Eq MailboxExportJobState
 Eq MailboxExportJobState
 -&gt; (MailboxExportJobState -&gt; MailboxExportJobState -&gt; Ordering)
 -&gt; (MailboxExportJobState -&gt; MailboxExportJobState -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. MailboxExportJobState -&gt; Rep MailboxExportJobState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259184"><span id="local-6989586621679259186"><span class="annot"><span class="annottext">Int -&gt; MailboxExportJobState -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679279765"><span id="local-6989586621679279767"><span class="annot"><span class="annottext">Int -&gt; MailboxExportJobState -&gt; Int
 MailboxExportJobState -&gt; Int
 (Int -&gt; MailboxExportJobState -&gt; Int)
 -&gt; (MailboxExportJobState -&gt; Int) -&gt; Hashable MailboxExportJobState
@@ -152,54 +152,54 @@ $chash :: MailboxExportJobState -&gt; Int
 hashWithSalt :: Int -&gt; MailboxExportJobState -&gt; Int
 $chashWithSalt :: Int -&gt; MailboxExportJobState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679259181"><span class="annot"><span class="annottext">MailboxExportJobState -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679279762"><span class="annot"><span class="annottext">MailboxExportJobState -&gt; ()
 (MailboxExportJobState -&gt; ()) -&gt; NFData MailboxExportJobState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MailboxExportJobState -&gt; ()
 $crnf :: MailboxExportJobState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679259178"><span class="annot"><span class="annottext">Text -&gt; Either String MailboxExportJobState
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679279759"><span class="annot"><span class="annottext">Text -&gt; Either String MailboxExportJobState
 (Text -&gt; Either String MailboxExportJobState)
 -&gt; FromText MailboxExportJobState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MailboxExportJobState
 $cfromText :: Text -&gt; Either String MailboxExportJobState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679259175"><span class="annot"><span class="annottext">MailboxExportJobState -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679279756"><span class="annot"><span class="annottext">MailboxExportJobState -&gt; Text
 (MailboxExportJobState -&gt; Text) -&gt; ToText MailboxExportJobState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MailboxExportJobState -&gt; Text
 $ctoText :: MailboxExportJobState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679259172"><span class="annot"><span class="annottext">MailboxExportJobState -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679279753"><span class="annot"><span class="annottext">MailboxExportJobState -&gt; ByteString
 (MailboxExportJobState -&gt; ByteString)
 -&gt; ToByteString MailboxExportJobState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MailboxExportJobState -&gt; ByteString
 $ctoBS :: MailboxExportJobState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679259169"><span class="annot"><span class="annottext">MailboxExportJobState -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679279750"><span class="annot"><span class="annottext">MailboxExportJobState -&gt; ByteStringBuilder
 (MailboxExportJobState -&gt; ByteStringBuilder)
 -&gt; ToLog MailboxExportJobState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MailboxExportJobState -&gt; ByteStringBuilder
 $cbuild :: MailboxExportJobState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679259166"><span class="annot"><span class="annottext">HeaderName -&gt; MailboxExportJobState -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679279747"><span class="annot"><span class="annottext">HeaderName -&gt; MailboxExportJobState -&gt; [Header]
 (HeaderName -&gt; MailboxExportJobState -&gt; [Header])
 -&gt; ToHeader MailboxExportJobState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MailboxExportJobState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MailboxExportJobState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679259163"><span class="annot"><span class="annottext">MailboxExportJobState -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679279744"><span class="annot"><span class="annottext">MailboxExportJobState -&gt; QueryString
 (MailboxExportJobState -&gt; QueryString)
 -&gt; ToQuery MailboxExportJobState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MailboxExportJobState -&gt; QueryString
 $ctoQuery :: MailboxExportJobState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679259158"><span id="local-6989586621679259160"><span class="annot"><span class="annottext">Value -&gt; Parser [MailboxExportJobState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679279739"><span id="local-6989586621679279741"><span class="annot"><span class="annottext">Value -&gt; Parser [MailboxExportJobState]
 Value -&gt; Parser MailboxExportJobState
 (Value -&gt; Parser MailboxExportJobState)
 -&gt; (Value -&gt; Parser [MailboxExportJobState])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [MailboxExportJobState]
 parseJSON :: Value -&gt; Parser MailboxExportJobState
 $cparseJSON :: Value -&gt; Parser MailboxExportJobState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679259153"><span id="local-6989586621679259155"><span class="annot"><span class="annottext">FromJSONKeyFunction [MailboxExportJobState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679279734"><span id="local-6989586621679279736"><span class="annot"><span class="annottext">FromJSONKeyFunction [MailboxExportJobState]
 FromJSONKeyFunction MailboxExportJobState
 FromJSONKeyFunction MailboxExportJobState
 -&gt; FromJSONKeyFunction [MailboxExportJobState]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MailboxExportJobState]
 fromJSONKey :: FromJSONKeyFunction MailboxExportJobState
 $cfromJSONKey :: FromJSONKeyFunction MailboxExportJobState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679259144"><span id="local-6989586621679259146"><span id="local-6989586621679259148"><span id="local-6989586621679259150"><span class="annot"><span class="annottext">[MailboxExportJobState] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679279725"><span id="local-6989586621679279727"><span id="local-6989586621679279729"><span id="local-6989586621679279731"><span class="annot"><span class="annottext">[MailboxExportJobState] -&gt; Encoding
 [MailboxExportJobState] -&gt; Value
 MailboxExportJobState -&gt; Encoding
 MailboxExportJobState -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: MailboxExportJobState -&gt; Encoding
 toJSON :: MailboxExportJobState -&gt; Value
 $ctoJSON :: MailboxExportJobState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679259139"><span id="local-6989586621679259141"><span class="annot"><span class="annottext">ToJSONKeyFunction [MailboxExportJobState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679279720"><span id="local-6989586621679279722"><span class="annot"><span class="annottext">ToJSONKeyFunction [MailboxExportJobState]
 ToJSONKeyFunction MailboxExportJobState
 ToJSONKeyFunction MailboxExportJobState
 -&gt; ToJSONKeyFunction [MailboxExportJobState]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MailboxExportJobState]
 toJSONKey :: ToJSONKeyFunction MailboxExportJobState
 $ctoJSONKey :: ToJSONKeyFunction MailboxExportJobState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679259136"><span class="annot"><span class="annottext">[Node] -&gt; Either String MailboxExportJobState
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679279717"><span class="annot"><span class="annottext">[Node] -&gt; Either String MailboxExportJobState
 ([Node] -&gt; Either String MailboxExportJobState)
 -&gt; FromXML MailboxExportJobState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MailboxExportJobState
 $cparseXML :: [Node] -&gt; Either String MailboxExportJobState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679259133"><span class="annot"><span class="annottext">MailboxExportJobState -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679279714"><span class="annot"><span class="annottext">MailboxExportJobState -&gt; XML
 (MailboxExportJobState -&gt; XML) -&gt; ToXML MailboxExportJobState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MailboxExportJobState -&gt; XML

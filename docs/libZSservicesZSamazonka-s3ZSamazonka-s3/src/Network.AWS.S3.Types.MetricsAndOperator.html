@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- apply.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newMetricsAndOperator' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679555043"><span id="local-6989586621679555044"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricsAndOperator"><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator"><span class="hs-identifier hs-var">MetricsAndOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricsAndOperator%27"><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator%27"><span class="hs-identifier hs-var">MetricsAndOperator'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679555687"><span id="local-6989586621679555688"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricsAndOperator"><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator"><span class="hs-identifier hs-var">MetricsAndOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricsAndOperator%27"><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator%27"><span class="hs-identifier hs-var">MetricsAndOperator'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The prefix used when evaluating an AND predicate.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aprefix%3AMetricsAndOperator%27"><span class="annot"><span class="annottext">MetricsAndOperator -&gt; Maybe Text
 </span><a href="Network.AWS.S3.Types.MetricsAndOperator.html#%24sel%3Aprefix%3AMetricsAndOperator%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Atags%3AMetricsAndOperator%27"><span class="annot"><span class="annottext">MetricsAndOperator -&gt; Maybe [Tag]
 </span><a href="Network.AWS.S3.Types.MetricsAndOperator.html#%24sel%3Atags%3AMetricsAndOperator%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679555035"><span id="local-6989586621679555037"><span class="annot"><span class="annottext">MetricsAndOperator -&gt; MetricsAndOperator -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679555679"><span id="local-6989586621679555681"><span class="annot"><span class="annottext">MetricsAndOperator -&gt; MetricsAndOperator -&gt; Bool
 (MetricsAndOperator -&gt; MetricsAndOperator -&gt; Bool)
 -&gt; (MetricsAndOperator -&gt; MetricsAndOperator -&gt; Bool)
 -&gt; Eq MetricsAndOperator
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MetricsAndOperator -&gt; MetricsAndOperator -&gt; Bool
 == :: MetricsAndOperator -&gt; MetricsAndOperator -&gt; Bool
 $c== :: MetricsAndOperator -&gt; MetricsAndOperator -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555026"><span id="local-6989586621679555028"><span id="local-6989586621679555030"><span id="local-6989586621679555032"><span class="annot"><span class="annottext">ReadPrec [MetricsAndOperator]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555670"><span id="local-6989586621679555672"><span id="local-6989586621679555674"><span id="local-6989586621679555676"><span class="annot"><span class="annottext">ReadPrec [MetricsAndOperator]
 ReadPrec MetricsAndOperator
 Int -&gt; ReadS MetricsAndOperator
 ReadS [MetricsAndOperator]
@@ -71,7 +71,7 @@ readList :: ReadS [MetricsAndOperator]
 $creadList :: ReadS [MetricsAndOperator]
 readsPrec :: Int -&gt; ReadS MetricsAndOperator
 $creadsPrec :: Int -&gt; ReadS MetricsAndOperator
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555019"><span id="local-6989586621679555021"><span id="local-6989586621679555023"><span class="annot"><span class="annottext">Int -&gt; MetricsAndOperator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555663"><span id="local-6989586621679555665"><span id="local-6989586621679555667"><span class="annot"><span class="annottext">Int -&gt; MetricsAndOperator -&gt; ShowS
 [MetricsAndOperator] -&gt; ShowS
 MetricsAndOperator -&gt; String
 (Int -&gt; MetricsAndOperator -&gt; ShowS)
@@ -139,16 +139,16 @@ forall a. Maybe a
 -&gt; Lens
      MetricsAndOperator MetricsAndOperator (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator%27"><span class="hs-identifier hs-type">MetricsAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555010"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator%27"><span class="hs-identifier hs-type">MetricsAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555654"><span class="annot"><span class="annottext">Maybe Text
 prefix :: Maybe Text
 $sel:prefix:MetricsAndOperator' :: MetricsAndOperator -&gt; Maybe Text
-</span><a href="#local-6989586621679555010"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555010"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555009"><span class="annot"><span class="annottext">s :: MetricsAndOperator
-</span><a href="#local-6989586621679555009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator%27"><span class="hs-identifier hs-type">MetricsAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555008"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricsAndOperator
-</span><a href="#local-6989586621679555009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:MetricsAndOperator' :: Maybe Text
+</span><a href="#local-6989586621679555654"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679555654"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555653"><span class="annot"><span class="annottext">s :: MetricsAndOperator
+</span><a href="#local-6989586621679555653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator%27"><span class="hs-identifier hs-type">MetricsAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555652"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679555652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricsAndOperator
+</span><a href="#local-6989586621679555653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:MetricsAndOperator' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.MetricsAndOperator.html#%24sel%3Aprefix%3AMetricsAndOperator%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator"><span class="hs-identifier hs-type">MetricsAndOperator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679555652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator"><span class="hs-identifier hs-type">MetricsAndOperator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The access point ARN used when evaluating an AND predicate.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#metricsAndOperator_accessPointArn"><span class="hs-identifier hs-type">metricsAndOperator_accessPointArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator"><span class="hs-identifier hs-type">MetricsAndOperator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -159,16 +159,16 @@ $sel:prefix:MetricsAndOperator' :: MetricsAndOperator -&gt; Maybe Text
 -&gt; Lens
      MetricsAndOperator MetricsAndOperator (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator%27"><span class="hs-identifier hs-type">MetricsAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555006"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator%27"><span class="hs-identifier hs-type">MetricsAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555650"><span class="annot"><span class="annottext">Maybe Text
 accessPointArn :: Maybe Text
 $sel:accessPointArn:MetricsAndOperator' :: MetricsAndOperator -&gt; Maybe Text
-</span><a href="#local-6989586621679555006"><span class="hs-identifier hs-var hs-var">accessPointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555006"><span class="hs-identifier hs-var">accessPointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555005"><span class="annot"><span class="annottext">s :: MetricsAndOperator
-</span><a href="#local-6989586621679555005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator%27"><span class="hs-identifier hs-type">MetricsAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555004"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricsAndOperator
-</span><a href="#local-6989586621679555005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessPointArn:MetricsAndOperator' :: Maybe Text
+</span><a href="#local-6989586621679555650"><span class="hs-identifier hs-var hs-var">accessPointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679555650"><span class="hs-identifier hs-var">accessPointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555649"><span class="annot"><span class="annottext">s :: MetricsAndOperator
+</span><a href="#local-6989586621679555649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator%27"><span class="hs-identifier hs-type">MetricsAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555648"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679555648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricsAndOperator
+</span><a href="#local-6989586621679555649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessPointArn:MetricsAndOperator' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.MetricsAndOperator.html#%24sel%3AaccessPointArn%3AMetricsAndOperator%27"><span class="hs-identifier hs-var">accessPointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator"><span class="hs-identifier hs-type">MetricsAndOperator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679555648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator"><span class="hs-identifier hs-type">MetricsAndOperator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The list of tags used when evaluating an AND predicate.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#metricsAndOperator_tags"><span class="hs-identifier hs-type">metricsAndOperator_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator"><span class="hs-identifier hs-type">MetricsAndOperator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -179,16 +179,16 @@ $sel:accessPointArn:MetricsAndOperator' :: MetricsAndOperator -&gt; Maybe Text
 -&gt; Lens
      MetricsAndOperator MetricsAndOperator (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator%27"><span class="hs-identifier hs-type">MetricsAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555002"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator%27"><span class="hs-identifier hs-type">MetricsAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555646"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:MetricsAndOperator' :: MetricsAndOperator -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679555002"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679555002"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555001"><span class="annot"><span class="annottext">s :: MetricsAndOperator
-</span><a href="#local-6989586621679555001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator%27"><span class="hs-identifier hs-type">MetricsAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555000"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679555000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricsAndOperator
-</span><a href="#local-6989586621679555001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:MetricsAndOperator' :: Maybe [Tag]
+</span><a href="#local-6989586621679555646"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679555646"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555645"><span class="annot"><span class="annottext">s :: MetricsAndOperator
+</span><a href="#local-6989586621679555645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator%27"><span class="hs-identifier hs-type">MetricsAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555644"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679555644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricsAndOperator
+</span><a href="#local-6989586621679555645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:MetricsAndOperator' :: Maybe [Tag]
 </span><a href="Network.AWS.S3.Types.MetricsAndOperator.html#%24sel%3Atags%3AMetricsAndOperator%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679555000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator"><span class="hs-identifier hs-type">MetricsAndOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679555644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator"><span class="hs-identifier hs-type">MetricsAndOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; MetricsAndOperator -&gt; f MetricsAndOperator)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -202,13 +202,13 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator"><span class="hs-identifier hs-type">MetricsAndOperator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679554994"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MetricsAndOperator
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679554992"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679554992"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679555638"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MetricsAndOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679555636"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679555636"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; MetricsAndOperator
 </span><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator%27"><span class="hs-identifier hs-var">MetricsAndOperator'</span></a></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; MetricsAndOperator)
@@ -216,7 +216,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Either String (Maybe Text -&gt; Maybe [Tag] -&gt; MetricsAndOperator)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679554992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679555636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Prefix&quot;</span></span><span class="hs-special">)</span><span>
@@ -225,7 +225,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe [Tag] -&gt; MetricsAndOperator)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679554992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679555636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccessPointArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -233,7 +233,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe [Tag]) -&gt; Either String MetricsAndOperator
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679554992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679555636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -256,13 +256,13 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679554983"><span id="local-6989586621679554985"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator"><span class="hs-identifier hs-type">MetricsAndOperator</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555627"><span id="local-6989586621679555629"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator"><span class="hs-identifier hs-type">MetricsAndOperator</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679554980"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator"><span class="hs-identifier hs-type">MetricsAndOperator</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555624"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator"><span class="hs-identifier hs-type">MetricsAndOperator</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator"><span class="hs-identifier hs-type">MetricsAndOperator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679554976"><span class="annot"><span class="annottext">toXML :: MetricsAndOperator -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator%27"><span class="hs-identifier hs-type">MetricsAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554972"><span id="local-6989586621679554973"><span id="local-6989586621679554974"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679555620"><span class="annot"><span class="annottext">toXML :: MetricsAndOperator -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MetricsAndOperator.html#MetricsAndOperator%27"><span class="hs-identifier hs-type">MetricsAndOperator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555616"><span id="local-6989586621679555617"><span id="local-6989586621679555618"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe Text
 tags :: Maybe [Tag]
 accessPointArn :: Maybe Text
@@ -270,7 +270,7 @@ prefix :: Maybe Text
 $sel:tags:MetricsAndOperator' :: MetricsAndOperator -&gt; Maybe [Tag]
 $sel:accessPointArn:MetricsAndOperator' :: MetricsAndOperator -&gt; Maybe Text
 $sel:prefix:MetricsAndOperator' :: MetricsAndOperator -&gt; Maybe Text
-</span><a href="#local-6989586621679554972"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679555616"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -278,12 +278,12 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679554974"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679555618"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;AccessPointArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679554973"><span class="hs-identifier hs-var">accessPointArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679555617"><span class="hs-identifier hs-var">accessPointArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
@@ -296,6 +296,6 @@ forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; XML) -&gt; Maybe [Tag] -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679554972"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679555616"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span></pre></body></html>

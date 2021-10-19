@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- to participants in a journey.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newJourneyCustomMessage' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679601395"><span id="local-6989586621679601396"></span></span><span class="hs-keyword">data</span><span> </span><span id="JourneyCustomMessage"><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage"><span class="hs-identifier hs-var">JourneyCustomMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JourneyCustomMessage%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage%27"><span class="hs-identifier hs-var">JourneyCustomMessage'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679601856"><span id="local-6989586621679601857"></span></span><span class="hs-keyword">data</span><span> </span><span id="JourneyCustomMessage"><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage"><span class="hs-identifier hs-var">JourneyCustomMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JourneyCustomMessage%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage%27"><span class="hs-identifier hs-var">JourneyCustomMessage'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The message content that\'s passed to an AWS Lambda function or to a web</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- hook.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Adata%27%3AJourneyCustomMessage%27"><span class="annot"><span class="annottext">JourneyCustomMessage -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#%24sel%3Adata%27%3AJourneyCustomMessage%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679601389"><span id="local-6989586621679601391"><span class="annot"><span class="annottext">JourneyCustomMessage -&gt; JourneyCustomMessage -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679601850"><span id="local-6989586621679601852"><span class="annot"><span class="annottext">JourneyCustomMessage -&gt; JourneyCustomMessage -&gt; Bool
 (JourneyCustomMessage -&gt; JourneyCustomMessage -&gt; Bool)
 -&gt; (JourneyCustomMessage -&gt; JourneyCustomMessage -&gt; Bool)
 -&gt; Eq JourneyCustomMessage
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JourneyCustomMessage -&gt; JourneyCustomMessage -&gt; Bool
 == :: JourneyCustomMessage -&gt; JourneyCustomMessage -&gt; Bool
 $c== :: JourneyCustomMessage -&gt; JourneyCustomMessage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601380"><span id="local-6989586621679601382"><span id="local-6989586621679601384"><span id="local-6989586621679601386"><span class="annot"><span class="annottext">ReadPrec [JourneyCustomMessage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601841"><span id="local-6989586621679601843"><span id="local-6989586621679601845"><span id="local-6989586621679601847"><span class="annot"><span class="annottext">ReadPrec [JourneyCustomMessage]
 ReadPrec JourneyCustomMessage
 Int -&gt; ReadS JourneyCustomMessage
 ReadS [JourneyCustomMessage]
@@ -62,7 +62,7 @@ readList :: ReadS [JourneyCustomMessage]
 $creadList :: ReadS [JourneyCustomMessage]
 readsPrec :: Int -&gt; ReadS JourneyCustomMessage
 $creadsPrec :: Int -&gt; ReadS JourneyCustomMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601373"><span id="local-6989586621679601375"><span id="local-6989586621679601377"><span class="annot"><span class="annottext">Int -&gt; JourneyCustomMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601834"><span id="local-6989586621679601836"><span id="local-6989586621679601838"><span class="annot"><span class="annottext">Int -&gt; JourneyCustomMessage -&gt; ShowS
 [JourneyCustomMessage] -&gt; ShowS
 JourneyCustomMessage -&gt; String
 (Int -&gt; JourneyCustomMessage -&gt; ShowS)
@@ -118,19 +118,19 @@ forall a. Maybe a
 -&gt; Lens
      JourneyCustomMessage JourneyCustomMessage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage%27"><span class="hs-identifier hs-type">JourneyCustomMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601364"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage%27"><span class="hs-identifier hs-type">JourneyCustomMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601825"><span class="annot"><span class="annottext">Maybe Text
 data' :: Maybe Text
 $sel:data':JourneyCustomMessage' :: JourneyCustomMessage -&gt; Maybe Text
-</span><a href="#local-6989586621679601364"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679601364"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601363"><span class="annot"><span class="annottext">s :: JourneyCustomMessage
-</span><a href="#local-6989586621679601363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage%27"><span class="hs-identifier hs-type">JourneyCustomMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601362"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679601362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyCustomMessage
-</span><a href="#local-6989586621679601363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':JourneyCustomMessage' :: Maybe Text
+</span><a href="#local-6989586621679601825"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601825"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601824"><span class="annot"><span class="annottext">s :: JourneyCustomMessage
+</span><a href="#local-6989586621679601824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage%27"><span class="hs-identifier hs-type">JourneyCustomMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601823"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyCustomMessage
+</span><a href="#local-6989586621679601824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':JourneyCustomMessage' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#%24sel%3Adata%27%3AJourneyCustomMessage%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679601362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage"><span class="hs-identifier hs-type">JourneyCustomMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679601823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage"><span class="hs-identifier hs-type">JourneyCustomMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601359"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage"><span class="hs-identifier hs-type">JourneyCustomMessage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679601357"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JourneyCustomMessage
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601820"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage"><span class="hs-identifier hs-type">JourneyCustomMessage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679601818"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JourneyCustomMessage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JourneyCustomMessage)
@@ -140,30 +140,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JourneyCustomMessage&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679601354"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679601354"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679601815"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679601815"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; JourneyCustomMessage
 </span><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage%27"><span class="hs-identifier hs-var">JourneyCustomMessage'</span></a></span><span>
 </span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; JourneyCustomMessage)
 -&gt; Parser (Maybe Text) -&gt; Parser JourneyCustomMessage
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679601354"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679601815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Data&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601348"><span id="local-6989586621679601350"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage"><span class="hs-identifier hs-type">JourneyCustomMessage</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601809"><span id="local-6989586621679601811"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage"><span class="hs-identifier hs-type">JourneyCustomMessage</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601345"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage"><span class="hs-identifier hs-type">JourneyCustomMessage</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601806"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage"><span class="hs-identifier hs-type">JourneyCustomMessage</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601337"><span id="local-6989586621679601339"><span id="local-6989586621679601341"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage"><span class="hs-identifier hs-type">JourneyCustomMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679601335"><span class="annot"><span class="annottext">toJSON :: JourneyCustomMessage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage%27"><span class="hs-identifier hs-type">JourneyCustomMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601333"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601798"><span id="local-6989586621679601800"><span id="local-6989586621679601802"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage"><span class="hs-identifier hs-type">JourneyCustomMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679601796"><span class="annot"><span class="annottext">toJSON :: JourneyCustomMessage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyCustomMessage.html#JourneyCustomMessage%27"><span class="hs-identifier hs-type">JourneyCustomMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601794"><span class="annot"><span class="annottext">Maybe Text
 data' :: Maybe Text
 $sel:data':JourneyCustomMessage' :: JourneyCustomMessage -&gt; Maybe Text
-</span><a href="#local-6989586621679601333"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679601794"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -175,6 +175,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679601333"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679601794"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span></pre></body></html>

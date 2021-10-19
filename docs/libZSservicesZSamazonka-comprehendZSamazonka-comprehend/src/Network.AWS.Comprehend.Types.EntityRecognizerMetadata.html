@@ -28,26 +28,26 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Detailed information about an entity recognizer.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEntityRecognizerMetadata' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679343158"><span id="local-6989586621679343159"></span></span><span class="hs-keyword">data</span><span> </span><span id="EntityRecognizerMetadata"><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-var">EntityRecognizerMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EntityRecognizerMetadata%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-var">EntityRecognizerMetadata'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of documents in the input data that were used to test the</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- entity recognizer. Typically this is 10 to 20 percent of the input</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- documents.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AnumberOfTestDocuments%3AEntityRecognizerMetadata%27"><span class="annot"><span class="annottext">EntityRecognizerMetadata -&gt; Maybe Int
-</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AnumberOfTestDocuments%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var hs-var">numberOfTestDocuments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679343423"><span id="local-6989586621679343424"></span></span><span class="hs-keyword">data</span><span> </span><span id="EntityRecognizerMetadata"><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-var">EntityRecognizerMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EntityRecognizerMetadata%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-var">EntityRecognizerMetadata'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Entity types from the metadata of an entity recognizer.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AentityTypes%3AEntityRecognizerMetadata%27"><span class="annot"><span class="annottext">EntityRecognizerMetadata
+-&gt; Maybe [EntityRecognizerMetadataEntityTypesListItem]
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AentityTypes%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var hs-var">entityTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem.html#EntityRecognizerMetadataEntityTypesListItem"><span class="hs-identifier hs-type">EntityRecognizerMetadataEntityTypesListItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Detailed information about the accuracy of an entity recognizer.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AevaluationMetrics%3AEntityRecognizerMetadata%27"><span class="annot"><span class="annottext">EntityRecognizerMetadata -&gt; Maybe EntityRecognizerEvaluationMetrics
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AevaluationMetrics%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var hs-var">evaluationMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerEvaluationMetrics.html#EntityRecognizerEvaluationMetrics"><span class="hs-identifier hs-type">EntityRecognizerEvaluationMetrics</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The number of documents in the input data that were used to train the</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- entity recognizer. Typically this is 80 to 90 percent of the input</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- documents.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AnumberOfTrainedDocuments%3AEntityRecognizerMetadata%27"><span class="annot"><span class="annottext">EntityRecognizerMetadata -&gt; Maybe Int
 </span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AnumberOfTrainedDocuments%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var hs-var">numberOfTrainedDocuments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Detailed information about the accuracy of an entity recognizer.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AevaluationMetrics%3AEntityRecognizerMetadata%27"><span class="annot"><span class="annottext">EntityRecognizerMetadata -&gt; Maybe EntityRecognizerEvaluationMetrics
-</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AevaluationMetrics%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var hs-var">evaluationMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerEvaluationMetrics.html#EntityRecognizerEvaluationMetrics"><span class="hs-identifier hs-type">EntityRecognizerEvaluationMetrics</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Entity types from the metadata of an entity recognizer.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AentityTypes%3AEntityRecognizerMetadata%27"><span class="annot"><span class="annottext">EntityRecognizerMetadata
--&gt; Maybe [EntityRecognizerMetadataEntityTypesListItem]
-</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AentityTypes%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var hs-var">entityTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem.html#EntityRecognizerMetadataEntityTypesListItem"><span class="hs-identifier hs-type">EntityRecognizerMetadataEntityTypesListItem</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The number of documents in the input data that were used to test the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- entity recognizer. Typically this is 10 to 20 percent of the input</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- documents.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AnumberOfTestDocuments%3AEntityRecognizerMetadata%27"><span class="annot"><span class="annottext">EntityRecognizerMetadata -&gt; Maybe Int
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AnumberOfTestDocuments%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var hs-var">numberOfTestDocuments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343149"><span id="local-6989586621679343151"><span class="annot"><span class="annottext">EntityRecognizerMetadata -&gt; EntityRecognizerMetadata -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343414"><span id="local-6989586621679343416"><span class="annot"><span class="annottext">EntityRecognizerMetadata -&gt; EntityRecognizerMetadata -&gt; Bool
 (EntityRecognizerMetadata -&gt; EntityRecognizerMetadata -&gt; Bool)
 -&gt; (EntityRecognizerMetadata -&gt; EntityRecognizerMetadata -&gt; Bool)
 -&gt; Eq EntityRecognizerMetadata
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EntityRecognizerMetadata -&gt; EntityRecognizerMetadata -&gt; Bool
 == :: EntityRecognizerMetadata -&gt; EntityRecognizerMetadata -&gt; Bool
 $c== :: EntityRecognizerMetadata -&gt; EntityRecognizerMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343142"><span id="local-6989586621679343144"><span id="local-6989586621679343146"><span class="annot"><span class="annottext">Int -&gt; EntityRecognizerMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343407"><span id="local-6989586621679343409"><span id="local-6989586621679343411"><span class="annot"><span class="annottext">Int -&gt; EntityRecognizerMetadata -&gt; ShowS
 [EntityRecognizerMetadata] -&gt; ShowS
 EntityRecognizerMetadata -&gt; String
 (Int -&gt; EntityRecognizerMetadata -&gt; ShowS)
@@ -96,128 +96,49 @@ EntityRecognizerMetadata -&gt; Rep EntityRecognizerMetadata x
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'numberOfTestDocuments', 'entityRecognizerMetadata_numberOfTestDocuments' - The number of documents in the input data that were used to test the</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- entity recognizer. Typically this is 10 to 20 percent of the input</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- documents.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'entityTypes', 'entityRecognizerMetadata_entityTypes' - Entity types from the metadata of an entity recognizer.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'evaluationMetrics', 'entityRecognizerMetadata_evaluationMetrics' - Detailed information about the accuracy of an entity recognizer.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- 'numberOfTrainedDocuments', 'entityRecognizerMetadata_numberOfTrainedDocuments' - The number of documents in the input data that were used to train the</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- entity recognizer. Typically this is 80 to 90 percent of the input</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- documents.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'evaluationMetrics', 'entityRecognizerMetadata_evaluationMetrics' - Detailed information about the accuracy of an entity recognizer.</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'entityTypes', 'entityRecognizerMetadata_entityTypes' - Entity types from the metadata of an entity recognizer.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'numberOfTestDocuments', 'entityRecognizerMetadata_numberOfTestDocuments' - The number of documents in the input data that were used to test the</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- entity recognizer. Typically this is 10 to 20 percent of the input</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- documents.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#newEntityRecognizerMetadata"><span class="hs-identifier hs-type">newEntityRecognizerMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span><span>
 </span><span id="line-68"></span><span id="newEntityRecognizerMetadata"><span class="annot"><span class="annottext">newEntityRecognizerMetadata :: EntityRecognizerMetadata
 </span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#newEntityRecognizerMetadata"><span class="hs-identifier hs-var hs-var">newEntityRecognizerMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">EntityRecognizerMetadata' :: Maybe Int
--&gt; Maybe Int
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">EntityRecognizerMetadata' :: Maybe [EntityRecognizerMetadataEntityTypesListItem]
 -&gt; Maybe EntityRecognizerEvaluationMetrics
--&gt; Maybe [EntityRecognizerMetadataEntityTypesListItem]
+-&gt; Maybe Int
+-&gt; Maybe Int
 -&gt; EntityRecognizerMetadata
 </span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-type">EntityRecognizerMetadata'</span></a></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:numberOfTestDocuments:EntityRecognizerMetadata' :: Maybe Int
-</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AnumberOfTestDocuments%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var">numberOfTestDocuments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:entityTypes:EntityRecognizerMetadata' :: Maybe [EntityRecognizerMetadataEntityTypesListItem]
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AentityTypes%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var">entityTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe [EntityRecognizerMetadataEntityTypesListItem]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:numberOfTrainedDocuments:EntityRecognizerMetadata' :: Maybe Int
-</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AnumberOfTrainedDocuments%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var">numberOfTrainedDocuments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:evaluationMetrics:EntityRecognizerMetadata' :: Maybe EntityRecognizerEvaluationMetrics
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:evaluationMetrics:EntityRecognizerMetadata' :: Maybe EntityRecognizerEvaluationMetrics
 </span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AevaluationMetrics%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var">evaluationMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerEvaluationMetrics
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityTypes:EntityRecognizerMetadata' :: Maybe [EntityRecognizerMetadataEntityTypesListItem]
-</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AentityTypes%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var">entityTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EntityRecognizerMetadataEntityTypesListItem]
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:numberOfTrainedDocuments:EntityRecognizerMetadata' :: Maybe Int
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AnumberOfTrainedDocuments%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var">numberOfTrainedDocuments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:numberOfTestDocuments:EntityRecognizerMetadata' :: Maybe Int
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AnumberOfTestDocuments%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var">numberOfTestDocuments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | The number of documents in the input data that were used to test the</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- entity recognizer. Typically this is 10 to 20 percent of the input</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- documents.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#entityRecognizerMetadata_numberOfTestDocuments"><span class="hs-identifier hs-type">entityRecognizerMetadata_numberOfTestDocuments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="entityRecognizerMetadata_numberOfTestDocuments"><span class="annot"><span class="annottext">entityRecognizerMetadata_numberOfTestDocuments :: (Maybe Int -&gt; f (Maybe Int))
--&gt; EntityRecognizerMetadata -&gt; f EntityRecognizerMetadata
-</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#entityRecognizerMetadata_numberOfTestDocuments"><span class="hs-identifier hs-var hs-var">entityRecognizerMetadata_numberOfTestDocuments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerMetadata -&gt; Maybe Int)
--&gt; (EntityRecognizerMetadata
-    -&gt; Maybe Int -&gt; EntityRecognizerMetadata)
--&gt; Lens
-     EntityRecognizerMetadata
-     EntityRecognizerMetadata
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-type">EntityRecognizerMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343133"><span class="annot"><span class="annottext">Maybe Int
-numberOfTestDocuments :: Maybe Int
-$sel:numberOfTestDocuments:EntityRecognizerMetadata' :: EntityRecognizerMetadata -&gt; Maybe Int
-</span><a href="#local-6989586621679343133"><span class="hs-identifier hs-var hs-var">numberOfTestDocuments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343133"><span class="hs-identifier hs-var">numberOfTestDocuments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343132"><span class="annot"><span class="annottext">s :: EntityRecognizerMetadata
-</span><a href="#local-6989586621679343132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-type">EntityRecognizerMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343131"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityRecognizerMetadata
-</span><a href="#local-6989586621679343132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfTestDocuments:EntityRecognizerMetadata' :: Maybe Int
-</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AnumberOfTestDocuments%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var">numberOfTestDocuments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | The number of documents in the input data that were used to train the</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- entity recognizer. Typically this is 80 to 90 percent of the input</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- documents.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#entityRecognizerMetadata_numberOfTrainedDocuments"><span class="hs-identifier hs-type">entityRecognizerMetadata_numberOfTrainedDocuments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="entityRecognizerMetadata_numberOfTrainedDocuments"><span class="annot"><span class="annottext">entityRecognizerMetadata_numberOfTrainedDocuments :: (Maybe Int -&gt; f (Maybe Int))
--&gt; EntityRecognizerMetadata -&gt; f EntityRecognizerMetadata
-</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#entityRecognizerMetadata_numberOfTrainedDocuments"><span class="hs-identifier hs-var hs-var">entityRecognizerMetadata_numberOfTrainedDocuments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerMetadata -&gt; Maybe Int)
--&gt; (EntityRecognizerMetadata
-    -&gt; Maybe Int -&gt; EntityRecognizerMetadata)
--&gt; Lens
-     EntityRecognizerMetadata
-     EntityRecognizerMetadata
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-type">EntityRecognizerMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343129"><span class="annot"><span class="annottext">Maybe Int
-numberOfTrainedDocuments :: Maybe Int
-$sel:numberOfTrainedDocuments:EntityRecognizerMetadata' :: EntityRecognizerMetadata -&gt; Maybe Int
-</span><a href="#local-6989586621679343129"><span class="hs-identifier hs-var hs-var">numberOfTrainedDocuments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343129"><span class="hs-identifier hs-var">numberOfTrainedDocuments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343128"><span class="annot"><span class="annottext">s :: EntityRecognizerMetadata
-</span><a href="#local-6989586621679343128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-type">EntityRecognizerMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343127"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityRecognizerMetadata
-</span><a href="#local-6989586621679343128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfTrainedDocuments:EntityRecognizerMetadata' :: Maybe Int
-</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AnumberOfTrainedDocuments%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var">numberOfTrainedDocuments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | Detailed information about the accuracy of an entity recognizer.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#entityRecognizerMetadata_evaluationMetrics"><span class="hs-identifier hs-type">entityRecognizerMetadata_evaluationMetrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerEvaluationMetrics.html#EntityRecognizerEvaluationMetrics"><span class="hs-identifier hs-type">EntityRecognizerEvaluationMetrics</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="entityRecognizerMetadata_evaluationMetrics"><span class="annot"><span class="annottext">entityRecognizerMetadata_evaluationMetrics :: (Maybe EntityRecognizerEvaluationMetrics
- -&gt; f (Maybe EntityRecognizerEvaluationMetrics))
--&gt; EntityRecognizerMetadata -&gt; f EntityRecognizerMetadata
-</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#entityRecognizerMetadata_evaluationMetrics"><span class="hs-identifier hs-var hs-var">entityRecognizerMetadata_evaluationMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerMetadata
- -&gt; Maybe EntityRecognizerEvaluationMetrics)
--&gt; (EntityRecognizerMetadata
-    -&gt; Maybe EntityRecognizerEvaluationMetrics
-    -&gt; EntityRecognizerMetadata)
--&gt; Lens
-     EntityRecognizerMetadata
-     EntityRecognizerMetadata
-     (Maybe EntityRecognizerEvaluationMetrics)
-     (Maybe EntityRecognizerEvaluationMetrics)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-type">EntityRecognizerMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343125"><span class="annot"><span class="annottext">Maybe EntityRecognizerEvaluationMetrics
-evaluationMetrics :: Maybe EntityRecognizerEvaluationMetrics
-$sel:evaluationMetrics:EntityRecognizerMetadata' :: EntityRecognizerMetadata -&gt; Maybe EntityRecognizerEvaluationMetrics
-</span><a href="#local-6989586621679343125"><span class="hs-identifier hs-var hs-var">evaluationMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerEvaluationMetrics
-</span><a href="#local-6989586621679343125"><span class="hs-identifier hs-var">evaluationMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343124"><span class="annot"><span class="annottext">s :: EntityRecognizerMetadata
-</span><a href="#local-6989586621679343124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-type">EntityRecognizerMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343123"><span class="annot"><span class="annottext">Maybe EntityRecognizerEvaluationMetrics
-</span><a href="#local-6989586621679343123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityRecognizerMetadata
-</span><a href="#local-6989586621679343124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationMetrics:EntityRecognizerMetadata' :: Maybe EntityRecognizerEvaluationMetrics
-</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AevaluationMetrics%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var">evaluationMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerEvaluationMetrics
-</span><a href="#local-6989586621679343123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | Entity types from the metadata of an entity recognizer.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#entityRecognizerMetadata_entityTypes"><span class="hs-identifier hs-type">entityRecognizerMetadata_entityTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem.html#EntityRecognizerMetadataEntityTypesListItem"><span class="hs-identifier hs-type">EntityRecognizerMetadataEntityTypesListItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="entityRecognizerMetadata_entityTypes"><span class="annot"><span class="annottext">entityRecognizerMetadata_entityTypes :: (Maybe [EntityRecognizerMetadataEntityTypesListItem]
+</span><span id="line-77"></span><span class="hs-comment">-- | Entity types from the metadata of an entity recognizer.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#entityRecognizerMetadata_entityTypes"><span class="hs-identifier hs-type">entityRecognizerMetadata_entityTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem.html#EntityRecognizerMetadataEntityTypesListItem"><span class="hs-identifier hs-type">EntityRecognizerMetadataEntityTypesListItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="entityRecognizerMetadata_entityTypes"><span class="annot"><span class="annottext">entityRecognizerMetadata_entityTypes :: (Maybe [EntityRecognizerMetadataEntityTypesListItem]
  -&gt; f (Maybe [EntityRecognizerMetadataEntityTypesListItem]))
 -&gt; EntityRecognizerMetadata -&gt; f EntityRecognizerMetadata
 </span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#entityRecognizerMetadata_entityTypes"><span class="hs-identifier hs-var hs-var">entityRecognizerMetadata_entityTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerMetadata
@@ -231,17 +152,17 @@ $sel:evaluationMetrics:EntityRecognizerMetadata' :: EntityRecognizerMetadata -&g
      (Maybe [EntityRecognizerMetadataEntityTypesListItem])
      (Maybe [EntityRecognizerMetadataEntityTypesListItem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-type">EntityRecognizerMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343121"><span class="annot"><span class="annottext">Maybe [EntityRecognizerMetadataEntityTypesListItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-type">EntityRecognizerMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343398"><span class="annot"><span class="annottext">Maybe [EntityRecognizerMetadataEntityTypesListItem]
 entityTypes :: Maybe [EntityRecognizerMetadataEntityTypesListItem]
 $sel:entityTypes:EntityRecognizerMetadata' :: EntityRecognizerMetadata
 -&gt; Maybe [EntityRecognizerMetadataEntityTypesListItem]
-</span><a href="#local-6989586621679343121"><span class="hs-identifier hs-var hs-var">entityTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EntityRecognizerMetadataEntityTypesListItem]
-</span><a href="#local-6989586621679343121"><span class="hs-identifier hs-var">entityTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343120"><span class="annot"><span class="annottext">s :: EntityRecognizerMetadata
-</span><a href="#local-6989586621679343120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-type">EntityRecognizerMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343119"><span class="annot"><span class="annottext">Maybe [EntityRecognizerMetadataEntityTypesListItem]
-</span><a href="#local-6989586621679343119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityRecognizerMetadata
-</span><a href="#local-6989586621679343120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityTypes:EntityRecognizerMetadata' :: Maybe [EntityRecognizerMetadataEntityTypesListItem]
+</span><a href="#local-6989586621679343398"><span class="hs-identifier hs-var hs-var">entityTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EntityRecognizerMetadataEntityTypesListItem]
+</span><a href="#local-6989586621679343398"><span class="hs-identifier hs-var">entityTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343397"><span class="annot"><span class="annottext">s :: EntityRecognizerMetadata
+</span><a href="#local-6989586621679343397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-type">EntityRecognizerMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343396"><span class="annot"><span class="annottext">Maybe [EntityRecognizerMetadataEntityTypesListItem]
+</span><a href="#local-6989586621679343396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityRecognizerMetadata
+</span><a href="#local-6989586621679343397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityTypes:EntityRecognizerMetadata' :: Maybe [EntityRecognizerMetadataEntityTypesListItem]
 </span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AentityTypes%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var">entityTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EntityRecognizerMetadataEntityTypesListItem]
-</span><a href="#local-6989586621679343119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EntityRecognizerMetadataEntityTypesListItem]
+</span><a href="#local-6989586621679343396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EntityRecognizerMetadataEntityTypesListItem]
   -&gt; f (Maybe [EntityRecognizerMetadataEntityTypesListItem]))
  -&gt; EntityRecognizerMetadata -&gt; f EntityRecognizerMetadata)
 -&gt; ((Maybe [EntityRecognizerMetadataEntityTypesListItem]
@@ -271,11 +192,90 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [EntityRecognizerMetadataEntityTypesListItem]
   [EntityRecognizerMetadataEntityTypesListItem]
   [EntityRecognizerMetadataEntityTypesListItem]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | Detailed information about the accuracy of an entity recognizer.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#entityRecognizerMetadata_evaluationMetrics"><span class="hs-identifier hs-type">entityRecognizerMetadata_evaluationMetrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerEvaluationMetrics.html#EntityRecognizerEvaluationMetrics"><span class="hs-identifier hs-type">EntityRecognizerEvaluationMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="entityRecognizerMetadata_evaluationMetrics"><span class="annot"><span class="annottext">entityRecognizerMetadata_evaluationMetrics :: (Maybe EntityRecognizerEvaluationMetrics
+ -&gt; f (Maybe EntityRecognizerEvaluationMetrics))
+-&gt; EntityRecognizerMetadata -&gt; f EntityRecognizerMetadata
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#entityRecognizerMetadata_evaluationMetrics"><span class="hs-identifier hs-var hs-var">entityRecognizerMetadata_evaluationMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerMetadata
+ -&gt; Maybe EntityRecognizerEvaluationMetrics)
+-&gt; (EntityRecognizerMetadata
+    -&gt; Maybe EntityRecognizerEvaluationMetrics
+    -&gt; EntityRecognizerMetadata)
+-&gt; Lens
+     EntityRecognizerMetadata
+     EntityRecognizerMetadata
+     (Maybe EntityRecognizerEvaluationMetrics)
+     (Maybe EntityRecognizerEvaluationMetrics)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-type">EntityRecognizerMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343391"><span class="annot"><span class="annottext">Maybe EntityRecognizerEvaluationMetrics
+evaluationMetrics :: Maybe EntityRecognizerEvaluationMetrics
+$sel:evaluationMetrics:EntityRecognizerMetadata' :: EntityRecognizerMetadata -&gt; Maybe EntityRecognizerEvaluationMetrics
+</span><a href="#local-6989586621679343391"><span class="hs-identifier hs-var hs-var">evaluationMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerEvaluationMetrics
+</span><a href="#local-6989586621679343391"><span class="hs-identifier hs-var">evaluationMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343390"><span class="annot"><span class="annottext">s :: EntityRecognizerMetadata
+</span><a href="#local-6989586621679343390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-type">EntityRecognizerMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343389"><span class="annot"><span class="annottext">Maybe EntityRecognizerEvaluationMetrics
+</span><a href="#local-6989586621679343389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityRecognizerMetadata
+</span><a href="#local-6989586621679343390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationMetrics:EntityRecognizerMetadata' :: Maybe EntityRecognizerEvaluationMetrics
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AevaluationMetrics%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var">evaluationMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerEvaluationMetrics
+</span><a href="#local-6989586621679343389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The number of documents in the input data that were used to train the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- entity recognizer. Typically this is 80 to 90 percent of the input</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- documents.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#entityRecognizerMetadata_numberOfTrainedDocuments"><span class="hs-identifier hs-type">entityRecognizerMetadata_numberOfTrainedDocuments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="entityRecognizerMetadata_numberOfTrainedDocuments"><span class="annot"><span class="annottext">entityRecognizerMetadata_numberOfTrainedDocuments :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; EntityRecognizerMetadata -&gt; f EntityRecognizerMetadata
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#entityRecognizerMetadata_numberOfTrainedDocuments"><span class="hs-identifier hs-var hs-var">entityRecognizerMetadata_numberOfTrainedDocuments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerMetadata -&gt; Maybe Int)
+-&gt; (EntityRecognizerMetadata
+    -&gt; Maybe Int -&gt; EntityRecognizerMetadata)
+-&gt; Lens
+     EntityRecognizerMetadata
+     EntityRecognizerMetadata
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-type">EntityRecognizerMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343387"><span class="annot"><span class="annottext">Maybe Int
+numberOfTrainedDocuments :: Maybe Int
+$sel:numberOfTrainedDocuments:EntityRecognizerMetadata' :: EntityRecognizerMetadata -&gt; Maybe Int
+</span><a href="#local-6989586621679343387"><span class="hs-identifier hs-var hs-var">numberOfTrainedDocuments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343387"><span class="hs-identifier hs-var">numberOfTrainedDocuments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343386"><span class="annot"><span class="annottext">s :: EntityRecognizerMetadata
+</span><a href="#local-6989586621679343386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-type">EntityRecognizerMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343385"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityRecognizerMetadata
+</span><a href="#local-6989586621679343386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfTrainedDocuments:EntityRecognizerMetadata' :: Maybe Int
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AnumberOfTrainedDocuments%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var">numberOfTrainedDocuments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The number of documents in the input data that were used to test the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- entity recognizer. Typically this is 10 to 20 percent of the input</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- documents.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#entityRecognizerMetadata_numberOfTestDocuments"><span class="hs-identifier hs-type">entityRecognizerMetadata_numberOfTestDocuments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="entityRecognizerMetadata_numberOfTestDocuments"><span class="annot"><span class="annottext">entityRecognizerMetadata_numberOfTestDocuments :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; EntityRecognizerMetadata -&gt; f EntityRecognizerMetadata
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#entityRecognizerMetadata_numberOfTestDocuments"><span class="hs-identifier hs-var hs-var">entityRecognizerMetadata_numberOfTestDocuments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerMetadata -&gt; Maybe Int)
+-&gt; (EntityRecognizerMetadata
+    -&gt; Maybe Int -&gt; EntityRecognizerMetadata)
+-&gt; Lens
+     EntityRecognizerMetadata
+     EntityRecognizerMetadata
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-type">EntityRecognizerMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343383"><span class="annot"><span class="annottext">Maybe Int
+numberOfTestDocuments :: Maybe Int
+$sel:numberOfTestDocuments:EntityRecognizerMetadata' :: EntityRecognizerMetadata -&gt; Maybe Int
+</span><a href="#local-6989586621679343383"><span class="hs-identifier hs-var hs-var">numberOfTestDocuments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343383"><span class="hs-identifier hs-var">numberOfTestDocuments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343382"><span class="annot"><span class="annottext">s :: EntityRecognizerMetadata
+</span><a href="#local-6989586621679343382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-type">EntityRecognizerMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343381"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityRecognizerMetadata
+</span><a href="#local-6989586621679343382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfTestDocuments:EntityRecognizerMetadata' :: Maybe Int
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#%24sel%3AnumberOfTestDocuments%3AEntityRecognizerMetadata%27"><span class="hs-identifier hs-var">numberOfTestDocuments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343113"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679343111"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EntityRecognizerMetadata
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343378"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679343376"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EntityRecognizerMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EntityRecognizerMetadata)
@@ -285,69 +285,26 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EntityRecognizerMetadata&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679343108"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679343108"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
--&gt; Maybe Int
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679343373"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343373"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe [EntityRecognizerMetadataEntityTypesListItem]
 -&gt; Maybe EntityRecognizerEvaluationMetrics
--&gt; Maybe [EntityRecognizerMetadataEntityTypesListItem]
+-&gt; Maybe Int
+-&gt; Maybe Int
 -&gt; EntityRecognizerMetadata
 </span><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata%27"><span class="hs-identifier hs-var">EntityRecognizerMetadata'</span></a></span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
- -&gt; Maybe Int
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [EntityRecognizerMetadataEntityTypesListItem]
  -&gt; Maybe EntityRecognizerEvaluationMetrics
- -&gt; Maybe [EntityRecognizerMetadataEntityTypesListItem]
+ -&gt; Maybe Int
+ -&gt; Maybe Int
  -&gt; EntityRecognizerMetadata)
--&gt; Parser (Maybe Int)
--&gt; Parser
-     (Maybe Int
-      -&gt; Maybe EntityRecognizerEvaluationMetrics
-      -&gt; Maybe [EntityRecognizerMetadataEntityTypesListItem]
-      -&gt; EntityRecognizerMetadata)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679343108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NumberOfTestDocuments&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Int
-   -&gt; Maybe EntityRecognizerEvaluationMetrics
-   -&gt; Maybe [EntityRecognizerMetadataEntityTypesListItem]
-   -&gt; EntityRecognizerMetadata)
--&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe [EntityRecognizerMetadataEntityTypesListItem])
 -&gt; Parser
      (Maybe EntityRecognizerEvaluationMetrics
-      -&gt; Maybe [EntityRecognizerMetadataEntityTypesListItem]
-      -&gt; EntityRecognizerMetadata)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679343108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NumberOfTrainedDocuments&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe EntityRecognizerEvaluationMetrics
-   -&gt; Maybe [EntityRecognizerMetadataEntityTypesListItem]
-   -&gt; EntityRecognizerMetadata)
--&gt; Parser (Maybe EntityRecognizerEvaluationMetrics)
--&gt; Parser
-     (Maybe [EntityRecognizerMetadataEntityTypesListItem]
-      -&gt; EntityRecognizerMetadata)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679343108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EntityRecognizerEvaluationMetrics)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EvaluationMetrics&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [EntityRecognizerMetadataEntityTypesListItem]
-   -&gt; EntityRecognizerMetadata)
--&gt; Parser (Maybe [EntityRecognizerMetadataEntityTypesListItem])
--&gt; Parser EntityRecognizerMetadata
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679343108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+      -&gt; Maybe Int -&gt; Maybe Int -&gt; EntityRecognizerMetadata)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser
      (Maybe (Maybe [EntityRecognizerMetadataEntityTypesListItem]))
@@ -361,9 +318,37 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EntityRecognizerMetadataEntityTypesListItem]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EntityRecognizerEvaluationMetrics
+   -&gt; Maybe Int -&gt; Maybe Int -&gt; EntityRecognizerMetadata)
+-&gt; Parser (Maybe EntityRecognizerEvaluationMetrics)
+-&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; EntityRecognizerMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EntityRecognizerEvaluationMetrics)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EvaluationMetrics&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Int -&gt; EntityRecognizerMetadata)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Int -&gt; EntityRecognizerMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NumberOfTrainedDocuments&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; EntityRecognizerMetadata)
+-&gt; Parser (Maybe Int) -&gt; Parser EntityRecognizerMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NumberOfTestDocuments&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343101"><span id="local-6989586621679343103"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343366"><span id="local-6989586621679343368"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343363"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerMetadata.html#EntityRecognizerMetadata"><span class="hs-identifier hs-type">EntityRecognizerMetadata</span></a></span></span><span>
 </span><span id="line-112"></span></pre></body></html>

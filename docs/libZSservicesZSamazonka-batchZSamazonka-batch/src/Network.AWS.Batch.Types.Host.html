@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- stop running.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newHost' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679260255"><span id="local-6989586621679260256"></span></span><span class="hs-keyword">data</span><span> </span><span id="Host"><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host"><span class="hs-identifier hs-var">Host</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Host%27"><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host%27"><span class="hs-identifier hs-var">Host'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679260536"><span id="local-6989586621679260537"></span></span><span class="hs-keyword">data</span><span> </span><span id="Host"><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host"><span class="hs-identifier hs-var">Host</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Host%27"><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host%27"><span class="hs-identifier hs-var">Host'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path on the host container instance that\'s presented to the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- container. If this parameter is empty, then the Docker daemon has</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- assigned a host path for you. If this parameter contains a file</span><span>
@@ -45,14 +45,14 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AsourcePath%3AHost%27"><span class="annot"><span class="annottext">Host -&gt; Maybe Text
 </span><a href="Network.AWS.Batch.Types.Host.html#%24sel%3AsourcePath%3AHost%27"><span class="hs-identifier hs-var hs-var">sourcePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260249"><span id="local-6989586621679260251"><span class="annot"><span class="annottext">Host -&gt; Host -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260530"><span id="local-6989586621679260532"><span class="annot"><span class="annottext">Host -&gt; Host -&gt; Bool
 (Host -&gt; Host -&gt; Bool) -&gt; (Host -&gt; Host -&gt; Bool) -&gt; Eq Host
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Host -&gt; Host -&gt; Bool
 $c/= :: Host -&gt; Host -&gt; Bool
 == :: Host -&gt; Host -&gt; Bool
 $c== :: Host -&gt; Host -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260240"><span id="local-6989586621679260242"><span id="local-6989586621679260244"><span id="local-6989586621679260246"><span class="annot"><span class="annottext">ReadPrec [Host]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260521"><span id="local-6989586621679260523"><span id="local-6989586621679260525"><span id="local-6989586621679260527"><span class="annot"><span class="annottext">ReadPrec [Host]
 ReadPrec Host
 Int -&gt; ReadS Host
 ReadS [Host]
@@ -69,7 +69,7 @@ readList :: ReadS [Host]
 $creadList :: ReadS [Host]
 readsPrec :: Int -&gt; ReadS Host
 $creadsPrec :: Int -&gt; ReadS Host
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260233"><span id="local-6989586621679260235"><span id="local-6989586621679260237"><span class="annot"><span class="annottext">Int -&gt; Host -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260514"><span id="local-6989586621679260516"><span id="local-6989586621679260518"><span class="annot"><span class="annottext">Int -&gt; Host -&gt; ShowS
 [Host] -&gt; ShowS
 Host -&gt; String
 (Int -&gt; Host -&gt; ShowS)
@@ -137,45 +137,45 @@ forall a. Maybe a
 -&gt; (Host -&gt; Maybe Text -&gt; Host)
 -&gt; Lens Host Host (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host%27"><span class="hs-identifier hs-type">Host'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260224"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host%27"><span class="hs-identifier hs-type">Host'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260505"><span class="annot"><span class="annottext">Maybe Text
 sourcePath :: Maybe Text
 $sel:sourcePath:Host' :: Host -&gt; Maybe Text
-</span><a href="#local-6989586621679260224"><span class="hs-identifier hs-var hs-var">sourcePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260224"><span class="hs-identifier hs-var">sourcePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260223"><span class="annot"><span class="annottext">s :: Host
-</span><a href="#local-6989586621679260223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host%27"><span class="hs-identifier hs-type">Host'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260222"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Host
-</span><a href="#local-6989586621679260223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePath:Host' :: Maybe Text
+</span><a href="#local-6989586621679260505"><span class="hs-identifier hs-var hs-var">sourcePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260505"><span class="hs-identifier hs-var">sourcePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260504"><span class="annot"><span class="annottext">s :: Host
+</span><a href="#local-6989586621679260504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host%27"><span class="hs-identifier hs-type">Host'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260503"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Host
+</span><a href="#local-6989586621679260504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePath:Host' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.Host.html#%24sel%3AsourcePath%3AHost%27"><span class="hs-identifier hs-var">sourcePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host"><span class="hs-identifier hs-type">Host</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host"><span class="hs-identifier hs-type">Host</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260219"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host"><span class="hs-identifier hs-type">Host</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679260217"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Host
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260500"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host"><span class="hs-identifier hs-type">Host</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679260498"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Host
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Host) -&gt; Value -&gt; Parser Host
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Host&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260214"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260214"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Host
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260495"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260495"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Host
 </span><a href="Network.AWS.Batch.Types.Host.html#Host%27"><span class="hs-identifier hs-var">Host'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Host) -&gt; Parser (Maybe Text) -&gt; Parser Host
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679260495"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourcePath&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260208"><span id="local-6989586621679260210"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host"><span class="hs-identifier hs-type">Host</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260489"><span id="local-6989586621679260491"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host"><span class="hs-identifier hs-type">Host</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host"><span class="hs-identifier hs-type">Host</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260486"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host"><span class="hs-identifier hs-type">Host</span></a></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260197"><span id="local-6989586621679260199"><span id="local-6989586621679260201"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host"><span class="hs-identifier hs-type">Host</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679260195"><span class="annot"><span class="annottext">toJSON :: Host -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host%27"><span class="hs-identifier hs-type">Host'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260193"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260478"><span id="local-6989586621679260480"><span id="local-6989586621679260482"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host"><span class="hs-identifier hs-type">Host</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679260476"><span class="annot"><span class="annottext">toJSON :: Host -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host%27"><span class="hs-identifier hs-type">Host'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260474"><span class="annot"><span class="annottext">Maybe Text
 sourcePath :: Maybe Text
 $sel:sourcePath:Host' :: Host -&gt; Maybe Text
-</span><a href="#local-6989586621679260193"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679260474"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -187,6 +187,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260193"><span class="hs-identifier hs-var">sourcePath</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679260474"><span class="hs-identifier hs-var">sourcePath</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span></pre></body></html>

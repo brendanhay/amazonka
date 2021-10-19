@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | The criteria that determine when and how a job abort takes place.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAwsJobAbortCriteria' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679777392"><span id="local-6989586621679777393"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsJobAbortCriteria"><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-var">AwsJobAbortCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsJobAbortCriteria%27"><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-var">AwsJobAbortCriteria'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679778240"><span id="local-6989586621679778241"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsJobAbortCriteria"><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-var">AwsJobAbortCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsJobAbortCriteria%27"><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-var">AwsJobAbortCriteria'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of job execution failures that can initiate a job abort.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AfailureType%3AAwsJobAbortCriteria%27"><span class="annot"><span class="annottext">AwsJobAbortCriteria -&gt; AwsJobAbortCriteriaFailureType
 </span><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#%24sel%3AfailureType%3AAwsJobAbortCriteria%27"><span class="hs-identifier hs-var hs-var">failureType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteriaFailureType.html#AwsJobAbortCriteriaFailureType"><span class="hs-identifier hs-type">AwsJobAbortCriteriaFailureType</span></a></span><span class="hs-special">,</span><span>
@@ -47,7 +47,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AminNumberOfExecutedThings%3AAwsJobAbortCriteria%27"><span class="annot"><span class="annottext">AwsJobAbortCriteria -&gt; Natural
 </span><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#%24sel%3AminNumberOfExecutedThings%3AAwsJobAbortCriteria%27"><span class="hs-identifier hs-var hs-var">minNumberOfExecutedThings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679777383"><span id="local-6989586621679777385"><span class="annot"><span class="annottext">AwsJobAbortCriteria -&gt; AwsJobAbortCriteria -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679778231"><span id="local-6989586621679778233"><span class="annot"><span class="annottext">AwsJobAbortCriteria -&gt; AwsJobAbortCriteria -&gt; Bool
 (AwsJobAbortCriteria -&gt; AwsJobAbortCriteria -&gt; Bool)
 -&gt; (AwsJobAbortCriteria -&gt; AwsJobAbortCriteria -&gt; Bool)
 -&gt; Eq AwsJobAbortCriteria
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AwsJobAbortCriteria -&gt; AwsJobAbortCriteria -&gt; Bool
 == :: AwsJobAbortCriteria -&gt; AwsJobAbortCriteria -&gt; Bool
 $c== :: AwsJobAbortCriteria -&gt; AwsJobAbortCriteria -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679777374"><span id="local-6989586621679777376"><span id="local-6989586621679777378"><span id="local-6989586621679777380"><span class="annot"><span class="annottext">ReadPrec [AwsJobAbortCriteria]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778222"><span id="local-6989586621679778224"><span id="local-6989586621679778226"><span id="local-6989586621679778228"><span class="annot"><span class="annottext">ReadPrec [AwsJobAbortCriteria]
 ReadPrec AwsJobAbortCriteria
 Int -&gt; ReadS AwsJobAbortCriteria
 ReadS [AwsJobAbortCriteria]
@@ -76,7 +76,7 @@ readList :: ReadS [AwsJobAbortCriteria]
 $creadList :: ReadS [AwsJobAbortCriteria]
 readsPrec :: Int -&gt; ReadS AwsJobAbortCriteria
 $creadsPrec :: Int -&gt; ReadS AwsJobAbortCriteria
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679777367"><span id="local-6989586621679777369"><span id="local-6989586621679777371"><span class="annot"><span class="annottext">Int -&gt; AwsJobAbortCriteria -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778215"><span id="local-6989586621679778217"><span id="local-6989586621679778219"><span class="annot"><span class="annottext">Int -&gt; AwsJobAbortCriteria -&gt; ShowS
 [AwsJobAbortCriteria] -&gt; ShowS
 AwsJobAbortCriteria -&gt; String
 (Int -&gt; AwsJobAbortCriteria -&gt; ShowS)
@@ -138,14 +138,14 @@ $cfrom :: forall x. AwsJobAbortCriteria -&gt; Rep AwsJobAbortCriteria x
 -&gt; Natural
 -&gt; AwsJobAbortCriteria
 </span><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#newAwsJobAbortCriteria"><span class="hs-identifier hs-var hs-var">newAwsJobAbortCriteria</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679777361"><span class="annot"><span class="annottext">AwsJobAbortCriteriaFailureType
-</span><a href="#local-6989586621679777361"><span class="hs-identifier hs-var">pFailureType_</span></a></span></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679777360"><span class="annot"><span class="annottext">AwsJobAbortCriteriaAbortAction
-</span><a href="#local-6989586621679777360"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679777359"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679777359"><span class="hs-identifier hs-var">pThresholdPercentage_</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679777358"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679777358"><span class="hs-identifier hs-var">pMinNumberOfExecutedThings_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679778209"><span class="annot"><span class="annottext">AwsJobAbortCriteriaFailureType
+</span><a href="#local-6989586621679778209"><span class="hs-identifier hs-var">pFailureType_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679778208"><span class="annot"><span class="annottext">AwsJobAbortCriteriaAbortAction
+</span><a href="#local-6989586621679778208"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679778207"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679778207"><span class="hs-identifier hs-var">pThresholdPercentage_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679778206"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679778206"><span class="hs-identifier hs-var">pMinNumberOfExecutedThings_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">AwsJobAbortCriteria' :: AwsJobAbortCriteriaFailureType
 -&gt; AwsJobAbortCriteriaAbortAction
 -&gt; Double
@@ -154,17 +154,17 @@ $cfrom :: forall x. AwsJobAbortCriteria -&gt; Rep AwsJobAbortCriteria x
 </span><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failureType:AwsJobAbortCriteria' :: AwsJobAbortCriteriaFailureType
 </span><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#%24sel%3AfailureType%3AAwsJobAbortCriteria%27"><span class="hs-identifier hs-var">failureType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteriaFailureType
-</span><a href="#local-6989586621679777361"><span class="hs-identifier hs-var">pFailureType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679778209"><span class="hs-identifier hs-var">pFailureType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:action:AwsJobAbortCriteria' :: AwsJobAbortCriteriaAbortAction
 </span><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#%24sel%3Aaction%3AAwsJobAbortCriteria%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteriaAbortAction
-</span><a href="#local-6989586621679777360"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679778208"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:thresholdPercentage:AwsJobAbortCriteria' :: Double
 </span><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#%24sel%3AthresholdPercentage%3AAwsJobAbortCriteria%27"><span class="hs-identifier hs-var">thresholdPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679777359"><span class="hs-identifier hs-var">pThresholdPercentage_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679778207"><span class="hs-identifier hs-var">pThresholdPercentage_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:minNumberOfExecutedThings:AwsJobAbortCriteria' :: Natural
 </span><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#%24sel%3AminNumberOfExecutedThings%3AAwsJobAbortCriteria%27"><span class="hs-identifier hs-var">minNumberOfExecutedThings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679777358"><span class="hs-identifier hs-var">pMinNumberOfExecutedThings_</span></a></span><span>
+</span><a href="#local-6989586621679778206"><span class="hs-identifier hs-var">pMinNumberOfExecutedThings_</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The type of job execution failures that can initiate a job abort.</span><span>
@@ -181,16 +181,16 @@ $cfrom :: forall x. AwsJobAbortCriteria -&gt; Rep AwsJobAbortCriteria x
      AwsJobAbortCriteriaFailureType
      AwsJobAbortCriteriaFailureType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777354"><span class="annot"><span class="annottext">AwsJobAbortCriteriaFailureType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778202"><span class="annot"><span class="annottext">AwsJobAbortCriteriaFailureType
 failureType :: AwsJobAbortCriteriaFailureType
 $sel:failureType:AwsJobAbortCriteria' :: AwsJobAbortCriteria -&gt; AwsJobAbortCriteriaFailureType
-</span><a href="#local-6989586621679777354"><span class="hs-identifier hs-var hs-var">failureType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteriaFailureType
-</span><a href="#local-6989586621679777354"><span class="hs-identifier hs-var">failureType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777353"><span class="annot"><span class="annottext">s :: AwsJobAbortCriteria
-</span><a href="#local-6989586621679777353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777352"><span class="annot"><span class="annottext">AwsJobAbortCriteriaFailureType
-</span><a href="#local-6989586621679777352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteria
-</span><a href="#local-6989586621679777353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureType:AwsJobAbortCriteria' :: AwsJobAbortCriteriaFailureType
+</span><a href="#local-6989586621679778202"><span class="hs-identifier hs-var hs-var">failureType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteriaFailureType
+</span><a href="#local-6989586621679778202"><span class="hs-identifier hs-var">failureType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778201"><span class="annot"><span class="annottext">s :: AwsJobAbortCriteria
+</span><a href="#local-6989586621679778201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778200"><span class="annot"><span class="annottext">AwsJobAbortCriteriaFailureType
+</span><a href="#local-6989586621679778200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteria
+</span><a href="#local-6989586621679778201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureType:AwsJobAbortCriteria' :: AwsJobAbortCriteriaFailureType
 </span><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#%24sel%3AfailureType%3AAwsJobAbortCriteria%27"><span class="hs-identifier hs-var">failureType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteriaFailureType
-</span><a href="#local-6989586621679777352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679778200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The type of job action to take to initiate the job abort.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#awsJobAbortCriteria_action"><span class="hs-identifier hs-type">awsJobAbortCriteria_action</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteriaAbortAction.html#AwsJobAbortCriteriaAbortAction"><span class="hs-identifier hs-type">AwsJobAbortCriteriaAbortAction</span></a></span><span>
@@ -206,16 +206,16 @@ $sel:failureType:AwsJobAbortCriteria' :: AwsJobAbortCriteria -&gt; AwsJobAbortCr
      AwsJobAbortCriteriaAbortAction
      AwsJobAbortCriteriaAbortAction
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777350"><span class="annot"><span class="annottext">AwsJobAbortCriteriaAbortAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778198"><span class="annot"><span class="annottext">AwsJobAbortCriteriaAbortAction
 action :: AwsJobAbortCriteriaAbortAction
 $sel:action:AwsJobAbortCriteria' :: AwsJobAbortCriteria -&gt; AwsJobAbortCriteriaAbortAction
-</span><a href="#local-6989586621679777350"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteriaAbortAction
-</span><a href="#local-6989586621679777350"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777349"><span class="annot"><span class="annottext">s :: AwsJobAbortCriteria
-</span><a href="#local-6989586621679777349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777348"><span class="annot"><span class="annottext">AwsJobAbortCriteriaAbortAction
-</span><a href="#local-6989586621679777348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteria
-</span><a href="#local-6989586621679777349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:AwsJobAbortCriteria' :: AwsJobAbortCriteriaAbortAction
+</span><a href="#local-6989586621679778198"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteriaAbortAction
+</span><a href="#local-6989586621679778198"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778197"><span class="annot"><span class="annottext">s :: AwsJobAbortCriteria
+</span><a href="#local-6989586621679778197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778196"><span class="annot"><span class="annottext">AwsJobAbortCriteriaAbortAction
+</span><a href="#local-6989586621679778196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteria
+</span><a href="#local-6989586621679778197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:AwsJobAbortCriteria' :: AwsJobAbortCriteriaAbortAction
 </span><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#%24sel%3Aaction%3AAwsJobAbortCriteria%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteriaAbortAction
-</span><a href="#local-6989586621679777348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679778196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The minimum percentage of job execution failures that must occur to</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- initiate the job abort.</span><span>
@@ -229,16 +229,16 @@ $sel:action:AwsJobAbortCriteria' :: AwsJobAbortCriteria -&gt; AwsJobAbortCriteri
 -&gt; (AwsJobAbortCriteria -&gt; Double -&gt; AwsJobAbortCriteria)
 -&gt; Lens AwsJobAbortCriteria AwsJobAbortCriteria Double Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777346"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778194"><span class="annot"><span class="annottext">Double
 thresholdPercentage :: Double
 $sel:thresholdPercentage:AwsJobAbortCriteria' :: AwsJobAbortCriteria -&gt; Double
-</span><a href="#local-6989586621679777346"><span class="hs-identifier hs-var hs-var">thresholdPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679777346"><span class="hs-identifier hs-var">thresholdPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777345"><span class="annot"><span class="annottext">s :: AwsJobAbortCriteria
-</span><a href="#local-6989586621679777345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777344"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679777344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteria
-</span><a href="#local-6989586621679777345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thresholdPercentage:AwsJobAbortCriteria' :: Double
+</span><a href="#local-6989586621679778194"><span class="hs-identifier hs-var hs-var">thresholdPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679778194"><span class="hs-identifier hs-var">thresholdPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778193"><span class="annot"><span class="annottext">s :: AwsJobAbortCriteria
+</span><a href="#local-6989586621679778193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778192"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679778192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteria
+</span><a href="#local-6989586621679778193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thresholdPercentage:AwsJobAbortCriteria' :: Double
 </span><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#%24sel%3AthresholdPercentage%3AAwsJobAbortCriteria%27"><span class="hs-identifier hs-var">thresholdPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679777344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679778192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The minimum number of things which must receive job execution</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- notifications before the job can be aborted.</span><span>
@@ -249,24 +249,24 @@ $sel:thresholdPercentage:AwsJobAbortCriteria' :: AwsJobAbortCriteria -&gt; Doubl
 -&gt; (AwsJobAbortCriteria -&gt; Natural -&gt; AwsJobAbortCriteria)
 -&gt; Lens AwsJobAbortCriteria AwsJobAbortCriteria Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777342"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778190"><span class="annot"><span class="annottext">Natural
 minNumberOfExecutedThings :: Natural
 $sel:minNumberOfExecutedThings:AwsJobAbortCriteria' :: AwsJobAbortCriteria -&gt; Natural
-</span><a href="#local-6989586621679777342"><span class="hs-identifier hs-var hs-var">minNumberOfExecutedThings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679777342"><span class="hs-identifier hs-var">minNumberOfExecutedThings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777341"><span class="annot"><span class="annottext">s :: AwsJobAbortCriteria
-</span><a href="#local-6989586621679777341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777340"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679777340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteria
-</span><a href="#local-6989586621679777341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minNumberOfExecutedThings:AwsJobAbortCriteria' :: Natural
+</span><a href="#local-6989586621679778190"><span class="hs-identifier hs-var hs-var">minNumberOfExecutedThings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679778190"><span class="hs-identifier hs-var">minNumberOfExecutedThings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778189"><span class="annot"><span class="annottext">s :: AwsJobAbortCriteria
+</span><a href="#local-6989586621679778189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778188"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679778188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteria
+</span><a href="#local-6989586621679778189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minNumberOfExecutedThings:AwsJobAbortCriteria' :: Natural
 </span><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#%24sel%3AminNumberOfExecutedThings%3AAwsJobAbortCriteria%27"><span class="hs-identifier hs-var">minNumberOfExecutedThings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679777340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679778188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777336"><span id="local-6989586621679777338"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778184"><span id="local-6989586621679778186"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777333"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778181"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777325"><span id="local-6989586621679777327"><span id="local-6989586621679777329"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679777323"><span class="annot"><span class="annottext">toJSON :: AwsJobAbortCriteria -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777318"><span id="local-6989586621679777319"><span id="local-6989586621679777320"><span id="local-6989586621679777321"><span class="annot"><span class="annottext">Double
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778173"><span id="local-6989586621679778175"><span id="local-6989586621679778177"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria"><span class="hs-identifier hs-type">AwsJobAbortCriteria</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679778171"><span class="annot"><span class="annottext">toJSON :: AwsJobAbortCriteria -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobAbortCriteria.html#AwsJobAbortCriteria%27"><span class="hs-identifier hs-type">AwsJobAbortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778166"><span id="local-6989586621679778167"><span id="local-6989586621679778168"><span id="local-6989586621679778169"><span class="annot"><span class="annottext">Double
 Natural
 AwsJobAbortCriteriaAbortAction
 AwsJobAbortCriteriaFailureType
@@ -278,7 +278,7 @@ $sel:minNumberOfExecutedThings:AwsJobAbortCriteria' :: AwsJobAbortCriteria -&gt;
 $sel:thresholdPercentage:AwsJobAbortCriteria' :: AwsJobAbortCriteria -&gt; Double
 $sel:action:AwsJobAbortCriteria' :: AwsJobAbortCriteria -&gt; AwsJobAbortCriteriaAbortAction
 $sel:failureType:AwsJobAbortCriteria' :: AwsJobAbortCriteria -&gt; AwsJobAbortCriteriaFailureType
-</span><a href="#local-6989586621679777318"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679778166"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -290,14 +290,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;failureType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsJobAbortCriteriaFailureType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteriaFailureType
-</span><a href="#local-6989586621679777321"><span class="hs-identifier hs-var">failureType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679778169"><span class="hs-identifier hs-var">failureType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;action&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsJobAbortCriteriaAbortAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AwsJobAbortCriteriaAbortAction
-</span><a href="#local-6989586621679777320"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679778168"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -305,7 +305,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;thresholdPercentage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679777319"><span class="hs-identifier hs-var">thresholdPercentage</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679778167"><span class="hs-identifier hs-var">thresholdPercentage</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -314,7 +314,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-126"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679777318"><span class="hs-identifier hs-var">minNumberOfExecutedThings</span></a></span><span>
+</span><a href="#local-6989586621679778166"><span class="hs-identifier hs-var">minNumberOfExecutedThings</span></a></span><span>
 </span><span id="line-127"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>

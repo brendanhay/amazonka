@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- group.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newUpdateLabelsPayload' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679269450"><span id="local-6989586621679269451"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateLabelsPayload"><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload"><span class="hs-identifier hs-var">UpdateLabelsPayload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateLabelsPayload%27"><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload%27"><span class="hs-identifier hs-var">UpdateLabelsPayload'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679269717"><span id="local-6989586621679269718"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateLabelsPayload"><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload"><span class="hs-identifier hs-var">UpdateLabelsPayload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateLabelsPayload%27"><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload%27"><span class="hs-identifier hs-var">UpdateLabelsPayload'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Kubernetes labels to be removed.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AremoveLabels%3AUpdateLabelsPayload%27"><span class="annot"><span class="annottext">UpdateLabelsPayload -&gt; Maybe [Text]
 </span><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#%24sel%3AremoveLabels%3AUpdateLabelsPayload%27"><span class="hs-identifier hs-var hs-var">removeLabels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AaddOrUpdateLabels%3AUpdateLabelsPayload%27"><span class="annot"><span class="annottext">UpdateLabelsPayload -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#%24sel%3AaddOrUpdateLabels%3AUpdateLabelsPayload%27"><span class="hs-identifier hs-var hs-var">addOrUpdateLabels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269443"><span id="local-6989586621679269445"><span class="annot"><span class="annottext">UpdateLabelsPayload -&gt; UpdateLabelsPayload -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269710"><span id="local-6989586621679269712"><span class="annot"><span class="annottext">UpdateLabelsPayload -&gt; UpdateLabelsPayload -&gt; Bool
 (UpdateLabelsPayload -&gt; UpdateLabelsPayload -&gt; Bool)
 -&gt; (UpdateLabelsPayload -&gt; UpdateLabelsPayload -&gt; Bool)
 -&gt; Eq UpdateLabelsPayload
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateLabelsPayload -&gt; UpdateLabelsPayload -&gt; Bool
 == :: UpdateLabelsPayload -&gt; UpdateLabelsPayload -&gt; Bool
 $c== :: UpdateLabelsPayload -&gt; UpdateLabelsPayload -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269434"><span id="local-6989586621679269436"><span id="local-6989586621679269438"><span id="local-6989586621679269440"><span class="annot"><span class="annottext">ReadPrec [UpdateLabelsPayload]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269701"><span id="local-6989586621679269703"><span id="local-6989586621679269705"><span id="local-6989586621679269707"><span class="annot"><span class="annottext">ReadPrec [UpdateLabelsPayload]
 ReadPrec UpdateLabelsPayload
 Int -&gt; ReadS UpdateLabelsPayload
 ReadS [UpdateLabelsPayload]
@@ -64,7 +64,7 @@ readList :: ReadS [UpdateLabelsPayload]
 $creadList :: ReadS [UpdateLabelsPayload]
 readsPrec :: Int -&gt; ReadS UpdateLabelsPayload
 $creadsPrec :: Int -&gt; ReadS UpdateLabelsPayload
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269427"><span id="local-6989586621679269429"><span id="local-6989586621679269431"><span class="annot"><span class="annottext">Int -&gt; UpdateLabelsPayload -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269694"><span id="local-6989586621679269696"><span id="local-6989586621679269698"><span class="annot"><span class="annottext">Int -&gt; UpdateLabelsPayload -&gt; ShowS
 [UpdateLabelsPayload] -&gt; ShowS
 UpdateLabelsPayload -&gt; String
 (Int -&gt; UpdateLabelsPayload -&gt; ShowS)
@@ -130,16 +130,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload%27"><span class="hs-identifier hs-type">UpdateLabelsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269418"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload%27"><span class="hs-identifier hs-type">UpdateLabelsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269685"><span class="annot"><span class="annottext">Maybe [Text]
 removeLabels :: Maybe [Text]
 $sel:removeLabels:UpdateLabelsPayload' :: UpdateLabelsPayload -&gt; Maybe [Text]
-</span><a href="#local-6989586621679269418"><span class="hs-identifier hs-var hs-var">removeLabels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679269418"><span class="hs-identifier hs-var">removeLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269417"><span class="annot"><span class="annottext">s :: UpdateLabelsPayload
-</span><a href="#local-6989586621679269417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload%27"><span class="hs-identifier hs-type">UpdateLabelsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269416"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679269416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLabelsPayload
-</span><a href="#local-6989586621679269417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeLabels:UpdateLabelsPayload' :: Maybe [Text]
+</span><a href="#local-6989586621679269685"><span class="hs-identifier hs-var hs-var">removeLabels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679269685"><span class="hs-identifier hs-var">removeLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269684"><span class="annot"><span class="annottext">s :: UpdateLabelsPayload
+</span><a href="#local-6989586621679269684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload%27"><span class="hs-identifier hs-type">UpdateLabelsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269683"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679269683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLabelsPayload
+</span><a href="#local-6989586621679269684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeLabels:UpdateLabelsPayload' :: Maybe [Text]
 </span><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#%24sel%3AremoveLabels%3AUpdateLabelsPayload%27"><span class="hs-identifier hs-var">removeLabels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679269416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload"><span class="hs-identifier hs-type">UpdateLabelsPayload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679269683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload"><span class="hs-identifier hs-type">UpdateLabelsPayload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; UpdateLabelsPayload -&gt; f UpdateLabelsPayload)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -153,8 +153,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | Kubernetes labels to be added or updated.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#updateLabelsPayload_addOrUpdateLabels"><span class="hs-identifier hs-type">updateLabelsPayload_addOrUpdateLabels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload"><span class="hs-identifier hs-type">UpdateLabelsPayload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -169,16 +169,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload%27"><span class="hs-identifier hs-type">UpdateLabelsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269411"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload%27"><span class="hs-identifier hs-type">UpdateLabelsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269678"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 addOrUpdateLabels :: Maybe (HashMap Text Text)
 $sel:addOrUpdateLabels:UpdateLabelsPayload' :: UpdateLabelsPayload -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679269411"><span class="hs-identifier hs-var hs-var">addOrUpdateLabels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679269411"><span class="hs-identifier hs-var">addOrUpdateLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269410"><span class="annot"><span class="annottext">s :: UpdateLabelsPayload
-</span><a href="#local-6989586621679269410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload%27"><span class="hs-identifier hs-type">UpdateLabelsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269409"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679269409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLabelsPayload
-</span><a href="#local-6989586621679269410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addOrUpdateLabels:UpdateLabelsPayload' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679269678"><span class="hs-identifier hs-var hs-var">addOrUpdateLabels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679269678"><span class="hs-identifier hs-var">addOrUpdateLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269677"><span class="annot"><span class="annottext">s :: UpdateLabelsPayload
+</span><a href="#local-6989586621679269677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload%27"><span class="hs-identifier hs-type">UpdateLabelsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269676"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679269676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLabelsPayload
+</span><a href="#local-6989586621679269677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addOrUpdateLabels:UpdateLabelsPayload' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#%24sel%3AaddOrUpdateLabels%3AUpdateLabelsPayload%27"><span class="hs-identifier hs-var">addOrUpdateLabels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679269409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload"><span class="hs-identifier hs-type">UpdateLabelsPayload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679269676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload"><span class="hs-identifier hs-type">UpdateLabelsPayload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; UpdateLabelsPayload -&gt; f UpdateLabelsPayload)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -204,22 +204,22 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269405"><span id="local-6989586621679269407"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload"><span class="hs-identifier hs-type">UpdateLabelsPayload</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269672"><span id="local-6989586621679269674"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload"><span class="hs-identifier hs-type">UpdateLabelsPayload</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269402"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload"><span class="hs-identifier hs-type">UpdateLabelsPayload</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269669"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload"><span class="hs-identifier hs-type">UpdateLabelsPayload</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269394"><span id="local-6989586621679269396"><span id="local-6989586621679269398"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload"><span class="hs-identifier hs-type">UpdateLabelsPayload</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679269392"><span class="annot"><span class="annottext">toJSON :: UpdateLabelsPayload -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload%27"><span class="hs-identifier hs-type">UpdateLabelsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269389"><span id="local-6989586621679269390"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269661"><span id="local-6989586621679269663"><span id="local-6989586621679269665"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload"><span class="hs-identifier hs-type">UpdateLabelsPayload</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679269659"><span class="annot"><span class="annottext">toJSON :: UpdateLabelsPayload -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateLabelsPayload.html#UpdateLabelsPayload%27"><span class="hs-identifier hs-type">UpdateLabelsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269656"><span id="local-6989586621679269657"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe (HashMap Text Text)
 addOrUpdateLabels :: Maybe (HashMap Text Text)
 removeLabels :: Maybe [Text]
 $sel:addOrUpdateLabels:UpdateLabelsPayload' :: UpdateLabelsPayload -&gt; Maybe (HashMap Text Text)
 $sel:removeLabels:UpdateLabelsPayload' :: UpdateLabelsPayload -&gt; Maybe [Text]
-</span><a href="#local-6989586621679269389"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679269656"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -231,7 +231,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679269390"><span class="hs-identifier hs-var">removeLabels</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679269657"><span class="hs-identifier hs-var">removeLabels</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;addOrUpdateLabels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -240,7 +240,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679269389"><span class="hs-identifier hs-var">addOrUpdateLabels</span></a></span><span>
+</span><a href="#local-6989586621679269656"><span class="hs-identifier hs-var">addOrUpdateLabels</span></a></span><span>
 </span><span id="line-77"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span></pre></body></html>

@@ -40,8 +40,8 @@
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#newCreateRoutingProfileResponse"><span class="hs-identifier">newCreateRoutingProfileResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#createRoutingProfileResponse_routingProfileId"><span class="hs-identifier">createRoutingProfileResponse_routingProfileId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#createRoutingProfileResponse_routingProfileArn"><span class="hs-identifier">createRoutingProfileResponse_routingProfileArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#createRoutingProfileResponse_routingProfileArn"><span class="hs-identifier">createRoutingProfileResponse_routingProfileArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#createRoutingProfileResponse_routingProfileId"><span class="hs-identifier">createRoutingProfileResponse_routingProfileId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#createRoutingProfileResponse_httpStatus"><span class="hs-identifier">createRoutingProfileResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span class="hs-keyword">where</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newCreateRoutingProfile' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679424433"><span id="local-6989586621679424434"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRoutingProfile"><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-var">CreateRoutingProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRoutingProfile%27"><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-var">CreateRoutingProfile'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679424761"><span id="local-6989586621679424762"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRoutingProfile"><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-var">CreateRoutingProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRoutingProfile%27"><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-var">CreateRoutingProfile'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The inbound queues associated with the routing profile. If no queue is</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- added, the agent can make only outbound calls.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AqueueConfigs%3ACreateRoutingProfile%27"><span class="annot"><span class="annottext">CreateRoutingProfile -&gt; Maybe (NonEmpty RoutingProfileQueueConfig)
@@ -81,7 +81,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AmediaConcurrencies%3ACreateRoutingProfile%27"><span class="annot"><span class="annottext">CreateRoutingProfile -&gt; [MediaConcurrency]
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AmediaConcurrencies%3ACreateRoutingProfile%27"><span class="hs-identifier hs-var hs-var">mediaConcurrencies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency"><span class="hs-identifier hs-type">MediaConcurrency</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679424421"><span id="local-6989586621679424423"><span class="annot"><span class="annottext">CreateRoutingProfile -&gt; CreateRoutingProfile -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679424749"><span id="local-6989586621679424751"><span class="annot"><span class="annottext">CreateRoutingProfile -&gt; CreateRoutingProfile -&gt; Bool
 (CreateRoutingProfile -&gt; CreateRoutingProfile -&gt; Bool)
 -&gt; (CreateRoutingProfile -&gt; CreateRoutingProfile -&gt; Bool)
 -&gt; Eq CreateRoutingProfile
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateRoutingProfile -&gt; CreateRoutingProfile -&gt; Bool
 == :: CreateRoutingProfile -&gt; CreateRoutingProfile -&gt; Bool
 $c== :: CreateRoutingProfile -&gt; CreateRoutingProfile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424412"><span id="local-6989586621679424414"><span id="local-6989586621679424416"><span id="local-6989586621679424418"><span class="annot"><span class="annottext">ReadPrec [CreateRoutingProfile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424740"><span id="local-6989586621679424742"><span id="local-6989586621679424744"><span id="local-6989586621679424746"><span class="annot"><span class="annottext">ReadPrec [CreateRoutingProfile]
 ReadPrec CreateRoutingProfile
 Int -&gt; ReadS CreateRoutingProfile
 ReadS [CreateRoutingProfile]
@@ -110,7 +110,7 @@ readList :: ReadS [CreateRoutingProfile]
 $creadList :: ReadS [CreateRoutingProfile]
 readsPrec :: Int -&gt; ReadS CreateRoutingProfile
 $creadsPrec :: Int -&gt; ReadS CreateRoutingProfile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424405"><span id="local-6989586621679424407"><span id="local-6989586621679424409"><span class="annot"><span class="annottext">Int -&gt; CreateRoutingProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424733"><span id="local-6989586621679424735"><span id="local-6989586621679424737"><span class="annot"><span class="annottext">Int -&gt; CreateRoutingProfile -&gt; ShowS
 [CreateRoutingProfile] -&gt; ShowS
 CreateRoutingProfile -&gt; String
 (Int -&gt; CreateRoutingProfile -&gt; ShowS)
@@ -173,14 +173,14 @@ $cfrom :: forall x. CreateRoutingProfile -&gt; Rep CreateRoutingProfile x
 </span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span>
 </span><span id="line-114"></span><span id="newCreateRoutingProfile"><span class="annot"><span class="annottext">newCreateRoutingProfile :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateRoutingProfile
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#newCreateRoutingProfile"><span class="hs-identifier hs-var hs-var">newCreateRoutingProfile</span></a></span></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679424400"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424400"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679424399"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424399"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679424398"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424398"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679424397"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424397"><span class="hs-identifier hs-var">pDefaultOutboundQueueId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679424728"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424728"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679424727"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424727"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679424726"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424726"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679424725"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424725"><span class="hs-identifier hs-var">pDefaultOutboundQueueId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">CreateRoutingProfile' :: Maybe (NonEmpty RoutingProfileQueueConfig)
 -&gt; Maybe (HashMap Text Text)
 -&gt; Text
@@ -201,16 +201,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceId:CreateRoutingProfile' :: Text
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AinstanceId%3ACreateRoutingProfile%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424400"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679424728"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CreateRoutingProfile' :: Text
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3Aname%3ACreateRoutingProfile%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424399"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679424727"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:CreateRoutingProfile' :: Text
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3Adescription%3ACreateRoutingProfile%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424398"><span class="hs-identifier hs-var">pDescription_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679424726"><span class="hs-identifier hs-var">pDescription_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:defaultOutboundQueueId:CreateRoutingProfile' :: Text
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AdefaultOutboundQueueId%3ACreateRoutingProfile%27"><span class="hs-identifier hs-var">defaultOutboundQueueId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424397"><span class="hs-identifier hs-var">pDefaultOutboundQueueId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679424725"><span class="hs-identifier hs-var">pDefaultOutboundQueueId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:mediaConcurrencies:CreateRoutingProfile' :: [MediaConcurrency]
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AmediaConcurrencies%3ACreateRoutingProfile%27"><span class="hs-identifier hs-var">mediaConcurrencies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MediaConcurrency]
 forall a. Monoid a =&gt; a
@@ -234,16 +234,16 @@ forall a. Monoid a =&gt; a
      (Maybe (NonEmpty RoutingProfileQueueConfig))
      (Maybe (NonEmpty RoutingProfileQueueConfig))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424394"><span class="annot"><span class="annottext">Maybe (NonEmpty RoutingProfileQueueConfig)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424722"><span class="annot"><span class="annottext">Maybe (NonEmpty RoutingProfileQueueConfig)
 queueConfigs :: Maybe (NonEmpty RoutingProfileQueueConfig)
 $sel:queueConfigs:CreateRoutingProfile' :: CreateRoutingProfile -&gt; Maybe (NonEmpty RoutingProfileQueueConfig)
-</span><a href="#local-6989586621679424394"><span class="hs-identifier hs-var hs-var">queueConfigs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty RoutingProfileQueueConfig)
-</span><a href="#local-6989586621679424394"><span class="hs-identifier hs-var">queueConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424393"><span class="annot"><span class="annottext">s :: CreateRoutingProfile
-</span><a href="#local-6989586621679424393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424392"><span class="annot"><span class="annottext">Maybe (NonEmpty RoutingProfileQueueConfig)
-</span><a href="#local-6989586621679424392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfile
-</span><a href="#local-6989586621679424393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueConfigs:CreateRoutingProfile' :: Maybe (NonEmpty RoutingProfileQueueConfig)
+</span><a href="#local-6989586621679424722"><span class="hs-identifier hs-var hs-var">queueConfigs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty RoutingProfileQueueConfig)
+</span><a href="#local-6989586621679424722"><span class="hs-identifier hs-var">queueConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424721"><span class="annot"><span class="annottext">s :: CreateRoutingProfile
+</span><a href="#local-6989586621679424721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424720"><span class="annot"><span class="annottext">Maybe (NonEmpty RoutingProfileQueueConfig)
+</span><a href="#local-6989586621679424720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfile
+</span><a href="#local-6989586621679424721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueConfigs:CreateRoutingProfile' :: Maybe (NonEmpty RoutingProfileQueueConfig)
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AqueueConfigs%3ACreateRoutingProfile%27"><span class="hs-identifier hs-var">queueConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty RoutingProfileQueueConfig)
-</span><a href="#local-6989586621679424392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty RoutingProfileQueueConfig)
+</span><a href="#local-6989586621679424720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty RoutingProfileQueueConfig)
   -&gt; f (Maybe (NonEmpty RoutingProfileQueueConfig)))
  -&gt; CreateRoutingProfile -&gt; f CreateRoutingProfile)
 -&gt; ((Maybe (NonEmpty RoutingProfileQueueConfig)
@@ -273,8 +273,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty RoutingProfileQueueConfig)
   (NonEmpty RoutingProfileQueueConfig)
   (NonEmpty RoutingProfileQueueConfig)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | One or more tags.</span><span>
 </span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#createRoutingProfile_tags"><span class="hs-identifier hs-type">createRoutingProfile_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -289,16 +289,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424388"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424716"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:CreateRoutingProfile' :: CreateRoutingProfile -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679424388"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679424388"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424387"><span class="annot"><span class="annottext">s :: CreateRoutingProfile
-</span><a href="#local-6989586621679424387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424386"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679424386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfile
-</span><a href="#local-6989586621679424387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRoutingProfile' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679424716"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679424716"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424715"><span class="annot"><span class="annottext">s :: CreateRoutingProfile
+</span><a href="#local-6989586621679424715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424714"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679424714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfile
+</span><a href="#local-6989586621679424715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRoutingProfile' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3Atags%3ACreateRoutingProfile%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679424386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679424714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; CreateRoutingProfile -&gt; f CreateRoutingProfile)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -324,8 +324,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
@@ -335,16 +335,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateRoutingProfile -&gt; Text -&gt; CreateRoutingProfile)
 -&gt; Lens CreateRoutingProfile CreateRoutingProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424385"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424713"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:CreateRoutingProfile' :: CreateRoutingProfile -&gt; Text
-</span><a href="#local-6989586621679424385"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424385"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424384"><span class="annot"><span class="annottext">s :: CreateRoutingProfile
-</span><a href="#local-6989586621679424384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424383"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfile
-</span><a href="#local-6989586621679424384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:CreateRoutingProfile' :: Text
+</span><a href="#local-6989586621679424713"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424713"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424712"><span class="annot"><span class="annottext">s :: CreateRoutingProfile
+</span><a href="#local-6989586621679424712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424711"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfile
+</span><a href="#local-6989586621679424712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:CreateRoutingProfile' :: Text
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AinstanceId%3ACreateRoutingProfile%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The name of the routing profile. Must not be more than 127 characters.</span><span>
 </span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#createRoutingProfile_name"><span class="hs-identifier hs-type">createRoutingProfile_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -353,16 +353,16 @@ $sel:instanceId:CreateRoutingProfile' :: CreateRoutingProfile -&gt; Text
 -&gt; (CreateRoutingProfile -&gt; Text -&gt; CreateRoutingProfile)
 -&gt; Lens CreateRoutingProfile CreateRoutingProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424382"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424710"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreateRoutingProfile' :: CreateRoutingProfile -&gt; Text
-</span><a href="#local-6989586621679424382"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424382"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424381"><span class="annot"><span class="annottext">s :: CreateRoutingProfile
-</span><a href="#local-6989586621679424381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424380"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfile
-</span><a href="#local-6989586621679424381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateRoutingProfile' :: Text
+</span><a href="#local-6989586621679424710"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424710"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424709"><span class="annot"><span class="annottext">s :: CreateRoutingProfile
+</span><a href="#local-6989586621679424709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424708"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfile
+</span><a href="#local-6989586621679424709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateRoutingProfile' :: Text
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3Aname%3ACreateRoutingProfile%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | Description of the routing profile. Must not be more than 250</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- characters.</span><span>
@@ -372,16 +372,16 @@ $sel:name:CreateRoutingProfile' :: CreateRoutingProfile -&gt; Text
 -&gt; (CreateRoutingProfile -&gt; Text -&gt; CreateRoutingProfile)
 -&gt; Lens CreateRoutingProfile CreateRoutingProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424379"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424707"><span class="annot"><span class="annottext">Text
 description :: Text
 $sel:description:CreateRoutingProfile' :: CreateRoutingProfile -&gt; Text
-</span><a href="#local-6989586621679424379"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424379"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424378"><span class="annot"><span class="annottext">s :: CreateRoutingProfile
-</span><a href="#local-6989586621679424378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424377"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfile
-</span><a href="#local-6989586621679424378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateRoutingProfile' :: Text
+</span><a href="#local-6989586621679424707"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424707"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424706"><span class="annot"><span class="annottext">s :: CreateRoutingProfile
+</span><a href="#local-6989586621679424706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424705"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfile
+</span><a href="#local-6989586621679424706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateRoutingProfile' :: Text
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3Adescription%3ACreateRoutingProfile%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The default outbound queue for the routing profile.</span><span>
 </span><span id="line-154"></span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#createRoutingProfile_defaultOutboundQueueId"><span class="hs-identifier hs-type">createRoutingProfile_defaultOutboundQueueId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -390,16 +390,16 @@ $sel:description:CreateRoutingProfile' :: CreateRoutingProfile -&gt; Text
 -&gt; (CreateRoutingProfile -&gt; Text -&gt; CreateRoutingProfile)
 -&gt; Lens CreateRoutingProfile CreateRoutingProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424376"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424704"><span class="annot"><span class="annottext">Text
 defaultOutboundQueueId :: Text
 $sel:defaultOutboundQueueId:CreateRoutingProfile' :: CreateRoutingProfile -&gt; Text
-</span><a href="#local-6989586621679424376"><span class="hs-identifier hs-var hs-var">defaultOutboundQueueId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424376"><span class="hs-identifier hs-var">defaultOutboundQueueId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424375"><span class="annot"><span class="annottext">s :: CreateRoutingProfile
-</span><a href="#local-6989586621679424375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424374"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfile
-</span><a href="#local-6989586621679424375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultOutboundQueueId:CreateRoutingProfile' :: Text
+</span><a href="#local-6989586621679424704"><span class="hs-identifier hs-var hs-var">defaultOutboundQueueId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424704"><span class="hs-identifier hs-var">defaultOutboundQueueId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424703"><span class="annot"><span class="annottext">s :: CreateRoutingProfile
+</span><a href="#local-6989586621679424703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424702"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfile
+</span><a href="#local-6989586621679424703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultOutboundQueueId:CreateRoutingProfile' :: Text
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AdefaultOutboundQueueId%3ACreateRoutingProfile%27"><span class="hs-identifier hs-var">defaultOutboundQueueId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The channels that agents can handle in the Contact Control Panel (CCP)</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- for this routing profile.</span><span>
@@ -415,16 +415,16 @@ $sel:defaultOutboundQueueId:CreateRoutingProfile' :: CreateRoutingProfile -&gt; 
      [MediaConcurrency]
      [MediaConcurrency]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424373"><span class="annot"><span class="annottext">[MediaConcurrency]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424701"><span class="annot"><span class="annottext">[MediaConcurrency]
 mediaConcurrencies :: [MediaConcurrency]
 $sel:mediaConcurrencies:CreateRoutingProfile' :: CreateRoutingProfile -&gt; [MediaConcurrency]
-</span><a href="#local-6989586621679424373"><span class="hs-identifier hs-var hs-var">mediaConcurrencies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MediaConcurrency]
-</span><a href="#local-6989586621679424373"><span class="hs-identifier hs-var">mediaConcurrencies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424372"><span class="annot"><span class="annottext">s :: CreateRoutingProfile
-</span><a href="#local-6989586621679424372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424371"><span class="annot"><span class="annottext">[MediaConcurrency]
-</span><a href="#local-6989586621679424371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfile
-</span><a href="#local-6989586621679424372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaConcurrencies:CreateRoutingProfile' :: [MediaConcurrency]
+</span><a href="#local-6989586621679424701"><span class="hs-identifier hs-var hs-var">mediaConcurrencies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MediaConcurrency]
+</span><a href="#local-6989586621679424701"><span class="hs-identifier hs-var">mediaConcurrencies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424700"><span class="annot"><span class="annottext">s :: CreateRoutingProfile
+</span><a href="#local-6989586621679424700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424699"><span class="annot"><span class="annottext">[MediaConcurrency]
+</span><a href="#local-6989586621679424699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfile
+</span><a href="#local-6989586621679424700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaConcurrencies:CreateRoutingProfile' :: [MediaConcurrency]
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AmediaConcurrencies%3ACreateRoutingProfile%27"><span class="hs-identifier hs-var">mediaConcurrencies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MediaConcurrency]
-</span><a href="#local-6989586621679424371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MediaConcurrency] -&gt; f [MediaConcurrency])
+</span><a href="#local-6989586621679424699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MediaConcurrency] -&gt; f [MediaConcurrency])
  -&gt; CreateRoutingProfile -&gt; f CreateRoutingProfile)
 -&gt; (([MediaConcurrency] -&gt; f [MediaConcurrency])
     -&gt; [MediaConcurrency] -&gt; f [MediaConcurrency])
@@ -434,19 +434,19 @@ $sel:mediaConcurrencies:CreateRoutingProfile' :: CreateRoutingProfile -&gt; [Med
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([MediaConcurrency] -&gt; f [MediaConcurrency])
 -&gt; [MediaConcurrency] -&gt; f [MediaConcurrency]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-164"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse"><span class="hs-identifier hs-type">CreateRoutingProfileResponse</span></a></span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679424367"><span class="annot"><span class="annottext">request :: CreateRoutingProfile -&gt; Request CreateRoutingProfile
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679424695"><span class="annot"><span class="annottext">request :: CreateRoutingProfile -&gt; Request CreateRoutingProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateRoutingProfile -&gt; Request CreateRoutingProfile
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679424363"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679424691"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateRoutingProfile
 -&gt; ClientResponse ClientBody
@@ -472,10 +472,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679424360"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679424360"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679424359"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679424359"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679424358"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679424358"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679424688"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679424688"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679424687"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679424687"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679424686"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679424686"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateRoutingProfileResponse
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse%27"><span class="hs-identifier hs-var">CreateRoutingProfileResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateRoutingProfileResponse)
@@ -484,19 +484,19 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; CreateRoutingProfileResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679424358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679424686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RoutingProfileId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;RoutingProfileArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateRoutingProfileResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; CreateRoutingProfileResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679424358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679424686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RoutingProfileArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;RoutingProfileId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateRoutingProfileResponse)
 -&gt; Either String Int -&gt; Either String CreateRoutingProfileResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -505,15 +505,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679424360"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424688"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424350"><span id="local-6989586621679424352"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424678"><span id="local-6989586621679424680"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424347"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424675"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679424343"><span class="annot"><span class="annottext">toHeaders :: CreateRoutingProfile -&gt; ResponseHeaders
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679424671"><span class="annot"><span class="annottext">toHeaders :: CreateRoutingProfile -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateRoutingProfile -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -532,9 +532,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-188"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424333"><span id="local-6989586621679424335"><span id="local-6989586621679424337"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679424331"><span class="annot"><span class="annottext">toJSON :: CreateRoutingProfile -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424323"><span id="local-6989586621679424324"><span id="local-6989586621679424325"><span id="local-6989586621679424326"><span id="local-6989586621679424327"><span id="local-6989586621679424328"><span id="local-6989586621679424329"><span class="annot"><span class="annottext">[MediaConcurrency]
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424661"><span id="local-6989586621679424663"><span id="local-6989586621679424665"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679424659"><span class="annot"><span class="annottext">toJSON :: CreateRoutingProfile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424651"><span id="local-6989586621679424652"><span id="local-6989586621679424653"><span id="local-6989586621679424654"><span id="local-6989586621679424655"><span id="local-6989586621679424656"><span id="local-6989586621679424657"><span class="annot"><span class="annottext">[MediaConcurrency]
 Maybe (NonEmpty RoutingProfileQueueConfig)
 Maybe (HashMap Text Text)
 Text
@@ -552,7 +552,7 @@ $sel:name:CreateRoutingProfile' :: CreateRoutingProfile -&gt; Text
 $sel:instanceId:CreateRoutingProfile' :: CreateRoutingProfile -&gt; Text
 $sel:tags:CreateRoutingProfile' :: CreateRoutingProfile -&gt; Maybe (HashMap Text Text)
 $sel:queueConfigs:CreateRoutingProfile' :: CreateRoutingProfile -&gt; Maybe (NonEmpty RoutingProfileQueueConfig)
-</span><a href="#local-6989586621679424323"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679424651"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -565,7 +565,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (NonEmpty RoutingProfileQueueConfig) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty RoutingProfileQueueConfig)
-</span><a href="#local-6989586621679424329"><span class="hs-identifier hs-var">queueConfigs</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679424657"><span class="hs-identifier hs-var">queueConfigs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -573,21 +573,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679424328"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679424656"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424326"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679424654"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424325"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679424653"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -596,7 +596,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-201"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424324"><span class="hs-identifier hs-var">defaultOutboundQueueId</span></a></span><span>
+</span><a href="#local-6989586621679424652"><span class="hs-identifier hs-var">defaultOutboundQueueId</span></a></span><span>
 </span><span id="line-202"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -605,13 +605,13 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;MediaConcurrencies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MediaConcurrency] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[MediaConcurrency]
-</span><a href="#local-6989586621679424323"><span class="hs-identifier hs-var">mediaConcurrencies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424651"><span class="hs-identifier hs-var">mediaConcurrencies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-206"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621679424317"><span class="annot"><span class="annottext">toPath :: CreateRoutingProfile -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424309"><span id="local-6989586621679424310"><span id="local-6989586621679424311"><span id="local-6989586621679424312"><span id="local-6989586621679424313"><span id="local-6989586621679424314"><span id="local-6989586621679424315"><span class="annot"><span class="annottext">[MediaConcurrency]
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679424645"><span class="annot"><span class="annottext">toPath :: CreateRoutingProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile%27"><span class="hs-identifier hs-type">CreateRoutingProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424637"><span id="local-6989586621679424638"><span id="local-6989586621679424639"><span id="local-6989586621679424640"><span id="local-6989586621679424641"><span id="local-6989586621679424642"><span id="local-6989586621679424643"><span class="annot"><span class="annottext">[MediaConcurrency]
 Maybe (NonEmpty RoutingProfileQueueConfig)
 Maybe (HashMap Text Text)
 Text
@@ -629,7 +629,7 @@ $sel:name:CreateRoutingProfile' :: CreateRoutingProfile -&gt; Text
 $sel:instanceId:CreateRoutingProfile' :: CreateRoutingProfile -&gt; Text
 $sel:tags:CreateRoutingProfile' :: CreateRoutingProfile -&gt; Maybe (HashMap Text Text)
 $sel:queueConfigs:CreateRoutingProfile' :: CreateRoutingProfile -&gt; Maybe (NonEmpty RoutingProfileQueueConfig)
-</span><a href="#local-6989586621679424309"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679424637"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -637,10 +637,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/routing-profiles/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424313"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679424641"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfile"><span class="hs-identifier hs-type">CreateRoutingProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679424305"><span class="annot"><span class="annottext">toQuery :: CreateRoutingProfile -&gt; QueryString
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679424633"><span class="annot"><span class="annottext">toQuery :: CreateRoutingProfile -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateRoutingProfile -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -648,18 +648,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | /See:/ 'newCreateRoutingProfileResponse' smart constructor.</span><span>
-</span><span id="line-217"></span><span id="local-6989586621679424302"><span id="local-6989586621679424303"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRoutingProfileResponse"><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse"><span class="hs-identifier hs-var">CreateRoutingProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRoutingProfileResponse%27"><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse%27"><span class="hs-identifier hs-var">CreateRoutingProfileResponse'</span></a></span></span><span>
-</span><span id="line-218"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the routing profile.</span><span>
-</span><span id="line-219"></span><span>    </span><span id="%24sel%3AroutingProfileId%3ACreateRoutingProfileResponse%27"><span class="annot"><span class="annottext">CreateRoutingProfileResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AroutingProfileId%3ACreateRoutingProfileResponse%27"><span class="hs-identifier hs-var hs-var">routingProfileId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the routing profile.</span><span>
-</span><span id="line-221"></span><span>    </span><span id="%24sel%3AroutingProfileArn%3ACreateRoutingProfileResponse%27"><span class="annot"><span class="annottext">CreateRoutingProfileResponse -&gt; Maybe Text
+</span><span id="line-217"></span><span id="local-6989586621679424630"><span id="local-6989586621679424631"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRoutingProfileResponse"><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse"><span class="hs-identifier hs-var">CreateRoutingProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRoutingProfileResponse%27"><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse%27"><span class="hs-identifier hs-var">CreateRoutingProfileResponse'</span></a></span></span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the routing profile.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3AroutingProfileArn%3ACreateRoutingProfileResponse%27"><span class="annot"><span class="annottext">CreateRoutingProfileResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AroutingProfileArn%3ACreateRoutingProfileResponse%27"><span class="hs-identifier hs-var hs-var">routingProfileArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | The identifier of the routing profile.</span><span>
+</span><span id="line-221"></span><span>    </span><span id="%24sel%3AroutingProfileId%3ACreateRoutingProfileResponse%27"><span class="annot"><span class="annottext">CreateRoutingProfileResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AroutingProfileId%3ACreateRoutingProfileResponse%27"><span class="hs-identifier hs-var hs-var">routingProfileId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-223"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateRoutingProfileResponse%27"><span class="annot"><span class="annottext">CreateRoutingProfileResponse -&gt; Int
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AhttpStatus%3ACreateRoutingProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-224"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679424295"><span id="local-6989586621679424297"><span class="annot"><span class="annottext">CreateRoutingProfileResponse
+</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679424623"><span id="local-6989586621679424625"><span class="annot"><span class="annottext">CreateRoutingProfileResponse
 -&gt; CreateRoutingProfileResponse -&gt; Bool
 (CreateRoutingProfileResponse
  -&gt; CreateRoutingProfileResponse -&gt; Bool)
@@ -675,7 +675,7 @@ $c/= :: CreateRoutingProfileResponse
 -&gt; CreateRoutingProfileResponse -&gt; Bool
 $c== :: CreateRoutingProfileResponse
 -&gt; CreateRoutingProfileResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424287"><span id="local-6989586621679424289"><span id="local-6989586621679424291"><span id="local-6989586621679424293"><span class="annot"><span class="annottext">ReadPrec [CreateRoutingProfileResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424615"><span id="local-6989586621679424617"><span id="local-6989586621679424619"><span id="local-6989586621679424621"><span class="annot"><span class="annottext">ReadPrec [CreateRoutingProfileResponse]
 ReadPrec CreateRoutingProfileResponse
 Int -&gt; ReadS CreateRoutingProfileResponse
 ReadS [CreateRoutingProfileResponse]
@@ -695,7 +695,7 @@ readList :: ReadS [CreateRoutingProfileResponse]
 $creadList :: ReadS [CreateRoutingProfileResponse]
 readsPrec :: Int -&gt; ReadS CreateRoutingProfileResponse
 $creadsPrec :: Int -&gt; ReadS CreateRoutingProfileResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424281"><span id="local-6989586621679424283"><span id="local-6989586621679424285"><span class="annot"><span class="annottext">Int -&gt; CreateRoutingProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424609"><span id="local-6989586621679424611"><span id="local-6989586621679424613"><span class="annot"><span class="annottext">Int -&gt; CreateRoutingProfileResponse -&gt; ShowS
 [CreateRoutingProfileResponse] -&gt; ShowS
 CreateRoutingProfileResponse -&gt; String
 (Int -&gt; CreateRoutingProfileResponse -&gt; ShowS)
@@ -735,9 +735,9 @@ CreateRoutingProfileResponse -&gt; Rep CreateRoutingProfileResponse x
 </span><span id="line-232"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-234"></span><span class="hs-comment">--</span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- 'routingProfileId', 'createRoutingProfileResponse_routingProfileId' - The identifier of the routing profile.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'routingProfileArn', 'createRoutingProfileResponse_routingProfileArn' - The Amazon Resource Name (ARN) of the routing profile.</span><span>
 </span><span id="line-236"></span><span class="hs-comment">--</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- 'routingProfileArn', 'createRoutingProfileResponse_routingProfileArn' - The Amazon Resource Name (ARN) of the routing profile.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- 'routingProfileId', 'createRoutingProfileResponse_routingProfileId' - The identifier of the routing profile.</span><span>
 </span><span id="line-238"></span><span class="hs-comment">--</span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- 'httpStatus', 'createRoutingProfileResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-240"></span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#newCreateRoutingProfileResponse"><span class="hs-identifier hs-type">newCreateRoutingProfileResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -745,51 +745,27 @@ CreateRoutingProfileResponse -&gt; Rep CreateRoutingProfileResponse x
 </span><span id="line-242"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-243"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse"><span class="hs-identifier hs-type">CreateRoutingProfileResponse</span></a></span><span>
 </span><span id="line-244"></span><span id="newCreateRoutingProfileResponse"><span class="annot"><span class="annottext">newCreateRoutingProfileResponse :: Int -&gt; CreateRoutingProfileResponse
-</span><a href="Network.AWS.Connect.CreateRoutingProfile.html#newCreateRoutingProfileResponse"><span class="hs-identifier hs-var hs-var">newCreateRoutingProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679424278"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679424278"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.CreateRoutingProfile.html#newCreateRoutingProfileResponse"><span class="hs-identifier hs-var hs-var">newCreateRoutingProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679424606"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679424606"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-245"></span><span>  </span><span class="annot"><span class="annottext">CreateRoutingProfileResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateRoutingProfileResponse
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse%27"><span class="hs-identifier hs-type">CreateRoutingProfileResponse'</span></a></span><span>
-</span><span id="line-246"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:routingProfileId:CreateRoutingProfileResponse' :: Maybe Text
-</span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AroutingProfileId%3ACreateRoutingProfileResponse%27"><span class="hs-identifier hs-var">routingProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:routingProfileArn:CreateRoutingProfileResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AroutingProfileArn%3ACreateRoutingProfileResponse%27"><span class="hs-identifier hs-var">routingProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-247"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">$sel:routingProfileArn:CreateRoutingProfileResponse' :: Maybe Text
-</span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AroutingProfileArn%3ACreateRoutingProfileResponse%27"><span class="hs-identifier hs-var">routingProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">$sel:routingProfileId:CreateRoutingProfileResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AroutingProfileId%3ACreateRoutingProfileResponse%27"><span class="hs-identifier hs-var">routingProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRoutingProfileResponse' :: Int
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AhttpStatus%3ACreateRoutingProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679424278"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679424606"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-250"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-251"></span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- | The identifier of the routing profile.</span><span>
-</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#createRoutingProfileResponse_routingProfileId"><span class="hs-identifier hs-type">createRoutingProfileResponse_routingProfileId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse"><span class="hs-identifier hs-type">CreateRoutingProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-254"></span><span id="createRoutingProfileResponse_routingProfileId"><span class="annot"><span class="annottext">createRoutingProfileResponse_routingProfileId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateRoutingProfileResponse -&gt; f CreateRoutingProfileResponse
-</span><a href="Network.AWS.Connect.CreateRoutingProfile.html#createRoutingProfileResponse_routingProfileId"><span class="hs-identifier hs-var hs-var">createRoutingProfileResponse_routingProfileId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoutingProfileResponse -&gt; Maybe Text)
--&gt; (CreateRoutingProfileResponse
-    -&gt; Maybe Text -&gt; CreateRoutingProfileResponse)
--&gt; Lens
-     CreateRoutingProfileResponse
-     CreateRoutingProfileResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse%27"><span class="hs-identifier hs-type">CreateRoutingProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424277"><span class="annot"><span class="annottext">Maybe Text
-routingProfileId :: Maybe Text
-$sel:routingProfileId:CreateRoutingProfileResponse' :: CreateRoutingProfileResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679424277"><span class="hs-identifier hs-var hs-var">routingProfileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424277"><span class="hs-identifier hs-var">routingProfileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424276"><span class="annot"><span class="annottext">s :: CreateRoutingProfileResponse
-</span><a href="#local-6989586621679424276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse%27"><span class="hs-identifier hs-type">CreateRoutingProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424275"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfileResponse
-</span><a href="#local-6989586621679424276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingProfileId:CreateRoutingProfileResponse' :: Maybe Text
-</span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AroutingProfileId%3ACreateRoutingProfileResponse%27"><span class="hs-identifier hs-var">routingProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse"><span class="hs-identifier hs-type">CreateRoutingProfileResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-255"></span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the routing profile.</span><span>
-</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#createRoutingProfileResponse_routingProfileArn"><span class="hs-identifier hs-type">createRoutingProfileResponse_routingProfileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse"><span class="hs-identifier hs-type">CreateRoutingProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-258"></span><span id="createRoutingProfileResponse_routingProfileArn"><span class="annot"><span class="annottext">createRoutingProfileResponse_routingProfileArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-252"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the routing profile.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#createRoutingProfileResponse_routingProfileArn"><span class="hs-identifier hs-type">createRoutingProfileResponse_routingProfileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse"><span class="hs-identifier hs-type">CreateRoutingProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="createRoutingProfileResponse_routingProfileArn"><span class="annot"><span class="annottext">createRoutingProfileResponse_routingProfileArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreateRoutingProfileResponse -&gt; f CreateRoutingProfileResponse
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#createRoutingProfileResponse_routingProfileArn"><span class="hs-identifier hs-var hs-var">createRoutingProfileResponse_routingProfileArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoutingProfileResponse -&gt; Maybe Text)
 -&gt; (CreateRoutingProfileResponse
@@ -800,16 +776,40 @@ $sel:routingProfileId:CreateRoutingProfileResponse' :: CreateRoutingProfileRespo
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse%27"><span class="hs-identifier hs-type">CreateRoutingProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424274"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse%27"><span class="hs-identifier hs-type">CreateRoutingProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424605"><span class="annot"><span class="annottext">Maybe Text
 routingProfileArn :: Maybe Text
 $sel:routingProfileArn:CreateRoutingProfileResponse' :: CreateRoutingProfileResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679424274"><span class="hs-identifier hs-var hs-var">routingProfileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424274"><span class="hs-identifier hs-var">routingProfileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424273"><span class="annot"><span class="annottext">s :: CreateRoutingProfileResponse
-</span><a href="#local-6989586621679424273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse%27"><span class="hs-identifier hs-type">CreateRoutingProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424272"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfileResponse
-</span><a href="#local-6989586621679424273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingProfileArn:CreateRoutingProfileResponse' :: Maybe Text
+</span><a href="#local-6989586621679424605"><span class="hs-identifier hs-var hs-var">routingProfileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679424605"><span class="hs-identifier hs-var">routingProfileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424604"><span class="annot"><span class="annottext">s :: CreateRoutingProfileResponse
+</span><a href="#local-6989586621679424604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse%27"><span class="hs-identifier hs-type">CreateRoutingProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424603"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679424603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfileResponse
+</span><a href="#local-6989586621679424604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingProfileArn:CreateRoutingProfileResponse' :: Maybe Text
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AroutingProfileArn%3ACreateRoutingProfileResponse%27"><span class="hs-identifier hs-var">routingProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse"><span class="hs-identifier hs-type">CreateRoutingProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse"><span class="hs-identifier hs-type">CreateRoutingProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The identifier of the routing profile.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#createRoutingProfileResponse_routingProfileId"><span class="hs-identifier hs-type">createRoutingProfileResponse_routingProfileId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse"><span class="hs-identifier hs-type">CreateRoutingProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="createRoutingProfileResponse_routingProfileId"><span class="annot"><span class="annottext">createRoutingProfileResponse_routingProfileId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateRoutingProfileResponse -&gt; f CreateRoutingProfileResponse
+</span><a href="Network.AWS.Connect.CreateRoutingProfile.html#createRoutingProfileResponse_routingProfileId"><span class="hs-identifier hs-var hs-var">createRoutingProfileResponse_routingProfileId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoutingProfileResponse -&gt; Maybe Text)
+-&gt; (CreateRoutingProfileResponse
+    -&gt; Maybe Text -&gt; CreateRoutingProfileResponse)
+-&gt; Lens
+     CreateRoutingProfileResponse
+     CreateRoutingProfileResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse%27"><span class="hs-identifier hs-type">CreateRoutingProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424602"><span class="annot"><span class="annottext">Maybe Text
+routingProfileId :: Maybe Text
+$sel:routingProfileId:CreateRoutingProfileResponse' :: CreateRoutingProfileResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679424602"><span class="hs-identifier hs-var hs-var">routingProfileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679424602"><span class="hs-identifier hs-var">routingProfileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424601"><span class="annot"><span class="annottext">s :: CreateRoutingProfileResponse
+</span><a href="#local-6989586621679424601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse%27"><span class="hs-identifier hs-type">CreateRoutingProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424600"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679424600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfileResponse
+</span><a href="#local-6989586621679424601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingProfileId:CreateRoutingProfileResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AroutingProfileId%3ACreateRoutingProfileResponse%27"><span class="hs-identifier hs-var">routingProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679424600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse"><span class="hs-identifier hs-type">CreateRoutingProfileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-261"></span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#createRoutingProfileResponse_httpStatus"><span class="hs-identifier hs-type">createRoutingProfileResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse"><span class="hs-identifier hs-type">CreateRoutingProfileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -821,16 +821,16 @@ $sel:routingProfileArn:CreateRoutingProfileResponse' :: CreateRoutingProfileResp
 -&gt; Lens
      CreateRoutingProfileResponse CreateRoutingProfileResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse%27"><span class="hs-identifier hs-type">CreateRoutingProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424271"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse%27"><span class="hs-identifier hs-type">CreateRoutingProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424599"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateRoutingProfileResponse' :: CreateRoutingProfileResponse -&gt; Int
-</span><a href="#local-6989586621679424271"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679424271"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424270"><span class="annot"><span class="annottext">s :: CreateRoutingProfileResponse
-</span><a href="#local-6989586621679424270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse%27"><span class="hs-identifier hs-type">CreateRoutingProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424269"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679424269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfileResponse
-</span><a href="#local-6989586621679424270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRoutingProfileResponse' :: Int
+</span><a href="#local-6989586621679424599"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679424599"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424598"><span class="annot"><span class="annottext">s :: CreateRoutingProfileResponse
+</span><a href="#local-6989586621679424598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse%27"><span class="hs-identifier hs-type">CreateRoutingProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424597"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679424597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoutingProfileResponse
+</span><a href="#local-6989586621679424598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRoutingProfileResponse' :: Int
 </span><a href="Network.AWS.Connect.CreateRoutingProfile.html#%24sel%3AhttpStatus%3ACreateRoutingProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679424269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse"><span class="hs-identifier hs-type">CreateRoutingProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse"><span class="hs-identifier hs-type">CreateRoutingProfileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-263"></span><span>
-</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424267"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse"><span class="hs-identifier hs-type">CreateRoutingProfileResponse</span></a></span></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424595"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateRoutingProfile.html#CreateRoutingProfileResponse"><span class="hs-identifier hs-type">CreateRoutingProfileResponse</span></a></span></span><span>
 </span><span id="line-265"></span></pre></body></html>

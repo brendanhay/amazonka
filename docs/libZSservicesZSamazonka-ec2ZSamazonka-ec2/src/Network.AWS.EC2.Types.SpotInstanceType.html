@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681117015"><span id="local-6989586621681117016"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SpotInstanceType"><span class="annot"><a href="Network.AWS.EC2.Types.SpotInstanceType.html#SpotInstanceType"><span class="hs-identifier hs-var">SpotInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SpotInstanceType%27"><span class="annot"><a href="Network.AWS.EC2.Types.SpotInstanceType.html#SpotInstanceType%27"><span class="hs-identifier hs-var">SpotInstanceType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681151861"><span id="local-6989586621681151862"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SpotInstanceType"><span class="annot"><a href="Network.AWS.EC2.Types.SpotInstanceType.html#SpotInstanceType"><span class="hs-identifier hs-var">SpotInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SpotInstanceType%27"><span class="annot"><a href="Network.AWS.EC2.Types.SpotInstanceType.html#SpotInstanceType%27"><span class="hs-identifier hs-var">SpotInstanceType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSpotInstanceType"><span class="annot"><span class="annottext">SpotInstanceType -&gt; Text
 </span><a href="Network.AWS.EC2.Types.SpotInstanceType.html#fromSpotInstanceType"><span class="hs-identifier hs-var hs-var">fromSpotInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681117007"><span id="local-6989586621681117009"><span id="local-6989586621681117011"><span class="annot"><span class="annottext">Int -&gt; SpotInstanceType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681151853"><span id="local-6989586621681151855"><span id="local-6989586621681151857"><span class="annot"><span class="annottext">Int -&gt; SpotInstanceType -&gt; ShowS
 [SpotInstanceType] -&gt; ShowS
 SpotInstanceType -&gt; String
 (Int -&gt; SpotInstanceType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: SpotInstanceType -&gt; String
 showsPrec :: Int -&gt; SpotInstanceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; SpotInstanceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681116998"><span id="local-6989586621681117000"><span id="local-6989586621681117002"><span id="local-6989586621681117004"><span class="annot"><span class="annottext">ReadPrec [SpotInstanceType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681151844"><span id="local-6989586621681151846"><span id="local-6989586621681151848"><span id="local-6989586621681151850"><span class="annot"><span class="annottext">ReadPrec [SpotInstanceType]
 ReadPrec SpotInstanceType
 Int -&gt; ReadS SpotInstanceType
 ReadS [SpotInstanceType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [SpotInstanceType]
 readsPrec :: Int -&gt; ReadS SpotInstanceType
 $creadsPrec :: Int -&gt; ReadS SpotInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681116993"><span id="local-6989586621681116995"><span class="annot"><span class="annottext">SpotInstanceType -&gt; SpotInstanceType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681151839"><span id="local-6989586621681151841"><span class="annot"><span class="annottext">SpotInstanceType -&gt; SpotInstanceType -&gt; Bool
 (SpotInstanceType -&gt; SpotInstanceType -&gt; Bool)
 -&gt; (SpotInstanceType -&gt; SpotInstanceType -&gt; Bool)
 -&gt; Eq SpotInstanceType
@@ -83,7 +83,7 @@ $c/= :: SpotInstanceType -&gt; SpotInstanceType -&gt; Bool
 == :: SpotInstanceType -&gt; SpotInstanceType -&gt; Bool
 $c== :: SpotInstanceType -&gt; SpotInstanceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681116977"><span id="local-6989586621681116979"><span id="local-6989586621681116981"><span id="local-6989586621681116983"><span id="local-6989586621681116985"><span id="local-6989586621681116987"><span id="local-6989586621681116989"><span class="annot"><span class="annottext">Eq SpotInstanceType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681151823"><span id="local-6989586621681151825"><span id="local-6989586621681151827"><span id="local-6989586621681151829"><span id="local-6989586621681151831"><span id="local-6989586621681151833"><span id="local-6989586621681151835"><span class="annot"><span class="annottext">Eq SpotInstanceType
 Eq SpotInstanceType
 -&gt; (SpotInstanceType -&gt; SpotInstanceType -&gt; Ordering)
 -&gt; (SpotInstanceType -&gt; SpotInstanceType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. SpotInstanceType -&gt; Rep SpotInstanceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681116969"><span id="local-6989586621681116971"><span class="annot"><span class="annottext">Int -&gt; SpotInstanceType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681151815"><span id="local-6989586621681151817"><span class="annot"><span class="annottext">Int -&gt; SpotInstanceType -&gt; Int
 SpotInstanceType -&gt; Int
 (Int -&gt; SpotInstanceType -&gt; Int)
 -&gt; (SpotInstanceType -&gt; Int) -&gt; Hashable SpotInstanceType
@@ -144,51 +144,51 @@ $chash :: SpotInstanceType -&gt; Int
 hashWithSalt :: Int -&gt; SpotInstanceType -&gt; Int
 $chashWithSalt :: Int -&gt; SpotInstanceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681116966"><span class="annot"><span class="annottext">SpotInstanceType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681151812"><span class="annot"><span class="annottext">SpotInstanceType -&gt; ()
 (SpotInstanceType -&gt; ()) -&gt; NFData SpotInstanceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SpotInstanceType -&gt; ()
 $crnf :: SpotInstanceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681116963"><span class="annot"><span class="annottext">Text -&gt; Either String SpotInstanceType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681151809"><span class="annot"><span class="annottext">Text -&gt; Either String SpotInstanceType
 (Text -&gt; Either String SpotInstanceType)
 -&gt; FromText SpotInstanceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SpotInstanceType
 $cfromText :: Text -&gt; Either String SpotInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681116960"><span class="annot"><span class="annottext">SpotInstanceType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681151806"><span class="annot"><span class="annottext">SpotInstanceType -&gt; Text
 (SpotInstanceType -&gt; Text) -&gt; ToText SpotInstanceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SpotInstanceType -&gt; Text
 $ctoText :: SpotInstanceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681116957"><span class="annot"><span class="annottext">SpotInstanceType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681151803"><span class="annot"><span class="annottext">SpotInstanceType -&gt; ByteString
 (SpotInstanceType -&gt; ByteString) -&gt; ToByteString SpotInstanceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SpotInstanceType -&gt; ByteString
 $ctoBS :: SpotInstanceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681116954"><span class="annot"><span class="annottext">SpotInstanceType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681151800"><span class="annot"><span class="annottext">SpotInstanceType -&gt; ByteStringBuilder
 (SpotInstanceType -&gt; ByteStringBuilder) -&gt; ToLog SpotInstanceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SpotInstanceType -&gt; ByteStringBuilder
 $cbuild :: SpotInstanceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681116951"><span class="annot"><span class="annottext">HeaderName -&gt; SpotInstanceType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681151797"><span class="annot"><span class="annottext">HeaderName -&gt; SpotInstanceType -&gt; [Header]
 (HeaderName -&gt; SpotInstanceType -&gt; [Header])
 -&gt; ToHeader SpotInstanceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SpotInstanceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SpotInstanceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681116948"><span class="annot"><span class="annottext">SpotInstanceType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681151794"><span class="annot"><span class="annottext">SpotInstanceType -&gt; QueryString
 (SpotInstanceType -&gt; QueryString) -&gt; ToQuery SpotInstanceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SpotInstanceType -&gt; QueryString
 $ctoQuery :: SpotInstanceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681116943"><span id="local-6989586621681116945"><span class="annot"><span class="annottext">Value -&gt; Parser [SpotInstanceType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681151789"><span id="local-6989586621681151791"><span class="annot"><span class="annottext">Value -&gt; Parser [SpotInstanceType]
 Value -&gt; Parser SpotInstanceType
 (Value -&gt; Parser SpotInstanceType)
 -&gt; (Value -&gt; Parser [SpotInstanceType])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [SpotInstanceType]
 parseJSON :: Value -&gt; Parser SpotInstanceType
 $cparseJSON :: Value -&gt; Parser SpotInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681116938"><span id="local-6989586621681116940"><span class="annot"><span class="annottext">FromJSONKeyFunction [SpotInstanceType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681151784"><span id="local-6989586621681151786"><span class="annot"><span class="annottext">FromJSONKeyFunction [SpotInstanceType]
 FromJSONKeyFunction SpotInstanceType
 FromJSONKeyFunction SpotInstanceType
 -&gt; FromJSONKeyFunction [SpotInstanceType]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SpotInstanceType]
 fromJSONKey :: FromJSONKeyFunction SpotInstanceType
 $cfromJSONKey :: FromJSONKeyFunction SpotInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681116929"><span id="local-6989586621681116931"><span id="local-6989586621681116933"><span id="local-6989586621681116935"><span class="annot"><span class="annottext">[SpotInstanceType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681151775"><span id="local-6989586621681151777"><span id="local-6989586621681151779"><span id="local-6989586621681151781"><span class="annot"><span class="annottext">[SpotInstanceType] -&gt; Encoding
 [SpotInstanceType] -&gt; Value
 SpotInstanceType -&gt; Encoding
 SpotInstanceType -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: SpotInstanceType -&gt; Encoding
 toJSON :: SpotInstanceType -&gt; Value
 $ctoJSON :: SpotInstanceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681116924"><span id="local-6989586621681116926"><span class="annot"><span class="annottext">ToJSONKeyFunction [SpotInstanceType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681151770"><span id="local-6989586621681151772"><span class="annot"><span class="annottext">ToJSONKeyFunction [SpotInstanceType]
 ToJSONKeyFunction SpotInstanceType
 ToJSONKeyFunction SpotInstanceType
 -&gt; ToJSONKeyFunction [SpotInstanceType]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SpotInstanceType]
 toJSONKey :: ToJSONKeyFunction SpotInstanceType
 $ctoJSONKey :: ToJSONKeyFunction SpotInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681116921"><span class="annot"><span class="annottext">[Node] -&gt; Either String SpotInstanceType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681151767"><span class="annot"><span class="annottext">[Node] -&gt; Either String SpotInstanceType
 ([Node] -&gt; Either String SpotInstanceType)
 -&gt; FromXML SpotInstanceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SpotInstanceType
 $cparseXML :: [Node] -&gt; Either String SpotInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681116918"><span class="annot"><span class="annottext">SpotInstanceType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681151764"><span class="annot"><span class="annottext">SpotInstanceType -&gt; XML
 (SpotInstanceType -&gt; XML) -&gt; ToXML SpotInstanceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SpotInstanceType -&gt; XML

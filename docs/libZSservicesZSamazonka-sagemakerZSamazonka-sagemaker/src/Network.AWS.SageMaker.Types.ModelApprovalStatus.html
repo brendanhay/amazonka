@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621680315522"><span id="local-6989586621680315523"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModelApprovalStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelApprovalStatus.html#ModelApprovalStatus"><span class="hs-identifier hs-var">ModelApprovalStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelApprovalStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelApprovalStatus.html#ModelApprovalStatus%27"><span class="hs-identifier hs-var">ModelApprovalStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621680316901"><span id="local-6989586621680316902"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModelApprovalStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelApprovalStatus.html#ModelApprovalStatus"><span class="hs-identifier hs-var">ModelApprovalStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelApprovalStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelApprovalStatus.html#ModelApprovalStatus%27"><span class="hs-identifier hs-var">ModelApprovalStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromModelApprovalStatus"><span class="annot"><span class="annottext">ModelApprovalStatus -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ModelApprovalStatus.html#fromModelApprovalStatus"><span class="hs-identifier hs-var hs-var">fromModelApprovalStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680315514"><span id="local-6989586621680315516"><span id="local-6989586621680315518"><span class="annot"><span class="annottext">Int -&gt; ModelApprovalStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680316893"><span id="local-6989586621680316895"><span id="local-6989586621680316897"><span class="annot"><span class="annottext">Int -&gt; ModelApprovalStatus -&gt; ShowS
 [ModelApprovalStatus] -&gt; ShowS
 ModelApprovalStatus -&gt; String
 (Int -&gt; ModelApprovalStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ModelApprovalStatus -&gt; String
 showsPrec :: Int -&gt; ModelApprovalStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ModelApprovalStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680315505"><span id="local-6989586621680315507"><span id="local-6989586621680315509"><span id="local-6989586621680315511"><span class="annot"><span class="annottext">ReadPrec [ModelApprovalStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680316884"><span id="local-6989586621680316886"><span id="local-6989586621680316888"><span id="local-6989586621680316890"><span class="annot"><span class="annottext">ReadPrec [ModelApprovalStatus]
 ReadPrec ModelApprovalStatus
 Int -&gt; ReadS ModelApprovalStatus
 ReadS [ModelApprovalStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ModelApprovalStatus]
 readsPrec :: Int -&gt; ReadS ModelApprovalStatus
 $creadsPrec :: Int -&gt; ReadS ModelApprovalStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680315500"><span id="local-6989586621680315502"><span class="annot"><span class="annottext">ModelApprovalStatus -&gt; ModelApprovalStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680316879"><span id="local-6989586621680316881"><span class="annot"><span class="annottext">ModelApprovalStatus -&gt; ModelApprovalStatus -&gt; Bool
 (ModelApprovalStatus -&gt; ModelApprovalStatus -&gt; Bool)
 -&gt; (ModelApprovalStatus -&gt; ModelApprovalStatus -&gt; Bool)
 -&gt; Eq ModelApprovalStatus
@@ -83,7 +83,7 @@ $c/= :: ModelApprovalStatus -&gt; ModelApprovalStatus -&gt; Bool
 == :: ModelApprovalStatus -&gt; ModelApprovalStatus -&gt; Bool
 $c== :: ModelApprovalStatus -&gt; ModelApprovalStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680315484"><span id="local-6989586621680315486"><span id="local-6989586621680315488"><span id="local-6989586621680315490"><span id="local-6989586621680315492"><span id="local-6989586621680315494"><span id="local-6989586621680315496"><span class="annot"><span class="annottext">Eq ModelApprovalStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680316863"><span id="local-6989586621680316865"><span id="local-6989586621680316867"><span id="local-6989586621680316869"><span id="local-6989586621680316871"><span id="local-6989586621680316873"><span id="local-6989586621680316875"><span class="annot"><span class="annottext">Eq ModelApprovalStatus
 Eq ModelApprovalStatus
 -&gt; (ModelApprovalStatus -&gt; ModelApprovalStatus -&gt; Ordering)
 -&gt; (ModelApprovalStatus -&gt; ModelApprovalStatus -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. ModelApprovalStatus -&gt; Rep ModelApprovalStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680315476"><span id="local-6989586621680315478"><span class="annot"><span class="annottext">Int -&gt; ModelApprovalStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680316855"><span id="local-6989586621680316857"><span class="annot"><span class="annottext">Int -&gt; ModelApprovalStatus -&gt; Int
 ModelApprovalStatus -&gt; Int
 (Int -&gt; ModelApprovalStatus -&gt; Int)
 -&gt; (ModelApprovalStatus -&gt; Int) -&gt; Hashable ModelApprovalStatus
@@ -146,53 +146,53 @@ $chash :: ModelApprovalStatus -&gt; Int
 hashWithSalt :: Int -&gt; ModelApprovalStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ModelApprovalStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680315473"><span class="annot"><span class="annottext">ModelApprovalStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680316852"><span class="annot"><span class="annottext">ModelApprovalStatus -&gt; ()
 (ModelApprovalStatus -&gt; ()) -&gt; NFData ModelApprovalStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ModelApprovalStatus -&gt; ()
 $crnf :: ModelApprovalStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680315470"><span class="annot"><span class="annottext">Text -&gt; Either String ModelApprovalStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680316849"><span class="annot"><span class="annottext">Text -&gt; Either String ModelApprovalStatus
 (Text -&gt; Either String ModelApprovalStatus)
 -&gt; FromText ModelApprovalStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ModelApprovalStatus
 $cfromText :: Text -&gt; Either String ModelApprovalStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680315467"><span class="annot"><span class="annottext">ModelApprovalStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680316846"><span class="annot"><span class="annottext">ModelApprovalStatus -&gt; Text
 (ModelApprovalStatus -&gt; Text) -&gt; ToText ModelApprovalStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ModelApprovalStatus -&gt; Text
 $ctoText :: ModelApprovalStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680315464"><span class="annot"><span class="annottext">ModelApprovalStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680316843"><span class="annot"><span class="annottext">ModelApprovalStatus -&gt; ByteString
 (ModelApprovalStatus -&gt; ByteString)
 -&gt; ToByteString ModelApprovalStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ModelApprovalStatus -&gt; ByteString
 $ctoBS :: ModelApprovalStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680315461"><span class="annot"><span class="annottext">ModelApprovalStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680316840"><span class="annot"><span class="annottext">ModelApprovalStatus -&gt; ByteStringBuilder
 (ModelApprovalStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ModelApprovalStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ModelApprovalStatus -&gt; ByteStringBuilder
 $cbuild :: ModelApprovalStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680315458"><span class="annot"><span class="annottext">HeaderName -&gt; ModelApprovalStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680316837"><span class="annot"><span class="annottext">HeaderName -&gt; ModelApprovalStatus -&gt; [Header]
 (HeaderName -&gt; ModelApprovalStatus -&gt; [Header])
 -&gt; ToHeader ModelApprovalStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ModelApprovalStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ModelApprovalStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680315455"><span class="annot"><span class="annottext">ModelApprovalStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680316834"><span class="annot"><span class="annottext">ModelApprovalStatus -&gt; QueryString
 (ModelApprovalStatus -&gt; QueryString) -&gt; ToQuery ModelApprovalStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ModelApprovalStatus -&gt; QueryString
 $ctoQuery :: ModelApprovalStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680315450"><span id="local-6989586621680315452"><span class="annot"><span class="annottext">Value -&gt; Parser [ModelApprovalStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680316829"><span id="local-6989586621680316831"><span class="annot"><span class="annottext">Value -&gt; Parser [ModelApprovalStatus]
 Value -&gt; Parser ModelApprovalStatus
 (Value -&gt; Parser ModelApprovalStatus)
 -&gt; (Value -&gt; Parser [ModelApprovalStatus])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [ModelApprovalStatus]
 parseJSON :: Value -&gt; Parser ModelApprovalStatus
 $cparseJSON :: Value -&gt; Parser ModelApprovalStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680315445"><span id="local-6989586621680315447"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModelApprovalStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680316824"><span id="local-6989586621680316826"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModelApprovalStatus]
 FromJSONKeyFunction ModelApprovalStatus
 FromJSONKeyFunction ModelApprovalStatus
 -&gt; FromJSONKeyFunction [ModelApprovalStatus]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ModelApprovalStatus]
 fromJSONKey :: FromJSONKeyFunction ModelApprovalStatus
 $cfromJSONKey :: FromJSONKeyFunction ModelApprovalStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680315436"><span id="local-6989586621680315438"><span id="local-6989586621680315440"><span id="local-6989586621680315442"><span class="annot"><span class="annottext">[ModelApprovalStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680316815"><span id="local-6989586621680316817"><span id="local-6989586621680316819"><span id="local-6989586621680316821"><span class="annot"><span class="annottext">[ModelApprovalStatus] -&gt; Encoding
 [ModelApprovalStatus] -&gt; Value
 ModelApprovalStatus -&gt; Encoding
 ModelApprovalStatus -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: ModelApprovalStatus -&gt; Encoding
 toJSON :: ModelApprovalStatus -&gt; Value
 $ctoJSON :: ModelApprovalStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680315431"><span id="local-6989586621680315433"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModelApprovalStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680316810"><span id="local-6989586621680316812"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModelApprovalStatus]
 ToJSONKeyFunction ModelApprovalStatus
 ToJSONKeyFunction ModelApprovalStatus
 -&gt; ToJSONKeyFunction [ModelApprovalStatus]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ModelApprovalStatus]
 toJSONKey :: ToJSONKeyFunction ModelApprovalStatus
 $ctoJSONKey :: ToJSONKeyFunction ModelApprovalStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680315428"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModelApprovalStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680316807"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModelApprovalStatus
 ([Node] -&gt; Either String ModelApprovalStatus)
 -&gt; FromXML ModelApprovalStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ModelApprovalStatus
 $cparseXML :: [Node] -&gt; Either String ModelApprovalStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680315425"><span class="annot"><span class="annottext">ModelApprovalStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680316804"><span class="annot"><span class="annottext">ModelApprovalStatus -&gt; XML
 (ModelApprovalStatus -&gt; XML) -&gt; ToXML ModelApprovalStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ModelApprovalStatus -&gt; XML

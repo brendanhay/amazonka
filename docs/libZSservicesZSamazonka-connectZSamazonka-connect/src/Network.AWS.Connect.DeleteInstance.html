@@ -52,13 +52,13 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDeleteInstance' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679423220"><span id="local-6989586621679423221"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInstance"><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-var">DeleteInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInstance%27"><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-var">DeleteInstance'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679423546"><span id="local-6989586621679423547"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInstance"><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-var">DeleteInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInstance%27"><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-var">DeleteInstance'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AinstanceId%3ADeleteInstance%27"><span class="annot"><span class="annottext">DeleteInstance -&gt; Text
 </span><a href="Network.AWS.Connect.DeleteInstance.html#%24sel%3AinstanceId%3ADeleteInstance%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423214"><span id="local-6989586621679423216"><span class="annot"><span class="annottext">DeleteInstance -&gt; DeleteInstance -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423540"><span id="local-6989586621679423542"><span class="annot"><span class="annottext">DeleteInstance -&gt; DeleteInstance -&gt; Bool
 (DeleteInstance -&gt; DeleteInstance -&gt; Bool)
 -&gt; (DeleteInstance -&gt; DeleteInstance -&gt; Bool) -&gt; Eq DeleteInstance
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteInstance -&gt; DeleteInstance -&gt; Bool
 == :: DeleteInstance -&gt; DeleteInstance -&gt; Bool
 $c== :: DeleteInstance -&gt; DeleteInstance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423205"><span id="local-6989586621679423207"><span id="local-6989586621679423209"><span id="local-6989586621679423211"><span class="annot"><span class="annottext">ReadPrec [DeleteInstance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423531"><span id="local-6989586621679423533"><span id="local-6989586621679423535"><span id="local-6989586621679423537"><span class="annot"><span class="annottext">ReadPrec [DeleteInstance]
 ReadPrec DeleteInstance
 Int -&gt; ReadS DeleteInstance
 ReadS [DeleteInstance]
@@ -86,7 +86,7 @@ readList :: ReadS [DeleteInstance]
 $creadList :: ReadS [DeleteInstance]
 readsPrec :: Int -&gt; ReadS DeleteInstance
 $creadsPrec :: Int -&gt; ReadS DeleteInstance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423198"><span id="local-6989586621679423200"><span id="local-6989586621679423202"><span class="annot"><span class="annottext">Int -&gt; DeleteInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423524"><span id="local-6989586621679423526"><span id="local-6989586621679423528"><span class="annot"><span class="annottext">Int -&gt; DeleteInstance -&gt; ShowS
 [DeleteInstance] -&gt; ShowS
 DeleteInstance -&gt; String
 (Int -&gt; DeleteInstance -&gt; ShowS)
@@ -127,12 +127,12 @@ $cfrom :: forall x. DeleteInstance -&gt; Rep DeleteInstance x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span>
 </span><span id="line-76"></span><span id="newDeleteInstance"><span class="annot"><span class="annottext">newDeleteInstance :: Text -&gt; DeleteInstance
-</span><a href="Network.AWS.Connect.DeleteInstance.html#newDeleteInstance"><span class="hs-identifier hs-var hs-var">newDeleteInstance</span></a></span></span><span> </span><span id="local-6989586621679423193"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423193"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.DeleteInstance.html#newDeleteInstance"><span class="hs-identifier hs-var hs-var">newDeleteInstance</span></a></span></span><span> </span><span id="local-6989586621679423519"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423519"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">DeleteInstance' :: Text -&gt; DeleteInstance
 </span><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DeleteInstance' :: Text
 </span><a href="Network.AWS.Connect.DeleteInstance.html#%24sel%3AinstanceId%3ADeleteInstance%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423193"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679423519"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
@@ -142,27 +142,27 @@ $cfrom :: forall x. DeleteInstance -&gt; Rep DeleteInstance x
 -&gt; (DeleteInstance -&gt; Text -&gt; DeleteInstance)
 -&gt; Lens DeleteInstance DeleteInstance Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423190"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423516"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:DeleteInstance' :: DeleteInstance -&gt; Text
-</span><a href="#local-6989586621679423190"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423190"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423189"><span class="annot"><span class="annottext">s :: DeleteInstance
-</span><a href="#local-6989586621679423189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423188"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstance
-</span><a href="#local-6989586621679423189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DeleteInstance' :: Text
+</span><a href="#local-6989586621679423516"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423516"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423515"><span class="annot"><span class="annottext">s :: DeleteInstance
+</span><a href="#local-6989586621679423515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423514"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstance
+</span><a href="#local-6989586621679423515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DeleteInstance' :: Text
 </span><a href="Network.AWS.Connect.DeleteInstance.html#%24sel%3AinstanceId%3ADeleteInstance%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679423514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstanceResponse"><span class="hs-identifier hs-type">DeleteInstanceResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679423184"><span class="annot"><span class="annottext">request :: DeleteInstance -&gt; Request DeleteInstance
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679423510"><span class="annot"><span class="annottext">request :: DeleteInstance -&gt; Request DeleteInstance
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteInstance -&gt; Request DeleteInstance
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679423180"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679423506"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteInstance
 -&gt; ClientResponse ClientBody
@@ -186,12 +186,12 @@ AWSResponse a
 DeleteInstanceResponse
 </span><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstanceResponse%27"><span class="hs-identifier hs-var">DeleteInstanceResponse'</span></a></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423173"><span id="local-6989586621679423175"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423499"><span id="local-6989586621679423501"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423170"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423496"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679423166"><span class="annot"><span class="annottext">toHeaders :: DeleteInstance -&gt; [Header]
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679423492"><span class="annot"><span class="annottext">toHeaders :: DeleteInstance -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteInstance -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -211,11 +211,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679423160"><span class="annot"><span class="annottext">toPath :: DeleteInstance -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423158"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679423486"><span class="annot"><span class="annottext">toPath :: DeleteInstance -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423484"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:DeleteInstance' :: DeleteInstance -&gt; Text
-</span><a href="#local-6989586621679423158"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679423484"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -223,10 +223,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/instance/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423158"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679423484"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679423154"><span class="annot"><span class="annottext">toQuery :: DeleteInstance -&gt; QueryString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679423480"><span class="annot"><span class="annottext">toQuery :: DeleteInstance -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteInstance -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -234,10 +234,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newDeleteInstanceResponse' smart constructor.</span><span>
-</span><span id="line-116"></span><span id="local-6989586621679423151"><span id="local-6989586621679423152"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInstanceResponse"><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstanceResponse"><span class="hs-identifier hs-var">DeleteInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInstanceResponse%27"><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstanceResponse%27"><span class="hs-identifier hs-var">DeleteInstanceResponse'</span></a></span></span><span>
+</span><span id="line-116"></span><span id="local-6989586621679423477"><span id="local-6989586621679423478"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInstanceResponse"><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstanceResponse"><span class="hs-identifier hs-var">DeleteInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInstanceResponse%27"><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstanceResponse%27"><span class="hs-identifier hs-var">DeleteInstanceResponse'</span></a></span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423147"><span id="local-6989586621679423149"><span class="annot"><span class="annottext">DeleteInstanceResponse -&gt; DeleteInstanceResponse -&gt; Bool
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423473"><span id="local-6989586621679423475"><span class="annot"><span class="annottext">DeleteInstanceResponse -&gt; DeleteInstanceResponse -&gt; Bool
 (DeleteInstanceResponse -&gt; DeleteInstanceResponse -&gt; Bool)
 -&gt; (DeleteInstanceResponse -&gt; DeleteInstanceResponse -&gt; Bool)
 -&gt; Eq DeleteInstanceResponse
@@ -246,7 +246,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteInstanceResponse -&gt; DeleteInstanceResponse -&gt; Bool
 == :: DeleteInstanceResponse -&gt; DeleteInstanceResponse -&gt; Bool
 $c== :: DeleteInstanceResponse -&gt; DeleteInstanceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423139"><span id="local-6989586621679423141"><span id="local-6989586621679423143"><span id="local-6989586621679423145"><span class="annot"><span class="annottext">ReadPrec [DeleteInstanceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423465"><span id="local-6989586621679423467"><span id="local-6989586621679423469"><span id="local-6989586621679423471"><span class="annot"><span class="annottext">ReadPrec [DeleteInstanceResponse]
 ReadPrec DeleteInstanceResponse
 Int -&gt; ReadS DeleteInstanceResponse
 ReadS [DeleteInstanceResponse]
@@ -266,7 +266,7 @@ readList :: ReadS [DeleteInstanceResponse]
 $creadList :: ReadS [DeleteInstanceResponse]
 readsPrec :: Int -&gt; ReadS DeleteInstanceResponse
 $creadsPrec :: Int -&gt; ReadS DeleteInstanceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423133"><span id="local-6989586621679423135"><span id="local-6989586621679423137"><span class="annot"><span class="annottext">Int -&gt; DeleteInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423459"><span id="local-6989586621679423461"><span id="local-6989586621679423463"><span class="annot"><span class="annottext">Int -&gt; DeleteInstanceResponse -&gt; ShowS
 [DeleteInstanceResponse] -&gt; ShowS
 DeleteInstanceResponse -&gt; String
 (Int -&gt; DeleteInstanceResponse -&gt; ShowS)
@@ -303,5 +303,5 @@ $cfrom :: forall x. DeleteInstanceResponse -&gt; Rep DeleteInstanceResponse x
 </span><a href="Network.AWS.Connect.DeleteInstance.html#newDeleteInstanceResponse"><span class="hs-identifier hs-var hs-var">newDeleteInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteInstanceResponse
 </span><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstanceResponse%27"><span class="hs-identifier hs-var">DeleteInstanceResponse'</span></a></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423129"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstanceResponse"><span class="hs-identifier hs-type">DeleteInstanceResponse</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423455"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DeleteInstance.html#DeleteInstanceResponse"><span class="hs-identifier hs-type">DeleteInstanceResponse</span></a></span></span><span>
 </span><span id="line-130"></span></pre></body></html>

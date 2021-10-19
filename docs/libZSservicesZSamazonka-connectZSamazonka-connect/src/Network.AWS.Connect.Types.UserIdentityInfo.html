@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains information about the identity of a user.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newUserIdentityInfo' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679406435"><span id="local-6989586621679406436"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserIdentityInfo"><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo"><span class="hs-identifier hs-var">UserIdentityInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserIdentityInfo%27"><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo%27"><span class="hs-identifier hs-var">UserIdentityInfo'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679406721"><span id="local-6989586621679406722"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserIdentityInfo"><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo"><span class="hs-identifier hs-var">UserIdentityInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserIdentityInfo%27"><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo%27"><span class="hs-identifier hs-var">UserIdentityInfo'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The email address. If you are using SAML for identity management and</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- include this parameter, an error is returned.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aemail%3AUserIdentityInfo%27"><span class="annot"><span class="annottext">UserIdentityInfo -&gt; Maybe Text
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AfirstName%3AUserIdentityInfo%27"><span class="annot"><span class="annottext">UserIdentityInfo -&gt; Maybe Text
 </span><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#%24sel%3AfirstName%3AUserIdentityInfo%27"><span class="hs-identifier hs-var hs-var">firstName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406427"><span id="local-6989586621679406429"><span class="annot"><span class="annottext">UserIdentityInfo -&gt; UserIdentityInfo -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406713"><span id="local-6989586621679406715"><span class="annot"><span class="annottext">UserIdentityInfo -&gt; UserIdentityInfo -&gt; Bool
 (UserIdentityInfo -&gt; UserIdentityInfo -&gt; Bool)
 -&gt; (UserIdentityInfo -&gt; UserIdentityInfo -&gt; Bool)
 -&gt; Eq UserIdentityInfo
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UserIdentityInfo -&gt; UserIdentityInfo -&gt; Bool
 == :: UserIdentityInfo -&gt; UserIdentityInfo -&gt; Bool
 $c== :: UserIdentityInfo -&gt; UserIdentityInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406418"><span id="local-6989586621679406420"><span id="local-6989586621679406422"><span id="local-6989586621679406424"><span class="annot"><span class="annottext">ReadPrec [UserIdentityInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406704"><span id="local-6989586621679406706"><span id="local-6989586621679406708"><span id="local-6989586621679406710"><span class="annot"><span class="annottext">ReadPrec [UserIdentityInfo]
 ReadPrec UserIdentityInfo
 Int -&gt; ReadS UserIdentityInfo
 ReadS [UserIdentityInfo]
@@ -69,7 +69,7 @@ readList :: ReadS [UserIdentityInfo]
 $creadList :: ReadS [UserIdentityInfo]
 readsPrec :: Int -&gt; ReadS UserIdentityInfo
 $creadsPrec :: Int -&gt; ReadS UserIdentityInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406411"><span id="local-6989586621679406413"><span id="local-6989586621679406415"><span class="annot"><span class="annottext">Int -&gt; UserIdentityInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406697"><span id="local-6989586621679406699"><span id="local-6989586621679406701"><span class="annot"><span class="annottext">Int -&gt; UserIdentityInfo -&gt; ShowS
 [UserIdentityInfo] -&gt; ShowS
 UserIdentityInfo -&gt; String
 (Int -&gt; UserIdentityInfo -&gt; ShowS)
@@ -140,16 +140,16 @@ forall a. Maybe a
 -&gt; (UserIdentityInfo -&gt; Maybe Text -&gt; UserIdentityInfo)
 -&gt; Lens UserIdentityInfo UserIdentityInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo%27"><span class="hs-identifier hs-type">UserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406402"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo%27"><span class="hs-identifier hs-type">UserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406688"><span class="annot"><span class="annottext">Maybe Text
 email :: Maybe Text
 $sel:email:UserIdentityInfo' :: UserIdentityInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679406402"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406402"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406401"><span class="annot"><span class="annottext">s :: UserIdentityInfo
-</span><a href="#local-6989586621679406401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo%27"><span class="hs-identifier hs-type">UserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406400"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserIdentityInfo
-</span><a href="#local-6989586621679406401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:UserIdentityInfo' :: Maybe Text
+</span><a href="#local-6989586621679406688"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406688"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406687"><span class="annot"><span class="annottext">s :: UserIdentityInfo
+</span><a href="#local-6989586621679406687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo%27"><span class="hs-identifier hs-type">UserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406686"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserIdentityInfo
+</span><a href="#local-6989586621679406687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:UserIdentityInfo' :: Maybe Text
 </span><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#%24sel%3Aemail%3AUserIdentityInfo%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo"><span class="hs-identifier hs-type">UserIdentityInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679406686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo"><span class="hs-identifier hs-type">UserIdentityInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The last name. This is required if you are using Amazon Connect or SAML</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- for identity management.</span><span>
@@ -160,16 +160,16 @@ $sel:email:UserIdentityInfo' :: UserIdentityInfo -&gt; Maybe Text
 -&gt; (UserIdentityInfo -&gt; Maybe Text -&gt; UserIdentityInfo)
 -&gt; Lens UserIdentityInfo UserIdentityInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo%27"><span class="hs-identifier hs-type">UserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406398"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo%27"><span class="hs-identifier hs-type">UserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406684"><span class="annot"><span class="annottext">Maybe Text
 lastName :: Maybe Text
 $sel:lastName:UserIdentityInfo' :: UserIdentityInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679406398"><span class="hs-identifier hs-var hs-var">lastName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406398"><span class="hs-identifier hs-var">lastName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406397"><span class="annot"><span class="annottext">s :: UserIdentityInfo
-</span><a href="#local-6989586621679406397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo%27"><span class="hs-identifier hs-type">UserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406396"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserIdentityInfo
-</span><a href="#local-6989586621679406397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastName:UserIdentityInfo' :: Maybe Text
+</span><a href="#local-6989586621679406684"><span class="hs-identifier hs-var hs-var">lastName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406684"><span class="hs-identifier hs-var">lastName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406683"><span class="annot"><span class="annottext">s :: UserIdentityInfo
+</span><a href="#local-6989586621679406683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo%27"><span class="hs-identifier hs-type">UserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406682"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserIdentityInfo
+</span><a href="#local-6989586621679406683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastName:UserIdentityInfo' :: Maybe Text
 </span><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#%24sel%3AlastName%3AUserIdentityInfo%27"><span class="hs-identifier hs-var">lastName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo"><span class="hs-identifier hs-type">UserIdentityInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679406682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo"><span class="hs-identifier hs-type">UserIdentityInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The first name. This is required if you are using Amazon Connect or SAML</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- for identity management.</span><span>
@@ -180,19 +180,19 @@ $sel:lastName:UserIdentityInfo' :: UserIdentityInfo -&gt; Maybe Text
 -&gt; (UserIdentityInfo -&gt; Maybe Text -&gt; UserIdentityInfo)
 -&gt; Lens UserIdentityInfo UserIdentityInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo%27"><span class="hs-identifier hs-type">UserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406394"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo%27"><span class="hs-identifier hs-type">UserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406680"><span class="annot"><span class="annottext">Maybe Text
 firstName :: Maybe Text
 $sel:firstName:UserIdentityInfo' :: UserIdentityInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679406394"><span class="hs-identifier hs-var hs-var">firstName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406394"><span class="hs-identifier hs-var">firstName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406393"><span class="annot"><span class="annottext">s :: UserIdentityInfo
-</span><a href="#local-6989586621679406393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo%27"><span class="hs-identifier hs-type">UserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406392"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserIdentityInfo
-</span><a href="#local-6989586621679406393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firstName:UserIdentityInfo' :: Maybe Text
+</span><a href="#local-6989586621679406680"><span class="hs-identifier hs-var hs-var">firstName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406680"><span class="hs-identifier hs-var">firstName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406679"><span class="annot"><span class="annottext">s :: UserIdentityInfo
+</span><a href="#local-6989586621679406679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo%27"><span class="hs-identifier hs-type">UserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406678"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserIdentityInfo
+</span><a href="#local-6989586621679406679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firstName:UserIdentityInfo' :: Maybe Text
 </span><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#%24sel%3AfirstName%3AUserIdentityInfo%27"><span class="hs-identifier hs-var">firstName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo"><span class="hs-identifier hs-type">UserIdentityInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679406678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo"><span class="hs-identifier hs-type">UserIdentityInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406389"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo"><span class="hs-identifier hs-type">UserIdentityInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679406387"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserIdentityInfo
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406675"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo"><span class="hs-identifier hs-type">UserIdentityInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679406673"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserIdentityInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UserIdentityInfo)
@@ -202,8 +202,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UserIdentityInfo&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679406384"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406384"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679406670"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679406670"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; UserIdentityInfo
 </span><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo%27"><span class="hs-identifier hs-var">UserIdentityInfo'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; UserIdentityInfo)
@@ -211,7 +211,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; UserIdentityInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679406670"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Email&quot;</span></span><span class="hs-special">)</span><span>
@@ -219,7 +219,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; UserIdentityInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679406670"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastName&quot;</span></span><span class="hs-special">)</span><span>
@@ -227,26 +227,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser UserIdentityInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679406670"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FirstName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406378"><span id="local-6989586621679406380"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo"><span class="hs-identifier hs-type">UserIdentityInfo</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406664"><span id="local-6989586621679406666"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo"><span class="hs-identifier hs-type">UserIdentityInfo</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo"><span class="hs-identifier hs-type">UserIdentityInfo</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406661"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo"><span class="hs-identifier hs-type">UserIdentityInfo</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406367"><span id="local-6989586621679406369"><span id="local-6989586621679406371"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo"><span class="hs-identifier hs-type">UserIdentityInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679406365"><span class="annot"><span class="annottext">toJSON :: UserIdentityInfo -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo%27"><span class="hs-identifier hs-type">UserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406361"><span id="local-6989586621679406362"><span id="local-6989586621679406363"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406653"><span id="local-6989586621679406655"><span id="local-6989586621679406657"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo"><span class="hs-identifier hs-type">UserIdentityInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679406651"><span class="annot"><span class="annottext">toJSON :: UserIdentityInfo -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo%27"><span class="hs-identifier hs-type">UserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406647"><span id="local-6989586621679406648"><span id="local-6989586621679406649"><span class="annot"><span class="annottext">Maybe Text
 firstName :: Maybe Text
 lastName :: Maybe Text
 email :: Maybe Text
 $sel:firstName:UserIdentityInfo' :: UserIdentityInfo -&gt; Maybe Text
 $sel:lastName:UserIdentityInfo' :: UserIdentityInfo -&gt; Maybe Text
 $sel:email:UserIdentityInfo' :: UserIdentityInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679406361"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679406647"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -258,21 +258,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406363"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679406649"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406362"><span class="hs-identifier hs-var">lastName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679406648"><span class="hs-identifier hs-var">lastName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FirstName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406361"><span class="hs-identifier hs-var">firstName</span></a></span><span>
+</span><a href="#local-6989586621679406647"><span class="hs-identifier hs-var">firstName</span></a></span><span>
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span></pre></body></html>

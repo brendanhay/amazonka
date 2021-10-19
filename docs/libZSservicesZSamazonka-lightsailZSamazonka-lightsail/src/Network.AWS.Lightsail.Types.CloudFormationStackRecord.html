@@ -36,39 +36,39 @@
 </span><span id="line-36"></span><span class="hs-comment">-- instance from an exported Lightsail instance snapshot.</span><span>
 </span><span id="line-37"></span><span class="hs-comment">--</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newCloudFormationStackRecord' smart constructor.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679622239"><span id="local-6989586621679622240"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudFormationStackRecord"><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-var">CloudFormationStackRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudFormationStackRecord%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-var">CloudFormationStackRecord'</span></a></span></span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date when the CloudFormation stack record was created.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcreatedAt%3ACloudFormationStackRecord%27"><span class="annot"><span class="annottext">CloudFormationStackRecord -&gt; Maybe POSIX
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AcreatedAt%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the CloudFormation stack record.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aarn%3ACloudFormationStackRecord%27"><span class="annot"><span class="annottext">CloudFormationStackRecord -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Aarn%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The Lightsail resource type (e.g., @CloudFormationStackRecord@).</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AresourceType%3ACloudFormationStackRecord%27"><span class="annot"><span class="annottext">CloudFormationStackRecord -&gt; Maybe ResourceType
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AresourceType%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The current state of the CloudFormation stack record.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Astate%3ACloudFormationStackRecord%27"><span class="annot"><span class="annottext">CloudFormationStackRecord -&gt; Maybe RecordState
+</span><span id="line-39"></span><span id="local-6989586621679623148"><span id="local-6989586621679623149"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudFormationStackRecord"><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-var">CloudFormationStackRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudFormationStackRecord%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-var">CloudFormationStackRecord'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of the CloudFormation stack record.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Astate%3ACloudFormationStackRecord%27"><span class="annot"><span class="annottext">CloudFormationStackRecord -&gt; Maybe RecordState
 </span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Astate%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RecordState.html#RecordState"><span class="hs-identifier hs-type">RecordState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The name of the CloudFormation stack record. It starts with</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- @CloudFormationStackRecord@ followed by a GUID.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aname%3ACloudFormationStackRecord%27"><span class="annot"><span class="annottext">CloudFormationStackRecord -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Aname%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | A list of objects describing the source of the CloudFormation stack</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- record.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AsourceInfo%3ACloudFormationStackRecord%27"><span class="annot"><span class="annottext">CloudFormationStackRecord
--&gt; Maybe [CloudFormationStackRecordSourceInfo]
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AsourceInfo%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var hs-var">sourceInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceInfo.html#CloudFormationStackRecordSourceInfo"><span class="hs-identifier hs-type">CloudFormationStackRecordSourceInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | A list of objects describing the Availability Zone and AWS Region of the</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- CloudFormation stack record.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3Alocation%3ACloudFormationStackRecord%27"><span class="annot"><span class="annottext">CloudFormationStackRecord -&gt; Maybe ResourceLocation
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A list of objects describing the destination service, which is AWS</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- CloudFormation, and the Amazon Resource Name (ARN) of the AWS</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- CloudFormation stack.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AdestinationInfo%3ACloudFormationStackRecord%27"><span class="annot"><span class="annottext">CloudFormationStackRecord -&gt; Maybe DestinationInfo
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AdestinationInfo%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var hs-var">destinationInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DestinationInfo.html#DestinationInfo"><span class="hs-identifier hs-type">DestinationInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The Lightsail resource type (e.g., @CloudFormationStackRecord@).</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AresourceType%3ACloudFormationStackRecord%27"><span class="annot"><span class="annottext">CloudFormationStackRecord -&gt; Maybe ResourceType
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AresourceType%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the CloudFormation stack record.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aarn%3ACloudFormationStackRecord%27"><span class="annot"><span class="annottext">CloudFormationStackRecord -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Aarn%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The date when the CloudFormation stack record was created.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AcreatedAt%3ACloudFormationStackRecord%27"><span class="annot"><span class="annottext">CloudFormationStackRecord -&gt; Maybe POSIX
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AcreatedAt%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | A list of objects describing the Availability Zone and AWS Region of the</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- CloudFormation stack record.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Alocation%3ACloudFormationStackRecord%27"><span class="annot"><span class="annottext">CloudFormationStackRecord -&gt; Maybe ResourceLocation
 </span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Alocation%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceLocation.html#ResourceLocation"><span class="hs-identifier hs-type">ResourceLocation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | A list of objects describing the destination service, which is AWS</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- CloudFormation, and the Amazon Resource Name (ARN) of the AWS</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- CloudFormation stack.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdestinationInfo%3ACloudFormationStackRecord%27"><span class="annot"><span class="annottext">CloudFormationStackRecord -&gt; Maybe DestinationInfo
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AdestinationInfo%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var hs-var">destinationInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DestinationInfo.html#DestinationInfo"><span class="hs-identifier hs-type">DestinationInfo</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The name of the CloudFormation stack record. It starts with</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- @CloudFormationStackRecord@ followed by a GUID.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aname%3ACloudFormationStackRecord%27"><span class="annot"><span class="annottext">CloudFormationStackRecord -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Aname%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A list of objects describing the source of the CloudFormation stack</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- record.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AsourceInfo%3ACloudFormationStackRecord%27"><span class="annot"><span class="annottext">CloudFormationStackRecord
+-&gt; Maybe [CloudFormationStackRecordSourceInfo]
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AsourceInfo%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var hs-var">sourceInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceInfo.html#CloudFormationStackRecordSourceInfo"><span class="hs-identifier hs-type">CloudFormationStackRecordSourceInfo</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679622226"><span id="local-6989586621679622228"><span class="annot"><span class="annottext">CloudFormationStackRecord -&gt; CloudFormationStackRecord -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679623135"><span id="local-6989586621679623137"><span class="annot"><span class="annottext">CloudFormationStackRecord -&gt; CloudFormationStackRecord -&gt; Bool
 (CloudFormationStackRecord -&gt; CloudFormationStackRecord -&gt; Bool)
 -&gt; (CloudFormationStackRecord -&gt; CloudFormationStackRecord -&gt; Bool)
 -&gt; Eq CloudFormationStackRecord
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CloudFormationStackRecord -&gt; CloudFormationStackRecord -&gt; Bool
 == :: CloudFormationStackRecord -&gt; CloudFormationStackRecord -&gt; Bool
 $c== :: CloudFormationStackRecord -&gt; CloudFormationStackRecord -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679622217"><span id="local-6989586621679622219"><span id="local-6989586621679622221"><span id="local-6989586621679622223"><span class="annot"><span class="annottext">ReadPrec [CloudFormationStackRecord]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679623126"><span id="local-6989586621679623128"><span id="local-6989586621679623130"><span id="local-6989586621679623132"><span class="annot"><span class="annottext">ReadPrec [CloudFormationStackRecord]
 ReadPrec CloudFormationStackRecord
 Int -&gt; ReadS CloudFormationStackRecord
 ReadS [CloudFormationStackRecord]
@@ -97,7 +97,7 @@ readList :: ReadS [CloudFormationStackRecord]
 $creadList :: ReadS [CloudFormationStackRecord]
 readsPrec :: Int -&gt; ReadS CloudFormationStackRecord
 $creadsPrec :: Int -&gt; ReadS CloudFormationStackRecord
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679622210"><span id="local-6989586621679622212"><span id="local-6989586621679622214"><span class="annot"><span class="annottext">Int -&gt; CloudFormationStackRecord -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679623119"><span id="local-6989586621679623121"><span id="local-6989586621679623123"><span class="annot"><span class="annottext">Int -&gt; CloudFormationStackRecord -&gt; ShowS
 [CloudFormationStackRecord] -&gt; ShowS
 CloudFormationStackRecord -&gt; String
 (Int -&gt; CloudFormationStackRecord -&gt; ShowS)
@@ -137,78 +137,175 @@ CloudFormationStackRecord -&gt; Rep CloudFormationStackRecord x
 </span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'createdAt', 'cloudFormationStackRecord_createdAt' - The date when the CloudFormation stack record was created.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'state', 'cloudFormationStackRecord_state' - The current state of the CloudFormation stack record.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'arn', 'cloudFormationStackRecord_arn' - The Amazon Resource Name (ARN) of the CloudFormation stack record.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'resourceType', 'cloudFormationStackRecord_resourceType' - The Lightsail resource type (e.g., @CloudFormationStackRecord@).</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'destinationInfo', 'cloudFormationStackRecord_destinationInfo' - A list of objects describing the destination service, which is AWS</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- CloudFormation, and the Amazon Resource Name (ARN) of the AWS</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- CloudFormation stack.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'state', 'cloudFormationStackRecord_state' - The current state of the CloudFormation stack record.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'resourceType', 'cloudFormationStackRecord_resourceType' - The Lightsail resource type (e.g., @CloudFormationStackRecord@).</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'name', 'cloudFormationStackRecord_name' - The name of the CloudFormation stack record. It starts with</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- @CloudFormationStackRecord@ followed by a GUID.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'sourceInfo', 'cloudFormationStackRecord_sourceInfo' - A list of objects describing the source of the CloudFormation stack</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- record.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'location', 'cloudFormationStackRecord_location' - A list of objects describing the Availability Zone and AWS Region of the</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- CloudFormation stack record.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'destinationInfo', 'cloudFormationStackRecord_destinationInfo' - A list of objects describing the destination service, which is AWS</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- CloudFormation, and the Amazon Resource Name (ARN) of the AWS</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- CloudFormation stack.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'arn', 'cloudFormationStackRecord_arn' - The Amazon Resource Name (ARN) of the CloudFormation stack record.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'createdAt', 'cloudFormationStackRecord_createdAt' - The date when the CloudFormation stack record was created.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'location', 'cloudFormationStackRecord_location' - A list of objects describing the Availability Zone and AWS Region of the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- CloudFormation stack record.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'name', 'cloudFormationStackRecord_name' - The name of the CloudFormation stack record. It starts with</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- @CloudFormationStackRecord@ followed by a GUID.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'sourceInfo', 'cloudFormationStackRecord_sourceInfo' - A list of objects describing the source of the CloudFormation stack</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- record.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#newCloudFormationStackRecord"><span class="hs-identifier hs-type">newCloudFormationStackRecord</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span>
 </span><span id="line-94"></span><span id="newCloudFormationStackRecord"><span class="annot"><span class="annottext">newCloudFormationStackRecord :: CloudFormationStackRecord
 </span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#newCloudFormationStackRecord"><span class="hs-identifier hs-var hs-var">newCloudFormationStackRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">CloudFormationStackRecord' :: Maybe POSIX
--&gt; Maybe Text
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">CloudFormationStackRecord' :: Maybe RecordState
+-&gt; Maybe DestinationInfo
 -&gt; Maybe ResourceType
--&gt; Maybe RecordState
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe ResourceLocation
 -&gt; Maybe Text
 -&gt; Maybe [CloudFormationStackRecordSourceInfo]
--&gt; Maybe ResourceLocation
--&gt; Maybe DestinationInfo
 -&gt; CloudFormationStackRecord
 </span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdAt:CloudFormationStackRecord' :: Maybe POSIX
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AcreatedAt%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:CloudFormationStackRecord' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Aarn%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:CloudFormationStackRecord' :: Maybe ResourceType
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AresourceType%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:CloudFormationStackRecord' :: Maybe RecordState
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:CloudFormationStackRecord' :: Maybe RecordState
 </span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Astate%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecordState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CloudFormationStackRecord' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Aname%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationInfo:CloudFormationStackRecord' :: Maybe DestinationInfo
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AdestinationInfo%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">destinationInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationInfo
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceInfo:CloudFormationStackRecord' :: Maybe [CloudFormationStackRecordSourceInfo]
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AsourceInfo%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">sourceInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CloudFormationStackRecordSourceInfo]
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:CloudFormationStackRecord' :: Maybe ResourceType
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AresourceType%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:CloudFormationStackRecord' :: Maybe ResourceLocation
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:CloudFormationStackRecord' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Aarn%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:CloudFormationStackRecord' :: Maybe POSIX
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AcreatedAt%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:CloudFormationStackRecord' :: Maybe ResourceLocation
 </span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Alocation%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationInfo:CloudFormationStackRecord' :: Maybe DestinationInfo
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AdestinationInfo%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">destinationInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationInfo
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CloudFormationStackRecord' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Aname%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceInfo:CloudFormationStackRecord' :: Maybe [CloudFormationStackRecordSourceInfo]
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AsourceInfo%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">sourceInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CloudFormationStackRecordSourceInfo]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The date when the CloudFormation stack record was created.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_createdAt"><span class="hs-identifier hs-type">cloudFormationStackRecord_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="cloudFormationStackRecord_createdAt"><span class="annot"><span class="annottext">cloudFormationStackRecord_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The current state of the CloudFormation stack record.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_state"><span class="hs-identifier hs-type">cloudFormationStackRecord_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RecordState.html#RecordState"><span class="hs-identifier hs-type">RecordState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="cloudFormationStackRecord_state"><span class="annot"><span class="annottext">cloudFormationStackRecord_state :: (Maybe RecordState -&gt; f (Maybe RecordState))
+-&gt; CloudFormationStackRecord -&gt; f CloudFormationStackRecord
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_state"><span class="hs-identifier hs-var hs-var">cloudFormationStackRecord_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudFormationStackRecord -&gt; Maybe RecordState)
+-&gt; (CloudFormationStackRecord
+    -&gt; Maybe RecordState -&gt; CloudFormationStackRecord)
+-&gt; Lens
+     CloudFormationStackRecord
+     CloudFormationStackRecord
+     (Maybe RecordState)
+     (Maybe RecordState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679623110"><span class="annot"><span class="annottext">Maybe RecordState
+state :: Maybe RecordState
+$sel:state:CloudFormationStackRecord' :: CloudFormationStackRecord -&gt; Maybe RecordState
+</span><a href="#local-6989586621679623110"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RecordState
+</span><a href="#local-6989586621679623110"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679623109"><span class="annot"><span class="annottext">s :: CloudFormationStackRecord
+</span><a href="#local-6989586621679623109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679623108"><span class="annot"><span class="annottext">Maybe RecordState
+</span><a href="#local-6989586621679623108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFormationStackRecord
+</span><a href="#local-6989586621679623109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:CloudFormationStackRecord' :: Maybe RecordState
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Astate%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecordState
+</span><a href="#local-6989586621679623108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | A list of objects describing the destination service, which is AWS</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- CloudFormation, and the Amazon Resource Name (ARN) of the AWS</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- CloudFormation stack.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_destinationInfo"><span class="hs-identifier hs-type">cloudFormationStackRecord_destinationInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DestinationInfo.html#DestinationInfo"><span class="hs-identifier hs-type">DestinationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="cloudFormationStackRecord_destinationInfo"><span class="annot"><span class="annottext">cloudFormationStackRecord_destinationInfo :: (Maybe DestinationInfo -&gt; f (Maybe DestinationInfo))
+-&gt; CloudFormationStackRecord -&gt; f CloudFormationStackRecord
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_destinationInfo"><span class="hs-identifier hs-var hs-var">cloudFormationStackRecord_destinationInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudFormationStackRecord -&gt; Maybe DestinationInfo)
+-&gt; (CloudFormationStackRecord
+    -&gt; Maybe DestinationInfo -&gt; CloudFormationStackRecord)
+-&gt; Lens
+     CloudFormationStackRecord
+     CloudFormationStackRecord
+     (Maybe DestinationInfo)
+     (Maybe DestinationInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679623106"><span class="annot"><span class="annottext">Maybe DestinationInfo
+destinationInfo :: Maybe DestinationInfo
+$sel:destinationInfo:CloudFormationStackRecord' :: CloudFormationStackRecord -&gt; Maybe DestinationInfo
+</span><a href="#local-6989586621679623106"><span class="hs-identifier hs-var hs-var">destinationInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationInfo
+</span><a href="#local-6989586621679623106"><span class="hs-identifier hs-var">destinationInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679623105"><span class="annot"><span class="annottext">s :: CloudFormationStackRecord
+</span><a href="#local-6989586621679623105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679623104"><span class="annot"><span class="annottext">Maybe DestinationInfo
+</span><a href="#local-6989586621679623104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFormationStackRecord
+</span><a href="#local-6989586621679623105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationInfo:CloudFormationStackRecord' :: Maybe DestinationInfo
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AdestinationInfo%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">destinationInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationInfo
+</span><a href="#local-6989586621679623104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The Lightsail resource type (e.g., @CloudFormationStackRecord@).</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_resourceType"><span class="hs-identifier hs-type">cloudFormationStackRecord_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="cloudFormationStackRecord_resourceType"><span class="annot"><span class="annottext">cloudFormationStackRecord_resourceType :: (Maybe ResourceType -&gt; f (Maybe ResourceType))
+-&gt; CloudFormationStackRecord -&gt; f CloudFormationStackRecord
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_resourceType"><span class="hs-identifier hs-var hs-var">cloudFormationStackRecord_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudFormationStackRecord -&gt; Maybe ResourceType)
+-&gt; (CloudFormationStackRecord
+    -&gt; Maybe ResourceType -&gt; CloudFormationStackRecord)
+-&gt; Lens
+     CloudFormationStackRecord
+     CloudFormationStackRecord
+     (Maybe ResourceType)
+     (Maybe ResourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679623102"><span class="annot"><span class="annottext">Maybe ResourceType
+resourceType :: Maybe ResourceType
+$sel:resourceType:CloudFormationStackRecord' :: CloudFormationStackRecord -&gt; Maybe ResourceType
+</span><a href="#local-6989586621679623102"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679623102"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679623101"><span class="annot"><span class="annottext">s :: CloudFormationStackRecord
+</span><a href="#local-6989586621679623101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679623100"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679623100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFormationStackRecord
+</span><a href="#local-6989586621679623101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:CloudFormationStackRecord' :: Maybe ResourceType
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AresourceType%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679623100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the CloudFormation stack record.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_arn"><span class="hs-identifier hs-type">cloudFormationStackRecord_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="cloudFormationStackRecord_arn"><span class="annot"><span class="annottext">cloudFormationStackRecord_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CloudFormationStackRecord -&gt; f CloudFormationStackRecord
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_arn"><span class="hs-identifier hs-var hs-var">cloudFormationStackRecord_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudFormationStackRecord -&gt; Maybe Text)
+-&gt; (CloudFormationStackRecord
+    -&gt; Maybe Text -&gt; CloudFormationStackRecord)
+-&gt; Lens
+     CloudFormationStackRecord
+     CloudFormationStackRecord
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679623098"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:CloudFormationStackRecord' :: CloudFormationStackRecord -&gt; Maybe Text
+</span><a href="#local-6989586621679623098"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679623098"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679623097"><span class="annot"><span class="annottext">s :: CloudFormationStackRecord
+</span><a href="#local-6989586621679623097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679623096"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679623096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFormationStackRecord
+</span><a href="#local-6989586621679623097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CloudFormationStackRecord' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Aarn%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679623096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The date when the CloudFormation stack record was created.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_createdAt"><span class="hs-identifier hs-type">cloudFormationStackRecord_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="cloudFormationStackRecord_createdAt"><span class="annot"><span class="annottext">cloudFormationStackRecord_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; CloudFormationStackRecord -&gt; f CloudFormationStackRecord
 </span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_createdAt"><span class="hs-identifier hs-var hs-var">cloudFormationStackRecord_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudFormationStackRecord -&gt; Maybe POSIX)
 -&gt; (CloudFormationStackRecord
@@ -219,16 +316,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622201"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679623094"><span class="annot"><span class="annottext">Maybe POSIX
 createdAt :: Maybe POSIX
 $sel:createdAt:CloudFormationStackRecord' :: CloudFormationStackRecord -&gt; Maybe POSIX
-</span><a href="#local-6989586621679622201"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679622201"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622200"><span class="annot"><span class="annottext">s :: CloudFormationStackRecord
-</span><a href="#local-6989586621679622200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622199"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679622199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFormationStackRecord
-</span><a href="#local-6989586621679622200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:CloudFormationStackRecord' :: Maybe POSIX
+</span><a href="#local-6989586621679623094"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679623094"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679623093"><span class="annot"><span class="annottext">s :: CloudFormationStackRecord
+</span><a href="#local-6989586621679623093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679623092"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679623092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFormationStackRecord
+</span><a href="#local-6989586621679623093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:CloudFormationStackRecord' :: Maybe POSIX
 </span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AcreatedAt%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679622199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679623092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; CloudFormationStackRecord -&gt; f CloudFormationStackRecord)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -244,83 +341,36 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the CloudFormation stack record.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_arn"><span class="hs-identifier hs-type">cloudFormationStackRecord_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="cloudFormationStackRecord_arn"><span class="annot"><span class="annottext">cloudFormationStackRecord_arn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | A list of objects describing the Availability Zone and AWS Region of the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- CloudFormation stack record.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_location"><span class="hs-identifier hs-type">cloudFormationStackRecord_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceLocation.html#ResourceLocation"><span class="hs-identifier hs-type">ResourceLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="cloudFormationStackRecord_location"><span class="annot"><span class="annottext">cloudFormationStackRecord_location :: (Maybe ResourceLocation -&gt; f (Maybe ResourceLocation))
 -&gt; CloudFormationStackRecord -&gt; f CloudFormationStackRecord
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_arn"><span class="hs-identifier hs-var hs-var">cloudFormationStackRecord_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudFormationStackRecord -&gt; Maybe Text)
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_location"><span class="hs-identifier hs-var hs-var">cloudFormationStackRecord_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudFormationStackRecord -&gt; Maybe ResourceLocation)
 -&gt; (CloudFormationStackRecord
-    -&gt; Maybe Text -&gt; CloudFormationStackRecord)
+    -&gt; Maybe ResourceLocation -&gt; CloudFormationStackRecord)
 -&gt; Lens
      CloudFormationStackRecord
      CloudFormationStackRecord
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe ResourceLocation)
+     (Maybe ResourceLocation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622194"><span class="annot"><span class="annottext">Maybe Text
-arn :: Maybe Text
-$sel:arn:CloudFormationStackRecord' :: CloudFormationStackRecord -&gt; Maybe Text
-</span><a href="#local-6989586621679622194"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622194"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622193"><span class="annot"><span class="annottext">s :: CloudFormationStackRecord
-</span><a href="#local-6989586621679622193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622192"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFormationStackRecord
-</span><a href="#local-6989586621679622193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CloudFormationStackRecord' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Aarn%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The Lightsail resource type (e.g., @CloudFormationStackRecord@).</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_resourceType"><span class="hs-identifier hs-type">cloudFormationStackRecord_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="cloudFormationStackRecord_resourceType"><span class="annot"><span class="annottext">cloudFormationStackRecord_resourceType :: (Maybe ResourceType -&gt; f (Maybe ResourceType))
--&gt; CloudFormationStackRecord -&gt; f CloudFormationStackRecord
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_resourceType"><span class="hs-identifier hs-var hs-var">cloudFormationStackRecord_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudFormationStackRecord -&gt; Maybe ResourceType)
--&gt; (CloudFormationStackRecord
-    -&gt; Maybe ResourceType -&gt; CloudFormationStackRecord)
--&gt; Lens
-     CloudFormationStackRecord
-     CloudFormationStackRecord
-     (Maybe ResourceType)
-     (Maybe ResourceType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622190"><span class="annot"><span class="annottext">Maybe ResourceType
-resourceType :: Maybe ResourceType
-$sel:resourceType:CloudFormationStackRecord' :: CloudFormationStackRecord -&gt; Maybe ResourceType
-</span><a href="#local-6989586621679622190"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621679622190"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622189"><span class="annot"><span class="annottext">s :: CloudFormationStackRecord
-</span><a href="#local-6989586621679622189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622188"><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621679622188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFormationStackRecord
-</span><a href="#local-6989586621679622189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:CloudFormationStackRecord' :: Maybe ResourceType
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AresourceType%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621679622188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The current state of the CloudFormation stack record.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_state"><span class="hs-identifier hs-type">cloudFormationStackRecord_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RecordState.html#RecordState"><span class="hs-identifier hs-type">RecordState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="cloudFormationStackRecord_state"><span class="annot"><span class="annottext">cloudFormationStackRecord_state :: (Maybe RecordState -&gt; f (Maybe RecordState))
--&gt; CloudFormationStackRecord -&gt; f CloudFormationStackRecord
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_state"><span class="hs-identifier hs-var hs-var">cloudFormationStackRecord_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudFormationStackRecord -&gt; Maybe RecordState)
--&gt; (CloudFormationStackRecord
-    -&gt; Maybe RecordState -&gt; CloudFormationStackRecord)
--&gt; Lens
-     CloudFormationStackRecord
-     CloudFormationStackRecord
-     (Maybe RecordState)
-     (Maybe RecordState)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622186"><span class="annot"><span class="annottext">Maybe RecordState
-state :: Maybe RecordState
-$sel:state:CloudFormationStackRecord' :: CloudFormationStackRecord -&gt; Maybe RecordState
-</span><a href="#local-6989586621679622186"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RecordState
-</span><a href="#local-6989586621679622186"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622185"><span class="annot"><span class="annottext">s :: CloudFormationStackRecord
-</span><a href="#local-6989586621679622185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622184"><span class="annot"><span class="annottext">Maybe RecordState
-</span><a href="#local-6989586621679622184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFormationStackRecord
-</span><a href="#local-6989586621679622185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:CloudFormationStackRecord' :: Maybe RecordState
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Astate%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecordState
-</span><a href="#local-6989586621679622184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The name of the CloudFormation stack record. It starts with</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- @CloudFormationStackRecord@ followed by a GUID.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_name"><span class="hs-identifier hs-type">cloudFormationStackRecord_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="cloudFormationStackRecord_name"><span class="annot"><span class="annottext">cloudFormationStackRecord_name :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679623087"><span class="annot"><span class="annottext">Maybe ResourceLocation
+location :: Maybe ResourceLocation
+$sel:location:CloudFormationStackRecord' :: CloudFormationStackRecord -&gt; Maybe ResourceLocation
+</span><a href="#local-6989586621679623087"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
+</span><a href="#local-6989586621679623087"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679623086"><span class="annot"><span class="annottext">s :: CloudFormationStackRecord
+</span><a href="#local-6989586621679623086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679623085"><span class="annot"><span class="annottext">Maybe ResourceLocation
+</span><a href="#local-6989586621679623085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFormationStackRecord
+</span><a href="#local-6989586621679623086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CloudFormationStackRecord' :: Maybe ResourceLocation
+</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Alocation%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
+</span><a href="#local-6989586621679623085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The name of the CloudFormation stack record. It starts with</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- @CloudFormationStackRecord@ followed by a GUID.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_name"><span class="hs-identifier hs-type">cloudFormationStackRecord_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="cloudFormationStackRecord_name"><span class="annot"><span class="annottext">cloudFormationStackRecord_name :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CloudFormationStackRecord -&gt; f CloudFormationStackRecord
 </span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_name"><span class="hs-identifier hs-var hs-var">cloudFormationStackRecord_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudFormationStackRecord -&gt; Maybe Text)
 -&gt; (CloudFormationStackRecord
@@ -331,21 +381,21 @@ $sel:state:CloudFormationStackRecord' :: CloudFormationStackRecord -&gt; Maybe R
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622182"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679623083"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:CloudFormationStackRecord' :: CloudFormationStackRecord -&gt; Maybe Text
-</span><a href="#local-6989586621679622182"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622182"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622181"><span class="annot"><span class="annottext">s :: CloudFormationStackRecord
-</span><a href="#local-6989586621679622181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622180"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFormationStackRecord
-</span><a href="#local-6989586621679622181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CloudFormationStackRecord' :: Maybe Text
+</span><a href="#local-6989586621679623083"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679623083"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679623082"><span class="annot"><span class="annottext">s :: CloudFormationStackRecord
+</span><a href="#local-6989586621679623082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679623081"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679623081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFormationStackRecord
+</span><a href="#local-6989586621679623082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CloudFormationStackRecord' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Aname%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | A list of objects describing the source of the CloudFormation stack</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- record.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_sourceInfo"><span class="hs-identifier hs-type">cloudFormationStackRecord_sourceInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceInfo.html#CloudFormationStackRecordSourceInfo"><span class="hs-identifier hs-type">CloudFormationStackRecordSourceInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="cloudFormationStackRecord_sourceInfo"><span class="annot"><span class="annottext">cloudFormationStackRecord_sourceInfo :: (Maybe [CloudFormationStackRecordSourceInfo]
+</span><a href="#local-6989586621679623081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | A list of objects describing the source of the CloudFormation stack</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- record.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_sourceInfo"><span class="hs-identifier hs-type">cloudFormationStackRecord_sourceInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceInfo.html#CloudFormationStackRecordSourceInfo"><span class="hs-identifier hs-type">CloudFormationStackRecordSourceInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="cloudFormationStackRecord_sourceInfo"><span class="annot"><span class="annottext">cloudFormationStackRecord_sourceInfo :: (Maybe [CloudFormationStackRecordSourceInfo]
  -&gt; f (Maybe [CloudFormationStackRecordSourceInfo]))
 -&gt; CloudFormationStackRecord -&gt; f CloudFormationStackRecord
 </span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_sourceInfo"><span class="hs-identifier hs-var hs-var">cloudFormationStackRecord_sourceInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudFormationStackRecord
@@ -359,17 +409,17 @@ $sel:name:CloudFormationStackRecord' :: CloudFormationStackRecord -&gt; Maybe Te
      (Maybe [CloudFormationStackRecordSourceInfo])
      (Maybe [CloudFormationStackRecordSourceInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622178"><span class="annot"><span class="annottext">Maybe [CloudFormationStackRecordSourceInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679623079"><span class="annot"><span class="annottext">Maybe [CloudFormationStackRecordSourceInfo]
 sourceInfo :: Maybe [CloudFormationStackRecordSourceInfo]
 $sel:sourceInfo:CloudFormationStackRecord' :: CloudFormationStackRecord
 -&gt; Maybe [CloudFormationStackRecordSourceInfo]
-</span><a href="#local-6989586621679622178"><span class="hs-identifier hs-var hs-var">sourceInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CloudFormationStackRecordSourceInfo]
-</span><a href="#local-6989586621679622178"><span class="hs-identifier hs-var">sourceInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622177"><span class="annot"><span class="annottext">s :: CloudFormationStackRecord
-</span><a href="#local-6989586621679622177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622176"><span class="annot"><span class="annottext">Maybe [CloudFormationStackRecordSourceInfo]
-</span><a href="#local-6989586621679622176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFormationStackRecord
-</span><a href="#local-6989586621679622177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceInfo:CloudFormationStackRecord' :: Maybe [CloudFormationStackRecordSourceInfo]
+</span><a href="#local-6989586621679623079"><span class="hs-identifier hs-var hs-var">sourceInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CloudFormationStackRecordSourceInfo]
+</span><a href="#local-6989586621679623079"><span class="hs-identifier hs-var">sourceInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679623078"><span class="annot"><span class="annottext">s :: CloudFormationStackRecord
+</span><a href="#local-6989586621679623078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679623077"><span class="annot"><span class="annottext">Maybe [CloudFormationStackRecordSourceInfo]
+</span><a href="#local-6989586621679623077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFormationStackRecord
+</span><a href="#local-6989586621679623078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceInfo:CloudFormationStackRecord' :: Maybe [CloudFormationStackRecordSourceInfo]
 </span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AsourceInfo%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">sourceInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CloudFormationStackRecordSourceInfo]
-</span><a href="#local-6989586621679622176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CloudFormationStackRecordSourceInfo]
+</span><a href="#local-6989586621679623077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CloudFormationStackRecordSourceInfo]
   -&gt; f (Maybe [CloudFormationStackRecordSourceInfo]))
  -&gt; CloudFormationStackRecord -&gt; f CloudFormationStackRecord)
 -&gt; ((Maybe [CloudFormationStackRecordSourceInfo]
@@ -399,204 +449,179 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [CloudFormationStackRecordSourceInfo]
   [CloudFormationStackRecordSourceInfo]
   [CloudFormationStackRecordSourceInfo]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | A list of objects describing the Availability Zone and AWS Region of the</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- CloudFormation stack record.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_location"><span class="hs-identifier hs-type">cloudFormationStackRecord_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceLocation.html#ResourceLocation"><span class="hs-identifier hs-type">ResourceLocation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="cloudFormationStackRecord_location"><span class="annot"><span class="annottext">cloudFormationStackRecord_location :: (Maybe ResourceLocation -&gt; f (Maybe ResourceLocation))
--&gt; CloudFormationStackRecord -&gt; f CloudFormationStackRecord
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_location"><span class="hs-identifier hs-var hs-var">cloudFormationStackRecord_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudFormationStackRecord -&gt; Maybe ResourceLocation)
--&gt; (CloudFormationStackRecord
-    -&gt; Maybe ResourceLocation -&gt; CloudFormationStackRecord)
--&gt; Lens
-     CloudFormationStackRecord
-     CloudFormationStackRecord
-     (Maybe ResourceLocation)
-     (Maybe ResourceLocation)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622173"><span class="annot"><span class="annottext">Maybe ResourceLocation
-location :: Maybe ResourceLocation
-$sel:location:CloudFormationStackRecord' :: CloudFormationStackRecord -&gt; Maybe ResourceLocation
-</span><a href="#local-6989586621679622173"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
-</span><a href="#local-6989586621679622173"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622172"><span class="annot"><span class="annottext">s :: CloudFormationStackRecord
-</span><a href="#local-6989586621679622172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622171"><span class="annot"><span class="annottext">Maybe ResourceLocation
-</span><a href="#local-6989586621679622171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFormationStackRecord
-</span><a href="#local-6989586621679622172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CloudFormationStackRecord' :: Maybe ResourceLocation
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3Alocation%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
-</span><a href="#local-6989586621679622171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | A list of objects describing the destination service, which is AWS</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- CloudFormation, and the Amazon Resource Name (ARN) of the AWS</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- CloudFormation stack.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_destinationInfo"><span class="hs-identifier hs-type">cloudFormationStackRecord_destinationInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DestinationInfo.html#DestinationInfo"><span class="hs-identifier hs-type">DestinationInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="cloudFormationStackRecord_destinationInfo"><span class="annot"><span class="annottext">cloudFormationStackRecord_destinationInfo :: (Maybe DestinationInfo -&gt; f (Maybe DestinationInfo))
--&gt; CloudFormationStackRecord -&gt; f CloudFormationStackRecord
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#cloudFormationStackRecord_destinationInfo"><span class="hs-identifier hs-var hs-var">cloudFormationStackRecord_destinationInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudFormationStackRecord -&gt; Maybe DestinationInfo)
--&gt; (CloudFormationStackRecord
-    -&gt; Maybe DestinationInfo -&gt; CloudFormationStackRecord)
--&gt; Lens
-     CloudFormationStackRecord
-     CloudFormationStackRecord
-     (Maybe DestinationInfo)
-     (Maybe DestinationInfo)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622169"><span class="annot"><span class="annottext">Maybe DestinationInfo
-destinationInfo :: Maybe DestinationInfo
-$sel:destinationInfo:CloudFormationStackRecord' :: CloudFormationStackRecord -&gt; Maybe DestinationInfo
-</span><a href="#local-6989586621679622169"><span class="hs-identifier hs-var hs-var">destinationInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationInfo
-</span><a href="#local-6989586621679622169"><span class="hs-identifier hs-var">destinationInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622168"><span class="annot"><span class="annottext">s :: CloudFormationStackRecord
-</span><a href="#local-6989586621679622168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-type">CloudFormationStackRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622167"><span class="annot"><span class="annottext">Maybe DestinationInfo
-</span><a href="#local-6989586621679622167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFormationStackRecord
-</span><a href="#local-6989586621679622168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationInfo:CloudFormationStackRecord' :: Maybe DestinationInfo
-</span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#%24sel%3AdestinationInfo%3ACloudFormationStackRecord%27"><span class="hs-identifier hs-var">destinationInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationInfo
-</span><a href="#local-6989586621679622167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679622164"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679622162"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudFormationStackRecord
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679623073"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679623071"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudFormationStackRecord
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CloudFormationStackRecord)
 -&gt; Value
 -&gt; Parser CloudFormationStackRecord
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CloudFormationStackRecord&quot;</span></span><span>
-</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679622159"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679622159"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe Text
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679623068"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679623068"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Maybe RecordState
+-&gt; Maybe DestinationInfo
 -&gt; Maybe ResourceType
--&gt; Maybe RecordState
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe ResourceLocation
 -&gt; Maybe Text
 -&gt; Maybe [CloudFormationStackRecordSourceInfo]
--&gt; Maybe ResourceLocation
--&gt; Maybe DestinationInfo
 -&gt; CloudFormationStackRecord
 </span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord%27"><span class="hs-identifier hs-var">CloudFormationStackRecord'</span></a></span><span>
-</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe Text
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RecordState
+ -&gt; Maybe DestinationInfo
  -&gt; Maybe ResourceType
- -&gt; Maybe RecordState
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe ResourceLocation
  -&gt; Maybe Text
  -&gt; Maybe [CloudFormationStackRecordSourceInfo]
- -&gt; Maybe ResourceLocation
- -&gt; Maybe DestinationInfo
  -&gt; CloudFormationStackRecord)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe RecordState)
 -&gt; Parser
-     (Maybe Text
+     (Maybe DestinationInfo
       -&gt; Maybe ResourceType
-      -&gt; Maybe RecordState
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ResourceLocation
       -&gt; Maybe Text
       -&gt; Maybe [CloudFormationStackRecordSourceInfo]
-      -&gt; Maybe ResourceLocation
-      -&gt; Maybe DestinationInfo
       -&gt; CloudFormationStackRecord)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679622159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe ResourceType
-   -&gt; Maybe RecordState
-   -&gt; Maybe Text
-   -&gt; Maybe [CloudFormationStackRecordSourceInfo]
-   -&gt; Maybe ResourceLocation
-   -&gt; Maybe DestinationInfo
-   -&gt; CloudFormationStackRecord)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe ResourceType
-      -&gt; Maybe RecordState
-      -&gt; Maybe Text
-      -&gt; Maybe [CloudFormationStackRecordSourceInfo]
-      -&gt; Maybe ResourceLocation
-      -&gt; Maybe DestinationInfo
-      -&gt; CloudFormationStackRecord)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679622159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ResourceType
-   -&gt; Maybe RecordState
-   -&gt; Maybe Text
-   -&gt; Maybe [CloudFormationStackRecordSourceInfo]
-   -&gt; Maybe ResourceLocation
-   -&gt; Maybe DestinationInfo
-   -&gt; CloudFormationStackRecord)
--&gt; Parser (Maybe ResourceType)
--&gt; Parser
-     (Maybe RecordState
-      -&gt; Maybe Text
-      -&gt; Maybe [CloudFormationStackRecordSourceInfo]
-      -&gt; Maybe ResourceLocation
-      -&gt; Maybe DestinationInfo
-      -&gt; CloudFormationStackRecord)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679622159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;resourceType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe RecordState
-   -&gt; Maybe Text
-   -&gt; Maybe [CloudFormationStackRecordSourceInfo]
-   -&gt; Maybe ResourceLocation
-   -&gt; Maybe DestinationInfo
-   -&gt; CloudFormationStackRecord)
--&gt; Parser (Maybe RecordState)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe [CloudFormationStackRecordSourceInfo]
-      -&gt; Maybe ResourceLocation
-      -&gt; Maybe DestinationInfo
-      -&gt; CloudFormationStackRecord)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679622159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RecordState)
+</span><a href="#local-6989586621679623068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RecordState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DestinationInfo
+   -&gt; Maybe ResourceType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Maybe [CloudFormationStackRecordSourceInfo]
+   -&gt; CloudFormationStackRecord)
+-&gt; Parser (Maybe DestinationInfo)
+-&gt; Parser
+     (Maybe ResourceType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Maybe [CloudFormationStackRecordSourceInfo]
+      -&gt; CloudFormationStackRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679623068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DestinationInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResourceType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Maybe [CloudFormationStackRecordSourceInfo]
+   -&gt; CloudFormationStackRecord)
+-&gt; Parser (Maybe ResourceType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Maybe [CloudFormationStackRecordSourceInfo]
+      -&gt; CloudFormationStackRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679623068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Maybe [CloudFormationStackRecordSourceInfo]
+   -&gt; CloudFormationStackRecord)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Maybe [CloudFormationStackRecordSourceInfo]
+      -&gt; CloudFormationStackRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679623068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Maybe [CloudFormationStackRecordSourceInfo]
+   -&gt; CloudFormationStackRecord)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe ResourceLocation
+      -&gt; Maybe Text
+      -&gt; Maybe [CloudFormationStackRecordSourceInfo]
+      -&gt; CloudFormationStackRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679623068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResourceLocation
+   -&gt; Maybe Text
+   -&gt; Maybe [CloudFormationStackRecordSourceInfo]
+   -&gt; CloudFormationStackRecord)
+-&gt; Parser (Maybe ResourceLocation)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [CloudFormationStackRecordSourceInfo]
+      -&gt; CloudFormationStackRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679623068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceLocation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe [CloudFormationStackRecordSourceInfo]
-   -&gt; Maybe ResourceLocation
-   -&gt; Maybe DestinationInfo
    -&gt; CloudFormationStackRecord)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe [CloudFormationStackRecordSourceInfo]
-      -&gt; Maybe ResourceLocation
-      -&gt; Maybe DestinationInfo
       -&gt; CloudFormationStackRecord)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679622159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679623068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe [CloudFormationStackRecordSourceInfo]
-   -&gt; Maybe ResourceLocation
-   -&gt; Maybe DestinationInfo
    -&gt; CloudFormationStackRecord)
 -&gt; Parser (Maybe [CloudFormationStackRecordSourceInfo])
--&gt; Parser
-     (Maybe ResourceLocation
-      -&gt; Maybe DestinationInfo -&gt; CloudFormationStackRecord)
+-&gt; Parser CloudFormationStackRecord
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679622159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679623068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser (Maybe (Maybe [CloudFormationStackRecordSourceInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
@@ -608,29 +633,9 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CloudFormationStackRecordSourceInfo]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ResourceLocation
-   -&gt; Maybe DestinationInfo -&gt; CloudFormationStackRecord)
--&gt; Parser (Maybe ResourceLocation)
--&gt; Parser (Maybe DestinationInfo -&gt; CloudFormationStackRecord)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679622159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceLocation)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DestinationInfo -&gt; CloudFormationStackRecord)
--&gt; Parser (Maybe DestinationInfo)
--&gt; Parser CloudFormationStackRecord
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679622159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DestinationInfo)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;destinationInfo&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679622152"><span id="local-6989586621679622154"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span></span></span><span>
-</span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679622149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span></span><span>
-</span><span id="line-163"></span></pre></body></html>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679623061"><span id="local-6989586621679623063"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679623058"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecord.html#CloudFormationStackRecord"><span class="hs-identifier hs-type">CloudFormationStackRecord</span></a></span></span><span>
+</span><span id="line-162"></span></pre></body></html>

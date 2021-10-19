@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-dynamodb-streamsZSamazonka-dynamodb-streams
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.DynamoDBStreams.Types.AttributeValue
@@ -17,61 +17,7 @@ module Network.AWS.DynamoDBStreams.Types.AttributeValue
 --   
 --   <i>See:</i> <a>newAttributeValue</a> smart constructor.
 data AttributeValue
-AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> Maybe Text -> Maybe (HashMap Text AttributeValue) -> Maybe Base64 -> Maybe [AttributeValue] -> Maybe [Text] -> Maybe [Text] -> AttributeValue
-
--- | An attribute of type Binary Set. For example:
---   
---   <pre>
---   "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]
---   </pre>
-[$sel:bs:AttributeValue'] :: AttributeValue -> Maybe [Base64]
-
--- | An attribute of type Number. For example:
---   
---   <pre>
---   "N": "123.45"
---   </pre>
---   
---   Numbers are sent across the network to DynamoDB as strings, to
---   maximize compatibility across languages and libraries. However,
---   DynamoDB treats them as number type attributes for mathematical
---   operations.
-[$sel:n:AttributeValue'] :: AttributeValue -> Maybe Text
-
--- | An attribute of type Boolean. For example:
---   
---   <pre>
---   "BOOL": true
---   </pre>
-[$sel:bool:AttributeValue'] :: AttributeValue -> Maybe Bool
-
--- | An attribute of type Null. For example:
---   
---   <pre>
---   "NULL": true
---   </pre>
-[$sel:null:AttributeValue'] :: AttributeValue -> Maybe Bool
-
--- | An attribute of type String. For example:
---   
---   <pre>
---   "S": "Hello"
---   </pre>
-[$sel:s:AttributeValue'] :: AttributeValue -> Maybe Text
-
--- | An attribute of type Map. For example:
---   
---   <pre>
---   "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}
---   </pre>
-[$sel:m:AttributeValue'] :: AttributeValue -> Maybe (HashMap Text AttributeValue)
-
--- | An attribute of type Binary. For example:
---   
---   <pre>
---   "B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"
---   </pre>
-[$sel:b:AttributeValue'] :: AttributeValue -> Maybe Base64
+AttributeValue' :: Maybe [AttributeValue] -> Maybe [Text] -> Maybe (HashMap Text AttributeValue) -> Maybe Bool -> Maybe Text -> Maybe [Base64] -> Maybe Base64 -> Maybe [Text] -> Maybe Text -> Maybe Bool -> AttributeValue
 
 -- | An attribute of type List. For example:
 --   
@@ -79,13 +25,6 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]
 --   </pre>
 [$sel:l:AttributeValue'] :: AttributeValue -> Maybe [AttributeValue]
-
--- | An attribute of type String Set. For example:
---   
---   <pre>
---   "SS": ["Giraffe", "Hippo" ,"Zebra"]
---   </pre>
-[$sel:ss:AttributeValue'] :: AttributeValue -> Maybe [Text]
 
 -- | An attribute of type Number Set. For example:
 --   
@@ -99,6 +38,67 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   operations.
 [$sel:ns:AttributeValue'] :: AttributeValue -> Maybe [Text]
 
+-- | An attribute of type Map. For example:
+--   
+--   <pre>
+--   "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}
+--   </pre>
+[$sel:m:AttributeValue'] :: AttributeValue -> Maybe (HashMap Text AttributeValue)
+
+-- | An attribute of type Null. For example:
+--   
+--   <pre>
+--   "NULL": true
+--   </pre>
+[$sel:null:AttributeValue'] :: AttributeValue -> Maybe Bool
+
+-- | An attribute of type Number. For example:
+--   
+--   <pre>
+--   "N": "123.45"
+--   </pre>
+--   
+--   Numbers are sent across the network to DynamoDB as strings, to
+--   maximize compatibility across languages and libraries. However,
+--   DynamoDB treats them as number type attributes for mathematical
+--   operations.
+[$sel:n:AttributeValue'] :: AttributeValue -> Maybe Text
+
+-- | An attribute of type Binary Set. For example:
+--   
+--   <pre>
+--   "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]
+--   </pre>
+[$sel:bs:AttributeValue'] :: AttributeValue -> Maybe [Base64]
+
+-- | An attribute of type Binary. For example:
+--   
+--   <pre>
+--   "B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"
+--   </pre>
+[$sel:b:AttributeValue'] :: AttributeValue -> Maybe Base64
+
+-- | An attribute of type String Set. For example:
+--   
+--   <pre>
+--   "SS": ["Giraffe", "Hippo" ,"Zebra"]
+--   </pre>
+[$sel:ss:AttributeValue'] :: AttributeValue -> Maybe [Text]
+
+-- | An attribute of type String. For example:
+--   
+--   <pre>
+--   "S": "Hello"
+--   </pre>
+[$sel:s:AttributeValue'] :: AttributeValue -> Maybe Text
+
+-- | An attribute of type Boolean. For example:
+--   
+--   <pre>
+--   "BOOL": true
+--   </pre>
+[$sel:bool:AttributeValue'] :: AttributeValue -> Maybe Bool
+
 -- | Create a value of <a>AttributeValue</a> with all optional fields
 --   omitted.
 --   
@@ -108,11 +108,37 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:bs:AttributeValue'</a>, <a>attributeValue_bs</a> - An
---   attribute of type Binary Set. For example:
+--   <a>$sel:l:AttributeValue'</a>, <a>attributeValue_l</a> - An attribute
+--   of type List. For example:
 --   
 --   <pre>
---   "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]
+--   "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]
+--   </pre>
+--   
+--   <a>$sel:ns:AttributeValue'</a>, <a>attributeValue_ns</a> - An
+--   attribute of type Number Set. For example:
+--   
+--   <pre>
+--   "NS": ["42.2", "-19", "7.5", "3.14"]
+--   </pre>
+--   
+--   Numbers are sent across the network to DynamoDB as strings, to
+--   maximize compatibility across languages and libraries. However,
+--   DynamoDB treats them as number type attributes for mathematical
+--   operations.
+--   
+--   <a>$sel:m:AttributeValue'</a>, <a>attributeValue_m</a> - An attribute
+--   of type Map. For example:
+--   
+--   <pre>
+--   "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}
+--   </pre>
+--   
+--   <a>$sel:null:AttributeValue'</a>, <a>attributeValue_null</a> - An
+--   attribute of type Null. For example:
+--   
+--   <pre>
+--   "NULL": true
 --   </pre>
 --   
 --   <a>$sel:n:AttributeValue'</a>, <a>attributeValue_n</a> - An attribute
@@ -127,32 +153,11 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   DynamoDB treats them as number type attributes for mathematical
 --   operations.
 --   
---   <a>$sel:bool:AttributeValue'</a>, <a>attributeValue_bool</a> - An
---   attribute of type Boolean. For example:
+--   <a>$sel:bs:AttributeValue'</a>, <a>attributeValue_bs</a> - An
+--   attribute of type Binary Set. For example:
 --   
 --   <pre>
---   "BOOL": true
---   </pre>
---   
---   <a>$sel:null:AttributeValue'</a>, <a>attributeValue_null</a> - An
---   attribute of type Null. For example:
---   
---   <pre>
---   "NULL": true
---   </pre>
---   
---   <a>$sel:s:AttributeValue'</a>, <a>attributeValue_s</a> - An attribute
---   of type String. For example:
---   
---   <pre>
---   "S": "Hello"
---   </pre>
---   
---   <a>$sel:m:AttributeValue'</a>, <a>attributeValue_m</a> - An attribute
---   of type Map. For example:
---   
---   <pre>
---   "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}
+--   "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]
 --   </pre>
 --   
 --   <a>$sel:b:AttributeValue'</a>, <a>attributeValue_b</a> - An attribute
@@ -165,13 +170,6 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   deserialisation. -- This <tt>Lens</tt> accepts and returns only raw
 --   unencoded data.
 --   
---   <a>$sel:l:AttributeValue'</a>, <a>attributeValue_l</a> - An attribute
---   of type List. For example:
---   
---   <pre>
---   "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]
---   </pre>
---   
 --   <a>$sel:ss:AttributeValue'</a>, <a>attributeValue_ss</a> - An
 --   attribute of type String Set. For example:
 --   
@@ -179,8 +177,29 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   "SS": ["Giraffe", "Hippo" ,"Zebra"]
 --   </pre>
 --   
---   <a>$sel:ns:AttributeValue'</a>, <a>attributeValue_ns</a> - An
---   attribute of type Number Set. For example:
+--   <a>$sel:s:AttributeValue'</a>, <a>attributeValue_s</a> - An attribute
+--   of type String. For example:
+--   
+--   <pre>
+--   "S": "Hello"
+--   </pre>
+--   
+--   <a>$sel:bool:AttributeValue'</a>, <a>attributeValue_bool</a> - An
+--   attribute of type Boolean. For example:
+--   
+--   <pre>
+--   "BOOL": true
+--   </pre>
+newAttributeValue :: AttributeValue
+
+-- | An attribute of type List. For example:
+--   
+--   <pre>
+--   "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]
+--   </pre>
+attributeValue_l :: Lens' AttributeValue (Maybe [AttributeValue])
+
+-- | An attribute of type Number Set. For example:
 --   
 --   <pre>
 --   "NS": ["42.2", "-19", "7.5", "3.14"]
@@ -190,14 +209,21 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   maximize compatibility across languages and libraries. However,
 --   DynamoDB treats them as number type attributes for mathematical
 --   operations.
-newAttributeValue :: AttributeValue
+attributeValue_ns :: Lens' AttributeValue (Maybe [Text])
 
--- | An attribute of type Binary Set. For example:
+-- | An attribute of type Map. For example:
 --   
 --   <pre>
---   "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]
+--   "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}
 --   </pre>
-attributeValue_bs :: Lens' AttributeValue (Maybe [ByteString])
+attributeValue_m :: Lens' AttributeValue (Maybe (HashMap Text AttributeValue))
+
+-- | An attribute of type Null. For example:
+--   
+--   <pre>
+--   "NULL": true
+--   </pre>
+attributeValue_null :: Lens' AttributeValue (Maybe Bool)
 
 -- | An attribute of type Number. For example:
 --   
@@ -211,33 +237,12 @@ attributeValue_bs :: Lens' AttributeValue (Maybe [ByteString])
 --   operations.
 attributeValue_n :: Lens' AttributeValue (Maybe Text)
 
--- | An attribute of type Boolean. For example:
+-- | An attribute of type Binary Set. For example:
 --   
 --   <pre>
---   "BOOL": true
+--   "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]
 --   </pre>
-attributeValue_bool :: Lens' AttributeValue (Maybe Bool)
-
--- | An attribute of type Null. For example:
---   
---   <pre>
---   "NULL": true
---   </pre>
-attributeValue_null :: Lens' AttributeValue (Maybe Bool)
-
--- | An attribute of type String. For example:
---   
---   <pre>
---   "S": "Hello"
---   </pre>
-attributeValue_s :: Lens' AttributeValue (Maybe Text)
-
--- | An attribute of type Map. For example:
---   
---   <pre>
---   "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}
---   </pre>
-attributeValue_m :: Lens' AttributeValue (Maybe (HashMap Text AttributeValue))
+attributeValue_bs :: Lens' AttributeValue (Maybe [ByteString])
 
 -- | An attribute of type Binary. For example:
 --   
@@ -249,13 +254,6 @@ attributeValue_m :: Lens' AttributeValue (Maybe (HashMap Text AttributeValue))
 --   unencoded data.
 attributeValue_b :: Lens' AttributeValue (Maybe ByteString)
 
--- | An attribute of type List. For example:
---   
---   <pre>
---   "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]
---   </pre>
-attributeValue_l :: Lens' AttributeValue (Maybe [AttributeValue])
-
 -- | An attribute of type String Set. For example:
 --   
 --   <pre>
@@ -263,17 +261,19 @@ attributeValue_l :: Lens' AttributeValue (Maybe [AttributeValue])
 --   </pre>
 attributeValue_ss :: Lens' AttributeValue (Maybe [Text])
 
--- | An attribute of type Number Set. For example:
+-- | An attribute of type String. For example:
 --   
 --   <pre>
---   "NS": ["42.2", "-19", "7.5", "3.14"]
+--   "S": "Hello"
 --   </pre>
+attributeValue_s :: Lens' AttributeValue (Maybe Text)
+
+-- | An attribute of type Boolean. For example:
 --   
---   Numbers are sent across the network to DynamoDB as strings, to
---   maximize compatibility across languages and libraries. However,
---   DynamoDB treats them as number type attributes for mathematical
---   operations.
-attributeValue_ns :: Lens' AttributeValue (Maybe [Text])
+--   <pre>
+--   "BOOL": true
+--   </pre>
+attributeValue_bool :: Lens' AttributeValue (Maybe Bool)
 instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.AttributeValue.AttributeValue
 instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.AttributeValue.AttributeValue
 instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.AttributeValue.AttributeValue
@@ -546,14 +546,14 @@ module Network.AWS.DynamoDBStreams.Types.Shard
 data Shard
 Shard' :: Maybe Text -> Maybe SequenceNumberRange -> Maybe Text -> Shard
 
--- | The system-generated identifier for this shard.
-[$sel:shardId:Shard'] :: Shard -> Maybe Text
+-- | The shard ID of the current shard's parent.
+[$sel:parentShardId:Shard'] :: Shard -> Maybe Text
 
 -- | The range of possible sequence numbers for the shard.
 [$sel:sequenceNumberRange:Shard'] :: Shard -> Maybe SequenceNumberRange
 
--- | The shard ID of the current shard's parent.
-[$sel:parentShardId:Shard'] :: Shard -> Maybe Text
+-- | The system-generated identifier for this shard.
+[$sel:shardId:Shard'] :: Shard -> Maybe Text
 
 -- | Create a value of <a>Shard</a> with all optional fields omitted.
 --   
@@ -563,25 +563,25 @@ Shard' :: Maybe Text -> Maybe SequenceNumberRange -> Maybe Text -> Shard
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:shardId:Shard'</a>, <a>shard_shardId</a> - The
---   system-generated identifier for this shard.
+--   <a>$sel:parentShardId:Shard'</a>, <a>shard_parentShardId</a> - The
+--   shard ID of the current shard's parent.
 --   
 --   <a>$sel:sequenceNumberRange:Shard'</a>,
 --   <a>shard_sequenceNumberRange</a> - The range of possible sequence
 --   numbers for the shard.
 --   
---   <a>$sel:parentShardId:Shard'</a>, <a>shard_parentShardId</a> - The
---   shard ID of the current shard's parent.
+--   <a>$sel:shardId:Shard'</a>, <a>shard_shardId</a> - The
+--   system-generated identifier for this shard.
 newShard :: Shard
 
--- | The system-generated identifier for this shard.
-shard_shardId :: Lens' Shard (Maybe Text)
+-- | The shard ID of the current shard's parent.
+shard_parentShardId :: Lens' Shard (Maybe Text)
 
 -- | The range of possible sequence numbers for the shard.
 shard_sequenceNumberRange :: Lens' Shard (Maybe SequenceNumberRange)
 
--- | The shard ID of the current shard's parent.
-shard_parentShardId :: Lens' Shard (Maybe Text)
+-- | The system-generated identifier for this shard.
+shard_shardId :: Lens' Shard (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.Shard.Shard
 instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.Shard.Shard
 instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.Shard.Shard
@@ -628,12 +628,6 @@ module Network.AWS.DynamoDBStreams.Types.Stream
 data Stream
 Stream' :: Maybe Text -> Maybe Text -> Maybe Text -> Stream
 
--- | The DynamoDB table with which the stream is associated.
-[$sel:tableName:Stream'] :: Stream -> Maybe Text
-
--- | The Amazon Resource Name (ARN) for the stream.
-[$sel:streamArn:Stream'] :: Stream -> Maybe Text
-
 -- | A timestamp, in ISO 8601 format, for this stream.
 --   
 --   Note that <tt>LatestStreamLabel</tt> is not a unique identifier for
@@ -648,6 +642,12 @@ Stream' :: Maybe Text -> Maybe Text -> Maybe Text -> Stream
 --   </ul>
 [$sel:streamLabel:Stream'] :: Stream -> Maybe Text
 
+-- | The Amazon Resource Name (ARN) for the stream.
+[$sel:streamArn:Stream'] :: Stream -> Maybe Text
+
+-- | The DynamoDB table with which the stream is associated.
+[$sel:tableName:Stream'] :: Stream -> Maybe Text
+
 -- | Create a value of <a>Stream</a> with all optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -655,12 +655,6 @@ Stream' :: Maybe Text -> Maybe Text -> Maybe Text -> Stream
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
---   
---   <a>$sel:tableName:Stream'</a>, <a>stream_tableName</a> - The DynamoDB
---   table with which the stream is associated.
---   
---   <a>$sel:streamArn:Stream'</a>, <a>stream_streamArn</a> - The Amazon
---   Resource Name (ARN) for the stream.
 --   
 --   <a>$sel:streamLabel:Stream'</a>, <a>stream_streamLabel</a> - A
 --   timestamp, in ISO 8601 format, for this stream.
@@ -675,13 +669,13 @@ Stream' :: Maybe Text -> Maybe Text -> Maybe Text -> Stream
 --   <li>the table name</li>
 --   <li>the <tt>StreamLabel</tt></li>
 --   </ul>
+--   
+--   <a>$sel:streamArn:Stream'</a>, <a>stream_streamArn</a> - The Amazon
+--   Resource Name (ARN) for the stream.
+--   
+--   <a>$sel:tableName:Stream'</a>, <a>stream_tableName</a> - The DynamoDB
+--   table with which the stream is associated.
 newStream :: Stream
-
--- | The DynamoDB table with which the stream is associated.
-stream_tableName :: Lens' Stream (Maybe Text)
-
--- | The Amazon Resource Name (ARN) for the stream.
-stream_streamArn :: Lens' Stream (Maybe Text)
 
 -- | A timestamp, in ISO 8601 format, for this stream.
 --   
@@ -696,6 +690,12 @@ stream_streamArn :: Lens' Stream (Maybe Text)
 --   <li>the <tt>StreamLabel</tt></li>
 --   </ul>
 stream_streamLabel :: Lens' Stream (Maybe Text)
+
+-- | The Amazon Resource Name (ARN) for the stream.
+stream_streamArn :: Lens' Stream (Maybe Text)
+
+-- | The DynamoDB table with which the stream is associated.
+stream_tableName :: Lens' Stream (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.Stream.Stream
 instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.Stream.Stream
 instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.Stream.Stream
@@ -770,10 +770,17 @@ module Network.AWS.DynamoDBStreams.Types.StreamRecord
 --   
 --   <i>See:</i> <a>newStreamRecord</a> smart constructor.
 data StreamRecord
-StreamRecord' :: Maybe Text -> Maybe StreamViewType -> Maybe (HashMap Text AttributeValue) -> Maybe Natural -> Maybe (HashMap Text AttributeValue) -> Maybe POSIX -> Maybe (HashMap Text AttributeValue) -> StreamRecord
+StreamRecord' :: Maybe Natural -> Maybe Text -> Maybe POSIX -> Maybe StreamViewType -> Maybe (HashMap Text AttributeValue) -> Maybe (HashMap Text AttributeValue) -> Maybe (HashMap Text AttributeValue) -> StreamRecord
+
+-- | The size of the stream record, in bytes.
+[$sel:sizeBytes:StreamRecord'] :: StreamRecord -> Maybe Natural
 
 -- | The sequence number of the stream record.
 [$sel:sequenceNumber:StreamRecord'] :: StreamRecord -> Maybe Text
+
+-- | The approximate date and time when the stream record was created, in
+--   <a>UNIX epoch time</a> format.
+[$sel:approximateCreationDateTime:StreamRecord'] :: StreamRecord -> Maybe POSIX
 
 -- | The type of data from the modified DynamoDB item that was captured in
 --   this stream record:
@@ -793,18 +800,11 @@ StreamRecord' :: Maybe Text -> Maybe StreamViewType -> Maybe (HashMap Text Attri
 -- | The primary key attribute(s) for the DynamoDB item that was modified.
 [$sel:keys:StreamRecord'] :: StreamRecord -> Maybe (HashMap Text AttributeValue)
 
--- | The size of the stream record, in bytes.
-[$sel:sizeBytes:StreamRecord'] :: StreamRecord -> Maybe Natural
+-- | The item in the DynamoDB table as it appeared before it was modified.
+[$sel:oldImage:StreamRecord'] :: StreamRecord -> Maybe (HashMap Text AttributeValue)
 
 -- | The item in the DynamoDB table as it appeared after it was modified.
 [$sel:newImage':StreamRecord'] :: StreamRecord -> Maybe (HashMap Text AttributeValue)
-
--- | The approximate date and time when the stream record was created, in
---   <a>UNIX epoch time</a> format.
-[$sel:approximateCreationDateTime:StreamRecord'] :: StreamRecord -> Maybe POSIX
-
--- | The item in the DynamoDB table as it appeared before it was modified.
-[$sel:oldImage:StreamRecord'] :: StreamRecord -> Maybe (HashMap Text AttributeValue)
 
 -- | Create a value of <a>StreamRecord</a> with all optional fields
 --   omitted.
@@ -815,9 +815,17 @@ StreamRecord' :: Maybe Text -> Maybe StreamViewType -> Maybe (HashMap Text Attri
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:sizeBytes:StreamRecord'</a>, <a>streamRecord_sizeBytes</a> -
+--   The size of the stream record, in bytes.
+--   
 --   <a>$sel:sequenceNumber:StreamRecord'</a>,
 --   <a>streamRecord_sequenceNumber</a> - The sequence number of the stream
 --   record.
+--   
+--   <a>$sel:approximateCreationDateTime:StreamRecord'</a>,
+--   <a>streamRecord_approximateCreationDateTime</a> - The approximate date
+--   and time when the stream record was created, in <a>UNIX epoch time</a>
+--   format.
 --   
 --   <a>$sel:streamViewType:StreamRecord'</a>,
 --   <a>streamRecord_streamViewType</a> - The type of data from the
@@ -837,23 +845,22 @@ StreamRecord' :: Maybe Text -> Maybe StreamViewType -> Maybe (HashMap Text Attri
 --   <a>$sel:keys:StreamRecord'</a>, <a>streamRecord_keys</a> - The primary
 --   key attribute(s) for the DynamoDB item that was modified.
 --   
---   <a>$sel:sizeBytes:StreamRecord'</a>, <a>streamRecord_sizeBytes</a> -
---   The size of the stream record, in bytes.
+--   <a>$sel:oldImage:StreamRecord'</a>, <a>streamRecord_oldImage</a> - The
+--   item in the DynamoDB table as it appeared before it was modified.
 --   
 --   <a>$sel:newImage':StreamRecord'</a>, <a>streamRecord_newImage</a> -
 --   The item in the DynamoDB table as it appeared after it was modified.
---   
---   <a>$sel:approximateCreationDateTime:StreamRecord'</a>,
---   <a>streamRecord_approximateCreationDateTime</a> - The approximate date
---   and time when the stream record was created, in <a>UNIX epoch time</a>
---   format.
---   
---   <a>$sel:oldImage:StreamRecord'</a>, <a>streamRecord_oldImage</a> - The
---   item in the DynamoDB table as it appeared before it was modified.
 newStreamRecord :: StreamRecord
+
+-- | The size of the stream record, in bytes.
+streamRecord_sizeBytes :: Lens' StreamRecord (Maybe Natural)
 
 -- | The sequence number of the stream record.
 streamRecord_sequenceNumber :: Lens' StreamRecord (Maybe Text)
+
+-- | The approximate date and time when the stream record was created, in
+--   <a>UNIX epoch time</a> format.
+streamRecord_approximateCreationDateTime :: Lens' StreamRecord (Maybe UTCTime)
 
 -- | The type of data from the modified DynamoDB item that was captured in
 --   this stream record:
@@ -873,18 +880,11 @@ streamRecord_streamViewType :: Lens' StreamRecord (Maybe StreamViewType)
 -- | The primary key attribute(s) for the DynamoDB item that was modified.
 streamRecord_keys :: Lens' StreamRecord (Maybe (HashMap Text AttributeValue))
 
--- | The size of the stream record, in bytes.
-streamRecord_sizeBytes :: Lens' StreamRecord (Maybe Natural)
+-- | The item in the DynamoDB table as it appeared before it was modified.
+streamRecord_oldImage :: Lens' StreamRecord (Maybe (HashMap Text AttributeValue))
 
 -- | The item in the DynamoDB table as it appeared after it was modified.
 streamRecord_newImage :: Lens' StreamRecord (Maybe (HashMap Text AttributeValue))
-
--- | The approximate date and time when the stream record was created, in
---   <a>UNIX epoch time</a> format.
-streamRecord_approximateCreationDateTime :: Lens' StreamRecord (Maybe UTCTime)
-
--- | The item in the DynamoDB table as it appeared before it was modified.
-streamRecord_oldImage :: Lens' StreamRecord (Maybe (HashMap Text AttributeValue))
 instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.StreamRecord.StreamRecord
 instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.StreamRecord.StreamRecord
 instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.StreamRecord.StreamRecord
@@ -900,7 +900,7 @@ module Network.AWS.DynamoDBStreams.Types.Record
 --   
 --   <i>See:</i> <a>newRecord</a> smart constructor.
 data Record
-Record' :: Maybe Identity -> Maybe Text -> Maybe Text -> Maybe OperationType -> Maybe Text -> Maybe StreamRecord -> Maybe Text -> Record
+Record' :: Maybe Identity -> Maybe Text -> Maybe StreamRecord -> Maybe Text -> Maybe OperationType -> Maybe Text -> Maybe Text -> Record
 
 -- | Items that are deleted by the Time to Live process after expiration
 --   have the following fields:
@@ -910,25 +910,6 @@ Record' :: Maybe Identity -> Maybe Text -> Maybe Text -> Maybe OperationType -> 
 --   <li>Records[].userIdentity.principalId"dynamodb.amazonaws.com"</li>
 --   </ul>
 [$sel:userIdentity:Record'] :: Record -> Maybe Identity
-
--- | The AWS service from which the stream record originated. For DynamoDB
---   Streams, this is <tt>aws:dynamodb</tt>.
-[$sel:eventSource:Record'] :: Record -> Maybe Text
-
--- | A globally unique identifier for the event that was recorded in this
---   stream record.
-[$sel:eventID:Record'] :: Record -> Maybe Text
-
--- | The type of data modification that was performed on the DynamoDB
---   table:
---   
---   <ul>
---   <li><tt>INSERT</tt> - a new item was added to the table.</li>
---   <li><tt>MODIFY</tt> - one or more of an existing item's attributes
---   were modified.</li>
---   <li><tt>REMOVE</tt> - the item was deleted from the table</li>
---   </ul>
-[$sel:eventName:Record'] :: Record -> Maybe OperationType
 
 -- | The version number of the stream record format. This number is updated
 --   whenever the structure of <tt>Record</tt> is modified.
@@ -945,6 +926,25 @@ Record' :: Maybe Identity -> Maybe Text -> Maybe Text -> Maybe OperationType -> 
 
 -- | The region in which the <tt>GetRecords</tt> request was received.
 [$sel:awsRegion:Record'] :: Record -> Maybe Text
+
+-- | The type of data modification that was performed on the DynamoDB
+--   table:
+--   
+--   <ul>
+--   <li><tt>INSERT</tt> - a new item was added to the table.</li>
+--   <li><tt>MODIFY</tt> - one or more of an existing item's attributes
+--   were modified.</li>
+--   <li><tt>REMOVE</tt> - the item was deleted from the table</li>
+--   </ul>
+[$sel:eventName:Record'] :: Record -> Maybe OperationType
+
+-- | The AWS service from which the stream record originated. For DynamoDB
+--   Streams, this is <tt>aws:dynamodb</tt>.
+[$sel:eventSource:Record'] :: Record -> Maybe Text
+
+-- | A globally unique identifier for the event that was recorded in this
+--   stream record.
+[$sel:eventID:Record'] :: Record -> Maybe Text
 
 -- | Create a value of <a>Record</a> with all optional fields omitted.
 --   
@@ -963,23 +963,6 @@ Record' :: Maybe Identity -> Maybe Text -> Maybe Text -> Maybe OperationType -> 
 --   <li>Records[].userIdentity.principalId"dynamodb.amazonaws.com"</li>
 --   </ul>
 --   
---   <a>$sel:eventSource:Record'</a>, <a>record_eventSource</a> - The AWS
---   service from which the stream record originated. For DynamoDB Streams,
---   this is <tt>aws:dynamodb</tt>.
---   
---   <a>$sel:eventID:Record'</a>, <a>record_eventID</a> - A globally unique
---   identifier for the event that was recorded in this stream record.
---   
---   <a>$sel:eventName:Record'</a>, <a>record_eventName</a> - The type of
---   data modification that was performed on the DynamoDB table:
---   
---   <ul>
---   <li><tt>INSERT</tt> - a new item was added to the table.</li>
---   <li><tt>MODIFY</tt> - one or more of an existing item's attributes
---   were modified.</li>
---   <li><tt>REMOVE</tt> - the item was deleted from the table</li>
---   </ul>
---   
 --   <a>$sel:eventVersion:Record'</a>, <a>record_eventVersion</a> - The
 --   version number of the stream record format. This number is updated
 --   whenever the structure of <tt>Record</tt> is modified.
@@ -994,6 +977,23 @@ Record' :: Maybe Identity -> Maybe Text -> Maybe Text -> Maybe OperationType -> 
 --   
 --   <a>$sel:awsRegion:Record'</a>, <a>record_awsRegion</a> - The region in
 --   which the <tt>GetRecords</tt> request was received.
+--   
+--   <a>$sel:eventName:Record'</a>, <a>record_eventName</a> - The type of
+--   data modification that was performed on the DynamoDB table:
+--   
+--   <ul>
+--   <li><tt>INSERT</tt> - a new item was added to the table.</li>
+--   <li><tt>MODIFY</tt> - one or more of an existing item's attributes
+--   were modified.</li>
+--   <li><tt>REMOVE</tt> - the item was deleted from the table</li>
+--   </ul>
+--   
+--   <a>$sel:eventSource:Record'</a>, <a>record_eventSource</a> - The AWS
+--   service from which the stream record originated. For DynamoDB Streams,
+--   this is <tt>aws:dynamodb</tt>.
+--   
+--   <a>$sel:eventID:Record'</a>, <a>record_eventID</a> - A globally unique
+--   identifier for the event that was recorded in this stream record.
 newRecord :: Record
 
 -- | Items that are deleted by the Time to Live process after expiration
@@ -1004,25 +1004,6 @@ newRecord :: Record
 --   <li>Records[].userIdentity.principalId"dynamodb.amazonaws.com"</li>
 --   </ul>
 record_userIdentity :: Lens' Record (Maybe Identity)
-
--- | The AWS service from which the stream record originated. For DynamoDB
---   Streams, this is <tt>aws:dynamodb</tt>.
-record_eventSource :: Lens' Record (Maybe Text)
-
--- | A globally unique identifier for the event that was recorded in this
---   stream record.
-record_eventID :: Lens' Record (Maybe Text)
-
--- | The type of data modification that was performed on the DynamoDB
---   table:
---   
---   <ul>
---   <li><tt>INSERT</tt> - a new item was added to the table.</li>
---   <li><tt>MODIFY</tt> - one or more of an existing item's attributes
---   were modified.</li>
---   <li><tt>REMOVE</tt> - the item was deleted from the table</li>
---   </ul>
-record_eventName :: Lens' Record (Maybe OperationType)
 
 -- | The version number of the stream record format. This number is updated
 --   whenever the structure of <tt>Record</tt> is modified.
@@ -1039,6 +1020,25 @@ record_dynamodb :: Lens' Record (Maybe StreamRecord)
 
 -- | The region in which the <tt>GetRecords</tt> request was received.
 record_awsRegion :: Lens' Record (Maybe Text)
+
+-- | The type of data modification that was performed on the DynamoDB
+--   table:
+--   
+--   <ul>
+--   <li><tt>INSERT</tt> - a new item was added to the table.</li>
+--   <li><tt>MODIFY</tt> - one or more of an existing item's attributes
+--   were modified.</li>
+--   <li><tt>REMOVE</tt> - the item was deleted from the table</li>
+--   </ul>
+record_eventName :: Lens' Record (Maybe OperationType)
+
+-- | The AWS service from which the stream record originated. For DynamoDB
+--   Streams, this is <tt>aws:dynamodb</tt>.
+record_eventSource :: Lens' Record (Maybe Text)
+
+-- | A globally unique identifier for the event that was recorded in this
+--   stream record.
+record_eventID :: Lens' Record (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.Record.Record
 instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.Record.Record
 instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.Record.Record
@@ -1054,7 +1054,7 @@ module Network.AWS.DynamoDBStreams.Types.StreamDescription
 --   
 --   <i>See:</i> <a>newStreamDescription</a> smart constructor.
 data StreamDescription
-StreamDescription' :: Maybe Text -> Maybe StreamViewType -> Maybe Text -> Maybe POSIX -> Maybe (NonEmpty KeySchemaElement) -> Maybe StreamStatus -> Maybe [Shard] -> Maybe Text -> Maybe Text -> StreamDescription
+StreamDescription' :: Maybe Text -> Maybe Text -> Maybe StreamStatus -> Maybe (NonEmpty KeySchemaElement) -> Maybe StreamViewType -> Maybe Text -> Maybe [Shard] -> Maybe Text -> Maybe POSIX -> StreamDescription
 
 -- | The shard ID of the item where the operation stopped, inclusive of the
 --   previous result set. Use this value to start a new operation,
@@ -1070,6 +1070,35 @@ StreamDescription' :: Maybe Text -> Maybe StreamViewType -> Maybe Text -> Maybe 
 --   <tt>LastEvaluatedShardId</tt> is empty.
 [$sel:lastEvaluatedShardId:StreamDescription'] :: StreamDescription -> Maybe Text
 
+-- | A timestamp, in ISO 8601 format, for this stream.
+--   
+--   Note that <tt>LatestStreamLabel</tt> is not a unique identifier for
+--   the stream, because it is possible that a stream from another table
+--   might have the same timestamp. However, the combination of the
+--   following three elements is guaranteed to be unique:
+--   
+--   <ul>
+--   <li>the AWS customer ID.</li>
+--   <li>the table name</li>
+--   <li>the <tt>StreamLabel</tt></li>
+--   </ul>
+[$sel:streamLabel:StreamDescription'] :: StreamDescription -> Maybe Text
+
+-- | Indicates the current status of the stream:
+--   
+--   <ul>
+--   <li><tt>ENABLING</tt> - Streams is currently being enabled on the
+--   DynamoDB table.</li>
+--   <li><tt>ENABLED</tt> - the stream is enabled.</li>
+--   <li><tt>DISABLING</tt> - Streams is currently being disabled on the
+--   DynamoDB table.</li>
+--   <li><tt>DISABLED</tt> - the stream is disabled.</li>
+--   </ul>
+[$sel:streamStatus:StreamDescription'] :: StreamDescription -> Maybe StreamStatus
+
+-- | The key attribute(s) of the stream's DynamoDB table.
+[$sel:keySchema:StreamDescription'] :: StreamDescription -> Maybe (NonEmpty KeySchemaElement)
+
 -- | Indicates the format of the records within this stream:
 --   
 --   <ul>
@@ -1084,46 +1113,17 @@ StreamDescription' :: Maybe Text -> Maybe StreamViewType -> Maybe Text -> Maybe 
 --   </ul>
 [$sel:streamViewType:StreamDescription'] :: StreamDescription -> Maybe StreamViewType
 
+-- | The Amazon Resource Name (ARN) for the stream.
+[$sel:streamArn:StreamDescription'] :: StreamDescription -> Maybe Text
+
+-- | The shards that comprise the stream.
+[$sel:shards:StreamDescription'] :: StreamDescription -> Maybe [Shard]
+
 -- | The DynamoDB table with which the stream is associated.
 [$sel:tableName:StreamDescription'] :: StreamDescription -> Maybe Text
 
 -- | The date and time when the request to create this stream was issued.
 [$sel:creationRequestDateTime:StreamDescription'] :: StreamDescription -> Maybe POSIX
-
--- | The key attribute(s) of the stream's DynamoDB table.
-[$sel:keySchema:StreamDescription'] :: StreamDescription -> Maybe (NonEmpty KeySchemaElement)
-
--- | Indicates the current status of the stream:
---   
---   <ul>
---   <li><tt>ENABLING</tt> - Streams is currently being enabled on the
---   DynamoDB table.</li>
---   <li><tt>ENABLED</tt> - the stream is enabled.</li>
---   <li><tt>DISABLING</tt> - Streams is currently being disabled on the
---   DynamoDB table.</li>
---   <li><tt>DISABLED</tt> - the stream is disabled.</li>
---   </ul>
-[$sel:streamStatus:StreamDescription'] :: StreamDescription -> Maybe StreamStatus
-
--- | The shards that comprise the stream.
-[$sel:shards:StreamDescription'] :: StreamDescription -> Maybe [Shard]
-
--- | The Amazon Resource Name (ARN) for the stream.
-[$sel:streamArn:StreamDescription'] :: StreamDescription -> Maybe Text
-
--- | A timestamp, in ISO 8601 format, for this stream.
---   
---   Note that <tt>LatestStreamLabel</tt> is not a unique identifier for
---   the stream, because it is possible that a stream from another table
---   might have the same timestamp. However, the combination of the
---   following three elements is guaranteed to be unique:
---   
---   <ul>
---   <li>the AWS customer ID.</li>
---   <li>the table name</li>
---   <li>the <tt>StreamLabel</tt></li>
---   </ul>
-[$sel:streamLabel:StreamDescription'] :: StreamDescription -> Maybe Text
 
 -- | Create a value of <a>StreamDescription</a> with all optional fields
 --   omitted.
@@ -1149,6 +1149,38 @@ StreamDescription' :: Maybe Text -> Maybe StreamViewType -> Maybe Text -> Maybe 
 --   when you have reached the end of the result set is when
 --   <tt>LastEvaluatedShardId</tt> is empty.
 --   
+--   <a>$sel:streamLabel:StreamDescription'</a>,
+--   <a>streamDescription_streamLabel</a> - A timestamp, in ISO 8601
+--   format, for this stream.
+--   
+--   Note that <tt>LatestStreamLabel</tt> is not a unique identifier for
+--   the stream, because it is possible that a stream from another table
+--   might have the same timestamp. However, the combination of the
+--   following three elements is guaranteed to be unique:
+--   
+--   <ul>
+--   <li>the AWS customer ID.</li>
+--   <li>the table name</li>
+--   <li>the <tt>StreamLabel</tt></li>
+--   </ul>
+--   
+--   <a>$sel:streamStatus:StreamDescription'</a>,
+--   <a>streamDescription_streamStatus</a> - Indicates the current status
+--   of the stream:
+--   
+--   <ul>
+--   <li><tt>ENABLING</tt> - Streams is currently being enabled on the
+--   DynamoDB table.</li>
+--   <li><tt>ENABLED</tt> - the stream is enabled.</li>
+--   <li><tt>DISABLING</tt> - Streams is currently being disabled on the
+--   DynamoDB table.</li>
+--   <li><tt>DISABLED</tt> - the stream is disabled.</li>
+--   </ul>
+--   
+--   <a>$sel:keySchema:StreamDescription'</a>,
+--   <a>streamDescription_keySchema</a> - The key attribute(s) of the
+--   stream's DynamoDB table.
+--   
 --   <a>$sel:streamViewType:StreamDescription'</a>,
 --   <a>streamDescription_streamViewType</a> - Indicates the format of the
 --   records within this stream:
@@ -1164,6 +1196,13 @@ StreamDescription' :: Maybe Text -> Maybe StreamViewType -> Maybe Text -> Maybe 
 --   the items from the table.</li>
 --   </ul>
 --   
+--   <a>$sel:streamArn:StreamDescription'</a>,
+--   <a>streamDescription_streamArn</a> - The Amazon Resource Name (ARN)
+--   for the stream.
+--   
+--   <a>$sel:shards:StreamDescription'</a>, <a>streamDescription_shards</a>
+--   - The shards that comprise the stream.
+--   
 --   <a>$sel:tableName:StreamDescription'</a>,
 --   <a>streamDescription_tableName</a> - The DynamoDB table with which the
 --   stream is associated.
@@ -1171,45 +1210,6 @@ StreamDescription' :: Maybe Text -> Maybe StreamViewType -> Maybe Text -> Maybe 
 --   <a>$sel:creationRequestDateTime:StreamDescription'</a>,
 --   <a>streamDescription_creationRequestDateTime</a> - The date and time
 --   when the request to create this stream was issued.
---   
---   <a>$sel:keySchema:StreamDescription'</a>,
---   <a>streamDescription_keySchema</a> - The key attribute(s) of the
---   stream's DynamoDB table.
---   
---   <a>$sel:streamStatus:StreamDescription'</a>,
---   <a>streamDescription_streamStatus</a> - Indicates the current status
---   of the stream:
---   
---   <ul>
---   <li><tt>ENABLING</tt> - Streams is currently being enabled on the
---   DynamoDB table.</li>
---   <li><tt>ENABLED</tt> - the stream is enabled.</li>
---   <li><tt>DISABLING</tt> - Streams is currently being disabled on the
---   DynamoDB table.</li>
---   <li><tt>DISABLED</tt> - the stream is disabled.</li>
---   </ul>
---   
---   <a>$sel:shards:StreamDescription'</a>, <a>streamDescription_shards</a>
---   - The shards that comprise the stream.
---   
---   <a>$sel:streamArn:StreamDescription'</a>,
---   <a>streamDescription_streamArn</a> - The Amazon Resource Name (ARN)
---   for the stream.
---   
---   <a>$sel:streamLabel:StreamDescription'</a>,
---   <a>streamDescription_streamLabel</a> - A timestamp, in ISO 8601
---   format, for this stream.
---   
---   Note that <tt>LatestStreamLabel</tt> is not a unique identifier for
---   the stream, because it is possible that a stream from another table
---   might have the same timestamp. However, the combination of the
---   following three elements is guaranteed to be unique:
---   
---   <ul>
---   <li>the AWS customer ID.</li>
---   <li>the table name</li>
---   <li>the <tt>StreamLabel</tt></li>
---   </ul>
 newStreamDescription :: StreamDescription
 
 -- | The shard ID of the item where the operation stopped, inclusive of the
@@ -1226,6 +1226,35 @@ newStreamDescription :: StreamDescription
 --   <tt>LastEvaluatedShardId</tt> is empty.
 streamDescription_lastEvaluatedShardId :: Lens' StreamDescription (Maybe Text)
 
+-- | A timestamp, in ISO 8601 format, for this stream.
+--   
+--   Note that <tt>LatestStreamLabel</tt> is not a unique identifier for
+--   the stream, because it is possible that a stream from another table
+--   might have the same timestamp. However, the combination of the
+--   following three elements is guaranteed to be unique:
+--   
+--   <ul>
+--   <li>the AWS customer ID.</li>
+--   <li>the table name</li>
+--   <li>the <tt>StreamLabel</tt></li>
+--   </ul>
+streamDescription_streamLabel :: Lens' StreamDescription (Maybe Text)
+
+-- | Indicates the current status of the stream:
+--   
+--   <ul>
+--   <li><tt>ENABLING</tt> - Streams is currently being enabled on the
+--   DynamoDB table.</li>
+--   <li><tt>ENABLED</tt> - the stream is enabled.</li>
+--   <li><tt>DISABLING</tt> - Streams is currently being disabled on the
+--   DynamoDB table.</li>
+--   <li><tt>DISABLED</tt> - the stream is disabled.</li>
+--   </ul>
+streamDescription_streamStatus :: Lens' StreamDescription (Maybe StreamStatus)
+
+-- | The key attribute(s) of the stream's DynamoDB table.
+streamDescription_keySchema :: Lens' StreamDescription (Maybe (NonEmpty KeySchemaElement))
+
 -- | Indicates the format of the records within this stream:
 --   
 --   <ul>
@@ -1240,46 +1269,17 @@ streamDescription_lastEvaluatedShardId :: Lens' StreamDescription (Maybe Text)
 --   </ul>
 streamDescription_streamViewType :: Lens' StreamDescription (Maybe StreamViewType)
 
+-- | The Amazon Resource Name (ARN) for the stream.
+streamDescription_streamArn :: Lens' StreamDescription (Maybe Text)
+
+-- | The shards that comprise the stream.
+streamDescription_shards :: Lens' StreamDescription (Maybe [Shard])
+
 -- | The DynamoDB table with which the stream is associated.
 streamDescription_tableName :: Lens' StreamDescription (Maybe Text)
 
 -- | The date and time when the request to create this stream was issued.
 streamDescription_creationRequestDateTime :: Lens' StreamDescription (Maybe UTCTime)
-
--- | The key attribute(s) of the stream's DynamoDB table.
-streamDescription_keySchema :: Lens' StreamDescription (Maybe (NonEmpty KeySchemaElement))
-
--- | Indicates the current status of the stream:
---   
---   <ul>
---   <li><tt>ENABLING</tt> - Streams is currently being enabled on the
---   DynamoDB table.</li>
---   <li><tt>ENABLED</tt> - the stream is enabled.</li>
---   <li><tt>DISABLING</tt> - Streams is currently being disabled on the
---   DynamoDB table.</li>
---   <li><tt>DISABLED</tt> - the stream is disabled.</li>
---   </ul>
-streamDescription_streamStatus :: Lens' StreamDescription (Maybe StreamStatus)
-
--- | The shards that comprise the stream.
-streamDescription_shards :: Lens' StreamDescription (Maybe [Shard])
-
--- | The Amazon Resource Name (ARN) for the stream.
-streamDescription_streamArn :: Lens' StreamDescription (Maybe Text)
-
--- | A timestamp, in ISO 8601 format, for this stream.
---   
---   Note that <tt>LatestStreamLabel</tt> is not a unique identifier for
---   the stream, because it is possible that a stream from another table
---   might have the same timestamp. However, the combination of the
---   following three elements is guaranteed to be unique:
---   
---   <ul>
---   <li>the AWS customer ID.</li>
---   <li>the table name</li>
---   <li>the <tt>StreamLabel</tt></li>
---   </ul>
-streamDescription_streamLabel :: Lens' StreamDescription (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.DynamoDBStreams.Types.StreamDescription.StreamDescription
 instance GHC.Show.Show Network.AWS.DynamoDBStreams.Types.StreamDescription.StreamDescription
 instance GHC.Read.Read Network.AWS.DynamoDBStreams.Types.StreamDescription.StreamDescription
@@ -1294,6 +1294,14 @@ module Network.AWS.DynamoDBStreams.Types
 -- | API version <tt>2012-08-10</tt> of the Amazon DynamoDB Streams SDK
 --   configuration.
 defaultService :: Service
+
+-- | The shard iterator has expired and can no longer be used to retrieve
+--   stream records. A shard iterator expires 15 minutes after it is
+--   retrieved using the <tt>GetShardIterator</tt> action.
+_ExpiredIteratorException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | An error occurred on the server side.
+_InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The operation attempted to read past the oldest stream record in a
 --   shard.
@@ -1313,13 +1321,10 @@ defaultService :: Service
 --   </ul>
 _TrimmedDataAccessException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The shard iterator has expired and can no longer be used to retrieve
---   stream records. A shard iterator expires 15 minutes after it is
---   retrieved using the <tt>GetShardIterator</tt> action.
-_ExpiredIteratorException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | An error occurred on the server side.
-_InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The operation tried to access a nonexistent table or index. The
+--   resource might not be specified correctly, or its status might not be
+--   <tt>ACTIVE</tt>.
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | There is no limit to the number of daily on-demand backups that can be
 --   taken.
@@ -1337,11 +1342,6 @@ _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 --   
 --   There is a soft account quota of 256 tables.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The operation tried to access a nonexistent table or index. The
---   resource might not be specified correctly, or its status might not be
---   <tt>ACTIVE</tt>.
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 newtype KeyType
 KeyType' :: Text -> KeyType
 [fromKeyType] :: KeyType -> Text
@@ -1385,61 +1385,7 @@ pattern StreamViewType_OLD_IMAGE :: StreamViewType
 --   
 --   <i>See:</i> <a>newAttributeValue</a> smart constructor.
 data AttributeValue
-AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> Maybe Text -> Maybe (HashMap Text AttributeValue) -> Maybe Base64 -> Maybe [AttributeValue] -> Maybe [Text] -> Maybe [Text] -> AttributeValue
-
--- | An attribute of type Binary Set. For example:
---   
---   <pre>
---   "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]
---   </pre>
-[$sel:bs:AttributeValue'] :: AttributeValue -> Maybe [Base64]
-
--- | An attribute of type Number. For example:
---   
---   <pre>
---   "N": "123.45"
---   </pre>
---   
---   Numbers are sent across the network to DynamoDB as strings, to
---   maximize compatibility across languages and libraries. However,
---   DynamoDB treats them as number type attributes for mathematical
---   operations.
-[$sel:n:AttributeValue'] :: AttributeValue -> Maybe Text
-
--- | An attribute of type Boolean. For example:
---   
---   <pre>
---   "BOOL": true
---   </pre>
-[$sel:bool:AttributeValue'] :: AttributeValue -> Maybe Bool
-
--- | An attribute of type Null. For example:
---   
---   <pre>
---   "NULL": true
---   </pre>
-[$sel:null:AttributeValue'] :: AttributeValue -> Maybe Bool
-
--- | An attribute of type String. For example:
---   
---   <pre>
---   "S": "Hello"
---   </pre>
-[$sel:s:AttributeValue'] :: AttributeValue -> Maybe Text
-
--- | An attribute of type Map. For example:
---   
---   <pre>
---   "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}
---   </pre>
-[$sel:m:AttributeValue'] :: AttributeValue -> Maybe (HashMap Text AttributeValue)
-
--- | An attribute of type Binary. For example:
---   
---   <pre>
---   "B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"
---   </pre>
-[$sel:b:AttributeValue'] :: AttributeValue -> Maybe Base64
+AttributeValue' :: Maybe [AttributeValue] -> Maybe [Text] -> Maybe (HashMap Text AttributeValue) -> Maybe Bool -> Maybe Text -> Maybe [Base64] -> Maybe Base64 -> Maybe [Text] -> Maybe Text -> Maybe Bool -> AttributeValue
 
 -- | An attribute of type List. For example:
 --   
@@ -1447,13 +1393,6 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]
 --   </pre>
 [$sel:l:AttributeValue'] :: AttributeValue -> Maybe [AttributeValue]
-
--- | An attribute of type String Set. For example:
---   
---   <pre>
---   "SS": ["Giraffe", "Hippo" ,"Zebra"]
---   </pre>
-[$sel:ss:AttributeValue'] :: AttributeValue -> Maybe [Text]
 
 -- | An attribute of type Number Set. For example:
 --   
@@ -1467,6 +1406,67 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   operations.
 [$sel:ns:AttributeValue'] :: AttributeValue -> Maybe [Text]
 
+-- | An attribute of type Map. For example:
+--   
+--   <pre>
+--   "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}
+--   </pre>
+[$sel:m:AttributeValue'] :: AttributeValue -> Maybe (HashMap Text AttributeValue)
+
+-- | An attribute of type Null. For example:
+--   
+--   <pre>
+--   "NULL": true
+--   </pre>
+[$sel:null:AttributeValue'] :: AttributeValue -> Maybe Bool
+
+-- | An attribute of type Number. For example:
+--   
+--   <pre>
+--   "N": "123.45"
+--   </pre>
+--   
+--   Numbers are sent across the network to DynamoDB as strings, to
+--   maximize compatibility across languages and libraries. However,
+--   DynamoDB treats them as number type attributes for mathematical
+--   operations.
+[$sel:n:AttributeValue'] :: AttributeValue -> Maybe Text
+
+-- | An attribute of type Binary Set. For example:
+--   
+--   <pre>
+--   "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]
+--   </pre>
+[$sel:bs:AttributeValue'] :: AttributeValue -> Maybe [Base64]
+
+-- | An attribute of type Binary. For example:
+--   
+--   <pre>
+--   "B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"
+--   </pre>
+[$sel:b:AttributeValue'] :: AttributeValue -> Maybe Base64
+
+-- | An attribute of type String Set. For example:
+--   
+--   <pre>
+--   "SS": ["Giraffe", "Hippo" ,"Zebra"]
+--   </pre>
+[$sel:ss:AttributeValue'] :: AttributeValue -> Maybe [Text]
+
+-- | An attribute of type String. For example:
+--   
+--   <pre>
+--   "S": "Hello"
+--   </pre>
+[$sel:s:AttributeValue'] :: AttributeValue -> Maybe Text
+
+-- | An attribute of type Boolean. For example:
+--   
+--   <pre>
+--   "BOOL": true
+--   </pre>
+[$sel:bool:AttributeValue'] :: AttributeValue -> Maybe Bool
+
 -- | Create a value of <a>AttributeValue</a> with all optional fields
 --   omitted.
 --   
@@ -1476,11 +1476,37 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:bs:AttributeValue'</a>, <a>attributeValue_bs</a> - An
---   attribute of type Binary Set. For example:
+--   <a>$sel:l:AttributeValue'</a>, <a>attributeValue_l</a> - An attribute
+--   of type List. For example:
 --   
 --   <pre>
---   "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]
+--   "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]
+--   </pre>
+--   
+--   <a>$sel:ns:AttributeValue'</a>, <a>attributeValue_ns</a> - An
+--   attribute of type Number Set. For example:
+--   
+--   <pre>
+--   "NS": ["42.2", "-19", "7.5", "3.14"]
+--   </pre>
+--   
+--   Numbers are sent across the network to DynamoDB as strings, to
+--   maximize compatibility across languages and libraries. However,
+--   DynamoDB treats them as number type attributes for mathematical
+--   operations.
+--   
+--   <a>$sel:m:AttributeValue'</a>, <a>attributeValue_m</a> - An attribute
+--   of type Map. For example:
+--   
+--   <pre>
+--   "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}
+--   </pre>
+--   
+--   <a>$sel:null:AttributeValue'</a>, <a>attributeValue_null</a> - An
+--   attribute of type Null. For example:
+--   
+--   <pre>
+--   "NULL": true
 --   </pre>
 --   
 --   <a>$sel:n:AttributeValue'</a>, <a>attributeValue_n</a> - An attribute
@@ -1495,32 +1521,11 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   DynamoDB treats them as number type attributes for mathematical
 --   operations.
 --   
---   <a>$sel:bool:AttributeValue'</a>, <a>attributeValue_bool</a> - An
---   attribute of type Boolean. For example:
+--   <a>$sel:bs:AttributeValue'</a>, <a>attributeValue_bs</a> - An
+--   attribute of type Binary Set. For example:
 --   
 --   <pre>
---   "BOOL": true
---   </pre>
---   
---   <a>$sel:null:AttributeValue'</a>, <a>attributeValue_null</a> - An
---   attribute of type Null. For example:
---   
---   <pre>
---   "NULL": true
---   </pre>
---   
---   <a>$sel:s:AttributeValue'</a>, <a>attributeValue_s</a> - An attribute
---   of type String. For example:
---   
---   <pre>
---   "S": "Hello"
---   </pre>
---   
---   <a>$sel:m:AttributeValue'</a>, <a>attributeValue_m</a> - An attribute
---   of type Map. For example:
---   
---   <pre>
---   "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}
+--   "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]
 --   </pre>
 --   
 --   <a>$sel:b:AttributeValue'</a>, <a>attributeValue_b</a> - An attribute
@@ -1533,13 +1538,6 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   deserialisation. -- This <tt>Lens</tt> accepts and returns only raw
 --   unencoded data.
 --   
---   <a>$sel:l:AttributeValue'</a>, <a>attributeValue_l</a> - An attribute
---   of type List. For example:
---   
---   <pre>
---   "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]
---   </pre>
---   
 --   <a>$sel:ss:AttributeValue'</a>, <a>attributeValue_ss</a> - An
 --   attribute of type String Set. For example:
 --   
@@ -1547,8 +1545,29 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   "SS": ["Giraffe", "Hippo" ,"Zebra"]
 --   </pre>
 --   
---   <a>$sel:ns:AttributeValue'</a>, <a>attributeValue_ns</a> - An
---   attribute of type Number Set. For example:
+--   <a>$sel:s:AttributeValue'</a>, <a>attributeValue_s</a> - An attribute
+--   of type String. For example:
+--   
+--   <pre>
+--   "S": "Hello"
+--   </pre>
+--   
+--   <a>$sel:bool:AttributeValue'</a>, <a>attributeValue_bool</a> - An
+--   attribute of type Boolean. For example:
+--   
+--   <pre>
+--   "BOOL": true
+--   </pre>
+newAttributeValue :: AttributeValue
+
+-- | An attribute of type List. For example:
+--   
+--   <pre>
+--   "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]
+--   </pre>
+attributeValue_l :: Lens' AttributeValue (Maybe [AttributeValue])
+
+-- | An attribute of type Number Set. For example:
 --   
 --   <pre>
 --   "NS": ["42.2", "-19", "7.5", "3.14"]
@@ -1558,14 +1577,21 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   maximize compatibility across languages and libraries. However,
 --   DynamoDB treats them as number type attributes for mathematical
 --   operations.
-newAttributeValue :: AttributeValue
+attributeValue_ns :: Lens' AttributeValue (Maybe [Text])
 
--- | An attribute of type Binary Set. For example:
+-- | An attribute of type Map. For example:
 --   
 --   <pre>
---   "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]
+--   "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}
 --   </pre>
-attributeValue_bs :: Lens' AttributeValue (Maybe [ByteString])
+attributeValue_m :: Lens' AttributeValue (Maybe (HashMap Text AttributeValue))
+
+-- | An attribute of type Null. For example:
+--   
+--   <pre>
+--   "NULL": true
+--   </pre>
+attributeValue_null :: Lens' AttributeValue (Maybe Bool)
 
 -- | An attribute of type Number. For example:
 --   
@@ -1579,33 +1605,12 @@ attributeValue_bs :: Lens' AttributeValue (Maybe [ByteString])
 --   operations.
 attributeValue_n :: Lens' AttributeValue (Maybe Text)
 
--- | An attribute of type Boolean. For example:
+-- | An attribute of type Binary Set. For example:
 --   
 --   <pre>
---   "BOOL": true
+--   "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]
 --   </pre>
-attributeValue_bool :: Lens' AttributeValue (Maybe Bool)
-
--- | An attribute of type Null. For example:
---   
---   <pre>
---   "NULL": true
---   </pre>
-attributeValue_null :: Lens' AttributeValue (Maybe Bool)
-
--- | An attribute of type String. For example:
---   
---   <pre>
---   "S": "Hello"
---   </pre>
-attributeValue_s :: Lens' AttributeValue (Maybe Text)
-
--- | An attribute of type Map. For example:
---   
---   <pre>
---   "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}
---   </pre>
-attributeValue_m :: Lens' AttributeValue (Maybe (HashMap Text AttributeValue))
+attributeValue_bs :: Lens' AttributeValue (Maybe [ByteString])
 
 -- | An attribute of type Binary. For example:
 --   
@@ -1617,13 +1622,6 @@ attributeValue_m :: Lens' AttributeValue (Maybe (HashMap Text AttributeValue))
 --   unencoded data.
 attributeValue_b :: Lens' AttributeValue (Maybe ByteString)
 
--- | An attribute of type List. For example:
---   
---   <pre>
---   "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]
---   </pre>
-attributeValue_l :: Lens' AttributeValue (Maybe [AttributeValue])
-
 -- | An attribute of type String Set. For example:
 --   
 --   <pre>
@@ -1631,17 +1629,19 @@ attributeValue_l :: Lens' AttributeValue (Maybe [AttributeValue])
 --   </pre>
 attributeValue_ss :: Lens' AttributeValue (Maybe [Text])
 
--- | An attribute of type Number Set. For example:
+-- | An attribute of type String. For example:
 --   
 --   <pre>
---   "NS": ["42.2", "-19", "7.5", "3.14"]
+--   "S": "Hello"
 --   </pre>
+attributeValue_s :: Lens' AttributeValue (Maybe Text)
+
+-- | An attribute of type Boolean. For example:
 --   
---   Numbers are sent across the network to DynamoDB as strings, to
---   maximize compatibility across languages and libraries. However,
---   DynamoDB treats them as number type attributes for mathematical
---   operations.
-attributeValue_ns :: Lens' AttributeValue (Maybe [Text])
+--   <pre>
+--   "BOOL": true
+--   </pre>
+attributeValue_bool :: Lens' AttributeValue (Maybe Bool)
 
 -- | Contains details about the type of identity that made the request.
 --   
@@ -1774,7 +1774,7 @@ keySchemaElement_keyType :: Lens' KeySchemaElement KeyType
 --   
 --   <i>See:</i> <a>newRecord</a> smart constructor.
 data Record
-Record' :: Maybe Identity -> Maybe Text -> Maybe Text -> Maybe OperationType -> Maybe Text -> Maybe StreamRecord -> Maybe Text -> Record
+Record' :: Maybe Identity -> Maybe Text -> Maybe StreamRecord -> Maybe Text -> Maybe OperationType -> Maybe Text -> Maybe Text -> Record
 
 -- | Items that are deleted by the Time to Live process after expiration
 --   have the following fields:
@@ -1784,25 +1784,6 @@ Record' :: Maybe Identity -> Maybe Text -> Maybe Text -> Maybe OperationType -> 
 --   <li>Records[].userIdentity.principalId"dynamodb.amazonaws.com"</li>
 --   </ul>
 [$sel:userIdentity:Record'] :: Record -> Maybe Identity
-
--- | The AWS service from which the stream record originated. For DynamoDB
---   Streams, this is <tt>aws:dynamodb</tt>.
-[$sel:eventSource:Record'] :: Record -> Maybe Text
-
--- | A globally unique identifier for the event that was recorded in this
---   stream record.
-[$sel:eventID:Record'] :: Record -> Maybe Text
-
--- | The type of data modification that was performed on the DynamoDB
---   table:
---   
---   <ul>
---   <li><tt>INSERT</tt> - a new item was added to the table.</li>
---   <li><tt>MODIFY</tt> - one or more of an existing item's attributes
---   were modified.</li>
---   <li><tt>REMOVE</tt> - the item was deleted from the table</li>
---   </ul>
-[$sel:eventName:Record'] :: Record -> Maybe OperationType
 
 -- | The version number of the stream record format. This number is updated
 --   whenever the structure of <tt>Record</tt> is modified.
@@ -1819,6 +1800,25 @@ Record' :: Maybe Identity -> Maybe Text -> Maybe Text -> Maybe OperationType -> 
 
 -- | The region in which the <tt>GetRecords</tt> request was received.
 [$sel:awsRegion:Record'] :: Record -> Maybe Text
+
+-- | The type of data modification that was performed on the DynamoDB
+--   table:
+--   
+--   <ul>
+--   <li><tt>INSERT</tt> - a new item was added to the table.</li>
+--   <li><tt>MODIFY</tt> - one or more of an existing item's attributes
+--   were modified.</li>
+--   <li><tt>REMOVE</tt> - the item was deleted from the table</li>
+--   </ul>
+[$sel:eventName:Record'] :: Record -> Maybe OperationType
+
+-- | The AWS service from which the stream record originated. For DynamoDB
+--   Streams, this is <tt>aws:dynamodb</tt>.
+[$sel:eventSource:Record'] :: Record -> Maybe Text
+
+-- | A globally unique identifier for the event that was recorded in this
+--   stream record.
+[$sel:eventID:Record'] :: Record -> Maybe Text
 
 -- | Create a value of <a>Record</a> with all optional fields omitted.
 --   
@@ -1837,23 +1837,6 @@ Record' :: Maybe Identity -> Maybe Text -> Maybe Text -> Maybe OperationType -> 
 --   <li>Records[].userIdentity.principalId"dynamodb.amazonaws.com"</li>
 --   </ul>
 --   
---   <a>$sel:eventSource:Record'</a>, <a>record_eventSource</a> - The AWS
---   service from which the stream record originated. For DynamoDB Streams,
---   this is <tt>aws:dynamodb</tt>.
---   
---   <a>$sel:eventID:Record'</a>, <a>record_eventID</a> - A globally unique
---   identifier for the event that was recorded in this stream record.
---   
---   <a>$sel:eventName:Record'</a>, <a>record_eventName</a> - The type of
---   data modification that was performed on the DynamoDB table:
---   
---   <ul>
---   <li><tt>INSERT</tt> - a new item was added to the table.</li>
---   <li><tt>MODIFY</tt> - one or more of an existing item's attributes
---   were modified.</li>
---   <li><tt>REMOVE</tt> - the item was deleted from the table</li>
---   </ul>
---   
 --   <a>$sel:eventVersion:Record'</a>, <a>record_eventVersion</a> - The
 --   version number of the stream record format. This number is updated
 --   whenever the structure of <tt>Record</tt> is modified.
@@ -1868,6 +1851,23 @@ Record' :: Maybe Identity -> Maybe Text -> Maybe Text -> Maybe OperationType -> 
 --   
 --   <a>$sel:awsRegion:Record'</a>, <a>record_awsRegion</a> - The region in
 --   which the <tt>GetRecords</tt> request was received.
+--   
+--   <a>$sel:eventName:Record'</a>, <a>record_eventName</a> - The type of
+--   data modification that was performed on the DynamoDB table:
+--   
+--   <ul>
+--   <li><tt>INSERT</tt> - a new item was added to the table.</li>
+--   <li><tt>MODIFY</tt> - one or more of an existing item's attributes
+--   were modified.</li>
+--   <li><tt>REMOVE</tt> - the item was deleted from the table</li>
+--   </ul>
+--   
+--   <a>$sel:eventSource:Record'</a>, <a>record_eventSource</a> - The AWS
+--   service from which the stream record originated. For DynamoDB Streams,
+--   this is <tt>aws:dynamodb</tt>.
+--   
+--   <a>$sel:eventID:Record'</a>, <a>record_eventID</a> - A globally unique
+--   identifier for the event that was recorded in this stream record.
 newRecord :: Record
 
 -- | Items that are deleted by the Time to Live process after expiration
@@ -1878,25 +1878,6 @@ newRecord :: Record
 --   <li>Records[].userIdentity.principalId"dynamodb.amazonaws.com"</li>
 --   </ul>
 record_userIdentity :: Lens' Record (Maybe Identity)
-
--- | The AWS service from which the stream record originated. For DynamoDB
---   Streams, this is <tt>aws:dynamodb</tt>.
-record_eventSource :: Lens' Record (Maybe Text)
-
--- | A globally unique identifier for the event that was recorded in this
---   stream record.
-record_eventID :: Lens' Record (Maybe Text)
-
--- | The type of data modification that was performed on the DynamoDB
---   table:
---   
---   <ul>
---   <li><tt>INSERT</tt> - a new item was added to the table.</li>
---   <li><tt>MODIFY</tt> - one or more of an existing item's attributes
---   were modified.</li>
---   <li><tt>REMOVE</tt> - the item was deleted from the table</li>
---   </ul>
-record_eventName :: Lens' Record (Maybe OperationType)
 
 -- | The version number of the stream record format. This number is updated
 --   whenever the structure of <tt>Record</tt> is modified.
@@ -1913,6 +1894,25 @@ record_dynamodb :: Lens' Record (Maybe StreamRecord)
 
 -- | The region in which the <tt>GetRecords</tt> request was received.
 record_awsRegion :: Lens' Record (Maybe Text)
+
+-- | The type of data modification that was performed on the DynamoDB
+--   table:
+--   
+--   <ul>
+--   <li><tt>INSERT</tt> - a new item was added to the table.</li>
+--   <li><tt>MODIFY</tt> - one or more of an existing item's attributes
+--   were modified.</li>
+--   <li><tt>REMOVE</tt> - the item was deleted from the table</li>
+--   </ul>
+record_eventName :: Lens' Record (Maybe OperationType)
+
+-- | The AWS service from which the stream record originated. For DynamoDB
+--   Streams, this is <tt>aws:dynamodb</tt>.
+record_eventSource :: Lens' Record (Maybe Text)
+
+-- | A globally unique identifier for the event that was recorded in this
+--   stream record.
+record_eventID :: Lens' Record (Maybe Text)
 
 -- | The beginning and ending sequence numbers for the stream records
 --   contained within a shard.
@@ -1963,14 +1963,14 @@ sequenceNumberRange_endingSequenceNumber :: Lens' SequenceNumberRange (Maybe Tex
 data Shard
 Shard' :: Maybe Text -> Maybe SequenceNumberRange -> Maybe Text -> Shard
 
--- | The system-generated identifier for this shard.
-[$sel:shardId:Shard'] :: Shard -> Maybe Text
+-- | The shard ID of the current shard's parent.
+[$sel:parentShardId:Shard'] :: Shard -> Maybe Text
 
 -- | The range of possible sequence numbers for the shard.
 [$sel:sequenceNumberRange:Shard'] :: Shard -> Maybe SequenceNumberRange
 
--- | The shard ID of the current shard's parent.
-[$sel:parentShardId:Shard'] :: Shard -> Maybe Text
+-- | The system-generated identifier for this shard.
+[$sel:shardId:Shard'] :: Shard -> Maybe Text
 
 -- | Create a value of <a>Shard</a> with all optional fields omitted.
 --   
@@ -1980,37 +1980,31 @@ Shard' :: Maybe Text -> Maybe SequenceNumberRange -> Maybe Text -> Shard
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:shardId:Shard'</a>, <a>shard_shardId</a> - The
---   system-generated identifier for this shard.
+--   <a>$sel:parentShardId:Shard'</a>, <a>shard_parentShardId</a> - The
+--   shard ID of the current shard's parent.
 --   
 --   <a>$sel:sequenceNumberRange:Shard'</a>,
 --   <a>shard_sequenceNumberRange</a> - The range of possible sequence
 --   numbers for the shard.
 --   
---   <a>$sel:parentShardId:Shard'</a>, <a>shard_parentShardId</a> - The
---   shard ID of the current shard's parent.
+--   <a>$sel:shardId:Shard'</a>, <a>shard_shardId</a> - The
+--   system-generated identifier for this shard.
 newShard :: Shard
 
--- | The system-generated identifier for this shard.
-shard_shardId :: Lens' Shard (Maybe Text)
+-- | The shard ID of the current shard's parent.
+shard_parentShardId :: Lens' Shard (Maybe Text)
 
 -- | The range of possible sequence numbers for the shard.
 shard_sequenceNumberRange :: Lens' Shard (Maybe SequenceNumberRange)
 
--- | The shard ID of the current shard's parent.
-shard_parentShardId :: Lens' Shard (Maybe Text)
+-- | The system-generated identifier for this shard.
+shard_shardId :: Lens' Shard (Maybe Text)
 
 -- | Represents all of the data describing a particular stream.
 --   
 --   <i>See:</i> <a>newStream</a> smart constructor.
 data Stream
 Stream' :: Maybe Text -> Maybe Text -> Maybe Text -> Stream
-
--- | The DynamoDB table with which the stream is associated.
-[$sel:tableName:Stream'] :: Stream -> Maybe Text
-
--- | The Amazon Resource Name (ARN) for the stream.
-[$sel:streamArn:Stream'] :: Stream -> Maybe Text
 
 -- | A timestamp, in ISO 8601 format, for this stream.
 --   
@@ -2026,6 +2020,12 @@ Stream' :: Maybe Text -> Maybe Text -> Maybe Text -> Stream
 --   </ul>
 [$sel:streamLabel:Stream'] :: Stream -> Maybe Text
 
+-- | The Amazon Resource Name (ARN) for the stream.
+[$sel:streamArn:Stream'] :: Stream -> Maybe Text
+
+-- | The DynamoDB table with which the stream is associated.
+[$sel:tableName:Stream'] :: Stream -> Maybe Text
+
 -- | Create a value of <a>Stream</a> with all optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -2033,12 +2033,6 @@ Stream' :: Maybe Text -> Maybe Text -> Maybe Text -> Stream
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
---   
---   <a>$sel:tableName:Stream'</a>, <a>stream_tableName</a> - The DynamoDB
---   table with which the stream is associated.
---   
---   <a>$sel:streamArn:Stream'</a>, <a>stream_streamArn</a> - The Amazon
---   Resource Name (ARN) for the stream.
 --   
 --   <a>$sel:streamLabel:Stream'</a>, <a>stream_streamLabel</a> - A
 --   timestamp, in ISO 8601 format, for this stream.
@@ -2053,13 +2047,13 @@ Stream' :: Maybe Text -> Maybe Text -> Maybe Text -> Stream
 --   <li>the table name</li>
 --   <li>the <tt>StreamLabel</tt></li>
 --   </ul>
+--   
+--   <a>$sel:streamArn:Stream'</a>, <a>stream_streamArn</a> - The Amazon
+--   Resource Name (ARN) for the stream.
+--   
+--   <a>$sel:tableName:Stream'</a>, <a>stream_tableName</a> - The DynamoDB
+--   table with which the stream is associated.
 newStream :: Stream
-
--- | The DynamoDB table with which the stream is associated.
-stream_tableName :: Lens' Stream (Maybe Text)
-
--- | The Amazon Resource Name (ARN) for the stream.
-stream_streamArn :: Lens' Stream (Maybe Text)
 
 -- | A timestamp, in ISO 8601 format, for this stream.
 --   
@@ -2075,11 +2069,17 @@ stream_streamArn :: Lens' Stream (Maybe Text)
 --   </ul>
 stream_streamLabel :: Lens' Stream (Maybe Text)
 
+-- | The Amazon Resource Name (ARN) for the stream.
+stream_streamArn :: Lens' Stream (Maybe Text)
+
+-- | The DynamoDB table with which the stream is associated.
+stream_tableName :: Lens' Stream (Maybe Text)
+
 -- | Represents all of the data describing a particular stream.
 --   
 --   <i>See:</i> <a>newStreamDescription</a> smart constructor.
 data StreamDescription
-StreamDescription' :: Maybe Text -> Maybe StreamViewType -> Maybe Text -> Maybe POSIX -> Maybe (NonEmpty KeySchemaElement) -> Maybe StreamStatus -> Maybe [Shard] -> Maybe Text -> Maybe Text -> StreamDescription
+StreamDescription' :: Maybe Text -> Maybe Text -> Maybe StreamStatus -> Maybe (NonEmpty KeySchemaElement) -> Maybe StreamViewType -> Maybe Text -> Maybe [Shard] -> Maybe Text -> Maybe POSIX -> StreamDescription
 
 -- | The shard ID of the item where the operation stopped, inclusive of the
 --   previous result set. Use this value to start a new operation,
@@ -2095,6 +2095,35 @@ StreamDescription' :: Maybe Text -> Maybe StreamViewType -> Maybe Text -> Maybe 
 --   <tt>LastEvaluatedShardId</tt> is empty.
 [$sel:lastEvaluatedShardId:StreamDescription'] :: StreamDescription -> Maybe Text
 
+-- | A timestamp, in ISO 8601 format, for this stream.
+--   
+--   Note that <tt>LatestStreamLabel</tt> is not a unique identifier for
+--   the stream, because it is possible that a stream from another table
+--   might have the same timestamp. However, the combination of the
+--   following three elements is guaranteed to be unique:
+--   
+--   <ul>
+--   <li>the AWS customer ID.</li>
+--   <li>the table name</li>
+--   <li>the <tt>StreamLabel</tt></li>
+--   </ul>
+[$sel:streamLabel:StreamDescription'] :: StreamDescription -> Maybe Text
+
+-- | Indicates the current status of the stream:
+--   
+--   <ul>
+--   <li><tt>ENABLING</tt> - Streams is currently being enabled on the
+--   DynamoDB table.</li>
+--   <li><tt>ENABLED</tt> - the stream is enabled.</li>
+--   <li><tt>DISABLING</tt> - Streams is currently being disabled on the
+--   DynamoDB table.</li>
+--   <li><tt>DISABLED</tt> - the stream is disabled.</li>
+--   </ul>
+[$sel:streamStatus:StreamDescription'] :: StreamDescription -> Maybe StreamStatus
+
+-- | The key attribute(s) of the stream's DynamoDB table.
+[$sel:keySchema:StreamDescription'] :: StreamDescription -> Maybe (NonEmpty KeySchemaElement)
+
 -- | Indicates the format of the records within this stream:
 --   
 --   <ul>
@@ -2109,46 +2138,17 @@ StreamDescription' :: Maybe Text -> Maybe StreamViewType -> Maybe Text -> Maybe 
 --   </ul>
 [$sel:streamViewType:StreamDescription'] :: StreamDescription -> Maybe StreamViewType
 
+-- | The Amazon Resource Name (ARN) for the stream.
+[$sel:streamArn:StreamDescription'] :: StreamDescription -> Maybe Text
+
+-- | The shards that comprise the stream.
+[$sel:shards:StreamDescription'] :: StreamDescription -> Maybe [Shard]
+
 -- | The DynamoDB table with which the stream is associated.
 [$sel:tableName:StreamDescription'] :: StreamDescription -> Maybe Text
 
 -- | The date and time when the request to create this stream was issued.
 [$sel:creationRequestDateTime:StreamDescription'] :: StreamDescription -> Maybe POSIX
-
--- | The key attribute(s) of the stream's DynamoDB table.
-[$sel:keySchema:StreamDescription'] :: StreamDescription -> Maybe (NonEmpty KeySchemaElement)
-
--- | Indicates the current status of the stream:
---   
---   <ul>
---   <li><tt>ENABLING</tt> - Streams is currently being enabled on the
---   DynamoDB table.</li>
---   <li><tt>ENABLED</tt> - the stream is enabled.</li>
---   <li><tt>DISABLING</tt> - Streams is currently being disabled on the
---   DynamoDB table.</li>
---   <li><tt>DISABLED</tt> - the stream is disabled.</li>
---   </ul>
-[$sel:streamStatus:StreamDescription'] :: StreamDescription -> Maybe StreamStatus
-
--- | The shards that comprise the stream.
-[$sel:shards:StreamDescription'] :: StreamDescription -> Maybe [Shard]
-
--- | The Amazon Resource Name (ARN) for the stream.
-[$sel:streamArn:StreamDescription'] :: StreamDescription -> Maybe Text
-
--- | A timestamp, in ISO 8601 format, for this stream.
---   
---   Note that <tt>LatestStreamLabel</tt> is not a unique identifier for
---   the stream, because it is possible that a stream from another table
---   might have the same timestamp. However, the combination of the
---   following three elements is guaranteed to be unique:
---   
---   <ul>
---   <li>the AWS customer ID.</li>
---   <li>the table name</li>
---   <li>the <tt>StreamLabel</tt></li>
---   </ul>
-[$sel:streamLabel:StreamDescription'] :: StreamDescription -> Maybe Text
 
 -- | Create a value of <a>StreamDescription</a> with all optional fields
 --   omitted.
@@ -2174,6 +2174,38 @@ StreamDescription' :: Maybe Text -> Maybe StreamViewType -> Maybe Text -> Maybe 
 --   when you have reached the end of the result set is when
 --   <tt>LastEvaluatedShardId</tt> is empty.
 --   
+--   <a>$sel:streamLabel:StreamDescription'</a>,
+--   <a>streamDescription_streamLabel</a> - A timestamp, in ISO 8601
+--   format, for this stream.
+--   
+--   Note that <tt>LatestStreamLabel</tt> is not a unique identifier for
+--   the stream, because it is possible that a stream from another table
+--   might have the same timestamp. However, the combination of the
+--   following three elements is guaranteed to be unique:
+--   
+--   <ul>
+--   <li>the AWS customer ID.</li>
+--   <li>the table name</li>
+--   <li>the <tt>StreamLabel</tt></li>
+--   </ul>
+--   
+--   <a>$sel:streamStatus:StreamDescription'</a>,
+--   <a>streamDescription_streamStatus</a> - Indicates the current status
+--   of the stream:
+--   
+--   <ul>
+--   <li><tt>ENABLING</tt> - Streams is currently being enabled on the
+--   DynamoDB table.</li>
+--   <li><tt>ENABLED</tt> - the stream is enabled.</li>
+--   <li><tt>DISABLING</tt> - Streams is currently being disabled on the
+--   DynamoDB table.</li>
+--   <li><tt>DISABLED</tt> - the stream is disabled.</li>
+--   </ul>
+--   
+--   <a>$sel:keySchema:StreamDescription'</a>,
+--   <a>streamDescription_keySchema</a> - The key attribute(s) of the
+--   stream's DynamoDB table.
+--   
 --   <a>$sel:streamViewType:StreamDescription'</a>,
 --   <a>streamDescription_streamViewType</a> - Indicates the format of the
 --   records within this stream:
@@ -2189,6 +2221,13 @@ StreamDescription' :: Maybe Text -> Maybe StreamViewType -> Maybe Text -> Maybe 
 --   the items from the table.</li>
 --   </ul>
 --   
+--   <a>$sel:streamArn:StreamDescription'</a>,
+--   <a>streamDescription_streamArn</a> - The Amazon Resource Name (ARN)
+--   for the stream.
+--   
+--   <a>$sel:shards:StreamDescription'</a>, <a>streamDescription_shards</a>
+--   - The shards that comprise the stream.
+--   
 --   <a>$sel:tableName:StreamDescription'</a>,
 --   <a>streamDescription_tableName</a> - The DynamoDB table with which the
 --   stream is associated.
@@ -2196,45 +2235,6 @@ StreamDescription' :: Maybe Text -> Maybe StreamViewType -> Maybe Text -> Maybe 
 --   <a>$sel:creationRequestDateTime:StreamDescription'</a>,
 --   <a>streamDescription_creationRequestDateTime</a> - The date and time
 --   when the request to create this stream was issued.
---   
---   <a>$sel:keySchema:StreamDescription'</a>,
---   <a>streamDescription_keySchema</a> - The key attribute(s) of the
---   stream's DynamoDB table.
---   
---   <a>$sel:streamStatus:StreamDescription'</a>,
---   <a>streamDescription_streamStatus</a> - Indicates the current status
---   of the stream:
---   
---   <ul>
---   <li><tt>ENABLING</tt> - Streams is currently being enabled on the
---   DynamoDB table.</li>
---   <li><tt>ENABLED</tt> - the stream is enabled.</li>
---   <li><tt>DISABLING</tt> - Streams is currently being disabled on the
---   DynamoDB table.</li>
---   <li><tt>DISABLED</tt> - the stream is disabled.</li>
---   </ul>
---   
---   <a>$sel:shards:StreamDescription'</a>, <a>streamDescription_shards</a>
---   - The shards that comprise the stream.
---   
---   <a>$sel:streamArn:StreamDescription'</a>,
---   <a>streamDescription_streamArn</a> - The Amazon Resource Name (ARN)
---   for the stream.
---   
---   <a>$sel:streamLabel:StreamDescription'</a>,
---   <a>streamDescription_streamLabel</a> - A timestamp, in ISO 8601
---   format, for this stream.
---   
---   Note that <tt>LatestStreamLabel</tt> is not a unique identifier for
---   the stream, because it is possible that a stream from another table
---   might have the same timestamp. However, the combination of the
---   following three elements is guaranteed to be unique:
---   
---   <ul>
---   <li>the AWS customer ID.</li>
---   <li>the table name</li>
---   <li>the <tt>StreamLabel</tt></li>
---   </ul>
 newStreamDescription :: StreamDescription
 
 -- | The shard ID of the item where the operation stopped, inclusive of the
@@ -2251,47 +2251,6 @@ newStreamDescription :: StreamDescription
 --   <tt>LastEvaluatedShardId</tt> is empty.
 streamDescription_lastEvaluatedShardId :: Lens' StreamDescription (Maybe Text)
 
--- | Indicates the format of the records within this stream:
---   
---   <ul>
---   <li><tt>KEYS_ONLY</tt> - only the key attributes of items that were
---   modified in the DynamoDB table.</li>
---   <li><tt>NEW_IMAGE</tt> - entire items from the table, as they appeared
---   after they were modified.</li>
---   <li><tt>OLD_IMAGE</tt> - entire items from the table, as they appeared
---   before they were modified.</li>
---   <li><tt>NEW_AND_OLD_IMAGES</tt> - both the new and the old images of
---   the items from the table.</li>
---   </ul>
-streamDescription_streamViewType :: Lens' StreamDescription (Maybe StreamViewType)
-
--- | The DynamoDB table with which the stream is associated.
-streamDescription_tableName :: Lens' StreamDescription (Maybe Text)
-
--- | The date and time when the request to create this stream was issued.
-streamDescription_creationRequestDateTime :: Lens' StreamDescription (Maybe UTCTime)
-
--- | The key attribute(s) of the stream's DynamoDB table.
-streamDescription_keySchema :: Lens' StreamDescription (Maybe (NonEmpty KeySchemaElement))
-
--- | Indicates the current status of the stream:
---   
---   <ul>
---   <li><tt>ENABLING</tt> - Streams is currently being enabled on the
---   DynamoDB table.</li>
---   <li><tt>ENABLED</tt> - the stream is enabled.</li>
---   <li><tt>DISABLING</tt> - Streams is currently being disabled on the
---   DynamoDB table.</li>
---   <li><tt>DISABLED</tt> - the stream is disabled.</li>
---   </ul>
-streamDescription_streamStatus :: Lens' StreamDescription (Maybe StreamStatus)
-
--- | The shards that comprise the stream.
-streamDescription_shards :: Lens' StreamDescription (Maybe [Shard])
-
--- | The Amazon Resource Name (ARN) for the stream.
-streamDescription_streamArn :: Lens' StreamDescription (Maybe Text)
-
 -- | A timestamp, in ISO 8601 format, for this stream.
 --   
 --   Note that <tt>LatestStreamLabel</tt> is not a unique identifier for
@@ -2306,15 +2265,63 @@ streamDescription_streamArn :: Lens' StreamDescription (Maybe Text)
 --   </ul>
 streamDescription_streamLabel :: Lens' StreamDescription (Maybe Text)
 
+-- | Indicates the current status of the stream:
+--   
+--   <ul>
+--   <li><tt>ENABLING</tt> - Streams is currently being enabled on the
+--   DynamoDB table.</li>
+--   <li><tt>ENABLED</tt> - the stream is enabled.</li>
+--   <li><tt>DISABLING</tt> - Streams is currently being disabled on the
+--   DynamoDB table.</li>
+--   <li><tt>DISABLED</tt> - the stream is disabled.</li>
+--   </ul>
+streamDescription_streamStatus :: Lens' StreamDescription (Maybe StreamStatus)
+
+-- | The key attribute(s) of the stream's DynamoDB table.
+streamDescription_keySchema :: Lens' StreamDescription (Maybe (NonEmpty KeySchemaElement))
+
+-- | Indicates the format of the records within this stream:
+--   
+--   <ul>
+--   <li><tt>KEYS_ONLY</tt> - only the key attributes of items that were
+--   modified in the DynamoDB table.</li>
+--   <li><tt>NEW_IMAGE</tt> - entire items from the table, as they appeared
+--   after they were modified.</li>
+--   <li><tt>OLD_IMAGE</tt> - entire items from the table, as they appeared
+--   before they were modified.</li>
+--   <li><tt>NEW_AND_OLD_IMAGES</tt> - both the new and the old images of
+--   the items from the table.</li>
+--   </ul>
+streamDescription_streamViewType :: Lens' StreamDescription (Maybe StreamViewType)
+
+-- | The Amazon Resource Name (ARN) for the stream.
+streamDescription_streamArn :: Lens' StreamDescription (Maybe Text)
+
+-- | The shards that comprise the stream.
+streamDescription_shards :: Lens' StreamDescription (Maybe [Shard])
+
+-- | The DynamoDB table with which the stream is associated.
+streamDescription_tableName :: Lens' StreamDescription (Maybe Text)
+
+-- | The date and time when the request to create this stream was issued.
+streamDescription_creationRequestDateTime :: Lens' StreamDescription (Maybe UTCTime)
+
 -- | A description of a single data modification that was performed on an
 --   item in a DynamoDB table.
 --   
 --   <i>See:</i> <a>newStreamRecord</a> smart constructor.
 data StreamRecord
-StreamRecord' :: Maybe Text -> Maybe StreamViewType -> Maybe (HashMap Text AttributeValue) -> Maybe Natural -> Maybe (HashMap Text AttributeValue) -> Maybe POSIX -> Maybe (HashMap Text AttributeValue) -> StreamRecord
+StreamRecord' :: Maybe Natural -> Maybe Text -> Maybe POSIX -> Maybe StreamViewType -> Maybe (HashMap Text AttributeValue) -> Maybe (HashMap Text AttributeValue) -> Maybe (HashMap Text AttributeValue) -> StreamRecord
+
+-- | The size of the stream record, in bytes.
+[$sel:sizeBytes:StreamRecord'] :: StreamRecord -> Maybe Natural
 
 -- | The sequence number of the stream record.
 [$sel:sequenceNumber:StreamRecord'] :: StreamRecord -> Maybe Text
+
+-- | The approximate date and time when the stream record was created, in
+--   <a>UNIX epoch time</a> format.
+[$sel:approximateCreationDateTime:StreamRecord'] :: StreamRecord -> Maybe POSIX
 
 -- | The type of data from the modified DynamoDB item that was captured in
 --   this stream record:
@@ -2334,18 +2341,11 @@ StreamRecord' :: Maybe Text -> Maybe StreamViewType -> Maybe (HashMap Text Attri
 -- | The primary key attribute(s) for the DynamoDB item that was modified.
 [$sel:keys:StreamRecord'] :: StreamRecord -> Maybe (HashMap Text AttributeValue)
 
--- | The size of the stream record, in bytes.
-[$sel:sizeBytes:StreamRecord'] :: StreamRecord -> Maybe Natural
+-- | The item in the DynamoDB table as it appeared before it was modified.
+[$sel:oldImage:StreamRecord'] :: StreamRecord -> Maybe (HashMap Text AttributeValue)
 
 -- | The item in the DynamoDB table as it appeared after it was modified.
 [$sel:newImage':StreamRecord'] :: StreamRecord -> Maybe (HashMap Text AttributeValue)
-
--- | The approximate date and time when the stream record was created, in
---   <a>UNIX epoch time</a> format.
-[$sel:approximateCreationDateTime:StreamRecord'] :: StreamRecord -> Maybe POSIX
-
--- | The item in the DynamoDB table as it appeared before it was modified.
-[$sel:oldImage:StreamRecord'] :: StreamRecord -> Maybe (HashMap Text AttributeValue)
 
 -- | Create a value of <a>StreamRecord</a> with all optional fields
 --   omitted.
@@ -2356,9 +2356,17 @@ StreamRecord' :: Maybe Text -> Maybe StreamViewType -> Maybe (HashMap Text Attri
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:sizeBytes:StreamRecord'</a>, <a>streamRecord_sizeBytes</a> -
+--   The size of the stream record, in bytes.
+--   
 --   <a>$sel:sequenceNumber:StreamRecord'</a>,
 --   <a>streamRecord_sequenceNumber</a> - The sequence number of the stream
 --   record.
+--   
+--   <a>$sel:approximateCreationDateTime:StreamRecord'</a>,
+--   <a>streamRecord_approximateCreationDateTime</a> - The approximate date
+--   and time when the stream record was created, in <a>UNIX epoch time</a>
+--   format.
 --   
 --   <a>$sel:streamViewType:StreamRecord'</a>,
 --   <a>streamRecord_streamViewType</a> - The type of data from the
@@ -2378,23 +2386,22 @@ StreamRecord' :: Maybe Text -> Maybe StreamViewType -> Maybe (HashMap Text Attri
 --   <a>$sel:keys:StreamRecord'</a>, <a>streamRecord_keys</a> - The primary
 --   key attribute(s) for the DynamoDB item that was modified.
 --   
---   <a>$sel:sizeBytes:StreamRecord'</a>, <a>streamRecord_sizeBytes</a> -
---   The size of the stream record, in bytes.
+--   <a>$sel:oldImage:StreamRecord'</a>, <a>streamRecord_oldImage</a> - The
+--   item in the DynamoDB table as it appeared before it was modified.
 --   
 --   <a>$sel:newImage':StreamRecord'</a>, <a>streamRecord_newImage</a> -
 --   The item in the DynamoDB table as it appeared after it was modified.
---   
---   <a>$sel:approximateCreationDateTime:StreamRecord'</a>,
---   <a>streamRecord_approximateCreationDateTime</a> - The approximate date
---   and time when the stream record was created, in <a>UNIX epoch time</a>
---   format.
---   
---   <a>$sel:oldImage:StreamRecord'</a>, <a>streamRecord_oldImage</a> - The
---   item in the DynamoDB table as it appeared before it was modified.
 newStreamRecord :: StreamRecord
+
+-- | The size of the stream record, in bytes.
+streamRecord_sizeBytes :: Lens' StreamRecord (Maybe Natural)
 
 -- | The sequence number of the stream record.
 streamRecord_sequenceNumber :: Lens' StreamRecord (Maybe Text)
+
+-- | The approximate date and time when the stream record was created, in
+--   <a>UNIX epoch time</a> format.
+streamRecord_approximateCreationDateTime :: Lens' StreamRecord (Maybe UTCTime)
 
 -- | The type of data from the modified DynamoDB item that was captured in
 --   this stream record:
@@ -2414,18 +2421,11 @@ streamRecord_streamViewType :: Lens' StreamRecord (Maybe StreamViewType)
 -- | The primary key attribute(s) for the DynamoDB item that was modified.
 streamRecord_keys :: Lens' StreamRecord (Maybe (HashMap Text AttributeValue))
 
--- | The size of the stream record, in bytes.
-streamRecord_sizeBytes :: Lens' StreamRecord (Maybe Natural)
+-- | The item in the DynamoDB table as it appeared before it was modified.
+streamRecord_oldImage :: Lens' StreamRecord (Maybe (HashMap Text AttributeValue))
 
 -- | The item in the DynamoDB table as it appeared after it was modified.
 streamRecord_newImage :: Lens' StreamRecord (Maybe (HashMap Text AttributeValue))
-
--- | The approximate date and time when the stream record was created, in
---   <a>UNIX epoch time</a> format.
-streamRecord_approximateCreationDateTime :: Lens' StreamRecord (Maybe UTCTime)
-
--- | The item in the DynamoDB table as it appeared before it was modified.
-streamRecord_oldImage :: Lens' StreamRecord (Maybe (HashMap Text AttributeValue))
 
 
 -- | Returns an array of stream ARNs associated with the current account
@@ -2440,11 +2440,7 @@ module Network.AWS.DynamoDBStreams.ListStreams
 --   
 --   <i>See:</i> <a>newListStreams</a> smart constructor.
 data ListStreams
-ListStreams' :: Maybe Text -> Maybe Text -> Maybe Natural -> ListStreams
-
--- | If this parameter is provided, then only the streams associated with
---   this table name are returned.
-[$sel:tableName:ListStreams'] :: ListStreams -> Maybe Text
+ListStreams' :: Maybe Text -> Maybe Natural -> Maybe Text -> ListStreams
 
 -- | The ARN (Amazon Resource Name) of the first item that this operation
 --   will evaluate. Use the value that was returned for
@@ -2454,6 +2450,10 @@ ListStreams' :: Maybe Text -> Maybe Text -> Maybe Natural -> ListStreams
 -- | The maximum number of streams to return. The upper limit is 100.
 [$sel:limit:ListStreams'] :: ListStreams -> Maybe Natural
 
+-- | If this parameter is provided, then only the streams associated with
+--   this table name are returned.
+[$sel:tableName:ListStreams'] :: ListStreams -> Maybe Text
+
 -- | Create a value of <a>ListStreams</a> with all optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -2461,10 +2461,6 @@ ListStreams' :: Maybe Text -> Maybe Text -> Maybe Natural -> ListStreams
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
---   
---   <a>$sel:tableName:ListStreams'</a>, <a>listStreams_tableName</a> - If
---   this parameter is provided, then only the streams associated with this
---   table name are returned.
 --   
 --   <a>$sel:exclusiveStartStreamArn:ListStreams'</a>,
 --   <a>listStreams_exclusiveStartStreamArn</a> - The ARN (Amazon Resource
@@ -2474,11 +2470,11 @@ ListStreams' :: Maybe Text -> Maybe Text -> Maybe Natural -> ListStreams
 --   
 --   <a>$sel:limit:ListStreams'</a>, <a>listStreams_limit</a> - The maximum
 --   number of streams to return. The upper limit is 100.
+--   
+--   <a>$sel:tableName:ListStreams'</a>, <a>listStreams_tableName</a> - If
+--   this parameter is provided, then only the streams associated with this
+--   table name are returned.
 newListStreams :: ListStreams
-
--- | If this parameter is provided, then only the streams associated with
---   this table name are returned.
-listStreams_tableName :: Lens' ListStreams (Maybe Text)
 
 -- | The ARN (Amazon Resource Name) of the first item that this operation
 --   will evaluate. Use the value that was returned for
@@ -2488,15 +2484,15 @@ listStreams_exclusiveStartStreamArn :: Lens' ListStreams (Maybe Text)
 -- | The maximum number of streams to return. The upper limit is 100.
 listStreams_limit :: Lens' ListStreams (Maybe Natural)
 
+-- | If this parameter is provided, then only the streams associated with
+--   this table name are returned.
+listStreams_tableName :: Lens' ListStreams (Maybe Text)
+
 -- | Represents the output of a <tt>ListStreams</tt> operation.
 --   
 --   <i>See:</i> <a>newListStreamsResponse</a> smart constructor.
 data ListStreamsResponse
-ListStreamsResponse' :: Maybe [Stream] -> Maybe Text -> Int -> ListStreamsResponse
-
--- | A list of stream descriptors associated with the current account and
---   endpoint.
-[$sel:streams:ListStreamsResponse'] :: ListStreamsResponse -> Maybe [Stream]
+ListStreamsResponse' :: Maybe Text -> Maybe [Stream] -> Int -> ListStreamsResponse
 
 -- | The stream ARN of the item where the operation stopped, inclusive of
 --   the previous result set. Use this value to start a new operation,
@@ -2511,6 +2507,10 @@ ListStreamsResponse' :: Maybe [Stream] -> Maybe Text -> Int -> ListStreamsRespon
 --   <tt>LastEvaluatedStreamArn</tt> is empty.
 [$sel:lastEvaluatedStreamArn:ListStreamsResponse'] :: ListStreamsResponse -> Maybe Text
 
+-- | A list of stream descriptors associated with the current account and
+--   endpoint.
+[$sel:streams:ListStreamsResponse'] :: ListStreamsResponse -> Maybe [Stream]
+
 -- | The response's http status code.
 [$sel:httpStatus:ListStreamsResponse'] :: ListStreamsResponse -> Int
 
@@ -2522,10 +2522,6 @@ ListStreamsResponse' :: Maybe [Stream] -> Maybe Text -> Int -> ListStreamsRespon
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
---   
---   <a>$sel:streams:ListStreamsResponse'</a>,
---   <a>listStreamsResponse_streams</a> - A list of stream descriptors
---   associated with the current account and endpoint.
 --   
 --   <a>$sel:lastEvaluatedStreamArn:ListStreamsResponse'</a>,
 --   <a>listStreamsResponse_lastEvaluatedStreamArn</a> - The stream ARN of
@@ -2541,14 +2537,14 @@ ListStreamsResponse' :: Maybe [Stream] -> Maybe Text -> Int -> ListStreamsRespon
 --   way to know when you have reached the end of the result set is when
 --   <tt>LastEvaluatedStreamArn</tt> is empty.
 --   
+--   <a>$sel:streams:ListStreamsResponse'</a>,
+--   <a>listStreamsResponse_streams</a> - A list of stream descriptors
+--   associated with the current account and endpoint.
+--   
 --   <a>$sel:httpStatus:ListStreamsResponse'</a>,
 --   <a>listStreamsResponse_httpStatus</a> - The response's http status
 --   code.
 newListStreamsResponse :: Int -> ListStreamsResponse
-
--- | A list of stream descriptors associated with the current account and
---   endpoint.
-listStreamsResponse_streams :: Lens' ListStreamsResponse (Maybe [Stream])
 
 -- | The stream ARN of the item where the operation stopped, inclusive of
 --   the previous result set. Use this value to start a new operation,
@@ -2562,6 +2558,10 @@ listStreamsResponse_streams :: Lens' ListStreamsResponse (Maybe [Stream])
 --   way to know when you have reached the end of the result set is when
 --   <tt>LastEvaluatedStreamArn</tt> is empty.
 listStreamsResponse_lastEvaluatedStreamArn :: Lens' ListStreamsResponse (Maybe Text)
+
+-- | A list of stream descriptors associated with the current account and
+--   endpoint.
+listStreamsResponse_streams :: Lens' ListStreamsResponse (Maybe [Stream])
 
 -- | The response's http status code.
 listStreamsResponse_httpStatus :: Lens' ListStreamsResponse Int
@@ -3072,6 +3072,38 @@ getRecordsResponse_nextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
 -- | The response's http status code.
 getRecordsResponse_httpStatus :: Lens' GetRecordsResponse Int
 
+-- | The ARN (Amazon Resource Name) of the first item that this operation
+--   will evaluate. Use the value that was returned for
+--   <tt>LastEvaluatedStreamArn</tt> in the previous operation.
+listStreams_exclusiveStartStreamArn :: Lens' ListStreams (Maybe Text)
+
+-- | The maximum number of streams to return. The upper limit is 100.
+listStreams_limit :: Lens' ListStreams (Maybe Natural)
+
+-- | If this parameter is provided, then only the streams associated with
+--   this table name are returned.
+listStreams_tableName :: Lens' ListStreams (Maybe Text)
+
+-- | The stream ARN of the item where the operation stopped, inclusive of
+--   the previous result set. Use this value to start a new operation,
+--   excluding this value in the new request.
+--   
+--   If <tt>LastEvaluatedStreamArn</tt> is empty, then the "last page" of
+--   results has been processed and there is no more data to be retrieved.
+--   
+--   If <tt>LastEvaluatedStreamArn</tt> is not empty, it does not
+--   necessarily mean that there is more data in the result set. The only
+--   way to know when you have reached the end of the result set is when
+--   <tt>LastEvaluatedStreamArn</tt> is empty.
+listStreamsResponse_lastEvaluatedStreamArn :: Lens' ListStreamsResponse (Maybe Text)
+
+-- | A list of stream descriptors associated with the current account and
+--   endpoint.
+listStreamsResponse_streams :: Lens' ListStreamsResponse (Maybe [Stream])
+
+-- | The response's http status code.
+listStreamsResponse_httpStatus :: Lens' ListStreamsResponse Int
+
 -- | The shard ID of the first item that this operation will evaluate. Use
 --   the value that was returned for <tt>LastEvaluatedShardId</tt> in the
 --   previous operation.
@@ -3092,44 +3124,38 @@ describeStreamResponse_streamDescription :: Lens' DescribeStreamResponse (Maybe 
 -- | The response's http status code.
 describeStreamResponse_httpStatus :: Lens' DescribeStreamResponse Int
 
--- | If this parameter is provided, then only the streams associated with
---   this table name are returned.
-listStreams_tableName :: Lens' ListStreams (Maybe Text)
-
--- | The ARN (Amazon Resource Name) of the first item that this operation
---   will evaluate. Use the value that was returned for
---   <tt>LastEvaluatedStreamArn</tt> in the previous operation.
-listStreams_exclusiveStartStreamArn :: Lens' ListStreams (Maybe Text)
-
--- | The maximum number of streams to return. The upper limit is 100.
-listStreams_limit :: Lens' ListStreams (Maybe Natural)
-
--- | A list of stream descriptors associated with the current account and
---   endpoint.
-listStreamsResponse_streams :: Lens' ListStreamsResponse (Maybe [Stream])
-
--- | The stream ARN of the item where the operation stopped, inclusive of
---   the previous result set. Use this value to start a new operation,
---   excluding this value in the new request.
---   
---   If <tt>LastEvaluatedStreamArn</tt> is empty, then the "last page" of
---   results has been processed and there is no more data to be retrieved.
---   
---   If <tt>LastEvaluatedStreamArn</tt> is not empty, it does not
---   necessarily mean that there is more data in the result set. The only
---   way to know when you have reached the end of the result set is when
---   <tt>LastEvaluatedStreamArn</tt> is empty.
-listStreamsResponse_lastEvaluatedStreamArn :: Lens' ListStreamsResponse (Maybe Text)
-
--- | The response's http status code.
-listStreamsResponse_httpStatus :: Lens' ListStreamsResponse Int
-
--- | An attribute of type Binary Set. For example:
+-- | An attribute of type List. For example:
 --   
 --   <pre>
---   "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]
+--   "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]
 --   </pre>
-attributeValue_bs :: Lens' AttributeValue (Maybe [ByteString])
+attributeValue_l :: Lens' AttributeValue (Maybe [AttributeValue])
+
+-- | An attribute of type Number Set. For example:
+--   
+--   <pre>
+--   "NS": ["42.2", "-19", "7.5", "3.14"]
+--   </pre>
+--   
+--   Numbers are sent across the network to DynamoDB as strings, to
+--   maximize compatibility across languages and libraries. However,
+--   DynamoDB treats them as number type attributes for mathematical
+--   operations.
+attributeValue_ns :: Lens' AttributeValue (Maybe [Text])
+
+-- | An attribute of type Map. For example:
+--   
+--   <pre>
+--   "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}
+--   </pre>
+attributeValue_m :: Lens' AttributeValue (Maybe (HashMap Text AttributeValue))
+
+-- | An attribute of type Null. For example:
+--   
+--   <pre>
+--   "NULL": true
+--   </pre>
+attributeValue_null :: Lens' AttributeValue (Maybe Bool)
 
 -- | An attribute of type Number. For example:
 --   
@@ -3143,33 +3169,12 @@ attributeValue_bs :: Lens' AttributeValue (Maybe [ByteString])
 --   operations.
 attributeValue_n :: Lens' AttributeValue (Maybe Text)
 
--- | An attribute of type Boolean. For example:
+-- | An attribute of type Binary Set. For example:
 --   
 --   <pre>
---   "BOOL": true
+--   "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]
 --   </pre>
-attributeValue_bool :: Lens' AttributeValue (Maybe Bool)
-
--- | An attribute of type Null. For example:
---   
---   <pre>
---   "NULL": true
---   </pre>
-attributeValue_null :: Lens' AttributeValue (Maybe Bool)
-
--- | An attribute of type String. For example:
---   
---   <pre>
---   "S": "Hello"
---   </pre>
-attributeValue_s :: Lens' AttributeValue (Maybe Text)
-
--- | An attribute of type Map. For example:
---   
---   <pre>
---   "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}
---   </pre>
-attributeValue_m :: Lens' AttributeValue (Maybe (HashMap Text AttributeValue))
+attributeValue_bs :: Lens' AttributeValue (Maybe [ByteString])
 
 -- | An attribute of type Binary. For example:
 --   
@@ -3181,13 +3186,6 @@ attributeValue_m :: Lens' AttributeValue (Maybe (HashMap Text AttributeValue))
 --   unencoded data.
 attributeValue_b :: Lens' AttributeValue (Maybe ByteString)
 
--- | An attribute of type List. For example:
---   
---   <pre>
---   "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]
---   </pre>
-attributeValue_l :: Lens' AttributeValue (Maybe [AttributeValue])
-
 -- | An attribute of type String Set. For example:
 --   
 --   <pre>
@@ -3195,17 +3193,19 @@ attributeValue_l :: Lens' AttributeValue (Maybe [AttributeValue])
 --   </pre>
 attributeValue_ss :: Lens' AttributeValue (Maybe [Text])
 
--- | An attribute of type Number Set. For example:
+-- | An attribute of type String. For example:
 --   
 --   <pre>
---   "NS": ["42.2", "-19", "7.5", "3.14"]
+--   "S": "Hello"
 --   </pre>
+attributeValue_s :: Lens' AttributeValue (Maybe Text)
+
+-- | An attribute of type Boolean. For example:
 --   
---   Numbers are sent across the network to DynamoDB as strings, to
---   maximize compatibility across languages and libraries. However,
---   DynamoDB treats them as number type attributes for mathematical
---   operations.
-attributeValue_ns :: Lens' AttributeValue (Maybe [Text])
+--   <pre>
+--   "BOOL": true
+--   </pre>
+attributeValue_bool :: Lens' AttributeValue (Maybe Bool)
 
 -- | A unique identifier for the entity that made the call. For Time To
 --   Live, the principalId is "dynamodb.amazonaws.com".
@@ -3244,25 +3244,6 @@ keySchemaElement_keyType :: Lens' KeySchemaElement KeyType
 --   </ul>
 record_userIdentity :: Lens' Record (Maybe Identity)
 
--- | The AWS service from which the stream record originated. For DynamoDB
---   Streams, this is <tt>aws:dynamodb</tt>.
-record_eventSource :: Lens' Record (Maybe Text)
-
--- | A globally unique identifier for the event that was recorded in this
---   stream record.
-record_eventID :: Lens' Record (Maybe Text)
-
--- | The type of data modification that was performed on the DynamoDB
---   table:
---   
---   <ul>
---   <li><tt>INSERT</tt> - a new item was added to the table.</li>
---   <li><tt>MODIFY</tt> - one or more of an existing item's attributes
---   were modified.</li>
---   <li><tt>REMOVE</tt> - the item was deleted from the table</li>
---   </ul>
-record_eventName :: Lens' Record (Maybe OperationType)
-
 -- | The version number of the stream record format. This number is updated
 --   whenever the structure of <tt>Record</tt> is modified.
 --   
@@ -3279,6 +3260,25 @@ record_dynamodb :: Lens' Record (Maybe StreamRecord)
 -- | The region in which the <tt>GetRecords</tt> request was received.
 record_awsRegion :: Lens' Record (Maybe Text)
 
+-- | The type of data modification that was performed on the DynamoDB
+--   table:
+--   
+--   <ul>
+--   <li><tt>INSERT</tt> - a new item was added to the table.</li>
+--   <li><tt>MODIFY</tt> - one or more of an existing item's attributes
+--   were modified.</li>
+--   <li><tt>REMOVE</tt> - the item was deleted from the table</li>
+--   </ul>
+record_eventName :: Lens' Record (Maybe OperationType)
+
+-- | The AWS service from which the stream record originated. For DynamoDB
+--   Streams, this is <tt>aws:dynamodb</tt>.
+record_eventSource :: Lens' Record (Maybe Text)
+
+-- | A globally unique identifier for the event that was recorded in this
+--   stream record.
+record_eventID :: Lens' Record (Maybe Text)
+
 -- | The first sequence number for the stream records contained within a
 --   shard. String contains numeric characters only.
 sequenceNumberRange_startingSequenceNumber :: Lens' SequenceNumberRange (Maybe Text)
@@ -3287,20 +3287,14 @@ sequenceNumberRange_startingSequenceNumber :: Lens' SequenceNumberRange (Maybe T
 --   shard. String contains numeric characters only.
 sequenceNumberRange_endingSequenceNumber :: Lens' SequenceNumberRange (Maybe Text)
 
--- | The system-generated identifier for this shard.
-shard_shardId :: Lens' Shard (Maybe Text)
+-- | The shard ID of the current shard's parent.
+shard_parentShardId :: Lens' Shard (Maybe Text)
 
 -- | The range of possible sequence numbers for the shard.
 shard_sequenceNumberRange :: Lens' Shard (Maybe SequenceNumberRange)
 
--- | The shard ID of the current shard's parent.
-shard_parentShardId :: Lens' Shard (Maybe Text)
-
--- | The DynamoDB table with which the stream is associated.
-stream_tableName :: Lens' Stream (Maybe Text)
-
--- | The Amazon Resource Name (ARN) for the stream.
-stream_streamArn :: Lens' Stream (Maybe Text)
+-- | The system-generated identifier for this shard.
+shard_shardId :: Lens' Shard (Maybe Text)
 
 -- | A timestamp, in ISO 8601 format, for this stream.
 --   
@@ -3316,6 +3310,12 @@ stream_streamArn :: Lens' Stream (Maybe Text)
 --   </ul>
 stream_streamLabel :: Lens' Stream (Maybe Text)
 
+-- | The Amazon Resource Name (ARN) for the stream.
+stream_streamArn :: Lens' Stream (Maybe Text)
+
+-- | The DynamoDB table with which the stream is associated.
+stream_tableName :: Lens' Stream (Maybe Text)
+
 -- | The shard ID of the item where the operation stopped, inclusive of the
 --   previous result set. Use this value to start a new operation,
 --   excluding this value in the new request.
@@ -3329,47 +3329,6 @@ stream_streamLabel :: Lens' Stream (Maybe Text)
 --   when you have reached the end of the result set is when
 --   <tt>LastEvaluatedShardId</tt> is empty.
 streamDescription_lastEvaluatedShardId :: Lens' StreamDescription (Maybe Text)
-
--- | Indicates the format of the records within this stream:
---   
---   <ul>
---   <li><tt>KEYS_ONLY</tt> - only the key attributes of items that were
---   modified in the DynamoDB table.</li>
---   <li><tt>NEW_IMAGE</tt> - entire items from the table, as they appeared
---   after they were modified.</li>
---   <li><tt>OLD_IMAGE</tt> - entire items from the table, as they appeared
---   before they were modified.</li>
---   <li><tt>NEW_AND_OLD_IMAGES</tt> - both the new and the old images of
---   the items from the table.</li>
---   </ul>
-streamDescription_streamViewType :: Lens' StreamDescription (Maybe StreamViewType)
-
--- | The DynamoDB table with which the stream is associated.
-streamDescription_tableName :: Lens' StreamDescription (Maybe Text)
-
--- | The date and time when the request to create this stream was issued.
-streamDescription_creationRequestDateTime :: Lens' StreamDescription (Maybe UTCTime)
-
--- | The key attribute(s) of the stream's DynamoDB table.
-streamDescription_keySchema :: Lens' StreamDescription (Maybe (NonEmpty KeySchemaElement))
-
--- | Indicates the current status of the stream:
---   
---   <ul>
---   <li><tt>ENABLING</tt> - Streams is currently being enabled on the
---   DynamoDB table.</li>
---   <li><tt>ENABLED</tt> - the stream is enabled.</li>
---   <li><tt>DISABLING</tt> - Streams is currently being disabled on the
---   DynamoDB table.</li>
---   <li><tt>DISABLED</tt> - the stream is disabled.</li>
---   </ul>
-streamDescription_streamStatus :: Lens' StreamDescription (Maybe StreamStatus)
-
--- | The shards that comprise the stream.
-streamDescription_shards :: Lens' StreamDescription (Maybe [Shard])
-
--- | The Amazon Resource Name (ARN) for the stream.
-streamDescription_streamArn :: Lens' StreamDescription (Maybe Text)
 
 -- | A timestamp, in ISO 8601 format, for this stream.
 --   
@@ -3385,8 +3344,56 @@ streamDescription_streamArn :: Lens' StreamDescription (Maybe Text)
 --   </ul>
 streamDescription_streamLabel :: Lens' StreamDescription (Maybe Text)
 
+-- | Indicates the current status of the stream:
+--   
+--   <ul>
+--   <li><tt>ENABLING</tt> - Streams is currently being enabled on the
+--   DynamoDB table.</li>
+--   <li><tt>ENABLED</tt> - the stream is enabled.</li>
+--   <li><tt>DISABLING</tt> - Streams is currently being disabled on the
+--   DynamoDB table.</li>
+--   <li><tt>DISABLED</tt> - the stream is disabled.</li>
+--   </ul>
+streamDescription_streamStatus :: Lens' StreamDescription (Maybe StreamStatus)
+
+-- | The key attribute(s) of the stream's DynamoDB table.
+streamDescription_keySchema :: Lens' StreamDescription (Maybe (NonEmpty KeySchemaElement))
+
+-- | Indicates the format of the records within this stream:
+--   
+--   <ul>
+--   <li><tt>KEYS_ONLY</tt> - only the key attributes of items that were
+--   modified in the DynamoDB table.</li>
+--   <li><tt>NEW_IMAGE</tt> - entire items from the table, as they appeared
+--   after they were modified.</li>
+--   <li><tt>OLD_IMAGE</tt> - entire items from the table, as they appeared
+--   before they were modified.</li>
+--   <li><tt>NEW_AND_OLD_IMAGES</tt> - both the new and the old images of
+--   the items from the table.</li>
+--   </ul>
+streamDescription_streamViewType :: Lens' StreamDescription (Maybe StreamViewType)
+
+-- | The Amazon Resource Name (ARN) for the stream.
+streamDescription_streamArn :: Lens' StreamDescription (Maybe Text)
+
+-- | The shards that comprise the stream.
+streamDescription_shards :: Lens' StreamDescription (Maybe [Shard])
+
+-- | The DynamoDB table with which the stream is associated.
+streamDescription_tableName :: Lens' StreamDescription (Maybe Text)
+
+-- | The date and time when the request to create this stream was issued.
+streamDescription_creationRequestDateTime :: Lens' StreamDescription (Maybe UTCTime)
+
+-- | The size of the stream record, in bytes.
+streamRecord_sizeBytes :: Lens' StreamRecord (Maybe Natural)
+
 -- | The sequence number of the stream record.
 streamRecord_sequenceNumber :: Lens' StreamRecord (Maybe Text)
+
+-- | The approximate date and time when the stream record was created, in
+--   <a>UNIX epoch time</a> format.
+streamRecord_approximateCreationDateTime :: Lens' StreamRecord (Maybe UTCTime)
 
 -- | The type of data from the modified DynamoDB item that was captured in
 --   this stream record:
@@ -3406,18 +3413,11 @@ streamRecord_streamViewType :: Lens' StreamRecord (Maybe StreamViewType)
 -- | The primary key attribute(s) for the DynamoDB item that was modified.
 streamRecord_keys :: Lens' StreamRecord (Maybe (HashMap Text AttributeValue))
 
--- | The size of the stream record, in bytes.
-streamRecord_sizeBytes :: Lens' StreamRecord (Maybe Natural)
+-- | The item in the DynamoDB table as it appeared before it was modified.
+streamRecord_oldImage :: Lens' StreamRecord (Maybe (HashMap Text AttributeValue))
 
 -- | The item in the DynamoDB table as it appeared after it was modified.
 streamRecord_newImage :: Lens' StreamRecord (Maybe (HashMap Text AttributeValue))
-
--- | The approximate date and time when the stream record was created, in
---   <a>UNIX epoch time</a> format.
-streamRecord_approximateCreationDateTime :: Lens' StreamRecord (Maybe UTCTime)
-
--- | The item in the DynamoDB table as it appeared before it was modified.
-streamRecord_oldImage :: Lens' StreamRecord (Maybe (HashMap Text AttributeValue))
 
 
 module Network.AWS.DynamoDBStreams.Waiters
@@ -3438,6 +3438,14 @@ module Network.AWS.DynamoDBStreams
 --   configuration.
 defaultService :: Service
 
+-- | The shard iterator has expired and can no longer be used to retrieve
+--   stream records. A shard iterator expires 15 minutes after it is
+--   retrieved using the <tt>GetShardIterator</tt> action.
+_ExpiredIteratorException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | An error occurred on the server side.
+_InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
+
 -- | The operation attempted to read past the oldest stream record in a
 --   shard.
 --   
@@ -3456,13 +3464,10 @@ defaultService :: Service
 --   </ul>
 _TrimmedDataAccessException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The shard iterator has expired and can no longer be used to retrieve
---   stream records. A shard iterator expires 15 minutes after it is
---   retrieved using the <tt>GetShardIterator</tt> action.
-_ExpiredIteratorException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | An error occurred on the server side.
-_InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The operation tried to access a nonexistent table or index. The
+--   resource might not be specified correctly, or its status might not be
+--   <tt>ACTIVE</tt>.
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | There is no limit to the number of daily on-demand backups that can be
 --   taken.
@@ -3480,11 +3485,6 @@ _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 --   
 --   There is a soft account quota of 256 tables.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The operation tried to access a nonexistent table or index. The
---   resource might not be specified correctly, or its status might not be
---   <tt>ACTIVE</tt>.
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Represents the input of a <tt>GetShardIterator</tt> operation.
 --   
@@ -3612,6 +3612,72 @@ GetRecordsResponse' :: Maybe [Record] -> Maybe Text -> Int -> GetRecordsResponse
 --   code.
 newGetRecordsResponse :: Int -> GetRecordsResponse
 
+-- | Represents the input of a <tt>ListStreams</tt> operation.
+--   
+--   <i>See:</i> <a>newListStreams</a> smart constructor.
+data ListStreams
+ListStreams' :: Maybe Text -> Maybe Natural -> Maybe Text -> ListStreams
+
+-- | Create a value of <a>ListStreams</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:exclusiveStartStreamArn:ListStreams'</a>,
+--   <a>listStreams_exclusiveStartStreamArn</a> - The ARN (Amazon Resource
+--   Name) of the first item that this operation will evaluate. Use the
+--   value that was returned for <tt>LastEvaluatedStreamArn</tt> in the
+--   previous operation.
+--   
+--   <a>$sel:limit:ListStreams'</a>, <a>listStreams_limit</a> - The maximum
+--   number of streams to return. The upper limit is 100.
+--   
+--   <a>$sel:tableName:ListStreams'</a>, <a>listStreams_tableName</a> - If
+--   this parameter is provided, then only the streams associated with this
+--   table name are returned.
+newListStreams :: ListStreams
+
+-- | Represents the output of a <tt>ListStreams</tt> operation.
+--   
+--   <i>See:</i> <a>newListStreamsResponse</a> smart constructor.
+data ListStreamsResponse
+ListStreamsResponse' :: Maybe Text -> Maybe [Stream] -> Int -> ListStreamsResponse
+
+-- | Create a value of <a>ListStreamsResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:lastEvaluatedStreamArn:ListStreamsResponse'</a>,
+--   <a>listStreamsResponse_lastEvaluatedStreamArn</a> - The stream ARN of
+--   the item where the operation stopped, inclusive of the previous result
+--   set. Use this value to start a new operation, excluding this value in
+--   the new request.
+--   
+--   If <tt>LastEvaluatedStreamArn</tt> is empty, then the "last page" of
+--   results has been processed and there is no more data to be retrieved.
+--   
+--   If <tt>LastEvaluatedStreamArn</tt> is not empty, it does not
+--   necessarily mean that there is more data in the result set. The only
+--   way to know when you have reached the end of the result set is when
+--   <tt>LastEvaluatedStreamArn</tt> is empty.
+--   
+--   <a>$sel:streams:ListStreamsResponse'</a>,
+--   <a>listStreamsResponse_streams</a> - A list of stream descriptors
+--   associated with the current account and endpoint.
+--   
+--   <a>$sel:httpStatus:ListStreamsResponse'</a>,
+--   <a>listStreamsResponse_httpStatus</a> - The response's http status
+--   code.
+newListStreamsResponse :: Int -> ListStreamsResponse
+
 -- | Represents the input of a <tt>DescribeStream</tt> operation.
 --   
 --   <i>See:</i> <a>newDescribeStream</a> smart constructor.
@@ -3665,72 +3731,6 @@ DescribeStreamResponse' :: Maybe StreamDescription -> Int -> DescribeStreamRespo
 --   <a>describeStreamResponse_httpStatus</a> - The response's http status
 --   code.
 newDescribeStreamResponse :: Int -> DescribeStreamResponse
-
--- | Represents the input of a <tt>ListStreams</tt> operation.
---   
---   <i>See:</i> <a>newListStreams</a> smart constructor.
-data ListStreams
-ListStreams' :: Maybe Text -> Maybe Text -> Maybe Natural -> ListStreams
-
--- | Create a value of <a>ListStreams</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:tableName:ListStreams'</a>, <a>listStreams_tableName</a> - If
---   this parameter is provided, then only the streams associated with this
---   table name are returned.
---   
---   <a>$sel:exclusiveStartStreamArn:ListStreams'</a>,
---   <a>listStreams_exclusiveStartStreamArn</a> - The ARN (Amazon Resource
---   Name) of the first item that this operation will evaluate. Use the
---   value that was returned for <tt>LastEvaluatedStreamArn</tt> in the
---   previous operation.
---   
---   <a>$sel:limit:ListStreams'</a>, <a>listStreams_limit</a> - The maximum
---   number of streams to return. The upper limit is 100.
-newListStreams :: ListStreams
-
--- | Represents the output of a <tt>ListStreams</tt> operation.
---   
---   <i>See:</i> <a>newListStreamsResponse</a> smart constructor.
-data ListStreamsResponse
-ListStreamsResponse' :: Maybe [Stream] -> Maybe Text -> Int -> ListStreamsResponse
-
--- | Create a value of <a>ListStreamsResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:streams:ListStreamsResponse'</a>,
---   <a>listStreamsResponse_streams</a> - A list of stream descriptors
---   associated with the current account and endpoint.
---   
---   <a>$sel:lastEvaluatedStreamArn:ListStreamsResponse'</a>,
---   <a>listStreamsResponse_lastEvaluatedStreamArn</a> - The stream ARN of
---   the item where the operation stopped, inclusive of the previous result
---   set. Use this value to start a new operation, excluding this value in
---   the new request.
---   
---   If <tt>LastEvaluatedStreamArn</tt> is empty, then the "last page" of
---   results has been processed and there is no more data to be retrieved.
---   
---   If <tt>LastEvaluatedStreamArn</tt> is not empty, it does not
---   necessarily mean that there is more data in the result set. The only
---   way to know when you have reached the end of the result set is when
---   <tt>LastEvaluatedStreamArn</tt> is empty.
---   
---   <a>$sel:httpStatus:ListStreamsResponse'</a>,
---   <a>listStreamsResponse_httpStatus</a> - The response's http status
---   code.
-newListStreamsResponse :: Int -> ListStreamsResponse
 newtype KeyType
 KeyType' :: Text -> KeyType
 [fromKeyType] :: KeyType -> Text
@@ -3774,7 +3774,7 @@ pattern StreamViewType_OLD_IMAGE :: StreamViewType
 --   
 --   <i>See:</i> <a>newAttributeValue</a> smart constructor.
 data AttributeValue
-AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> Maybe Text -> Maybe (HashMap Text AttributeValue) -> Maybe Base64 -> Maybe [AttributeValue] -> Maybe [Text] -> Maybe [Text] -> AttributeValue
+AttributeValue' :: Maybe [AttributeValue] -> Maybe [Text] -> Maybe (HashMap Text AttributeValue) -> Maybe Bool -> Maybe Text -> Maybe [Base64] -> Maybe Base64 -> Maybe [Text] -> Maybe Text -> Maybe Bool -> AttributeValue
 
 -- | Create a value of <a>AttributeValue</a> with all optional fields
 --   omitted.
@@ -3785,11 +3785,37 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:bs:AttributeValue'</a>, <a>attributeValue_bs</a> - An
---   attribute of type Binary Set. For example:
+--   <a>$sel:l:AttributeValue'</a>, <a>attributeValue_l</a> - An attribute
+--   of type List. For example:
 --   
 --   <pre>
---   "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]
+--   "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]
+--   </pre>
+--   
+--   <a>$sel:ns:AttributeValue'</a>, <a>attributeValue_ns</a> - An
+--   attribute of type Number Set. For example:
+--   
+--   <pre>
+--   "NS": ["42.2", "-19", "7.5", "3.14"]
+--   </pre>
+--   
+--   Numbers are sent across the network to DynamoDB as strings, to
+--   maximize compatibility across languages and libraries. However,
+--   DynamoDB treats them as number type attributes for mathematical
+--   operations.
+--   
+--   <a>$sel:m:AttributeValue'</a>, <a>attributeValue_m</a> - An attribute
+--   of type Map. For example:
+--   
+--   <pre>
+--   "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}
+--   </pre>
+--   
+--   <a>$sel:null:AttributeValue'</a>, <a>attributeValue_null</a> - An
+--   attribute of type Null. For example:
+--   
+--   <pre>
+--   "NULL": true
 --   </pre>
 --   
 --   <a>$sel:n:AttributeValue'</a>, <a>attributeValue_n</a> - An attribute
@@ -3804,32 +3830,11 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   DynamoDB treats them as number type attributes for mathematical
 --   operations.
 --   
---   <a>$sel:bool:AttributeValue'</a>, <a>attributeValue_bool</a> - An
---   attribute of type Boolean. For example:
+--   <a>$sel:bs:AttributeValue'</a>, <a>attributeValue_bs</a> - An
+--   attribute of type Binary Set. For example:
 --   
 --   <pre>
---   "BOOL": true
---   </pre>
---   
---   <a>$sel:null:AttributeValue'</a>, <a>attributeValue_null</a> - An
---   attribute of type Null. For example:
---   
---   <pre>
---   "NULL": true
---   </pre>
---   
---   <a>$sel:s:AttributeValue'</a>, <a>attributeValue_s</a> - An attribute
---   of type String. For example:
---   
---   <pre>
---   "S": "Hello"
---   </pre>
---   
---   <a>$sel:m:AttributeValue'</a>, <a>attributeValue_m</a> - An attribute
---   of type Map. For example:
---   
---   <pre>
---   "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}
+--   "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]
 --   </pre>
 --   
 --   <a>$sel:b:AttributeValue'</a>, <a>attributeValue_b</a> - An attribute
@@ -3842,13 +3847,6 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   deserialisation. -- This <tt>Lens</tt> accepts and returns only raw
 --   unencoded data.
 --   
---   <a>$sel:l:AttributeValue'</a>, <a>attributeValue_l</a> - An attribute
---   of type List. For example:
---   
---   <pre>
---   "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]
---   </pre>
---   
 --   <a>$sel:ss:AttributeValue'</a>, <a>attributeValue_ss</a> - An
 --   attribute of type String Set. For example:
 --   
@@ -3856,17 +3854,19 @@ AttributeValue' :: Maybe [Base64] -> Maybe Text -> Maybe Bool -> Maybe Bool -> M
 --   "SS": ["Giraffe", "Hippo" ,"Zebra"]
 --   </pre>
 --   
---   <a>$sel:ns:AttributeValue'</a>, <a>attributeValue_ns</a> - An
---   attribute of type Number Set. For example:
+--   <a>$sel:s:AttributeValue'</a>, <a>attributeValue_s</a> - An attribute
+--   of type String. For example:
 --   
 --   <pre>
---   "NS": ["42.2", "-19", "7.5", "3.14"]
+--   "S": "Hello"
 --   </pre>
 --   
---   Numbers are sent across the network to DynamoDB as strings, to
---   maximize compatibility across languages and libraries. However,
---   DynamoDB treats them as number type attributes for mathematical
---   operations.
+--   <a>$sel:bool:AttributeValue'</a>, <a>attributeValue_bool</a> - An
+--   attribute of type Boolean. For example:
+--   
+--   <pre>
+--   "BOOL": true
+--   </pre>
 newAttributeValue :: AttributeValue
 
 -- | Contains details about the type of identity that made the request.
@@ -3944,7 +3944,7 @@ newKeySchemaElement :: Text -> KeyType -> KeySchemaElement
 --   
 --   <i>See:</i> <a>newRecord</a> smart constructor.
 data Record
-Record' :: Maybe Identity -> Maybe Text -> Maybe Text -> Maybe OperationType -> Maybe Text -> Maybe StreamRecord -> Maybe Text -> Record
+Record' :: Maybe Identity -> Maybe Text -> Maybe StreamRecord -> Maybe Text -> Maybe OperationType -> Maybe Text -> Maybe Text -> Record
 
 -- | Create a value of <a>Record</a> with all optional fields omitted.
 --   
@@ -3963,23 +3963,6 @@ Record' :: Maybe Identity -> Maybe Text -> Maybe Text -> Maybe OperationType -> 
 --   <li>Records[].userIdentity.principalId"dynamodb.amazonaws.com"</li>
 --   </ul>
 --   
---   <a>$sel:eventSource:Record'</a>, <a>record_eventSource</a> - The AWS
---   service from which the stream record originated. For DynamoDB Streams,
---   this is <tt>aws:dynamodb</tt>.
---   
---   <a>$sel:eventID:Record'</a>, <a>record_eventID</a> - A globally unique
---   identifier for the event that was recorded in this stream record.
---   
---   <a>$sel:eventName:Record'</a>, <a>record_eventName</a> - The type of
---   data modification that was performed on the DynamoDB table:
---   
---   <ul>
---   <li><tt>INSERT</tt> - a new item was added to the table.</li>
---   <li><tt>MODIFY</tt> - one or more of an existing item's attributes
---   were modified.</li>
---   <li><tt>REMOVE</tt> - the item was deleted from the table</li>
---   </ul>
---   
 --   <a>$sel:eventVersion:Record'</a>, <a>record_eventVersion</a> - The
 --   version number of the stream record format. This number is updated
 --   whenever the structure of <tt>Record</tt> is modified.
@@ -3994,6 +3977,23 @@ Record' :: Maybe Identity -> Maybe Text -> Maybe Text -> Maybe OperationType -> 
 --   
 --   <a>$sel:awsRegion:Record'</a>, <a>record_awsRegion</a> - The region in
 --   which the <tt>GetRecords</tt> request was received.
+--   
+--   <a>$sel:eventName:Record'</a>, <a>record_eventName</a> - The type of
+--   data modification that was performed on the DynamoDB table:
+--   
+--   <ul>
+--   <li><tt>INSERT</tt> - a new item was added to the table.</li>
+--   <li><tt>MODIFY</tt> - one or more of an existing item's attributes
+--   were modified.</li>
+--   <li><tt>REMOVE</tt> - the item was deleted from the table</li>
+--   </ul>
+--   
+--   <a>$sel:eventSource:Record'</a>, <a>record_eventSource</a> - The AWS
+--   service from which the stream record originated. For DynamoDB Streams,
+--   this is <tt>aws:dynamodb</tt>.
+--   
+--   <a>$sel:eventID:Record'</a>, <a>record_eventID</a> - A globally unique
+--   identifier for the event that was recorded in this stream record.
 newRecord :: Record
 
 -- | The beginning and ending sequence numbers for the stream records
@@ -4037,15 +4037,15 @@ Shard' :: Maybe Text -> Maybe SequenceNumberRange -> Maybe Text -> Shard
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:shardId:Shard'</a>, <a>shard_shardId</a> - The
---   system-generated identifier for this shard.
+--   <a>$sel:parentShardId:Shard'</a>, <a>shard_parentShardId</a> - The
+--   shard ID of the current shard's parent.
 --   
 --   <a>$sel:sequenceNumberRange:Shard'</a>,
 --   <a>shard_sequenceNumberRange</a> - The range of possible sequence
 --   numbers for the shard.
 --   
---   <a>$sel:parentShardId:Shard'</a>, <a>shard_parentShardId</a> - The
---   shard ID of the current shard's parent.
+--   <a>$sel:shardId:Shard'</a>, <a>shard_shardId</a> - The
+--   system-generated identifier for this shard.
 newShard :: Shard
 
 -- | Represents all of the data describing a particular stream.
@@ -4062,12 +4062,6 @@ Stream' :: Maybe Text -> Maybe Text -> Maybe Text -> Stream
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:tableName:Stream'</a>, <a>stream_tableName</a> - The DynamoDB
---   table with which the stream is associated.
---   
---   <a>$sel:streamArn:Stream'</a>, <a>stream_streamArn</a> - The Amazon
---   Resource Name (ARN) for the stream.
---   
 --   <a>$sel:streamLabel:Stream'</a>, <a>stream_streamLabel</a> - A
 --   timestamp, in ISO 8601 format, for this stream.
 --   
@@ -4081,13 +4075,19 @@ Stream' :: Maybe Text -> Maybe Text -> Maybe Text -> Stream
 --   <li>the table name</li>
 --   <li>the <tt>StreamLabel</tt></li>
 --   </ul>
+--   
+--   <a>$sel:streamArn:Stream'</a>, <a>stream_streamArn</a> - The Amazon
+--   Resource Name (ARN) for the stream.
+--   
+--   <a>$sel:tableName:Stream'</a>, <a>stream_tableName</a> - The DynamoDB
+--   table with which the stream is associated.
 newStream :: Stream
 
 -- | Represents all of the data describing a particular stream.
 --   
 --   <i>See:</i> <a>newStreamDescription</a> smart constructor.
 data StreamDescription
-StreamDescription' :: Maybe Text -> Maybe StreamViewType -> Maybe Text -> Maybe POSIX -> Maybe (NonEmpty KeySchemaElement) -> Maybe StreamStatus -> Maybe [Shard] -> Maybe Text -> Maybe Text -> StreamDescription
+StreamDescription' :: Maybe Text -> Maybe Text -> Maybe StreamStatus -> Maybe (NonEmpty KeySchemaElement) -> Maybe StreamViewType -> Maybe Text -> Maybe [Shard] -> Maybe Text -> Maybe POSIX -> StreamDescription
 
 -- | Create a value of <a>StreamDescription</a> with all optional fields
 --   omitted.
@@ -4113,6 +4113,38 @@ StreamDescription' :: Maybe Text -> Maybe StreamViewType -> Maybe Text -> Maybe 
 --   when you have reached the end of the result set is when
 --   <tt>LastEvaluatedShardId</tt> is empty.
 --   
+--   <a>$sel:streamLabel:StreamDescription'</a>,
+--   <a>streamDescription_streamLabel</a> - A timestamp, in ISO 8601
+--   format, for this stream.
+--   
+--   Note that <tt>LatestStreamLabel</tt> is not a unique identifier for
+--   the stream, because it is possible that a stream from another table
+--   might have the same timestamp. However, the combination of the
+--   following three elements is guaranteed to be unique:
+--   
+--   <ul>
+--   <li>the AWS customer ID.</li>
+--   <li>the table name</li>
+--   <li>the <tt>StreamLabel</tt></li>
+--   </ul>
+--   
+--   <a>$sel:streamStatus:StreamDescription'</a>,
+--   <a>streamDescription_streamStatus</a> - Indicates the current status
+--   of the stream:
+--   
+--   <ul>
+--   <li><tt>ENABLING</tt> - Streams is currently being enabled on the
+--   DynamoDB table.</li>
+--   <li><tt>ENABLED</tt> - the stream is enabled.</li>
+--   <li><tt>DISABLING</tt> - Streams is currently being disabled on the
+--   DynamoDB table.</li>
+--   <li><tt>DISABLED</tt> - the stream is disabled.</li>
+--   </ul>
+--   
+--   <a>$sel:keySchema:StreamDescription'</a>,
+--   <a>streamDescription_keySchema</a> - The key attribute(s) of the
+--   stream's DynamoDB table.
+--   
 --   <a>$sel:streamViewType:StreamDescription'</a>,
 --   <a>streamDescription_streamViewType</a> - Indicates the format of the
 --   records within this stream:
@@ -4128,6 +4160,13 @@ StreamDescription' :: Maybe Text -> Maybe StreamViewType -> Maybe Text -> Maybe 
 --   the items from the table.</li>
 --   </ul>
 --   
+--   <a>$sel:streamArn:StreamDescription'</a>,
+--   <a>streamDescription_streamArn</a> - The Amazon Resource Name (ARN)
+--   for the stream.
+--   
+--   <a>$sel:shards:StreamDescription'</a>, <a>streamDescription_shards</a>
+--   - The shards that comprise the stream.
+--   
 --   <a>$sel:tableName:StreamDescription'</a>,
 --   <a>streamDescription_tableName</a> - The DynamoDB table with which the
 --   stream is associated.
@@ -4135,45 +4174,6 @@ StreamDescription' :: Maybe Text -> Maybe StreamViewType -> Maybe Text -> Maybe 
 --   <a>$sel:creationRequestDateTime:StreamDescription'</a>,
 --   <a>streamDescription_creationRequestDateTime</a> - The date and time
 --   when the request to create this stream was issued.
---   
---   <a>$sel:keySchema:StreamDescription'</a>,
---   <a>streamDescription_keySchema</a> - The key attribute(s) of the
---   stream's DynamoDB table.
---   
---   <a>$sel:streamStatus:StreamDescription'</a>,
---   <a>streamDescription_streamStatus</a> - Indicates the current status
---   of the stream:
---   
---   <ul>
---   <li><tt>ENABLING</tt> - Streams is currently being enabled on the
---   DynamoDB table.</li>
---   <li><tt>ENABLED</tt> - the stream is enabled.</li>
---   <li><tt>DISABLING</tt> - Streams is currently being disabled on the
---   DynamoDB table.</li>
---   <li><tt>DISABLED</tt> - the stream is disabled.</li>
---   </ul>
---   
---   <a>$sel:shards:StreamDescription'</a>, <a>streamDescription_shards</a>
---   - The shards that comprise the stream.
---   
---   <a>$sel:streamArn:StreamDescription'</a>,
---   <a>streamDescription_streamArn</a> - The Amazon Resource Name (ARN)
---   for the stream.
---   
---   <a>$sel:streamLabel:StreamDescription'</a>,
---   <a>streamDescription_streamLabel</a> - A timestamp, in ISO 8601
---   format, for this stream.
---   
---   Note that <tt>LatestStreamLabel</tt> is not a unique identifier for
---   the stream, because it is possible that a stream from another table
---   might have the same timestamp. However, the combination of the
---   following three elements is guaranteed to be unique:
---   
---   <ul>
---   <li>the AWS customer ID.</li>
---   <li>the table name</li>
---   <li>the <tt>StreamLabel</tt></li>
---   </ul>
 newStreamDescription :: StreamDescription
 
 -- | A description of a single data modification that was performed on an
@@ -4181,7 +4181,7 @@ newStreamDescription :: StreamDescription
 --   
 --   <i>See:</i> <a>newStreamRecord</a> smart constructor.
 data StreamRecord
-StreamRecord' :: Maybe Text -> Maybe StreamViewType -> Maybe (HashMap Text AttributeValue) -> Maybe Natural -> Maybe (HashMap Text AttributeValue) -> Maybe POSIX -> Maybe (HashMap Text AttributeValue) -> StreamRecord
+StreamRecord' :: Maybe Natural -> Maybe Text -> Maybe POSIX -> Maybe StreamViewType -> Maybe (HashMap Text AttributeValue) -> Maybe (HashMap Text AttributeValue) -> Maybe (HashMap Text AttributeValue) -> StreamRecord
 
 -- | Create a value of <a>StreamRecord</a> with all optional fields
 --   omitted.
@@ -4192,9 +4192,17 @@ StreamRecord' :: Maybe Text -> Maybe StreamViewType -> Maybe (HashMap Text Attri
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:sizeBytes:StreamRecord'</a>, <a>streamRecord_sizeBytes</a> -
+--   The size of the stream record, in bytes.
+--   
 --   <a>$sel:sequenceNumber:StreamRecord'</a>,
 --   <a>streamRecord_sequenceNumber</a> - The sequence number of the stream
 --   record.
+--   
+--   <a>$sel:approximateCreationDateTime:StreamRecord'</a>,
+--   <a>streamRecord_approximateCreationDateTime</a> - The approximate date
+--   and time when the stream record was created, in <a>UNIX epoch time</a>
+--   format.
 --   
 --   <a>$sel:streamViewType:StreamRecord'</a>,
 --   <a>streamRecord_streamViewType</a> - The type of data from the
@@ -4214,17 +4222,9 @@ StreamRecord' :: Maybe Text -> Maybe StreamViewType -> Maybe (HashMap Text Attri
 --   <a>$sel:keys:StreamRecord'</a>, <a>streamRecord_keys</a> - The primary
 --   key attribute(s) for the DynamoDB item that was modified.
 --   
---   <a>$sel:sizeBytes:StreamRecord'</a>, <a>streamRecord_sizeBytes</a> -
---   The size of the stream record, in bytes.
+--   <a>$sel:oldImage:StreamRecord'</a>, <a>streamRecord_oldImage</a> - The
+--   item in the DynamoDB table as it appeared before it was modified.
 --   
 --   <a>$sel:newImage':StreamRecord'</a>, <a>streamRecord_newImage</a> -
 --   The item in the DynamoDB table as it appeared after it was modified.
---   
---   <a>$sel:approximateCreationDateTime:StreamRecord'</a>,
---   <a>streamRecord_approximateCreationDateTime</a> - The approximate date
---   and time when the stream record was created, in <a>UNIX epoch time</a>
---   format.
---   
---   <a>$sel:oldImage:StreamRecord'</a>, <a>streamRecord_oldImage</a> - The
---   item in the DynamoDB table as it appeared before it was modified.
 newStreamRecord :: StreamRecord

@@ -32,31 +32,31 @@
 </span><span id="line-32"></span><span class="hs-comment">-- @RedshiftDatasetDefinition@ types.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newDatasetDefinition' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621680335434"><span id="local-6989586621680335435"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatasetDefinition"><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-var">DatasetDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatasetDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-var">DatasetDefinition'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621680336843"><span id="local-6989586621680336844"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatasetDefinition"><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-var">DatasetDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatasetDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-var">DatasetDefinition'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AredshiftDatasetDefinition%3ADatasetDefinition%27"><span class="annot"><span class="annottext">DatasetDefinition -&gt; Maybe RedshiftDatasetDefinition
 </span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AredshiftDatasetDefinition%3ADatasetDefinition%27"><span class="hs-identifier hs-var hs-var">redshiftDatasetDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftDatasetDefinition.html#RedshiftDatasetDefinition"><span class="hs-identifier hs-type">RedshiftDatasetDefinition</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The local path where you want Amazon SageMaker to download the Dataset</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Definition inputs to run a processing job. @LocalPath@ is an absolute</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- path to the input data. This is a required parameter when @AppManaged@</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- is @False@ (default).</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AlocalPath%3ADatasetDefinition%27"><span class="annot"><span class="annottext">DatasetDefinition -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AlocalPath%3ADatasetDefinition%27"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AathenaDatasetDefinition%3ADatasetDefinition%27"><span class="annot"><span class="annottext">DatasetDefinition -&gt; Maybe AthenaDatasetDefinition
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AathenaDatasetDefinition%3ADatasetDefinition%27"><span class="annot"><span class="annottext">DatasetDefinition -&gt; Maybe AthenaDatasetDefinition
 </span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AathenaDatasetDefinition%3ADatasetDefinition%27"><span class="hs-identifier hs-var hs-var">athenaDatasetDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AthenaDatasetDefinition.html#AthenaDatasetDefinition"><span class="hs-identifier hs-type">AthenaDatasetDefinition</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Whether to use @File@ or @Pipe@ input mode. In @File@ (default) mode,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Amazon SageMaker copies the data from the input source onto the local</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Amazon Elastic Block Store (Amazon EBS) volumes before starting your</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- training algorithm. This is the most commonly used input mode. In @Pipe@</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- mode, Amazon SageMaker streams input data from the source directly to</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- your algorithm without using the EBS volume.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AinputMode%3ADatasetDefinition%27"><span class="annot"><span class="annottext">DatasetDefinition -&gt; Maybe InputMode
-</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AinputMode%3ADatasetDefinition%27"><span class="hs-identifier hs-var hs-var">inputMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputMode.html#InputMode"><span class="hs-identifier hs-type">InputMode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Whether the generated dataset is @FullyReplicated@ or @ShardedByS3Key@</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- (default).</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AdataDistributionType%3ADatasetDefinition%27"><span class="annot"><span class="annottext">DatasetDefinition -&gt; Maybe DataDistributionType
-</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AdataDistributionType%3ADatasetDefinition%27"><span class="hs-identifier hs-var hs-var">dataDistributionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataDistributionType.html#DataDistributionType"><span class="hs-identifier hs-type">DataDistributionType</span></a></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The local path where you want Amazon SageMaker to download the Dataset</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Definition inputs to run a processing job. @LocalPath@ is an absolute</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- path to the input data. This is a required parameter when @AppManaged@</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- is @False@ (default).</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AlocalPath%3ADatasetDefinition%27"><span class="annot"><span class="annottext">DatasetDefinition -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AlocalPath%3ADatasetDefinition%27"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Whether the generated dataset is @FullyReplicated@ or @ShardedByS3Key@</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- (default).</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AdataDistributionType%3ADatasetDefinition%27"><span class="annot"><span class="annottext">DatasetDefinition -&gt; Maybe DataDistributionType
+</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AdataDistributionType%3ADatasetDefinition%27"><span class="hs-identifier hs-var hs-var">dataDistributionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataDistributionType.html#DataDistributionType"><span class="hs-identifier hs-type">DataDistributionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Whether to use @File@ or @Pipe@ input mode. In @File@ (default) mode,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- Amazon SageMaker copies the data from the input source onto the local</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- Amazon Elastic Block Store (Amazon EBS) volumes before starting your</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- training algorithm. This is the most commonly used input mode. In @Pipe@</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- mode, Amazon SageMaker streams input data from the source directly to</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- your algorithm without using the EBS volume.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AinputMode%3ADatasetDefinition%27"><span class="annot"><span class="annottext">DatasetDefinition -&gt; Maybe InputMode
+</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AinputMode%3ADatasetDefinition%27"><span class="hs-identifier hs-var hs-var">inputMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputMode.html#InputMode"><span class="hs-identifier hs-type">InputMode</span></a></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680335424"><span id="local-6989586621680335426"><span class="annot"><span class="annottext">DatasetDefinition -&gt; DatasetDefinition -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680336833"><span id="local-6989586621680336835"><span class="annot"><span class="annottext">DatasetDefinition -&gt; DatasetDefinition -&gt; Bool
 (DatasetDefinition -&gt; DatasetDefinition -&gt; Bool)
 -&gt; (DatasetDefinition -&gt; DatasetDefinition -&gt; Bool)
 -&gt; Eq DatasetDefinition
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DatasetDefinition -&gt; DatasetDefinition -&gt; Bool
 == :: DatasetDefinition -&gt; DatasetDefinition -&gt; Bool
 $c== :: DatasetDefinition -&gt; DatasetDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680335415"><span id="local-6989586621680335417"><span id="local-6989586621680335419"><span id="local-6989586621680335421"><span class="annot"><span class="annottext">ReadPrec [DatasetDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680336824"><span id="local-6989586621680336826"><span id="local-6989586621680336828"><span id="local-6989586621680336830"><span class="annot"><span class="annottext">ReadPrec [DatasetDefinition]
 ReadPrec DatasetDefinition
 Int -&gt; ReadS DatasetDefinition
 ReadS [DatasetDefinition]
@@ -85,7 +85,7 @@ readList :: ReadS [DatasetDefinition]
 $creadList :: ReadS [DatasetDefinition]
 readsPrec :: Int -&gt; ReadS DatasetDefinition
 $creadsPrec :: Int -&gt; ReadS DatasetDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680335408"><span id="local-6989586621680335410"><span id="local-6989586621680335412"><span class="annot"><span class="annottext">Int -&gt; DatasetDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680336817"><span id="local-6989586621680336819"><span id="local-6989586621680336821"><span class="annot"><span class="annottext">Int -&gt; DatasetDefinition -&gt; ShowS
 [DatasetDefinition] -&gt; ShowS
 DatasetDefinition -&gt; String
 (Int -&gt; DatasetDefinition -&gt; ShowS)
@@ -121,31 +121,31 @@ $cfrom :: forall x. DatasetDefinition -&gt; Rep DatasetDefinition x
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- 'redshiftDatasetDefinition', 'datasetDefinition_redshiftDatasetDefinition' - Undocumented member.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'localPath', 'datasetDefinition_localPath' - The local path where you want Amazon SageMaker to download the Dataset</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- Definition inputs to run a processing job. @LocalPath@ is an absolute</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- path to the input data. This is a required parameter when @AppManaged@</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- is @False@ (default).</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'athenaDatasetDefinition', 'datasetDefinition_athenaDatasetDefinition' - Undocumented member.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'athenaDatasetDefinition', 'datasetDefinition_athenaDatasetDefinition' - Undocumented member.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'localPath', 'datasetDefinition_localPath' - The local path where you want Amazon SageMaker to download the Dataset</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Definition inputs to run a processing job. @LocalPath@ is an absolute</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- path to the input data. This is a required parameter when @AppManaged@</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- is @False@ (default).</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'inputMode', 'datasetDefinition_inputMode' - Whether to use @File@ or @Pipe@ input mode. In @File@ (default) mode,</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- Amazon SageMaker copies the data from the input source onto the local</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- Amazon Elastic Block Store (Amazon EBS) volumes before starting your</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- training algorithm. This is the most commonly used input mode. In @Pipe@</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- mode, Amazon SageMaker streams input data from the source directly to</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- your algorithm without using the EBS volume.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'dataDistributionType', 'datasetDefinition_dataDistributionType' - Whether the generated dataset is @FullyReplicated@ or @ShardedByS3Key@</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- (default).</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'dataDistributionType', 'datasetDefinition_dataDistributionType' - Whether the generated dataset is @FullyReplicated@ or @ShardedByS3Key@</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- (default).</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'inputMode', 'datasetDefinition_inputMode' - Whether to use @File@ or @Pipe@ input mode. In @File@ (default) mode,</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Amazon SageMaker copies the data from the input source onto the local</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Amazon Elastic Block Store (Amazon EBS) volumes before starting your</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- training algorithm. This is the most commonly used input mode. In @Pipe@</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- mode, Amazon SageMaker streams input data from the source directly to</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- your algorithm without using the EBS volume.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#newDatasetDefinition"><span class="hs-identifier hs-type">newDatasetDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span>
 </span><span id="line-84"></span><span id="newDatasetDefinition"><span class="annot"><span class="annottext">newDatasetDefinition :: DatasetDefinition
 </span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#newDatasetDefinition"><span class="hs-identifier hs-var hs-var">newDatasetDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DatasetDefinition' :: Maybe RedshiftDatasetDefinition
--&gt; Maybe Text
 -&gt; Maybe AthenaDatasetDefinition
--&gt; Maybe InputMode
+-&gt; Maybe Text
 -&gt; Maybe DataDistributionType
+-&gt; Maybe InputMode
 -&gt; DatasetDefinition
 </span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:redshiftDatasetDefinition:DatasetDefinition' :: Maybe RedshiftDatasetDefinition
@@ -153,20 +153,20 @@ $cfrom :: forall x. DatasetDefinition -&gt; Rep DatasetDefinition x
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe RedshiftDatasetDefinition
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:localPath:DatasetDefinition' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AlocalPath%3ADatasetDefinition%27"><span class="hs-identifier hs-var">localPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:athenaDatasetDefinition:DatasetDefinition' :: Maybe AthenaDatasetDefinition
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:athenaDatasetDefinition:DatasetDefinition' :: Maybe AthenaDatasetDefinition
 </span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AathenaDatasetDefinition%3ADatasetDefinition%27"><span class="hs-identifier hs-var">athenaDatasetDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AthenaDatasetDefinition
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputMode:DatasetDefinition' :: Maybe InputMode
-</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AinputMode%3ADatasetDefinition%27"><span class="hs-identifier hs-var">inputMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputMode
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:localPath:DatasetDefinition' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AlocalPath%3ADatasetDefinition%27"><span class="hs-identifier hs-var">localPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataDistributionType:DatasetDefinition' :: Maybe DataDistributionType
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataDistributionType:DatasetDefinition' :: Maybe DataDistributionType
 </span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AdataDistributionType%3ADatasetDefinition%27"><span class="hs-identifier hs-var">dataDistributionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataDistributionType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputMode:DatasetDefinition' :: Maybe InputMode
+</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AinputMode%3ADatasetDefinition%27"><span class="hs-identifier hs-var">inputMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputMode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
@@ -185,43 +185,20 @@ forall a. Maybe a
      (Maybe RedshiftDatasetDefinition)
      (Maybe RedshiftDatasetDefinition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335399"><span class="annot"><span class="annottext">Maybe RedshiftDatasetDefinition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336808"><span class="annot"><span class="annottext">Maybe RedshiftDatasetDefinition
 redshiftDatasetDefinition :: Maybe RedshiftDatasetDefinition
 $sel:redshiftDatasetDefinition:DatasetDefinition' :: DatasetDefinition -&gt; Maybe RedshiftDatasetDefinition
-</span><a href="#local-6989586621680335399"><span class="hs-identifier hs-var hs-var">redshiftDatasetDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftDatasetDefinition
-</span><a href="#local-6989586621680335399"><span class="hs-identifier hs-var">redshiftDatasetDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680335398"><span class="annot"><span class="annottext">s :: DatasetDefinition
-</span><a href="#local-6989586621680335398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680335397"><span class="annot"><span class="annottext">Maybe RedshiftDatasetDefinition
-</span><a href="#local-6989586621680335397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetDefinition
-</span><a href="#local-6989586621680335398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redshiftDatasetDefinition:DatasetDefinition' :: Maybe RedshiftDatasetDefinition
+</span><a href="#local-6989586621680336808"><span class="hs-identifier hs-var hs-var">redshiftDatasetDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftDatasetDefinition
+</span><a href="#local-6989586621680336808"><span class="hs-identifier hs-var">redshiftDatasetDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336807"><span class="annot"><span class="annottext">s :: DatasetDefinition
+</span><a href="#local-6989586621680336807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336806"><span class="annot"><span class="annottext">Maybe RedshiftDatasetDefinition
+</span><a href="#local-6989586621680336806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetDefinition
+</span><a href="#local-6989586621680336807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redshiftDatasetDefinition:DatasetDefinition' :: Maybe RedshiftDatasetDefinition
 </span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AredshiftDatasetDefinition%3ADatasetDefinition%27"><span class="hs-identifier hs-var">redshiftDatasetDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftDatasetDefinition
-</span><a href="#local-6989586621680335397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680336806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The local path where you want Amazon SageMaker to download the Dataset</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- Definition inputs to run a processing job. @LocalPath@ is an absolute</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- path to the input data. This is a required parameter when @AppManaged@</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- is @False@ (default).</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#datasetDefinition_localPath"><span class="hs-identifier hs-type">datasetDefinition_localPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="datasetDefinition_localPath"><span class="annot"><span class="annottext">datasetDefinition_localPath :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DatasetDefinition -&gt; f DatasetDefinition
-</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#datasetDefinition_localPath"><span class="hs-identifier hs-var hs-var">datasetDefinition_localPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetDefinition -&gt; Maybe Text)
--&gt; (DatasetDefinition -&gt; Maybe Text -&gt; DatasetDefinition)
--&gt; Lens
-     DatasetDefinition DatasetDefinition (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335395"><span class="annot"><span class="annottext">Maybe Text
-localPath :: Maybe Text
-$sel:localPath:DatasetDefinition' :: DatasetDefinition -&gt; Maybe Text
-</span><a href="#local-6989586621680335395"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680335395"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680335394"><span class="annot"><span class="annottext">s :: DatasetDefinition
-</span><a href="#local-6989586621680335394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680335393"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680335393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetDefinition
-</span><a href="#local-6989586621680335394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localPath:DatasetDefinition' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AlocalPath%3ADatasetDefinition%27"><span class="hs-identifier hs-var">localPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680335393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#datasetDefinition_athenaDatasetDefinition"><span class="hs-identifier hs-type">datasetDefinition_athenaDatasetDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AthenaDatasetDefinition.html#AthenaDatasetDefinition"><span class="hs-identifier hs-type">AthenaDatasetDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="datasetDefinition_athenaDatasetDefinition"><span class="annot"><span class="annottext">datasetDefinition_athenaDatasetDefinition :: (Maybe AthenaDatasetDefinition
+</span><span id="line-98"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#datasetDefinition_athenaDatasetDefinition"><span class="hs-identifier hs-type">datasetDefinition_athenaDatasetDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AthenaDatasetDefinition.html#AthenaDatasetDefinition"><span class="hs-identifier hs-type">AthenaDatasetDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="datasetDefinition_athenaDatasetDefinition"><span class="annot"><span class="annottext">datasetDefinition_athenaDatasetDefinition :: (Maybe AthenaDatasetDefinition
  -&gt; f (Maybe AthenaDatasetDefinition))
 -&gt; DatasetDefinition -&gt; f DatasetDefinition
 </span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#datasetDefinition_athenaDatasetDefinition"><span class="hs-identifier hs-var hs-var">datasetDefinition_athenaDatasetDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetDefinition -&gt; Maybe AthenaDatasetDefinition)
@@ -233,49 +210,44 @@ $sel:localPath:DatasetDefinition' :: DatasetDefinition -&gt; Maybe Text
      (Maybe AthenaDatasetDefinition)
      (Maybe AthenaDatasetDefinition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335391"><span class="annot"><span class="annottext">Maybe AthenaDatasetDefinition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336804"><span class="annot"><span class="annottext">Maybe AthenaDatasetDefinition
 athenaDatasetDefinition :: Maybe AthenaDatasetDefinition
 $sel:athenaDatasetDefinition:DatasetDefinition' :: DatasetDefinition -&gt; Maybe AthenaDatasetDefinition
-</span><a href="#local-6989586621680335391"><span class="hs-identifier hs-var hs-var">athenaDatasetDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AthenaDatasetDefinition
-</span><a href="#local-6989586621680335391"><span class="hs-identifier hs-var">athenaDatasetDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680335390"><span class="annot"><span class="annottext">s :: DatasetDefinition
-</span><a href="#local-6989586621680335390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680335389"><span class="annot"><span class="annottext">Maybe AthenaDatasetDefinition
-</span><a href="#local-6989586621680335389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetDefinition
-</span><a href="#local-6989586621680335390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:athenaDatasetDefinition:DatasetDefinition' :: Maybe AthenaDatasetDefinition
+</span><a href="#local-6989586621680336804"><span class="hs-identifier hs-var hs-var">athenaDatasetDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AthenaDatasetDefinition
+</span><a href="#local-6989586621680336804"><span class="hs-identifier hs-var">athenaDatasetDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336803"><span class="annot"><span class="annottext">s :: DatasetDefinition
+</span><a href="#local-6989586621680336803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336802"><span class="annot"><span class="annottext">Maybe AthenaDatasetDefinition
+</span><a href="#local-6989586621680336802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetDefinition
+</span><a href="#local-6989586621680336803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:athenaDatasetDefinition:DatasetDefinition' :: Maybe AthenaDatasetDefinition
 </span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AathenaDatasetDefinition%3ADatasetDefinition%27"><span class="hs-identifier hs-var">athenaDatasetDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AthenaDatasetDefinition
-</span><a href="#local-6989586621680335389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | Whether to use @File@ or @Pipe@ input mode. In @File@ (default) mode,</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- Amazon SageMaker copies the data from the input source onto the local</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- Amazon Elastic Block Store (Amazon EBS) volumes before starting your</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- training algorithm. This is the most commonly used input mode. In @Pipe@</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- mode, Amazon SageMaker streams input data from the source directly to</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- your algorithm without using the EBS volume.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#datasetDefinition_inputMode"><span class="hs-identifier hs-type">datasetDefinition_inputMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputMode.html#InputMode"><span class="hs-identifier hs-type">InputMode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="datasetDefinition_inputMode"><span class="annot"><span class="annottext">datasetDefinition_inputMode :: (Maybe InputMode -&gt; f (Maybe InputMode))
+</span><a href="#local-6989586621680336802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The local path where you want Amazon SageMaker to download the Dataset</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Definition inputs to run a processing job. @LocalPath@ is an absolute</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- path to the input data. This is a required parameter when @AppManaged@</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- is @False@ (default).</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#datasetDefinition_localPath"><span class="hs-identifier hs-type">datasetDefinition_localPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="datasetDefinition_localPath"><span class="annot"><span class="annottext">datasetDefinition_localPath :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DatasetDefinition -&gt; f DatasetDefinition
-</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#datasetDefinition_inputMode"><span class="hs-identifier hs-var hs-var">datasetDefinition_inputMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetDefinition -&gt; Maybe InputMode)
--&gt; (DatasetDefinition -&gt; Maybe InputMode -&gt; DatasetDefinition)
+</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#datasetDefinition_localPath"><span class="hs-identifier hs-var hs-var">datasetDefinition_localPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetDefinition -&gt; Maybe Text)
+-&gt; (DatasetDefinition -&gt; Maybe Text -&gt; DatasetDefinition)
 -&gt; Lens
-     DatasetDefinition
-     DatasetDefinition
-     (Maybe InputMode)
-     (Maybe InputMode)
+     DatasetDefinition DatasetDefinition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335387"><span class="annot"><span class="annottext">Maybe InputMode
-inputMode :: Maybe InputMode
-$sel:inputMode:DatasetDefinition' :: DatasetDefinition -&gt; Maybe InputMode
-</span><a href="#local-6989586621680335387"><span class="hs-identifier hs-var hs-var">inputMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputMode
-</span><a href="#local-6989586621680335387"><span class="hs-identifier hs-var">inputMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680335386"><span class="annot"><span class="annottext">s :: DatasetDefinition
-</span><a href="#local-6989586621680335386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680335385"><span class="annot"><span class="annottext">Maybe InputMode
-</span><a href="#local-6989586621680335385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetDefinition
-</span><a href="#local-6989586621680335386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputMode:DatasetDefinition' :: Maybe InputMode
-</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AinputMode%3ADatasetDefinition%27"><span class="hs-identifier hs-var">inputMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputMode
-</span><a href="#local-6989586621680335385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | Whether the generated dataset is @FullyReplicated@ or @ShardedByS3Key@</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- (default).</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#datasetDefinition_dataDistributionType"><span class="hs-identifier hs-type">datasetDefinition_dataDistributionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataDistributionType.html#DataDistributionType"><span class="hs-identifier hs-type">DataDistributionType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="datasetDefinition_dataDistributionType"><span class="annot"><span class="annottext">datasetDefinition_dataDistributionType :: (Maybe DataDistributionType -&gt; f (Maybe DataDistributionType))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336800"><span class="annot"><span class="annottext">Maybe Text
+localPath :: Maybe Text
+$sel:localPath:DatasetDefinition' :: DatasetDefinition -&gt; Maybe Text
+</span><a href="#local-6989586621680336800"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680336800"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336799"><span class="annot"><span class="annottext">s :: DatasetDefinition
+</span><a href="#local-6989586621680336799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336798"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680336798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetDefinition
+</span><a href="#local-6989586621680336799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localPath:DatasetDefinition' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AlocalPath%3ADatasetDefinition%27"><span class="hs-identifier hs-var">localPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680336798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | Whether the generated dataset is @FullyReplicated@ or @ShardedByS3Key@</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- (default).</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#datasetDefinition_dataDistributionType"><span class="hs-identifier hs-type">datasetDefinition_dataDistributionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataDistributionType.html#DataDistributionType"><span class="hs-identifier hs-type">DataDistributionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="datasetDefinition_dataDistributionType"><span class="annot"><span class="annottext">datasetDefinition_dataDistributionType :: (Maybe DataDistributionType -&gt; f (Maybe DataDistributionType))
 -&gt; DatasetDefinition -&gt; f DatasetDefinition
 </span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#datasetDefinition_dataDistributionType"><span class="hs-identifier hs-var hs-var">datasetDefinition_dataDistributionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetDefinition -&gt; Maybe DataDistributionType)
 -&gt; (DatasetDefinition
@@ -286,19 +258,47 @@ $sel:inputMode:DatasetDefinition' :: DatasetDefinition -&gt; Maybe InputMode
      (Maybe DataDistributionType)
      (Maybe DataDistributionType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335383"><span class="annot"><span class="annottext">Maybe DataDistributionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336796"><span class="annot"><span class="annottext">Maybe DataDistributionType
 dataDistributionType :: Maybe DataDistributionType
 $sel:dataDistributionType:DatasetDefinition' :: DatasetDefinition -&gt; Maybe DataDistributionType
-</span><a href="#local-6989586621680335383"><span class="hs-identifier hs-var hs-var">dataDistributionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataDistributionType
-</span><a href="#local-6989586621680335383"><span class="hs-identifier hs-var">dataDistributionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680335382"><span class="annot"><span class="annottext">s :: DatasetDefinition
-</span><a href="#local-6989586621680335382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680335381"><span class="annot"><span class="annottext">Maybe DataDistributionType
-</span><a href="#local-6989586621680335381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetDefinition
-</span><a href="#local-6989586621680335382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataDistributionType:DatasetDefinition' :: Maybe DataDistributionType
+</span><a href="#local-6989586621680336796"><span class="hs-identifier hs-var hs-var">dataDistributionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataDistributionType
+</span><a href="#local-6989586621680336796"><span class="hs-identifier hs-var">dataDistributionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336795"><span class="annot"><span class="annottext">s :: DatasetDefinition
+</span><a href="#local-6989586621680336795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336794"><span class="annot"><span class="annottext">Maybe DataDistributionType
+</span><a href="#local-6989586621680336794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetDefinition
+</span><a href="#local-6989586621680336795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataDistributionType:DatasetDefinition' :: Maybe DataDistributionType
 </span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AdataDistributionType%3ADatasetDefinition%27"><span class="hs-identifier hs-var">dataDistributionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataDistributionType
-</span><a href="#local-6989586621680335381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680336794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Whether to use @File@ or @Pipe@ input mode. In @File@ (default) mode,</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Amazon SageMaker copies the data from the input source onto the local</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Amazon Elastic Block Store (Amazon EBS) volumes before starting your</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- training algorithm. This is the most commonly used input mode. In @Pipe@</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- mode, Amazon SageMaker streams input data from the source directly to</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- your algorithm without using the EBS volume.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#datasetDefinition_inputMode"><span class="hs-identifier hs-type">datasetDefinition_inputMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputMode.html#InputMode"><span class="hs-identifier hs-type">InputMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="datasetDefinition_inputMode"><span class="annot"><span class="annottext">datasetDefinition_inputMode :: (Maybe InputMode -&gt; f (Maybe InputMode))
+-&gt; DatasetDefinition -&gt; f DatasetDefinition
+</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#datasetDefinition_inputMode"><span class="hs-identifier hs-var hs-var">datasetDefinition_inputMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatasetDefinition -&gt; Maybe InputMode)
+-&gt; (DatasetDefinition -&gt; Maybe InputMode -&gt; DatasetDefinition)
+-&gt; Lens
+     DatasetDefinition
+     DatasetDefinition
+     (Maybe InputMode)
+     (Maybe InputMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336792"><span class="annot"><span class="annottext">Maybe InputMode
+inputMode :: Maybe InputMode
+$sel:inputMode:DatasetDefinition' :: DatasetDefinition -&gt; Maybe InputMode
+</span><a href="#local-6989586621680336792"><span class="hs-identifier hs-var hs-var">inputMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputMode
+</span><a href="#local-6989586621680336792"><span class="hs-identifier hs-var">inputMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336791"><span class="annot"><span class="annottext">s :: DatasetDefinition
+</span><a href="#local-6989586621680336791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336790"><span class="annot"><span class="annottext">Maybe InputMode
+</span><a href="#local-6989586621680336790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetDefinition
+</span><a href="#local-6989586621680336791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputMode:DatasetDefinition' :: Maybe InputMode
+</span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#%24sel%3AinputMode%3ADatasetDefinition%27"><span class="hs-identifier hs-var">inputMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputMode
+</span><a href="#local-6989586621680336790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335378"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621680335376"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatasetDefinition
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336787"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621680336785"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatasetDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DatasetDefinition)
@@ -308,110 +308,110 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DatasetDefinition&quot;</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680335373"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680335373"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680336782"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680336782"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe RedshiftDatasetDefinition
--&gt; Maybe Text
 -&gt; Maybe AthenaDatasetDefinition
--&gt; Maybe InputMode
+-&gt; Maybe Text
 -&gt; Maybe DataDistributionType
+-&gt; Maybe InputMode
 -&gt; DatasetDefinition
 </span><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-var">DatasetDefinition'</span></a></span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RedshiftDatasetDefinition
- -&gt; Maybe Text
  -&gt; Maybe AthenaDatasetDefinition
- -&gt; Maybe InputMode
+ -&gt; Maybe Text
  -&gt; Maybe DataDistributionType
+ -&gt; Maybe InputMode
  -&gt; DatasetDefinition)
 -&gt; Parser (Maybe RedshiftDatasetDefinition)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe AthenaDatasetDefinition
-      -&gt; Maybe InputMode
+     (Maybe AthenaDatasetDefinition
+      -&gt; Maybe Text
       -&gt; Maybe DataDistributionType
+      -&gt; Maybe InputMode
       -&gt; DatasetDefinition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680335373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RedshiftDatasetDefinition)
+</span><a href="#local-6989586621680336782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RedshiftDatasetDefinition)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RedshiftDatasetDefinition&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe AthenaDatasetDefinition
-   -&gt; Maybe InputMode
-   -&gt; Maybe DataDistributionType
-   -&gt; DatasetDefinition)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe AthenaDatasetDefinition
-      -&gt; Maybe InputMode
-      -&gt; Maybe DataDistributionType
-      -&gt; DatasetDefinition)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680335373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LocalPath&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe AthenaDatasetDefinition
-   -&gt; Maybe InputMode
+   -&gt; Maybe Text
    -&gt; Maybe DataDistributionType
+   -&gt; Maybe InputMode
    -&gt; DatasetDefinition)
 -&gt; Parser (Maybe AthenaDatasetDefinition)
 -&gt; Parser
-     (Maybe InputMode
-      -&gt; Maybe DataDistributionType -&gt; DatasetDefinition)
+     (Maybe Text
+      -&gt; Maybe DataDistributionType
+      -&gt; Maybe InputMode
+      -&gt; DatasetDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680335373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AthenaDatasetDefinition)
+</span><a href="#local-6989586621680336782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AthenaDatasetDefinition)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AthenaDatasetDefinition&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe InputMode
-   -&gt; Maybe DataDistributionType -&gt; DatasetDefinition)
--&gt; Parser (Maybe InputMode)
--&gt; Parser (Maybe DataDistributionType -&gt; DatasetDefinition)
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe DataDistributionType
+   -&gt; Maybe InputMode
+   -&gt; DatasetDefinition)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe DataDistributionType
+      -&gt; Maybe InputMode -&gt; DatasetDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680335373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputMode)
+</span><a href="#local-6989586621680336782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InputMode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DataDistributionType -&gt; DatasetDefinition)
--&gt; Parser (Maybe DataDistributionType) -&gt; Parser DatasetDefinition
+</span><span class="hs-string">&quot;LocalPath&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DataDistributionType
+   -&gt; Maybe InputMode -&gt; DatasetDefinition)
+-&gt; Parser (Maybe DataDistributionType)
+-&gt; Parser (Maybe InputMode -&gt; DatasetDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680335373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DataDistributionType)
+</span><a href="#local-6989586621680336782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DataDistributionType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataDistributionType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe InputMode -&gt; DatasetDefinition)
+-&gt; Parser (Maybe InputMode) -&gt; Parser DatasetDefinition
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680336782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputMode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335367"><span id="local-6989586621680335369"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336776"><span id="local-6989586621680336778"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span></span></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335364"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336773"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335356"><span id="local-6989586621680335358"><span id="local-6989586621680335360"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621680335354"><span class="annot"><span class="annottext">toJSON :: DatasetDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335348"><span id="local-6989586621680335349"><span id="local-6989586621680335350"><span id="local-6989586621680335351"><span id="local-6989586621680335352"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336765"><span id="local-6989586621680336767"><span id="local-6989586621680336769"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621680336763"><span class="annot"><span class="annottext">toJSON :: DatasetDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition%27"><span class="hs-identifier hs-type">DatasetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336757"><span id="local-6989586621680336758"><span id="local-6989586621680336759"><span id="local-6989586621680336760"><span id="local-6989586621680336761"><span class="annot"><span class="annottext">Maybe Text
 Maybe AthenaDatasetDefinition
 Maybe DataDistributionType
 Maybe InputMode
 Maybe RedshiftDatasetDefinition
-dataDistributionType :: Maybe DataDistributionType
 inputMode :: Maybe InputMode
-athenaDatasetDefinition :: Maybe AthenaDatasetDefinition
+dataDistributionType :: Maybe DataDistributionType
 localPath :: Maybe Text
+athenaDatasetDefinition :: Maybe AthenaDatasetDefinition
 redshiftDatasetDefinition :: Maybe RedshiftDatasetDefinition
-$sel:dataDistributionType:DatasetDefinition' :: DatasetDefinition -&gt; Maybe DataDistributionType
 $sel:inputMode:DatasetDefinition' :: DatasetDefinition -&gt; Maybe InputMode
-$sel:athenaDatasetDefinition:DatasetDefinition' :: DatasetDefinition -&gt; Maybe AthenaDatasetDefinition
+$sel:dataDistributionType:DatasetDefinition' :: DatasetDefinition -&gt; Maybe DataDistributionType
 $sel:localPath:DatasetDefinition' :: DatasetDefinition -&gt; Maybe Text
+$sel:athenaDatasetDefinition:DatasetDefinition' :: DatasetDefinition -&gt; Maybe AthenaDatasetDefinition
 $sel:redshiftDatasetDefinition:DatasetDefinition' :: DatasetDefinition -&gt; Maybe RedshiftDatasetDefinition
-</span><a href="#local-6989586621680335348"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680336757"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -425,39 +425,39 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe RedshiftDatasetDefinition -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RedshiftDatasetDefinition
-</span><a href="#local-6989586621680335352"><span class="hs-identifier hs-var">redshiftDatasetDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680336761"><span class="hs-identifier hs-var">redshiftDatasetDefinition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AthenaDatasetDefinition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AthenaDatasetDefinition -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">(AthenaDatasetDefinition -&gt; Pair)
+-&gt; Maybe AthenaDatasetDefinition -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AthenaDatasetDefinition
+</span><a href="#local-6989586621680336760"><span class="hs-identifier hs-var">athenaDatasetDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LocalPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680335351"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AthenaDatasetDefinition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AthenaDatasetDefinition -&gt; Pair
+</span><a href="#local-6989586621680336759"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataDistributionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataDistributionType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">(AthenaDatasetDefinition -&gt; Pair)
--&gt; Maybe AthenaDatasetDefinition -&gt; Maybe Pair
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">(DataDistributionType -&gt; Pair)
+-&gt; Maybe DataDistributionType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AthenaDatasetDefinition
-</span><a href="#local-6989586621680335350"><span class="hs-identifier hs-var">athenaDatasetDefinition</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DataDistributionType
+</span><a href="#local-6989586621680336758"><span class="hs-identifier hs-var">dataDistributionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InputMode -&gt; Pair) -&gt; Maybe InputMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputMode
-</span><a href="#local-6989586621680335349"><span class="hs-identifier hs-var">inputMode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DataDistributionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataDistributionType -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">(DataDistributionType -&gt; Pair)
--&gt; Maybe DataDistributionType -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DataDistributionType
-</span><a href="#local-6989586621680335348"><span class="hs-identifier hs-var">dataDistributionType</span></a></span><span>
+</span><a href="#local-6989586621680336757"><span class="hs-identifier hs-var">inputMode</span></a></span><span>
 </span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span></pre></body></html>

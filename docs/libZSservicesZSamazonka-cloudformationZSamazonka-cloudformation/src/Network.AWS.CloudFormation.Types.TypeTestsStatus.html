@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679427869"><span id="local-6989586621679427870"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TypeTestsStatus"><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeTestsStatus.html#TypeTestsStatus"><span class="hs-identifier hs-var">TypeTestsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TypeTestsStatus%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeTestsStatus.html#TypeTestsStatus%27"><span class="hs-identifier hs-var">TypeTestsStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679428284"><span id="local-6989586621679428285"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TypeTestsStatus"><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeTestsStatus.html#TypeTestsStatus"><span class="hs-identifier hs-var">TypeTestsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TypeTestsStatus%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeTestsStatus.html#TypeTestsStatus%27"><span class="hs-identifier hs-var">TypeTestsStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTypeTestsStatus"><span class="annot"><span class="annottext">TypeTestsStatus -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.TypeTestsStatus.html#fromTypeTestsStatus"><span class="hs-identifier hs-var hs-var">fromTypeTestsStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427861"><span id="local-6989586621679427863"><span id="local-6989586621679427865"><span class="annot"><span class="annottext">Int -&gt; TypeTestsStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428276"><span id="local-6989586621679428278"><span id="local-6989586621679428280"><span class="annot"><span class="annottext">Int -&gt; TypeTestsStatus -&gt; ShowS
 [TypeTestsStatus] -&gt; ShowS
 TypeTestsStatus -&gt; String
 (Int -&gt; TypeTestsStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: TypeTestsStatus -&gt; String
 showsPrec :: Int -&gt; TypeTestsStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; TypeTestsStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679427852"><span id="local-6989586621679427854"><span id="local-6989586621679427856"><span id="local-6989586621679427858"><span class="annot"><span class="annottext">ReadPrec [TypeTestsStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679428267"><span id="local-6989586621679428269"><span id="local-6989586621679428271"><span id="local-6989586621679428273"><span class="annot"><span class="annottext">ReadPrec [TypeTestsStatus]
 ReadPrec TypeTestsStatus
 Int -&gt; ReadS TypeTestsStatus
 ReadS [TypeTestsStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [TypeTestsStatus]
 readsPrec :: Int -&gt; ReadS TypeTestsStatus
 $creadsPrec :: Int -&gt; ReadS TypeTestsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679427847"><span id="local-6989586621679427849"><span class="annot"><span class="annottext">TypeTestsStatus -&gt; TypeTestsStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679428262"><span id="local-6989586621679428264"><span class="annot"><span class="annottext">TypeTestsStatus -&gt; TypeTestsStatus -&gt; Bool
 (TypeTestsStatus -&gt; TypeTestsStatus -&gt; Bool)
 -&gt; (TypeTestsStatus -&gt; TypeTestsStatus -&gt; Bool)
 -&gt; Eq TypeTestsStatus
@@ -84,7 +84,7 @@ $c/= :: TypeTestsStatus -&gt; TypeTestsStatus -&gt; Bool
 == :: TypeTestsStatus -&gt; TypeTestsStatus -&gt; Bool
 $c== :: TypeTestsStatus -&gt; TypeTestsStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679427831"><span id="local-6989586621679427833"><span id="local-6989586621679427835"><span id="local-6989586621679427837"><span id="local-6989586621679427839"><span id="local-6989586621679427841"><span id="local-6989586621679427843"><span class="annot"><span class="annottext">Eq TypeTestsStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679428246"><span id="local-6989586621679428248"><span id="local-6989586621679428250"><span id="local-6989586621679428252"><span id="local-6989586621679428254"><span id="local-6989586621679428256"><span id="local-6989586621679428258"><span class="annot"><span class="annottext">Eq TypeTestsStatus
 Eq TypeTestsStatus
 -&gt; (TypeTestsStatus -&gt; TypeTestsStatus -&gt; Ordering)
 -&gt; (TypeTestsStatus -&gt; TypeTestsStatus -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. TypeTestsStatus -&gt; Rep TypeTestsStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427823"><span id="local-6989586621679427825"><span class="annot"><span class="annottext">Int -&gt; TypeTestsStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428238"><span id="local-6989586621679428240"><span class="annot"><span class="annottext">Int -&gt; TypeTestsStatus -&gt; Int
 TypeTestsStatus -&gt; Int
 (Int -&gt; TypeTestsStatus -&gt; Int)
 -&gt; (TypeTestsStatus -&gt; Int) -&gt; Hashable TypeTestsStatus
@@ -145,50 +145,50 @@ $chash :: TypeTestsStatus -&gt; Int
 hashWithSalt :: Int -&gt; TypeTestsStatus -&gt; Int
 $chashWithSalt :: Int -&gt; TypeTestsStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679427820"><span class="annot"><span class="annottext">TypeTestsStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679428235"><span class="annot"><span class="annottext">TypeTestsStatus -&gt; ()
 (TypeTestsStatus -&gt; ()) -&gt; NFData TypeTestsStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TypeTestsStatus -&gt; ()
 $crnf :: TypeTestsStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679427817"><span class="annot"><span class="annottext">Text -&gt; Either String TypeTestsStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679428232"><span class="annot"><span class="annottext">Text -&gt; Either String TypeTestsStatus
 (Text -&gt; Either String TypeTestsStatus) -&gt; FromText TypeTestsStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TypeTestsStatus
 $cfromText :: Text -&gt; Either String TypeTestsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679427814"><span class="annot"><span class="annottext">TypeTestsStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679428229"><span class="annot"><span class="annottext">TypeTestsStatus -&gt; Text
 (TypeTestsStatus -&gt; Text) -&gt; ToText TypeTestsStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TypeTestsStatus -&gt; Text
 $ctoText :: TypeTestsStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679427811"><span class="annot"><span class="annottext">TypeTestsStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679428226"><span class="annot"><span class="annottext">TypeTestsStatus -&gt; ByteString
 (TypeTestsStatus -&gt; ByteString) -&gt; ToByteString TypeTestsStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TypeTestsStatus -&gt; ByteString
 $ctoBS :: TypeTestsStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679427808"><span class="annot"><span class="annottext">TypeTestsStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679428223"><span class="annot"><span class="annottext">TypeTestsStatus -&gt; ByteStringBuilder
 (TypeTestsStatus -&gt; ByteStringBuilder) -&gt; ToLog TypeTestsStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TypeTestsStatus -&gt; ByteStringBuilder
 $cbuild :: TypeTestsStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679427805"><span class="annot"><span class="annottext">HeaderName -&gt; TypeTestsStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679428220"><span class="annot"><span class="annottext">HeaderName -&gt; TypeTestsStatus -&gt; [Header]
 (HeaderName -&gt; TypeTestsStatus -&gt; [Header])
 -&gt; ToHeader TypeTestsStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TypeTestsStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TypeTestsStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679427802"><span class="annot"><span class="annottext">TypeTestsStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679428217"><span class="annot"><span class="annottext">TypeTestsStatus -&gt; QueryString
 (TypeTestsStatus -&gt; QueryString) -&gt; ToQuery TypeTestsStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TypeTestsStatus -&gt; QueryString
 $ctoQuery :: TypeTestsStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679427797"><span id="local-6989586621679427799"><span class="annot"><span class="annottext">Value -&gt; Parser [TypeTestsStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679428212"><span id="local-6989586621679428214"><span class="annot"><span class="annottext">Value -&gt; Parser [TypeTestsStatus]
 Value -&gt; Parser TypeTestsStatus
 (Value -&gt; Parser TypeTestsStatus)
 -&gt; (Value -&gt; Parser [TypeTestsStatus]) -&gt; FromJSON TypeTestsStatus
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [TypeTestsStatus]
 parseJSON :: Value -&gt; Parser TypeTestsStatus
 $cparseJSON :: Value -&gt; Parser TypeTestsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679427792"><span id="local-6989586621679427794"><span class="annot"><span class="annottext">FromJSONKeyFunction [TypeTestsStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679428207"><span id="local-6989586621679428209"><span class="annot"><span class="annottext">FromJSONKeyFunction [TypeTestsStatus]
 FromJSONKeyFunction TypeTestsStatus
 FromJSONKeyFunction TypeTestsStatus
 -&gt; FromJSONKeyFunction [TypeTestsStatus]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TypeTestsStatus]
 fromJSONKey :: FromJSONKeyFunction TypeTestsStatus
 $cfromJSONKey :: FromJSONKeyFunction TypeTestsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679427783"><span id="local-6989586621679427785"><span id="local-6989586621679427787"><span id="local-6989586621679427789"><span class="annot"><span class="annottext">[TypeTestsStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679428198"><span id="local-6989586621679428200"><span id="local-6989586621679428202"><span id="local-6989586621679428204"><span class="annot"><span class="annottext">[TypeTestsStatus] -&gt; Encoding
 [TypeTestsStatus] -&gt; Value
 TypeTestsStatus -&gt; Encoding
 TypeTestsStatus -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: TypeTestsStatus -&gt; Encoding
 toJSON :: TypeTestsStatus -&gt; Value
 $ctoJSON :: TypeTestsStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679427778"><span id="local-6989586621679427780"><span class="annot"><span class="annottext">ToJSONKeyFunction [TypeTestsStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679428193"><span id="local-6989586621679428195"><span class="annot"><span class="annottext">ToJSONKeyFunction [TypeTestsStatus]
 ToJSONKeyFunction TypeTestsStatus
 ToJSONKeyFunction TypeTestsStatus
 -&gt; ToJSONKeyFunction [TypeTestsStatus] -&gt; ToJSONKey TypeTestsStatus
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TypeTestsStatus]
 toJSONKey :: ToJSONKeyFunction TypeTestsStatus
 $ctoJSONKey :: ToJSONKeyFunction TypeTestsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679427775"><span class="annot"><span class="annottext">[Node] -&gt; Either String TypeTestsStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679428190"><span class="annot"><span class="annottext">[Node] -&gt; Either String TypeTestsStatus
 ([Node] -&gt; Either String TypeTestsStatus)
 -&gt; FromXML TypeTestsStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TypeTestsStatus
 $cparseXML :: [Node] -&gt; Either String TypeTestsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679427772"><span class="annot"><span class="annottext">TypeTestsStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679428187"><span class="annot"><span class="annottext">TypeTestsStatus -&gt; XML
 (TypeTestsStatus -&gt; XML) -&gt; ToXML TypeTestsStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TypeTestsStatus -&gt; XML

@@ -63,10 +63,10 @@
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_clientMetadata"><span class="hs-identifier">adminCreateUser_clientMetadata</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_messageAction"><span class="hs-identifier">adminCreateUser_messageAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_temporaryPassword"><span class="hs-identifier">adminCreateUser_temporaryPassword</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_forceAliasCreation"><span class="hs-identifier">adminCreateUser_forceAliasCreation</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_desiredDeliveryMediums"><span class="hs-identifier">adminCreateUser_desiredDeliveryMediums</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_temporaryPassword"><span class="hs-identifier">adminCreateUser_temporaryPassword</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_messageAction"><span class="hs-identifier">adminCreateUser_messageAction</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_userAttributes"><span class="hs-identifier">adminCreateUser_userAttributes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_validationData"><span class="hs-identifier">adminCreateUser_validationData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_userPoolId"><span class="hs-identifier">adminCreateUser_userPoolId</span></a></span><span class="hs-special">,</span><span>
@@ -92,7 +92,7 @@
 </span><span id="line-92"></span><span class="hs-comment">-- | Represents the request to create a user in the specified user pool.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- /See:/ 'newAdminCreateUser' smart constructor.</span><span>
-</span><span id="line-95"></span><span id="local-6989586621679459005"><span id="local-6989586621679459006"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminCreateUser"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-var">AdminCreateUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminCreateUser%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-var">AdminCreateUser'</span></a></span></span><span>
+</span><span id="line-95"></span><span id="local-6989586621679459540"><span id="local-6989586621679459541"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminCreateUser"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-var">AdminCreateUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminCreateUser%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-var">AdminCreateUser'</span></a></span></span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A map of custom key-value pairs that you can provide as input for any</span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-comment">-- custom workflows that this action triggers.</span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -125,47 +125,47 @@
 </span><span id="line-125"></span><span>    </span><span class="hs-comment">--     don\'t use it to provide sensitive information.</span><span>
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AclientMetadata%3AAdminCreateUser%27"><span class="annot"><span class="annottext">AdminCreateUser -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AclientMetadata%3AAdminCreateUser%27"><span class="hs-identifier hs-var hs-var">clientMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | Set to @\&quot;RESEND\&quot;@ to resend the invitation message to a user that</span><span>
-</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- already exists and reset the expiration limit on the user\'s account.</span><span>
-</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- Set to @\&quot;SUPPRESS\&quot;@ to suppress sending the message. Only one value</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- can be specified.</span><span>
-</span><span id="line-131"></span><span>    </span><span id="%24sel%3AmessageAction%3AAdminCreateUser%27"><span class="annot"><span class="annottext">AdminCreateUser -&gt; Maybe MessageActionType
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AmessageAction%3AAdminCreateUser%27"><span class="hs-identifier hs-var hs-var">messageAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.MessageActionType.html#MessageActionType"><span class="hs-identifier hs-type">MessageActionType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | This parameter is only used if the @phone_number_verified@ or</span><span>
-</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- @email_verified@ attribute is set to @True@. Otherwise, it is ignored.</span><span>
-</span><span id="line-134"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- If this parameter is set to @True@ and the phone number or email address</span><span>
-</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- specified in the UserAttributes parameter already exists as an alias</span><span>
-</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- with a different user, the API call will migrate the alias from the</span><span>
-</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- previous user to the newly created user. The previous user will no</span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- longer be able to log in using that alias.</span><span>
-</span><span id="line-140"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- If this parameter is set to @False@, the API throws an</span><span>
-</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- @AliasExistsException@ error if the alias already exists. The default</span><span>
-</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- value is @False@.</span><span>
-</span><span id="line-144"></span><span>    </span><span id="%24sel%3AforceAliasCreation%3AAdminCreateUser%27"><span class="annot"><span class="annottext">AdminCreateUser -&gt; Maybe Bool
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AforceAliasCreation%3AAdminCreateUser%27"><span class="hs-identifier hs-var hs-var">forceAliasCreation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | Specify @\&quot;EMAIL\&quot;@ if email will be used to send the welcome message.</span><span>
-</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- Specify @\&quot;SMS\&quot;@ if the phone number will be used. The default value is</span><span>
-</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- @\&quot;SMS\&quot;@. More than one value can be specified.</span><span>
-</span><span id="line-148"></span><span>    </span><span id="%24sel%3AdesiredDeliveryMediums%3AAdminCreateUser%27"><span class="annot"><span class="annottext">AdminCreateUser -&gt; Maybe [DeliveryMediumType]
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AdesiredDeliveryMediums%3AAdminCreateUser%27"><span class="hs-identifier hs-var hs-var">desiredDeliveryMediums</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType.html#DeliveryMediumType"><span class="hs-identifier hs-type">DeliveryMediumType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The user\'s temporary password. This password must conform to the</span><span>
-</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- password policy that you specified when you created the user pool.</span><span>
-</span><span id="line-151"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- The temporary password is valid only once. To complete the Admin Create</span><span>
-</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- User flow, the user must enter the temporary password in the sign-in</span><span>
-</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- page along with a new password to be used in all future sign-ins.</span><span>
-</span><span id="line-155"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- This parameter is not required. If you do not specify a value, Amazon</span><span>
-</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- Cognito generates one for you.</span><span>
-</span><span id="line-158"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- The temporary password can only be used until the user account</span><span>
-</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- expiration limit that you specified when you created the user pool. To</span><span>
-</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- reset the account after that time limit, you must call @AdminCreateUser@</span><span>
-</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- again, specifying @\&quot;RESEND\&quot;@ for the @MessageAction@ parameter.</span><span>
-</span><span id="line-163"></span><span>    </span><span id="%24sel%3AtemporaryPassword%3AAdminCreateUser%27"><span class="annot"><span class="annottext">AdminCreateUser -&gt; Maybe (Sensitive Text)
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | The user\'s temporary password. This password must conform to the</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- password policy that you specified when you created the user pool.</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- The temporary password is valid only once. To complete the Admin Create</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- User flow, the user must enter the temporary password in the sign-in</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- page along with a new password to be used in all future sign-ins.</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- This parameter is not required. If you do not specify a value, Amazon</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- Cognito generates one for you.</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- The temporary password can only be used until the user account</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- expiration limit that you specified when you created the user pool. To</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- reset the account after that time limit, you must call @AdminCreateUser@</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- again, specifying @\&quot;RESEND\&quot;@ for the @MessageAction@ parameter.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AtemporaryPassword%3AAdminCreateUser%27"><span class="annot"><span class="annottext">AdminCreateUser -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AtemporaryPassword%3AAdminCreateUser%27"><span class="hs-identifier hs-var hs-var">temporaryPassword</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | This parameter is only used if the @phone_number_verified@ or</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- @email_verified@ attribute is set to @True@. Otherwise, it is ignored.</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- If this parameter is set to @True@ and the phone number or email address</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- specified in the UserAttributes parameter already exists as an alias</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- with a different user, the API call will migrate the alias from the</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- previous user to the newly created user. The previous user will no</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- longer be able to log in using that alias.</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- If this parameter is set to @False@, the API throws an</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- @AliasExistsException@ error if the alias already exists. The default</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- value is @False@.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AforceAliasCreation%3AAdminCreateUser%27"><span class="annot"><span class="annottext">AdminCreateUser -&gt; Maybe Bool
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AforceAliasCreation%3AAdminCreateUser%27"><span class="hs-identifier hs-var hs-var">forceAliasCreation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | Specify @\&quot;EMAIL\&quot;@ if email will be used to send the welcome message.</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- Specify @\&quot;SMS\&quot;@ if the phone number will be used. The default value is</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- @\&quot;SMS\&quot;@. More than one value can be specified.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AdesiredDeliveryMediums%3AAdminCreateUser%27"><span class="annot"><span class="annottext">AdminCreateUser -&gt; Maybe [DeliveryMediumType]
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AdesiredDeliveryMediums%3AAdminCreateUser%27"><span class="hs-identifier hs-var hs-var">desiredDeliveryMediums</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType.html#DeliveryMediumType"><span class="hs-identifier hs-type">DeliveryMediumType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | Set to @\&quot;RESEND\&quot;@ to resend the invitation message to a user that</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- already exists and reset the expiration limit on the user\'s account.</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- Set to @\&quot;SUPPRESS\&quot;@ to suppress sending the message. Only one value</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- can be specified.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AmessageAction%3AAdminCreateUser%27"><span class="annot"><span class="annottext">AdminCreateUser -&gt; Maybe MessageActionType
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AmessageAction%3AAdminCreateUser%27"><span class="hs-identifier hs-var hs-var">messageAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.MessageActionType.html#MessageActionType"><span class="hs-identifier hs-type">MessageActionType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | An array of name-value pairs that contain user attributes and attribute</span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-comment">-- values to be set for the user to be created. You can create a user</span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-comment">-- without specifying any attributes other than @Username@. However, any</span><span>
@@ -221,7 +221,7 @@
 </span><span id="line-213"></span><span>    </span><span id="%24sel%3Ausername%3AAdminCreateUser%27"><span class="annot"><span class="annottext">AdminCreateUser -&gt; Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3Ausername%3AAdminCreateUser%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-214"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-215"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679458991"><span id="local-6989586621679458993"><span class="annot"><span class="annottext">AdminCreateUser -&gt; AdminCreateUser -&gt; Bool
+</span><span id="line-215"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459526"><span id="local-6989586621679459528"><span class="annot"><span class="annottext">AdminCreateUser -&gt; AdminCreateUser -&gt; Bool
 (AdminCreateUser -&gt; AdminCreateUser -&gt; Bool)
 -&gt; (AdminCreateUser -&gt; AdminCreateUser -&gt; Bool)
 -&gt; Eq AdminCreateUser
@@ -230,7 +230,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AdminCreateUser -&gt; AdminCreateUser -&gt; Bool
 == :: AdminCreateUser -&gt; AdminCreateUser -&gt; Bool
 $c== :: AdminCreateUser -&gt; AdminCreateUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458984"><span id="local-6989586621679458986"><span id="local-6989586621679458988"><span class="annot"><span class="annottext">Int -&gt; AdminCreateUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459519"><span id="local-6989586621679459521"><span id="local-6989586621679459523"><span class="annot"><span class="annottext">Int -&gt; AdminCreateUser -&gt; ShowS
 [AdminCreateUser] -&gt; ShowS
 AdminCreateUser -&gt; String
 (Int -&gt; AdminCreateUser -&gt; ShowS)
@@ -295,42 +295,42 @@ $cfrom :: forall x. AdminCreateUser -&gt; Rep AdminCreateUser x
 </span><span id="line-253"></span><span class="hs-comment">-- -   Amazon Cognito does not encrypt the the ClientMetadata value, so</span><span>
 </span><span id="line-254"></span><span class="hs-comment">--     don\'t use it to provide sensitive information.</span><span>
 </span><span id="line-255"></span><span class="hs-comment">--</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- 'messageAction', 'adminCreateUser_messageAction' - Set to @\&quot;RESEND\&quot;@ to resend the invitation message to a user that</span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- already exists and reset the expiration limit on the user\'s account.</span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- Set to @\&quot;SUPPRESS\&quot;@ to suppress sending the message. Only one value</span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- can be specified.</span><span>
-</span><span id="line-260"></span><span class="hs-comment">--</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- 'forceAliasCreation', 'adminCreateUser_forceAliasCreation' - This parameter is only used if the @phone_number_verified@ or</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- @email_verified@ attribute is set to @True@. Otherwise, it is ignored.</span><span>
-</span><span id="line-263"></span><span class="hs-comment">--</span><span>
-</span><span id="line-264"></span><span class="hs-comment">-- If this parameter is set to @True@ and the phone number or email address</span><span>
-</span><span id="line-265"></span><span class="hs-comment">-- specified in the UserAttributes parameter already exists as an alias</span><span>
-</span><span id="line-266"></span><span class="hs-comment">-- with a different user, the API call will migrate the alias from the</span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- previous user to the newly created user. The previous user will no</span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- longer be able to log in using that alias.</span><span>
-</span><span id="line-269"></span><span class="hs-comment">--</span><span>
-</span><span id="line-270"></span><span class="hs-comment">-- If this parameter is set to @False@, the API throws an</span><span>
-</span><span id="line-271"></span><span class="hs-comment">-- @AliasExistsException@ error if the alias already exists. The default</span><span>
-</span><span id="line-272"></span><span class="hs-comment">-- value is @False@.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- 'temporaryPassword', 'adminCreateUser_temporaryPassword' - The user\'s temporary password. This password must conform to the</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- password policy that you specified when you created the user pool.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- The temporary password is valid only once. To complete the Admin Create</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- User flow, the user must enter the temporary password in the sign-in</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- page along with a new password to be used in all future sign-ins.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- This parameter is not required. If you do not specify a value, Amazon</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- Cognito generates one for you.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- The temporary password can only be used until the user account</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- expiration limit that you specified when you created the user pool. To</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- reset the account after that time limit, you must call @AdminCreateUser@</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- again, specifying @\&quot;RESEND\&quot;@ for the @MessageAction@ parameter.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- 'forceAliasCreation', 'adminCreateUser_forceAliasCreation' - This parameter is only used if the @phone_number_verified@ or</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- @email_verified@ attribute is set to @True@. Otherwise, it is ignored.</span><span>
 </span><span id="line-273"></span><span class="hs-comment">--</span><span>
-</span><span id="line-274"></span><span class="hs-comment">-- 'desiredDeliveryMediums', 'adminCreateUser_desiredDeliveryMediums' - Specify @\&quot;EMAIL\&quot;@ if email will be used to send the welcome message.</span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- Specify @\&quot;SMS\&quot;@ if the phone number will be used. The default value is</span><span>
-</span><span id="line-276"></span><span class="hs-comment">-- @\&quot;SMS\&quot;@. More than one value can be specified.</span><span>
-</span><span id="line-277"></span><span class="hs-comment">--</span><span>
-</span><span id="line-278"></span><span class="hs-comment">-- 'temporaryPassword', 'adminCreateUser_temporaryPassword' - The user\'s temporary password. This password must conform to the</span><span>
-</span><span id="line-279"></span><span class="hs-comment">-- password policy that you specified when you created the user pool.</span><span>
-</span><span id="line-280"></span><span class="hs-comment">--</span><span>
-</span><span id="line-281"></span><span class="hs-comment">-- The temporary password is valid only once. To complete the Admin Create</span><span>
-</span><span id="line-282"></span><span class="hs-comment">-- User flow, the user must enter the temporary password in the sign-in</span><span>
-</span><span id="line-283"></span><span class="hs-comment">-- page along with a new password to be used in all future sign-ins.</span><span>
-</span><span id="line-284"></span><span class="hs-comment">--</span><span>
-</span><span id="line-285"></span><span class="hs-comment">-- This parameter is not required. If you do not specify a value, Amazon</span><span>
-</span><span id="line-286"></span><span class="hs-comment">-- Cognito generates one for you.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- If this parameter is set to @True@ and the phone number or email address</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- specified in the UserAttributes parameter already exists as an alias</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- with a different user, the API call will migrate the alias from the</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- previous user to the newly created user. The previous user will no</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- longer be able to log in using that alias.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- If this parameter is set to @False@, the API throws an</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- @AliasExistsException@ error if the alias already exists. The default</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- value is @False@.</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- 'desiredDeliveryMediums', 'adminCreateUser_desiredDeliveryMediums' - Specify @\&quot;EMAIL\&quot;@ if email will be used to send the welcome message.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- Specify @\&quot;SMS\&quot;@ if the phone number will be used. The default value is</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- @\&quot;SMS\&quot;@. More than one value can be specified.</span><span>
 </span><span id="line-287"></span><span class="hs-comment">--</span><span>
-</span><span id="line-288"></span><span class="hs-comment">-- The temporary password can only be used until the user account</span><span>
-</span><span id="line-289"></span><span class="hs-comment">-- expiration limit that you specified when you created the user pool. To</span><span>
-</span><span id="line-290"></span><span class="hs-comment">-- reset the account after that time limit, you must call @AdminCreateUser@</span><span>
-</span><span id="line-291"></span><span class="hs-comment">-- again, specifying @\&quot;RESEND\&quot;@ for the @MessageAction@ parameter.</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- 'messageAction', 'adminCreateUser_messageAction' - Set to @\&quot;RESEND\&quot;@ to resend the invitation message to a user that</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- already exists and reset the expiration limit on the user\'s account.</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- Set to @\&quot;SUPPRESS\&quot;@ to suppress sending the message. Only one value</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- can be specified.</span><span>
 </span><span id="line-292"></span><span class="hs-comment">--</span><span>
 </span><span id="line-293"></span><span class="hs-comment">-- 'userAttributes', 'adminCreateUser_userAttributes' - An array of name-value pairs that contain user attributes and attribute</span><span>
 </span><span id="line-294"></span><span class="hs-comment">-- values to be set for the user to be created. You can create a user</span><span>
@@ -388,14 +388,14 @@ $cfrom :: forall x. AdminCreateUser -&gt; Rep AdminCreateUser x
 </span><span id="line-346"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-347"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span>
 </span><span id="line-348"></span><span id="newAdminCreateUser"><span class="annot"><span class="annottext">newAdminCreateUser :: Text -&gt; Text -&gt; AdminCreateUser
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#newAdminCreateUser"><span class="hs-identifier hs-var hs-var">newAdminCreateUser</span></a></span></span><span> </span><span id="local-6989586621679458979"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458979"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679458978"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458978"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#newAdminCreateUser"><span class="hs-identifier hs-var hs-var">newAdminCreateUser</span></a></span></span><span> </span><span id="local-6989586621679459514"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679459514"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679459513"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679459513"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-349"></span><span>  </span><span class="annot"><span class="annottext">AdminCreateUser' :: Maybe (HashMap Text Text)
--&gt; Maybe MessageActionType
+-&gt; Maybe (Sensitive Text)
 -&gt; Maybe Bool
 -&gt; Maybe [DeliveryMediumType]
--&gt; Maybe (Sensitive Text)
+-&gt; Maybe MessageActionType
 -&gt; Maybe [AttributeType]
 -&gt; Maybe [AttributeType]
 -&gt; Text
@@ -406,8 +406,8 @@ $cfrom :: forall x. AdminCreateUser -&gt; Rep AdminCreateUser x
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AclientMetadata%3AAdminCreateUser%27"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-351"></span><span>      </span><span class="annot"><span class="annottext">$sel:messageAction:AdminCreateUser' :: Maybe MessageActionType
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AmessageAction%3AAdminCreateUser%27"><span class="hs-identifier hs-var">messageAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageActionType
+</span><span id="line-351"></span><span>      </span><span class="annot"><span class="annottext">$sel:temporaryPassword:AdminCreateUser' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AtemporaryPassword%3AAdminCreateUser%27"><span class="hs-identifier hs-var">temporaryPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-352"></span><span>      </span><span class="annot"><span class="annottext">$sel:forceAliasCreation:AdminCreateUser' :: Maybe Bool
@@ -418,8 +418,8 @@ forall a. Maybe a
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AdesiredDeliveryMediums%3AAdminCreateUser%27"><span class="hs-identifier hs-var">desiredDeliveryMediums</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeliveryMediumType]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-354"></span><span>      </span><span class="annot"><span class="annottext">$sel:temporaryPassword:AdminCreateUser' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AtemporaryPassword%3AAdminCreateUser%27"><span class="hs-identifier hs-var">temporaryPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-354"></span><span>      </span><span class="annot"><span class="annottext">$sel:messageAction:AdminCreateUser' :: Maybe MessageActionType
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AmessageAction%3AAdminCreateUser%27"><span class="hs-identifier hs-var">messageAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageActionType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-355"></span><span>      </span><span class="annot"><span class="annottext">$sel:userAttributes:AdminCreateUser' :: Maybe [AttributeType]
@@ -432,7 +432,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-357"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPoolId:AdminCreateUser' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AuserPoolId%3AAdminCreateUser%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458979"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679459514"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-358"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:AdminCreateUser' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3Ausername%3AAdminCreateUser%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -442,7 +442,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458978"><span class="hs-identifier hs-var">pUsername_</span></a></span><span>
+</span><a href="#local-6989586621679459513"><span class="hs-identifier hs-var">pUsername_</span></a></span><span>
 </span><span id="line-359"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-360"></span><span>
 </span><span id="line-361"></span><span class="hs-comment">-- | A map of custom key-value pairs that you can provide as input for any</span><span>
@@ -487,16 +487,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458973"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459508"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 clientMetadata :: Maybe (HashMap Text Text)
 $sel:clientMetadata:AdminCreateUser' :: AdminCreateUser -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679458973"><span class="hs-identifier hs-var hs-var">clientMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679458973"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458972"><span class="annot"><span class="annottext">s :: AdminCreateUser
-</span><a href="#local-6989586621679458972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458971"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679458971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
-</span><a href="#local-6989586621679458972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientMetadata:AdminCreateUser' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679459508"><span class="hs-identifier hs-var hs-var">clientMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679459508"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459507"><span class="annot"><span class="annottext">s :: AdminCreateUser
+</span><a href="#local-6989586621679459507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459506"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679459506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
+</span><a href="#local-6989586621679459507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientMetadata:AdminCreateUser' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AclientMetadata%3AAdminCreateUser%27"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679458971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679459506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; AdminCreateUser -&gt; f AdminCreateUser)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -522,70 +522,99 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-393"></span><span>
-</span><span id="line-394"></span><span class="hs-comment">-- | Set to @\&quot;RESEND\&quot;@ to resend the invitation message to a user that</span><span>
-</span><span id="line-395"></span><span class="hs-comment">-- already exists and reset the expiration limit on the user\'s account.</span><span>
-</span><span id="line-396"></span><span class="hs-comment">-- Set to @\&quot;SUPPRESS\&quot;@ to suppress sending the message. Only one value</span><span>
-</span><span id="line-397"></span><span class="hs-comment">-- can be specified.</span><span>
-</span><span id="line-398"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_messageAction"><span class="hs-identifier hs-type">adminCreateUser_messageAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.MessageActionType.html#MessageActionType"><span class="hs-identifier hs-type">MessageActionType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-399"></span><span id="adminCreateUser_messageAction"><span class="annot"><span class="annottext">adminCreateUser_messageAction :: (Maybe MessageActionType -&gt; f (Maybe MessageActionType))
+</span><span id="line-394"></span><span class="hs-comment">-- | The user\'s temporary password. This password must conform to the</span><span>
+</span><span id="line-395"></span><span class="hs-comment">-- password policy that you specified when you created the user pool.</span><span>
+</span><span id="line-396"></span><span class="hs-comment">--</span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- The temporary password is valid only once. To complete the Admin Create</span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- User flow, the user must enter the temporary password in the sign-in</span><span>
+</span><span id="line-399"></span><span class="hs-comment">-- page along with a new password to be used in all future sign-ins.</span><span>
+</span><span id="line-400"></span><span class="hs-comment">--</span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- This parameter is not required. If you do not specify a value, Amazon</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- Cognito generates one for you.</span><span>
+</span><span id="line-403"></span><span class="hs-comment">--</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- The temporary password can only be used until the user account</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- expiration limit that you specified when you created the user pool. To</span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- reset the account after that time limit, you must call @AdminCreateUser@</span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- again, specifying @\&quot;RESEND\&quot;@ for the @MessageAction@ parameter.</span><span>
+</span><span id="line-408"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_temporaryPassword"><span class="hs-identifier hs-type">adminCreateUser_temporaryPassword</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-409"></span><span id="adminCreateUser_temporaryPassword"><span class="annot"><span class="annottext">adminCreateUser_temporaryPassword :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AdminCreateUser -&gt; f AdminCreateUser
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_messageAction"><span class="hs-identifier hs-var hs-var">adminCreateUser_messageAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminCreateUser -&gt; Maybe MessageActionType)
--&gt; (AdminCreateUser -&gt; Maybe MessageActionType -&gt; AdminCreateUser)
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_temporaryPassword"><span class="hs-identifier hs-var hs-var">adminCreateUser_temporaryPassword</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminCreateUser -&gt; Maybe (Sensitive Text))
+-&gt; (AdminCreateUser -&gt; Maybe (Sensitive Text) -&gt; AdminCreateUser)
 -&gt; Lens
      AdminCreateUser
      AdminCreateUser
-     (Maybe MessageActionType)
-     (Maybe MessageActionType)
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458967"><span class="annot"><span class="annottext">Maybe MessageActionType
-messageAction :: Maybe MessageActionType
-$sel:messageAction:AdminCreateUser' :: AdminCreateUser -&gt; Maybe MessageActionType
-</span><a href="#local-6989586621679458967"><span class="hs-identifier hs-var hs-var">messageAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessageActionType
-</span><a href="#local-6989586621679458967"><span class="hs-identifier hs-var">messageAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458966"><span class="annot"><span class="annottext">s :: AdminCreateUser
-</span><a href="#local-6989586621679458966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458965"><span class="annot"><span class="annottext">Maybe MessageActionType
-</span><a href="#local-6989586621679458965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
-</span><a href="#local-6989586621679458966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageAction:AdminCreateUser' :: Maybe MessageActionType
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AmessageAction%3AAdminCreateUser%27"><span class="hs-identifier hs-var">messageAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageActionType
-</span><a href="#local-6989586621679458965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-400"></span><span>
-</span><span id="line-401"></span><span class="hs-comment">-- | This parameter is only used if the @phone_number_verified@ or</span><span>
-</span><span id="line-402"></span><span class="hs-comment">-- @email_verified@ attribute is set to @True@. Otherwise, it is ignored.</span><span>
-</span><span id="line-403"></span><span class="hs-comment">--</span><span>
-</span><span id="line-404"></span><span class="hs-comment">-- If this parameter is set to @True@ and the phone number or email address</span><span>
-</span><span id="line-405"></span><span class="hs-comment">-- specified in the UserAttributes parameter already exists as an alias</span><span>
-</span><span id="line-406"></span><span class="hs-comment">-- with a different user, the API call will migrate the alias from the</span><span>
-</span><span id="line-407"></span><span class="hs-comment">-- previous user to the newly created user. The previous user will no</span><span>
-</span><span id="line-408"></span><span class="hs-comment">-- longer be able to log in using that alias.</span><span>
-</span><span id="line-409"></span><span class="hs-comment">--</span><span>
-</span><span id="line-410"></span><span class="hs-comment">-- If this parameter is set to @False@, the API throws an</span><span>
-</span><span id="line-411"></span><span class="hs-comment">-- @AliasExistsException@ error if the alias already exists. The default</span><span>
-</span><span id="line-412"></span><span class="hs-comment">-- value is @False@.</span><span>
-</span><span id="line-413"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_forceAliasCreation"><span class="hs-identifier hs-type">adminCreateUser_forceAliasCreation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-414"></span><span id="adminCreateUser_forceAliasCreation"><span class="annot"><span class="annottext">adminCreateUser_forceAliasCreation :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459502"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+temporaryPassword :: Maybe (Sensitive Text)
+$sel:temporaryPassword:AdminCreateUser' :: AdminCreateUser -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679459502"><span class="hs-identifier hs-var hs-var">temporaryPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679459502"><span class="hs-identifier hs-var">temporaryPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459501"><span class="annot"><span class="annottext">s :: AdminCreateUser
+</span><a href="#local-6989586621679459501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459500"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679459500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
+</span><a href="#local-6989586621679459501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:temporaryPassword:AdminCreateUser' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AtemporaryPassword%3AAdminCreateUser%27"><span class="hs-identifier hs-var">temporaryPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679459500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; AdminCreateUser -&gt; f AdminCreateUser)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; AdminCreateUser
+-&gt; f AdminCreateUser
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-410"></span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- | This parameter is only used if the @phone_number_verified@ or</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- @email_verified@ attribute is set to @True@. Otherwise, it is ignored.</span><span>
+</span><span id="line-413"></span><span class="hs-comment">--</span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- If this parameter is set to @True@ and the phone number or email address</span><span>
+</span><span id="line-415"></span><span class="hs-comment">-- specified in the UserAttributes parameter already exists as an alias</span><span>
+</span><span id="line-416"></span><span class="hs-comment">-- with a different user, the API call will migrate the alias from the</span><span>
+</span><span id="line-417"></span><span class="hs-comment">-- previous user to the newly created user. The previous user will no</span><span>
+</span><span id="line-418"></span><span class="hs-comment">-- longer be able to log in using that alias.</span><span>
+</span><span id="line-419"></span><span class="hs-comment">--</span><span>
+</span><span id="line-420"></span><span class="hs-comment">-- If this parameter is set to @False@, the API throws an</span><span>
+</span><span id="line-421"></span><span class="hs-comment">-- @AliasExistsException@ error if the alias already exists. The default</span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- value is @False@.</span><span>
+</span><span id="line-423"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_forceAliasCreation"><span class="hs-identifier hs-type">adminCreateUser_forceAliasCreation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-424"></span><span id="adminCreateUser_forceAliasCreation"><span class="annot"><span class="annottext">adminCreateUser_forceAliasCreation :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; AdminCreateUser -&gt; f AdminCreateUser
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_forceAliasCreation"><span class="hs-identifier hs-var hs-var">adminCreateUser_forceAliasCreation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminCreateUser -&gt; Maybe Bool)
 -&gt; (AdminCreateUser -&gt; Maybe Bool -&gt; AdminCreateUser)
 -&gt; Lens AdminCreateUser AdminCreateUser (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458964"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459499"><span class="annot"><span class="annottext">Maybe Bool
 forceAliasCreation :: Maybe Bool
 $sel:forceAliasCreation:AdminCreateUser' :: AdminCreateUser -&gt; Maybe Bool
-</span><a href="#local-6989586621679458964"><span class="hs-identifier hs-var hs-var">forceAliasCreation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679458964"><span class="hs-identifier hs-var">forceAliasCreation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458963"><span class="annot"><span class="annottext">s :: AdminCreateUser
-</span><a href="#local-6989586621679458963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458962"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679458962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
-</span><a href="#local-6989586621679458963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forceAliasCreation:AdminCreateUser' :: Maybe Bool
+</span><a href="#local-6989586621679459499"><span class="hs-identifier hs-var hs-var">forceAliasCreation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679459499"><span class="hs-identifier hs-var">forceAliasCreation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459498"><span class="annot"><span class="annottext">s :: AdminCreateUser
+</span><a href="#local-6989586621679459498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459497"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679459497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
+</span><a href="#local-6989586621679459498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forceAliasCreation:AdminCreateUser' :: Maybe Bool
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AforceAliasCreation%3AAdminCreateUser%27"><span class="hs-identifier hs-var">forceAliasCreation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679458962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-415"></span><span>
-</span><span id="line-416"></span><span class="hs-comment">-- | Specify @\&quot;EMAIL\&quot;@ if email will be used to send the welcome message.</span><span>
-</span><span id="line-417"></span><span class="hs-comment">-- Specify @\&quot;SMS\&quot;@ if the phone number will be used. The default value is</span><span>
-</span><span id="line-418"></span><span class="hs-comment">-- @\&quot;SMS\&quot;@. More than one value can be specified.</span><span>
-</span><span id="line-419"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_desiredDeliveryMediums"><span class="hs-identifier hs-type">adminCreateUser_desiredDeliveryMediums</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType.html#DeliveryMediumType"><span class="hs-identifier hs-type">DeliveryMediumType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-420"></span><span id="adminCreateUser_desiredDeliveryMediums"><span class="annot"><span class="annottext">adminCreateUser_desiredDeliveryMediums :: (Maybe [DeliveryMediumType] -&gt; f (Maybe [DeliveryMediumType]))
+</span><a href="#local-6989586621679459497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-425"></span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- | Specify @\&quot;EMAIL\&quot;@ if email will be used to send the welcome message.</span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- Specify @\&quot;SMS\&quot;@ if the phone number will be used. The default value is</span><span>
+</span><span id="line-428"></span><span class="hs-comment">-- @\&quot;SMS\&quot;@. More than one value can be specified.</span><span>
+</span><span id="line-429"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_desiredDeliveryMediums"><span class="hs-identifier hs-type">adminCreateUser_desiredDeliveryMediums</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType.html#DeliveryMediumType"><span class="hs-identifier hs-type">DeliveryMediumType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-430"></span><span id="adminCreateUser_desiredDeliveryMediums"><span class="annot"><span class="annottext">adminCreateUser_desiredDeliveryMediums :: (Maybe [DeliveryMediumType] -&gt; f (Maybe [DeliveryMediumType]))
 -&gt; AdminCreateUser -&gt; f AdminCreateUser
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_desiredDeliveryMediums"><span class="hs-identifier hs-var hs-var">adminCreateUser_desiredDeliveryMediums</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminCreateUser -&gt; Maybe [DeliveryMediumType])
 -&gt; (AdminCreateUser
@@ -596,16 +625,16 @@ $sel:forceAliasCreation:AdminCreateUser' :: AdminCreateUser -&gt; Maybe Bool
      (Maybe [DeliveryMediumType])
      (Maybe [DeliveryMediumType])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458961"><span class="annot"><span class="annottext">Maybe [DeliveryMediumType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459496"><span class="annot"><span class="annottext">Maybe [DeliveryMediumType]
 desiredDeliveryMediums :: Maybe [DeliveryMediumType]
 $sel:desiredDeliveryMediums:AdminCreateUser' :: AdminCreateUser -&gt; Maybe [DeliveryMediumType]
-</span><a href="#local-6989586621679458961"><span class="hs-identifier hs-var hs-var">desiredDeliveryMediums</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DeliveryMediumType]
-</span><a href="#local-6989586621679458961"><span class="hs-identifier hs-var">desiredDeliveryMediums</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458960"><span class="annot"><span class="annottext">s :: AdminCreateUser
-</span><a href="#local-6989586621679458960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458959"><span class="annot"><span class="annottext">Maybe [DeliveryMediumType]
-</span><a href="#local-6989586621679458959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
-</span><a href="#local-6989586621679458960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredDeliveryMediums:AdminCreateUser' :: Maybe [DeliveryMediumType]
+</span><a href="#local-6989586621679459496"><span class="hs-identifier hs-var hs-var">desiredDeliveryMediums</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DeliveryMediumType]
+</span><a href="#local-6989586621679459496"><span class="hs-identifier hs-var">desiredDeliveryMediums</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459495"><span class="annot"><span class="annottext">s :: AdminCreateUser
+</span><a href="#local-6989586621679459495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459494"><span class="annot"><span class="annottext">Maybe [DeliveryMediumType]
+</span><a href="#local-6989586621679459494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
+</span><a href="#local-6989586621679459495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredDeliveryMediums:AdminCreateUser' :: Maybe [DeliveryMediumType]
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AdesiredDeliveryMediums%3AAdminCreateUser%27"><span class="hs-identifier hs-var">desiredDeliveryMediums</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeliveryMediumType]
-</span><a href="#local-6989586621679458959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DeliveryMediumType] -&gt; f (Maybe [DeliveryMediumType]))
+</span><a href="#local-6989586621679459494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DeliveryMediumType] -&gt; f (Maybe [DeliveryMediumType]))
  -&gt; AdminCreateUser -&gt; f AdminCreateUser)
 -&gt; ((Maybe [DeliveryMediumType] -&gt; f (Maybe [DeliveryMediumType]))
     -&gt; Maybe [DeliveryMediumType] -&gt; f (Maybe [DeliveryMediumType]))
@@ -631,63 +660,34 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [DeliveryMediumType]
   [DeliveryMediumType]
   [DeliveryMediumType]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-421"></span><span>
-</span><span id="line-422"></span><span class="hs-comment">-- | The user\'s temporary password. This password must conform to the</span><span>
-</span><span id="line-423"></span><span class="hs-comment">-- password policy that you specified when you created the user pool.</span><span>
-</span><span id="line-424"></span><span class="hs-comment">--</span><span>
-</span><span id="line-425"></span><span class="hs-comment">-- The temporary password is valid only once. To complete the Admin Create</span><span>
-</span><span id="line-426"></span><span class="hs-comment">-- User flow, the user must enter the temporary password in the sign-in</span><span>
-</span><span id="line-427"></span><span class="hs-comment">-- page along with a new password to be used in all future sign-ins.</span><span>
-</span><span id="line-428"></span><span class="hs-comment">--</span><span>
-</span><span id="line-429"></span><span class="hs-comment">-- This parameter is not required. If you do not specify a value, Amazon</span><span>
-</span><span id="line-430"></span><span class="hs-comment">-- Cognito generates one for you.</span><span>
-</span><span id="line-431"></span><span class="hs-comment">--</span><span>
-</span><span id="line-432"></span><span class="hs-comment">-- The temporary password can only be used until the user account</span><span>
-</span><span id="line-433"></span><span class="hs-comment">-- expiration limit that you specified when you created the user pool. To</span><span>
-</span><span id="line-434"></span><span class="hs-comment">-- reset the account after that time limit, you must call @AdminCreateUser@</span><span>
-</span><span id="line-435"></span><span class="hs-comment">-- again, specifying @\&quot;RESEND\&quot;@ for the @MessageAction@ parameter.</span><span>
-</span><span id="line-436"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_temporaryPassword"><span class="hs-identifier hs-type">adminCreateUser_temporaryPassword</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-437"></span><span id="adminCreateUser_temporaryPassword"><span class="annot"><span class="annottext">adminCreateUser_temporaryPassword :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-431"></span><span>
+</span><span id="line-432"></span><span class="hs-comment">-- | Set to @\&quot;RESEND\&quot;@ to resend the invitation message to a user that</span><span>
+</span><span id="line-433"></span><span class="hs-comment">-- already exists and reset the expiration limit on the user\'s account.</span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- Set to @\&quot;SUPPRESS\&quot;@ to suppress sending the message. Only one value</span><span>
+</span><span id="line-435"></span><span class="hs-comment">-- can be specified.</span><span>
+</span><span id="line-436"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_messageAction"><span class="hs-identifier hs-type">adminCreateUser_messageAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.MessageActionType.html#MessageActionType"><span class="hs-identifier hs-type">MessageActionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-437"></span><span id="adminCreateUser_messageAction"><span class="annot"><span class="annottext">adminCreateUser_messageAction :: (Maybe MessageActionType -&gt; f (Maybe MessageActionType))
 -&gt; AdminCreateUser -&gt; f AdminCreateUser
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_temporaryPassword"><span class="hs-identifier hs-var hs-var">adminCreateUser_temporaryPassword</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminCreateUser -&gt; Maybe (Sensitive Text))
--&gt; (AdminCreateUser -&gt; Maybe (Sensitive Text) -&gt; AdminCreateUser)
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_messageAction"><span class="hs-identifier hs-var hs-var">adminCreateUser_messageAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminCreateUser -&gt; Maybe MessageActionType)
+-&gt; (AdminCreateUser -&gt; Maybe MessageActionType -&gt; AdminCreateUser)
 -&gt; Lens
      AdminCreateUser
      AdminCreateUser
-     (Maybe (Sensitive Text))
-     (Maybe (Sensitive Text))
+     (Maybe MessageActionType)
+     (Maybe MessageActionType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458958"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-temporaryPassword :: Maybe (Sensitive Text)
-$sel:temporaryPassword:AdminCreateUser' :: AdminCreateUser -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679458958"><span class="hs-identifier hs-var hs-var">temporaryPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679458958"><span class="hs-identifier hs-var">temporaryPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458957"><span class="annot"><span class="annottext">s :: AdminCreateUser
-</span><a href="#local-6989586621679458957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458956"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679458956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
-</span><a href="#local-6989586621679458957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:temporaryPassword:AdminCreateUser' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AtemporaryPassword%3AAdminCreateUser%27"><span class="hs-identifier hs-var">temporaryPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679458956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
- -&gt; AdminCreateUser -&gt; f AdminCreateUser)
--&gt; ((Maybe Text -&gt; f (Maybe Text))
-    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
--&gt; (Maybe Text -&gt; f (Maybe Text))
--&gt; AdminCreateUser
--&gt; f AdminCreateUser
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
--&gt; Iso
-     (Maybe (Sensitive Text))
-     (Maybe (Sensitive Text))
-     (Maybe Text)
-     (Maybe Text)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
-forall a. Iso' (Sensitive a) a
-</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459493"><span class="annot"><span class="annottext">Maybe MessageActionType
+messageAction :: Maybe MessageActionType
+$sel:messageAction:AdminCreateUser' :: AdminCreateUser -&gt; Maybe MessageActionType
+</span><a href="#local-6989586621679459493"><span class="hs-identifier hs-var hs-var">messageAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessageActionType
+</span><a href="#local-6989586621679459493"><span class="hs-identifier hs-var">messageAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459492"><span class="annot"><span class="annottext">s :: AdminCreateUser
+</span><a href="#local-6989586621679459492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459491"><span class="annot"><span class="annottext">Maybe MessageActionType
+</span><a href="#local-6989586621679459491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
+</span><a href="#local-6989586621679459492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageAction:AdminCreateUser' :: Maybe MessageActionType
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AmessageAction%3AAdminCreateUser%27"><span class="hs-identifier hs-var">messageAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageActionType
+</span><a href="#local-6989586621679459491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-438"></span><span>
 </span><span id="line-439"></span><span class="hs-comment">-- | An array of name-value pairs that contain user attributes and attribute</span><span>
 </span><span id="line-440"></span><span class="hs-comment">-- values to be set for the user to be created. You can create a user</span><span>
@@ -730,16 +730,16 @@ forall a. Iso' (Sensitive a) a
      (Maybe [AttributeType])
      (Maybe [AttributeType])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458955"><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459490"><span class="annot"><span class="annottext">Maybe [AttributeType]
 userAttributes :: Maybe [AttributeType]
 $sel:userAttributes:AdminCreateUser' :: AdminCreateUser -&gt; Maybe [AttributeType]
-</span><a href="#local-6989586621679458955"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679458955"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458954"><span class="annot"><span class="annottext">s :: AdminCreateUser
-</span><a href="#local-6989586621679458954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458953"><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679458953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
-</span><a href="#local-6989586621679458954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributes:AdminCreateUser' :: Maybe [AttributeType]
+</span><a href="#local-6989586621679459490"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679459490"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459489"><span class="annot"><span class="annottext">s :: AdminCreateUser
+</span><a href="#local-6989586621679459489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459488"><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679459488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
+</span><a href="#local-6989586621679459489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributes:AdminCreateUser' :: Maybe [AttributeType]
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AuserAttributes%3AAdminCreateUser%27"><span class="hs-identifier hs-var">userAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679458953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+</span><a href="#local-6989586621679459488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
  -&gt; AdminCreateUser -&gt; f AdminCreateUser)
 -&gt; ((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
     -&gt; Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
@@ -759,8 +759,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [AttributeType] [AttributeType] [AttributeType] [AttributeType]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-471"></span><span>
 </span><span id="line-472"></span><span class="hs-comment">-- | The user\'s validation data. This is an array of name-value pairs that</span><span>
 </span><span id="line-473"></span><span class="hs-comment">-- contain user attributes and attribute values that you can use for custom</span><span>
@@ -785,16 +785,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [AttributeType])
      (Maybe [AttributeType])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458952"><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459487"><span class="annot"><span class="annottext">Maybe [AttributeType]
 validationData :: Maybe [AttributeType]
 $sel:validationData:AdminCreateUser' :: AdminCreateUser -&gt; Maybe [AttributeType]
-</span><a href="#local-6989586621679458952"><span class="hs-identifier hs-var hs-var">validationData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679458952"><span class="hs-identifier hs-var">validationData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458951"><span class="annot"><span class="annottext">s :: AdminCreateUser
-</span><a href="#local-6989586621679458951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458950"><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679458950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
-</span><a href="#local-6989586621679458951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validationData:AdminCreateUser' :: Maybe [AttributeType]
+</span><a href="#local-6989586621679459487"><span class="hs-identifier hs-var hs-var">validationData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679459487"><span class="hs-identifier hs-var">validationData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459486"><span class="annot"><span class="annottext">s :: AdminCreateUser
+</span><a href="#local-6989586621679459486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459485"><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679459485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
+</span><a href="#local-6989586621679459486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validationData:AdminCreateUser' :: Maybe [AttributeType]
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AvalidationData%3AAdminCreateUser%27"><span class="hs-identifier hs-var">validationData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679458950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+</span><a href="#local-6989586621679459485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
  -&gt; AdminCreateUser -&gt; f AdminCreateUser)
 -&gt; ((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
     -&gt; Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
@@ -814,8 +814,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [AttributeType] [AttributeType] [AttributeType] [AttributeType]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-486"></span><span>
 </span><span id="line-487"></span><span class="hs-comment">-- | The user pool ID for the user pool where the user will be created.</span><span>
 </span><span id="line-488"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUser_userPoolId"><span class="hs-identifier hs-type">adminCreateUser_userPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -824,16 +824,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (AdminCreateUser -&gt; Text -&gt; AdminCreateUser)
 -&gt; Lens AdminCreateUser AdminCreateUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458949"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459484"><span class="annot"><span class="annottext">Text
 userPoolId :: Text
 $sel:userPoolId:AdminCreateUser' :: AdminCreateUser -&gt; Text
-</span><a href="#local-6989586621679458949"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458949"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458948"><span class="annot"><span class="annottext">s :: AdminCreateUser
-</span><a href="#local-6989586621679458948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458947"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
-</span><a href="#local-6989586621679458948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:AdminCreateUser' :: Text
+</span><a href="#local-6989586621679459484"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679459484"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459483"><span class="annot"><span class="annottext">s :: AdminCreateUser
+</span><a href="#local-6989586621679459483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459482"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679459482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
+</span><a href="#local-6989586621679459483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:AdminCreateUser' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AuserPoolId%3AAdminCreateUser%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679459482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-490"></span><span>
 </span><span id="line-491"></span><span class="hs-comment">-- | The username for the user. Must be unique within the user pool. Must be</span><span>
 </span><span id="line-492"></span><span class="hs-comment">-- a UTF-8 string between 1 and 128 characters. After the user is created,</span><span>
@@ -845,16 +845,16 @@ $sel:userPoolId:AdminCreateUser' :: AdminCreateUser -&gt; Text
 -&gt; Lens
      AdminCreateUser AdminCreateUser (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458946"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459481"><span class="annot"><span class="annottext">Sensitive Text
 username :: Sensitive Text
 $sel:username:AdminCreateUser' :: AdminCreateUser -&gt; Sensitive Text
-</span><a href="#local-6989586621679458946"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679458946"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458945"><span class="annot"><span class="annottext">s :: AdminCreateUser
-</span><a href="#local-6989586621679458945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458944"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679458944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
-</span><a href="#local-6989586621679458945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:AdminCreateUser' :: Sensitive Text
+</span><a href="#local-6989586621679459481"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679459481"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459480"><span class="annot"><span class="annottext">s :: AdminCreateUser
+</span><a href="#local-6989586621679459480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459479"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679459479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUser
+</span><a href="#local-6989586621679459480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:AdminCreateUser' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3Ausername%3AAdminCreateUser%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679458944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679459479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; AdminCreateUser -&gt; f AdminCreateUser)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -869,12 +869,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-498"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-499"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-500"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse"><span class="hs-identifier hs-type">AdminCreateUserResponse</span></a></span><span>
-</span><span id="line-501"></span><span>  </span><span id="local-6989586621679458940"><span class="annot"><span class="annottext">request :: AdminCreateUser -&gt; Request AdminCreateUser
+</span><span id="line-501"></span><span>  </span><span id="local-6989586621679459475"><span class="annot"><span class="annottext">request :: AdminCreateUser -&gt; Request AdminCreateUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AdminCreateUser -&gt; Request AdminCreateUser
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-502"></span><span>  </span><span id="local-6989586621679458936"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-502"></span><span>  </span><span id="local-6989586621679459471"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AdminCreateUser
 -&gt; ClientResponse ClientBody
@@ -898,10 +898,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-504"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679458933"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458933"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679458932"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679458932"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679458931"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679458931"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-504"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679459468"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679459468"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679459467"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679459467"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679459466"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679459466"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-505"></span><span>          </span><span class="annot"><span class="annottext">Maybe UserType -&gt; Int -&gt; AdminCreateUserResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse%27"><span class="hs-identifier hs-var">AdminCreateUserResponse'</span></a></span><span>
 </span><span id="line-506"></span><span>            </span><span class="annot"><span class="annottext">(Maybe UserType -&gt; Int -&gt; AdminCreateUserResponse)
@@ -909,7 +909,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; AdminCreateUserResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679458931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe UserType)
+</span><a href="#local-6989586621679459466"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe UserType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;User&quot;</span></span><span class="hs-special">)</span><span>
@@ -921,15 +921,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458933"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679459468"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-508"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-509"></span><span>
-</span><span id="line-510"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458923"><span id="local-6989586621679458925"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span></span></span><span>
+</span><span id="line-510"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459458"><span id="local-6989586621679459460"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span></span></span><span>
 </span><span id="line-511"></span><span>
-</span><span id="line-512"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458920"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span></span><span>
+</span><span id="line-512"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459455"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span></span><span>
 </span><span id="line-513"></span><span>
 </span><span id="line-514"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-515"></span><span>  </span><span id="local-6989586621679458916"><span class="annot"><span class="annottext">toHeaders :: AdminCreateUser -&gt; ResponseHeaders
+</span><span id="line-515"></span><span>  </span><span id="local-6989586621679459451"><span class="annot"><span class="annottext">toHeaders :: AdminCreateUser -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-516"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AdminCreateUser -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -956,9 +956,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-526"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-527"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-528"></span><span>
-</span><span id="line-529"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458906"><span id="local-6989586621679458908"><span id="local-6989586621679458910"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-530"></span><span>  </span><span id="local-6989586621679458904"><span class="annot"><span class="annottext">toJSON :: AdminCreateUser -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458894"><span id="local-6989586621679458895"><span id="local-6989586621679458896"><span id="local-6989586621679458897"><span id="local-6989586621679458898"><span id="local-6989586621679458899"><span id="local-6989586621679458900"><span id="local-6989586621679458901"><span id="local-6989586621679458902"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-529"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459441"><span id="local-6989586621679459443"><span id="local-6989586621679459445"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-530"></span><span>  </span><span id="local-6989586621679459439"><span class="annot"><span class="annottext">toJSON :: AdminCreateUser -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser%27"><span class="hs-identifier hs-type">AdminCreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459429"><span id="local-6989586621679459430"><span id="local-6989586621679459431"><span id="local-6989586621679459432"><span id="local-6989586621679459433"><span id="local-6989586621679459434"><span id="local-6989586621679459435"><span id="local-6989586621679459436"><span id="local-6989586621679459437"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [AttributeType]
 Maybe [DeliveryMediumType]
 Maybe (HashMap Text Text)
@@ -970,21 +970,21 @@ username :: Sensitive Text
 userPoolId :: Text
 validationData :: Maybe [AttributeType]
 userAttributes :: Maybe [AttributeType]
-temporaryPassword :: Maybe (Sensitive Text)
+messageAction :: Maybe MessageActionType
 desiredDeliveryMediums :: Maybe [DeliveryMediumType]
 forceAliasCreation :: Maybe Bool
-messageAction :: Maybe MessageActionType
+temporaryPassword :: Maybe (Sensitive Text)
 clientMetadata :: Maybe (HashMap Text Text)
 $sel:username:AdminCreateUser' :: AdminCreateUser -&gt; Sensitive Text
 $sel:userPoolId:AdminCreateUser' :: AdminCreateUser -&gt; Text
 $sel:validationData:AdminCreateUser' :: AdminCreateUser -&gt; Maybe [AttributeType]
 $sel:userAttributes:AdminCreateUser' :: AdminCreateUser -&gt; Maybe [AttributeType]
-$sel:temporaryPassword:AdminCreateUser' :: AdminCreateUser -&gt; Maybe (Sensitive Text)
+$sel:messageAction:AdminCreateUser' :: AdminCreateUser -&gt; Maybe MessageActionType
 $sel:desiredDeliveryMediums:AdminCreateUser' :: AdminCreateUser -&gt; Maybe [DeliveryMediumType]
 $sel:forceAliasCreation:AdminCreateUser' :: AdminCreateUser -&gt; Maybe Bool
-$sel:messageAction:AdminCreateUser' :: AdminCreateUser -&gt; Maybe MessageActionType
+$sel:temporaryPassword:AdminCreateUser' :: AdminCreateUser -&gt; Maybe (Sensitive Text)
 $sel:clientMetadata:AdminCreateUser' :: AdminCreateUser -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679458894"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679459429"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-531"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-532"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -998,40 +998,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679458902"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679459437"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-535"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TemporaryPassword&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-536"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679459436"><span class="hs-identifier hs-var">temporaryPassword</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-537"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ForceAliasCreation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-538"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679459435"><span class="hs-identifier hs-var">forceAliasCreation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-539"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DesiredDeliveryMediums&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [DeliveryMediumType] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-540"></span><span>              </span><span class="annot"><span class="annottext">([DeliveryMediumType] -&gt; Pair)
+-&gt; Maybe [DeliveryMediumType] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DeliveryMediumType]
+</span><a href="#local-6989586621679459434"><span class="hs-identifier hs-var">desiredDeliveryMediums</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-541"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MessageActionType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MessageActionType -&gt; Pair)
 -&gt; Maybe MessageActionType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MessageActionType
-</span><a href="#local-6989586621679458901"><span class="hs-identifier hs-var">messageAction</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-536"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ForceAliasCreation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-537"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679458900"><span class="hs-identifier hs-var">forceAliasCreation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-538"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DesiredDeliveryMediums&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [DeliveryMediumType] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-539"></span><span>              </span><span class="annot"><span class="annottext">([DeliveryMediumType] -&gt; Pair)
--&gt; Maybe [DeliveryMediumType] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DeliveryMediumType]
-</span><a href="#local-6989586621679458899"><span class="hs-identifier hs-var">desiredDeliveryMediums</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-540"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TemporaryPassword&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-541"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679458898"><span class="hs-identifier hs-var">temporaryPassword</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679459433"><span class="hs-identifier hs-var">messageAction</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-542"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AttributeType] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1039,7 +1039,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-543"></span><span>              </span><span class="annot"><span class="annottext">([AttributeType] -&gt; Pair) -&gt; Maybe [AttributeType] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679458897"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679459432"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-544"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ValidationData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AttributeType] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1047,33 +1047,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-545"></span><span>              </span><span class="annot"><span class="annottext">([AttributeType] -&gt; Pair) -&gt; Maybe [AttributeType] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679458896"><span class="hs-identifier hs-var">validationData</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679459431"><span class="hs-identifier hs-var">validationData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-546"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458895"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679459430"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-547"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679458894"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679459429"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-548"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-549"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-550"></span><span>
 </span><span id="line-551"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-552"></span><span>  </span><span id="local-6989586621679458888"><span class="annot"><span class="annottext">toPath :: AdminCreateUser -&gt; ByteString
+</span><span id="line-552"></span><span>  </span><span id="local-6989586621679459423"><span class="annot"><span class="annottext">toPath :: AdminCreateUser -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AdminCreateUser -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-553"></span><span>
 </span><span id="line-554"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUser"><span class="hs-identifier hs-type">AdminCreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-555"></span><span>  </span><span id="local-6989586621679458884"><span class="annot"><span class="annottext">toQuery :: AdminCreateUser -&gt; QueryString
+</span><span id="line-555"></span><span>  </span><span id="local-6989586621679459419"><span class="annot"><span class="annottext">toQuery :: AdminCreateUser -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AdminCreateUser -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -1084,7 +1084,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-558"></span><span class="hs-comment">-- user.</span><span>
 </span><span id="line-559"></span><span class="hs-comment">--</span><span>
 </span><span id="line-560"></span><span class="hs-comment">-- /See:/ 'newAdminCreateUserResponse' smart constructor.</span><span>
-</span><span id="line-561"></span><span id="local-6989586621679458881"><span id="local-6989586621679458882"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminCreateUserResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse"><span class="hs-identifier hs-var">AdminCreateUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminCreateUserResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse%27"><span class="hs-identifier hs-var">AdminCreateUserResponse'</span></a></span></span><span>
+</span><span id="line-561"></span><span id="local-6989586621679459416"><span id="local-6989586621679459417"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminCreateUserResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse"><span class="hs-identifier hs-var">AdminCreateUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminCreateUserResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse%27"><span class="hs-identifier hs-var">AdminCreateUserResponse'</span></a></span></span><span>
 </span><span id="line-562"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The newly created user.</span><span>
 </span><span id="line-563"></span><span>    </span><span id="%24sel%3Auser%3AAdminCreateUserResponse%27"><span class="annot"><span class="annottext">AdminCreateUserResponse -&gt; Maybe UserType
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3Auser%3AAdminCreateUserResponse%27"><span class="hs-identifier hs-var hs-var">user</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserType.html#UserType"><span class="hs-identifier hs-type">UserType</span></a></span><span class="hs-special">,</span><span>
@@ -1092,7 +1092,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-565"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAdminCreateUserResponse%27"><span class="annot"><span class="annottext">AdminCreateUserResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AhttpStatus%3AAdminCreateUserResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-566"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-567"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679458875"><span id="local-6989586621679458877"><span class="annot"><span class="annottext">AdminCreateUserResponse -&gt; AdminCreateUserResponse -&gt; Bool
+</span><span id="line-567"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459410"><span id="local-6989586621679459412"><span class="annot"><span class="annottext">AdminCreateUserResponse -&gt; AdminCreateUserResponse -&gt; Bool
 (AdminCreateUserResponse -&gt; AdminCreateUserResponse -&gt; Bool)
 -&gt; (AdminCreateUserResponse -&gt; AdminCreateUserResponse -&gt; Bool)
 -&gt; Eq AdminCreateUserResponse
@@ -1101,7 +1101,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AdminCreateUserResponse -&gt; AdminCreateUserResponse -&gt; Bool
 == :: AdminCreateUserResponse -&gt; AdminCreateUserResponse -&gt; Bool
 $c== :: AdminCreateUserResponse -&gt; AdminCreateUserResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458869"><span id="local-6989586621679458871"><span id="local-6989586621679458873"><span class="annot"><span class="annottext">Int -&gt; AdminCreateUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459404"><span id="local-6989586621679459406"><span id="local-6989586621679459408"><span class="annot"><span class="annottext">Int -&gt; AdminCreateUserResponse -&gt; ShowS
 [AdminCreateUserResponse] -&gt; ShowS
 AdminCreateUserResponse -&gt; String
 (Int -&gt; AdminCreateUserResponse -&gt; ShowS)
@@ -1145,8 +1145,8 @@ $cfrom :: forall x. AdminCreateUserResponse -&gt; Rep AdminCreateUserResponse x
 </span><span id="line-582"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-583"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse"><span class="hs-identifier hs-type">AdminCreateUserResponse</span></a></span><span>
 </span><span id="line-584"></span><span id="newAdminCreateUserResponse"><span class="annot"><span class="annottext">newAdminCreateUserResponse :: Int -&gt; AdminCreateUserResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#newAdminCreateUserResponse"><span class="hs-identifier hs-var hs-var">newAdminCreateUserResponse</span></a></span></span><span> </span><span id="local-6989586621679458866"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458866"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#newAdminCreateUserResponse"><span class="hs-identifier hs-var hs-var">newAdminCreateUserResponse</span></a></span></span><span> </span><span id="local-6989586621679459401"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679459401"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-585"></span><span>  </span><span class="annot"><span class="annottext">AdminCreateUserResponse' :: Maybe UserType -&gt; Int -&gt; AdminCreateUserResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse%27"><span class="hs-identifier hs-type">AdminCreateUserResponse'</span></a></span><span>
 </span><span id="line-586"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:user:AdminCreateUserResponse' :: Maybe UserType
@@ -1155,7 +1155,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-587"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AdminCreateUserResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AhttpStatus%3AAdminCreateUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458866"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679459401"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-588"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-589"></span><span>
 </span><span id="line-590"></span><span class="hs-comment">-- | The newly created user.</span><span>
@@ -1171,16 +1171,16 @@ forall a. Maybe a
      (Maybe UserType)
      (Maybe UserType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse%27"><span class="hs-identifier hs-type">AdminCreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458865"><span class="annot"><span class="annottext">Maybe UserType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse%27"><span class="hs-identifier hs-type">AdminCreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459400"><span class="annot"><span class="annottext">Maybe UserType
 user :: Maybe UserType
 $sel:user:AdminCreateUserResponse' :: AdminCreateUserResponse -&gt; Maybe UserType
-</span><a href="#local-6989586621679458865"><span class="hs-identifier hs-var hs-var">user</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserType
-</span><a href="#local-6989586621679458865"><span class="hs-identifier hs-var">user</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458864"><span class="annot"><span class="annottext">s :: AdminCreateUserResponse
-</span><a href="#local-6989586621679458864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse%27"><span class="hs-identifier hs-type">AdminCreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458863"><span class="annot"><span class="annottext">Maybe UserType
-</span><a href="#local-6989586621679458863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUserResponse
-</span><a href="#local-6989586621679458864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:user:AdminCreateUserResponse' :: Maybe UserType
+</span><a href="#local-6989586621679459400"><span class="hs-identifier hs-var hs-var">user</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserType
+</span><a href="#local-6989586621679459400"><span class="hs-identifier hs-var">user</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459399"><span class="annot"><span class="annottext">s :: AdminCreateUserResponse
+</span><a href="#local-6989586621679459399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse%27"><span class="hs-identifier hs-type">AdminCreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459398"><span class="annot"><span class="annottext">Maybe UserType
+</span><a href="#local-6989586621679459398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUserResponse
+</span><a href="#local-6989586621679459399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:user:AdminCreateUserResponse' :: Maybe UserType
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3Auser%3AAdminCreateUserResponse%27"><span class="hs-identifier hs-var">user</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserType
-</span><a href="#local-6989586621679458863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse"><span class="hs-identifier hs-type">AdminCreateUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679459398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse"><span class="hs-identifier hs-type">AdminCreateUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-593"></span><span>
 </span><span id="line-594"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-595"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#adminCreateUserResponse_httpStatus"><span class="hs-identifier hs-type">adminCreateUserResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse"><span class="hs-identifier hs-type">AdminCreateUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1190,16 +1190,16 @@ $sel:user:AdminCreateUserResponse' :: AdminCreateUserResponse -&gt; Maybe UserTy
 -&gt; (AdminCreateUserResponse -&gt; Int -&gt; AdminCreateUserResponse)
 -&gt; Lens AdminCreateUserResponse AdminCreateUserResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse%27"><span class="hs-identifier hs-type">AdminCreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458862"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse%27"><span class="hs-identifier hs-type">AdminCreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459397"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AdminCreateUserResponse' :: AdminCreateUserResponse -&gt; Int
-</span><a href="#local-6989586621679458862"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458862"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458861"><span class="annot"><span class="annottext">s :: AdminCreateUserResponse
-</span><a href="#local-6989586621679458861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse%27"><span class="hs-identifier hs-type">AdminCreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458860"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUserResponse
-</span><a href="#local-6989586621679458861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AdminCreateUserResponse' :: Int
+</span><a href="#local-6989586621679459397"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679459397"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459396"><span class="annot"><span class="annottext">s :: AdminCreateUserResponse
+</span><a href="#local-6989586621679459396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse%27"><span class="hs-identifier hs-type">AdminCreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459395"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679459395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminCreateUserResponse
+</span><a href="#local-6989586621679459396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AdminCreateUserResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#%24sel%3AhttpStatus%3AAdminCreateUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse"><span class="hs-identifier hs-type">AdminCreateUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679459395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse"><span class="hs-identifier hs-type">AdminCreateUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-597"></span><span>
-</span><span id="line-598"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458858"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse"><span class="hs-identifier hs-type">AdminCreateUserResponse</span></a></span></span><span>
+</span><span id="line-598"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459393"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminCreateUser.html#AdminCreateUserResponse"><span class="hs-identifier hs-type">AdminCreateUserResponse</span></a></span></span><span>
 </span><span id="line-599"></span></pre></body></html>

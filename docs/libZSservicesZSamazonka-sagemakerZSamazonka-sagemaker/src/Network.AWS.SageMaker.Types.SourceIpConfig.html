@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- specific IP addresses.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newSourceIpConfig' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621680343050"><span id="local-6989586621680343051"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceIpConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig"><span class="hs-identifier hs-var">SourceIpConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceIpConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig%27"><span class="hs-identifier hs-var">SourceIpConfig'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680344466"><span id="local-6989586621680344467"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceIpConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig"><span class="hs-identifier hs-var">SourceIpConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceIpConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig%27"><span class="hs-identifier hs-var">SourceIpConfig'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of one to ten</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html Classless Inter-Domain Routing&gt;</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- (CIDR) values.</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Acidrs%3ASourceIpConfig%27"><span class="annot"><span class="annottext">SourceIpConfig -&gt; [Text]
 </span><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#%24sel%3Acidrs%3ASourceIpConfig%27"><span class="hs-identifier hs-var hs-var">cidrs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680343044"><span id="local-6989586621680343046"><span class="annot"><span class="annottext">SourceIpConfig -&gt; SourceIpConfig -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680344460"><span id="local-6989586621680344462"><span class="annot"><span class="annottext">SourceIpConfig -&gt; SourceIpConfig -&gt; Bool
 (SourceIpConfig -&gt; SourceIpConfig -&gt; Bool)
 -&gt; (SourceIpConfig -&gt; SourceIpConfig -&gt; Bool) -&gt; Eq SourceIpConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SourceIpConfig -&gt; SourceIpConfig -&gt; Bool
 == :: SourceIpConfig -&gt; SourceIpConfig -&gt; Bool
 $c== :: SourceIpConfig -&gt; SourceIpConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680343035"><span id="local-6989586621680343037"><span id="local-6989586621680343039"><span id="local-6989586621680343041"><span class="annot"><span class="annottext">ReadPrec [SourceIpConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680344451"><span id="local-6989586621680344453"><span id="local-6989586621680344455"><span id="local-6989586621680344457"><span class="annot"><span class="annottext">ReadPrec [SourceIpConfig]
 ReadPrec SourceIpConfig
 Int -&gt; ReadS SourceIpConfig
 ReadS [SourceIpConfig]
@@ -71,7 +71,7 @@ readList :: ReadS [SourceIpConfig]
 $creadList :: ReadS [SourceIpConfig]
 readsPrec :: Int -&gt; ReadS SourceIpConfig
 $creadsPrec :: Int -&gt; ReadS SourceIpConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680343028"><span id="local-6989586621680343030"><span id="local-6989586621680343032"><span class="annot"><span class="annottext">Int -&gt; SourceIpConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680344444"><span id="local-6989586621680344446"><span id="local-6989586621680344448"><span class="annot"><span class="annottext">Int -&gt; SourceIpConfig -&gt; ShowS
 [SourceIpConfig] -&gt; ShowS
 SourceIpConfig -&gt; String
 (Int -&gt; SourceIpConfig -&gt; ShowS)
@@ -137,27 +137,27 @@ forall a. Monoid a =&gt; a
 -&gt; (SourceIpConfig -&gt; [Text] -&gt; SourceIpConfig)
 -&gt; Lens SourceIpConfig SourceIpConfig [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig%27"><span class="hs-identifier hs-type">SourceIpConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680343019"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig%27"><span class="hs-identifier hs-type">SourceIpConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680344435"><span class="annot"><span class="annottext">[Text]
 cidrs :: [Text]
 $sel:cidrs:SourceIpConfig' :: SourceIpConfig -&gt; [Text]
-</span><a href="#local-6989586621680343019"><span class="hs-identifier hs-var hs-var">cidrs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621680343019"><span class="hs-identifier hs-var">cidrs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680343018"><span class="annot"><span class="annottext">s :: SourceIpConfig
-</span><a href="#local-6989586621680343018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig%27"><span class="hs-identifier hs-type">SourceIpConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680343017"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621680343017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceIpConfig
-</span><a href="#local-6989586621680343018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrs:SourceIpConfig' :: [Text]
+</span><a href="#local-6989586621680344435"><span class="hs-identifier hs-var hs-var">cidrs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621680344435"><span class="hs-identifier hs-var">cidrs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680344434"><span class="annot"><span class="annottext">s :: SourceIpConfig
+</span><a href="#local-6989586621680344434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig%27"><span class="hs-identifier hs-type">SourceIpConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680344433"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621680344433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceIpConfig
+</span><a href="#local-6989586621680344434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrs:SourceIpConfig' :: [Text]
 </span><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#%24sel%3Acidrs%3ASourceIpConfig%27"><span class="hs-identifier hs-var">cidrs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621680343017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig"><span class="hs-identifier hs-type">SourceIpConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; SourceIpConfig -&gt; f SourceIpConfig)
+</span><a href="#local-6989586621680344433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig"><span class="hs-identifier hs-type">SourceIpConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; SourceIpConfig -&gt; f SourceIpConfig)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; SourceIpConfig
 -&gt; f SourceIpConfig
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680343012"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig"><span class="hs-identifier hs-type">SourceIpConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621680343010"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SourceIpConfig
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680344428"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig"><span class="hs-identifier hs-type">SourceIpConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621680344426"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SourceIpConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SourceIpConfig)
@@ -167,15 +167,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SourceIpConfig&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680343007"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680343007"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680344423"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680344423"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">[Text] -&gt; SourceIpConfig
 </span><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig%27"><span class="hs-identifier hs-var">SourceIpConfig'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">([Text] -&gt; SourceIpConfig)
 -&gt; Parser [Text] -&gt; Parser SourceIpConfig
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680343007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+</span><a href="#local-6989586621680344423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Cidrs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
@@ -185,16 +185,16 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680343000"><span id="local-6989586621680343002"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig"><span class="hs-identifier hs-type">SourceIpConfig</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680344416"><span id="local-6989586621680344418"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig"><span class="hs-identifier hs-type">SourceIpConfig</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680342997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig"><span class="hs-identifier hs-type">SourceIpConfig</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680344413"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig"><span class="hs-identifier hs-type">SourceIpConfig</span></a></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680342989"><span id="local-6989586621680342991"><span id="local-6989586621680342993"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig"><span class="hs-identifier hs-type">SourceIpConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621680342987"><span class="annot"><span class="annottext">toJSON :: SourceIpConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig%27"><span class="hs-identifier hs-type">SourceIpConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680342985"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680344405"><span id="local-6989586621680344407"><span id="local-6989586621680344409"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig"><span class="hs-identifier hs-type">SourceIpConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621680344403"><span class="annot"><span class="annottext">toJSON :: SourceIpConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig%27"><span class="hs-identifier hs-type">SourceIpConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680344401"><span class="annot"><span class="annottext">[Text]
 cidrs :: [Text]
 $sel:cidrs:SourceIpConfig' :: SourceIpConfig -&gt; [Text]
-</span><a href="#local-6989586621680342985"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680344401"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -206,6 +206,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Cidrs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621680342985"><span class="hs-identifier hs-var">cidrs</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680344401"><span class="hs-identifier hs-var">cidrs</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span></pre></body></html>

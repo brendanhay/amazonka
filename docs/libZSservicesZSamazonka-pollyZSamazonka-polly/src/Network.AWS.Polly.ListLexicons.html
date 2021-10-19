@@ -38,8 +38,8 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#newListLexiconsResponse"><span class="hs-identifier">newListLexiconsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#listLexiconsResponse_nextToken"><span class="hs-identifier">listLexiconsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#listLexiconsResponse_lexicons"><span class="hs-identifier">listLexiconsResponse_lexicons</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#listLexiconsResponse_lexicons"><span class="hs-identifier">listLexiconsResponse_lexicons</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#listLexiconsResponse_nextToken"><span class="hs-identifier">listLexiconsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#listLexiconsResponse_httpStatus"><span class="hs-identifier">listLexiconsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span class="hs-keyword">where</span><span>
@@ -52,13 +52,13 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListLexicons' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679174322"><span id="local-6989586621679174323"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLexicons"><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons"><span class="hs-identifier hs-var">ListLexicons</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLexicons%27"><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons%27"><span class="hs-identifier hs-var">ListLexicons'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679174372"><span id="local-6989586621679174373"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLexicons"><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons"><span class="hs-identifier hs-var">ListLexicons</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLexicons%27"><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons%27"><span class="hs-identifier hs-var">ListLexicons'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An opaque pagination token returned from previous @ListLexicons@</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- operation. If present, indicates where to continue the list of lexicons.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListLexicons%27"><span class="annot"><span class="annottext">ListLexicons -&gt; Maybe Text
 </span><a href="Network.AWS.Polly.ListLexicons.html#%24sel%3AnextToken%3AListLexicons%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174316"><span id="local-6989586621679174318"><span class="annot"><span class="annottext">ListLexicons -&gt; ListLexicons -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174366"><span id="local-6989586621679174368"><span class="annot"><span class="annottext">ListLexicons -&gt; ListLexicons -&gt; Bool
 (ListLexicons -&gt; ListLexicons -&gt; Bool)
 -&gt; (ListLexicons -&gt; ListLexicons -&gt; Bool) -&gt; Eq ListLexicons
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListLexicons -&gt; ListLexicons -&gt; Bool
 == :: ListLexicons -&gt; ListLexicons -&gt; Bool
 $c== :: ListLexicons -&gt; ListLexicons -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174307"><span id="local-6989586621679174309"><span id="local-6989586621679174311"><span id="local-6989586621679174313"><span class="annot"><span class="annottext">ReadPrec [ListLexicons]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174357"><span id="local-6989586621679174359"><span id="local-6989586621679174361"><span id="local-6989586621679174363"><span class="annot"><span class="annottext">ReadPrec [ListLexicons]
 ReadPrec ListLexicons
 Int -&gt; ReadS ListLexicons
 ReadS [ListLexicons]
@@ -86,7 +86,7 @@ readList :: ReadS [ListLexicons]
 $creadList :: ReadS [ListLexicons]
 readsPrec :: Int -&gt; ReadS ListLexicons
 $creadsPrec :: Int -&gt; ReadS ListLexicons
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174300"><span id="local-6989586621679174302"><span id="local-6989586621679174304"><span class="annot"><span class="annottext">Int -&gt; ListLexicons -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174350"><span id="local-6989586621679174352"><span id="local-6989586621679174354"><span class="annot"><span class="annottext">Int -&gt; ListLexicons -&gt; ShowS
 [ListLexicons] -&gt; ShowS
 ListLexicons -&gt; String
 (Int -&gt; ListLexicons -&gt; ShowS)
@@ -140,28 +140,28 @@ forall a. Maybe a
 -&gt; (ListLexicons -&gt; Maybe Text -&gt; ListLexicons)
 -&gt; Lens ListLexicons ListLexicons (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons%27"><span class="hs-identifier hs-type">ListLexicons'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174294"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons%27"><span class="hs-identifier hs-type">ListLexicons'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174344"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListLexicons' :: ListLexicons -&gt; Maybe Text
-</span><a href="#local-6989586621679174294"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174294"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174293"><span class="annot"><span class="annottext">s :: ListLexicons
-</span><a href="#local-6989586621679174293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons%27"><span class="hs-identifier hs-type">ListLexicons'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174292"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLexicons
-</span><a href="#local-6989586621679174293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLexicons' :: Maybe Text
+</span><a href="#local-6989586621679174344"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174344"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174343"><span class="annot"><span class="annottext">s :: ListLexicons
+</span><a href="#local-6989586621679174343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons%27"><span class="hs-identifier hs-type">ListLexicons'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174342"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLexicons
+</span><a href="#local-6989586621679174343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLexicons' :: Maybe Text
 </span><a href="Network.AWS.Polly.ListLexicons.html#%24sel%3AnextToken%3AListLexicons%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons"><span class="hs-identifier hs-type">ListLexicons</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons"><span class="hs-identifier hs-type">ListLexicons</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons"><span class="hs-identifier hs-type">ListLexicons</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679174288"><span class="annot"><span class="annottext">page :: ListLexicons -&gt; AWSResponse ListLexicons -&gt; Maybe ListLexicons
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679174286"><span class="annot"><span class="annottext">ListLexicons
-</span><a href="#local-6989586621679174286"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679174285"><span class="annot"><span class="annottext">AWSResponse ListLexicons
-</span><a href="#local-6989586621679174285"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679174338"><span class="annot"><span class="annottext">page :: ListLexicons -&gt; AWSResponse ListLexicons -&gt; Maybe ListLexicons
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679174336"><span class="annot"><span class="annottext">ListLexicons
+</span><a href="#local-6989586621679174336"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679174335"><span class="annot"><span class="annottext">AWSResponse ListLexicons
+</span><a href="#local-6989586621679174335"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-85"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListLexicons
 ListLexiconsResponse
-</span><a href="#local-6989586621679174285"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679174335"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">ListLexiconsResponse
 -&gt; Getting (First Text) ListLexiconsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -187,7 +187,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-90"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListLexicons
 ListLexiconsResponse
-</span><a href="#local-6989586621679174285"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679174335"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">ListLexiconsResponse
 -&gt; Getting
      (First [LexiconDescription])
@@ -232,7 +232,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">ListLexicons
-</span><a href="#local-6989586621679174286"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679174336"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">ListLexicons -&gt; (ListLexicons -&gt; ListLexicons) -&gt; ListLexicons
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -245,7 +245,7 @@ Lens ListLexicons ListLexicons (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListLexicons
 ListLexiconsResponse
-</span><a href="#local-6989586621679174285"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679174335"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">ListLexiconsResponse
 -&gt; Getting (First Text) ListLexiconsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -265,12 +265,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons"><span class="hs-identifier hs-type">ListLexicons</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons"><span class="hs-identifier hs-type">ListLexicons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier hs-type">ListLexiconsResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679174275"><span class="annot"><span class="annottext">request :: ListLexicons -&gt; Request ListLexicons
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679174325"><span class="annot"><span class="annottext">request :: ListLexicons -&gt; Request ListLexicons
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListLexicons -&gt; Request ListLexicons
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Polly.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679174271"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679174321"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListLexicons
 -&gt; ClientResponse ClientBody
@@ -294,31 +294,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174268"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174268"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679174267"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679174267"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679174266"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174266"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [LexiconDescription] -&gt; Int -&gt; ListLexiconsResponse
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174318"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174318"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679174317"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679174317"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679174316"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174316"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe [LexiconDescription]
+-&gt; Maybe Text -&gt; Int -&gt; ListLexiconsResponse
 </span><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse%27"><span class="hs-identifier hs-var">ListLexiconsResponse'</span></a></span><span>
-</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [LexiconDescription] -&gt; Int -&gt; ListLexiconsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe [LexiconDescription] -&gt; Int -&gt; ListLexiconsResponse)
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [LexiconDescription]
+ -&gt; Maybe Text -&gt; Int -&gt; ListLexiconsResponse)
+-&gt; Either String (Maybe [LexiconDescription])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListLexiconsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe [LexiconDescription] -&gt; Int -&gt; ListLexiconsResponse)
--&gt; Either String (Maybe [LexiconDescription])
--&gt; Either String (Int -&gt; ListLexiconsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [LexiconDescription]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -329,6 +318,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LexiconDescription]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListLexiconsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListLexiconsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListLexiconsResponse)
 -&gt; Either String Int -&gt; Either String ListLexiconsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -337,15 +335,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174268"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174318"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174257"><span id="local-6989586621679174259"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons"><span class="hs-identifier hs-type">ListLexicons</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174307"><span id="local-6989586621679174309"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons"><span class="hs-identifier hs-type">ListLexicons</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174254"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons"><span class="hs-identifier hs-type">ListLexicons</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174304"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons"><span class="hs-identifier hs-type">ListLexicons</span></a></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons"><span class="hs-identifier hs-type">ListLexicons</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679174250"><span class="annot"><span class="annottext">toHeaders :: ListLexicons -&gt; ResponseHeaders
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679174300"><span class="annot"><span class="annottext">toHeaders :: ListLexicons -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListLexicons -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -353,40 +351,40 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons"><span class="hs-identifier hs-type">ListLexicons</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679174245"><span class="annot"><span class="annottext">toPath :: ListLexicons -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679174295"><span class="annot"><span class="annottext">toPath :: ListLexicons -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListLexicons -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/v1/lexicons&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons"><span class="hs-identifier hs-type">ListLexicons</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679174241"><span class="annot"><span class="annottext">toQuery :: ListLexicons -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons%27"><span class="hs-identifier hs-type">ListLexicons'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174239"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679174291"><span class="annot"><span class="annottext">toQuery :: ListLexicons -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexicons%27"><span class="hs-identifier hs-type">ListLexicons'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174289"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListLexicons' :: ListLexicons -&gt; Maybe Text
-</span><a href="#local-6989586621679174239"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679174289"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174239"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679174289"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newListLexiconsResponse' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679174236"><span id="local-6989586621679174237"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLexiconsResponse"><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier hs-var">ListLexiconsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLexiconsResponse%27"><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse%27"><span class="hs-identifier hs-var">ListLexiconsResponse'</span></a></span></span><span>
-</span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token to use in the next request to continue the listing</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- of lexicons. @NextToken@ is returned only if the response is truncated.</span><span>
-</span><span id="line-131"></span><span>    </span><span id="%24sel%3AnextToken%3AListLexiconsResponse%27"><span class="annot"><span class="annottext">ListLexiconsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Polly.ListLexicons.html#%24sel%3AnextToken%3AListLexiconsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | A list of lexicon names and attributes.</span><span>
-</span><span id="line-133"></span><span>    </span><span id="%24sel%3Alexicons%3AListLexiconsResponse%27"><span class="annot"><span class="annottext">ListLexiconsResponse -&gt; Maybe [LexiconDescription]
+</span><span id="line-128"></span><span id="local-6989586621679174286"><span id="local-6989586621679174287"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLexiconsResponse"><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier hs-var">ListLexiconsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLexiconsResponse%27"><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse%27"><span class="hs-identifier hs-var">ListLexiconsResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of lexicon names and attributes.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3Alexicons%3AListLexiconsResponse%27"><span class="annot"><span class="annottext">ListLexiconsResponse -&gt; Maybe [LexiconDescription]
 </span><a href="Network.AWS.Polly.ListLexicons.html#%24sel%3Alexicons%3AListLexiconsResponse%27"><span class="hs-identifier hs-var hs-var">lexicons</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The pagination token to use in the next request to continue the listing</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- of lexicons. @NextToken@ is returned only if the response is truncated.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AnextToken%3AListLexiconsResponse%27"><span class="annot"><span class="annottext">ListLexiconsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Polly.ListLexicons.html#%24sel%3AnextToken%3AListLexiconsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListLexiconsResponse%27"><span class="annot"><span class="annottext">ListLexiconsResponse -&gt; Int
 </span><a href="Network.AWS.Polly.ListLexicons.html#%24sel%3AhttpStatus%3AListLexiconsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174229"><span id="local-6989586621679174231"><span class="annot"><span class="annottext">ListLexiconsResponse -&gt; ListLexiconsResponse -&gt; Bool
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174279"><span id="local-6989586621679174281"><span class="annot"><span class="annottext">ListLexiconsResponse -&gt; ListLexiconsResponse -&gt; Bool
 (ListLexiconsResponse -&gt; ListLexiconsResponse -&gt; Bool)
 -&gt; (ListLexiconsResponse -&gt; ListLexiconsResponse -&gt; Bool)
 -&gt; Eq ListLexiconsResponse
@@ -395,7 +393,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListLexiconsResponse -&gt; ListLexiconsResponse -&gt; Bool
 == :: ListLexiconsResponse -&gt; ListLexiconsResponse -&gt; Bool
 $c== :: ListLexiconsResponse -&gt; ListLexiconsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174221"><span id="local-6989586621679174223"><span id="local-6989586621679174225"><span id="local-6989586621679174227"><span class="annot"><span class="annottext">ReadPrec [ListLexiconsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174271"><span id="local-6989586621679174273"><span id="local-6989586621679174275"><span id="local-6989586621679174277"><span class="annot"><span class="annottext">ReadPrec [ListLexiconsResponse]
 ReadPrec ListLexiconsResponse
 Int -&gt; ReadS ListLexiconsResponse
 ReadS [ListLexiconsResponse]
@@ -415,7 +413,7 @@ readList :: ReadS [ListLexiconsResponse]
 $creadList :: ReadS [ListLexiconsResponse]
 readsPrec :: Int -&gt; ReadS ListLexiconsResponse
 $creadsPrec :: Int -&gt; ReadS ListLexiconsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174215"><span id="local-6989586621679174217"><span id="local-6989586621679174219"><span class="annot"><span class="annottext">Int -&gt; ListLexiconsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174265"><span id="local-6989586621679174267"><span id="local-6989586621679174269"><span class="annot"><span class="annottext">Int -&gt; ListLexiconsResponse -&gt; ShowS
 [ListLexiconsResponse] -&gt; ShowS
 ListLexiconsResponse -&gt; String
 (Int -&gt; ListLexiconsResponse -&gt; ShowS)
@@ -449,10 +447,10 @@ $cfrom :: forall x. ListLexiconsResponse -&gt; Rep ListLexiconsResponse x
 </span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-146"></span><span class="hs-comment">--</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- 'nextToken', 'listLexiconsResponse_nextToken' - The pagination token to use in the next request to continue the listing</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- of lexicons. @NextToken@ is returned only if the response is truncated.</span><span>
-</span><span id="line-149"></span><span class="hs-comment">--</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- 'lexicons', 'listLexiconsResponse_lexicons' - A list of lexicon names and attributes.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'lexicons', 'listLexiconsResponse_lexicons' - A list of lexicon names and attributes.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'nextToken', 'listLexiconsResponse_nextToken' - The pagination token to use in the next request to continue the listing</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- of lexicons. @NextToken@ is returned only if the response is truncated.</span><span>
 </span><span id="line-151"></span><span class="hs-comment">--</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- 'httpStatus', 'listLexiconsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#newListLexiconsResponse"><span class="hs-identifier hs-type">newListLexiconsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -460,63 +458,43 @@ $cfrom :: forall x. ListLexiconsResponse -&gt; Rep ListLexiconsResponse x
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier hs-type">ListLexiconsResponse</span></a></span><span>
 </span><span id="line-157"></span><span id="newListLexiconsResponse"><span class="annot"><span class="annottext">newListLexiconsResponse :: Int -&gt; ListLexiconsResponse
-</span><a href="Network.AWS.Polly.ListLexicons.html#newListLexiconsResponse"><span class="hs-identifier hs-var hs-var">newListLexiconsResponse</span></a></span></span><span> </span><span id="local-6989586621679174212"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174212"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">ListLexiconsResponse' :: Maybe Text
--&gt; Maybe [LexiconDescription] -&gt; Int -&gt; ListLexiconsResponse
+</span><a href="Network.AWS.Polly.ListLexicons.html#newListLexiconsResponse"><span class="hs-identifier hs-var hs-var">newListLexiconsResponse</span></a></span></span><span> </span><span id="local-6989586621679174262"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174262"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">ListLexiconsResponse' :: Maybe [LexiconDescription]
+-&gt; Maybe Text -&gt; Int -&gt; ListLexiconsResponse
 </span><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse%27"><span class="hs-identifier hs-type">ListLexiconsResponse'</span></a></span><span>
-</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListLexiconsResponse' :: Maybe Text
-</span><a href="Network.AWS.Polly.ListLexicons.html#%24sel%3AnextToken%3AListLexiconsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lexicons:ListLexiconsResponse' :: Maybe [LexiconDescription]
+</span><a href="Network.AWS.Polly.ListLexicons.html#%24sel%3Alexicons%3AListLexiconsResponse%27"><span class="hs-identifier hs-var">lexicons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LexiconDescription]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:lexicons:ListLexiconsResponse' :: Maybe [LexiconDescription]
-</span><a href="Network.AWS.Polly.ListLexicons.html#%24sel%3Alexicons%3AListLexiconsResponse%27"><span class="hs-identifier hs-var">lexicons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LexiconDescription]
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListLexiconsResponse' :: Maybe Text
+</span><a href="Network.AWS.Polly.ListLexicons.html#%24sel%3AnextToken%3AListLexiconsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListLexiconsResponse' :: Int
 </span><a href="Network.AWS.Polly.ListLexicons.html#%24sel%3AhttpStatus%3AListLexiconsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174212"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679174262"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- | The pagination token to use in the next request to continue the listing</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- of lexicons. @NextToken@ is returned only if the response is truncated.</span><span>
-</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#listLexiconsResponse_nextToken"><span class="hs-identifier hs-type">listLexiconsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier hs-type">ListLexiconsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span id="listLexiconsResponse_nextToken"><span class="annot"><span class="annottext">listLexiconsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListLexiconsResponse -&gt; f ListLexiconsResponse
-</span><a href="Network.AWS.Polly.ListLexicons.html#listLexiconsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listLexiconsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLexiconsResponse -&gt; Maybe Text)
--&gt; (ListLexiconsResponse -&gt; Maybe Text -&gt; ListLexiconsResponse)
--&gt; Lens' ListLexiconsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse%27"><span class="hs-identifier hs-type">ListLexiconsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174211"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListLexiconsResponse' :: ListLexiconsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679174211"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174211"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174210"><span class="annot"><span class="annottext">s :: ListLexiconsResponse
-</span><a href="#local-6989586621679174210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse%27"><span class="hs-identifier hs-type">ListLexiconsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174209"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLexiconsResponse
-</span><a href="#local-6989586621679174210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLexiconsResponse' :: Maybe Text
-</span><a href="Network.AWS.Polly.ListLexicons.html#%24sel%3AnextToken%3AListLexiconsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier hs-type">ListLexiconsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- | A list of lexicon names and attributes.</span><span>
-</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#listLexiconsResponse_lexicons"><span class="hs-identifier hs-type">listLexiconsResponse_lexicons</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier hs-type">ListLexiconsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span id="listLexiconsResponse_lexicons"><span class="annot"><span class="annottext">listLexiconsResponse_lexicons :: (Maybe [LexiconDescription] -&gt; f (Maybe [LexiconDescription]))
+</span><span id="line-164"></span><span class="hs-comment">-- | A list of lexicon names and attributes.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#listLexiconsResponse_lexicons"><span class="hs-identifier hs-type">listLexiconsResponse_lexicons</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier hs-type">ListLexiconsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="listLexiconsResponse_lexicons"><span class="annot"><span class="annottext">listLexiconsResponse_lexicons :: (Maybe [LexiconDescription] -&gt; f (Maybe [LexiconDescription]))
 -&gt; ListLexiconsResponse -&gt; f ListLexiconsResponse
 </span><a href="Network.AWS.Polly.ListLexicons.html#listLexiconsResponse_lexicons"><span class="hs-identifier hs-var hs-var">listLexiconsResponse_lexicons</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLexiconsResponse -&gt; Maybe [LexiconDescription])
 -&gt; (ListLexiconsResponse
     -&gt; Maybe [LexiconDescription] -&gt; ListLexiconsResponse)
 -&gt; Lens' ListLexiconsResponse (Maybe [LexiconDescription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse%27"><span class="hs-identifier hs-type">ListLexiconsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174208"><span class="annot"><span class="annottext">Maybe [LexiconDescription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse%27"><span class="hs-identifier hs-type">ListLexiconsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174261"><span class="annot"><span class="annottext">Maybe [LexiconDescription]
 lexicons :: Maybe [LexiconDescription]
 $sel:lexicons:ListLexiconsResponse' :: ListLexiconsResponse -&gt; Maybe [LexiconDescription]
-</span><a href="#local-6989586621679174208"><span class="hs-identifier hs-var hs-var">lexicons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LexiconDescription]
-</span><a href="#local-6989586621679174208"><span class="hs-identifier hs-var">lexicons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174207"><span class="annot"><span class="annottext">s :: ListLexiconsResponse
-</span><a href="#local-6989586621679174207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse%27"><span class="hs-identifier hs-type">ListLexiconsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174206"><span class="annot"><span class="annottext">Maybe [LexiconDescription]
-</span><a href="#local-6989586621679174206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLexiconsResponse
-</span><a href="#local-6989586621679174207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lexicons:ListLexiconsResponse' :: Maybe [LexiconDescription]
+</span><a href="#local-6989586621679174261"><span class="hs-identifier hs-var hs-var">lexicons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LexiconDescription]
+</span><a href="#local-6989586621679174261"><span class="hs-identifier hs-var">lexicons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174260"><span class="annot"><span class="annottext">s :: ListLexiconsResponse
+</span><a href="#local-6989586621679174260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse%27"><span class="hs-identifier hs-type">ListLexiconsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174259"><span class="annot"><span class="annottext">Maybe [LexiconDescription]
+</span><a href="#local-6989586621679174259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLexiconsResponse
+</span><a href="#local-6989586621679174260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lexicons:ListLexiconsResponse' :: Maybe [LexiconDescription]
 </span><a href="Network.AWS.Polly.ListLexicons.html#%24sel%3Alexicons%3AListLexiconsResponse%27"><span class="hs-identifier hs-var">lexicons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LexiconDescription]
-</span><a href="#local-6989586621679174206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier hs-type">ListLexiconsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LexiconDescription] -&gt; f (Maybe [LexiconDescription]))
+</span><a href="#local-6989586621679174259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier hs-type">ListLexiconsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LexiconDescription] -&gt; f (Maybe [LexiconDescription]))
  -&gt; ListLexiconsResponse -&gt; f ListLexiconsResponse)
 -&gt; ((Maybe [LexiconDescription] -&gt; f (Maybe [LexiconDescription]))
     -&gt; Maybe [LexiconDescription] -&gt; f (Maybe [LexiconDescription]))
@@ -542,8 +520,28 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [LexiconDescription]
   [LexiconDescription]
   [LexiconDescription]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The pagination token to use in the next request to continue the listing</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- of lexicons. @NextToken@ is returned only if the response is truncated.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#listLexiconsResponse_nextToken"><span class="hs-identifier hs-type">listLexiconsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier hs-type">ListLexiconsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="listLexiconsResponse_nextToken"><span class="annot"><span class="annottext">listLexiconsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListLexiconsResponse -&gt; f ListLexiconsResponse
+</span><a href="Network.AWS.Polly.ListLexicons.html#listLexiconsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listLexiconsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLexiconsResponse -&gt; Maybe Text)
+-&gt; (ListLexiconsResponse -&gt; Maybe Text -&gt; ListLexiconsResponse)
+-&gt; Lens' ListLexiconsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse%27"><span class="hs-identifier hs-type">ListLexiconsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174256"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListLexiconsResponse' :: ListLexiconsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679174256"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174256"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174255"><span class="annot"><span class="annottext">s :: ListLexiconsResponse
+</span><a href="#local-6989586621679174255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse%27"><span class="hs-identifier hs-type">ListLexiconsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174254"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLexiconsResponse
+</span><a href="#local-6989586621679174255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLexiconsResponse' :: Maybe Text
+</span><a href="Network.AWS.Polly.ListLexicons.html#%24sel%3AnextToken%3AListLexiconsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier hs-type">ListLexiconsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-174"></span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#listLexiconsResponse_httpStatus"><span class="hs-identifier hs-type">listLexiconsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier hs-type">ListLexiconsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -552,16 +550,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListLexiconsResponse -&gt; Int -&gt; ListLexiconsResponse)
 -&gt; Lens ListLexiconsResponse ListLexiconsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse%27"><span class="hs-identifier hs-type">ListLexiconsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174203"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse%27"><span class="hs-identifier hs-type">ListLexiconsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174253"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListLexiconsResponse' :: ListLexiconsResponse -&gt; Int
-</span><a href="#local-6989586621679174203"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174203"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174202"><span class="annot"><span class="annottext">s :: ListLexiconsResponse
-</span><a href="#local-6989586621679174202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse%27"><span class="hs-identifier hs-type">ListLexiconsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174201"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLexiconsResponse
-</span><a href="#local-6989586621679174202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListLexiconsResponse' :: Int
+</span><a href="#local-6989586621679174253"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174253"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174252"><span class="annot"><span class="annottext">s :: ListLexiconsResponse
+</span><a href="#local-6989586621679174252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse%27"><span class="hs-identifier hs-type">ListLexiconsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174251"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLexiconsResponse
+</span><a href="#local-6989586621679174252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListLexiconsResponse' :: Int
 </span><a href="Network.AWS.Polly.ListLexicons.html#%24sel%3AhttpStatus%3AListLexiconsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier hs-type">ListLexiconsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier hs-type">ListLexiconsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174199"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier hs-type">ListLexiconsResponse</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174249"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.ListLexicons.html#ListLexiconsResponse"><span class="hs-identifier hs-type">ListLexiconsResponse</span></a></span></span><span>
 </span><span id="line-178"></span></pre></body></html>

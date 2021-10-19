@@ -30,50 +30,50 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | Represents the properties of a replica.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newReplicaSettingsDescription' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679377761"><span id="local-6989586621679377762"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicaSettingsDescription"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-var">ReplicaSettingsDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicaSettingsDescription%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-var">ReplicaSettingsDescription'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The read\/write capacity mode of the replica.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AreplicaBillingModeSummary%3AReplicaSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaSettingsDescription -&gt; Maybe BillingModeSummary
+</span><span id="line-33"></span><span id="local-6989586621679378449"><span id="local-6989586621679378450"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicaSettingsDescription"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-var">ReplicaSettingsDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicaSettingsDescription%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-var">ReplicaSettingsDescription'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of the Region:</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   @CREATING@ - The Region is being created.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   @UPDATING@ - The Region is being updated.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   @DELETING@ - The Region is being deleted.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   @ACTIVE@ - The Region is ready for use.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AreplicaStatus%3AReplicaSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaSettingsDescription -&gt; Maybe ReplicaStatus
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaStatus%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var hs-var">replicaStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaStatus.html#ReplicaStatus"><span class="hs-identifier hs-type">ReplicaStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The maximum number of strongly consistent reads consumed per second</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@. For more information,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- see</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements&gt;</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AreplicaProvisionedReadCapacityUnits%3AReplicaSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaSettingsDescription -&gt; Maybe Natural
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedReadCapacityUnits%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var hs-var">replicaProvisionedReadCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The maximum number of writes consumed per second before DynamoDB returns</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- a @ThrottlingException@. For more information, see</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements&gt;</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AreplicaProvisionedWriteCapacityUnits%3AReplicaSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaSettingsDescription -&gt; Maybe Natural
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedWriteCapacityUnits%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var hs-var">replicaProvisionedWriteCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The read\/write capacity mode of the replica.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AreplicaBillingModeSummary%3AReplicaSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaSettingsDescription -&gt; Maybe BillingModeSummary
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaBillingModeSummary%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var hs-var">replicaBillingModeSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary"><span class="hs-identifier hs-type">BillingModeSummary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Auto scaling settings for a global table replica\'s read capacity units.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AreplicaProvisionedReadCapacityAutoScalingSettings%3AReplicaSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaSettingsDescription -&gt; Maybe AutoScalingSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedReadCapacityAutoScalingSettings%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var hs-var">replicaProvisionedReadCapacityAutoScalingSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Auto scaling settings for a global table replica\'s write capacity</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- units.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AreplicaProvisionedWriteCapacityAutoScalingSettings%3AReplicaSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaSettingsDescription -&gt; Maybe AutoScalingSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedWriteCapacityAutoScalingSettings%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var hs-var">replicaProvisionedWriteCapacityAutoScalingSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Replica global secondary index settings for the global table.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AreplicaGlobalSecondaryIndexSettings%3AReplicaSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaSettingsDescription
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Replica global secondary index settings for the global table.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AreplicaGlobalSecondaryIndexSettings%3AReplicaSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaSettingsDescription
 -&gt; Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaGlobalSecondaryIndexSettings%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var hs-var">replicaGlobalSecondaryIndexSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The current state of the Region:</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   @CREATING@ - The Region is being created.</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   @UPDATING@ - The Region is being updated.</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- -   @DELETING@ - The Region is being deleted.</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   @ACTIVE@ - The Region is ready for use.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AreplicaStatus%3AReplicaSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaSettingsDescription -&gt; Maybe ReplicaStatus
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaStatus%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var hs-var">replicaStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaStatus.html#ReplicaStatus"><span class="hs-identifier hs-type">ReplicaStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The maximum number of writes consumed per second before DynamoDB returns</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- a @ThrottlingException@. For more information, see</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements&gt;</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AreplicaProvisionedWriteCapacityUnits%3AReplicaSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaSettingsDescription -&gt; Maybe Natural
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedWriteCapacityUnits%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var hs-var">replicaProvisionedWriteCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The maximum number of strongly consistent reads consumed per second</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@. For more information,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- see</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements&gt;</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AreplicaProvisionedReadCapacityUnits%3AReplicaSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaSettingsDescription -&gt; Maybe Natural
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedReadCapacityUnits%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var hs-var">replicaProvisionedReadCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Auto scaling settings for a global table replica\'s write capacity</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- units.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AreplicaProvisionedWriteCapacityAutoScalingSettings%3AReplicaSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaSettingsDescription -&gt; Maybe AutoScalingSettingsDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedWriteCapacityAutoScalingSettings%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var hs-var">replicaProvisionedWriteCapacityAutoScalingSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Auto scaling settings for a global table replica\'s read capacity units.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AreplicaProvisionedReadCapacityAutoScalingSettings%3AReplicaSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaSettingsDescription -&gt; Maybe AutoScalingSettingsDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedReadCapacityAutoScalingSettings%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var hs-var">replicaProvisionedReadCapacityAutoScalingSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The Region name of the replica.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AregionName%3AReplicaSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaSettingsDescription -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AregionName%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377748"><span id="local-6989586621679377750"><span class="annot"><span class="annottext">ReplicaSettingsDescription -&gt; ReplicaSettingsDescription -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378436"><span id="local-6989586621679378438"><span class="annot"><span class="annottext">ReplicaSettingsDescription -&gt; ReplicaSettingsDescription -&gt; Bool
 (ReplicaSettingsDescription -&gt; ReplicaSettingsDescription -&gt; Bool)
 -&gt; (ReplicaSettingsDescription
     -&gt; ReplicaSettingsDescription -&gt; Bool)
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReplicaSettingsDescription -&gt; ReplicaSettingsDescription -&gt; Bool
 == :: ReplicaSettingsDescription -&gt; ReplicaSettingsDescription -&gt; Bool
 $c== :: ReplicaSettingsDescription -&gt; ReplicaSettingsDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377739"><span id="local-6989586621679377741"><span id="local-6989586621679377743"><span id="local-6989586621679377745"><span class="annot"><span class="annottext">ReadPrec [ReplicaSettingsDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378427"><span id="local-6989586621679378429"><span id="local-6989586621679378431"><span id="local-6989586621679378433"><span class="annot"><span class="annottext">ReadPrec [ReplicaSettingsDescription]
 ReadPrec ReplicaSettingsDescription
 Int -&gt; ReadS ReplicaSettingsDescription
 ReadS [ReplicaSettingsDescription]
@@ -103,7 +103,7 @@ readList :: ReadS [ReplicaSettingsDescription]
 $creadList :: ReadS [ReplicaSettingsDescription]
 readsPrec :: Int -&gt; ReadS ReplicaSettingsDescription
 $creadsPrec :: Int -&gt; ReadS ReplicaSettingsDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377732"><span id="local-6989586621679377734"><span id="local-6989586621679377736"><span class="annot"><span class="annottext">Int -&gt; ReplicaSettingsDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378420"><span id="local-6989586621679378422"><span id="local-6989586621679378424"><span class="annot"><span class="annottext">Int -&gt; ReplicaSettingsDescription -&gt; ShowS
 [ReplicaSettingsDescription] -&gt; ShowS
 ReplicaSettingsDescription -&gt; String
 (Int -&gt; ReplicaSettingsDescription -&gt; ShowS)
@@ -143,35 +143,35 @@ ReplicaSettingsDescription -&gt; Rep ReplicaSettingsDescription x
 </span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'replicaBillingModeSummary', 'replicaSettingsDescription_replicaBillingModeSummary' - The read\/write capacity mode of the replica.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'replicaStatus', 'replicaSettingsDescription_replicaStatus' - The current state of the Region:</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'replicaProvisionedReadCapacityAutoScalingSettings', 'replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings' - Auto scaling settings for a global table replica\'s read capacity units.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- -   @CREATING@ - The Region is being created.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'replicaProvisionedWriteCapacityAutoScalingSettings', 'replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings' - Auto scaling settings for a global table replica\'s write capacity</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- units.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'replicaGlobalSecondaryIndexSettings', 'replicaSettingsDescription_replicaGlobalSecondaryIndexSettings' - Replica global secondary index settings for the global table.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'replicaStatus', 'replicaSettingsDescription_replicaStatus' - The current state of the Region:</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- -   @CREATING@ - The Region is being created.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- -   @UPDATING@ - The Region is being updated.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- -   @DELETING@ - The Region is being deleted.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- -   @ACTIVE@ - The Region is ready for use.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'replicaProvisionedWriteCapacityUnits', 'replicaSettingsDescription_replicaProvisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- a @ThrottlingException@. For more information, see</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements&gt;</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'replicaProvisionedReadCapacityUnits', 'replicaSettingsDescription_replicaProvisionedReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@. For more information,</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- see</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements&gt;</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- -   @UPDATING@ - The Region is being updated.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- -   @DELETING@ - The Region is being deleted.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- -   @ACTIVE@ - The Region is ready for use.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'replicaProvisionedReadCapacityUnits', 'replicaSettingsDescription_replicaProvisionedReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@. For more information,</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements&gt;</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'replicaProvisionedWriteCapacityUnits', 'replicaSettingsDescription_replicaProvisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- a @ThrottlingException@. For more information, see</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements&gt;</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'replicaBillingModeSummary', 'replicaSettingsDescription_replicaBillingModeSummary' - The read\/write capacity mode of the replica.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'replicaGlobalSecondaryIndexSettings', 'replicaSettingsDescription_replicaGlobalSecondaryIndexSettings' - Replica global secondary index settings for the global table.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'replicaProvisionedWriteCapacityAutoScalingSettings', 'replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings' - Auto scaling settings for a global table replica\'s write capacity</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- units.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'replicaProvisionedReadCapacityAutoScalingSettings', 'replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings' - Auto scaling settings for a global table replica\'s read capacity units.</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- 'regionName', 'replicaSettingsDescription_regionName' - The Region name of the replica.</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#newReplicaSettingsDescription"><span class="hs-identifier hs-type">newReplicaSettingsDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -179,60 +179,147 @@ ReplicaSettingsDescription -&gt; Rep ReplicaSettingsDescription x
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span>
 </span><span id="line-112"></span><span id="newReplicaSettingsDescription"><span class="annot"><span class="annottext">newReplicaSettingsDescription :: Text -&gt; ReplicaSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#newReplicaSettingsDescription"><span class="hs-identifier hs-var hs-var">newReplicaSettingsDescription</span></a></span></span><span> </span><span id="local-6989586621679377726"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377726"><span class="hs-identifier hs-var">pRegionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">ReplicaSettingsDescription' :: Maybe BillingModeSummary
--&gt; Maybe AutoScalingSettingsDescription
--&gt; Maybe AutoScalingSettingsDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#newReplicaSettingsDescription"><span class="hs-identifier hs-var hs-var">newReplicaSettingsDescription</span></a></span></span><span> </span><span id="local-6989586621679378414"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679378414"><span class="hs-identifier hs-var">pRegionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">ReplicaSettingsDescription' :: Maybe ReplicaStatus
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe BillingModeSummary
 -&gt; Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
--&gt; Maybe ReplicaStatus
--&gt; Maybe Natural
--&gt; Maybe Natural
+-&gt; Maybe AutoScalingSettingsDescription
+-&gt; Maybe AutoScalingSettingsDescription
 -&gt; Text
 -&gt; ReplicaSettingsDescription
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicaBillingModeSummary:ReplicaSettingsDescription' :: Maybe BillingModeSummary
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaBillingModeSummary%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaBillingModeSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">Maybe BillingModeSummary
+</span><span id="line-114"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicaStatus:ReplicaSettingsDescription' :: Maybe ReplicaStatus
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaStatus%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReplicaStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaProvisionedReadCapacityAutoScalingSettings:ReplicaSettingsDescription' :: Maybe AutoScalingSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedReadCapacityAutoScalingSettings%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaProvisionedReadCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaProvisionedWriteCapacityAutoScalingSettings:ReplicaSettingsDescription' :: Maybe AutoScalingSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedWriteCapacityAutoScalingSettings%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaProvisionedWriteCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaGlobalSecondaryIndexSettings:ReplicaSettingsDescription' :: Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaGlobalSecondaryIndexSettings%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaGlobalSecondaryIndexSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaStatus:ReplicaSettingsDescription' :: Maybe ReplicaStatus
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaStatus%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicaStatus
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaProvisionedWriteCapacityUnits:ReplicaSettingsDescription' :: Maybe Natural
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedWriteCapacityUnits%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaProvisionedWriteCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaProvisionedReadCapacityUnits:ReplicaSettingsDescription' :: Maybe Natural
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaProvisionedReadCapacityUnits:ReplicaSettingsDescription' :: Maybe Natural
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedReadCapacityUnits%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaProvisionedReadCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaProvisionedWriteCapacityUnits:ReplicaSettingsDescription' :: Maybe Natural
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedWriteCapacityUnits%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaProvisionedWriteCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaBillingModeSummary:ReplicaSettingsDescription' :: Maybe BillingModeSummary
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaBillingModeSummary%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaBillingModeSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BillingModeSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaGlobalSecondaryIndexSettings:ReplicaSettingsDescription' :: Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaGlobalSecondaryIndexSettings%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaGlobalSecondaryIndexSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaProvisionedWriteCapacityAutoScalingSettings:ReplicaSettingsDescription' :: Maybe AutoScalingSettingsDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedWriteCapacityAutoScalingSettings%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaProvisionedWriteCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicaProvisionedReadCapacityAutoScalingSettings:ReplicaSettingsDescription' :: Maybe AutoScalingSettingsDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedReadCapacityAutoScalingSettings%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaProvisionedReadCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:regionName:ReplicaSettingsDescription' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AregionName%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">regionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377726"><span class="hs-identifier hs-var">pRegionName_</span></a></span><span>
+</span><a href="#local-6989586621679378414"><span class="hs-identifier hs-var">pRegionName_</span></a></span><span>
 </span><span id="line-128"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The read\/write capacity mode of the replica.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaBillingModeSummary"><span class="hs-identifier hs-type">replicaSettingsDescription_replicaBillingModeSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary"><span class="hs-identifier hs-type">BillingModeSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="replicaSettingsDescription_replicaBillingModeSummary"><span class="annot"><span class="annottext">replicaSettingsDescription_replicaBillingModeSummary :: (Maybe BillingModeSummary -&gt; f (Maybe BillingModeSummary))
+</span><span id="line-130"></span><span class="hs-comment">-- | The current state of the Region:</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- -   @CREATING@ - The Region is being created.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -   @UPDATING@ - The Region is being updated.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- -   @DELETING@ - The Region is being deleted.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   @ACTIVE@ - The Region is ready for use.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaStatus"><span class="hs-identifier hs-type">replicaSettingsDescription_replicaStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaStatus.html#ReplicaStatus"><span class="hs-identifier hs-type">ReplicaStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="replicaSettingsDescription_replicaStatus"><span class="annot"><span class="annottext">replicaSettingsDescription_replicaStatus :: (Maybe ReplicaStatus -&gt; f (Maybe ReplicaStatus))
+-&gt; ReplicaSettingsDescription -&gt; f ReplicaSettingsDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaStatus"><span class="hs-identifier hs-var hs-var">replicaSettingsDescription_replicaStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaSettingsDescription -&gt; Maybe ReplicaStatus)
+-&gt; (ReplicaSettingsDescription
+    -&gt; Maybe ReplicaStatus -&gt; ReplicaSettingsDescription)
+-&gt; Lens
+     ReplicaSettingsDescription
+     ReplicaSettingsDescription
+     (Maybe ReplicaStatus)
+     (Maybe ReplicaStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378410"><span class="annot"><span class="annottext">Maybe ReplicaStatus
+replicaStatus :: Maybe ReplicaStatus
+$sel:replicaStatus:ReplicaSettingsDescription' :: ReplicaSettingsDescription -&gt; Maybe ReplicaStatus
+</span><a href="#local-6989586621679378410"><span class="hs-identifier hs-var hs-var">replicaStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicaStatus
+</span><a href="#local-6989586621679378410"><span class="hs-identifier hs-var">replicaStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378409"><span class="annot"><span class="annottext">s :: ReplicaSettingsDescription
+</span><a href="#local-6989586621679378409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378408"><span class="annot"><span class="annottext">Maybe ReplicaStatus
+</span><a href="#local-6989586621679378408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaSettingsDescription
+</span><a href="#local-6989586621679378409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaStatus:ReplicaSettingsDescription' :: Maybe ReplicaStatus
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaStatus%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicaStatus
+</span><a href="#local-6989586621679378408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The maximum number of strongly consistent reads consumed per second</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@. For more information,</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements&gt;</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaProvisionedReadCapacityUnits"><span class="hs-identifier hs-type">replicaSettingsDescription_replicaProvisionedReadCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="replicaSettingsDescription_replicaProvisionedReadCapacityUnits"><span class="annot"><span class="annottext">replicaSettingsDescription_replicaProvisionedReadCapacityUnits :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ReplicaSettingsDescription -&gt; f ReplicaSettingsDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaProvisionedReadCapacityUnits"><span class="hs-identifier hs-var hs-var">replicaSettingsDescription_replicaProvisionedReadCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaSettingsDescription -&gt; Maybe Natural)
+-&gt; (ReplicaSettingsDescription
+    -&gt; Maybe Natural -&gt; ReplicaSettingsDescription)
+-&gt; Lens
+     ReplicaSettingsDescription
+     ReplicaSettingsDescription
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378406"><span class="annot"><span class="annottext">Maybe Natural
+replicaProvisionedReadCapacityUnits :: Maybe Natural
+$sel:replicaProvisionedReadCapacityUnits:ReplicaSettingsDescription' :: ReplicaSettingsDescription -&gt; Maybe Natural
+</span><a href="#local-6989586621679378406"><span class="hs-identifier hs-var hs-var">replicaProvisionedReadCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679378406"><span class="hs-identifier hs-var">replicaProvisionedReadCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378405"><span class="annot"><span class="annottext">s :: ReplicaSettingsDescription
+</span><a href="#local-6989586621679378405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378404"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679378404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaSettingsDescription
+</span><a href="#local-6989586621679378405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaProvisionedReadCapacityUnits:ReplicaSettingsDescription' :: Maybe Natural
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedReadCapacityUnits%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaProvisionedReadCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679378404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The maximum number of writes consumed per second before DynamoDB returns</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- a @ThrottlingException@. For more information, see</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements&gt;</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaProvisionedWriteCapacityUnits"><span class="hs-identifier hs-type">replicaSettingsDescription_replicaProvisionedWriteCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="replicaSettingsDescription_replicaProvisionedWriteCapacityUnits"><span class="annot"><span class="annottext">replicaSettingsDescription_replicaProvisionedWriteCapacityUnits :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ReplicaSettingsDescription -&gt; f ReplicaSettingsDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaProvisionedWriteCapacityUnits"><span class="hs-identifier hs-var hs-var">replicaSettingsDescription_replicaProvisionedWriteCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaSettingsDescription -&gt; Maybe Natural)
+-&gt; (ReplicaSettingsDescription
+    -&gt; Maybe Natural -&gt; ReplicaSettingsDescription)
+-&gt; Lens
+     ReplicaSettingsDescription
+     ReplicaSettingsDescription
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378402"><span class="annot"><span class="annottext">Maybe Natural
+replicaProvisionedWriteCapacityUnits :: Maybe Natural
+$sel:replicaProvisionedWriteCapacityUnits:ReplicaSettingsDescription' :: ReplicaSettingsDescription -&gt; Maybe Natural
+</span><a href="#local-6989586621679378402"><span class="hs-identifier hs-var hs-var">replicaProvisionedWriteCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679378402"><span class="hs-identifier hs-var">replicaProvisionedWriteCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378401"><span class="annot"><span class="annottext">s :: ReplicaSettingsDescription
+</span><a href="#local-6989586621679378401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378400"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679378400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaSettingsDescription
+</span><a href="#local-6989586621679378401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaProvisionedWriteCapacityUnits:ReplicaSettingsDescription' :: Maybe Natural
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedWriteCapacityUnits%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaProvisionedWriteCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679378400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The read\/write capacity mode of the replica.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaBillingModeSummary"><span class="hs-identifier hs-type">replicaSettingsDescription_replicaBillingModeSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary"><span class="hs-identifier hs-type">BillingModeSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="replicaSettingsDescription_replicaBillingModeSummary"><span class="annot"><span class="annottext">replicaSettingsDescription_replicaBillingModeSummary :: (Maybe BillingModeSummary -&gt; f (Maybe BillingModeSummary))
 -&gt; ReplicaSettingsDescription -&gt; f ReplicaSettingsDescription
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaBillingModeSummary"><span class="hs-identifier hs-var hs-var">replicaSettingsDescription_replicaBillingModeSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaSettingsDescription -&gt; Maybe BillingModeSummary)
 -&gt; (ReplicaSettingsDescription
@@ -243,75 +330,20 @@ forall a. Maybe a
      (Maybe BillingModeSummary)
      (Maybe BillingModeSummary)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377722"><span class="annot"><span class="annottext">Maybe BillingModeSummary
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378398"><span class="annot"><span class="annottext">Maybe BillingModeSummary
 replicaBillingModeSummary :: Maybe BillingModeSummary
 $sel:replicaBillingModeSummary:ReplicaSettingsDescription' :: ReplicaSettingsDescription -&gt; Maybe BillingModeSummary
-</span><a href="#local-6989586621679377722"><span class="hs-identifier hs-var hs-var">replicaBillingModeSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BillingModeSummary
-</span><a href="#local-6989586621679377722"><span class="hs-identifier hs-var">replicaBillingModeSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377721"><span class="annot"><span class="annottext">s :: ReplicaSettingsDescription
-</span><a href="#local-6989586621679377721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377720"><span class="annot"><span class="annottext">Maybe BillingModeSummary
-</span><a href="#local-6989586621679377720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaSettingsDescription
-</span><a href="#local-6989586621679377721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaBillingModeSummary:ReplicaSettingsDescription' :: Maybe BillingModeSummary
+</span><a href="#local-6989586621679378398"><span class="hs-identifier hs-var hs-var">replicaBillingModeSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BillingModeSummary
+</span><a href="#local-6989586621679378398"><span class="hs-identifier hs-var">replicaBillingModeSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378397"><span class="annot"><span class="annottext">s :: ReplicaSettingsDescription
+</span><a href="#local-6989586621679378397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378396"><span class="annot"><span class="annottext">Maybe BillingModeSummary
+</span><a href="#local-6989586621679378396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaSettingsDescription
+</span><a href="#local-6989586621679378397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaBillingModeSummary:ReplicaSettingsDescription' :: Maybe BillingModeSummary
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaBillingModeSummary%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaBillingModeSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BillingModeSummary
-</span><a href="#local-6989586621679377720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | Auto scaling settings for a global table replica\'s read capacity units.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings"><span class="hs-identifier hs-type">replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings"><span class="annot"><span class="annottext">replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings :: (Maybe AutoScalingSettingsDescription
- -&gt; f (Maybe AutoScalingSettingsDescription))
--&gt; ReplicaSettingsDescription -&gt; f ReplicaSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings"><span class="hs-identifier hs-var hs-var">replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaSettingsDescription
- -&gt; Maybe AutoScalingSettingsDescription)
--&gt; (ReplicaSettingsDescription
-    -&gt; Maybe AutoScalingSettingsDescription
-    -&gt; ReplicaSettingsDescription)
--&gt; Lens
-     ReplicaSettingsDescription
-     ReplicaSettingsDescription
-     (Maybe AutoScalingSettingsDescription)
-     (Maybe AutoScalingSettingsDescription)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377718"><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
-replicaProvisionedReadCapacityAutoScalingSettings :: Maybe AutoScalingSettingsDescription
-$sel:replicaProvisionedReadCapacityAutoScalingSettings:ReplicaSettingsDescription' :: ReplicaSettingsDescription -&gt; Maybe AutoScalingSettingsDescription
-</span><a href="#local-6989586621679377718"><span class="hs-identifier hs-var hs-var">replicaProvisionedReadCapacityAutoScalingSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
-</span><a href="#local-6989586621679377718"><span class="hs-identifier hs-var">replicaProvisionedReadCapacityAutoScalingSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377717"><span class="annot"><span class="annottext">s :: ReplicaSettingsDescription
-</span><a href="#local-6989586621679377717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377716"><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
-</span><a href="#local-6989586621679377716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaSettingsDescription
-</span><a href="#local-6989586621679377717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaProvisionedReadCapacityAutoScalingSettings:ReplicaSettingsDescription' :: Maybe AutoScalingSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedReadCapacityAutoScalingSettings%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaProvisionedReadCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
-</span><a href="#local-6989586621679377716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | Auto scaling settings for a global table replica\'s write capacity</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- units.</span><span>
-</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings"><span class="hs-identifier hs-type">replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span id="replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings"><span class="annot"><span class="annottext">replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings :: (Maybe AutoScalingSettingsDescription
- -&gt; f (Maybe AutoScalingSettingsDescription))
--&gt; ReplicaSettingsDescription -&gt; f ReplicaSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings"><span class="hs-identifier hs-var hs-var">replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaSettingsDescription
- -&gt; Maybe AutoScalingSettingsDescription)
--&gt; (ReplicaSettingsDescription
-    -&gt; Maybe AutoScalingSettingsDescription
-    -&gt; ReplicaSettingsDescription)
--&gt; Lens
-     ReplicaSettingsDescription
-     ReplicaSettingsDescription
-     (Maybe AutoScalingSettingsDescription)
-     (Maybe AutoScalingSettingsDescription)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377714"><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
-replicaProvisionedWriteCapacityAutoScalingSettings :: Maybe AutoScalingSettingsDescription
-$sel:replicaProvisionedWriteCapacityAutoScalingSettings:ReplicaSettingsDescription' :: ReplicaSettingsDescription -&gt; Maybe AutoScalingSettingsDescription
-</span><a href="#local-6989586621679377714"><span class="hs-identifier hs-var hs-var">replicaProvisionedWriteCapacityAutoScalingSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
-</span><a href="#local-6989586621679377714"><span class="hs-identifier hs-var">replicaProvisionedWriteCapacityAutoScalingSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377713"><span class="annot"><span class="annottext">s :: ReplicaSettingsDescription
-</span><a href="#local-6989586621679377713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377712"><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
-</span><a href="#local-6989586621679377712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaSettingsDescription
-</span><a href="#local-6989586621679377713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaProvisionedWriteCapacityAutoScalingSettings:ReplicaSettingsDescription' :: Maybe AutoScalingSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedWriteCapacityAutoScalingSettings%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaProvisionedWriteCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
-</span><a href="#local-6989586621679377712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- | Replica global secondary index settings for the global table.</span><span>
-</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaGlobalSecondaryIndexSettings"><span class="hs-identifier hs-type">replicaSettingsDescription_replicaGlobalSecondaryIndexSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span id="replicaSettingsDescription_replicaGlobalSecondaryIndexSettings"><span class="annot"><span class="annottext">replicaSettingsDescription_replicaGlobalSecondaryIndexSettings :: (Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
+</span><a href="#local-6989586621679378396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | Replica global secondary index settings for the global table.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaGlobalSecondaryIndexSettings"><span class="hs-identifier hs-type">replicaSettingsDescription_replicaGlobalSecondaryIndexSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="replicaSettingsDescription_replicaGlobalSecondaryIndexSettings"><span class="annot"><span class="annottext">replicaSettingsDescription_replicaGlobalSecondaryIndexSettings :: (Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
  -&gt; f (Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]))
 -&gt; ReplicaSettingsDescription -&gt; f ReplicaSettingsDescription
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaGlobalSecondaryIndexSettings"><span class="hs-identifier hs-var hs-var">replicaSettingsDescription_replicaGlobalSecondaryIndexSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaSettingsDescription
@@ -325,17 +357,17 @@ $sel:replicaProvisionedWriteCapacityAutoScalingSettings:ReplicaSettingsDescripti
      (Maybe [ReplicaGlobalSecondaryIndexSettingsDescription])
      (Maybe [ReplicaGlobalSecondaryIndexSettingsDescription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377710"><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378394"><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
 replicaGlobalSecondaryIndexSettings :: Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
 $sel:replicaGlobalSecondaryIndexSettings:ReplicaSettingsDescription' :: ReplicaSettingsDescription
 -&gt; Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
-</span><a href="#local-6989586621679377710"><span class="hs-identifier hs-var hs-var">replicaGlobalSecondaryIndexSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
-</span><a href="#local-6989586621679377710"><span class="hs-identifier hs-var">replicaGlobalSecondaryIndexSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377709"><span class="annot"><span class="annottext">s :: ReplicaSettingsDescription
-</span><a href="#local-6989586621679377709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377708"><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
-</span><a href="#local-6989586621679377708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaSettingsDescription
-</span><a href="#local-6989586621679377709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaGlobalSecondaryIndexSettings:ReplicaSettingsDescription' :: Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
+</span><a href="#local-6989586621679378394"><span class="hs-identifier hs-var hs-var">replicaGlobalSecondaryIndexSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
+</span><a href="#local-6989586621679378394"><span class="hs-identifier hs-var">replicaGlobalSecondaryIndexSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378393"><span class="annot"><span class="annottext">s :: ReplicaSettingsDescription
+</span><a href="#local-6989586621679378393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378392"><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
+</span><a href="#local-6989586621679378392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaSettingsDescription
+</span><a href="#local-6989586621679378393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaGlobalSecondaryIndexSettings:ReplicaSettingsDescription' :: Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaGlobalSecondaryIndexSettings%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaGlobalSecondaryIndexSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
-</span><a href="#local-6989586621679377708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
+</span><a href="#local-6989586621679378392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
   -&gt; f (Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]))
  -&gt; ReplicaSettingsDescription -&gt; f ReplicaSettingsDescription)
 -&gt; ((Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
@@ -365,95 +397,63 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ReplicaGlobalSecondaryIndexSettingsDescription]
   [ReplicaGlobalSecondaryIndexSettingsDescription]
   [ReplicaGlobalSecondaryIndexSettingsDescription]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- | The current state of the Region:</span><span>
-</span><span id="line-148"></span><span class="hs-comment">--</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- -   @CREATING@ - The Region is being created.</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- -   @UPDATING@ - The Region is being updated.</span><span>
-</span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- -   @DELETING@ - The Region is being deleted.</span><span>
-</span><span id="line-154"></span><span class="hs-comment">--</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- -   @ACTIVE@ - The Region is ready for use.</span><span>
-</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaStatus"><span class="hs-identifier hs-type">replicaSettingsDescription_replicaStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaStatus.html#ReplicaStatus"><span class="hs-identifier hs-type">ReplicaStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span id="replicaSettingsDescription_replicaStatus"><span class="annot"><span class="annottext">replicaSettingsDescription_replicaStatus :: (Maybe ReplicaStatus -&gt; f (Maybe ReplicaStatus))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | Auto scaling settings for a global table replica\'s write capacity</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- units.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings"><span class="hs-identifier hs-type">replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings"><span class="annot"><span class="annottext">replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings :: (Maybe AutoScalingSettingsDescription
+ -&gt; f (Maybe AutoScalingSettingsDescription))
 -&gt; ReplicaSettingsDescription -&gt; f ReplicaSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaStatus"><span class="hs-identifier hs-var hs-var">replicaSettingsDescription_replicaStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaSettingsDescription -&gt; Maybe ReplicaStatus)
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings"><span class="hs-identifier hs-var hs-var">replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaSettingsDescription
+ -&gt; Maybe AutoScalingSettingsDescription)
 -&gt; (ReplicaSettingsDescription
-    -&gt; Maybe ReplicaStatus -&gt; ReplicaSettingsDescription)
+    -&gt; Maybe AutoScalingSettingsDescription
+    -&gt; ReplicaSettingsDescription)
 -&gt; Lens
      ReplicaSettingsDescription
      ReplicaSettingsDescription
-     (Maybe ReplicaStatus)
-     (Maybe ReplicaStatus)
+     (Maybe AutoScalingSettingsDescription)
+     (Maybe AutoScalingSettingsDescription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377703"><span class="annot"><span class="annottext">Maybe ReplicaStatus
-replicaStatus :: Maybe ReplicaStatus
-$sel:replicaStatus:ReplicaSettingsDescription' :: ReplicaSettingsDescription -&gt; Maybe ReplicaStatus
-</span><a href="#local-6989586621679377703"><span class="hs-identifier hs-var hs-var">replicaStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicaStatus
-</span><a href="#local-6989586621679377703"><span class="hs-identifier hs-var">replicaStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377702"><span class="annot"><span class="annottext">s :: ReplicaSettingsDescription
-</span><a href="#local-6989586621679377702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377701"><span class="annot"><span class="annottext">Maybe ReplicaStatus
-</span><a href="#local-6989586621679377701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaSettingsDescription
-</span><a href="#local-6989586621679377702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaStatus:ReplicaSettingsDescription' :: Maybe ReplicaStatus
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaStatus%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicaStatus
-</span><a href="#local-6989586621679377701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | The maximum number of writes consumed per second before DynamoDB returns</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- a @ThrottlingException@. For more information, see</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements&gt;</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
-</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaProvisionedWriteCapacityUnits"><span class="hs-identifier hs-type">replicaSettingsDescription_replicaProvisionedWriteCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span id="replicaSettingsDescription_replicaProvisionedWriteCapacityUnits"><span class="annot"><span class="annottext">replicaSettingsDescription_replicaProvisionedWriteCapacityUnits :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378387"><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
+replicaProvisionedWriteCapacityAutoScalingSettings :: Maybe AutoScalingSettingsDescription
+$sel:replicaProvisionedWriteCapacityAutoScalingSettings:ReplicaSettingsDescription' :: ReplicaSettingsDescription -&gt; Maybe AutoScalingSettingsDescription
+</span><a href="#local-6989586621679378387"><span class="hs-identifier hs-var hs-var">replicaProvisionedWriteCapacityAutoScalingSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
+</span><a href="#local-6989586621679378387"><span class="hs-identifier hs-var">replicaProvisionedWriteCapacityAutoScalingSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378386"><span class="annot"><span class="annottext">s :: ReplicaSettingsDescription
+</span><a href="#local-6989586621679378386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378385"><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
+</span><a href="#local-6989586621679378385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaSettingsDescription
+</span><a href="#local-6989586621679378386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaProvisionedWriteCapacityAutoScalingSettings:ReplicaSettingsDescription' :: Maybe AutoScalingSettingsDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedWriteCapacityAutoScalingSettings%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaProvisionedWriteCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
+</span><a href="#local-6989586621679378385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | Auto scaling settings for a global table replica\'s read capacity units.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings"><span class="hs-identifier hs-type">replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings"><span class="annot"><span class="annottext">replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings :: (Maybe AutoScalingSettingsDescription
+ -&gt; f (Maybe AutoScalingSettingsDescription))
 -&gt; ReplicaSettingsDescription -&gt; f ReplicaSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaProvisionedWriteCapacityUnits"><span class="hs-identifier hs-var hs-var">replicaSettingsDescription_replicaProvisionedWriteCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaSettingsDescription -&gt; Maybe Natural)
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings"><span class="hs-identifier hs-var hs-var">replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaSettingsDescription
+ -&gt; Maybe AutoScalingSettingsDescription)
 -&gt; (ReplicaSettingsDescription
-    -&gt; Maybe Natural -&gt; ReplicaSettingsDescription)
+    -&gt; Maybe AutoScalingSettingsDescription
+    -&gt; ReplicaSettingsDescription)
 -&gt; Lens
      ReplicaSettingsDescription
      ReplicaSettingsDescription
-     (Maybe Natural)
-     (Maybe Natural)
+     (Maybe AutoScalingSettingsDescription)
+     (Maybe AutoScalingSettingsDescription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377699"><span class="annot"><span class="annottext">Maybe Natural
-replicaProvisionedWriteCapacityUnits :: Maybe Natural
-$sel:replicaProvisionedWriteCapacityUnits:ReplicaSettingsDescription' :: ReplicaSettingsDescription -&gt; Maybe Natural
-</span><a href="#local-6989586621679377699"><span class="hs-identifier hs-var hs-var">replicaProvisionedWriteCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679377699"><span class="hs-identifier hs-var">replicaProvisionedWriteCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377698"><span class="annot"><span class="annottext">s :: ReplicaSettingsDescription
-</span><a href="#local-6989586621679377698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377697"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679377697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaSettingsDescription
-</span><a href="#local-6989586621679377698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaProvisionedWriteCapacityUnits:ReplicaSettingsDescription' :: Maybe Natural
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedWriteCapacityUnits%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaProvisionedWriteCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679377697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- | The maximum number of strongly consistent reads consumed per second</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@. For more information,</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- see</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements&gt;</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
-</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaProvisionedReadCapacityUnits"><span class="hs-identifier hs-type">replicaSettingsDescription_replicaProvisionedReadCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span id="replicaSettingsDescription_replicaProvisionedReadCapacityUnits"><span class="annot"><span class="annottext">replicaSettingsDescription_replicaProvisionedReadCapacityUnits :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ReplicaSettingsDescription -&gt; f ReplicaSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_replicaProvisionedReadCapacityUnits"><span class="hs-identifier hs-var hs-var">replicaSettingsDescription_replicaProvisionedReadCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaSettingsDescription -&gt; Maybe Natural)
--&gt; (ReplicaSettingsDescription
-    -&gt; Maybe Natural -&gt; ReplicaSettingsDescription)
--&gt; Lens
-     ReplicaSettingsDescription
-     ReplicaSettingsDescription
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377695"><span class="annot"><span class="annottext">Maybe Natural
-replicaProvisionedReadCapacityUnits :: Maybe Natural
-$sel:replicaProvisionedReadCapacityUnits:ReplicaSettingsDescription' :: ReplicaSettingsDescription -&gt; Maybe Natural
-</span><a href="#local-6989586621679377695"><span class="hs-identifier hs-var hs-var">replicaProvisionedReadCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679377695"><span class="hs-identifier hs-var">replicaProvisionedReadCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377694"><span class="annot"><span class="annottext">s :: ReplicaSettingsDescription
-</span><a href="#local-6989586621679377694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377693"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679377693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaSettingsDescription
-</span><a href="#local-6989586621679377694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaProvisionedReadCapacityUnits:ReplicaSettingsDescription' :: Maybe Natural
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedReadCapacityUnits%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaProvisionedReadCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679377693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378383"><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
+replicaProvisionedReadCapacityAutoScalingSettings :: Maybe AutoScalingSettingsDescription
+$sel:replicaProvisionedReadCapacityAutoScalingSettings:ReplicaSettingsDescription' :: ReplicaSettingsDescription -&gt; Maybe AutoScalingSettingsDescription
+</span><a href="#local-6989586621679378383"><span class="hs-identifier hs-var hs-var">replicaProvisionedReadCapacityAutoScalingSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
+</span><a href="#local-6989586621679378383"><span class="hs-identifier hs-var">replicaProvisionedReadCapacityAutoScalingSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378382"><span class="annot"><span class="annottext">s :: ReplicaSettingsDescription
+</span><a href="#local-6989586621679378382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378381"><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
+</span><a href="#local-6989586621679378381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaSettingsDescription
+</span><a href="#local-6989586621679378382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaProvisionedReadCapacityAutoScalingSettings:ReplicaSettingsDescription' :: Maybe AutoScalingSettingsDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AreplicaProvisionedReadCapacityAutoScalingSettings%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">replicaProvisionedReadCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
+</span><a href="#local-6989586621679378381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The Region name of the replica.</span><span>
 </span><span id="line-175"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#replicaSettingsDescription_regionName"><span class="hs-identifier hs-type">replicaSettingsDescription_regionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -465,19 +465,19 @@ $sel:replicaProvisionedReadCapacityUnits:ReplicaSettingsDescription' :: ReplicaS
 -&gt; Lens
      ReplicaSettingsDescription ReplicaSettingsDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377691"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378379"><span class="annot"><span class="annottext">Text
 regionName :: Text
 $sel:regionName:ReplicaSettingsDescription' :: ReplicaSettingsDescription -&gt; Text
-</span><a href="#local-6989586621679377691"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377691"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377690"><span class="annot"><span class="annottext">s :: ReplicaSettingsDescription
-</span><a href="#local-6989586621679377690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377689"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaSettingsDescription
-</span><a href="#local-6989586621679377690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionName:ReplicaSettingsDescription' :: Text
+</span><a href="#local-6989586621679378379"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679378379"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378378"><span class="annot"><span class="annottext">s :: ReplicaSettingsDescription
+</span><a href="#local-6989586621679378378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378377"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679378377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaSettingsDescription
+</span><a href="#local-6989586621679378378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionName:ReplicaSettingsDescription' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#%24sel%3AregionName%3AReplicaSettingsDescription%27"><span class="hs-identifier hs-var">regionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377686"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679377684"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplicaSettingsDescription
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378374"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679378372"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplicaSettingsDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReplicaSettingsDescription)
@@ -487,117 +487,131 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReplicaSettingsDescription&quot;</span></span><span>
-</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377681"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377681"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe BillingModeSummary
--&gt; Maybe AutoScalingSettingsDescription
--&gt; Maybe AutoScalingSettingsDescription
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378369"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378369"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReplicaStatus
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe BillingModeSummary
 -&gt; Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
--&gt; Maybe ReplicaStatus
--&gt; Maybe Natural
--&gt; Maybe Natural
+-&gt; Maybe AutoScalingSettingsDescription
+-&gt; Maybe AutoScalingSettingsDescription
 -&gt; Text
 -&gt; ReplicaSettingsDescription
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription%27"><span class="hs-identifier hs-var">ReplicaSettingsDescription'</span></a></span><span>
-</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">(Maybe BillingModeSummary
- -&gt; Maybe AutoScalingSettingsDescription
- -&gt; Maybe AutoScalingSettingsDescription
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ReplicaStatus
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe BillingModeSummary
  -&gt; Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
- -&gt; Maybe ReplicaStatus
- -&gt; Maybe Natural
- -&gt; Maybe Natural
+ -&gt; Maybe AutoScalingSettingsDescription
+ -&gt; Maybe AutoScalingSettingsDescription
  -&gt; Text
  -&gt; ReplicaSettingsDescription)
--&gt; Parser (Maybe BillingModeSummary)
+-&gt; Parser (Maybe ReplicaStatus)
 -&gt; Parser
-     (Maybe AutoScalingSettingsDescription
-      -&gt; Maybe AutoScalingSettingsDescription
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe BillingModeSummary
       -&gt; Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
-      -&gt; Maybe ReplicaStatus
-      -&gt; Maybe Natural
-      -&gt; Maybe Natural
+      -&gt; Maybe AutoScalingSettingsDescription
+      -&gt; Maybe AutoScalingSettingsDescription
       -&gt; Text
       -&gt; ReplicaSettingsDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BillingModeSummary)
+</span><a href="#local-6989586621679378369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReplicaStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicaStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe BillingModeSummary
+   -&gt; Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
+   -&gt; Maybe AutoScalingSettingsDescription
+   -&gt; Maybe AutoScalingSettingsDescription
+   -&gt; Text
+   -&gt; ReplicaSettingsDescription)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe BillingModeSummary
+      -&gt; Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
+      -&gt; Maybe AutoScalingSettingsDescription
+      -&gt; Maybe AutoScalingSettingsDescription
+      -&gt; Text
+      -&gt; ReplicaSettingsDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicaProvisionedReadCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe BillingModeSummary
+   -&gt; Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
+   -&gt; Maybe AutoScalingSettingsDescription
+   -&gt; Maybe AutoScalingSettingsDescription
+   -&gt; Text
+   -&gt; ReplicaSettingsDescription)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe BillingModeSummary
+      -&gt; Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
+      -&gt; Maybe AutoScalingSettingsDescription
+      -&gt; Maybe AutoScalingSettingsDescription
+      -&gt; Text
+      -&gt; ReplicaSettingsDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicaProvisionedWriteCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe BillingModeSummary
+   -&gt; Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
+   -&gt; Maybe AutoScalingSettingsDescription
+   -&gt; Maybe AutoScalingSettingsDescription
+   -&gt; Text
+   -&gt; ReplicaSettingsDescription)
+-&gt; Parser (Maybe BillingModeSummary)
+-&gt; Parser
+     (Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
+      -&gt; Maybe AutoScalingSettingsDescription
+      -&gt; Maybe AutoScalingSettingsDescription
+      -&gt; Text
+      -&gt; ReplicaSettingsDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BillingModeSummary)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReplicaBillingModeSummary&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe AutoScalingSettingsDescription
-   -&gt; Maybe AutoScalingSettingsDescription
-   -&gt; Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
-   -&gt; Maybe ReplicaStatus
-   -&gt; Maybe Natural
-   -&gt; Maybe Natural
-   -&gt; Text
-   -&gt; ReplicaSettingsDescription)
--&gt; Parser (Maybe AutoScalingSettingsDescription)
--&gt; Parser
-     (Maybe AutoScalingSettingsDescription
-      -&gt; Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
-      -&gt; Maybe ReplicaStatus
-      -&gt; Maybe Natural
-      -&gt; Maybe Natural
-      -&gt; Text
-      -&gt; ReplicaSettingsDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377681"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-186"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoScalingSettingsDescription)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReplicaProvisionedReadCapacityAutoScalingSettings&quot;</span></span><span>
-</span><span id="line-187"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe AutoScalingSettingsDescription
-   -&gt; Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
-   -&gt; Maybe ReplicaStatus
-   -&gt; Maybe Natural
-   -&gt; Maybe Natural
-   -&gt; Text
-   -&gt; ReplicaSettingsDescription)
--&gt; Parser (Maybe AutoScalingSettingsDescription)
--&gt; Parser
-     (Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
-      -&gt; Maybe ReplicaStatus
-      -&gt; Maybe Natural
-      -&gt; Maybe Natural
-      -&gt; Text
-      -&gt; ReplicaSettingsDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377681"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-189"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoScalingSettingsDescription)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReplicaProvisionedWriteCapacityAutoScalingSettings&quot;</span></span><span>
-</span><span id="line-190"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
-   -&gt; Maybe ReplicaStatus
-   -&gt; Maybe Natural
-   -&gt; Maybe Natural
+   -&gt; Maybe AutoScalingSettingsDescription
+   -&gt; Maybe AutoScalingSettingsDescription
    -&gt; Text
    -&gt; ReplicaSettingsDescription)
 -&gt; Parser (Maybe [ReplicaGlobalSecondaryIndexSettingsDescription])
 -&gt; Parser
-     (Maybe ReplicaStatus
-      -&gt; Maybe Natural
-      -&gt; Maybe Natural
+     (Maybe AutoScalingSettingsDescription
+      -&gt; Maybe AutoScalingSettingsDescription
       -&gt; Text
       -&gt; ReplicaSettingsDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser
      (Maybe (Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReplicaGlobalSecondaryIndexSettings&quot;</span></span><span>
-</span><span id="line-192"></span><span>                            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-189"></span><span>                            </span><span class="annot"><span class="annottext">Parser
   (Maybe (Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]))
 -&gt; Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
 -&gt; Parser (Maybe [ReplicaGlobalSecondaryIndexSettingsDescription])
@@ -605,54 +619,48 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaGlobalSecondaryIndexSettingsDescription]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-193"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ReplicaStatus
-   -&gt; Maybe Natural
-   -&gt; Maybe Natural
+</span><span id="line-190"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AutoScalingSettingsDescription
+   -&gt; Maybe AutoScalingSettingsDescription
    -&gt; Text
    -&gt; ReplicaSettingsDescription)
--&gt; Parser (Maybe ReplicaStatus)
+-&gt; Parser (Maybe AutoScalingSettingsDescription)
 -&gt; Parser
-     (Maybe Natural
-      -&gt; Maybe Natural -&gt; Text -&gt; ReplicaSettingsDescription)
+     (Maybe AutoScalingSettingsDescription
+      -&gt; Text -&gt; ReplicaSettingsDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReplicaStatus)
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378369"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-192"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoScalingSettingsDescription)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReplicaStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Natural
-   -&gt; Maybe Natural -&gt; Text -&gt; ReplicaSettingsDescription)
--&gt; Parser (Maybe Natural)
--&gt; Parser (Maybe Natural -&gt; Text -&gt; ReplicaSettingsDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReplicaProvisionedWriteCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Text -&gt; ReplicaSettingsDescription)
--&gt; Parser (Maybe Natural)
+</span><span class="hs-string">&quot;ReplicaProvisionedWriteCapacityAutoScalingSettings&quot;</span></span><span>
+</span><span id="line-193"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AutoScalingSettingsDescription
+   -&gt; Text -&gt; ReplicaSettingsDescription)
+-&gt; Parser (Maybe AutoScalingSettingsDescription)
 -&gt; Parser (Text -&gt; ReplicaSettingsDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378369"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-195"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoScalingSettingsDescription)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReplicaProvisionedReadCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ReplicaProvisionedReadCapacityAutoScalingSettings&quot;</span></span><span>
+</span><span id="line-196"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ReplicaSettingsDescription)
 -&gt; Parser Text -&gt; Parser ReplicaSettingsDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679378369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegionName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377673"><span id="local-6989586621679377675"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span></span></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378361"><span id="local-6989586621679378363"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span></span></span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377670"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378358"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaSettingsDescription.html#ReplicaSettingsDescription"><span class="hs-identifier hs-type">ReplicaSettingsDescription</span></a></span></span><span>
 </span><span id="line-203"></span></pre></body></html>

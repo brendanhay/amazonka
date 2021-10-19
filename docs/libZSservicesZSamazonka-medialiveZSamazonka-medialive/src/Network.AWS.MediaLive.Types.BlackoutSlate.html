@@ -29,33 +29,33 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Blackout Slate</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newBlackoutSlate' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679887934"><span id="local-6989586621679887935"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlackoutSlate"><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-var">BlackoutSlate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlackoutSlate%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-var">BlackoutSlate'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Blackout slate image to be used. Leave empty for solid black. Only bmp</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- and png images are supported.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AblackoutSlateImage%3ABlackoutSlate%27"><span class="annot"><span class="annottext">BlackoutSlate -&gt; Maybe InputLocation
-</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AblackoutSlateImage%3ABlackoutSlate%27"><span class="hs-identifier hs-var hs-var">blackoutSlateImage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLocation.html#InputLocation"><span class="hs-identifier hs-type">InputLocation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Setting to enabled causes the encoder to blackout the video, audio, and</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- captions, and raise the \&quot;Network Blackout Image\&quot; slate when an</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- SCTE104\/35 Network End Segmentation Descriptor is encountered. The</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- blackout will be lifted when the Network Start Segmentation Descriptor</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- is encountered. The Network End and Network Start descriptors must</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- contain a network ID that matches the value entered in \&quot;Network ID\&quot;.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AnetworkEndBlackout%3ABlackoutSlate%27"><span class="annot"><span class="annottext">BlackoutSlate -&gt; Maybe BlackoutSlateNetworkEndBlackout
-</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AnetworkEndBlackout%3ABlackoutSlate%27"><span class="hs-identifier hs-var hs-var">networkEndBlackout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlateNetworkEndBlackout.html#BlackoutSlateNetworkEndBlackout"><span class="hs-identifier hs-type">BlackoutSlateNetworkEndBlackout</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Path to local file to use as Network End Blackout image. Image will be</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- scaled to fill the entire output raster.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AnetworkEndBlackoutImage%3ABlackoutSlate%27"><span class="annot"><span class="annottext">BlackoutSlate -&gt; Maybe InputLocation
+</span><span id="line-32"></span><span id="local-6989586621679894598"><span id="local-6989586621679894599"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlackoutSlate"><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-var">BlackoutSlate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlackoutSlate%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-var">BlackoutSlate'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Path to local file to use as Network End Blackout image. Image will be</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- scaled to fill the entire output raster.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AnetworkEndBlackoutImage%3ABlackoutSlate%27"><span class="annot"><span class="annottext">BlackoutSlate -&gt; Maybe InputLocation
 </span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AnetworkEndBlackoutImage%3ABlackoutSlate%27"><span class="hs-identifier hs-var hs-var">networkEndBlackoutImage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLocation.html#InputLocation"><span class="hs-identifier hs-type">InputLocation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | When set to enabled, causes video, audio and captions to be blanked when</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- indicated by program metadata.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3Astate%3ABlackoutSlate%27"><span class="annot"><span class="annottext">BlackoutSlate -&gt; Maybe BlackoutSlateState
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | When set to enabled, causes video, audio and captions to be blanked when</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- indicated by program metadata.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astate%3ABlackoutSlate%27"><span class="annot"><span class="annottext">BlackoutSlate -&gt; Maybe BlackoutSlateState
 </span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3Astate%3ABlackoutSlate%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlateState.html#BlackoutSlateState"><span class="hs-identifier hs-type">BlackoutSlateState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Provides Network ID that matches EIDR ID format (e.g.,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- \&quot;10.XXXX\/XXXX-XXXX-XXXX-XXXX-XXXX-C\&quot;).</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AnetworkId%3ABlackoutSlate%27"><span class="annot"><span class="annottext">BlackoutSlate -&gt; Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AnetworkId%3ABlackoutSlate%27"><span class="hs-identifier hs-var hs-var">networkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Setting to enabled causes the encoder to blackout the video, audio, and</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- captions, and raise the \&quot;Network Blackout Image\&quot; slate when an</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- SCTE104\/35 Network End Segmentation Descriptor is encountered. The</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- blackout will be lifted when the Network Start Segmentation Descriptor</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- is encountered. The Network End and Network Start descriptors must</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- contain a network ID that matches the value entered in \&quot;Network ID\&quot;.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AnetworkEndBlackout%3ABlackoutSlate%27"><span class="annot"><span class="annottext">BlackoutSlate -&gt; Maybe BlackoutSlateNetworkEndBlackout
+</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AnetworkEndBlackout%3ABlackoutSlate%27"><span class="hs-identifier hs-var hs-var">networkEndBlackout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlateNetworkEndBlackout.html#BlackoutSlateNetworkEndBlackout"><span class="hs-identifier hs-type">BlackoutSlateNetworkEndBlackout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Provides Network ID that matches EIDR ID format (e.g.,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- \&quot;10.XXXX\/XXXX-XXXX-XXXX-XXXX-XXXX-C\&quot;).</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AnetworkId%3ABlackoutSlate%27"><span class="annot"><span class="annottext">BlackoutSlate -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AnetworkId%3ABlackoutSlate%27"><span class="hs-identifier hs-var hs-var">networkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Blackout slate image to be used. Leave empty for solid black. Only bmp</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- and png images are supported.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AblackoutSlateImage%3ABlackoutSlate%27"><span class="annot"><span class="annottext">BlackoutSlate -&gt; Maybe InputLocation
+</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AblackoutSlateImage%3ABlackoutSlate%27"><span class="hs-identifier hs-var hs-var">blackoutSlateImage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLocation.html#InputLocation"><span class="hs-identifier hs-type">InputLocation</span></a></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679887924"><span id="local-6989586621679887926"><span class="annot"><span class="annottext">BlackoutSlate -&gt; BlackoutSlate -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679894588"><span id="local-6989586621679894590"><span class="annot"><span class="annottext">BlackoutSlate -&gt; BlackoutSlate -&gt; Bool
 (BlackoutSlate -&gt; BlackoutSlate -&gt; Bool)
 -&gt; (BlackoutSlate -&gt; BlackoutSlate -&gt; Bool) -&gt; Eq BlackoutSlate
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BlackoutSlate -&gt; BlackoutSlate -&gt; Bool
 == :: BlackoutSlate -&gt; BlackoutSlate -&gt; Bool
 $c== :: BlackoutSlate -&gt; BlackoutSlate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679887915"><span id="local-6989586621679887917"><span id="local-6989586621679887919"><span id="local-6989586621679887921"><span class="annot"><span class="annottext">ReadPrec [BlackoutSlate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679894579"><span id="local-6989586621679894581"><span id="local-6989586621679894583"><span id="local-6989586621679894585"><span class="annot"><span class="annottext">ReadPrec [BlackoutSlate]
 ReadPrec BlackoutSlate
 Int -&gt; ReadS BlackoutSlate
 ReadS [BlackoutSlate]
@@ -83,7 +83,7 @@ readList :: ReadS [BlackoutSlate]
 $creadList :: ReadS [BlackoutSlate]
 readsPrec :: Int -&gt; ReadS BlackoutSlate
 $creadsPrec :: Int -&gt; ReadS BlackoutSlate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679887908"><span id="local-6989586621679887910"><span id="local-6989586621679887912"><span class="annot"><span class="annottext">Int -&gt; BlackoutSlate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679894572"><span id="local-6989586621679894574"><span id="local-6989586621679894576"><span class="annot"><span class="annottext">Int -&gt; BlackoutSlate -&gt; ShowS
 [BlackoutSlate] -&gt; ShowS
 BlackoutSlate -&gt; String
 (Int -&gt; BlackoutSlate -&gt; ShowS)
@@ -117,64 +117,64 @@ $cfrom :: forall x. BlackoutSlate -&gt; Rep BlackoutSlate x
 </span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'blackoutSlateImage', 'blackoutSlate_blackoutSlateImage' - Blackout slate image to be used. Leave empty for solid black. Only bmp</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- and png images are supported.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'networkEndBlackoutImage', 'blackoutSlate_networkEndBlackoutImage' - Path to local file to use as Network End Blackout image. Image will be</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- scaled to fill the entire output raster.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'networkEndBlackout', 'blackoutSlate_networkEndBlackout' - Setting to enabled causes the encoder to blackout the video, audio, and</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- captions, and raise the \&quot;Network Blackout Image\&quot; slate when an</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- SCTE104\/35 Network End Segmentation Descriptor is encountered. The</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- blackout will be lifted when the Network Start Segmentation Descriptor</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- is encountered. The Network End and Network Start descriptors must</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- contain a network ID that matches the value entered in \&quot;Network ID\&quot;.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'networkEndBlackoutImage', 'blackoutSlate_networkEndBlackoutImage' - Path to local file to use as Network End Blackout image. Image will be</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- scaled to fill the entire output raster.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'state', 'blackoutSlate_state' - When set to enabled, causes video, audio and captions to be blanked when</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- indicated by program metadata.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'networkEndBlackout', 'blackoutSlate_networkEndBlackout' - Setting to enabled causes the encoder to blackout the video, audio, and</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- captions, and raise the \&quot;Network Blackout Image\&quot; slate when an</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- SCTE104\/35 Network End Segmentation Descriptor is encountered. The</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- blackout will be lifted when the Network Start Segmentation Descriptor</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- is encountered. The Network End and Network Start descriptors must</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- contain a network ID that matches the value entered in \&quot;Network ID\&quot;.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'state', 'blackoutSlate_state' - When set to enabled, causes video, audio and captions to be blanked when</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- indicated by program metadata.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'networkId', 'blackoutSlate_networkId' - Provides Network ID that matches EIDR ID format (e.g.,</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- \&quot;10.XXXX\/XXXX-XXXX-XXXX-XXXX-XXXX-C\&quot;).</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'networkId', 'blackoutSlate_networkId' - Provides Network ID that matches EIDR ID format (e.g.,</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- \&quot;10.XXXX\/XXXX-XXXX-XXXX-XXXX-XXXX-C\&quot;).</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'blackoutSlateImage', 'blackoutSlate_blackoutSlateImage' - Blackout slate image to be used. Leave empty for solid black. Only bmp</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- and png images are supported.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#newBlackoutSlate"><span class="hs-identifier hs-type">newBlackoutSlate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span>
 </span><span id="line-83"></span><span id="newBlackoutSlate"><span class="annot"><span class="annottext">newBlackoutSlate :: BlackoutSlate
 </span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#newBlackoutSlate"><span class="hs-identifier hs-var hs-var">newBlackoutSlate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">BlackoutSlate' :: Maybe InputLocation
--&gt; Maybe BlackoutSlateNetworkEndBlackout
--&gt; Maybe InputLocation
 -&gt; Maybe BlackoutSlateState
+-&gt; Maybe BlackoutSlateNetworkEndBlackout
 -&gt; Maybe Text
+-&gt; Maybe InputLocation
 -&gt; BlackoutSlate
 </span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:blackoutSlateImage:BlackoutSlate' :: Maybe InputLocation
-</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AblackoutSlateImage%3ABlackoutSlate%27"><span class="hs-identifier hs-var">blackoutSlateImage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:networkEndBlackoutImage:BlackoutSlate' :: Maybe InputLocation
+</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AnetworkEndBlackoutImage%3ABlackoutSlate%27"><span class="hs-identifier hs-var">networkEndBlackoutImage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Maybe InputLocation
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkEndBlackout:BlackoutSlate' :: Maybe BlackoutSlateNetworkEndBlackout
-</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AnetworkEndBlackout%3ABlackoutSlate%27"><span class="hs-identifier hs-var">networkEndBlackout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BlackoutSlateNetworkEndBlackout
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkEndBlackoutImage:BlackoutSlate' :: Maybe InputLocation
-</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AnetworkEndBlackoutImage%3ABlackoutSlate%27"><span class="hs-identifier hs-var">networkEndBlackoutImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:BlackoutSlate' :: Maybe BlackoutSlateState
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:BlackoutSlate' :: Maybe BlackoutSlateState
 </span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3Astate%3ABlackoutSlate%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BlackoutSlateState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkId:BlackoutSlate' :: Maybe Text
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkEndBlackout:BlackoutSlate' :: Maybe BlackoutSlateNetworkEndBlackout
+</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AnetworkEndBlackout%3ABlackoutSlate%27"><span class="hs-identifier hs-var">networkEndBlackout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BlackoutSlateNetworkEndBlackout
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkId:BlackoutSlate' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AnetworkId%3ABlackoutSlate%27"><span class="hs-identifier hs-var">networkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:blackoutSlateImage:BlackoutSlate' :: Maybe InputLocation
+</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AblackoutSlateImage%3ABlackoutSlate%27"><span class="hs-identifier hs-var">blackoutSlateImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | Blackout slate image to be used. Leave empty for solid black. Only bmp</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- and png images are supported.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_blackoutSlateImage"><span class="hs-identifier hs-type">blackoutSlate_blackoutSlateImage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLocation.html#InputLocation"><span class="hs-identifier hs-type">InputLocation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="blackoutSlate_blackoutSlateImage"><span class="annot"><span class="annottext">blackoutSlate_blackoutSlateImage :: (Maybe InputLocation -&gt; f (Maybe InputLocation))
+</span><span id="line-93"></span><span class="hs-comment">-- | Path to local file to use as Network End Blackout image. Image will be</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- scaled to fill the entire output raster.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_networkEndBlackoutImage"><span class="hs-identifier hs-type">blackoutSlate_networkEndBlackoutImage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLocation.html#InputLocation"><span class="hs-identifier hs-type">InputLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="blackoutSlate_networkEndBlackoutImage"><span class="annot"><span class="annottext">blackoutSlate_networkEndBlackoutImage :: (Maybe InputLocation -&gt; f (Maybe InputLocation))
 -&gt; BlackoutSlate -&gt; f BlackoutSlate
-</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_blackoutSlateImage"><span class="hs-identifier hs-var hs-var">blackoutSlate_blackoutSlateImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlackoutSlate -&gt; Maybe InputLocation)
+</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_networkEndBlackoutImage"><span class="hs-identifier hs-var hs-var">blackoutSlate_networkEndBlackoutImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlackoutSlate -&gt; Maybe InputLocation)
 -&gt; (BlackoutSlate -&gt; Maybe InputLocation -&gt; BlackoutSlate)
 -&gt; Lens
      BlackoutSlate
@@ -182,25 +182,49 @@ forall a. Maybe a
      (Maybe InputLocation)
      (Maybe InputLocation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679887899"><span class="annot"><span class="annottext">Maybe InputLocation
-blackoutSlateImage :: Maybe InputLocation
-$sel:blackoutSlateImage:BlackoutSlate' :: BlackoutSlate -&gt; Maybe InputLocation
-</span><a href="#local-6989586621679887899"><span class="hs-identifier hs-var hs-var">blackoutSlateImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679887899"><span class="hs-identifier hs-var">blackoutSlateImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679887898"><span class="annot"><span class="annottext">s :: BlackoutSlate
-</span><a href="#local-6989586621679887898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679887897"><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679887897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackoutSlate
-</span><a href="#local-6989586621679887898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blackoutSlateImage:BlackoutSlate' :: Maybe InputLocation
-</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AblackoutSlateImage%3ABlackoutSlate%27"><span class="hs-identifier hs-var">blackoutSlateImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679887897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679894563"><span class="annot"><span class="annottext">Maybe InputLocation
+networkEndBlackoutImage :: Maybe InputLocation
+$sel:networkEndBlackoutImage:BlackoutSlate' :: BlackoutSlate -&gt; Maybe InputLocation
+</span><a href="#local-6989586621679894563"><span class="hs-identifier hs-var hs-var">networkEndBlackoutImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
+</span><a href="#local-6989586621679894563"><span class="hs-identifier hs-var">networkEndBlackoutImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679894562"><span class="annot"><span class="annottext">s :: BlackoutSlate
+</span><a href="#local-6989586621679894562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679894561"><span class="annot"><span class="annottext">Maybe InputLocation
+</span><a href="#local-6989586621679894561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackoutSlate
+</span><a href="#local-6989586621679894562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkEndBlackoutImage:BlackoutSlate' :: Maybe InputLocation
+</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AnetworkEndBlackoutImage%3ABlackoutSlate%27"><span class="hs-identifier hs-var">networkEndBlackoutImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
+</span><a href="#local-6989586621679894561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | Setting to enabled causes the encoder to blackout the video, audio, and</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- captions, and raise the \&quot;Network Blackout Image\&quot; slate when an</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- SCTE104\/35 Network End Segmentation Descriptor is encountered. The</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- blackout will be lifted when the Network Start Segmentation Descriptor</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- is encountered. The Network End and Network Start descriptors must</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- contain a network ID that matches the value entered in \&quot;Network ID\&quot;.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_networkEndBlackout"><span class="hs-identifier hs-type">blackoutSlate_networkEndBlackout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlateNetworkEndBlackout.html#BlackoutSlateNetworkEndBlackout"><span class="hs-identifier hs-type">BlackoutSlateNetworkEndBlackout</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="blackoutSlate_networkEndBlackout"><span class="annot"><span class="annottext">blackoutSlate_networkEndBlackout :: (Maybe BlackoutSlateNetworkEndBlackout
+</span><span id="line-98"></span><span class="hs-comment">-- | When set to enabled, causes video, audio and captions to be blanked when</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- indicated by program metadata.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_state"><span class="hs-identifier hs-type">blackoutSlate_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlateState.html#BlackoutSlateState"><span class="hs-identifier hs-type">BlackoutSlateState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="blackoutSlate_state"><span class="annot"><span class="annottext">blackoutSlate_state :: (Maybe BlackoutSlateState -&gt; f (Maybe BlackoutSlateState))
+-&gt; BlackoutSlate -&gt; f BlackoutSlate
+</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_state"><span class="hs-identifier hs-var hs-var">blackoutSlate_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlackoutSlate -&gt; Maybe BlackoutSlateState)
+-&gt; (BlackoutSlate -&gt; Maybe BlackoutSlateState -&gt; BlackoutSlate)
+-&gt; Lens
+     BlackoutSlate
+     BlackoutSlate
+     (Maybe BlackoutSlateState)
+     (Maybe BlackoutSlateState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679894559"><span class="annot"><span class="annottext">Maybe BlackoutSlateState
+state :: Maybe BlackoutSlateState
+$sel:state:BlackoutSlate' :: BlackoutSlate -&gt; Maybe BlackoutSlateState
+</span><a href="#local-6989586621679894559"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BlackoutSlateState
+</span><a href="#local-6989586621679894559"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679894558"><span class="annot"><span class="annottext">s :: BlackoutSlate
+</span><a href="#local-6989586621679894558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679894557"><span class="annot"><span class="annottext">Maybe BlackoutSlateState
+</span><a href="#local-6989586621679894557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackoutSlate
+</span><a href="#local-6989586621679894558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:BlackoutSlate' :: Maybe BlackoutSlateState
+</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3Astate%3ABlackoutSlate%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BlackoutSlateState
+</span><a href="#local-6989586621679894557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | Setting to enabled causes the encoder to blackout the video, audio, and</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- captions, and raise the \&quot;Network Blackout Image\&quot; slate when an</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- SCTE104\/35 Network End Segmentation Descriptor is encountered. The</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- blackout will be lifted when the Network Start Segmentation Descriptor</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- is encountered. The Network End and Network Start descriptors must</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- contain a network ID that matches the value entered in \&quot;Network ID\&quot;.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_networkEndBlackout"><span class="hs-identifier hs-type">blackoutSlate_networkEndBlackout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlateNetworkEndBlackout.html#BlackoutSlateNetworkEndBlackout"><span class="hs-identifier hs-type">BlackoutSlateNetworkEndBlackout</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="blackoutSlate_networkEndBlackout"><span class="annot"><span class="annottext">blackoutSlate_networkEndBlackout :: (Maybe BlackoutSlateNetworkEndBlackout
  -&gt; f (Maybe BlackoutSlateNetworkEndBlackout))
 -&gt; BlackoutSlate -&gt; f BlackoutSlate
 </span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_networkEndBlackout"><span class="hs-identifier hs-var hs-var">blackoutSlate_networkEndBlackout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlackoutSlate -&gt; Maybe BlackoutSlateNetworkEndBlackout)
@@ -212,23 +236,42 @@ $sel:blackoutSlateImage:BlackoutSlate' :: BlackoutSlate -&gt; Maybe InputLocatio
      (Maybe BlackoutSlateNetworkEndBlackout)
      (Maybe BlackoutSlateNetworkEndBlackout)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679887895"><span class="annot"><span class="annottext">Maybe BlackoutSlateNetworkEndBlackout
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679894555"><span class="annot"><span class="annottext">Maybe BlackoutSlateNetworkEndBlackout
 networkEndBlackout :: Maybe BlackoutSlateNetworkEndBlackout
 $sel:networkEndBlackout:BlackoutSlate' :: BlackoutSlate -&gt; Maybe BlackoutSlateNetworkEndBlackout
-</span><a href="#local-6989586621679887895"><span class="hs-identifier hs-var hs-var">networkEndBlackout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BlackoutSlateNetworkEndBlackout
-</span><a href="#local-6989586621679887895"><span class="hs-identifier hs-var">networkEndBlackout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679887894"><span class="annot"><span class="annottext">s :: BlackoutSlate
-</span><a href="#local-6989586621679887894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679887893"><span class="annot"><span class="annottext">Maybe BlackoutSlateNetworkEndBlackout
-</span><a href="#local-6989586621679887893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackoutSlate
-</span><a href="#local-6989586621679887894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkEndBlackout:BlackoutSlate' :: Maybe BlackoutSlateNetworkEndBlackout
+</span><a href="#local-6989586621679894555"><span class="hs-identifier hs-var hs-var">networkEndBlackout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BlackoutSlateNetworkEndBlackout
+</span><a href="#local-6989586621679894555"><span class="hs-identifier hs-var">networkEndBlackout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679894554"><span class="annot"><span class="annottext">s :: BlackoutSlate
+</span><a href="#local-6989586621679894554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679894553"><span class="annot"><span class="annottext">Maybe BlackoutSlateNetworkEndBlackout
+</span><a href="#local-6989586621679894553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackoutSlate
+</span><a href="#local-6989586621679894554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkEndBlackout:BlackoutSlate' :: Maybe BlackoutSlateNetworkEndBlackout
 </span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AnetworkEndBlackout%3ABlackoutSlate%27"><span class="hs-identifier hs-var">networkEndBlackout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BlackoutSlateNetworkEndBlackout
-</span><a href="#local-6989586621679887893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | Path to local file to use as Network End Blackout image. Image will be</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- scaled to fill the entire output raster.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_networkEndBlackoutImage"><span class="hs-identifier hs-type">blackoutSlate_networkEndBlackoutImage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLocation.html#InputLocation"><span class="hs-identifier hs-type">InputLocation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="blackoutSlate_networkEndBlackoutImage"><span class="annot"><span class="annottext">blackoutSlate_networkEndBlackoutImage :: (Maybe InputLocation -&gt; f (Maybe InputLocation))
+</span><a href="#local-6989586621679894553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Provides Network ID that matches EIDR ID format (e.g.,</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- \&quot;10.XXXX\/XXXX-XXXX-XXXX-XXXX-XXXX-C\&quot;).</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_networkId"><span class="hs-identifier hs-type">blackoutSlate_networkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="blackoutSlate_networkId"><span class="annot"><span class="annottext">blackoutSlate_networkId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BlackoutSlate -&gt; f BlackoutSlate
+</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_networkId"><span class="hs-identifier hs-var hs-var">blackoutSlate_networkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlackoutSlate -&gt; Maybe Text)
+-&gt; (BlackoutSlate -&gt; Maybe Text -&gt; BlackoutSlate)
+-&gt; Lens BlackoutSlate BlackoutSlate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679894551"><span class="annot"><span class="annottext">Maybe Text
+networkId :: Maybe Text
+$sel:networkId:BlackoutSlate' :: BlackoutSlate -&gt; Maybe Text
+</span><a href="#local-6989586621679894551"><span class="hs-identifier hs-var hs-var">networkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679894551"><span class="hs-identifier hs-var">networkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679894550"><span class="annot"><span class="annottext">s :: BlackoutSlate
+</span><a href="#local-6989586621679894550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679894549"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679894549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackoutSlate
+</span><a href="#local-6989586621679894550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkId:BlackoutSlate' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AnetworkId%3ABlackoutSlate%27"><span class="hs-identifier hs-var">networkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679894549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Blackout slate image to be used. Leave empty for solid black. Only bmp</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- and png images are supported.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_blackoutSlateImage"><span class="hs-identifier hs-type">blackoutSlate_blackoutSlateImage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLocation.html#InputLocation"><span class="hs-identifier hs-type">InputLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="blackoutSlate_blackoutSlateImage"><span class="annot"><span class="annottext">blackoutSlate_blackoutSlateImage :: (Maybe InputLocation -&gt; f (Maybe InputLocation))
 -&gt; BlackoutSlate -&gt; f BlackoutSlate
-</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_networkEndBlackoutImage"><span class="hs-identifier hs-var hs-var">blackoutSlate_networkEndBlackoutImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlackoutSlate -&gt; Maybe InputLocation)
+</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_blackoutSlateImage"><span class="hs-identifier hs-var hs-var">blackoutSlate_blackoutSlateImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlackoutSlate -&gt; Maybe InputLocation)
 -&gt; (BlackoutSlate -&gt; Maybe InputLocation -&gt; BlackoutSlate)
 -&gt; Lens
      BlackoutSlate
@@ -236,62 +279,19 @@ $sel:networkEndBlackout:BlackoutSlate' :: BlackoutSlate -&gt; Maybe BlackoutSlat
      (Maybe InputLocation)
      (Maybe InputLocation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679887891"><span class="annot"><span class="annottext">Maybe InputLocation
-networkEndBlackoutImage :: Maybe InputLocation
-$sel:networkEndBlackoutImage:BlackoutSlate' :: BlackoutSlate -&gt; Maybe InputLocation
-</span><a href="#local-6989586621679887891"><span class="hs-identifier hs-var hs-var">networkEndBlackoutImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679887891"><span class="hs-identifier hs-var">networkEndBlackoutImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679887890"><span class="annot"><span class="annottext">s :: BlackoutSlate
-</span><a href="#local-6989586621679887890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679887889"><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679887889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackoutSlate
-</span><a href="#local-6989586621679887890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkEndBlackoutImage:BlackoutSlate' :: Maybe InputLocation
-</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AnetworkEndBlackoutImage%3ABlackoutSlate%27"><span class="hs-identifier hs-var">networkEndBlackoutImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679887889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | When set to enabled, causes video, audio and captions to be blanked when</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- indicated by program metadata.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_state"><span class="hs-identifier hs-type">blackoutSlate_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlateState.html#BlackoutSlateState"><span class="hs-identifier hs-type">BlackoutSlateState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="blackoutSlate_state"><span class="annot"><span class="annottext">blackoutSlate_state :: (Maybe BlackoutSlateState -&gt; f (Maybe BlackoutSlateState))
--&gt; BlackoutSlate -&gt; f BlackoutSlate
-</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_state"><span class="hs-identifier hs-var hs-var">blackoutSlate_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlackoutSlate -&gt; Maybe BlackoutSlateState)
--&gt; (BlackoutSlate -&gt; Maybe BlackoutSlateState -&gt; BlackoutSlate)
--&gt; Lens
-     BlackoutSlate
-     BlackoutSlate
-     (Maybe BlackoutSlateState)
-     (Maybe BlackoutSlateState)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679887887"><span class="annot"><span class="annottext">Maybe BlackoutSlateState
-state :: Maybe BlackoutSlateState
-$sel:state:BlackoutSlate' :: BlackoutSlate -&gt; Maybe BlackoutSlateState
-</span><a href="#local-6989586621679887887"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BlackoutSlateState
-</span><a href="#local-6989586621679887887"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679887886"><span class="annot"><span class="annottext">s :: BlackoutSlate
-</span><a href="#local-6989586621679887886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679887885"><span class="annot"><span class="annottext">Maybe BlackoutSlateState
-</span><a href="#local-6989586621679887885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackoutSlate
-</span><a href="#local-6989586621679887886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:BlackoutSlate' :: Maybe BlackoutSlateState
-</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3Astate%3ABlackoutSlate%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BlackoutSlateState
-</span><a href="#local-6989586621679887885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | Provides Network ID that matches EIDR ID format (e.g.,</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- \&quot;10.XXXX\/XXXX-XXXX-XXXX-XXXX-XXXX-C\&quot;).</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_networkId"><span class="hs-identifier hs-type">blackoutSlate_networkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="blackoutSlate_networkId"><span class="annot"><span class="annottext">blackoutSlate_networkId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BlackoutSlate -&gt; f BlackoutSlate
-</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#blackoutSlate_networkId"><span class="hs-identifier hs-var hs-var">blackoutSlate_networkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlackoutSlate -&gt; Maybe Text)
--&gt; (BlackoutSlate -&gt; Maybe Text -&gt; BlackoutSlate)
--&gt; Lens BlackoutSlate BlackoutSlate (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679887883"><span class="annot"><span class="annottext">Maybe Text
-networkId :: Maybe Text
-$sel:networkId:BlackoutSlate' :: BlackoutSlate -&gt; Maybe Text
-</span><a href="#local-6989586621679887883"><span class="hs-identifier hs-var hs-var">networkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679887883"><span class="hs-identifier hs-var">networkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679887882"><span class="annot"><span class="annottext">s :: BlackoutSlate
-</span><a href="#local-6989586621679887882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679887881"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679887881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackoutSlate
-</span><a href="#local-6989586621679887882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkId:BlackoutSlate' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AnetworkId%3ABlackoutSlate%27"><span class="hs-identifier hs-var">networkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679887881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679894547"><span class="annot"><span class="annottext">Maybe InputLocation
+blackoutSlateImage :: Maybe InputLocation
+$sel:blackoutSlateImage:BlackoutSlate' :: BlackoutSlate -&gt; Maybe InputLocation
+</span><a href="#local-6989586621679894547"><span class="hs-identifier hs-var hs-var">blackoutSlateImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
+</span><a href="#local-6989586621679894547"><span class="hs-identifier hs-var">blackoutSlateImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679894546"><span class="annot"><span class="annottext">s :: BlackoutSlate
+</span><a href="#local-6989586621679894546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679894545"><span class="annot"><span class="annottext">Maybe InputLocation
+</span><a href="#local-6989586621679894545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackoutSlate
+</span><a href="#local-6989586621679894546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blackoutSlateImage:BlackoutSlate' :: Maybe InputLocation
+</span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#%24sel%3AblackoutSlateImage%3ABlackoutSlate%27"><span class="hs-identifier hs-var">blackoutSlateImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
+</span><a href="#local-6989586621679894545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679887878"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679887876"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BlackoutSlate
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679894542"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679894540"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BlackoutSlate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BlackoutSlate)
@@ -301,146 +301,146 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BlackoutSlate&quot;</span></span><span>
-</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679887873"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679887873"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679894537"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679894537"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Maybe InputLocation
--&gt; Maybe BlackoutSlateNetworkEndBlackout
--&gt; Maybe InputLocation
 -&gt; Maybe BlackoutSlateState
+-&gt; Maybe BlackoutSlateNetworkEndBlackout
 -&gt; Maybe Text
+-&gt; Maybe InputLocation
 -&gt; BlackoutSlate
 </span><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-var">BlackoutSlate'</span></a></span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InputLocation
- -&gt; Maybe BlackoutSlateNetworkEndBlackout
- -&gt; Maybe InputLocation
  -&gt; Maybe BlackoutSlateState
+ -&gt; Maybe BlackoutSlateNetworkEndBlackout
  -&gt; Maybe Text
+ -&gt; Maybe InputLocation
  -&gt; BlackoutSlate)
 -&gt; Parser (Maybe InputLocation)
 -&gt; Parser
-     (Maybe BlackoutSlateNetworkEndBlackout
-      -&gt; Maybe InputLocation
-      -&gt; Maybe BlackoutSlateState
+     (Maybe BlackoutSlateState
+      -&gt; Maybe BlackoutSlateNetworkEndBlackout
       -&gt; Maybe Text
+      -&gt; Maybe InputLocation
       -&gt; BlackoutSlate)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679887873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputLocation)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;blackoutSlateImage&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe BlackoutSlateNetworkEndBlackout
-   -&gt; Maybe InputLocation
-   -&gt; Maybe BlackoutSlateState
-   -&gt; Maybe Text
-   -&gt; BlackoutSlate)
--&gt; Parser (Maybe BlackoutSlateNetworkEndBlackout)
--&gt; Parser
-     (Maybe InputLocation
-      -&gt; Maybe BlackoutSlateState -&gt; Maybe Text -&gt; BlackoutSlate)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679887873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BlackoutSlateNetworkEndBlackout)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;networkEndBlackout&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe InputLocation
-   -&gt; Maybe BlackoutSlateState -&gt; Maybe Text -&gt; BlackoutSlate)
--&gt; Parser (Maybe InputLocation)
--&gt; Parser (Maybe BlackoutSlateState -&gt; Maybe Text -&gt; BlackoutSlate)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679887873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputLocation)
+</span><a href="#local-6989586621679894537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputLocation)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;networkEndBlackoutImage&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe BlackoutSlateState -&gt; Maybe Text -&gt; BlackoutSlate)
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe BlackoutSlateState
+   -&gt; Maybe BlackoutSlateNetworkEndBlackout
+   -&gt; Maybe Text
+   -&gt; Maybe InputLocation
+   -&gt; BlackoutSlate)
 -&gt; Parser (Maybe BlackoutSlateState)
--&gt; Parser (Maybe Text -&gt; BlackoutSlate)
+-&gt; Parser
+     (Maybe BlackoutSlateNetworkEndBlackout
+      -&gt; Maybe Text -&gt; Maybe InputLocation -&gt; BlackoutSlate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679887873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BlackoutSlateState)
+</span><a href="#local-6989586621679894537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BlackoutSlateState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; BlackoutSlate)
--&gt; Parser (Maybe Text) -&gt; Parser BlackoutSlate
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe BlackoutSlateNetworkEndBlackout
+   -&gt; Maybe Text -&gt; Maybe InputLocation -&gt; BlackoutSlate)
+-&gt; Parser (Maybe BlackoutSlateNetworkEndBlackout)
+-&gt; Parser (Maybe Text -&gt; Maybe InputLocation -&gt; BlackoutSlate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679887873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679894537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BlackoutSlateNetworkEndBlackout)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkEndBlackout&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe InputLocation -&gt; BlackoutSlate)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe InputLocation -&gt; BlackoutSlate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679894537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;networkId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe InputLocation -&gt; BlackoutSlate)
+-&gt; Parser (Maybe InputLocation) -&gt; Parser BlackoutSlate
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679894537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputLocation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;blackoutSlateImage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679887867"><span id="local-6989586621679887869"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679894531"><span id="local-6989586621679894533"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679887864"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679894528"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679887856"><span id="local-6989586621679887858"><span id="local-6989586621679887860"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679887854"><span class="annot"><span class="annottext">toJSON :: BlackoutSlate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679887848"><span id="local-6989586621679887849"><span id="local-6989586621679887850"><span id="local-6989586621679887851"><span id="local-6989586621679887852"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679894520"><span id="local-6989586621679894522"><span id="local-6989586621679894524"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate"><span class="hs-identifier hs-type">BlackoutSlate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679894518"><span class="annot"><span class="annottext">toJSON :: BlackoutSlate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlate.html#BlackoutSlate%27"><span class="hs-identifier hs-type">BlackoutSlate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679894512"><span id="local-6989586621679894513"><span id="local-6989586621679894514"><span id="local-6989586621679894515"><span id="local-6989586621679894516"><span class="annot"><span class="annottext">Maybe Text
 Maybe BlackoutSlateNetworkEndBlackout
 Maybe BlackoutSlateState
 Maybe InputLocation
+blackoutSlateImage :: Maybe InputLocation
 networkId :: Maybe Text
+networkEndBlackout :: Maybe BlackoutSlateNetworkEndBlackout
 state :: Maybe BlackoutSlateState
 networkEndBlackoutImage :: Maybe InputLocation
-networkEndBlackout :: Maybe BlackoutSlateNetworkEndBlackout
-blackoutSlateImage :: Maybe InputLocation
+$sel:blackoutSlateImage:BlackoutSlate' :: BlackoutSlate -&gt; Maybe InputLocation
 $sel:networkId:BlackoutSlate' :: BlackoutSlate -&gt; Maybe Text
+$sel:networkEndBlackout:BlackoutSlate' :: BlackoutSlate -&gt; Maybe BlackoutSlateNetworkEndBlackout
 $sel:state:BlackoutSlate' :: BlackoutSlate -&gt; Maybe BlackoutSlateState
 $sel:networkEndBlackoutImage:BlackoutSlate' :: BlackoutSlate -&gt; Maybe InputLocation
-$sel:networkEndBlackout:BlackoutSlate' :: BlackoutSlate -&gt; Maybe BlackoutSlateNetworkEndBlackout
-$sel:blackoutSlateImage:BlackoutSlate' :: BlackoutSlate -&gt; Maybe InputLocation
-</span><a href="#local-6989586621679887848"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679894512"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-143"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;blackoutSlateImage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputLocation -&gt; Pair
+</span><span class="hs-string">&quot;networkEndBlackoutImage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputLocation -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">(InputLocation -&gt; Pair) -&gt; Maybe InputLocation -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679887852"><span class="hs-identifier hs-var">blackoutSlateImage</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679894516"><span class="hs-identifier hs-var">networkEndBlackoutImage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;networkEndBlackout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BlackoutSlateNetworkEndBlackout -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">(BlackoutSlateNetworkEndBlackout -&gt; Pair)
--&gt; Maybe BlackoutSlateNetworkEndBlackout -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BlackoutSlateNetworkEndBlackout
-</span><a href="#local-6989586621679887851"><span class="hs-identifier hs-var">networkEndBlackout</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;networkEndBlackoutImage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputLocation -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">(InputLocation -&gt; Pair) -&gt; Maybe InputLocation -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679887850"><span class="hs-identifier hs-var">networkEndBlackoutImage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BlackoutSlateState -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(BlackoutSlateState -&gt; Pair)
 -&gt; Maybe BlackoutSlateState -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BlackoutSlateState
-</span><a href="#local-6989586621679887849"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679894515"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkEndBlackout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BlackoutSlateNetworkEndBlackout -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">(BlackoutSlateNetworkEndBlackout -&gt; Pair)
+-&gt; Maybe BlackoutSlateNetworkEndBlackout -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BlackoutSlateNetworkEndBlackout
+</span><a href="#local-6989586621679894514"><span class="hs-identifier hs-var">networkEndBlackout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;networkId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679887848"><span class="hs-identifier hs-var">networkId</span></a></span><span>
+</span><a href="#local-6989586621679894513"><span class="hs-identifier hs-var">networkId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;blackoutSlateImage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputLocation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">(InputLocation -&gt; Pair) -&gt; Maybe InputLocation -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
+</span><a href="#local-6989586621679894512"><span class="hs-identifier hs-var">blackoutSlateImage</span></a></span><span>
 </span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span></pre></body></html>

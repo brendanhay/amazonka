@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621679283491"><span id="local-6989586621679283492"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VirtualInterfaceState"><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceState.html#VirtualInterfaceState"><span class="hs-identifier hs-var">VirtualInterfaceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VirtualInterfaceState%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceState.html#VirtualInterfaceState%27"><span class="hs-identifier hs-var">VirtualInterfaceState'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679283730"><span id="local-6989586621679283731"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VirtualInterfaceState"><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceState.html#VirtualInterfaceState"><span class="hs-identifier hs-var">VirtualInterfaceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VirtualInterfaceState%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceState.html#VirtualInterfaceState%27"><span class="hs-identifier hs-var">VirtualInterfaceState'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVirtualInterfaceState"><span class="annot"><span class="annottext">VirtualInterfaceState -&gt; Text
 </span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceState.html#fromVirtualInterfaceState"><span class="hs-identifier hs-var hs-var">fromVirtualInterfaceState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679283483"><span id="local-6989586621679283485"><span id="local-6989586621679283487"><span class="annot"><span class="annottext">Int -&gt; VirtualInterfaceState -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679283722"><span id="local-6989586621679283724"><span id="local-6989586621679283726"><span class="annot"><span class="annottext">Int -&gt; VirtualInterfaceState -&gt; ShowS
 [VirtualInterfaceState] -&gt; ShowS
 VirtualInterfaceState -&gt; String
 (Int -&gt; VirtualInterfaceState -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: VirtualInterfaceState -&gt; String
 showsPrec :: Int -&gt; VirtualInterfaceState -&gt; ShowS
 $cshowsPrec :: Int -&gt; VirtualInterfaceState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679283474"><span id="local-6989586621679283476"><span id="local-6989586621679283478"><span id="local-6989586621679283480"><span class="annot"><span class="annottext">ReadPrec [VirtualInterfaceState]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679283713"><span id="local-6989586621679283715"><span id="local-6989586621679283717"><span id="local-6989586621679283719"><span class="annot"><span class="annottext">ReadPrec [VirtualInterfaceState]
 ReadPrec VirtualInterfaceState
 Int -&gt; ReadS VirtualInterfaceState
 ReadS [VirtualInterfaceState]
@@ -79,7 +79,7 @@ $creadList :: ReadS [VirtualInterfaceState]
 readsPrec :: Int -&gt; ReadS VirtualInterfaceState
 $creadsPrec :: Int -&gt; ReadS VirtualInterfaceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679283469"><span id="local-6989586621679283471"><span class="annot"><span class="annottext">VirtualInterfaceState -&gt; VirtualInterfaceState -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679283708"><span id="local-6989586621679283710"><span class="annot"><span class="annottext">VirtualInterfaceState -&gt; VirtualInterfaceState -&gt; Bool
 (VirtualInterfaceState -&gt; VirtualInterfaceState -&gt; Bool)
 -&gt; (VirtualInterfaceState -&gt; VirtualInterfaceState -&gt; Bool)
 -&gt; Eq VirtualInterfaceState
@@ -89,7 +89,7 @@ $c/= :: VirtualInterfaceState -&gt; VirtualInterfaceState -&gt; Bool
 == :: VirtualInterfaceState -&gt; VirtualInterfaceState -&gt; Bool
 $c== :: VirtualInterfaceState -&gt; VirtualInterfaceState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679283453"><span id="local-6989586621679283455"><span id="local-6989586621679283457"><span id="local-6989586621679283459"><span id="local-6989586621679283461"><span id="local-6989586621679283463"><span id="local-6989586621679283465"><span class="annot"><span class="annottext">Eq VirtualInterfaceState
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679283692"><span id="local-6989586621679283694"><span id="local-6989586621679283696"><span id="local-6989586621679283698"><span id="local-6989586621679283700"><span id="local-6989586621679283702"><span id="local-6989586621679283704"><span class="annot"><span class="annottext">Eq VirtualInterfaceState
 Eq VirtualInterfaceState
 -&gt; (VirtualInterfaceState -&gt; VirtualInterfaceState -&gt; Ordering)
 -&gt; (VirtualInterfaceState -&gt; VirtualInterfaceState -&gt; Bool)
@@ -147,7 +147,7 @@ $cfrom :: forall x. VirtualInterfaceState -&gt; Rep VirtualInterfaceState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679283445"><span id="local-6989586621679283447"><span class="annot"><span class="annottext">Int -&gt; VirtualInterfaceState -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679283684"><span id="local-6989586621679283686"><span class="annot"><span class="annottext">Int -&gt; VirtualInterfaceState -&gt; Int
 VirtualInterfaceState -&gt; Int
 (Int -&gt; VirtualInterfaceState -&gt; Int)
 -&gt; (VirtualInterfaceState -&gt; Int) -&gt; Hashable VirtualInterfaceState
@@ -157,54 +157,54 @@ $chash :: VirtualInterfaceState -&gt; Int
 hashWithSalt :: Int -&gt; VirtualInterfaceState -&gt; Int
 $chashWithSalt :: Int -&gt; VirtualInterfaceState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679283442"><span class="annot"><span class="annottext">VirtualInterfaceState -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679283681"><span class="annot"><span class="annottext">VirtualInterfaceState -&gt; ()
 (VirtualInterfaceState -&gt; ()) -&gt; NFData VirtualInterfaceState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VirtualInterfaceState -&gt; ()
 $crnf :: VirtualInterfaceState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679283439"><span class="annot"><span class="annottext">Text -&gt; Either String VirtualInterfaceState
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679283678"><span class="annot"><span class="annottext">Text -&gt; Either String VirtualInterfaceState
 (Text -&gt; Either String VirtualInterfaceState)
 -&gt; FromText VirtualInterfaceState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VirtualInterfaceState
 $cfromText :: Text -&gt; Either String VirtualInterfaceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679283436"><span class="annot"><span class="annottext">VirtualInterfaceState -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679283675"><span class="annot"><span class="annottext">VirtualInterfaceState -&gt; Text
 (VirtualInterfaceState -&gt; Text) -&gt; ToText VirtualInterfaceState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VirtualInterfaceState -&gt; Text
 $ctoText :: VirtualInterfaceState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679283433"><span class="annot"><span class="annottext">VirtualInterfaceState -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679283672"><span class="annot"><span class="annottext">VirtualInterfaceState -&gt; ByteString
 (VirtualInterfaceState -&gt; ByteString)
 -&gt; ToByteString VirtualInterfaceState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VirtualInterfaceState -&gt; ByteString
 $ctoBS :: VirtualInterfaceState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679283430"><span class="annot"><span class="annottext">VirtualInterfaceState -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679283669"><span class="annot"><span class="annottext">VirtualInterfaceState -&gt; ByteStringBuilder
 (VirtualInterfaceState -&gt; ByteStringBuilder)
 -&gt; ToLog VirtualInterfaceState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VirtualInterfaceState -&gt; ByteStringBuilder
 $cbuild :: VirtualInterfaceState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679283427"><span class="annot"><span class="annottext">HeaderName -&gt; VirtualInterfaceState -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679283666"><span class="annot"><span class="annottext">HeaderName -&gt; VirtualInterfaceState -&gt; [Header]
 (HeaderName -&gt; VirtualInterfaceState -&gt; [Header])
 -&gt; ToHeader VirtualInterfaceState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VirtualInterfaceState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VirtualInterfaceState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679283424"><span class="annot"><span class="annottext">VirtualInterfaceState -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679283663"><span class="annot"><span class="annottext">VirtualInterfaceState -&gt; QueryString
 (VirtualInterfaceState -&gt; QueryString)
 -&gt; ToQuery VirtualInterfaceState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VirtualInterfaceState -&gt; QueryString
 $ctoQuery :: VirtualInterfaceState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679283419"><span id="local-6989586621679283421"><span class="annot"><span class="annottext">Value -&gt; Parser [VirtualInterfaceState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679283658"><span id="local-6989586621679283660"><span class="annot"><span class="annottext">Value -&gt; Parser [VirtualInterfaceState]
 Value -&gt; Parser VirtualInterfaceState
 (Value -&gt; Parser VirtualInterfaceState)
 -&gt; (Value -&gt; Parser [VirtualInterfaceState])
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [VirtualInterfaceState]
 parseJSON :: Value -&gt; Parser VirtualInterfaceState
 $cparseJSON :: Value -&gt; Parser VirtualInterfaceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679283414"><span id="local-6989586621679283416"><span class="annot"><span class="annottext">FromJSONKeyFunction [VirtualInterfaceState]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679283653"><span id="local-6989586621679283655"><span class="annot"><span class="annottext">FromJSONKeyFunction [VirtualInterfaceState]
 FromJSONKeyFunction VirtualInterfaceState
 FromJSONKeyFunction VirtualInterfaceState
 -&gt; FromJSONKeyFunction [VirtualInterfaceState]
@@ -228,7 +228,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VirtualInterfaceState]
 fromJSONKey :: FromJSONKeyFunction VirtualInterfaceState
 $cfromJSONKey :: FromJSONKeyFunction VirtualInterfaceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679283405"><span id="local-6989586621679283407"><span id="local-6989586621679283409"><span id="local-6989586621679283411"><span class="annot"><span class="annottext">[VirtualInterfaceState] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679283644"><span id="local-6989586621679283646"><span id="local-6989586621679283648"><span id="local-6989586621679283650"><span class="annot"><span class="annottext">[VirtualInterfaceState] -&gt; Encoding
 [VirtualInterfaceState] -&gt; Value
 VirtualInterfaceState -&gt; Encoding
 VirtualInterfaceState -&gt; Value
@@ -252,7 +252,7 @@ $ctoEncoding :: VirtualInterfaceState -&gt; Encoding
 toJSON :: VirtualInterfaceState -&gt; Value
 $ctoJSON :: VirtualInterfaceState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679283400"><span id="local-6989586621679283402"><span class="annot"><span class="annottext">ToJSONKeyFunction [VirtualInterfaceState]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679283639"><span id="local-6989586621679283641"><span class="annot"><span class="annottext">ToJSONKeyFunction [VirtualInterfaceState]
 ToJSONKeyFunction VirtualInterfaceState
 ToJSONKeyFunction VirtualInterfaceState
 -&gt; ToJSONKeyFunction [VirtualInterfaceState]
@@ -264,14 +264,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VirtualInterfaceState]
 toJSONKey :: ToJSONKeyFunction VirtualInterfaceState
 $ctoJSONKey :: ToJSONKeyFunction VirtualInterfaceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679283397"><span class="annot"><span class="annottext">[Node] -&gt; Either String VirtualInterfaceState
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679283636"><span class="annot"><span class="annottext">[Node] -&gt; Either String VirtualInterfaceState
 ([Node] -&gt; Either String VirtualInterfaceState)
 -&gt; FromXML VirtualInterfaceState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VirtualInterfaceState
 $cparseXML :: [Node] -&gt; Either String VirtualInterfaceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679283394"><span class="annot"><span class="annottext">VirtualInterfaceState -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679283633"><span class="annot"><span class="annottext">VirtualInterfaceState -&gt; XML
 (VirtualInterfaceState -&gt; XML) -&gt; ToXML VirtualInterfaceState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VirtualInterfaceState -&gt; XML

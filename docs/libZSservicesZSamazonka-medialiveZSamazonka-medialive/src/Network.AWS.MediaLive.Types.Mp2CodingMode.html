@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Mp2 Coding Mode</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679897864"><span id="local-6989586621679897865"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mp2CodingMode"><span class="annot"><a href="Network.AWS.MediaLive.Types.Mp2CodingMode.html#Mp2CodingMode"><span class="hs-identifier hs-var">Mp2CodingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mp2CodingMode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Mp2CodingMode.html#Mp2CodingMode%27"><span class="hs-identifier hs-var">Mp2CodingMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679904534"><span id="local-6989586621679904535"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mp2CodingMode"><span class="annot"><a href="Network.AWS.MediaLive.Types.Mp2CodingMode.html#Mp2CodingMode"><span class="hs-identifier hs-var">Mp2CodingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mp2CodingMode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Mp2CodingMode.html#Mp2CodingMode%27"><span class="hs-identifier hs-var">Mp2CodingMode'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMp2CodingMode"><span class="annot"><span class="annottext">Mp2CodingMode -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.Mp2CodingMode.html#fromMp2CodingMode"><span class="hs-identifier hs-var hs-var">fromMp2CodingMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679897856"><span id="local-6989586621679897858"><span id="local-6989586621679897860"><span class="annot"><span class="annottext">Int -&gt; Mp2CodingMode -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679904526"><span id="local-6989586621679904528"><span id="local-6989586621679904530"><span class="annot"><span class="annottext">Int -&gt; Mp2CodingMode -&gt; ShowS
 [Mp2CodingMode] -&gt; ShowS
 Mp2CodingMode -&gt; String
 (Int -&gt; Mp2CodingMode -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: Mp2CodingMode -&gt; String
 showsPrec :: Int -&gt; Mp2CodingMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; Mp2CodingMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679897847"><span id="local-6989586621679897849"><span id="local-6989586621679897851"><span id="local-6989586621679897853"><span class="annot"><span class="annottext">ReadPrec [Mp2CodingMode]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679904517"><span id="local-6989586621679904519"><span id="local-6989586621679904521"><span id="local-6989586621679904523"><span class="annot"><span class="annottext">ReadPrec [Mp2CodingMode]
 ReadPrec Mp2CodingMode
 Int -&gt; ReadS Mp2CodingMode
 ReadS [Mp2CodingMode]
@@ -73,7 +73,7 @@ $creadList :: ReadS [Mp2CodingMode]
 readsPrec :: Int -&gt; ReadS Mp2CodingMode
 $creadsPrec :: Int -&gt; ReadS Mp2CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679897842"><span id="local-6989586621679897844"><span class="annot"><span class="annottext">Mp2CodingMode -&gt; Mp2CodingMode -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679904512"><span id="local-6989586621679904514"><span class="annot"><span class="annottext">Mp2CodingMode -&gt; Mp2CodingMode -&gt; Bool
 (Mp2CodingMode -&gt; Mp2CodingMode -&gt; Bool)
 -&gt; (Mp2CodingMode -&gt; Mp2CodingMode -&gt; Bool) -&gt; Eq Mp2CodingMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: Mp2CodingMode -&gt; Mp2CodingMode -&gt; Bool
 == :: Mp2CodingMode -&gt; Mp2CodingMode -&gt; Bool
 $c== :: Mp2CodingMode -&gt; Mp2CodingMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679897826"><span id="local-6989586621679897828"><span id="local-6989586621679897830"><span id="local-6989586621679897832"><span id="local-6989586621679897834"><span id="local-6989586621679897836"><span id="local-6989586621679897838"><span class="annot"><span class="annottext">Eq Mp2CodingMode
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679904496"><span id="local-6989586621679904498"><span id="local-6989586621679904500"><span id="local-6989586621679904502"><span id="local-6989586621679904504"><span id="local-6989586621679904506"><span id="local-6989586621679904508"><span class="annot"><span class="annottext">Eq Mp2CodingMode
 Eq Mp2CodingMode
 -&gt; (Mp2CodingMode -&gt; Mp2CodingMode -&gt; Ordering)
 -&gt; (Mp2CodingMode -&gt; Mp2CodingMode -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. Mp2CodingMode -&gt; Rep Mp2CodingMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679897818"><span id="local-6989586621679897820"><span class="annot"><span class="annottext">Int -&gt; Mp2CodingMode -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679904488"><span id="local-6989586621679904490"><span class="annot"><span class="annottext">Int -&gt; Mp2CodingMode -&gt; Int
 Mp2CodingMode -&gt; Int
 (Int -&gt; Mp2CodingMode -&gt; Int)
 -&gt; (Mp2CodingMode -&gt; Int) -&gt; Hashable Mp2CodingMode
@@ -143,49 +143,49 @@ $chash :: Mp2CodingMode -&gt; Int
 hashWithSalt :: Int -&gt; Mp2CodingMode -&gt; Int
 $chashWithSalt :: Int -&gt; Mp2CodingMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679897815"><span class="annot"><span class="annottext">Mp2CodingMode -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679904485"><span class="annot"><span class="annottext">Mp2CodingMode -&gt; ()
 (Mp2CodingMode -&gt; ()) -&gt; NFData Mp2CodingMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Mp2CodingMode -&gt; ()
 $crnf :: Mp2CodingMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679897812"><span class="annot"><span class="annottext">Text -&gt; Either String Mp2CodingMode
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679904482"><span class="annot"><span class="annottext">Text -&gt; Either String Mp2CodingMode
 (Text -&gt; Either String Mp2CodingMode) -&gt; FromText Mp2CodingMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Mp2CodingMode
 $cfromText :: Text -&gt; Either String Mp2CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679897809"><span class="annot"><span class="annottext">Mp2CodingMode -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679904479"><span class="annot"><span class="annottext">Mp2CodingMode -&gt; Text
 (Mp2CodingMode -&gt; Text) -&gt; ToText Mp2CodingMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Mp2CodingMode -&gt; Text
 $ctoText :: Mp2CodingMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679897806"><span class="annot"><span class="annottext">Mp2CodingMode -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679904476"><span class="annot"><span class="annottext">Mp2CodingMode -&gt; ByteString
 (Mp2CodingMode -&gt; ByteString) -&gt; ToByteString Mp2CodingMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Mp2CodingMode -&gt; ByteString
 $ctoBS :: Mp2CodingMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679897803"><span class="annot"><span class="annottext">Mp2CodingMode -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679904473"><span class="annot"><span class="annottext">Mp2CodingMode -&gt; ByteStringBuilder
 (Mp2CodingMode -&gt; ByteStringBuilder) -&gt; ToLog Mp2CodingMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Mp2CodingMode -&gt; ByteStringBuilder
 $cbuild :: Mp2CodingMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679897800"><span class="annot"><span class="annottext">HeaderName -&gt; Mp2CodingMode -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679904470"><span class="annot"><span class="annottext">HeaderName -&gt; Mp2CodingMode -&gt; [Header]
 (HeaderName -&gt; Mp2CodingMode -&gt; [Header]) -&gt; ToHeader Mp2CodingMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Mp2CodingMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Mp2CodingMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679897797"><span class="annot"><span class="annottext">Mp2CodingMode -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679904467"><span class="annot"><span class="annottext">Mp2CodingMode -&gt; QueryString
 (Mp2CodingMode -&gt; QueryString) -&gt; ToQuery Mp2CodingMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Mp2CodingMode -&gt; QueryString
 $ctoQuery :: Mp2CodingMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679897792"><span id="local-6989586621679897794"><span class="annot"><span class="annottext">Value -&gt; Parser [Mp2CodingMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679904462"><span id="local-6989586621679904464"><span class="annot"><span class="annottext">Value -&gt; Parser [Mp2CodingMode]
 Value -&gt; Parser Mp2CodingMode
 (Value -&gt; Parser Mp2CodingMode)
 -&gt; (Value -&gt; Parser [Mp2CodingMode]) -&gt; FromJSON Mp2CodingMode
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [Mp2CodingMode]
 parseJSON :: Value -&gt; Parser Mp2CodingMode
 $cparseJSON :: Value -&gt; Parser Mp2CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679897787"><span id="local-6989586621679897789"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mp2CodingMode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679904457"><span id="local-6989586621679904459"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mp2CodingMode]
 FromJSONKeyFunction Mp2CodingMode
 FromJSONKeyFunction Mp2CodingMode
 -&gt; FromJSONKeyFunction [Mp2CodingMode] -&gt; FromJSONKey Mp2CodingMode
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Mp2CodingMode]
 fromJSONKey :: FromJSONKeyFunction Mp2CodingMode
 $cfromJSONKey :: FromJSONKeyFunction Mp2CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679897778"><span id="local-6989586621679897780"><span id="local-6989586621679897782"><span id="local-6989586621679897784"><span class="annot"><span class="annottext">[Mp2CodingMode] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679904448"><span id="local-6989586621679904450"><span id="local-6989586621679904452"><span id="local-6989586621679904454"><span class="annot"><span class="annottext">[Mp2CodingMode] -&gt; Encoding
 [Mp2CodingMode] -&gt; Value
 Mp2CodingMode -&gt; Encoding
 Mp2CodingMode -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: Mp2CodingMode -&gt; Encoding
 toJSON :: Mp2CodingMode -&gt; Value
 $ctoJSON :: Mp2CodingMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679897773"><span id="local-6989586621679897775"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mp2CodingMode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679904443"><span id="local-6989586621679904445"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mp2CodingMode]
 ToJSONKeyFunction Mp2CodingMode
 ToJSONKeyFunction Mp2CodingMode
 -&gt; ToJSONKeyFunction [Mp2CodingMode] -&gt; ToJSONKey Mp2CodingMode
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Mp2CodingMode]
 toJSONKey :: ToJSONKeyFunction Mp2CodingMode
 $ctoJSONKey :: ToJSONKeyFunction Mp2CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679897770"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mp2CodingMode
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679904440"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mp2CodingMode
 ([Node] -&gt; Either String Mp2CodingMode) -&gt; FromXML Mp2CodingMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Mp2CodingMode
 $cparseXML :: [Node] -&gt; Either String Mp2CodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679897767"><span class="annot"><span class="annottext">Mp2CodingMode -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679904437"><span class="annot"><span class="annottext">Mp2CodingMode -&gt; XML
 (Mp2CodingMode -&gt; XML) -&gt; ToXML Mp2CodingMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Mp2CodingMode -&gt; XML

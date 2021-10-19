@@ -36,8 +36,8 @@
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#newGetObjectInformationResponse"><span class="hs-identifier">newGetObjectInformationResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#getObjectInformationResponse_schemaFacets"><span class="hs-identifier">getObjectInformationResponse_schemaFacets</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#getObjectInformationResponse_objectIdentifier"><span class="hs-identifier">getObjectInformationResponse_objectIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#getObjectInformationResponse_objectIdentifier"><span class="hs-identifier">getObjectInformationResponse_objectIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#getObjectInformationResponse_schemaFacets"><span class="hs-identifier">getObjectInformationResponse_schemaFacets</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#getObjectInformationResponse_httpStatus"><span class="hs-identifier">getObjectInformationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span class="hs-keyword">where</span><span>
@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetObjectInformation' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679342666"><span id="local-6989586621679342667"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectInformation"><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-var">GetObjectInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectInformation%27"><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-var">GetObjectInformation'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679343078"><span id="local-6989586621679343079"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectInformation"><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-var">GetObjectInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectInformation%27"><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-var">GetObjectInformation'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The consistency level at which to retrieve the object information.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AconsistencyLevel%3AGetObjectInformation%27"><span class="annot"><span class="annottext">GetObjectInformation -&gt; Maybe ConsistencyLevel
 </span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AconsistencyLevel%3AGetObjectInformation%27"><span class="hs-identifier hs-var hs-var">consistencyLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ConsistencyLevel.html#ConsistencyLevel"><span class="hs-identifier hs-type">ConsistencyLevel</span></a></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AobjectReference%3AGetObjectInformation%27"><span class="annot"><span class="annottext">GetObjectInformation -&gt; ObjectReference
 </span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AobjectReference%3AGetObjectInformation%27"><span class="hs-identifier hs-var hs-var">objectReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342658"><span id="local-6989586621679342660"><span class="annot"><span class="annottext">GetObjectInformation -&gt; GetObjectInformation -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343070"><span id="local-6989586621679343072"><span class="annot"><span class="annottext">GetObjectInformation -&gt; GetObjectInformation -&gt; Bool
 (GetObjectInformation -&gt; GetObjectInformation -&gt; Bool)
 -&gt; (GetObjectInformation -&gt; GetObjectInformation -&gt; Bool)
 -&gt; Eq GetObjectInformation
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetObjectInformation -&gt; GetObjectInformation -&gt; Bool
 == :: GetObjectInformation -&gt; GetObjectInformation -&gt; Bool
 $c== :: GetObjectInformation -&gt; GetObjectInformation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342649"><span id="local-6989586621679342651"><span id="local-6989586621679342653"><span id="local-6989586621679342655"><span class="annot"><span class="annottext">ReadPrec [GetObjectInformation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343061"><span id="local-6989586621679343063"><span id="local-6989586621679343065"><span id="local-6989586621679343067"><span class="annot"><span class="annottext">ReadPrec [GetObjectInformation]
 ReadPrec GetObjectInformation
 Int -&gt; ReadS GetObjectInformation
 ReadS [GetObjectInformation]
@@ -90,7 +90,7 @@ readList :: ReadS [GetObjectInformation]
 $creadList :: ReadS [GetObjectInformation]
 readsPrec :: Int -&gt; ReadS GetObjectInformation
 $creadsPrec :: Int -&gt; ReadS GetObjectInformation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342642"><span id="local-6989586621679342644"><span id="local-6989586621679342646"><span class="annot"><span class="annottext">Int -&gt; GetObjectInformation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343054"><span id="local-6989586621679343056"><span id="local-6989586621679343058"><span class="annot"><span class="annottext">Int -&gt; GetObjectInformation -&gt; ShowS
 [GetObjectInformation] -&gt; ShowS
 GetObjectInformation -&gt; String
 (Int -&gt; GetObjectInformation -&gt; ShowS)
@@ -137,10 +137,10 @@ $cfrom :: forall x. GetObjectInformation -&gt; Rep GetObjectInformation x
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span><span>
 </span><span id="line-82"></span><span id="newGetObjectInformation"><span class="annot"><span class="annottext">newGetObjectInformation :: Text -&gt; ObjectReference -&gt; GetObjectInformation
 </span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#newGetObjectInformation"><span class="hs-identifier hs-var hs-var">newGetObjectInformation</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679342637"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342637"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679342636"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679342636"><span class="hs-identifier hs-var">pObjectReference_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679343049"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343049"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679343048"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679343048"><span class="hs-identifier hs-var">pObjectReference_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">GetObjectInformation' :: Maybe ConsistencyLevel
 -&gt; Text -&gt; ObjectReference -&gt; GetObjectInformation
 </span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-type">GetObjectInformation'</span></a></span><span>
@@ -151,10 +151,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:directoryArn:GetObjectInformation' :: Text
 </span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AdirectoryArn%3AGetObjectInformation%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342637"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679343049"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:objectReference:GetObjectInformation' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AobjectReference%3AGetObjectInformation%27"><span class="hs-identifier hs-var">objectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679342636"><span class="hs-identifier hs-var">pObjectReference_</span></a></span><span>
+</span><a href="#local-6989586621679343048"><span class="hs-identifier hs-var">pObjectReference_</span></a></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The consistency level at which to retrieve the object information.</span><span>
@@ -170,16 +170,16 @@ forall a. Maybe a
      (Maybe ConsistencyLevel)
      (Maybe ConsistencyLevel)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-type">GetObjectInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342633"><span class="annot"><span class="annottext">Maybe ConsistencyLevel
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-type">GetObjectInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343045"><span class="annot"><span class="annottext">Maybe ConsistencyLevel
 consistencyLevel :: Maybe ConsistencyLevel
 $sel:consistencyLevel:GetObjectInformation' :: GetObjectInformation -&gt; Maybe ConsistencyLevel
-</span><a href="#local-6989586621679342633"><span class="hs-identifier hs-var hs-var">consistencyLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConsistencyLevel
-</span><a href="#local-6989586621679342633"><span class="hs-identifier hs-var">consistencyLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342632"><span class="annot"><span class="annottext">s :: GetObjectInformation
-</span><a href="#local-6989586621679342632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-type">GetObjectInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342631"><span class="annot"><span class="annottext">Maybe ConsistencyLevel
-</span><a href="#local-6989586621679342631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectInformation
-</span><a href="#local-6989586621679342632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consistencyLevel:GetObjectInformation' :: Maybe ConsistencyLevel
+</span><a href="#local-6989586621679343045"><span class="hs-identifier hs-var hs-var">consistencyLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConsistencyLevel
+</span><a href="#local-6989586621679343045"><span class="hs-identifier hs-var">consistencyLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343044"><span class="annot"><span class="annottext">s :: GetObjectInformation
+</span><a href="#local-6989586621679343044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-type">GetObjectInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343043"><span class="annot"><span class="annottext">Maybe ConsistencyLevel
+</span><a href="#local-6989586621679343043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectInformation
+</span><a href="#local-6989586621679343044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consistencyLevel:GetObjectInformation' :: Maybe ConsistencyLevel
 </span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AconsistencyLevel%3AGetObjectInformation%27"><span class="hs-identifier hs-var">consistencyLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConsistencyLevel
-</span><a href="#local-6989586621679342631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The ARN of the directory being retrieved.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#getObjectInformation_directoryArn"><span class="hs-identifier hs-type">getObjectInformation_directoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -188,16 +188,16 @@ $sel:consistencyLevel:GetObjectInformation' :: GetObjectInformation -&gt; Maybe 
 -&gt; (GetObjectInformation -&gt; Text -&gt; GetObjectInformation)
 -&gt; Lens GetObjectInformation GetObjectInformation Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-type">GetObjectInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342630"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-type">GetObjectInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343042"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 $sel:directoryArn:GetObjectInformation' :: GetObjectInformation -&gt; Text
-</span><a href="#local-6989586621679342630"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342630"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342629"><span class="annot"><span class="annottext">s :: GetObjectInformation
-</span><a href="#local-6989586621679342629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-type">GetObjectInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342628"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectInformation
-</span><a href="#local-6989586621679342629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:GetObjectInformation' :: Text
+</span><a href="#local-6989586621679343042"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343042"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343041"><span class="annot"><span class="annottext">s :: GetObjectInformation
+</span><a href="#local-6989586621679343041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-type">GetObjectInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343040"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectInformation
+</span><a href="#local-6989586621679343041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:GetObjectInformation' :: Text
 </span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AdirectoryArn%3AGetObjectInformation%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | A reference to the object.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#getObjectInformation_objectReference"><span class="hs-identifier hs-type">getObjectInformation_objectReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span>
@@ -212,27 +212,27 @@ $sel:directoryArn:GetObjectInformation' :: GetObjectInformation -&gt; Text
      ObjectReference
      ObjectReference
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-type">GetObjectInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342627"><span class="annot"><span class="annottext">ObjectReference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-type">GetObjectInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343039"><span class="annot"><span class="annottext">ObjectReference
 objectReference :: ObjectReference
 $sel:objectReference:GetObjectInformation' :: GetObjectInformation -&gt; ObjectReference
-</span><a href="#local-6989586621679342627"><span class="hs-identifier hs-var hs-var">objectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679342627"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342626"><span class="annot"><span class="annottext">s :: GetObjectInformation
-</span><a href="#local-6989586621679342626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-type">GetObjectInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342625"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679342625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectInformation
-</span><a href="#local-6989586621679342626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectReference:GetObjectInformation' :: ObjectReference
+</span><a href="#local-6989586621679343039"><span class="hs-identifier hs-var hs-var">objectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679343039"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343038"><span class="annot"><span class="annottext">s :: GetObjectInformation
+</span><a href="#local-6989586621679343038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-type">GetObjectInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343037"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679343037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectInformation
+</span><a href="#local-6989586621679343038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectReference:GetObjectInformation' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AobjectReference%3AGetObjectInformation%27"><span class="hs-identifier hs-var">objectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679342625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse"><span class="hs-identifier hs-type">GetObjectInformationResponse</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679342621"><span class="annot"><span class="annottext">request :: GetObjectInformation -&gt; Request GetObjectInformation
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679343033"><span class="annot"><span class="annottext">request :: GetObjectInformation -&gt; Request GetObjectInformation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetObjectInformation -&gt; Request GetObjectInformation
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679342617"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679343029"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetObjectInformation
 -&gt; ClientResponse ClientBody
@@ -258,21 +258,31 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342614"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342614"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679342613"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679342613"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679342612"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342612"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SchemaFacet]
--&gt; Maybe Text -&gt; Int -&gt; GetObjectInformationResponse
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679343026"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343026"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679343025"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679343025"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679343024"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343024"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [SchemaFacet] -&gt; Int -&gt; GetObjectInformationResponse
 </span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse%27"><span class="hs-identifier hs-var">GetObjectInformationResponse'</span></a></span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SchemaFacet]
- -&gt; Maybe Text -&gt; Int -&gt; GetObjectInformationResponse)
--&gt; Either String (Maybe [SchemaFacet])
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [SchemaFacet] -&gt; Int -&gt; GetObjectInformationResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; GetObjectInformationResponse)
+     String (Maybe [SchemaFacet] -&gt; Int -&gt; GetObjectInformationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SchemaFacet]))
+</span><a href="#local-6989586621679343024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ObjectIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [SchemaFacet] -&gt; Int -&gt; GetObjectInformationResponse)
+-&gt; Either String (Maybe [SchemaFacet])
+-&gt; Either String (Int -&gt; GetObjectInformationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SchemaFacet]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaFacets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SchemaFacet]))
@@ -281,15 +291,6 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SchemaFacet]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetObjectInformationResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; GetObjectInformationResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ObjectIdentifier&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetObjectInformationResponse)
 -&gt; Either String Int -&gt; Either String GetObjectInformationResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -298,16 +299,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342614"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343026"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342603"><span id="local-6989586621679342605"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343015"><span id="local-6989586621679343017"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342600"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679342596"><span class="annot"><span class="annottext">toHeaders :: GetObjectInformation -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-type">GetObjectInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342592"><span id="local-6989586621679342593"><span id="local-6989586621679342594"><span class="annot"><span class="annottext">Maybe ConsistencyLevel
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679343008"><span class="annot"><span class="annottext">toHeaders :: GetObjectInformation -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-type">GetObjectInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343004"><span id="local-6989586621679343005"><span id="local-6989586621679343006"><span class="annot"><span class="annottext">Maybe ConsistencyLevel
 Text
 ObjectReference
 objectReference :: ObjectReference
@@ -316,7 +317,7 @@ consistencyLevel :: Maybe ConsistencyLevel
 $sel:objectReference:GetObjectInformation' :: GetObjectInformation -&gt; ObjectReference
 $sel:directoryArn:GetObjectInformation' :: GetObjectInformation -&gt; Text
 $sel:consistencyLevel:GetObjectInformation' :: GetObjectInformation -&gt; Maybe ConsistencyLevel
-</span><a href="#local-6989586621679342592"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679343004"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -324,17 +325,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-consistency-level&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe ConsistencyLevel -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConsistencyLevel
-</span><a href="#local-6989586621679342594"><span class="hs-identifier hs-var">consistencyLevel</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679343006"><span class="hs-identifier hs-var">consistencyLevel</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342593"><span class="hs-identifier hs-var">directoryArn</span></a></span><span>
+</span><a href="#local-6989586621679343005"><span class="hs-identifier hs-var">directoryArn</span></a></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342584"><span id="local-6989586621679342586"><span id="local-6989586621679342588"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679342582"><span class="annot"><span class="annottext">toJSON :: GetObjectInformation -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-type">GetObjectInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342578"><span id="local-6989586621679342579"><span id="local-6989586621679342580"><span class="annot"><span class="annottext">Maybe ConsistencyLevel
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342996"><span id="local-6989586621679342998"><span id="local-6989586621679343000"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679342994"><span class="annot"><span class="annottext">toJSON :: GetObjectInformation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation%27"><span class="hs-identifier hs-type">GetObjectInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342990"><span id="local-6989586621679342991"><span id="local-6989586621679342992"><span class="annot"><span class="annottext">Maybe ConsistencyLevel
 Text
 ObjectReference
 objectReference :: ObjectReference
@@ -343,7 +344,7 @@ consistencyLevel :: Maybe ConsistencyLevel
 $sel:objectReference:GetObjectInformation' :: GetObjectInformation -&gt; ObjectReference
 $sel:directoryArn:GetObjectInformation' :: GetObjectInformation -&gt; Text
 $sel:consistencyLevel:GetObjectInformation' :: GetObjectInformation -&gt; Maybe ConsistencyLevel
-</span><a href="#local-6989586621679342578"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679342990"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -356,12 +357,12 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ObjectReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectReference -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679342578"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342990"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679342572"><span class="annot"><span class="annottext">toPath :: GetObjectInformation -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679342984"><span class="annot"><span class="annottext">toPath :: GetObjectInformation -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; GetObjectInformation -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -370,7 +371,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/object/information&quot;</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformation"><span class="hs-identifier hs-type">GetObjectInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679342567"><span class="annot"><span class="annottext">toQuery :: GetObjectInformation -&gt; QueryString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679342979"><span class="annot"><span class="annottext">toQuery :: GetObjectInformation -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetObjectInformation -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -378,21 +379,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | /See:/ 'newGetObjectInformationResponse' smart constructor.</span><span>
-</span><span id="line-147"></span><span id="local-6989586621679342564"><span id="local-6989586621679342565"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectInformationResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse"><span class="hs-identifier hs-var">GetObjectInformationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectInformationResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse%27"><span class="hs-identifier hs-var">GetObjectInformationResponse'</span></a></span></span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The facets attached to the specified object. Although the response does</span><span>
-</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- not include minor version information, the most recently applied minor</span><span>
-</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- version of each Facet is in effect. See GetAppliedSchemaVersion for</span><span>
-</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- details.</span><span>
-</span><span id="line-152"></span><span>    </span><span id="%24sel%3AschemaFacets%3AGetObjectInformationResponse%27"><span class="annot"><span class="annottext">GetObjectInformationResponse -&gt; Maybe [SchemaFacet]
-</span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AschemaFacets%3AGetObjectInformationResponse%27"><span class="hs-identifier hs-var hs-var">schemaFacets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The @ObjectIdentifier@ of the specified object.</span><span>
-</span><span id="line-154"></span><span>    </span><span id="%24sel%3AobjectIdentifier%3AGetObjectInformationResponse%27"><span class="annot"><span class="annottext">GetObjectInformationResponse -&gt; Maybe Text
+</span><span id="line-147"></span><span id="local-6989586621679342976"><span id="local-6989586621679342977"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectInformationResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse"><span class="hs-identifier hs-var">GetObjectInformationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectInformationResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse%27"><span class="hs-identifier hs-var">GetObjectInformationResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @ObjectIdentifier@ of the specified object.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AobjectIdentifier%3AGetObjectInformationResponse%27"><span class="annot"><span class="annottext">GetObjectInformationResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AobjectIdentifier%3AGetObjectInformationResponse%27"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The facets attached to the specified object. Although the response does</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- not include minor version information, the most recently applied minor</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- version of each Facet is in effect. See GetAppliedSchemaVersion for</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- details.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AschemaFacets%3AGetObjectInformationResponse%27"><span class="annot"><span class="annottext">GetObjectInformationResponse -&gt; Maybe [SchemaFacet]
+</span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AschemaFacets%3AGetObjectInformationResponse%27"><span class="hs-identifier hs-var hs-var">schemaFacets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetObjectInformationResponse%27"><span class="annot"><span class="annottext">GetObjectInformationResponse -&gt; Int
 </span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AhttpStatus%3AGetObjectInformationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342557"><span id="local-6989586621679342559"><span class="annot"><span class="annottext">GetObjectInformationResponse
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342969"><span id="local-6989586621679342971"><span class="annot"><span class="annottext">GetObjectInformationResponse
 -&gt; GetObjectInformationResponse -&gt; Bool
 (GetObjectInformationResponse
  -&gt; GetObjectInformationResponse -&gt; Bool)
@@ -408,7 +409,7 @@ $c/= :: GetObjectInformationResponse
 -&gt; GetObjectInformationResponse -&gt; Bool
 $c== :: GetObjectInformationResponse
 -&gt; GetObjectInformationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342549"><span id="local-6989586621679342551"><span id="local-6989586621679342553"><span id="local-6989586621679342555"><span class="annot"><span class="annottext">ReadPrec [GetObjectInformationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342961"><span id="local-6989586621679342963"><span id="local-6989586621679342965"><span id="local-6989586621679342967"><span class="annot"><span class="annottext">ReadPrec [GetObjectInformationResponse]
 ReadPrec GetObjectInformationResponse
 Int -&gt; ReadS GetObjectInformationResponse
 ReadS [GetObjectInformationResponse]
@@ -428,7 +429,7 @@ readList :: ReadS [GetObjectInformationResponse]
 $creadList :: ReadS [GetObjectInformationResponse]
 readsPrec :: Int -&gt; ReadS GetObjectInformationResponse
 $creadsPrec :: Int -&gt; ReadS GetObjectInformationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342543"><span id="local-6989586621679342545"><span id="local-6989586621679342547"><span class="annot"><span class="annottext">Int -&gt; GetObjectInformationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342955"><span id="local-6989586621679342957"><span id="local-6989586621679342959"><span class="annot"><span class="annottext">Int -&gt; GetObjectInformationResponse -&gt; ShowS
 [GetObjectInformationResponse] -&gt; ShowS
 GetObjectInformationResponse -&gt; String
 (Int -&gt; GetObjectInformationResponse -&gt; ShowS)
@@ -468,12 +469,12 @@ GetObjectInformationResponse -&gt; Rep GetObjectInformationResponse x
 </span><span id="line-165"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-167"></span><span class="hs-comment">--</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- 'schemaFacets', 'getObjectInformationResponse_schemaFacets' - The facets attached to the specified object. Although the response does</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- not include minor version information, the most recently applied minor</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- version of each Facet is in effect. See GetAppliedSchemaVersion for</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- details.</span><span>
-</span><span id="line-172"></span><span class="hs-comment">--</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- 'objectIdentifier', 'getObjectInformationResponse_objectIdentifier' - The @ObjectIdentifier@ of the specified object.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'objectIdentifier', 'getObjectInformationResponse_objectIdentifier' - The @ObjectIdentifier@ of the specified object.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'schemaFacets', 'getObjectInformationResponse_schemaFacets' - The facets attached to the specified object. Although the response does</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- not include minor version information, the most recently applied minor</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- version of each Facet is in effect. See GetAppliedSchemaVersion for</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- details.</span><span>
 </span><span id="line-174"></span><span class="hs-comment">--</span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- 'httpStatus', 'getObjectInformationResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-176"></span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#newGetObjectInformationResponse"><span class="hs-identifier hs-type">newGetObjectInformationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -481,31 +482,55 @@ GetObjectInformationResponse -&gt; Rep GetObjectInformationResponse x
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse"><span class="hs-identifier hs-type">GetObjectInformationResponse</span></a></span><span>
 </span><span id="line-180"></span><span id="newGetObjectInformationResponse"><span class="annot"><span class="annottext">newGetObjectInformationResponse :: Int -&gt; GetObjectInformationResponse
-</span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#newGetObjectInformationResponse"><span class="hs-identifier hs-var hs-var">newGetObjectInformationResponse</span></a></span></span><span> </span><span id="local-6989586621679342540"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342540"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">GetObjectInformationResponse' :: Maybe [SchemaFacet]
--&gt; Maybe Text -&gt; Int -&gt; GetObjectInformationResponse
+</span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#newGetObjectInformationResponse"><span class="hs-identifier hs-var hs-var">newGetObjectInformationResponse</span></a></span></span><span> </span><span id="local-6989586621679342952"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342952"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">GetObjectInformationResponse' :: Maybe Text
+-&gt; Maybe [SchemaFacet] -&gt; Int -&gt; GetObjectInformationResponse
 </span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse%27"><span class="hs-identifier hs-type">GetObjectInformationResponse'</span></a></span><span>
-</span><span id="line-182"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:schemaFacets:GetObjectInformationResponse' :: Maybe [SchemaFacet]
-</span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AschemaFacets%3AGetObjectInformationResponse%27"><span class="hs-identifier hs-var">schemaFacets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Maybe [SchemaFacet]
+</span><span id="line-182"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:objectIdentifier:GetObjectInformationResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AobjectIdentifier%3AGetObjectInformationResponse%27"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:objectIdentifier:GetObjectInformationResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AobjectIdentifier%3AGetObjectInformationResponse%27"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaFacets:GetObjectInformationResponse' :: Maybe [SchemaFacet]
+</span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AschemaFacets%3AGetObjectInformationResponse%27"><span class="hs-identifier hs-var">schemaFacets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SchemaFacet]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetObjectInformationResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AhttpStatus%3AGetObjectInformationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342540"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679342952"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- | The facets attached to the specified object. Although the response does</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- not include minor version information, the most recently applied minor</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- version of each Facet is in effect. See GetAppliedSchemaVersion for</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- details.</span><span>
-</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#getObjectInformationResponse_schemaFacets"><span class="hs-identifier hs-type">getObjectInformationResponse_schemaFacets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse"><span class="hs-identifier hs-type">GetObjectInformationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-193"></span><span id="getObjectInformationResponse_schemaFacets"><span class="annot"><span class="annottext">getObjectInformationResponse_schemaFacets :: (Maybe [SchemaFacet] -&gt; f (Maybe [SchemaFacet]))
+</span><span id="line-188"></span><span class="hs-comment">-- | The @ObjectIdentifier@ of the specified object.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#getObjectInformationResponse_objectIdentifier"><span class="hs-identifier hs-type">getObjectInformationResponse_objectIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse"><span class="hs-identifier hs-type">GetObjectInformationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="getObjectInformationResponse_objectIdentifier"><span class="annot"><span class="annottext">getObjectInformationResponse_objectIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetObjectInformationResponse -&gt; f GetObjectInformationResponse
+</span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#getObjectInformationResponse_objectIdentifier"><span class="hs-identifier hs-var hs-var">getObjectInformationResponse_objectIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetObjectInformationResponse -&gt; Maybe Text)
+-&gt; (GetObjectInformationResponse
+    -&gt; Maybe Text -&gt; GetObjectInformationResponse)
+-&gt; Lens
+     GetObjectInformationResponse
+     GetObjectInformationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse%27"><span class="hs-identifier hs-type">GetObjectInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342951"><span class="annot"><span class="annottext">Maybe Text
+objectIdentifier :: Maybe Text
+$sel:objectIdentifier:GetObjectInformationResponse' :: GetObjectInformationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679342951"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342951"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342950"><span class="annot"><span class="annottext">s :: GetObjectInformationResponse
+</span><a href="#local-6989586621679342950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse%27"><span class="hs-identifier hs-type">GetObjectInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342949"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectInformationResponse
+</span><a href="#local-6989586621679342950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectIdentifier:GetObjectInformationResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AobjectIdentifier%3AGetObjectInformationResponse%27"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse"><span class="hs-identifier hs-type">GetObjectInformationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The facets attached to the specified object. Although the response does</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- not include minor version information, the most recently applied minor</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- version of each Facet is in effect. See GetAppliedSchemaVersion for</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- details.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#getObjectInformationResponse_schemaFacets"><span class="hs-identifier hs-type">getObjectInformationResponse_schemaFacets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse"><span class="hs-identifier hs-type">GetObjectInformationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="getObjectInformationResponse_schemaFacets"><span class="annot"><span class="annottext">getObjectInformationResponse_schemaFacets :: (Maybe [SchemaFacet] -&gt; f (Maybe [SchemaFacet]))
 -&gt; GetObjectInformationResponse -&gt; f GetObjectInformationResponse
 </span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#getObjectInformationResponse_schemaFacets"><span class="hs-identifier hs-var hs-var">getObjectInformationResponse_schemaFacets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetObjectInformationResponse -&gt; Maybe [SchemaFacet])
 -&gt; (GetObjectInformationResponse
@@ -516,16 +541,16 @@ forall a. Maybe a
      (Maybe [SchemaFacet])
      (Maybe [SchemaFacet])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse%27"><span class="hs-identifier hs-type">GetObjectInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342539"><span class="annot"><span class="annottext">Maybe [SchemaFacet]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse%27"><span class="hs-identifier hs-type">GetObjectInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342948"><span class="annot"><span class="annottext">Maybe [SchemaFacet]
 schemaFacets :: Maybe [SchemaFacet]
 $sel:schemaFacets:GetObjectInformationResponse' :: GetObjectInformationResponse -&gt; Maybe [SchemaFacet]
-</span><a href="#local-6989586621679342539"><span class="hs-identifier hs-var hs-var">schemaFacets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SchemaFacet]
-</span><a href="#local-6989586621679342539"><span class="hs-identifier hs-var">schemaFacets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342538"><span class="annot"><span class="annottext">s :: GetObjectInformationResponse
-</span><a href="#local-6989586621679342538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse%27"><span class="hs-identifier hs-type">GetObjectInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342537"><span class="annot"><span class="annottext">Maybe [SchemaFacet]
-</span><a href="#local-6989586621679342537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectInformationResponse
-</span><a href="#local-6989586621679342538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaFacets:GetObjectInformationResponse' :: Maybe [SchemaFacet]
+</span><a href="#local-6989586621679342948"><span class="hs-identifier hs-var hs-var">schemaFacets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SchemaFacet]
+</span><a href="#local-6989586621679342948"><span class="hs-identifier hs-var">schemaFacets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342947"><span class="annot"><span class="annottext">s :: GetObjectInformationResponse
+</span><a href="#local-6989586621679342947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse%27"><span class="hs-identifier hs-type">GetObjectInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342946"><span class="annot"><span class="annottext">Maybe [SchemaFacet]
+</span><a href="#local-6989586621679342946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectInformationResponse
+</span><a href="#local-6989586621679342947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaFacets:GetObjectInformationResponse' :: Maybe [SchemaFacet]
 </span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AschemaFacets%3AGetObjectInformationResponse%27"><span class="hs-identifier hs-var">schemaFacets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SchemaFacet]
-</span><a href="#local-6989586621679342537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse"><span class="hs-identifier hs-type">GetObjectInformationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SchemaFacet] -&gt; f (Maybe [SchemaFacet]))
+</span><a href="#local-6989586621679342946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse"><span class="hs-identifier hs-type">GetObjectInformationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SchemaFacet] -&gt; f (Maybe [SchemaFacet]))
  -&gt; GetObjectInformationResponse -&gt; f GetObjectInformationResponse)
 -&gt; ((Maybe [SchemaFacet] -&gt; f (Maybe [SchemaFacet]))
     -&gt; Maybe [SchemaFacet] -&gt; f (Maybe [SchemaFacet]))
@@ -543,32 +568,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [SchemaFacet] [SchemaFacet] [SchemaFacet] [SchemaFacet]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- | The @ObjectIdentifier@ of the specified object.</span><span>
-</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#getObjectInformationResponse_objectIdentifier"><span class="hs-identifier hs-type">getObjectInformationResponse_objectIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse"><span class="hs-identifier hs-type">GetObjectInformationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span><span id="getObjectInformationResponse_objectIdentifier"><span class="annot"><span class="annottext">getObjectInformationResponse_objectIdentifier :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetObjectInformationResponse -&gt; f GetObjectInformationResponse
-</span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#getObjectInformationResponse_objectIdentifier"><span class="hs-identifier hs-var hs-var">getObjectInformationResponse_objectIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetObjectInformationResponse -&gt; Maybe Text)
--&gt; (GetObjectInformationResponse
-    -&gt; Maybe Text -&gt; GetObjectInformationResponse)
--&gt; Lens
-     GetObjectInformationResponse
-     GetObjectInformationResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse%27"><span class="hs-identifier hs-type">GetObjectInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342533"><span class="annot"><span class="annottext">Maybe Text
-objectIdentifier :: Maybe Text
-$sel:objectIdentifier:GetObjectInformationResponse' :: GetObjectInformationResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679342533"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342533"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342532"><span class="annot"><span class="annottext">s :: GetObjectInformationResponse
-</span><a href="#local-6989586621679342532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse%27"><span class="hs-identifier hs-type">GetObjectInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342531"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectInformationResponse
-</span><a href="#local-6989586621679342532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectIdentifier:GetObjectInformationResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AobjectIdentifier%3AGetObjectInformationResponse%27"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse"><span class="hs-identifier hs-type">GetObjectInformationResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-200"></span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#getObjectInformationResponse_httpStatus"><span class="hs-identifier hs-type">getObjectInformationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse"><span class="hs-identifier hs-type">GetObjectInformationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -580,16 +581,16 @@ $sel:objectIdentifier:GetObjectInformationResponse' :: GetObjectInformationRespo
 -&gt; Lens
      GetObjectInformationResponse GetObjectInformationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse%27"><span class="hs-identifier hs-type">GetObjectInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342530"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse%27"><span class="hs-identifier hs-type">GetObjectInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342942"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetObjectInformationResponse' :: GetObjectInformationResponse -&gt; Int
-</span><a href="#local-6989586621679342530"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342530"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342529"><span class="annot"><span class="annottext">s :: GetObjectInformationResponse
-</span><a href="#local-6989586621679342529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse%27"><span class="hs-identifier hs-type">GetObjectInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342528"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectInformationResponse
-</span><a href="#local-6989586621679342529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetObjectInformationResponse' :: Int
+</span><a href="#local-6989586621679342942"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342942"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342941"><span class="annot"><span class="annottext">s :: GetObjectInformationResponse
+</span><a href="#local-6989586621679342941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse%27"><span class="hs-identifier hs-type">GetObjectInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342940"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectInformationResponse
+</span><a href="#local-6989586621679342941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetObjectInformationResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#%24sel%3AhttpStatus%3AGetObjectInformationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse"><span class="hs-identifier hs-type">GetObjectInformationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse"><span class="hs-identifier hs-type">GetObjectInformationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse"><span class="hs-identifier hs-type">GetObjectInformationResponse</span></a></span></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342938"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetObjectInformation.html#GetObjectInformationResponse"><span class="hs-identifier hs-type">GetObjectInformationResponse</span></a></span></span><span>
 </span><span id="line-204"></span></pre></body></html>

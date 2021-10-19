@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679259679"><span id="local-6989586621679259680"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CommentStatusType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.CommentStatusType.html#CommentStatusType"><span class="hs-identifier hs-var">CommentStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommentStatusType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.CommentStatusType.html#CommentStatusType%27"><span class="hs-identifier hs-var">CommentStatusType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679259797"><span id="local-6989586621679259798"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CommentStatusType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.CommentStatusType.html#CommentStatusType"><span class="hs-identifier hs-var">CommentStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommentStatusType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.CommentStatusType.html#CommentStatusType%27"><span class="hs-identifier hs-var">CommentStatusType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCommentStatusType"><span class="annot"><span class="annottext">CommentStatusType -&gt; Text
 </span><a href="Network.AWS.WorkDocs.Types.CommentStatusType.html#fromCommentStatusType"><span class="hs-identifier hs-var hs-var">fromCommentStatusType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259671"><span id="local-6989586621679259673"><span id="local-6989586621679259675"><span class="annot"><span class="annottext">Int -&gt; CommentStatusType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259789"><span id="local-6989586621679259791"><span id="local-6989586621679259793"><span class="annot"><span class="annottext">Int -&gt; CommentStatusType -&gt; ShowS
 [CommentStatusType] -&gt; ShowS
 CommentStatusType -&gt; String
 (Int -&gt; CommentStatusType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: CommentStatusType -&gt; String
 showsPrec :: Int -&gt; CommentStatusType -&gt; ShowS
 $cshowsPrec :: Int -&gt; CommentStatusType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679259662"><span id="local-6989586621679259664"><span id="local-6989586621679259666"><span id="local-6989586621679259668"><span class="annot"><span class="annottext">ReadPrec [CommentStatusType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679259780"><span id="local-6989586621679259782"><span id="local-6989586621679259784"><span id="local-6989586621679259786"><span class="annot"><span class="annottext">ReadPrec [CommentStatusType]
 ReadPrec CommentStatusType
 Int -&gt; ReadS CommentStatusType
 ReadS [CommentStatusType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [CommentStatusType]
 readsPrec :: Int -&gt; ReadS CommentStatusType
 $creadsPrec :: Int -&gt; ReadS CommentStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679259657"><span id="local-6989586621679259659"><span class="annot"><span class="annottext">CommentStatusType -&gt; CommentStatusType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679259775"><span id="local-6989586621679259777"><span class="annot"><span class="annottext">CommentStatusType -&gt; CommentStatusType -&gt; Bool
 (CommentStatusType -&gt; CommentStatusType -&gt; Bool)
 -&gt; (CommentStatusType -&gt; CommentStatusType -&gt; Bool)
 -&gt; Eq CommentStatusType
@@ -83,7 +83,7 @@ $c/= :: CommentStatusType -&gt; CommentStatusType -&gt; Bool
 == :: CommentStatusType -&gt; CommentStatusType -&gt; Bool
 $c== :: CommentStatusType -&gt; CommentStatusType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679259641"><span id="local-6989586621679259643"><span id="local-6989586621679259645"><span id="local-6989586621679259647"><span id="local-6989586621679259649"><span id="local-6989586621679259651"><span id="local-6989586621679259653"><span class="annot"><span class="annottext">Eq CommentStatusType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679259759"><span id="local-6989586621679259761"><span id="local-6989586621679259763"><span id="local-6989586621679259765"><span id="local-6989586621679259767"><span id="local-6989586621679259769"><span id="local-6989586621679259771"><span class="annot"><span class="annottext">Eq CommentStatusType
 Eq CommentStatusType
 -&gt; (CommentStatusType -&gt; CommentStatusType -&gt; Ordering)
 -&gt; (CommentStatusType -&gt; CommentStatusType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. CommentStatusType -&gt; Rep CommentStatusType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259633"><span id="local-6989586621679259635"><span class="annot"><span class="annottext">Int -&gt; CommentStatusType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259751"><span id="local-6989586621679259753"><span class="annot"><span class="annottext">Int -&gt; CommentStatusType -&gt; Int
 CommentStatusType -&gt; Int
 (Int -&gt; CommentStatusType -&gt; Int)
 -&gt; (CommentStatusType -&gt; Int) -&gt; Hashable CommentStatusType
@@ -144,51 +144,51 @@ $chash :: CommentStatusType -&gt; Int
 hashWithSalt :: Int -&gt; CommentStatusType -&gt; Int
 $chashWithSalt :: Int -&gt; CommentStatusType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679259630"><span class="annot"><span class="annottext">CommentStatusType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679259748"><span class="annot"><span class="annottext">CommentStatusType -&gt; ()
 (CommentStatusType -&gt; ()) -&gt; NFData CommentStatusType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CommentStatusType -&gt; ()
 $crnf :: CommentStatusType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679259627"><span class="annot"><span class="annottext">Text -&gt; Either String CommentStatusType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679259745"><span class="annot"><span class="annottext">Text -&gt; Either String CommentStatusType
 (Text -&gt; Either String CommentStatusType)
 -&gt; FromText CommentStatusType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CommentStatusType
 $cfromText :: Text -&gt; Either String CommentStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679259624"><span class="annot"><span class="annottext">CommentStatusType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679259742"><span class="annot"><span class="annottext">CommentStatusType -&gt; Text
 (CommentStatusType -&gt; Text) -&gt; ToText CommentStatusType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CommentStatusType -&gt; Text
 $ctoText :: CommentStatusType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679259621"><span class="annot"><span class="annottext">CommentStatusType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679259739"><span class="annot"><span class="annottext">CommentStatusType -&gt; ByteString
 (CommentStatusType -&gt; ByteString) -&gt; ToByteString CommentStatusType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CommentStatusType -&gt; ByteString
 $ctoBS :: CommentStatusType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679259618"><span class="annot"><span class="annottext">CommentStatusType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679259736"><span class="annot"><span class="annottext">CommentStatusType -&gt; ByteStringBuilder
 (CommentStatusType -&gt; ByteStringBuilder) -&gt; ToLog CommentStatusType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CommentStatusType -&gt; ByteStringBuilder
 $cbuild :: CommentStatusType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679259615"><span class="annot"><span class="annottext">HeaderName -&gt; CommentStatusType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679259733"><span class="annot"><span class="annottext">HeaderName -&gt; CommentStatusType -&gt; [Header]
 (HeaderName -&gt; CommentStatusType -&gt; [Header])
 -&gt; ToHeader CommentStatusType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CommentStatusType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CommentStatusType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679259612"><span class="annot"><span class="annottext">CommentStatusType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679259730"><span class="annot"><span class="annottext">CommentStatusType -&gt; QueryString
 (CommentStatusType -&gt; QueryString) -&gt; ToQuery CommentStatusType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CommentStatusType -&gt; QueryString
 $ctoQuery :: CommentStatusType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679259607"><span id="local-6989586621679259609"><span class="annot"><span class="annottext">Value -&gt; Parser [CommentStatusType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679259725"><span id="local-6989586621679259727"><span class="annot"><span class="annottext">Value -&gt; Parser [CommentStatusType]
 Value -&gt; Parser CommentStatusType
 (Value -&gt; Parser CommentStatusType)
 -&gt; (Value -&gt; Parser [CommentStatusType])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [CommentStatusType]
 parseJSON :: Value -&gt; Parser CommentStatusType
 $cparseJSON :: Value -&gt; Parser CommentStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679259602"><span id="local-6989586621679259604"><span class="annot"><span class="annottext">FromJSONKeyFunction [CommentStatusType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679259720"><span id="local-6989586621679259722"><span class="annot"><span class="annottext">FromJSONKeyFunction [CommentStatusType]
 FromJSONKeyFunction CommentStatusType
 FromJSONKeyFunction CommentStatusType
 -&gt; FromJSONKeyFunction [CommentStatusType]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CommentStatusType]
 fromJSONKey :: FromJSONKeyFunction CommentStatusType
 $cfromJSONKey :: FromJSONKeyFunction CommentStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679259593"><span id="local-6989586621679259595"><span id="local-6989586621679259597"><span id="local-6989586621679259599"><span class="annot"><span class="annottext">[CommentStatusType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679259711"><span id="local-6989586621679259713"><span id="local-6989586621679259715"><span id="local-6989586621679259717"><span class="annot"><span class="annottext">[CommentStatusType] -&gt; Encoding
 [CommentStatusType] -&gt; Value
 CommentStatusType -&gt; Encoding
 CommentStatusType -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: CommentStatusType -&gt; Encoding
 toJSON :: CommentStatusType -&gt; Value
 $ctoJSON :: CommentStatusType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679259588"><span id="local-6989586621679259590"><span class="annot"><span class="annottext">ToJSONKeyFunction [CommentStatusType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679259706"><span id="local-6989586621679259708"><span class="annot"><span class="annottext">ToJSONKeyFunction [CommentStatusType]
 ToJSONKeyFunction CommentStatusType
 ToJSONKeyFunction CommentStatusType
 -&gt; ToJSONKeyFunction [CommentStatusType]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CommentStatusType]
 toJSONKey :: ToJSONKeyFunction CommentStatusType
 $ctoJSONKey :: ToJSONKeyFunction CommentStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679259585"><span class="annot"><span class="annottext">[Node] -&gt; Either String CommentStatusType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679259703"><span class="annot"><span class="annottext">[Node] -&gt; Either String CommentStatusType
 ([Node] -&gt; Either String CommentStatusType)
 -&gt; FromXML CommentStatusType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CommentStatusType
 $cparseXML :: [Node] -&gt; Either String CommentStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679259582"><span class="annot"><span class="annottext">CommentStatusType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679259700"><span class="annot"><span class="annottext">CommentStatusType -&gt; XML
 (CommentStatusType -&gt; XML) -&gt; ToXML CommentStatusType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CommentStatusType -&gt; XML

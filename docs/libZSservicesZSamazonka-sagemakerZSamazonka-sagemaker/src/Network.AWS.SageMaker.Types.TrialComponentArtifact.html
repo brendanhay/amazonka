@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- metrics, snapshots, logs, and images.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newTrialComponentArtifact' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621680351982"><span id="local-6989586621680351983"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrialComponentArtifact"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact"><span class="hs-identifier hs-var">TrialComponentArtifact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrialComponentArtifact%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact%27"><span class="hs-identifier hs-var">TrialComponentArtifact'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621680353420"><span id="local-6989586621680353421"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrialComponentArtifact"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact"><span class="hs-identifier hs-var">TrialComponentArtifact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrialComponentArtifact%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact%27"><span class="hs-identifier hs-var">TrialComponentArtifact'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The media type of the artifact, which indicates the type of data in the</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- artifact file. The media type consists of a /type/ and a /subtype/</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- concatenated with a slash (\/) character, for example, text\/csv,</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Avalue%3ATrialComponentArtifact%27"><span class="annot"><span class="annottext">TrialComponentArtifact -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#%24sel%3Avalue%3ATrialComponentArtifact%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680351975"><span id="local-6989586621680351977"><span class="annot"><span class="annottext">TrialComponentArtifact -&gt; TrialComponentArtifact -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680353413"><span id="local-6989586621680353415"><span class="annot"><span class="annottext">TrialComponentArtifact -&gt; TrialComponentArtifact -&gt; Bool
 (TrialComponentArtifact -&gt; TrialComponentArtifact -&gt; Bool)
 -&gt; (TrialComponentArtifact -&gt; TrialComponentArtifact -&gt; Bool)
 -&gt; Eq TrialComponentArtifact
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TrialComponentArtifact -&gt; TrialComponentArtifact -&gt; Bool
 == :: TrialComponentArtifact -&gt; TrialComponentArtifact -&gt; Bool
 $c== :: TrialComponentArtifact -&gt; TrialComponentArtifact -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680351966"><span id="local-6989586621680351968"><span id="local-6989586621680351970"><span id="local-6989586621680351972"><span class="annot"><span class="annottext">ReadPrec [TrialComponentArtifact]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680353404"><span id="local-6989586621680353406"><span id="local-6989586621680353408"><span id="local-6989586621680353410"><span class="annot"><span class="annottext">ReadPrec [TrialComponentArtifact]
 ReadPrec TrialComponentArtifact
 Int -&gt; ReadS TrialComponentArtifact
 ReadS [TrialComponentArtifact]
@@ -73,7 +73,7 @@ readList :: ReadS [TrialComponentArtifact]
 $creadList :: ReadS [TrialComponentArtifact]
 readsPrec :: Int -&gt; ReadS TrialComponentArtifact
 $creadsPrec :: Int -&gt; ReadS TrialComponentArtifact
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680351959"><span id="local-6989586621680351961"><span id="local-6989586621680351963"><span class="annot"><span class="annottext">Int -&gt; TrialComponentArtifact -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680353397"><span id="local-6989586621680353399"><span id="local-6989586621680353401"><span class="annot"><span class="annottext">Int -&gt; TrialComponentArtifact -&gt; ShowS
 [TrialComponentArtifact] -&gt; ShowS
 TrialComponentArtifact -&gt; String
 (Int -&gt; TrialComponentArtifact -&gt; ShowS)
@@ -120,8 +120,8 @@ $cfrom :: forall x. TrialComponentArtifact -&gt; Rep TrialComponentArtifact x
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact"><span class="hs-identifier hs-type">TrialComponentArtifact</span></a></span><span>
 </span><span id="line-66"></span><span id="newTrialComponentArtifact"><span class="annot"><span class="annottext">newTrialComponentArtifact :: Text -&gt; TrialComponentArtifact
-</span><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#newTrialComponentArtifact"><span class="hs-identifier hs-var hs-var">newTrialComponentArtifact</span></a></span></span><span> </span><span id="local-6989586621680351953"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680351953"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#newTrialComponentArtifact"><span class="hs-identifier hs-var hs-var">newTrialComponentArtifact</span></a></span></span><span> </span><span id="local-6989586621680353391"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680353391"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">TrialComponentArtifact' :: Maybe Text -&gt; Text -&gt; TrialComponentArtifact
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact%27"><span class="hs-identifier hs-type">TrialComponentArtifact'</span></a></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mediaType:TrialComponentArtifact' :: Maybe Text
@@ -131,7 +131,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:TrialComponentArtifact' :: Text
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#%24sel%3Avalue%3ATrialComponentArtifact%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680351953"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
+</span><a href="#local-6989586621680353391"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The media type of the artifact, which indicates the type of data in the</span><span>
@@ -150,16 +150,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact%27"><span class="hs-identifier hs-type">TrialComponentArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351949"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact%27"><span class="hs-identifier hs-type">TrialComponentArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353387"><span class="annot"><span class="annottext">Maybe Text
 mediaType :: Maybe Text
 $sel:mediaType:TrialComponentArtifact' :: TrialComponentArtifact -&gt; Maybe Text
-</span><a href="#local-6989586621680351949"><span class="hs-identifier hs-var hs-var">mediaType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680351949"><span class="hs-identifier hs-var">mediaType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351948"><span class="annot"><span class="annottext">s :: TrialComponentArtifact
-</span><a href="#local-6989586621680351948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact%27"><span class="hs-identifier hs-type">TrialComponentArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351947"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680351947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialComponentArtifact
-</span><a href="#local-6989586621680351948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaType:TrialComponentArtifact' :: Maybe Text
+</span><a href="#local-6989586621680353387"><span class="hs-identifier hs-var hs-var">mediaType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680353387"><span class="hs-identifier hs-var">mediaType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353386"><span class="annot"><span class="annottext">s :: TrialComponentArtifact
+</span><a href="#local-6989586621680353386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact%27"><span class="hs-identifier hs-type">TrialComponentArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353385"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680353385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialComponentArtifact
+</span><a href="#local-6989586621680353386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaType:TrialComponentArtifact' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#%24sel%3AmediaType%3ATrialComponentArtifact%27"><span class="hs-identifier hs-var">mediaType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680351947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact"><span class="hs-identifier hs-type">TrialComponentArtifact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680353385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact"><span class="hs-identifier hs-type">TrialComponentArtifact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The location of the artifact.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#trialComponentArtifact_value"><span class="hs-identifier hs-type">trialComponentArtifact_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact"><span class="hs-identifier hs-type">TrialComponentArtifact</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -169,19 +169,19 @@ $sel:mediaType:TrialComponentArtifact' :: TrialComponentArtifact -&gt; Maybe Tex
 -&gt; (TrialComponentArtifact -&gt; Text -&gt; TrialComponentArtifact)
 -&gt; Lens TrialComponentArtifact TrialComponentArtifact Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact%27"><span class="hs-identifier hs-type">TrialComponentArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351945"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact%27"><span class="hs-identifier hs-type">TrialComponentArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353383"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:TrialComponentArtifact' :: TrialComponentArtifact -&gt; Text
-</span><a href="#local-6989586621680351945"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680351945"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351944"><span class="annot"><span class="annottext">s :: TrialComponentArtifact
-</span><a href="#local-6989586621680351944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact%27"><span class="hs-identifier hs-type">TrialComponentArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351943"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680351943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialComponentArtifact
-</span><a href="#local-6989586621680351944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:TrialComponentArtifact' :: Text
+</span><a href="#local-6989586621680353383"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680353383"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353382"><span class="annot"><span class="annottext">s :: TrialComponentArtifact
+</span><a href="#local-6989586621680353382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact%27"><span class="hs-identifier hs-type">TrialComponentArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353381"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680353381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialComponentArtifact
+</span><a href="#local-6989586621680353382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:TrialComponentArtifact' :: Text
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#%24sel%3Avalue%3ATrialComponentArtifact%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680351943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact"><span class="hs-identifier hs-type">TrialComponentArtifact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680353381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact"><span class="hs-identifier hs-type">TrialComponentArtifact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351940"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact"><span class="hs-identifier hs-type">TrialComponentArtifact</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621680351938"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrialComponentArtifact
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353378"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact"><span class="hs-identifier hs-type">TrialComponentArtifact</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621680353376"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrialComponentArtifact
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TrialComponentArtifact)
@@ -191,15 +191,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TrialComponentArtifact&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680351935"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680351935"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680353373"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680353373"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; TrialComponentArtifact
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact%27"><span class="hs-identifier hs-var">TrialComponentArtifact'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; TrialComponentArtifact)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; TrialComponentArtifact)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680351935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680353373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MediaType&quot;</span></span><span class="hs-special">)</span><span>
@@ -207,25 +207,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser TrialComponentArtifact
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680351935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680353373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351928"><span id="local-6989586621680351930"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact"><span class="hs-identifier hs-type">TrialComponentArtifact</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353366"><span id="local-6989586621680353368"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact"><span class="hs-identifier hs-type">TrialComponentArtifact</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351925"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact"><span class="hs-identifier hs-type">TrialComponentArtifact</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353363"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact"><span class="hs-identifier hs-type">TrialComponentArtifact</span></a></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351917"><span id="local-6989586621680351919"><span id="local-6989586621680351921"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact"><span class="hs-identifier hs-type">TrialComponentArtifact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621680351915"><span class="annot"><span class="annottext">toJSON :: TrialComponentArtifact -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact%27"><span class="hs-identifier hs-type">TrialComponentArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351912"><span id="local-6989586621680351913"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353355"><span id="local-6989586621680353357"><span id="local-6989586621680353359"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact"><span class="hs-identifier hs-type">TrialComponentArtifact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621680353353"><span class="annot"><span class="annottext">toJSON :: TrialComponentArtifact -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentArtifact.html#TrialComponentArtifact%27"><span class="hs-identifier hs-type">TrialComponentArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353350"><span id="local-6989586621680353351"><span class="annot"><span class="annottext">Maybe Text
 Text
 value :: Text
 mediaType :: Maybe Text
 $sel:value:TrialComponentArtifact' :: TrialComponentArtifact -&gt; Text
 $sel:mediaType:TrialComponentArtifact' :: TrialComponentArtifact -&gt; Maybe Text
-</span><a href="#local-6989586621680351912"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680353350"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -237,14 +237,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680351913"><span class="hs-identifier hs-var">mediaType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680353351"><span class="hs-identifier hs-var">mediaType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680351912"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680353350"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span></pre></body></html>

@@ -91,13 +91,13 @@
 </span><span id="line-91"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span id="local-6989586621679431698"><span id="local-6989586621679431699"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameServerGroupInstanceType"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerGroupInstanceType.html#GameServerGroupInstanceType"><span class="hs-identifier hs-var">GameServerGroupInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameServerGroupInstanceType%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerGroupInstanceType.html#GameServerGroupInstanceType%27"><span class="hs-identifier hs-var">GameServerGroupInstanceType'</span></a></span></span><span>
+</span><span id="line-94"></span><span id="local-6989586621679432143"><span id="local-6989586621679432144"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameServerGroupInstanceType"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerGroupInstanceType.html#GameServerGroupInstanceType"><span class="hs-identifier hs-var">GameServerGroupInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameServerGroupInstanceType%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerGroupInstanceType.html#GameServerGroupInstanceType%27"><span class="hs-identifier hs-var">GameServerGroupInstanceType'</span></a></span></span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGameServerGroupInstanceType"><span class="annot"><span class="annottext">GameServerGroupInstanceType -&gt; Text
 </span><a href="Network.AWS.GameLift.Types.GameServerGroupInstanceType.html#fromGameServerGroupInstanceType"><span class="hs-identifier hs-var hs-var">fromGameServerGroupInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431690"><span id="local-6989586621679431692"><span id="local-6989586621679431694"><span class="annot"><span class="annottext">Int -&gt; GameServerGroupInstanceType -&gt; ShowS
+</span><span id="line-99"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432135"><span id="local-6989586621679432137"><span id="local-6989586621679432139"><span class="annot"><span class="annottext">Int -&gt; GameServerGroupInstanceType -&gt; ShowS
 [GameServerGroupInstanceType] -&gt; ShowS
 GameServerGroupInstanceType -&gt; String
 (Int -&gt; GameServerGroupInstanceType -&gt; ShowS)
@@ -113,7 +113,7 @@ $cshow :: GameServerGroupInstanceType -&gt; String
 showsPrec :: Int -&gt; GameServerGroupInstanceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; GameServerGroupInstanceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span id="local-6989586621679431681"><span id="local-6989586621679431683"><span id="local-6989586621679431685"><span id="local-6989586621679431687"><span class="annot"><span class="annottext">ReadPrec [GameServerGroupInstanceType]
+</span><span id="line-100"></span><span>      </span><span id="local-6989586621679432126"><span id="local-6989586621679432128"><span id="local-6989586621679432130"><span id="local-6989586621679432132"><span class="annot"><span class="annottext">ReadPrec [GameServerGroupInstanceType]
 ReadPrec GameServerGroupInstanceType
 Int -&gt; ReadS GameServerGroupInstanceType
 ReadS [GameServerGroupInstanceType]
@@ -134,7 +134,7 @@ $creadList :: ReadS [GameServerGroupInstanceType]
 readsPrec :: Int -&gt; ReadS GameServerGroupInstanceType
 $creadsPrec :: Int -&gt; ReadS GameServerGroupInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span id="local-6989586621679431676"><span id="local-6989586621679431678"><span class="annot"><span class="annottext">GameServerGroupInstanceType -&gt; GameServerGroupInstanceType -&gt; Bool
+</span><span id="line-101"></span><span>      </span><span id="local-6989586621679432121"><span id="local-6989586621679432123"><span class="annot"><span class="annottext">GameServerGroupInstanceType -&gt; GameServerGroupInstanceType -&gt; Bool
 (GameServerGroupInstanceType
  -&gt; GameServerGroupInstanceType -&gt; Bool)
 -&gt; (GameServerGroupInstanceType
@@ -146,7 +146,7 @@ $c/= :: GameServerGroupInstanceType -&gt; GameServerGroupInstanceType -&gt; Bool
 == :: GameServerGroupInstanceType -&gt; GameServerGroupInstanceType -&gt; Bool
 $c== :: GameServerGroupInstanceType -&gt; GameServerGroupInstanceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span id="local-6989586621679431660"><span id="local-6989586621679431662"><span id="local-6989586621679431664"><span id="local-6989586621679431666"><span id="local-6989586621679431668"><span id="local-6989586621679431670"><span id="local-6989586621679431672"><span class="annot"><span class="annottext">Eq GameServerGroupInstanceType
+</span><span id="line-102"></span><span>      </span><span id="local-6989586621679432105"><span id="local-6989586621679432107"><span id="local-6989586621679432109"><span id="local-6989586621679432111"><span id="local-6989586621679432113"><span id="local-6989586621679432115"><span id="local-6989586621679432117"><span class="annot"><span class="annottext">Eq GameServerGroupInstanceType
 Eq GameServerGroupInstanceType
 -&gt; (GameServerGroupInstanceType
     -&gt; GameServerGroupInstanceType -&gt; Ordering)
@@ -218,7 +218,7 @@ GameServerGroupInstanceType -&gt; Rep GameServerGroupInstanceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431652"><span id="local-6989586621679431654"><span class="annot"><span class="annottext">Int -&gt; GameServerGroupInstanceType -&gt; Int
+</span><span id="line-106"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432097"><span id="local-6989586621679432099"><span class="annot"><span class="annottext">Int -&gt; GameServerGroupInstanceType -&gt; Int
 GameServerGroupInstanceType -&gt; Int
 (Int -&gt; GameServerGroupInstanceType -&gt; Int)
 -&gt; (GameServerGroupInstanceType -&gt; Int)
@@ -229,56 +229,56 @@ $chash :: GameServerGroupInstanceType -&gt; Int
 hashWithSalt :: Int -&gt; GameServerGroupInstanceType -&gt; Int
 $chashWithSalt :: Int -&gt; GameServerGroupInstanceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span id="local-6989586621679431649"><span class="annot"><span class="annottext">GameServerGroupInstanceType -&gt; ()
+</span><span id="line-107"></span><span>      </span><span id="local-6989586621679432094"><span class="annot"><span class="annottext">GameServerGroupInstanceType -&gt; ()
 (GameServerGroupInstanceType -&gt; ())
 -&gt; NFData GameServerGroupInstanceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: GameServerGroupInstanceType -&gt; ()
 $crnf :: GameServerGroupInstanceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span id="local-6989586621679431646"><span class="annot"><span class="annottext">Text -&gt; Either String GameServerGroupInstanceType
+</span><span id="line-108"></span><span>      </span><span id="local-6989586621679432091"><span class="annot"><span class="annottext">Text -&gt; Either String GameServerGroupInstanceType
 (Text -&gt; Either String GameServerGroupInstanceType)
 -&gt; FromText GameServerGroupInstanceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String GameServerGroupInstanceType
 $cfromText :: Text -&gt; Either String GameServerGroupInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span id="local-6989586621679431643"><span class="annot"><span class="annottext">GameServerGroupInstanceType -&gt; Text
+</span><span id="line-109"></span><span>      </span><span id="local-6989586621679432088"><span class="annot"><span class="annottext">GameServerGroupInstanceType -&gt; Text
 (GameServerGroupInstanceType -&gt; Text)
 -&gt; ToText GameServerGroupInstanceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: GameServerGroupInstanceType -&gt; Text
 $ctoText :: GameServerGroupInstanceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span id="local-6989586621679431640"><span class="annot"><span class="annottext">GameServerGroupInstanceType -&gt; ByteString
+</span><span id="line-110"></span><span>      </span><span id="local-6989586621679432085"><span class="annot"><span class="annottext">GameServerGroupInstanceType -&gt; ByteString
 (GameServerGroupInstanceType -&gt; ByteString)
 -&gt; ToByteString GameServerGroupInstanceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: GameServerGroupInstanceType -&gt; ByteString
 $ctoBS :: GameServerGroupInstanceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span id="local-6989586621679431637"><span class="annot"><span class="annottext">GameServerGroupInstanceType -&gt; ByteStringBuilder
+</span><span id="line-111"></span><span>      </span><span id="local-6989586621679432082"><span class="annot"><span class="annottext">GameServerGroupInstanceType -&gt; ByteStringBuilder
 (GameServerGroupInstanceType -&gt; ByteStringBuilder)
 -&gt; ToLog GameServerGroupInstanceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: GameServerGroupInstanceType -&gt; ByteStringBuilder
 $cbuild :: GameServerGroupInstanceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span id="local-6989586621679431634"><span class="annot"><span class="annottext">HeaderName -&gt; GameServerGroupInstanceType -&gt; [Header]
+</span><span id="line-112"></span><span>      </span><span id="local-6989586621679432079"><span class="annot"><span class="annottext">HeaderName -&gt; GameServerGroupInstanceType -&gt; [Header]
 (HeaderName -&gt; GameServerGroupInstanceType -&gt; [Header])
 -&gt; ToHeader GameServerGroupInstanceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; GameServerGroupInstanceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; GameServerGroupInstanceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span id="local-6989586621679431631"><span class="annot"><span class="annottext">GameServerGroupInstanceType -&gt; QueryString
+</span><span id="line-113"></span><span>      </span><span id="local-6989586621679432076"><span class="annot"><span class="annottext">GameServerGroupInstanceType -&gt; QueryString
 (GameServerGroupInstanceType -&gt; QueryString)
 -&gt; ToQuery GameServerGroupInstanceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: GameServerGroupInstanceType -&gt; QueryString
 $ctoQuery :: GameServerGroupInstanceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span id="local-6989586621679431626"><span id="local-6989586621679431628"><span class="annot"><span class="annottext">Value -&gt; Parser [GameServerGroupInstanceType]
+</span><span id="line-114"></span><span>      </span><span id="local-6989586621679432071"><span id="local-6989586621679432073"><span class="annot"><span class="annottext">Value -&gt; Parser [GameServerGroupInstanceType]
 Value -&gt; Parser GameServerGroupInstanceType
 (Value -&gt; Parser GameServerGroupInstanceType)
 -&gt; (Value -&gt; Parser [GameServerGroupInstanceType])
@@ -290,7 +290,7 @@ $cparseJSONList :: Value -&gt; Parser [GameServerGroupInstanceType]
 parseJSON :: Value -&gt; Parser GameServerGroupInstanceType
 $cparseJSON :: Value -&gt; Parser GameServerGroupInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span id="local-6989586621679431621"><span id="local-6989586621679431623"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameServerGroupInstanceType]
+</span><span id="line-115"></span><span>      </span><span id="local-6989586621679432066"><span id="local-6989586621679432068"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameServerGroupInstanceType]
 FromJSONKeyFunction GameServerGroupInstanceType
 FromJSONKeyFunction GameServerGroupInstanceType
 -&gt; FromJSONKeyFunction [GameServerGroupInstanceType]
@@ -302,7 +302,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [GameServerGroupInstanceType]
 fromJSONKey :: FromJSONKeyFunction GameServerGroupInstanceType
 $cfromJSONKey :: FromJSONKeyFunction GameServerGroupInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span id="local-6989586621679431612"><span id="local-6989586621679431614"><span id="local-6989586621679431616"><span id="local-6989586621679431618"><span class="annot"><span class="annottext">[GameServerGroupInstanceType] -&gt; Encoding
+</span><span id="line-116"></span><span>      </span><span id="local-6989586621679432057"><span id="local-6989586621679432059"><span id="local-6989586621679432061"><span id="local-6989586621679432063"><span class="annot"><span class="annottext">[GameServerGroupInstanceType] -&gt; Encoding
 [GameServerGroupInstanceType] -&gt; Value
 GameServerGroupInstanceType -&gt; Encoding
 GameServerGroupInstanceType -&gt; Value
@@ -326,7 +326,7 @@ $ctoEncoding :: GameServerGroupInstanceType -&gt; Encoding
 toJSON :: GameServerGroupInstanceType -&gt; Value
 $ctoJSON :: GameServerGroupInstanceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span id="local-6989586621679431607"><span id="local-6989586621679431609"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameServerGroupInstanceType]
+</span><span id="line-117"></span><span>      </span><span id="local-6989586621679432052"><span id="local-6989586621679432054"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameServerGroupInstanceType]
 ToJSONKeyFunction GameServerGroupInstanceType
 ToJSONKeyFunction GameServerGroupInstanceType
 -&gt; ToJSONKeyFunction [GameServerGroupInstanceType]
@@ -338,14 +338,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [GameServerGroupInstanceType]
 toJSONKey :: ToJSONKeyFunction GameServerGroupInstanceType
 $ctoJSONKey :: ToJSONKeyFunction GameServerGroupInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span id="local-6989586621679431604"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameServerGroupInstanceType
+</span><span id="line-118"></span><span>      </span><span id="local-6989586621679432049"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameServerGroupInstanceType
 ([Node] -&gt; Either String GameServerGroupInstanceType)
 -&gt; FromXML GameServerGroupInstanceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String GameServerGroupInstanceType
 $cparseXML :: [Node] -&gt; Either String GameServerGroupInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>      </span><span id="local-6989586621679431601"><span class="annot"><span class="annottext">GameServerGroupInstanceType -&gt; XML
+</span><span id="line-119"></span><span>      </span><span id="local-6989586621679432046"><span class="annot"><span class="annottext">GameServerGroupInstanceType -&gt; XML
 (GameServerGroupInstanceType -&gt; XML)
 -&gt; ToXML GameServerGroupInstanceType
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- variation of a campaign that\'s used for A\/B testing of a campaign.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newTreatmentResource' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679615190"><span id="local-6989586621679615191"></span></span><span class="hs-keyword">data</span><span> </span><span id="TreatmentResource"><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-var">TreatmentResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TreatmentResource%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-var">TreatmentResource'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679615697"><span id="local-6989586621679615698"></span></span><span class="hs-keyword">data</span><span> </span><span id="TreatmentResource"><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-var">TreatmentResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TreatmentResource%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-var">TreatmentResource'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The delivery configuration settings for sending the treatment through a</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- custom channel. This object is required if the MessageConfiguration</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- object for the treatment specifies a CustomMessage object.</span><span>
@@ -41,21 +41,21 @@
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The current status of the treatment.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Astate%3ATreatmentResource%27"><span class="annot"><span class="annottext">TreatmentResource -&gt; Maybe CampaignState
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3Astate%3ATreatmentResource%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState"><span class="hs-identifier hs-type">CampaignState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The message configuration settings for the treatment.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AmessageConfiguration%3ATreatmentResource%27"><span class="annot"><span class="annottext">TreatmentResource -&gt; Maybe MessageConfiguration
-</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AmessageConfiguration%3ATreatmentResource%27"><span class="hs-identifier hs-var hs-var">messageConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageConfiguration.html#MessageConfiguration"><span class="hs-identifier hs-type">MessageConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The custom name of the treatment.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AtreatmentName%3ATreatmentResource%27"><span class="annot"><span class="annottext">TreatmentResource -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AtreatmentName%3ATreatmentResource%27"><span class="hs-identifier hs-var hs-var">treatmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The message template to use for the treatment.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AtemplateConfiguration%3ATreatmentResource%27"><span class="annot"><span class="annottext">TreatmentResource -&gt; Maybe TemplateConfiguration
-</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AtemplateConfiguration%3ATreatmentResource%27"><span class="hs-identifier hs-var hs-var">templateConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The schedule settings for the treatment.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aschedule%3ATreatmentResource%27"><span class="annot"><span class="annottext">TreatmentResource -&gt; Maybe Schedule
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The schedule settings for the treatment.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aschedule%3ATreatmentResource%27"><span class="annot"><span class="annottext">TreatmentResource -&gt; Maybe Schedule
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3Aschedule%3ATreatmentResource%27"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The custom description of the treatment.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AtreatmentDescription%3ATreatmentResource%27"><span class="annot"><span class="annottext">TreatmentResource -&gt; Maybe Text
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The message template to use for the treatment.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AtemplateConfiguration%3ATreatmentResource%27"><span class="annot"><span class="annottext">TreatmentResource -&gt; Maybe TemplateConfiguration
+</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AtemplateConfiguration%3ATreatmentResource%27"><span class="hs-identifier hs-var hs-var">templateConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The custom name of the treatment.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AtreatmentName%3ATreatmentResource%27"><span class="annot"><span class="annottext">TreatmentResource -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AtreatmentName%3ATreatmentResource%27"><span class="hs-identifier hs-var hs-var">treatmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The custom description of the treatment.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AtreatmentDescription%3ATreatmentResource%27"><span class="annot"><span class="annottext">TreatmentResource -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AtreatmentDescription%3ATreatmentResource%27"><span class="hs-identifier hs-var hs-var">treatmentDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The message configuration settings for the treatment.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AmessageConfiguration%3ATreatmentResource%27"><span class="annot"><span class="annottext">TreatmentResource -&gt; Maybe MessageConfiguration
+</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AmessageConfiguration%3ATreatmentResource%27"><span class="hs-identifier hs-var hs-var">messageConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageConfiguration.html#MessageConfiguration"><span class="hs-identifier hs-type">MessageConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the treatment.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3Aid%3ATreatmentResource%27"><span class="annot"><span class="annottext">TreatmentResource -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3Aid%3ATreatmentResource%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AsizePercent%3ATreatmentResource%27"><span class="annot"><span class="annottext">TreatmentResource -&gt; Int
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AsizePercent%3ATreatmentResource%27"><span class="hs-identifier hs-var hs-var">sizePercent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679615176"><span id="local-6989586621679615178"><span class="annot"><span class="annottext">TreatmentResource -&gt; TreatmentResource -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679615683"><span id="local-6989586621679615685"><span class="annot"><span class="annottext">TreatmentResource -&gt; TreatmentResource -&gt; Bool
 (TreatmentResource -&gt; TreatmentResource -&gt; Bool)
 -&gt; (TreatmentResource -&gt; TreatmentResource -&gt; Bool)
 -&gt; Eq TreatmentResource
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TreatmentResource -&gt; TreatmentResource -&gt; Bool
 == :: TreatmentResource -&gt; TreatmentResource -&gt; Bool
 $c== :: TreatmentResource -&gt; TreatmentResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679615167"><span id="local-6989586621679615169"><span id="local-6989586621679615171"><span id="local-6989586621679615173"><span class="annot"><span class="annottext">ReadPrec [TreatmentResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679615674"><span id="local-6989586621679615676"><span id="local-6989586621679615678"><span id="local-6989586621679615680"><span class="annot"><span class="annottext">ReadPrec [TreatmentResource]
 ReadPrec TreatmentResource
 Int -&gt; ReadS TreatmentResource
 ReadS [TreatmentResource]
@@ -93,7 +93,7 @@ readList :: ReadS [TreatmentResource]
 $creadList :: ReadS [TreatmentResource]
 readsPrec :: Int -&gt; ReadS TreatmentResource
 $creadsPrec :: Int -&gt; ReadS TreatmentResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679615160"><span id="local-6989586621679615162"><span id="local-6989586621679615164"><span class="annot"><span class="annottext">Int -&gt; TreatmentResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679615667"><span id="local-6989586621679615669"><span id="local-6989586621679615671"><span class="annot"><span class="annottext">Int -&gt; TreatmentResource -&gt; ShowS
 [TreatmentResource] -&gt; ShowS
 TreatmentResource -&gt; String
 (Int -&gt; TreatmentResource -&gt; ShowS)
@@ -133,15 +133,15 @@ $cfrom :: forall x. TreatmentResource -&gt; Rep TreatmentResource x
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- 'state', 'treatmentResource_state' - The current status of the treatment.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'messageConfiguration', 'treatmentResource_messageConfiguration' - The message configuration settings for the treatment.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'schedule', 'treatmentResource_schedule' - The schedule settings for the treatment.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'treatmentName', 'treatmentResource_treatmentName' - The custom name of the treatment.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'templateConfiguration', 'treatmentResource_templateConfiguration' - The message template to use for the treatment.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'templateConfiguration', 'treatmentResource_templateConfiguration' - The message template to use for the treatment.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'treatmentName', 'treatmentResource_treatmentName' - The custom name of the treatment.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'schedule', 'treatmentResource_schedule' - The schedule settings for the treatment.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'treatmentDescription', 'treatmentResource_treatmentDescription' - The custom description of the treatment.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'treatmentDescription', 'treatmentResource_treatmentDescription' - The custom description of the treatment.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'messageConfiguration', 'treatmentResource_messageConfiguration' - The message configuration settings for the treatment.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- 'id', 'treatmentResource_id' - The unique identifier for the treatment.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
@@ -154,16 +154,16 @@ $cfrom :: forall x. TreatmentResource -&gt; Rep TreatmentResource x
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span>
 </span><span id="line-94"></span><span id="newTreatmentResource"><span class="annot"><span class="annottext">newTreatmentResource :: Text -&gt; Int -&gt; TreatmentResource
-</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#newTreatmentResource"><span class="hs-identifier hs-var hs-var">newTreatmentResource</span></a></span></span><span> </span><span id="local-6989586621679615154"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679615154"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679615153"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679615153"><span class="hs-identifier hs-var">pSizePercent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#newTreatmentResource"><span class="hs-identifier hs-var hs-var">newTreatmentResource</span></a></span></span><span> </span><span id="local-6989586621679615661"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679615661"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679615660"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679615660"><span class="hs-identifier hs-var">pSizePercent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">TreatmentResource' :: Maybe CustomDeliveryConfiguration
 -&gt; Maybe CampaignState
--&gt; Maybe MessageConfiguration
--&gt; Maybe Text
--&gt; Maybe TemplateConfiguration
 -&gt; Maybe Schedule
+-&gt; Maybe TemplateConfiguration
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe MessageConfiguration
 -&gt; Text
 -&gt; Int
 -&gt; TreatmentResource
@@ -177,32 +177,32 @@ forall a. Maybe a
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3Astate%3ATreatmentResource%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:messageConfiguration:TreatmentResource' :: Maybe MessageConfiguration
-</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AmessageConfiguration%3ATreatmentResource%27"><span class="hs-identifier hs-var">messageConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageConfiguration
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:treatmentName:TreatmentResource' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AtreatmentName%3ATreatmentResource%27"><span class="hs-identifier hs-var">treatmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateConfiguration:TreatmentResource' :: Maybe TemplateConfiguration
-</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AtemplateConfiguration%3ATreatmentResource%27"><span class="hs-identifier hs-var">templateConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TemplateConfiguration
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:schedule:TreatmentResource' :: Maybe Schedule
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:schedule:TreatmentResource' :: Maybe Schedule
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3Aschedule%3ATreatmentResource%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Schedule
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:treatmentDescription:TreatmentResource' :: Maybe Text
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateConfiguration:TreatmentResource' :: Maybe TemplateConfiguration
+</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AtemplateConfiguration%3ATreatmentResource%27"><span class="hs-identifier hs-var">templateConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TemplateConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:treatmentName:TreatmentResource' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AtreatmentName%3ATreatmentResource%27"><span class="hs-identifier hs-var">treatmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:treatmentDescription:TreatmentResource' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AtreatmentDescription%3ATreatmentResource%27"><span class="hs-identifier hs-var">treatmentDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:messageConfiguration:TreatmentResource' :: Maybe MessageConfiguration
+</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AmessageConfiguration%3ATreatmentResource%27"><span class="hs-identifier hs-var">messageConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:TreatmentResource' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3Aid%3ATreatmentResource%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679615154"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679615661"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:sizePercent:TreatmentResource' :: Int
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AsizePercent%3ATreatmentResource%27"><span class="hs-identifier hs-var">sizePercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679615153"><span class="hs-identifier hs-var">pSizePercent_</span></a></span><span>
+</span><a href="#local-6989586621679615660"><span class="hs-identifier hs-var">pSizePercent_</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The delivery configuration settings for sending the treatment through a</span><span>
@@ -221,16 +221,16 @@ forall a. Maybe a
      (Maybe CustomDeliveryConfiguration)
      (Maybe CustomDeliveryConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615149"><span class="annot"><span class="annottext">Maybe CustomDeliveryConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615656"><span class="annot"><span class="annottext">Maybe CustomDeliveryConfiguration
 customDeliveryConfiguration :: Maybe CustomDeliveryConfiguration
 $sel:customDeliveryConfiguration:TreatmentResource' :: TreatmentResource -&gt; Maybe CustomDeliveryConfiguration
-</span><a href="#local-6989586621679615149"><span class="hs-identifier hs-var hs-var">customDeliveryConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomDeliveryConfiguration
-</span><a href="#local-6989586621679615149"><span class="hs-identifier hs-var">customDeliveryConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615148"><span class="annot"><span class="annottext">s :: TreatmentResource
-</span><a href="#local-6989586621679615148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615147"><span class="annot"><span class="annottext">Maybe CustomDeliveryConfiguration
-</span><a href="#local-6989586621679615147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
-</span><a href="#local-6989586621679615148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customDeliveryConfiguration:TreatmentResource' :: Maybe CustomDeliveryConfiguration
+</span><a href="#local-6989586621679615656"><span class="hs-identifier hs-var hs-var">customDeliveryConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomDeliveryConfiguration
+</span><a href="#local-6989586621679615656"><span class="hs-identifier hs-var">customDeliveryConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615655"><span class="annot"><span class="annottext">s :: TreatmentResource
+</span><a href="#local-6989586621679615655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615654"><span class="annot"><span class="annottext">Maybe CustomDeliveryConfiguration
+</span><a href="#local-6989586621679615654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
+</span><a href="#local-6989586621679615655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customDeliveryConfiguration:TreatmentResource' :: Maybe CustomDeliveryConfiguration
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AcustomDeliveryConfiguration%3ATreatmentResource%27"><span class="hs-identifier hs-var">customDeliveryConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomDeliveryConfiguration
-</span><a href="#local-6989586621679615147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679615654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The current status of the treatment.</span><span>
 </span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_state"><span class="hs-identifier hs-type">treatmentResource_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState"><span class="hs-identifier hs-type">CampaignState</span></a></span><span class="hs-special">)</span><span>
@@ -244,64 +244,43 @@ $sel:customDeliveryConfiguration:TreatmentResource' :: TreatmentResource -&gt; M
      (Maybe CampaignState)
      (Maybe CampaignState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615145"><span class="annot"><span class="annottext">Maybe CampaignState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615652"><span class="annot"><span class="annottext">Maybe CampaignState
 state :: Maybe CampaignState
 $sel:state:TreatmentResource' :: TreatmentResource -&gt; Maybe CampaignState
-</span><a href="#local-6989586621679615145"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignState
-</span><a href="#local-6989586621679615145"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615144"><span class="annot"><span class="annottext">s :: TreatmentResource
-</span><a href="#local-6989586621679615144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615143"><span class="annot"><span class="annottext">Maybe CampaignState
-</span><a href="#local-6989586621679615143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
-</span><a href="#local-6989586621679615144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:TreatmentResource' :: Maybe CampaignState
+</span><a href="#local-6989586621679615652"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignState
+</span><a href="#local-6989586621679615652"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615651"><span class="annot"><span class="annottext">s :: TreatmentResource
+</span><a href="#local-6989586621679615651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615650"><span class="annot"><span class="annottext">Maybe CampaignState
+</span><a href="#local-6989586621679615650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
+</span><a href="#local-6989586621679615651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:TreatmentResource' :: Maybe CampaignState
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3Astate%3ATreatmentResource%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignState
-</span><a href="#local-6989586621679615143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679615650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The message configuration settings for the treatment.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_messageConfiguration"><span class="hs-identifier hs-type">treatmentResource_messageConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageConfiguration.html#MessageConfiguration"><span class="hs-identifier hs-type">MessageConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="treatmentResource_messageConfiguration"><span class="annot"><span class="annottext">treatmentResource_messageConfiguration :: (Maybe MessageConfiguration -&gt; f (Maybe MessageConfiguration))
+</span><span id="line-118"></span><span class="hs-comment">-- | The schedule settings for the treatment.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_schedule"><span class="hs-identifier hs-type">treatmentResource_schedule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="treatmentResource_schedule"><span class="annot"><span class="annottext">treatmentResource_schedule :: (Maybe Schedule -&gt; f (Maybe Schedule))
 -&gt; TreatmentResource -&gt; f TreatmentResource
-</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_messageConfiguration"><span class="hs-identifier hs-var hs-var">treatmentResource_messageConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TreatmentResource -&gt; Maybe MessageConfiguration)
--&gt; (TreatmentResource
-    -&gt; Maybe MessageConfiguration -&gt; TreatmentResource)
+</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_schedule"><span class="hs-identifier hs-var hs-var">treatmentResource_schedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TreatmentResource -&gt; Maybe Schedule)
+-&gt; (TreatmentResource -&gt; Maybe Schedule -&gt; TreatmentResource)
 -&gt; Lens
      TreatmentResource
      TreatmentResource
-     (Maybe MessageConfiguration)
-     (Maybe MessageConfiguration)
+     (Maybe Schedule)
+     (Maybe Schedule)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615141"><span class="annot"><span class="annottext">Maybe MessageConfiguration
-messageConfiguration :: Maybe MessageConfiguration
-$sel:messageConfiguration:TreatmentResource' :: TreatmentResource -&gt; Maybe MessageConfiguration
-</span><a href="#local-6989586621679615141"><span class="hs-identifier hs-var hs-var">messageConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessageConfiguration
-</span><a href="#local-6989586621679615141"><span class="hs-identifier hs-var">messageConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615140"><span class="annot"><span class="annottext">s :: TreatmentResource
-</span><a href="#local-6989586621679615140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615139"><span class="annot"><span class="annottext">Maybe MessageConfiguration
-</span><a href="#local-6989586621679615139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
-</span><a href="#local-6989586621679615140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageConfiguration:TreatmentResource' :: Maybe MessageConfiguration
-</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AmessageConfiguration%3ATreatmentResource%27"><span class="hs-identifier hs-var">messageConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageConfiguration
-</span><a href="#local-6989586621679615139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615648"><span class="annot"><span class="annottext">Maybe Schedule
+schedule :: Maybe Schedule
+$sel:schedule:TreatmentResource' :: TreatmentResource -&gt; Maybe Schedule
+</span><a href="#local-6989586621679615648"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Schedule
+</span><a href="#local-6989586621679615648"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615647"><span class="annot"><span class="annottext">s :: TreatmentResource
+</span><a href="#local-6989586621679615647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615646"><span class="annot"><span class="annottext">Maybe Schedule
+</span><a href="#local-6989586621679615646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
+</span><a href="#local-6989586621679615647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:TreatmentResource' :: Maybe Schedule
+</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3Aschedule%3ATreatmentResource%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Schedule
+</span><a href="#local-6989586621679615646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | The custom name of the treatment.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_treatmentName"><span class="hs-identifier hs-type">treatmentResource_treatmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="treatmentResource_treatmentName"><span class="annot"><span class="annottext">treatmentResource_treatmentName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; TreatmentResource -&gt; f TreatmentResource
-</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_treatmentName"><span class="hs-identifier hs-var hs-var">treatmentResource_treatmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TreatmentResource -&gt; Maybe Text)
--&gt; (TreatmentResource -&gt; Maybe Text -&gt; TreatmentResource)
--&gt; Lens
-     TreatmentResource TreatmentResource (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615137"><span class="annot"><span class="annottext">Maybe Text
-treatmentName :: Maybe Text
-$sel:treatmentName:TreatmentResource' :: TreatmentResource -&gt; Maybe Text
-</span><a href="#local-6989586621679615137"><span class="hs-identifier hs-var hs-var">treatmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679615137"><span class="hs-identifier hs-var">treatmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615136"><span class="annot"><span class="annottext">s :: TreatmentResource
-</span><a href="#local-6989586621679615136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615135"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679615135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
-</span><a href="#local-6989586621679615136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:treatmentName:TreatmentResource' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AtreatmentName%3ATreatmentResource%27"><span class="hs-identifier hs-var">treatmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679615135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The message template to use for the treatment.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_templateConfiguration"><span class="hs-identifier hs-type">treatmentResource_templateConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="treatmentResource_templateConfiguration"><span class="annot"><span class="annottext">treatmentResource_templateConfiguration :: (Maybe TemplateConfiguration -&gt; f (Maybe TemplateConfiguration))
+</span><span id="line-122"></span><span class="hs-comment">-- | The message template to use for the treatment.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_templateConfiguration"><span class="hs-identifier hs-type">treatmentResource_templateConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="treatmentResource_templateConfiguration"><span class="annot"><span class="annottext">treatmentResource_templateConfiguration :: (Maybe TemplateConfiguration -&gt; f (Maybe TemplateConfiguration))
 -&gt; TreatmentResource -&gt; f TreatmentResource
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_templateConfiguration"><span class="hs-identifier hs-var hs-var">treatmentResource_templateConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TreatmentResource -&gt; Maybe TemplateConfiguration)
 -&gt; (TreatmentResource
@@ -312,59 +291,80 @@ $sel:treatmentName:TreatmentResource' :: TreatmentResource -&gt; Maybe Text
      (Maybe TemplateConfiguration)
      (Maybe TemplateConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615133"><span class="annot"><span class="annottext">Maybe TemplateConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615644"><span class="annot"><span class="annottext">Maybe TemplateConfiguration
 templateConfiguration :: Maybe TemplateConfiguration
 $sel:templateConfiguration:TreatmentResource' :: TreatmentResource -&gt; Maybe TemplateConfiguration
-</span><a href="#local-6989586621679615133"><span class="hs-identifier hs-var hs-var">templateConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TemplateConfiguration
-</span><a href="#local-6989586621679615133"><span class="hs-identifier hs-var">templateConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615132"><span class="annot"><span class="annottext">s :: TreatmentResource
-</span><a href="#local-6989586621679615132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615131"><span class="annot"><span class="annottext">Maybe TemplateConfiguration
-</span><a href="#local-6989586621679615131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
-</span><a href="#local-6989586621679615132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateConfiguration:TreatmentResource' :: Maybe TemplateConfiguration
+</span><a href="#local-6989586621679615644"><span class="hs-identifier hs-var hs-var">templateConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TemplateConfiguration
+</span><a href="#local-6989586621679615644"><span class="hs-identifier hs-var">templateConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615643"><span class="annot"><span class="annottext">s :: TreatmentResource
+</span><a href="#local-6989586621679615643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615642"><span class="annot"><span class="annottext">Maybe TemplateConfiguration
+</span><a href="#local-6989586621679615642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
+</span><a href="#local-6989586621679615643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateConfiguration:TreatmentResource' :: Maybe TemplateConfiguration
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AtemplateConfiguration%3ATreatmentResource%27"><span class="hs-identifier hs-var">templateConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TemplateConfiguration
-</span><a href="#local-6989586621679615131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The schedule settings for the treatment.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_schedule"><span class="hs-identifier hs-type">treatmentResource_schedule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="treatmentResource_schedule"><span class="annot"><span class="annottext">treatmentResource_schedule :: (Maybe Schedule -&gt; f (Maybe Schedule))
+</span><a href="#local-6989586621679615642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The custom name of the treatment.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_treatmentName"><span class="hs-identifier hs-type">treatmentResource_treatmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="treatmentResource_treatmentName"><span class="annot"><span class="annottext">treatmentResource_treatmentName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; TreatmentResource -&gt; f TreatmentResource
-</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_schedule"><span class="hs-identifier hs-var hs-var">treatmentResource_schedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TreatmentResource -&gt; Maybe Schedule)
--&gt; (TreatmentResource -&gt; Maybe Schedule -&gt; TreatmentResource)
+</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_treatmentName"><span class="hs-identifier hs-var hs-var">treatmentResource_treatmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TreatmentResource -&gt; Maybe Text)
+-&gt; (TreatmentResource -&gt; Maybe Text -&gt; TreatmentResource)
 -&gt; Lens
-     TreatmentResource
-     TreatmentResource
-     (Maybe Schedule)
-     (Maybe Schedule)
+     TreatmentResource TreatmentResource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615129"><span class="annot"><span class="annottext">Maybe Schedule
-schedule :: Maybe Schedule
-$sel:schedule:TreatmentResource' :: TreatmentResource -&gt; Maybe Schedule
-</span><a href="#local-6989586621679615129"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Schedule
-</span><a href="#local-6989586621679615129"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615128"><span class="annot"><span class="annottext">s :: TreatmentResource
-</span><a href="#local-6989586621679615128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615127"><span class="annot"><span class="annottext">Maybe Schedule
-</span><a href="#local-6989586621679615127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
-</span><a href="#local-6989586621679615128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:TreatmentResource' :: Maybe Schedule
-</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3Aschedule%3ATreatmentResource%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Schedule
-</span><a href="#local-6989586621679615127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The custom description of the treatment.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_treatmentDescription"><span class="hs-identifier hs-type">treatmentResource_treatmentDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="treatmentResource_treatmentDescription"><span class="annot"><span class="annottext">treatmentResource_treatmentDescription :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615640"><span class="annot"><span class="annottext">Maybe Text
+treatmentName :: Maybe Text
+$sel:treatmentName:TreatmentResource' :: TreatmentResource -&gt; Maybe Text
+</span><a href="#local-6989586621679615640"><span class="hs-identifier hs-var hs-var">treatmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679615640"><span class="hs-identifier hs-var">treatmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615639"><span class="annot"><span class="annottext">s :: TreatmentResource
+</span><a href="#local-6989586621679615639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615638"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679615638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
+</span><a href="#local-6989586621679615639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:treatmentName:TreatmentResource' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AtreatmentName%3ATreatmentResource%27"><span class="hs-identifier hs-var">treatmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679615638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The custom description of the treatment.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_treatmentDescription"><span class="hs-identifier hs-type">treatmentResource_treatmentDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="treatmentResource_treatmentDescription"><span class="annot"><span class="annottext">treatmentResource_treatmentDescription :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; TreatmentResource -&gt; f TreatmentResource
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_treatmentDescription"><span class="hs-identifier hs-var hs-var">treatmentResource_treatmentDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TreatmentResource -&gt; Maybe Text)
 -&gt; (TreatmentResource -&gt; Maybe Text -&gt; TreatmentResource)
 -&gt; Lens
      TreatmentResource TreatmentResource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615125"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615636"><span class="annot"><span class="annottext">Maybe Text
 treatmentDescription :: Maybe Text
 $sel:treatmentDescription:TreatmentResource' :: TreatmentResource -&gt; Maybe Text
-</span><a href="#local-6989586621679615125"><span class="hs-identifier hs-var hs-var">treatmentDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679615125"><span class="hs-identifier hs-var">treatmentDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615124"><span class="annot"><span class="annottext">s :: TreatmentResource
-</span><a href="#local-6989586621679615124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615123"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679615123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
-</span><a href="#local-6989586621679615124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:treatmentDescription:TreatmentResource' :: Maybe Text
+</span><a href="#local-6989586621679615636"><span class="hs-identifier hs-var hs-var">treatmentDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679615636"><span class="hs-identifier hs-var">treatmentDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615635"><span class="annot"><span class="annottext">s :: TreatmentResource
+</span><a href="#local-6989586621679615635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615634"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679615634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
+</span><a href="#local-6989586621679615635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:treatmentDescription:TreatmentResource' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AtreatmentDescription%3ATreatmentResource%27"><span class="hs-identifier hs-var">treatmentDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679615123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679615634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The message configuration settings for the treatment.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_messageConfiguration"><span class="hs-identifier hs-type">treatmentResource_messageConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageConfiguration.html#MessageConfiguration"><span class="hs-identifier hs-type">MessageConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="treatmentResource_messageConfiguration"><span class="annot"><span class="annottext">treatmentResource_messageConfiguration :: (Maybe MessageConfiguration -&gt; f (Maybe MessageConfiguration))
+-&gt; TreatmentResource -&gt; f TreatmentResource
+</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_messageConfiguration"><span class="hs-identifier hs-var hs-var">treatmentResource_messageConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TreatmentResource -&gt; Maybe MessageConfiguration)
+-&gt; (TreatmentResource
+    -&gt; Maybe MessageConfiguration -&gt; TreatmentResource)
+-&gt; Lens
+     TreatmentResource
+     TreatmentResource
+     (Maybe MessageConfiguration)
+     (Maybe MessageConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615632"><span class="annot"><span class="annottext">Maybe MessageConfiguration
+messageConfiguration :: Maybe MessageConfiguration
+$sel:messageConfiguration:TreatmentResource' :: TreatmentResource -&gt; Maybe MessageConfiguration
+</span><a href="#local-6989586621679615632"><span class="hs-identifier hs-var hs-var">messageConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessageConfiguration
+</span><a href="#local-6989586621679615632"><span class="hs-identifier hs-var">messageConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615631"><span class="annot"><span class="annottext">s :: TreatmentResource
+</span><a href="#local-6989586621679615631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615630"><span class="annot"><span class="annottext">Maybe MessageConfiguration
+</span><a href="#local-6989586621679615630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
+</span><a href="#local-6989586621679615631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageConfiguration:TreatmentResource' :: Maybe MessageConfiguration
+</span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AmessageConfiguration%3ATreatmentResource%27"><span class="hs-identifier hs-var">messageConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageConfiguration
+</span><a href="#local-6989586621679615630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The unique identifier for the treatment.</span><span>
 </span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#treatmentResource_id"><span class="hs-identifier hs-type">treatmentResource_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -373,16 +373,16 @@ $sel:treatmentDescription:TreatmentResource' :: TreatmentResource -&gt; Maybe Te
 -&gt; (TreatmentResource -&gt; Text -&gt; TreatmentResource)
 -&gt; Lens TreatmentResource TreatmentResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615121"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615628"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:TreatmentResource' :: TreatmentResource -&gt; Text
-</span><a href="#local-6989586621679615121"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679615121"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615120"><span class="annot"><span class="annottext">s :: TreatmentResource
-</span><a href="#local-6989586621679615120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615119"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679615119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
-</span><a href="#local-6989586621679615120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:TreatmentResource' :: Text
+</span><a href="#local-6989586621679615628"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679615628"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615627"><span class="annot"><span class="annottext">s :: TreatmentResource
+</span><a href="#local-6989586621679615627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615626"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679615626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
+</span><a href="#local-6989586621679615627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:TreatmentResource' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3Aid%3ATreatmentResource%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679615119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679615626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The allocated percentage of users (segment members) that the treatment</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- is sent to.</span><span>
@@ -392,19 +392,19 @@ $sel:id:TreatmentResource' :: TreatmentResource -&gt; Text
 -&gt; (TreatmentResource -&gt; Int -&gt; TreatmentResource)
 -&gt; Lens TreatmentResource TreatmentResource Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615117"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615624"><span class="annot"><span class="annottext">Int
 sizePercent :: Int
 $sel:sizePercent:TreatmentResource' :: TreatmentResource -&gt; Int
-</span><a href="#local-6989586621679615117"><span class="hs-identifier hs-var hs-var">sizePercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679615117"><span class="hs-identifier hs-var">sizePercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615116"><span class="annot"><span class="annottext">s :: TreatmentResource
-</span><a href="#local-6989586621679615116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615115"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679615115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
-</span><a href="#local-6989586621679615116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizePercent:TreatmentResource' :: Int
+</span><a href="#local-6989586621679615624"><span class="hs-identifier hs-var hs-var">sizePercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679615624"><span class="hs-identifier hs-var">sizePercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615623"><span class="annot"><span class="annottext">s :: TreatmentResource
+</span><a href="#local-6989586621679615623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-type">TreatmentResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615622"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679615622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TreatmentResource
+</span><a href="#local-6989586621679615623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizePercent:TreatmentResource' :: Int
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#%24sel%3AsizePercent%3ATreatmentResource%27"><span class="hs-identifier hs-var">sizePercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679615115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679615622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679615112"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679615110"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TreatmentResource
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679615619"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679615617"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TreatmentResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TreatmentResource)
@@ -414,157 +414,162 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TreatmentResource&quot;</span></span><span>
-</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679615107"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679615107"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679615614"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679615614"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe CustomDeliveryConfiguration
 -&gt; Maybe CampaignState
--&gt; Maybe MessageConfiguration
--&gt; Maybe Text
--&gt; Maybe TemplateConfiguration
 -&gt; Maybe Schedule
+-&gt; Maybe TemplateConfiguration
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe MessageConfiguration
 -&gt; Text
 -&gt; Int
 -&gt; TreatmentResource
 </span><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource%27"><span class="hs-identifier hs-var">TreatmentResource'</span></a></span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CustomDeliveryConfiguration
  -&gt; Maybe CampaignState
- -&gt; Maybe MessageConfiguration
- -&gt; Maybe Text
- -&gt; Maybe TemplateConfiguration
  -&gt; Maybe Schedule
+ -&gt; Maybe TemplateConfiguration
  -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe MessageConfiguration
  -&gt; Text
  -&gt; Int
  -&gt; TreatmentResource)
 -&gt; Parser (Maybe CustomDeliveryConfiguration)
 -&gt; Parser
      (Maybe CampaignState
-      -&gt; Maybe MessageConfiguration
-      -&gt; Maybe Text
-      -&gt; Maybe TemplateConfiguration
       -&gt; Maybe Schedule
+      -&gt; Maybe TemplateConfiguration
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MessageConfiguration
       -&gt; Text
       -&gt; Int
       -&gt; TreatmentResource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679615107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomDeliveryConfiguration)
+</span><a href="#local-6989586621679615614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomDeliveryConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomDeliveryConfiguration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe CampaignState
-   -&gt; Maybe MessageConfiguration
-   -&gt; Maybe Text
-   -&gt; Maybe TemplateConfiguration
    -&gt; Maybe Schedule
+   -&gt; Maybe TemplateConfiguration
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MessageConfiguration
    -&gt; Text
    -&gt; Int
    -&gt; TreatmentResource)
 -&gt; Parser (Maybe CampaignState)
 -&gt; Parser
-     (Maybe MessageConfiguration
-      -&gt; Maybe Text
+     (Maybe Schedule
       -&gt; Maybe TemplateConfiguration
-      -&gt; Maybe Schedule
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MessageConfiguration
       -&gt; Text
       -&gt; Int
       -&gt; TreatmentResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679615107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CampaignState)
+</span><a href="#local-6989586621679615614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CampaignState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe MessageConfiguration
-   -&gt; Maybe Text
+  (Maybe Schedule
    -&gt; Maybe TemplateConfiguration
-   -&gt; Maybe Schedule
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MessageConfiguration
    -&gt; Text
    -&gt; Int
    -&gt; TreatmentResource)
--&gt; Parser (Maybe MessageConfiguration)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe TemplateConfiguration
-      -&gt; Maybe Schedule
-      -&gt; Maybe Text
-      -&gt; Text
-      -&gt; Int
-      -&gt; TreatmentResource)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679615107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MessageConfiguration)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MessageConfiguration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe TemplateConfiguration
-   -&gt; Maybe Schedule
-   -&gt; Maybe Text
-   -&gt; Text
-   -&gt; Int
-   -&gt; TreatmentResource)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Schedule)
 -&gt; Parser
      (Maybe TemplateConfiguration
-      -&gt; Maybe Schedule
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MessageConfiguration
       -&gt; Text
       -&gt; Int
       -&gt; TreatmentResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679615107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679615614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Schedule)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TreatmentName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;Schedule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe TemplateConfiguration
-   -&gt; Maybe Schedule
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MessageConfiguration
    -&gt; Text
    -&gt; Int
    -&gt; TreatmentResource)
 -&gt; Parser (Maybe TemplateConfiguration)
 -&gt; Parser
-     (Maybe Schedule -&gt; Maybe Text -&gt; Text -&gt; Int -&gt; TreatmentResource)
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe MessageConfiguration
+      -&gt; Text
+      -&gt; Int
+      -&gt; TreatmentResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679615107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TemplateConfiguration)
+</span><a href="#local-6989586621679615614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TemplateConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TemplateConfiguration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Schedule -&gt; Maybe Text -&gt; Text -&gt; Int -&gt; TreatmentResource)
--&gt; Parser (Maybe Schedule)
--&gt; Parser (Maybe Text -&gt; Text -&gt; Int -&gt; TreatmentResource)
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe MessageConfiguration
+   -&gt; Text
+   -&gt; Int
+   -&gt; TreatmentResource)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe MessageConfiguration -&gt; Text -&gt; Int -&gt; TreatmentResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679615107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Schedule)
+</span><a href="#local-6989586621679615614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Schedule&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Int -&gt; TreatmentResource)
--&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Int -&gt; TreatmentResource)
+</span><span class="hs-string">&quot;TreatmentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe MessageConfiguration -&gt; Text -&gt; Int -&gt; TreatmentResource)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe MessageConfiguration -&gt; Text -&gt; Int -&gt; TreatmentResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679615107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679615614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TreatmentDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MessageConfiguration -&gt; Text -&gt; Int -&gt; TreatmentResource)
+-&gt; Parser (Maybe MessageConfiguration)
+-&gt; Parser (Text -&gt; Int -&gt; TreatmentResource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679615614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MessageConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MessageConfiguration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Int -&gt; TreatmentResource)
 -&gt; Parser Text -&gt; Parser (Int -&gt; TreatmentResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679615107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679615614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -572,13 +577,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Int -&gt; Parser TreatmentResource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679615107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+</span><a href="#local-6989586621679615614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SizePercent&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679615100"><span id="local-6989586621679615102"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679615607"><span id="local-6989586621679615609"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span></span></span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679615097"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679615604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TreatmentResource.html#TreatmentResource"><span class="hs-identifier hs-type">TreatmentResource</span></a></span></span><span>
 </span><span id="line-167"></span></pre></body></html>

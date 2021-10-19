@@ -54,12 +54,12 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | Input to the TerminateJobFlows operation.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newTerminateJobFlows' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679382922"><span id="local-6989586621679382923"></span></span><span class="hs-keyword">data</span><span> </span><span id="TerminateJobFlows"><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows"><span class="hs-identifier hs-var">TerminateJobFlows</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TerminateJobFlows%27"><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows%27"><span class="hs-identifier hs-var">TerminateJobFlows'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679383296"><span id="local-6989586621679383297"></span></span><span class="hs-keyword">data</span><span> </span><span id="TerminateJobFlows"><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows"><span class="hs-identifier hs-var">TerminateJobFlows</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TerminateJobFlows%27"><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows%27"><span class="hs-identifier hs-var">TerminateJobFlows'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of job flows to be shut down.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AjobFlowIds%3ATerminateJobFlows%27"><span class="annot"><span class="annottext">TerminateJobFlows -&gt; [Text]
 </span><a href="Network.AWS.EMR.TerminateJobFlows.html#%24sel%3AjobFlowIds%3ATerminateJobFlows%27"><span class="hs-identifier hs-var hs-var">jobFlowIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382916"><span id="local-6989586621679382918"><span class="annot"><span class="annottext">TerminateJobFlows -&gt; TerminateJobFlows -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383290"><span id="local-6989586621679383292"><span class="annot"><span class="annottext">TerminateJobFlows -&gt; TerminateJobFlows -&gt; Bool
 (TerminateJobFlows -&gt; TerminateJobFlows -&gt; Bool)
 -&gt; (TerminateJobFlows -&gt; TerminateJobFlows -&gt; Bool)
 -&gt; Eq TerminateJobFlows
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TerminateJobFlows -&gt; TerminateJobFlows -&gt; Bool
 == :: TerminateJobFlows -&gt; TerminateJobFlows -&gt; Bool
 $c== :: TerminateJobFlows -&gt; TerminateJobFlows -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382907"><span id="local-6989586621679382909"><span id="local-6989586621679382911"><span id="local-6989586621679382913"><span class="annot"><span class="annottext">ReadPrec [TerminateJobFlows]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383281"><span id="local-6989586621679383283"><span id="local-6989586621679383285"><span id="local-6989586621679383287"><span class="annot"><span class="annottext">ReadPrec [TerminateJobFlows]
 ReadPrec TerminateJobFlows
 Int -&gt; ReadS TerminateJobFlows
 ReadS [TerminateJobFlows]
@@ -88,7 +88,7 @@ readList :: ReadS [TerminateJobFlows]
 $creadList :: ReadS [TerminateJobFlows]
 readsPrec :: Int -&gt; ReadS TerminateJobFlows
 $creadsPrec :: Int -&gt; ReadS TerminateJobFlows
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382900"><span id="local-6989586621679382902"><span id="local-6989586621679382904"><span class="annot"><span class="annottext">Int -&gt; TerminateJobFlows -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383274"><span id="local-6989586621679383276"><span id="local-6989586621679383278"><span class="annot"><span class="annottext">Int -&gt; TerminateJobFlows -&gt; ShowS
 [TerminateJobFlows] -&gt; ShowS
 TerminateJobFlows -&gt; String
 (Int -&gt; TerminateJobFlows -&gt; ShowS)
@@ -140,35 +140,35 @@ forall a. Monoid a =&gt; a
 -&gt; (TerminateJobFlows -&gt; [Text] -&gt; TerminateJobFlows)
 -&gt; Lens TerminateJobFlows TerminateJobFlows [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows%27"><span class="hs-identifier hs-type">TerminateJobFlows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382893"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows%27"><span class="hs-identifier hs-type">TerminateJobFlows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383267"><span class="annot"><span class="annottext">[Text]
 jobFlowIds :: [Text]
 $sel:jobFlowIds:TerminateJobFlows' :: TerminateJobFlows -&gt; [Text]
-</span><a href="#local-6989586621679382893"><span class="hs-identifier hs-var hs-var">jobFlowIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679382893"><span class="hs-identifier hs-var">jobFlowIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382892"><span class="annot"><span class="annottext">s :: TerminateJobFlows
-</span><a href="#local-6989586621679382892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows%27"><span class="hs-identifier hs-type">TerminateJobFlows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382891"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679382891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TerminateJobFlows
-</span><a href="#local-6989586621679382892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobFlowIds:TerminateJobFlows' :: [Text]
+</span><a href="#local-6989586621679383267"><span class="hs-identifier hs-var hs-var">jobFlowIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679383267"><span class="hs-identifier hs-var">jobFlowIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383266"><span class="annot"><span class="annottext">s :: TerminateJobFlows
+</span><a href="#local-6989586621679383266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows%27"><span class="hs-identifier hs-type">TerminateJobFlows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383265"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679383265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TerminateJobFlows
+</span><a href="#local-6989586621679383266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobFlowIds:TerminateJobFlows' :: [Text]
 </span><a href="Network.AWS.EMR.TerminateJobFlows.html#%24sel%3AjobFlowIds%3ATerminateJobFlows%27"><span class="hs-identifier hs-var">jobFlowIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679382891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows"><span class="hs-identifier hs-type">TerminateJobFlows</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; TerminateJobFlows -&gt; f TerminateJobFlows)
+</span><a href="#local-6989586621679383265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows"><span class="hs-identifier hs-type">TerminateJobFlows</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; TerminateJobFlows -&gt; f TerminateJobFlows)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; TerminateJobFlows
 -&gt; f TerminateJobFlows
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows"><span class="hs-identifier hs-type">TerminateJobFlows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows"><span class="hs-identifier hs-type">TerminateJobFlows</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlowsResponse"><span class="hs-identifier hs-type">TerminateJobFlowsResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679382885"><span class="annot"><span class="annottext">request :: TerminateJobFlows -&gt; Request TerminateJobFlows
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679383259"><span class="annot"><span class="annottext">request :: TerminateJobFlows -&gt; Request TerminateJobFlows
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TerminateJobFlows -&gt; Request TerminateJobFlows
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EMR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679382881"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679383255"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TerminateJobFlows
 -&gt; ClientResponse ClientBody
@@ -194,12 +194,12 @@ AWSResponse a
 TerminateJobFlowsResponse
 </span><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlowsResponse%27"><span class="hs-identifier hs-var">TerminateJobFlowsResponse'</span></a></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382874"><span id="local-6989586621679382876"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows"><span class="hs-identifier hs-type">TerminateJobFlows</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383248"><span id="local-6989586621679383250"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows"><span class="hs-identifier hs-type">TerminateJobFlows</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382871"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows"><span class="hs-identifier hs-type">TerminateJobFlows</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383245"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows"><span class="hs-identifier hs-type">TerminateJobFlows</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows"><span class="hs-identifier hs-type">TerminateJobFlows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679382867"><span class="annot"><span class="annottext">toHeaders :: TerminateJobFlows -&gt; [Header]
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679383241"><span class="annot"><span class="annottext">toHeaders :: TerminateJobFlows -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; TerminateJobFlows -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -226,12 +226,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382857"><span id="local-6989586621679382859"><span id="local-6989586621679382861"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows"><span class="hs-identifier hs-type">TerminateJobFlows</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679382855"><span class="annot"><span class="annottext">toJSON :: TerminateJobFlows -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows%27"><span class="hs-identifier hs-type">TerminateJobFlows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382853"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383231"><span id="local-6989586621679383233"><span id="local-6989586621679383235"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows"><span class="hs-identifier hs-type">TerminateJobFlows</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679383229"><span class="annot"><span class="annottext">toJSON :: TerminateJobFlows -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows%27"><span class="hs-identifier hs-type">TerminateJobFlows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383227"><span class="annot"><span class="annottext">[Text]
 jobFlowIds :: [Text]
 $sel:jobFlowIds:TerminateJobFlows' :: TerminateJobFlows -&gt; [Text]
-</span><a href="#local-6989586621679382853"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679383227"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -243,18 +243,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;JobFlowIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679382853"><span class="hs-identifier hs-var">jobFlowIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679383227"><span class="hs-identifier hs-var">jobFlowIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows"><span class="hs-identifier hs-type">TerminateJobFlows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679382847"><span class="annot"><span class="annottext">toPath :: TerminateJobFlows -&gt; ByteString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679383221"><span class="annot"><span class="annottext">toPath :: TerminateJobFlows -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TerminateJobFlows -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlows"><span class="hs-identifier hs-type">TerminateJobFlows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679382843"><span class="annot"><span class="annottext">toQuery :: TerminateJobFlows -&gt; QueryString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679383217"><span class="annot"><span class="annottext">toQuery :: TerminateJobFlows -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; TerminateJobFlows -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -262,10 +262,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newTerminateJobFlowsResponse' smart constructor.</span><span>
-</span><span id="line-122"></span><span id="local-6989586621679382840"><span id="local-6989586621679382841"></span></span><span class="hs-keyword">data</span><span> </span><span id="TerminateJobFlowsResponse"><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlowsResponse"><span class="hs-identifier hs-var">TerminateJobFlowsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TerminateJobFlowsResponse%27"><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlowsResponse%27"><span class="hs-identifier hs-var">TerminateJobFlowsResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span id="local-6989586621679383214"><span id="local-6989586621679383215"></span></span><span class="hs-keyword">data</span><span> </span><span id="TerminateJobFlowsResponse"><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlowsResponse"><span class="hs-identifier hs-var">TerminateJobFlowsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TerminateJobFlowsResponse%27"><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlowsResponse%27"><span class="hs-identifier hs-var">TerminateJobFlowsResponse'</span></a></span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382836"><span id="local-6989586621679382838"><span class="annot"><span class="annottext">TerminateJobFlowsResponse -&gt; TerminateJobFlowsResponse -&gt; Bool
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383210"><span id="local-6989586621679383212"><span class="annot"><span class="annottext">TerminateJobFlowsResponse -&gt; TerminateJobFlowsResponse -&gt; Bool
 (TerminateJobFlowsResponse -&gt; TerminateJobFlowsResponse -&gt; Bool)
 -&gt; (TerminateJobFlowsResponse -&gt; TerminateJobFlowsResponse -&gt; Bool)
 -&gt; Eq TerminateJobFlowsResponse
@@ -274,7 +274,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TerminateJobFlowsResponse -&gt; TerminateJobFlowsResponse -&gt; Bool
 == :: TerminateJobFlowsResponse -&gt; TerminateJobFlowsResponse -&gt; Bool
 $c== :: TerminateJobFlowsResponse -&gt; TerminateJobFlowsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382828"><span id="local-6989586621679382830"><span id="local-6989586621679382832"><span id="local-6989586621679382834"><span class="annot"><span class="annottext">ReadPrec [TerminateJobFlowsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383202"><span id="local-6989586621679383204"><span id="local-6989586621679383206"><span id="local-6989586621679383208"><span class="annot"><span class="annottext">ReadPrec [TerminateJobFlowsResponse]
 ReadPrec TerminateJobFlowsResponse
 Int -&gt; ReadS TerminateJobFlowsResponse
 ReadS [TerminateJobFlowsResponse]
@@ -294,7 +294,7 @@ readList :: ReadS [TerminateJobFlowsResponse]
 $creadList :: ReadS [TerminateJobFlowsResponse]
 readsPrec :: Int -&gt; ReadS TerminateJobFlowsResponse
 $creadsPrec :: Int -&gt; ReadS TerminateJobFlowsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382822"><span id="local-6989586621679382824"><span id="local-6989586621679382826"><span class="annot"><span class="annottext">Int -&gt; TerminateJobFlowsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383196"><span id="local-6989586621679383198"><span id="local-6989586621679383200"><span class="annot"><span class="annottext">Int -&gt; TerminateJobFlowsResponse -&gt; ShowS
 [TerminateJobFlowsResponse] -&gt; ShowS
 TerminateJobFlowsResponse -&gt; String
 (Int -&gt; TerminateJobFlowsResponse -&gt; ShowS)
@@ -337,5 +337,5 @@ TerminateJobFlowsResponse -&gt; Rep TerminateJobFlowsResponse x
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">TerminateJobFlowsResponse
 </span><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlowsResponse%27"><span class="hs-identifier hs-var">TerminateJobFlowsResponse'</span></a></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382818"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlowsResponse"><span class="hs-identifier hs-type">TerminateJobFlowsResponse</span></a></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383192"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.TerminateJobFlows.html#TerminateJobFlowsResponse"><span class="hs-identifier hs-type">TerminateJobFlowsResponse</span></a></span></span><span>
 </span><span id="line-137"></span></pre></body></html>

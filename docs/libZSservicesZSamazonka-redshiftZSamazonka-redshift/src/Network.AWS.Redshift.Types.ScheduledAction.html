@@ -31,59 +31,59 @@
 </span><span id="line-31"></span><span class="hs-comment">-- which API operations can be scheduled, see ScheduledActionType.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newScheduledAction' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679496817"><span id="local-6989586621679496818"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduledAction"><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-var">ScheduledAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduledAction%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-var">ScheduledAction'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A JSON format string of the Amazon Redshift API operation with input</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- parameters.</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- \&quot;@{\\\&quot;ResizeCluster\\\&quot;:{\\\&quot;NodeType\\\&quot;:\\\&quot;ds2.8xlarge\\\&quot;,\\\&quot;ClusterIdentifier\\\&quot;:\\\&quot;my-test-cluster\\\&quot;,\\\&quot;NumberOfNodes\\\&quot;:3}}@\&quot;.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AtargetAction%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe ScheduledActionType
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AtargetAction%3AScheduledAction%27"><span class="hs-identifier hs-var hs-var">targetAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionType.html#ScheduledActionType"><span class="hs-identifier hs-type">ScheduledActionType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | List of times when the scheduled action will run.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AnextInvocations%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe [ISO8601]
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AnextInvocations%3AScheduledAction%27"><span class="hs-identifier hs-var hs-var">nextInvocations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The IAM role to assume to run the scheduled action. This IAM role must</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- have permission to run the Amazon Redshift API operation in the</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- scheduled action. This IAM role must allow the Amazon Redshift scheduler</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- (Principal scheduler.redshift.amazonaws.com) to assume permissions on</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- your behalf. For more information about the IAM role to use with the</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- Amazon Redshift scheduler, see</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html Using Identity-Based Policies for Amazon Redshift&gt;</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- in the /Amazon Redshift Cluster Management Guide/.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AiamRole%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AiamRole%3AScheduledAction%27"><span class="hs-identifier hs-var hs-var">iamRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The description of the scheduled action.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AscheduledActionDescription%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AscheduledActionDescription%3AScheduledAction%27"><span class="hs-identifier hs-var hs-var">scheduledActionDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The start time in UTC when the schedule is active. Before this time, the</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- scheduled action does not trigger.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AstartTime%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe ISO8601
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AstartTime%3AScheduledAction%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The end time in UTC when the schedule is no longer active. After this</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- time, the scheduled action does not trigger.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AendTime%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe ISO8601
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AendTime%3AScheduledAction%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The state of the scheduled action. For example, @DISABLED@.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3Astate%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe ScheduledActionState
+</span><span id="line-34"></span><span id="local-6989586621679497471"><span id="local-6989586621679497472"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduledAction"><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-var">ScheduledAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduledAction%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-var">ScheduledAction'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the scheduled action. For example, @DISABLED@.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astate%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe ScheduledActionState
 </span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3Astate%3AScheduledAction%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionState.html#ScheduledActionState"><span class="hs-identifier hs-type">ScheduledActionState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The name of the scheduled action.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AscheduledActionName%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe Text
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A JSON format string of the Amazon Redshift API operation with input</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- parameters.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- \&quot;@{\\\&quot;ResizeCluster\\\&quot;:{\\\&quot;NodeType\\\&quot;:\\\&quot;ds2.8xlarge\\\&quot;,\\\&quot;ClusterIdentifier\\\&quot;:\\\&quot;my-test-cluster\\\&quot;,\\\&quot;NumberOfNodes\\\&quot;:3}}@\&quot;.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AtargetAction%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe ScheduledActionType
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AtargetAction%3AScheduledAction%27"><span class="hs-identifier hs-var hs-var">targetAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionType.html#ScheduledActionType"><span class="hs-identifier hs-type">ScheduledActionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The start time in UTC when the schedule is active. Before this time, the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- scheduled action does not trigger.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AstartTime%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AstartTime%3AScheduledAction%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The schedule for a one-time (at format) or recurring (cron format)</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- scheduled action. Schedule invocations must be separated by at least one</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- hour.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- Format of at expressions is \&quot;@at(yyyy-mm-ddThh:mm:ss)@\&quot;. For example,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- \&quot;@at(2016-03-04T17:27:00)@\&quot;.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- Format of cron expressions is</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- \&quot;@cron(Minutes Hours Day-of-month Month Day-of-week Year)@\&quot;. For</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- example, \&quot;@cron(0 10 ? * MON *)@\&quot;. For more information, see</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron Expressions&gt;</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- in the /Amazon CloudWatch Events User Guide/.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aschedule%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3Aschedule%3AScheduledAction%27"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The name of the scheduled action.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AscheduledActionName%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AscheduledActionName%3AScheduledAction%27"><span class="hs-identifier hs-var hs-var">scheduledActionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The schedule for a one-time (at format) or recurring (cron format)</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- scheduled action. Schedule invocations must be separated by at least one</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- hour.</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- Format of at expressions is \&quot;@at(yyyy-mm-ddThh:mm:ss)@\&quot;. For example,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- \&quot;@at(2016-03-04T17:27:00)@\&quot;.</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Format of cron expressions is</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- \&quot;@cron(Minutes Hours Day-of-month Month Day-of-week Year)@\&quot;. For</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- example, \&quot;@cron(0 10 ? * MON *)@\&quot;. For more information, see</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron Expressions&gt;</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- in the /Amazon CloudWatch Events User Guide/.</span><span>
-</span><span id="line-75"></span><span>    </span><span id="%24sel%3Aschedule%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3Aschedule%3AScheduledAction%27"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The description of the scheduled action.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AscheduledActionDescription%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AscheduledActionDescription%3AScheduledAction%27"><span class="hs-identifier hs-var hs-var">scheduledActionDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | List of times when the scheduled action will run.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextInvocations%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe [ISO8601]
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AnextInvocations%3AScheduledAction%27"><span class="hs-identifier hs-var hs-var">nextInvocations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The end time in UTC when the schedule is no longer active. After this</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- time, the scheduled action does not trigger.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AendTime%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AendTime%3AScheduledAction%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The IAM role to assume to run the scheduled action. This IAM role must</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- have permission to run the Amazon Redshift API operation in the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- scheduled action. This IAM role must allow the Amazon Redshift scheduler</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- (Principal scheduler.redshift.amazonaws.com) to assume permissions on</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- your behalf. For more information about the IAM role to use with the</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- Amazon Redshift scheduler, see</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html Using Identity-Based Policies for Amazon Redshift&gt;</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- in the /Amazon Redshift Cluster Management Guide/.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AiamRole%3AScheduledAction%27"><span class="annot"><span class="annottext">ScheduledAction -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AiamRole%3AScheduledAction%27"><span class="hs-identifier hs-var hs-var">iamRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679496803"><span id="local-6989586621679496805"><span class="annot"><span class="annottext">ScheduledAction -&gt; ScheduledAction -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679497457"><span id="local-6989586621679497459"><span class="annot"><span class="annottext">ScheduledAction -&gt; ScheduledAction -&gt; Bool
 (ScheduledAction -&gt; ScheduledAction -&gt; Bool)
 -&gt; (ScheduledAction -&gt; ScheduledAction -&gt; Bool)
 -&gt; Eq ScheduledAction
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ScheduledAction -&gt; ScheduledAction -&gt; Bool
 == :: ScheduledAction -&gt; ScheduledAction -&gt; Bool
 $c== :: ScheduledAction -&gt; ScheduledAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679496794"><span id="local-6989586621679496796"><span id="local-6989586621679496798"><span id="local-6989586621679496800"><span class="annot"><span class="annottext">ReadPrec [ScheduledAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679497448"><span id="local-6989586621679497450"><span id="local-6989586621679497452"><span id="local-6989586621679497454"><span class="annot"><span class="annottext">ReadPrec [ScheduledAction]
 ReadPrec ScheduledAction
 Int -&gt; ReadS ScheduledAction
 ReadS [ScheduledAction]
@@ -112,7 +112,7 @@ readList :: ReadS [ScheduledAction]
 $creadList :: ReadS [ScheduledAction]
 readsPrec :: Int -&gt; ReadS ScheduledAction
 $creadsPrec :: Int -&gt; ReadS ScheduledAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679496787"><span id="local-6989586621679496789"><span id="local-6989586621679496791"><span class="annot"><span class="annottext">Int -&gt; ScheduledAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679497441"><span id="local-6989586621679497443"><span id="local-6989586621679497445"><span class="annot"><span class="annottext">Int -&gt; ScheduledAction -&gt; ShowS
 [ScheduledAction] -&gt; ShowS
 ScheduledAction -&gt; String
 (Int -&gt; ScheduledAction -&gt; ShowS)
@@ -146,105 +146,129 @@ $cfrom :: forall x. ScheduledAction -&gt; Rep ScheduledAction x
 </span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'targetAction', 'scheduledAction_targetAction' - A JSON format string of the Amazon Redshift API operation with input</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- parameters.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- \&quot;@{\\\&quot;ResizeCluster\\\&quot;:{\\\&quot;NodeType\\\&quot;:\\\&quot;ds2.8xlarge\\\&quot;,\\\&quot;ClusterIdentifier\\\&quot;:\\\&quot;my-test-cluster\\\&quot;,\\\&quot;NumberOfNodes\\\&quot;:3}}@\&quot;.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'state', 'scheduledAction_state' - The state of the scheduled action. For example, @DISABLED@.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'targetAction', 'scheduledAction_targetAction' - A JSON format string of the Amazon Redshift API operation with input</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- parameters.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'nextInvocations', 'scheduledAction_nextInvocations' - List of times when the scheduled action will run.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- \&quot;@{\\\&quot;ResizeCluster\\\&quot;:{\\\&quot;NodeType\\\&quot;:\\\&quot;ds2.8xlarge\\\&quot;,\\\&quot;ClusterIdentifier\\\&quot;:\\\&quot;my-test-cluster\\\&quot;,\\\&quot;NumberOfNodes\\\&quot;:3}}@\&quot;.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'iamRole', 'scheduledAction_iamRole' - The IAM role to assume to run the scheduled action. This IAM role must</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- have permission to run the Amazon Redshift API operation in the</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- scheduled action. This IAM role must allow the Amazon Redshift scheduler</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- (Principal scheduler.redshift.amazonaws.com) to assume permissions on</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- your behalf. For more information about the IAM role to use with the</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- Amazon Redshift scheduler, see</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html Using Identity-Based Policies for Amazon Redshift&gt;</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- in the /Amazon Redshift Cluster Management Guide/.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'scheduledActionDescription', 'scheduledAction_scheduledActionDescription' - The description of the scheduled action.</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'startTime', 'scheduledAction_startTime' - The start time in UTC when the schedule is active. Before this time, the</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- scheduled action does not trigger.</span><span>
-</span><span id="line-107"></span><span class="hs-comment">--</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- 'endTime', 'scheduledAction_endTime' - The end time in UTC when the schedule is no longer active. After this</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- time, the scheduled action does not trigger.</span><span>
-</span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- 'state', 'scheduledAction_state' - The state of the scheduled action. For example, @DISABLED@.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- 'scheduledActionName', 'scheduledAction_scheduledActionName' - The name of the scheduled action.</span><span>
-</span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- 'schedule', 'scheduledAction_schedule' - The schedule for a one-time (at format) or recurring (cron format)</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- scheduled action. Schedule invocations must be separated by at least one</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- hour.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'startTime', 'scheduledAction_startTime' - The start time in UTC when the schedule is active. Before this time, the</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- scheduled action does not trigger.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'schedule', 'scheduledAction_schedule' - The schedule for a one-time (at format) or recurring (cron format)</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- scheduled action. Schedule invocations must be separated by at least one</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- hour.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Format of at expressions is \&quot;@at(yyyy-mm-ddThh:mm:ss)@\&quot;. For example,</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- \&quot;@at(2016-03-04T17:27:00)@\&quot;.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Format of cron expressions is</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- \&quot;@cron(Minutes Hours Day-of-month Month Day-of-week Year)@\&quot;. For</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- example, \&quot;@cron(0 10 ? * MON *)@\&quot;. For more information, see</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron Expressions&gt;</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- in the /Amazon CloudWatch Events User Guide/.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'scheduledActionName', 'scheduledAction_scheduledActionName' - The name of the scheduled action.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'scheduledActionDescription', 'scheduledAction_scheduledActionDescription' - The description of the scheduled action.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'nextInvocations', 'scheduledAction_nextInvocations' - List of times when the scheduled action will run.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'endTime', 'scheduledAction_endTime' - The end time in UTC when the schedule is no longer active. After this</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- time, the scheduled action does not trigger.</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- Format of at expressions is \&quot;@at(yyyy-mm-ddThh:mm:ss)@\&quot;. For example,</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- \&quot;@at(2016-03-04T17:27:00)@\&quot;.</span><span>
-</span><span id="line-121"></span><span class="hs-comment">--</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- Format of cron expressions is</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- \&quot;@cron(Minutes Hours Day-of-month Month Day-of-week Year)@\&quot;. For</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- example, \&quot;@cron(0 10 ? * MON *)@\&quot;. For more information, see</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron Expressions&gt;</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- in the /Amazon CloudWatch Events User Guide/.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'iamRole', 'scheduledAction_iamRole' - The IAM role to assume to run the scheduled action. This IAM role must</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- have permission to run the Amazon Redshift API operation in the</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- scheduled action. This IAM role must allow the Amazon Redshift scheduler</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- (Principal scheduler.redshift.amazonaws.com) to assume permissions on</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- your behalf. For more information about the IAM role to use with the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Amazon Redshift scheduler, see</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html Using Identity-Based Policies for Amazon Redshift&gt;</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- in the /Amazon Redshift Cluster Management Guide/.</span><span>
 </span><span id="line-127"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#newScheduledAction"><span class="hs-identifier hs-type">newScheduledAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span>
 </span><span id="line-129"></span><span id="newScheduledAction"><span class="annot"><span class="annottext">newScheduledAction :: ScheduledAction
 </span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#newScheduledAction"><span class="hs-identifier hs-var hs-var">newScheduledAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">ScheduledAction' :: Maybe ScheduledActionType
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">ScheduledAction' :: Maybe ScheduledActionState
+-&gt; Maybe ScheduledActionType
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe [ISO8601]
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ISO8601
--&gt; Maybe ISO8601
--&gt; Maybe ScheduledActionState
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; ScheduledAction
 </span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetAction:ScheduledAction' :: Maybe ScheduledActionType
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AtargetAction%3AScheduledAction%27"><span class="hs-identifier hs-var">targetAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledActionType
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextInvocations:ScheduledAction' :: Maybe [ISO8601]
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AnextInvocations%3AScheduledAction%27"><span class="hs-identifier hs-var">nextInvocations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ISO8601]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:iamRole:ScheduledAction' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AiamRole%3AScheduledAction%27"><span class="hs-identifier hs-var">iamRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduledActionDescription:ScheduledAction' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AscheduledActionDescription%3AScheduledAction%27"><span class="hs-identifier hs-var">scheduledActionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:ScheduledAction' :: Maybe ISO8601
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AstartTime%3AScheduledAction%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:ScheduledAction' :: Maybe ISO8601
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AendTime%3AScheduledAction%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:ScheduledAction' :: Maybe ScheduledActionState
+</span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:ScheduledAction' :: Maybe ScheduledActionState
 </span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3Astate%3AScheduledAction%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledActionState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduledActionName:ScheduledAction' :: Maybe Text
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetAction:ScheduledAction' :: Maybe ScheduledActionType
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AtargetAction%3AScheduledAction%27"><span class="hs-identifier hs-var">targetAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledActionType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:ScheduledAction' :: Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AstartTime%3AScheduledAction%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:schedule:ScheduledAction' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3Aschedule%3AScheduledAction%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduledActionName:ScheduledAction' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AscheduledActionName%3AScheduledAction%27"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:schedule:ScheduledAction' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3Aschedule%3AScheduledAction%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduledActionDescription:ScheduledAction' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AscheduledActionDescription%3AScheduledAction%27"><span class="hs-identifier hs-var">scheduledActionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextInvocations:ScheduledAction' :: Maybe [ISO8601]
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AnextInvocations%3AScheduledAction%27"><span class="hs-identifier hs-var">nextInvocations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ISO8601]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:ScheduledAction' :: Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AendTime%3AScheduledAction%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:iamRole:ScheduledAction' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AiamRole%3AScheduledAction%27"><span class="hs-identifier hs-var">iamRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | A JSON format string of the Amazon Redshift API operation with input</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- parameters.</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- \&quot;@{\\\&quot;ResizeCluster\\\&quot;:{\\\&quot;NodeType\\\&quot;:\\\&quot;ds2.8xlarge\\\&quot;,\\\&quot;ClusterIdentifier\\\&quot;:\\\&quot;my-test-cluster\\\&quot;,\\\&quot;NumberOfNodes\\\&quot;:3}}@\&quot;.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_targetAction"><span class="hs-identifier hs-type">scheduledAction_targetAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionType.html#ScheduledActionType"><span class="hs-identifier hs-type">ScheduledActionType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="scheduledAction_targetAction"><span class="annot"><span class="annottext">scheduledAction_targetAction :: (Maybe ScheduledActionType -&gt; f (Maybe ScheduledActionType))
+</span><span id="line-142"></span><span class="hs-comment">-- | The state of the scheduled action. For example, @DISABLED@.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_state"><span class="hs-identifier hs-type">scheduledAction_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionState.html#ScheduledActionState"><span class="hs-identifier hs-type">ScheduledActionState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="scheduledAction_state"><span class="annot"><span class="annottext">scheduledAction_state :: (Maybe ScheduledActionState -&gt; f (Maybe ScheduledActionState))
+-&gt; ScheduledAction -&gt; f ScheduledAction
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_state"><span class="hs-identifier hs-var hs-var">scheduledAction_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledAction -&gt; Maybe ScheduledActionState)
+-&gt; (ScheduledAction
+    -&gt; Maybe ScheduledActionState -&gt; ScheduledAction)
+-&gt; Lens
+     ScheduledAction
+     ScheduledAction
+     (Maybe ScheduledActionState)
+     (Maybe ScheduledActionState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679497432"><span class="annot"><span class="annottext">Maybe ScheduledActionState
+state :: Maybe ScheduledActionState
+$sel:state:ScheduledAction' :: ScheduledAction -&gt; Maybe ScheduledActionState
+</span><a href="#local-6989586621679497432"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledActionState
+</span><a href="#local-6989586621679497432"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679497431"><span class="annot"><span class="annottext">s :: ScheduledAction
+</span><a href="#local-6989586621679497431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679497430"><span class="annot"><span class="annottext">Maybe ScheduledActionState
+</span><a href="#local-6989586621679497430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
+</span><a href="#local-6989586621679497431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:ScheduledAction' :: Maybe ScheduledActionState
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3Astate%3AScheduledAction%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledActionState
+</span><a href="#local-6989586621679497430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | A JSON format string of the Amazon Redshift API operation with input</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- parameters.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- \&quot;@{\\\&quot;ResizeCluster\\\&quot;:{\\\&quot;NodeType\\\&quot;:\\\&quot;ds2.8xlarge\\\&quot;,\\\&quot;ClusterIdentifier\\\&quot;:\\\&quot;my-test-cluster\\\&quot;,\\\&quot;NumberOfNodes\\\&quot;:3}}@\&quot;.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_targetAction"><span class="hs-identifier hs-type">scheduledAction_targetAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionType.html#ScheduledActionType"><span class="hs-identifier hs-type">ScheduledActionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="scheduledAction_targetAction"><span class="annot"><span class="annottext">scheduledAction_targetAction :: (Maybe ScheduledActionType -&gt; f (Maybe ScheduledActionType))
 -&gt; ScheduledAction -&gt; f ScheduledAction
 </span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_targetAction"><span class="hs-identifier hs-var hs-var">scheduledAction_targetAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledAction -&gt; Maybe ScheduledActionType)
 -&gt; (ScheduledAction
@@ -255,36 +279,141 @@ forall a. Maybe a
      (Maybe ScheduledActionType)
      (Maybe ScheduledActionType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679496778"><span class="annot"><span class="annottext">Maybe ScheduledActionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679497428"><span class="annot"><span class="annottext">Maybe ScheduledActionType
 targetAction :: Maybe ScheduledActionType
 $sel:targetAction:ScheduledAction' :: ScheduledAction -&gt; Maybe ScheduledActionType
-</span><a href="#local-6989586621679496778"><span class="hs-identifier hs-var hs-var">targetAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledActionType
-</span><a href="#local-6989586621679496778"><span class="hs-identifier hs-var">targetAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679496777"><span class="annot"><span class="annottext">s :: ScheduledAction
-</span><a href="#local-6989586621679496777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679496776"><span class="annot"><span class="annottext">Maybe ScheduledActionType
-</span><a href="#local-6989586621679496776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
-</span><a href="#local-6989586621679496777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetAction:ScheduledAction' :: Maybe ScheduledActionType
+</span><a href="#local-6989586621679497428"><span class="hs-identifier hs-var hs-var">targetAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledActionType
+</span><a href="#local-6989586621679497428"><span class="hs-identifier hs-var">targetAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679497427"><span class="annot"><span class="annottext">s :: ScheduledAction
+</span><a href="#local-6989586621679497427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679497426"><span class="annot"><span class="annottext">Maybe ScheduledActionType
+</span><a href="#local-6989586621679497426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
+</span><a href="#local-6989586621679497427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetAction:ScheduledAction' :: Maybe ScheduledActionType
 </span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AtargetAction%3AScheduledAction%27"><span class="hs-identifier hs-var">targetAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledActionType
-</span><a href="#local-6989586621679496776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- | List of times when the scheduled action will run.</span><span>
-</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_nextInvocations"><span class="hs-identifier hs-type">scheduledAction_nextInvocations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span id="scheduledAction_nextInvocations"><span class="annot"><span class="annottext">scheduledAction_nextInvocations :: (Maybe [UTCTime] -&gt; f (Maybe [UTCTime]))
+</span><a href="#local-6989586621679497426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The start time in UTC when the schedule is active. Before this time, the</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- scheduled action does not trigger.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_startTime"><span class="hs-identifier hs-type">scheduledAction_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="scheduledAction_startTime"><span class="annot"><span class="annottext">scheduledAction_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ScheduledAction -&gt; f ScheduledAction
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_startTime"><span class="hs-identifier hs-var hs-var">scheduledAction_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledAction -&gt; Maybe ISO8601)
+-&gt; (ScheduledAction -&gt; Maybe ISO8601 -&gt; ScheduledAction)
+-&gt; Lens
+     ScheduledAction ScheduledAction (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679497424"><span class="annot"><span class="annottext">Maybe ISO8601
+startTime :: Maybe ISO8601
+$sel:startTime:ScheduledAction' :: ScheduledAction -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679497424"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679497424"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679497423"><span class="annot"><span class="annottext">s :: ScheduledAction
+</span><a href="#local-6989586621679497423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679497422"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679497422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
+</span><a href="#local-6989586621679497423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:ScheduledAction' :: Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AstartTime%3AScheduledAction%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679497422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; ScheduledAction -&gt; f ScheduledAction)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ScheduledAction
+-&gt; f ScheduledAction
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The schedule for a one-time (at format) or recurring (cron format)</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- scheduled action. Schedule invocations must be separated by at least one</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- hour.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Format of at expressions is \&quot;@at(yyyy-mm-ddThh:mm:ss)@\&quot;. For example,</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- \&quot;@at(2016-03-04T17:27:00)@\&quot;.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Format of cron expressions is</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- \&quot;@cron(Minutes Hours Day-of-month Month Day-of-week Year)@\&quot;. For</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- example, \&quot;@cron(0 10 ? * MON *)@\&quot;. For more information, see</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron Expressions&gt;</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- in the /Amazon CloudWatch Events User Guide/.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_schedule"><span class="hs-identifier hs-type">scheduledAction_schedule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="scheduledAction_schedule"><span class="annot"><span class="annottext">scheduledAction_schedule :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScheduledAction -&gt; f ScheduledAction
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_schedule"><span class="hs-identifier hs-var hs-var">scheduledAction_schedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledAction -&gt; Maybe Text)
+-&gt; (ScheduledAction -&gt; Maybe Text -&gt; ScheduledAction)
+-&gt; Lens ScheduledAction ScheduledAction (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679497417"><span class="annot"><span class="annottext">Maybe Text
+schedule :: Maybe Text
+$sel:schedule:ScheduledAction' :: ScheduledAction -&gt; Maybe Text
+</span><a href="#local-6989586621679497417"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679497417"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679497416"><span class="annot"><span class="annottext">s :: ScheduledAction
+</span><a href="#local-6989586621679497416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679497415"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679497415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
+</span><a href="#local-6989586621679497416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:ScheduledAction' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3Aschedule%3AScheduledAction%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679497415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The name of the scheduled action.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_scheduledActionName"><span class="hs-identifier hs-type">scheduledAction_scheduledActionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="scheduledAction_scheduledActionName"><span class="annot"><span class="annottext">scheduledAction_scheduledActionName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScheduledAction -&gt; f ScheduledAction
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_scheduledActionName"><span class="hs-identifier hs-var hs-var">scheduledAction_scheduledActionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledAction -&gt; Maybe Text)
+-&gt; (ScheduledAction -&gt; Maybe Text -&gt; ScheduledAction)
+-&gt; Lens ScheduledAction ScheduledAction (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679497413"><span class="annot"><span class="annottext">Maybe Text
+scheduledActionName :: Maybe Text
+$sel:scheduledActionName:ScheduledAction' :: ScheduledAction -&gt; Maybe Text
+</span><a href="#local-6989586621679497413"><span class="hs-identifier hs-var hs-var">scheduledActionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679497413"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679497412"><span class="annot"><span class="annottext">s :: ScheduledAction
+</span><a href="#local-6989586621679497412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679497411"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679497411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
+</span><a href="#local-6989586621679497412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledActionName:ScheduledAction' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AscheduledActionName%3AScheduledAction%27"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679497411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The description of the scheduled action.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_scheduledActionDescription"><span class="hs-identifier hs-type">scheduledAction_scheduledActionDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="scheduledAction_scheduledActionDescription"><span class="annot"><span class="annottext">scheduledAction_scheduledActionDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScheduledAction -&gt; f ScheduledAction
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_scheduledActionDescription"><span class="hs-identifier hs-var hs-var">scheduledAction_scheduledActionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledAction -&gt; Maybe Text)
+-&gt; (ScheduledAction -&gt; Maybe Text -&gt; ScheduledAction)
+-&gt; Lens ScheduledAction ScheduledAction (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679497409"><span class="annot"><span class="annottext">Maybe Text
+scheduledActionDescription :: Maybe Text
+$sel:scheduledActionDescription:ScheduledAction' :: ScheduledAction -&gt; Maybe Text
+</span><a href="#local-6989586621679497409"><span class="hs-identifier hs-var hs-var">scheduledActionDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679497409"><span class="hs-identifier hs-var">scheduledActionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679497408"><span class="annot"><span class="annottext">s :: ScheduledAction
+</span><a href="#local-6989586621679497408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679497407"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679497407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
+</span><a href="#local-6989586621679497408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledActionDescription:ScheduledAction' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AscheduledActionDescription%3AScheduledAction%27"><span class="hs-identifier hs-var">scheduledActionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679497407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | List of times when the scheduled action will run.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_nextInvocations"><span class="hs-identifier hs-type">scheduledAction_nextInvocations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="scheduledAction_nextInvocations"><span class="annot"><span class="annottext">scheduledAction_nextInvocations :: (Maybe [UTCTime] -&gt; f (Maybe [UTCTime]))
 -&gt; ScheduledAction -&gt; f ScheduledAction
 </span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_nextInvocations"><span class="hs-identifier hs-var hs-var">scheduledAction_nextInvocations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledAction -&gt; Maybe [ISO8601])
 -&gt; (ScheduledAction -&gt; Maybe [ISO8601] -&gt; ScheduledAction)
 -&gt; Lens
      ScheduledAction ScheduledAction (Maybe [ISO8601]) (Maybe [ISO8601])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679496774"><span class="annot"><span class="annottext">Maybe [ISO8601]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679497405"><span class="annot"><span class="annottext">Maybe [ISO8601]
 nextInvocations :: Maybe [ISO8601]
 $sel:nextInvocations:ScheduledAction' :: ScheduledAction -&gt; Maybe [ISO8601]
-</span><a href="#local-6989586621679496774"><span class="hs-identifier hs-var hs-var">nextInvocations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ISO8601]
-</span><a href="#local-6989586621679496774"><span class="hs-identifier hs-var">nextInvocations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679496773"><span class="annot"><span class="annottext">s :: ScheduledAction
-</span><a href="#local-6989586621679496773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679496772"><span class="annot"><span class="annottext">Maybe [ISO8601]
-</span><a href="#local-6989586621679496772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
-</span><a href="#local-6989586621679496773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextInvocations:ScheduledAction' :: Maybe [ISO8601]
+</span><a href="#local-6989586621679497405"><span class="hs-identifier hs-var hs-var">nextInvocations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ISO8601]
+</span><a href="#local-6989586621679497405"><span class="hs-identifier hs-var">nextInvocations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679497404"><span class="annot"><span class="annottext">s :: ScheduledAction
+</span><a href="#local-6989586621679497404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679497403"><span class="annot"><span class="annottext">Maybe [ISO8601]
+</span><a href="#local-6989586621679497403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
+</span><a href="#local-6989586621679497404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextInvocations:ScheduledAction' :: Maybe [ISO8601]
 </span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AnextInvocations%3AScheduledAction%27"><span class="hs-identifier hs-var">nextInvocations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ISO8601]
-</span><a href="#local-6989586621679496772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ISO8601] -&gt; f (Maybe [ISO8601]))
+</span><a href="#local-6989586621679497403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ISO8601] -&gt; f (Maybe [ISO8601]))
  -&gt; ScheduledAction -&gt; f ScheduledAction)
 -&gt; ((Maybe [UTCTime] -&gt; f (Maybe [UTCTime]))
     -&gt; Maybe [ISO8601] -&gt; f (Maybe [ISO8601]))
@@ -302,111 +431,29 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ISO8601] [ISO8601] [UTCTime] [UTCTime]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- | The IAM role to assume to run the scheduled action. This IAM role must</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- have permission to run the Amazon Redshift API operation in the</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- scheduled action. This IAM role must allow the Amazon Redshift scheduler</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- (Principal scheduler.redshift.amazonaws.com) to assume permissions on</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- your behalf. For more information about the IAM role to use with the</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- Amazon Redshift scheduler, see</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html Using Identity-Based Policies for Amazon Redshift&gt;</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- in the /Amazon Redshift Cluster Management Guide/.</span><span>
-</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_iamRole"><span class="hs-identifier hs-type">scheduledAction_iamRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span id="scheduledAction_iamRole"><span class="annot"><span class="annottext">scheduledAction_iamRole :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ScheduledAction -&gt; f ScheduledAction
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_iamRole"><span class="hs-identifier hs-var hs-var">scheduledAction_iamRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledAction -&gt; Maybe Text)
--&gt; (ScheduledAction -&gt; Maybe Text -&gt; ScheduledAction)
--&gt; Lens ScheduledAction ScheduledAction (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679496767"><span class="annot"><span class="annottext">Maybe Text
-iamRole :: Maybe Text
-$sel:iamRole:ScheduledAction' :: ScheduledAction -&gt; Maybe Text
-</span><a href="#local-6989586621679496767"><span class="hs-identifier hs-var hs-var">iamRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679496767"><span class="hs-identifier hs-var">iamRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679496766"><span class="annot"><span class="annottext">s :: ScheduledAction
-</span><a href="#local-6989586621679496766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679496765"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679496765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
-</span><a href="#local-6989586621679496766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRole:ScheduledAction' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AiamRole%3AScheduledAction%27"><span class="hs-identifier hs-var">iamRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679496765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- | The description of the scheduled action.</span><span>
-</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_scheduledActionDescription"><span class="hs-identifier hs-type">scheduledAction_scheduledActionDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span id="scheduledAction_scheduledActionDescription"><span class="annot"><span class="annottext">scheduledAction_scheduledActionDescription :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ScheduledAction -&gt; f ScheduledAction
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_scheduledActionDescription"><span class="hs-identifier hs-var hs-var">scheduledAction_scheduledActionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledAction -&gt; Maybe Text)
--&gt; (ScheduledAction -&gt; Maybe Text -&gt; ScheduledAction)
--&gt; Lens ScheduledAction ScheduledAction (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679496763"><span class="annot"><span class="annottext">Maybe Text
-scheduledActionDescription :: Maybe Text
-$sel:scheduledActionDescription:ScheduledAction' :: ScheduledAction -&gt; Maybe Text
-</span><a href="#local-6989586621679496763"><span class="hs-identifier hs-var hs-var">scheduledActionDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679496763"><span class="hs-identifier hs-var">scheduledActionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679496762"><span class="annot"><span class="annottext">s :: ScheduledAction
-</span><a href="#local-6989586621679496762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679496761"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679496761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
-</span><a href="#local-6989586621679496762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledActionDescription:ScheduledAction' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AscheduledActionDescription%3AScheduledAction%27"><span class="hs-identifier hs-var">scheduledActionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679496761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- | The start time in UTC when the schedule is active. Before this time, the</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- scheduled action does not trigger.</span><span>
-</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_startTime"><span class="hs-identifier hs-type">scheduledAction_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span id="scheduledAction_startTime"><span class="annot"><span class="annottext">scheduledAction_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ScheduledAction -&gt; f ScheduledAction
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_startTime"><span class="hs-identifier hs-var hs-var">scheduledAction_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledAction -&gt; Maybe ISO8601)
--&gt; (ScheduledAction -&gt; Maybe ISO8601 -&gt; ScheduledAction)
--&gt; Lens
-     ScheduledAction ScheduledAction (Maybe ISO8601) (Maybe ISO8601)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679496759"><span class="annot"><span class="annottext">Maybe ISO8601
-startTime :: Maybe ISO8601
-$sel:startTime:ScheduledAction' :: ScheduledAction -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679496759"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679496759"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679496758"><span class="annot"><span class="annottext">s :: ScheduledAction
-</span><a href="#local-6989586621679496758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679496757"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679496757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
-</span><a href="#local-6989586621679496758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:ScheduledAction' :: Maybe ISO8601
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AstartTime%3AScheduledAction%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679496757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
- -&gt; ScheduledAction -&gt; f ScheduledAction)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ScheduledAction
--&gt; f ScheduledAction
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
--&gt; Iso
-     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- | The end time in UTC when the schedule is no longer active. After this</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- time, the scheduled action does not trigger.</span><span>
-</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_endTime"><span class="hs-identifier hs-type">scheduledAction_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-176"></span><span id="scheduledAction_endTime"><span class="annot"><span class="annottext">scheduledAction_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The end time in UTC when the schedule is no longer active. After this</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- time, the scheduled action does not trigger.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_endTime"><span class="hs-identifier hs-type">scheduledAction_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="scheduledAction_endTime"><span class="annot"><span class="annottext">scheduledAction_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ScheduledAction -&gt; f ScheduledAction
 </span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_endTime"><span class="hs-identifier hs-var hs-var">scheduledAction_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledAction -&gt; Maybe ISO8601)
 -&gt; (ScheduledAction -&gt; Maybe ISO8601 -&gt; ScheduledAction)
 -&gt; Lens
      ScheduledAction ScheduledAction (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679496754"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679497400"><span class="annot"><span class="annottext">Maybe ISO8601
 endTime :: Maybe ISO8601
 $sel:endTime:ScheduledAction' :: ScheduledAction -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679496754"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679496754"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679496753"><span class="annot"><span class="annottext">s :: ScheduledAction
-</span><a href="#local-6989586621679496753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679496752"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679496752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
-</span><a href="#local-6989586621679496753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:ScheduledAction' :: Maybe ISO8601
+</span><a href="#local-6989586621679497400"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679497400"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679497399"><span class="annot"><span class="annottext">s :: ScheduledAction
+</span><a href="#local-6989586621679497399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679497398"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679497398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
+</span><a href="#local-6989586621679497399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:ScheduledAction' :: Maybe ISO8601
 </span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AendTime%3AScheduledAction%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679496752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679497398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; ScheduledAction -&gt; f ScheduledAction)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -423,148 +470,201 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- | The state of the scheduled action. For example, @DISABLED@.</span><span>
-</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_state"><span class="hs-identifier hs-type">scheduledAction_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionState.html#ScheduledActionState"><span class="hs-identifier hs-type">ScheduledActionState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span id="scheduledAction_state"><span class="annot"><span class="annottext">scheduledAction_state :: (Maybe ScheduledActionState -&gt; f (Maybe ScheduledActionState))
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The IAM role to assume to run the scheduled action. This IAM role must</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- have permission to run the Amazon Redshift API operation in the</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- scheduled action. This IAM role must allow the Amazon Redshift scheduler</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- (Principal scheduler.redshift.amazonaws.com) to assume permissions on</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- your behalf. For more information about the IAM role to use with the</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Amazon Redshift scheduler, see</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html Using Identity-Based Policies for Amazon Redshift&gt;</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- in the /Amazon Redshift Cluster Management Guide/.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_iamRole"><span class="hs-identifier hs-type">scheduledAction_iamRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="scheduledAction_iamRole"><span class="annot"><span class="annottext">scheduledAction_iamRole :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ScheduledAction -&gt; f ScheduledAction
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_state"><span class="hs-identifier hs-var hs-var">scheduledAction_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledAction -&gt; Maybe ScheduledActionState)
--&gt; (ScheduledAction
-    -&gt; Maybe ScheduledActionState -&gt; ScheduledAction)
--&gt; Lens
-     ScheduledAction
-     ScheduledAction
-     (Maybe ScheduledActionState)
-     (Maybe ScheduledActionState)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679496750"><span class="annot"><span class="annottext">Maybe ScheduledActionState
-state :: Maybe ScheduledActionState
-$sel:state:ScheduledAction' :: ScheduledAction -&gt; Maybe ScheduledActionState
-</span><a href="#local-6989586621679496750"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledActionState
-</span><a href="#local-6989586621679496750"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679496749"><span class="annot"><span class="annottext">s :: ScheduledAction
-</span><a href="#local-6989586621679496749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679496748"><span class="annot"><span class="annottext">Maybe ScheduledActionState
-</span><a href="#local-6989586621679496748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
-</span><a href="#local-6989586621679496749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:ScheduledAction' :: Maybe ScheduledActionState
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3Astate%3AScheduledAction%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledActionState
-</span><a href="#local-6989586621679496748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- | The name of the scheduled action.</span><span>
-</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_scheduledActionName"><span class="hs-identifier hs-type">scheduledAction_scheduledActionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span id="scheduledAction_scheduledActionName"><span class="annot"><span class="annottext">scheduledAction_scheduledActionName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ScheduledAction -&gt; f ScheduledAction
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_scheduledActionName"><span class="hs-identifier hs-var hs-var">scheduledAction_scheduledActionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledAction -&gt; Maybe Text)
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_iamRole"><span class="hs-identifier hs-var hs-var">scheduledAction_iamRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledAction -&gt; Maybe Text)
 -&gt; (ScheduledAction -&gt; Maybe Text -&gt; ScheduledAction)
 -&gt; Lens ScheduledAction ScheduledAction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679496746"><span class="annot"><span class="annottext">Maybe Text
-scheduledActionName :: Maybe Text
-$sel:scheduledActionName:ScheduledAction' :: ScheduledAction -&gt; Maybe Text
-</span><a href="#local-6989586621679496746"><span class="hs-identifier hs-var hs-var">scheduledActionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679496746"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679496745"><span class="annot"><span class="annottext">s :: ScheduledAction
-</span><a href="#local-6989586621679496745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679496744"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679496744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
-</span><a href="#local-6989586621679496745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledActionName:ScheduledAction' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AscheduledActionName%3AScheduledAction%27"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679496744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- | The schedule for a one-time (at format) or recurring (cron format)</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- scheduled action. Schedule invocations must be separated by at least one</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- hour.</span><span>
-</span><span id="line-189"></span><span class="hs-comment">--</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- Format of at expressions is \&quot;@at(yyyy-mm-ddThh:mm:ss)@\&quot;. For example,</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- \&quot;@at(2016-03-04T17:27:00)@\&quot;.</span><span>
-</span><span id="line-192"></span><span class="hs-comment">--</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- Format of cron expressions is</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- \&quot;@cron(Minutes Hours Day-of-month Month Day-of-week Year)@\&quot;. For</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- example, \&quot;@cron(0 10 ? * MON *)@\&quot;. For more information, see</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron Expressions&gt;</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- in the /Amazon CloudWatch Events User Guide/.</span><span>
-</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_schedule"><span class="hs-identifier hs-type">scheduledAction_schedule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span id="scheduledAction_schedule"><span class="annot"><span class="annottext">scheduledAction_schedule :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ScheduledAction -&gt; f ScheduledAction
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#scheduledAction_schedule"><span class="hs-identifier hs-var hs-var">scheduledAction_schedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledAction -&gt; Maybe Text)
--&gt; (ScheduledAction -&gt; Maybe Text -&gt; ScheduledAction)
--&gt; Lens ScheduledAction ScheduledAction (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679496742"><span class="annot"><span class="annottext">Maybe Text
-schedule :: Maybe Text
-$sel:schedule:ScheduledAction' :: ScheduledAction -&gt; Maybe Text
-</span><a href="#local-6989586621679496742"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679496742"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679496741"><span class="annot"><span class="annottext">s :: ScheduledAction
-</span><a href="#local-6989586621679496741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679496740"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679496740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
-</span><a href="#local-6989586621679496741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:ScheduledAction' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3Aschedule%3AScheduledAction%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679496740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679497396"><span class="annot"><span class="annottext">Maybe Text
+iamRole :: Maybe Text
+$sel:iamRole:ScheduledAction' :: ScheduledAction -&gt; Maybe Text
+</span><a href="#local-6989586621679497396"><span class="hs-identifier hs-var hs-var">iamRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679497396"><span class="hs-identifier hs-var">iamRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679497395"><span class="annot"><span class="annottext">s :: ScheduledAction
+</span><a href="#local-6989586621679497395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-type">ScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679497394"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679497394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledAction
+</span><a href="#local-6989586621679497395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRole:ScheduledAction' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#%24sel%3AiamRole%3AScheduledAction%27"><span class="hs-identifier hs-var">iamRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679497394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-202"></span><span>  </span><span id="local-6989586621679496737"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ScheduledAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679496735"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679496735"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">Maybe ScheduledActionType
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679497391"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ScheduledAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679497389"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679497389"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">Maybe ScheduledActionState
+-&gt; Maybe ScheduledActionType
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe [ISO8601]
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ISO8601
--&gt; Maybe ISO8601
--&gt; Maybe ScheduledActionState
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; ScheduledAction
 </span><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction%27"><span class="hs-identifier hs-var">ScheduledAction'</span></a></span><span>
-</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ScheduledActionType
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ScheduledActionState
+ -&gt; Maybe ScheduledActionType
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe [ISO8601]
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe ISO8601
- -&gt; Maybe ISO8601
- -&gt; Maybe ScheduledActionState
- -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; ScheduledAction)
--&gt; Either String (Maybe ScheduledActionType)
+-&gt; Either String (Maybe ScheduledActionState)
 -&gt; Either
      String
-     (Maybe [ISO8601]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
+     (Maybe ScheduledActionType
       -&gt; Maybe ISO8601
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ScheduledActionState
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ISO8601]
+      -&gt; Maybe ISO8601
       -&gt; Maybe Text
       -&gt; ScheduledAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679496735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ScheduledActionType)
+</span><a href="#local-6989586621679497389"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ScheduledActionState)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ScheduledActionType
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ISO8601]
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; ScheduledAction)
+-&gt; Either String (Maybe ScheduledActionType)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ISO8601]
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; ScheduledAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679497389"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ScheduledActionType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetAction&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe [ISO8601]
+  (Maybe ISO8601
    -&gt; Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ISO8601]
    -&gt; Maybe ISO8601
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ScheduledActionState
-   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; ScheduledAction)
--&gt; Either String (Maybe [ISO8601])
+-&gt; Either String (Maybe ISO8601)
 -&gt; Either
      String
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ScheduledActionState
       -&gt; Maybe Text
+      -&gt; Maybe [ISO8601]
+      -&gt; Maybe ISO8601
       -&gt; Maybe Text
       -&gt; ScheduledAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679497389"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ISO8601]
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; ScheduledAction)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ISO8601]
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; ScheduledAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679497389"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Schedule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ISO8601]
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; ScheduledAction)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [ISO8601]
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; ScheduledAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679497389"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScheduledActionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [ISO8601]
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; ScheduledAction)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ISO8601] -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; ScheduledAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679497389"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScheduledActionDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ISO8601] -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; ScheduledAction)
+-&gt; Either String (Maybe [ISO8601])
+-&gt; Either String (Maybe ISO8601 -&gt; Maybe Text -&gt; ScheduledAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679496735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679497389"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextInvocations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -572,7 +672,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-206"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-211"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [ISO8601]))
 -&gt; Either String (Maybe [ISO8601])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -585,128 +685,26 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScheduledActionTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-207"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ScheduledActionState
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; ScheduledAction)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ScheduledActionState
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; ScheduledAction)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679496735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IamRole&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ScheduledActionState
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; ScheduledAction)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe ISO8601
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ScheduledActionState
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; ScheduledAction)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679496735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ScheduledActionDescription&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ISO8601
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ScheduledActionState
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; ScheduledAction)
+</span><span id="line-212"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; Maybe Text -&gt; ScheduledAction)
 -&gt; Either String (Maybe ISO8601)
--&gt; Either
-     String
-     (Maybe ISO8601
-      -&gt; Maybe ScheduledActionState
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; ScheduledAction)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679496735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ISO8601
-   -&gt; Maybe ScheduledActionState
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; ScheduledAction)
--&gt; Either String (Maybe ISO8601)
--&gt; Either
-     String
-     (Maybe ScheduledActionState
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; ScheduledAction)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679496735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ScheduledActionState
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; ScheduledAction)
--&gt; Either String (Maybe ScheduledActionState)
--&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; ScheduledAction)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679496735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ScheduledActionState)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; ScheduledAction)
--&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; ScheduledAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679496735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679497389"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ScheduledActionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ScheduledAction)
 -&gt; Either String (Maybe Text) -&gt; Either String ScheduledAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679496735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679497389"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Schedule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;IamRole&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679496726"><span id="local-6989586621679496728"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span></span></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679497380"><span id="local-6989586621679497382"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span></span></span><span>
 </span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679496723"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679497377"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span></span><span>
 </span><span id="line-219"></span></pre></body></html>

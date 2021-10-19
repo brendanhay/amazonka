@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- build project.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newGitSubmodulesConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679370032"><span id="local-6989586621679370033"></span></span><span class="hs-keyword">data</span><span> </span><span id="GitSubmodulesConfig"><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig"><span class="hs-identifier hs-var">GitSubmodulesConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GitSubmodulesConfig%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig%27"><span class="hs-identifier hs-var">GitSubmodulesConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679371903"><span id="local-6989586621679371904"></span></span><span class="hs-keyword">data</span><span> </span><span id="GitSubmodulesConfig"><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig"><span class="hs-identifier hs-var">GitSubmodulesConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GitSubmodulesConfig%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig%27"><span class="hs-identifier hs-var">GitSubmodulesConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set to true to fetch Git submodules for your CodeBuild build project.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AfetchSubmodules%3AGitSubmodulesConfig%27"><span class="annot"><span class="annottext">GitSubmodulesConfig -&gt; Bool
 </span><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#%24sel%3AfetchSubmodules%3AGitSubmodulesConfig%27"><span class="hs-identifier hs-var hs-var">fetchSubmodules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370026"><span id="local-6989586621679370028"><span class="annot"><span class="annottext">GitSubmodulesConfig -&gt; GitSubmodulesConfig -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371897"><span id="local-6989586621679371899"><span class="annot"><span class="annottext">GitSubmodulesConfig -&gt; GitSubmodulesConfig -&gt; Bool
 (GitSubmodulesConfig -&gt; GitSubmodulesConfig -&gt; Bool)
 -&gt; (GitSubmodulesConfig -&gt; GitSubmodulesConfig -&gt; Bool)
 -&gt; Eq GitSubmodulesConfig
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GitSubmodulesConfig -&gt; GitSubmodulesConfig -&gt; Bool
 == :: GitSubmodulesConfig -&gt; GitSubmodulesConfig -&gt; Bool
 $c== :: GitSubmodulesConfig -&gt; GitSubmodulesConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370017"><span id="local-6989586621679370019"><span id="local-6989586621679370021"><span id="local-6989586621679370023"><span class="annot"><span class="annottext">ReadPrec [GitSubmodulesConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371888"><span id="local-6989586621679371890"><span id="local-6989586621679371892"><span id="local-6989586621679371894"><span class="annot"><span class="annottext">ReadPrec [GitSubmodulesConfig]
 ReadPrec GitSubmodulesConfig
 Int -&gt; ReadS GitSubmodulesConfig
 ReadS [GitSubmodulesConfig]
@@ -61,7 +61,7 @@ readList :: ReadS [GitSubmodulesConfig]
 $creadList :: ReadS [GitSubmodulesConfig]
 readsPrec :: Int -&gt; ReadS GitSubmodulesConfig
 $creadsPrec :: Int -&gt; ReadS GitSubmodulesConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370010"><span id="local-6989586621679370012"><span id="local-6989586621679370014"><span class="annot"><span class="annottext">Int -&gt; GitSubmodulesConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371881"><span id="local-6989586621679371883"><span id="local-6989586621679371885"><span class="annot"><span class="annottext">Int -&gt; GitSubmodulesConfig -&gt; ShowS
 [GitSubmodulesConfig] -&gt; ShowS
 GitSubmodulesConfig -&gt; String
 (Int -&gt; GitSubmodulesConfig -&gt; ShowS)
@@ -101,14 +101,14 @@ $cfrom :: forall x. GitSubmodulesConfig -&gt; Rep GitSubmodulesConfig x
 </span><span id="line-47"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig"><span class="hs-identifier hs-type">GitSubmodulesConfig</span></a></span><span>
 </span><span id="line-49"></span><span id="newGitSubmodulesConfig"><span class="annot"><span class="annottext">newGitSubmodulesConfig :: Bool -&gt; GitSubmodulesConfig
-</span><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#newGitSubmodulesConfig"><span class="hs-identifier hs-var hs-var">newGitSubmodulesConfig</span></a></span></span><span> </span><span id="local-6989586621679370004"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679370004"><span class="hs-identifier hs-var">pFetchSubmodules_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#newGitSubmodulesConfig"><span class="hs-identifier hs-var hs-var">newGitSubmodulesConfig</span></a></span></span><span> </span><span id="local-6989586621679371875"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679371875"><span class="hs-identifier hs-var">pFetchSubmodules_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">GitSubmodulesConfig' :: Bool -&gt; GitSubmodulesConfig
 </span><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig%27"><span class="hs-identifier hs-type">GitSubmodulesConfig'</span></a></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fetchSubmodules:GitSubmodulesConfig' :: Bool
 </span><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#%24sel%3AfetchSubmodules%3AGitSubmodulesConfig%27"><span class="hs-identifier hs-var">fetchSubmodules</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>        </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679370004"><span class="hs-identifier hs-var">pFetchSubmodules_</span></a></span><span>
+</span><a href="#local-6989586621679371875"><span class="hs-identifier hs-var">pFetchSubmodules_</span></a></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | Set to true to fetch Git submodules for your CodeBuild build project.</span><span>
@@ -118,19 +118,19 @@ $cfrom :: forall x. GitSubmodulesConfig -&gt; Rep GitSubmodulesConfig x
 -&gt; (GitSubmodulesConfig -&gt; Bool -&gt; GitSubmodulesConfig)
 -&gt; Lens GitSubmodulesConfig GitSubmodulesConfig Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig%27"><span class="hs-identifier hs-type">GitSubmodulesConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370000"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig%27"><span class="hs-identifier hs-type">GitSubmodulesConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371871"><span class="annot"><span class="annottext">Bool
 fetchSubmodules :: Bool
 $sel:fetchSubmodules:GitSubmodulesConfig' :: GitSubmodulesConfig -&gt; Bool
-</span><a href="#local-6989586621679370000"><span class="hs-identifier hs-var hs-var">fetchSubmodules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679370000"><span class="hs-identifier hs-var">fetchSubmodules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369999"><span class="annot"><span class="annottext">s :: GitSubmodulesConfig
-</span><a href="#local-6989586621679369999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig%27"><span class="hs-identifier hs-type">GitSubmodulesConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369998"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679369998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GitSubmodulesConfig
-</span><a href="#local-6989586621679369999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fetchSubmodules:GitSubmodulesConfig' :: Bool
+</span><a href="#local-6989586621679371871"><span class="hs-identifier hs-var hs-var">fetchSubmodules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679371871"><span class="hs-identifier hs-var">fetchSubmodules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371870"><span class="annot"><span class="annottext">s :: GitSubmodulesConfig
+</span><a href="#local-6989586621679371870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig%27"><span class="hs-identifier hs-type">GitSubmodulesConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371869"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679371869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GitSubmodulesConfig
+</span><a href="#local-6989586621679371870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fetchSubmodules:GitSubmodulesConfig' :: Bool
 </span><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#%24sel%3AfetchSubmodules%3AGitSubmodulesConfig%27"><span class="hs-identifier hs-var">fetchSubmodules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679369998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig"><span class="hs-identifier hs-type">GitSubmodulesConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig"><span class="hs-identifier hs-type">GitSubmodulesConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369995"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig"><span class="hs-identifier hs-type">GitSubmodulesConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679369993"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GitSubmodulesConfig
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371866"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig"><span class="hs-identifier hs-type">GitSubmodulesConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679371864"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GitSubmodulesConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser GitSubmodulesConfig)
@@ -140,30 +140,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;GitSubmodulesConfig&quot;</span></span><span>
-</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369990"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369990"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371861"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371861"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">Bool -&gt; GitSubmodulesConfig
 </span><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig%27"><span class="hs-identifier hs-var">GitSubmodulesConfig'</span></a></span><span>
 </span><span id="line-65"></span><span>            </span><span class="annot"><span class="annottext">(Bool -&gt; GitSubmodulesConfig)
 -&gt; Parser Bool -&gt; Parser GitSubmodulesConfig
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369990"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+</span><a href="#local-6989586621679371861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fetchSubmodules&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369984"><span id="local-6989586621679369986"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig"><span class="hs-identifier hs-type">GitSubmodulesConfig</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371855"><span id="local-6989586621679371857"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig"><span class="hs-identifier hs-type">GitSubmodulesConfig</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369981"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig"><span class="hs-identifier hs-type">GitSubmodulesConfig</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371852"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig"><span class="hs-identifier hs-type">GitSubmodulesConfig</span></a></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369973"><span id="local-6989586621679369975"><span id="local-6989586621679369977"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig"><span class="hs-identifier hs-type">GitSubmodulesConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679369971"><span class="annot"><span class="annottext">toJSON :: GitSubmodulesConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig%27"><span class="hs-identifier hs-type">GitSubmodulesConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369969"><span class="annot"><span class="annottext">Bool
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371844"><span id="local-6989586621679371846"><span id="local-6989586621679371848"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig"><span class="hs-identifier hs-type">GitSubmodulesConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679371842"><span class="annot"><span class="annottext">toJSON :: GitSubmodulesConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig%27"><span class="hs-identifier hs-type">GitSubmodulesConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371840"><span class="annot"><span class="annottext">Bool
 fetchSubmodules :: Bool
 $sel:fetchSubmodules:GitSubmodulesConfig' :: GitSubmodulesConfig -&gt; Bool
-</span><a href="#local-6989586621679369969"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679371840"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -176,7 +176,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;fetchSubmodules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679369969"><span class="hs-identifier hs-var">fetchSubmodules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371840"><span class="hs-identifier hs-var">fetchSubmodules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span></pre></body></html>

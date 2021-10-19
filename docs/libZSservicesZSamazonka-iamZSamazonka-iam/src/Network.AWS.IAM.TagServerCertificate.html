@@ -83,7 +83,7 @@
 </span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | /See:/ 'newTagServerCertificate' smart constructor.</span><span>
-</span><span id="line-86"></span><span id="local-6989586621679434558"><span id="local-6989586621679434559"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagServerCertificate"><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate"><span class="hs-identifier hs-var">TagServerCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagServerCertificate%27"><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate%27"><span class="hs-identifier hs-var">TagServerCertificate'</span></a></span></span><span>
+</span><span id="line-86"></span><span id="local-6989586621679435092"><span id="local-6989586621679435093"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagServerCertificate"><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate"><span class="hs-identifier hs-var">TagServerCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagServerCertificate%27"><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate%27"><span class="hs-identifier hs-var">TagServerCertificate'</span></a></span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the IAM server certificate to which you want to add tags.</span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
@@ -97,7 +97,7 @@
 </span><span id="line-96"></span><span>    </span><span id="%24sel%3Atags%3ATagServerCertificate%27"><span class="annot"><span class="annottext">TagServerCertificate -&gt; [Tag]
 </span><a href="Network.AWS.IAM.TagServerCertificate.html#%24sel%3Atags%3ATagServerCertificate%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434551"><span id="local-6989586621679434553"><span class="annot"><span class="annottext">TagServerCertificate -&gt; TagServerCertificate -&gt; Bool
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435085"><span id="local-6989586621679435087"><span class="annot"><span class="annottext">TagServerCertificate -&gt; TagServerCertificate -&gt; Bool
 (TagServerCertificate -&gt; TagServerCertificate -&gt; Bool)
 -&gt; (TagServerCertificate -&gt; TagServerCertificate -&gt; Bool)
 -&gt; Eq TagServerCertificate
@@ -106,7 +106,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagServerCertificate -&gt; TagServerCertificate -&gt; Bool
 == :: TagServerCertificate -&gt; TagServerCertificate -&gt; Bool
 $c== :: TagServerCertificate -&gt; TagServerCertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434542"><span id="local-6989586621679434544"><span id="local-6989586621679434546"><span id="local-6989586621679434548"><span class="annot"><span class="annottext">ReadPrec [TagServerCertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435076"><span id="local-6989586621679435078"><span id="local-6989586621679435080"><span id="local-6989586621679435082"><span class="annot"><span class="annottext">ReadPrec [TagServerCertificate]
 ReadPrec TagServerCertificate
 Int -&gt; ReadS TagServerCertificate
 ReadS [TagServerCertificate]
@@ -126,7 +126,7 @@ readList :: ReadS [TagServerCertificate]
 $creadList :: ReadS [TagServerCertificate]
 readsPrec :: Int -&gt; ReadS TagServerCertificate
 $creadsPrec :: Int -&gt; ReadS TagServerCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434535"><span id="local-6989586621679434537"><span id="local-6989586621679434539"><span class="annot"><span class="annottext">Int -&gt; TagServerCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435069"><span id="local-6989586621679435071"><span id="local-6989586621679435073"><span class="annot"><span class="annottext">Int -&gt; TagServerCertificate -&gt; ShowS
 [TagServerCertificate] -&gt; ShowS
 TagServerCertificate -&gt; String
 (Int -&gt; TagServerCertificate -&gt; ShowS)
@@ -174,14 +174,14 @@ $cfrom :: forall x. TagServerCertificate -&gt; Rep TagServerCertificate x
 </span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate"><span class="hs-identifier hs-type">TagServerCertificate</span></a></span><span>
 </span><span id="line-121"></span><span id="newTagServerCertificate"><span class="annot"><span class="annottext">newTagServerCertificate :: Text -&gt; TagServerCertificate
-</span><a href="Network.AWS.IAM.TagServerCertificate.html#newTagServerCertificate"><span class="hs-identifier hs-var hs-var">newTagServerCertificate</span></a></span></span><span> </span><span id="local-6989586621679434530"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434530"><span class="hs-identifier hs-var">pServerCertificateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.TagServerCertificate.html#newTagServerCertificate"><span class="hs-identifier hs-var hs-var">newTagServerCertificate</span></a></span></span><span> </span><span id="local-6989586621679435064"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435064"><span class="hs-identifier hs-var">pServerCertificateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>  </span><span class="annot"><span class="annottext">TagServerCertificate' :: Text -&gt; [Tag] -&gt; TagServerCertificate
 </span><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate%27"><span class="hs-identifier hs-type">TagServerCertificate'</span></a></span><span>
 </span><span id="line-123"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serverCertificateName:TagServerCertificate' :: Text
 </span><a href="Network.AWS.IAM.TagServerCertificate.html#%24sel%3AserverCertificateName%3ATagServerCertificate%27"><span class="hs-identifier hs-var">serverCertificateName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434530"><span class="hs-identifier hs-var">pServerCertificateName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679435064"><span class="hs-identifier hs-var">pServerCertificateName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TagServerCertificate' :: [Tag]
 </span><a href="Network.AWS.IAM.TagServerCertificate.html#%24sel%3Atags%3ATagServerCertificate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
 forall a. Monoid a =&gt; a
@@ -200,16 +200,16 @@ forall a. Monoid a =&gt; a
 -&gt; (TagServerCertificate -&gt; Text -&gt; TagServerCertificate)
 -&gt; Lens TagServerCertificate TagServerCertificate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate%27"><span class="hs-identifier hs-type">TagServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434527"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate%27"><span class="hs-identifier hs-type">TagServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435061"><span class="annot"><span class="annottext">Text
 serverCertificateName :: Text
 $sel:serverCertificateName:TagServerCertificate' :: TagServerCertificate -&gt; Text
-</span><a href="#local-6989586621679434527"><span class="hs-identifier hs-var hs-var">serverCertificateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434527"><span class="hs-identifier hs-var">serverCertificateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434526"><span class="annot"><span class="annottext">s :: TagServerCertificate
-</span><a href="#local-6989586621679434526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate%27"><span class="hs-identifier hs-type">TagServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434525"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagServerCertificate
-</span><a href="#local-6989586621679434526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverCertificateName:TagServerCertificate' :: Text
+</span><a href="#local-6989586621679435061"><span class="hs-identifier hs-var hs-var">serverCertificateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435061"><span class="hs-identifier hs-var">serverCertificateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435060"><span class="annot"><span class="annottext">s :: TagServerCertificate
+</span><a href="#local-6989586621679435060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate%27"><span class="hs-identifier hs-type">TagServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435059"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagServerCertificate
+</span><a href="#local-6989586621679435060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverCertificateName:TagServerCertificate' :: Text
 </span><a href="Network.AWS.IAM.TagServerCertificate.html#%24sel%3AserverCertificateName%3ATagServerCertificate%27"><span class="hs-identifier hs-var">serverCertificateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate"><span class="hs-identifier hs-type">TagServerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679435059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate"><span class="hs-identifier hs-type">TagServerCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The list of tags that you want to attach to the IAM server certificate.</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- Each tag consists of a key name and an associated value.</span><span>
@@ -220,16 +220,16 @@ $sel:serverCertificateName:TagServerCertificate' :: TagServerCertificate -&gt; T
 -&gt; (TagServerCertificate -&gt; [Tag] -&gt; TagServerCertificate)
 -&gt; Lens TagServerCertificate TagServerCertificate [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate%27"><span class="hs-identifier hs-type">TagServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434524"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate%27"><span class="hs-identifier hs-type">TagServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435058"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:TagServerCertificate' :: TagServerCertificate -&gt; [Tag]
-</span><a href="#local-6989586621679434524"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679434524"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434523"><span class="annot"><span class="annottext">s :: TagServerCertificate
-</span><a href="#local-6989586621679434523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate%27"><span class="hs-identifier hs-type">TagServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434522"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679434522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagServerCertificate
-</span><a href="#local-6989586621679434523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagServerCertificate' :: [Tag]
+</span><a href="#local-6989586621679435058"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679435058"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435057"><span class="annot"><span class="annottext">s :: TagServerCertificate
+</span><a href="#local-6989586621679435057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate%27"><span class="hs-identifier hs-type">TagServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435056"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679435056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagServerCertificate
+</span><a href="#local-6989586621679435057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagServerCertificate' :: [Tag]
 </span><a href="Network.AWS.IAM.TagServerCertificate.html#%24sel%3Atags%3ATagServerCertificate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679434522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate"><span class="hs-identifier hs-type">TagServerCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag])
+</span><a href="#local-6989586621679435056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate"><span class="hs-identifier hs-type">TagServerCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag])
  -&gt; TagServerCertificate -&gt; f TagServerCertificate)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
@@ -237,19 +237,19 @@ $sel:tags:TagServerCertificate' :: TagServerCertificate -&gt; [Tag]
 -&gt; f TagServerCertificate
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate"><span class="hs-identifier hs-type">TagServerCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-144"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate"><span class="hs-identifier hs-type">TagServerCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificateResponse"><span class="hs-identifier hs-type">TagServerCertificateResponse</span></a></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679434516"><span class="annot"><span class="annottext">request :: TagServerCertificate -&gt; Request TagServerCertificate
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679435050"><span class="annot"><span class="annottext">request :: TagServerCertificate -&gt; Request TagServerCertificate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TagServerCertificate -&gt; Request TagServerCertificate
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679434512"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679435046"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TagServerCertificate
 -&gt; ClientResponse ClientBody
@@ -275,12 +275,12 @@ AWSResponse a
 TagServerCertificateResponse
 </span><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificateResponse%27"><span class="hs-identifier hs-var">TagServerCertificateResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434505"><span id="local-6989586621679434507"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate"><span class="hs-identifier hs-type">TagServerCertificate</span></a></span></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435039"><span id="local-6989586621679435041"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate"><span class="hs-identifier hs-type">TagServerCertificate</span></a></span></span></span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434502"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate"><span class="hs-identifier hs-type">TagServerCertificate</span></a></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435036"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate"><span class="hs-identifier hs-type">TagServerCertificate</span></a></span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate"><span class="hs-identifier hs-type">TagServerCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679434498"><span class="annot"><span class="annottext">toHeaders :: TagServerCertificate -&gt; [Header]
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679435032"><span class="annot"><span class="annottext">toHeaders :: TagServerCertificate -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; TagServerCertificate -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -288,21 +288,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate"><span class="hs-identifier hs-type">TagServerCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679434493"><span class="annot"><span class="annottext">toPath :: TagServerCertificate -&gt; ByteString
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679435027"><span class="annot"><span class="annottext">toPath :: TagServerCertificate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TagServerCertificate -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate"><span class="hs-identifier hs-type">TagServerCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679434489"><span class="annot"><span class="annottext">toQuery :: TagServerCertificate -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate%27"><span class="hs-identifier hs-type">TagServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434486"><span id="local-6989586621679434487"><span class="annot"><span class="annottext">[Tag]
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679435023"><span class="annot"><span class="annottext">toQuery :: TagServerCertificate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificate%27"><span class="hs-identifier hs-type">TagServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435020"><span id="local-6989586621679435021"><span class="annot"><span class="annottext">[Tag]
 Text
 tags :: [Tag]
 serverCertificateName :: Text
 $sel:tags:TagServerCertificate' :: TagServerCertificate -&gt; [Tag]
 $sel:serverCertificateName:TagServerCertificate' :: TagServerCertificate -&gt; Text
-</span><a href="#local-6989586621679434486"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679435020"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -323,7 +323,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434487"><span class="hs-identifier hs-var">serverCertificateName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679435021"><span class="hs-identifier hs-var">serverCertificateName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
@@ -333,14 +333,14 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679434486"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><a href="#local-6989586621679435020"><span class="hs-identifier hs-var">tags</span></a></span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newTagServerCertificateResponse' smart constructor.</span><span>
-</span><span id="line-173"></span><span id="local-6989586621679434482"><span id="local-6989586621679434483"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagServerCertificateResponse"><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificateResponse"><span class="hs-identifier hs-var">TagServerCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagServerCertificateResponse%27"><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificateResponse%27"><span class="hs-identifier hs-var">TagServerCertificateResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span id="local-6989586621679435016"><span id="local-6989586621679435017"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagServerCertificateResponse"><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificateResponse"><span class="hs-identifier hs-var">TagServerCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagServerCertificateResponse%27"><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificateResponse%27"><span class="hs-identifier hs-var">TagServerCertificateResponse'</span></a></span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434478"><span id="local-6989586621679434480"><span class="annot"><span class="annottext">TagServerCertificateResponse
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435012"><span id="local-6989586621679435014"><span class="annot"><span class="annottext">TagServerCertificateResponse
 -&gt; TagServerCertificateResponse -&gt; Bool
 (TagServerCertificateResponse
  -&gt; TagServerCertificateResponse -&gt; Bool)
@@ -356,7 +356,7 @@ $c/= :: TagServerCertificateResponse
 -&gt; TagServerCertificateResponse -&gt; Bool
 $c== :: TagServerCertificateResponse
 -&gt; TagServerCertificateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434470"><span id="local-6989586621679434472"><span id="local-6989586621679434474"><span id="local-6989586621679434476"><span class="annot"><span class="annottext">ReadPrec [TagServerCertificateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435004"><span id="local-6989586621679435006"><span id="local-6989586621679435008"><span id="local-6989586621679435010"><span class="annot"><span class="annottext">ReadPrec [TagServerCertificateResponse]
 ReadPrec TagServerCertificateResponse
 Int -&gt; ReadS TagServerCertificateResponse
 ReadS [TagServerCertificateResponse]
@@ -376,7 +376,7 @@ readList :: ReadS [TagServerCertificateResponse]
 $creadList :: ReadS [TagServerCertificateResponse]
 readsPrec :: Int -&gt; ReadS TagServerCertificateResponse
 $creadsPrec :: Int -&gt; ReadS TagServerCertificateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434464"><span id="local-6989586621679434466"><span id="local-6989586621679434468"><span class="annot"><span class="annottext">Int -&gt; TagServerCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434998"><span id="local-6989586621679435000"><span id="local-6989586621679435002"><span class="annot"><span class="annottext">Int -&gt; TagServerCertificateResponse -&gt; ShowS
 [TagServerCertificateResponse] -&gt; ShowS
 TagServerCertificateResponse -&gt; String
 (Int -&gt; TagServerCertificateResponse -&gt; ShowS)
@@ -419,5 +419,5 @@ TagServerCertificateResponse -&gt; Rep TagServerCertificateResponse x
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">TagServerCertificateResponse
 </span><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificateResponse%27"><span class="hs-identifier hs-var">TagServerCertificateResponse'</span></a></span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434460"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificateResponse"><span class="hs-identifier hs-type">TagServerCertificateResponse</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434994"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagServerCertificate.html#TagServerCertificateResponse"><span class="hs-identifier hs-type">TagServerCertificateResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

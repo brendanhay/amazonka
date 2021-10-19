@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The schedule for when to trigger an update.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSchedule' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679258847"><span id="local-6989586621679258848"></span></span><span class="hs-keyword">data</span><span> </span><span id="Schedule"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule"><span class="hs-identifier hs-var">Schedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Schedule%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-var">Schedule'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679259053"><span id="local-6989586621679259054"></span></span><span class="hs-keyword">data</span><span> </span><span id="Schedule"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule"><span class="hs-identifier hs-var">Schedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Schedule%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-var">Schedule'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The expression that defines when to trigger an update. For more</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html Schedule Expressions for Rules&gt;</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aexpression%3ASchedule%27"><span class="annot"><span class="annottext">Schedule -&gt; Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#%24sel%3Aexpression%3ASchedule%27"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258841"><span id="local-6989586621679258843"><span class="annot"><span class="annottext">Schedule -&gt; Schedule -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259047"><span id="local-6989586621679259049"><span class="annot"><span class="annottext">Schedule -&gt; Schedule -&gt; Bool
 (Schedule -&gt; Schedule -&gt; Bool)
 -&gt; (Schedule -&gt; Schedule -&gt; Bool) -&gt; Eq Schedule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Schedule -&gt; Schedule -&gt; Bool
 == :: Schedule -&gt; Schedule -&gt; Bool
 $c== :: Schedule -&gt; Schedule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258832"><span id="local-6989586621679258834"><span id="local-6989586621679258836"><span id="local-6989586621679258838"><span class="annot"><span class="annottext">ReadPrec [Schedule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259038"><span id="local-6989586621679259040"><span id="local-6989586621679259042"><span id="local-6989586621679259044"><span class="annot"><span class="annottext">ReadPrec [Schedule]
 ReadPrec Schedule
 Int -&gt; ReadS Schedule
 ReadS [Schedule]
@@ -62,7 +62,7 @@ readList :: ReadS [Schedule]
 $creadList :: ReadS [Schedule]
 readsPrec :: Int -&gt; ReadS Schedule
 $creadsPrec :: Int -&gt; ReadS Schedule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258825"><span id="local-6989586621679258827"><span id="local-6989586621679258829"><span class="annot"><span class="annottext">Int -&gt; Schedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259031"><span id="local-6989586621679259033"><span id="local-6989586621679259035"><span class="annot"><span class="annottext">Int -&gt; Schedule -&gt; ShowS
 [Schedule] -&gt; ShowS
 Schedule -&gt; String
 (Int -&gt; Schedule -&gt; ShowS)
@@ -116,47 +116,47 @@ forall a. Maybe a
 -&gt; (Schedule -&gt; Maybe Text -&gt; Schedule)
 -&gt; Lens Schedule Schedule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258816"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259022"><span class="annot"><span class="annottext">Maybe Text
 expression :: Maybe Text
 $sel:expression:Schedule' :: Schedule -&gt; Maybe Text
-</span><a href="#local-6989586621679258816"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258816"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258815"><span class="annot"><span class="annottext">s :: Schedule
-</span><a href="#local-6989586621679258815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258814"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Schedule
-</span><a href="#local-6989586621679258815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expression:Schedule' :: Maybe Text
+</span><a href="#local-6989586621679259022"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259022"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259021"><span class="annot"><span class="annottext">s :: Schedule
+</span><a href="#local-6989586621679259021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259020"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Schedule
+</span><a href="#local-6989586621679259021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expression:Schedule' :: Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#%24sel%3Aexpression%3ASchedule%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258811"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679258809"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Schedule
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259017"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679259015"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Schedule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Schedule) -&gt; Value -&gt; Parser Schedule
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Schedule&quot;</span></span><span>
-</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258806"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258806"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259012"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259012"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Schedule
 </span><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-var">Schedule'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Schedule) -&gt; Parser (Maybe Text) -&gt; Parser Schedule
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258806"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679259012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;expression&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258800"><span id="local-6989586621679258802"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259006"><span id="local-6989586621679259008"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258797"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259003"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258789"><span id="local-6989586621679258791"><span id="local-6989586621679258793"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679258787"><span class="annot"><span class="annottext">toJSON :: Schedule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258785"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258995"><span id="local-6989586621679258997"><span id="local-6989586621679258999"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679258993"><span class="annot"><span class="annottext">toJSON :: Schedule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Schedule.html#Schedule%27"><span class="hs-identifier hs-type">Schedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258991"><span class="annot"><span class="annottext">Maybe Text
 expression :: Maybe Text
 $sel:expression:Schedule' :: Schedule -&gt; Maybe Text
-</span><a href="#local-6989586621679258785"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679258991"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -168,6 +168,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258785"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679258991"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span></pre></body></html>

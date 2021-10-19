@@ -27,33 +27,33 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An asset property value entry containing the following information.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPutAssetPropertyValueEntry' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679793031"><span id="local-6989586621679793032"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAssetPropertyValueEntry"><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-var">PutAssetPropertyValueEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAssetPropertyValueEntry%27"><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var">PutAssetPropertyValueEntry'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the property alias associated with your asset property. You</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- must specify either a @propertyAlias@ or both an @aliasId@ and a</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @propertyId@. Accepts substitution templates.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3ApropertyAlias%3APutAssetPropertyValueEntry%27"><span class="annot"><span class="annottext">PutAssetPropertyValueEntry -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3ApropertyAlias%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var hs-var">propertyAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Optional. A unique identifier for this entry that you can define to</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- better track which message caused an error in case of failure. Accepts</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- substitution templates. Defaults to a new UUID.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AentryId%3APutAssetPropertyValueEntry%27"><span class="annot"><span class="annottext">PutAssetPropertyValueEntry -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679793894"><span id="local-6989586621679793895"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAssetPropertyValueEntry"><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-var">PutAssetPropertyValueEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAssetPropertyValueEntry%27"><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var">PutAssetPropertyValueEntry'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional. A unique identifier for this entry that you can define to</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- better track which message caused an error in case of failure. Accepts</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- substitution templates. Defaults to a new UUID.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AentryId%3APutAssetPropertyValueEntry%27"><span class="annot"><span class="annottext">PutAssetPropertyValueEntry -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3AentryId%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var hs-var">entryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the IoT SiteWise asset. You must specify either a</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the property alias associated with your asset property. You</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- must specify either a @propertyAlias@ or both an @aliasId@ and a</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @propertyId@. Accepts substitution templates.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3ApropertyAlias%3APutAssetPropertyValueEntry%27"><span class="annot"><span class="annottext">PutAssetPropertyValueEntry -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3ApropertyAlias%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var hs-var">propertyAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the asset\'s property. You must specify either a</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @propertyAlias@ or both an @aliasId@ and a @propertyId@. Accepts</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- substitution templates.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AassetId%3APutAssetPropertyValueEntry%27"><span class="annot"><span class="annottext">PutAssetPropertyValueEntry -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3AassetId%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var hs-var">assetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ID of the asset\'s property. You must specify either a</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3ApropertyId%3APutAssetPropertyValueEntry%27"><span class="annot"><span class="annottext">PutAssetPropertyValueEntry -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3ApropertyId%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var hs-var">propertyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ID of the IoT SiteWise asset. You must specify either a</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- @propertyAlias@ or both an @aliasId@ and a @propertyId@. Accepts</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- substitution templates.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3ApropertyId%3APutAssetPropertyValueEntry%27"><span class="annot"><span class="annottext">PutAssetPropertyValueEntry -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3ApropertyId%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var hs-var">propertyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AassetId%3APutAssetPropertyValueEntry%27"><span class="annot"><span class="annottext">PutAssetPropertyValueEntry -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3AassetId%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var hs-var">assetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | A list of property values to insert that each contain timestamp,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- quality, and value (TQV) information.</span><span>
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3ApropertyValues%3APutAssetPropertyValueEntry%27"><span class="annot"><span class="annottext">PutAssetPropertyValueEntry -&gt; NonEmpty AssetPropertyValue
 </span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3ApropertyValues%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var hs-var">propertyValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyValue.html#AssetPropertyValue"><span class="hs-identifier hs-type">AssetPropertyValue</span></a></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679793021"><span id="local-6989586621679793023"><span class="annot"><span class="annottext">PutAssetPropertyValueEntry -&gt; PutAssetPropertyValueEntry -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679793884"><span id="local-6989586621679793886"><span class="annot"><span class="annottext">PutAssetPropertyValueEntry -&gt; PutAssetPropertyValueEntry -&gt; Bool
 (PutAssetPropertyValueEntry -&gt; PutAssetPropertyValueEntry -&gt; Bool)
 -&gt; (PutAssetPropertyValueEntry
     -&gt; PutAssetPropertyValueEntry -&gt; Bool)
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutAssetPropertyValueEntry -&gt; PutAssetPropertyValueEntry -&gt; Bool
 == :: PutAssetPropertyValueEntry -&gt; PutAssetPropertyValueEntry -&gt; Bool
 $c== :: PutAssetPropertyValueEntry -&gt; PutAssetPropertyValueEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679793012"><span id="local-6989586621679793014"><span id="local-6989586621679793016"><span id="local-6989586621679793018"><span class="annot"><span class="annottext">ReadPrec [PutAssetPropertyValueEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679793875"><span id="local-6989586621679793877"><span id="local-6989586621679793879"><span id="local-6989586621679793881"><span class="annot"><span class="annottext">ReadPrec [PutAssetPropertyValueEntry]
 ReadPrec PutAssetPropertyValueEntry
 Int -&gt; ReadS PutAssetPropertyValueEntry
 ReadS [PutAssetPropertyValueEntry]
@@ -83,7 +83,7 @@ readList :: ReadS [PutAssetPropertyValueEntry]
 $creadList :: ReadS [PutAssetPropertyValueEntry]
 readsPrec :: Int -&gt; ReadS PutAssetPropertyValueEntry
 $creadsPrec :: Int -&gt; ReadS PutAssetPropertyValueEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679793005"><span id="local-6989586621679793007"><span id="local-6989586621679793009"><span class="annot"><span class="annottext">Int -&gt; PutAssetPropertyValueEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679793868"><span id="local-6989586621679793870"><span id="local-6989586621679793872"><span class="annot"><span class="annottext">Int -&gt; PutAssetPropertyValueEntry -&gt; ShowS
 [PutAssetPropertyValueEntry] -&gt; ShowS
 PutAssetPropertyValueEntry -&gt; String
 (Int -&gt; PutAssetPropertyValueEntry -&gt; ShowS)
@@ -123,19 +123,19 @@ PutAssetPropertyValueEntry -&gt; Rep PutAssetPropertyValueEntry x
 </span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'propertyAlias', 'putAssetPropertyValueEntry_propertyAlias' - The name of the property alias associated with your asset property. You</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- must specify either a @propertyAlias@ or both an @aliasId@ and a</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- @propertyId@. Accepts substitution templates.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'entryId', 'putAssetPropertyValueEntry_entryId' - Optional. A unique identifier for this entry that you can define to</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- better track which message caused an error in case of failure. Accepts</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- substitution templates. Defaults to a new UUID.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'entryId', 'putAssetPropertyValueEntry_entryId' - Optional. A unique identifier for this entry that you can define to</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- better track which message caused an error in case of failure. Accepts</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- substitution templates. Defaults to a new UUID.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'propertyAlias', 'putAssetPropertyValueEntry_propertyAlias' - The name of the property alias associated with your asset property. You</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- must specify either a @propertyAlias@ or both an @aliasId@ and a</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- @propertyId@. Accepts substitution templates.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'assetId', 'putAssetPropertyValueEntry_assetId' - The ID of the IoT SiteWise asset. You must specify either a</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'propertyId', 'putAssetPropertyValueEntry_propertyId' - The ID of the asset\'s property. You must specify either a</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- @propertyAlias@ or both an @aliasId@ and a @propertyId@. Accepts</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- substitution templates.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'propertyId', 'putAssetPropertyValueEntry_propertyId' - The ID of the asset\'s property. You must specify either a</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'assetId', 'putAssetPropertyValueEntry_assetId' - The ID of the IoT SiteWise asset. You must specify either a</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- @propertyAlias@ or both an @aliasId@ and a @propertyId@. Accepts</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- substitution templates.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
@@ -146,8 +146,8 @@ PutAssetPropertyValueEntry -&gt; Rep PutAssetPropertyValueEntry x
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyValue.html#AssetPropertyValue"><span class="hs-identifier hs-type">AssetPropertyValue</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span>
 </span><span id="line-83"></span><span id="newPutAssetPropertyValueEntry"><span class="annot"><span class="annottext">newPutAssetPropertyValueEntry :: NonEmpty AssetPropertyValue -&gt; PutAssetPropertyValueEntry
-</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#newPutAssetPropertyValueEntry"><span class="hs-identifier hs-var hs-var">newPutAssetPropertyValueEntry</span></a></span></span><span> </span><span id="local-6989586621679792999"><span class="annot"><span class="annottext">NonEmpty AssetPropertyValue
-</span><a href="#local-6989586621679792999"><span class="hs-identifier hs-var">pPropertyValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#newPutAssetPropertyValueEntry"><span class="hs-identifier hs-var hs-var">newPutAssetPropertyValueEntry</span></a></span></span><span> </span><span id="local-6989586621679793862"><span class="annot"><span class="annottext">NonEmpty AssetPropertyValue
+</span><a href="#local-6989586621679793862"><span class="hs-identifier hs-var">pPropertyValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">PutAssetPropertyValueEntry' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -155,21 +155,21 @@ PutAssetPropertyValueEntry -&gt; Rep PutAssetPropertyValueEntry x
 -&gt; NonEmpty AssetPropertyValue
 -&gt; PutAssetPropertyValueEntry
 </span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:propertyAlias:PutAssetPropertyValueEntry' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3ApropertyAlias%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var">propertyAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:entryId:PutAssetPropertyValueEntry' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3AentryId%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var">entryId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:entryId:PutAssetPropertyValueEntry' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3AentryId%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var">entryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:propertyAlias:PutAssetPropertyValueEntry' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3ApropertyAlias%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var">propertyAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:assetId:PutAssetPropertyValueEntry' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3AassetId%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var">assetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:propertyId:PutAssetPropertyValueEntry' :: Maybe Text
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:propertyId:PutAssetPropertyValueEntry' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3ApropertyId%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var">propertyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:assetId:PutAssetPropertyValueEntry' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3AassetId%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var">assetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:propertyValues:PutAssetPropertyValueEntry' :: NonEmpty AssetPropertyValue
@@ -180,8 +180,8 @@ forall a. Maybe a
 -&gt; Tagged
      (NonEmpty AssetPropertyValue)
      (Identity (NonEmpty AssetPropertyValue))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
    (NonEmpty AssetPropertyValue)
    (Identity (NonEmpty AssetPropertyValue))
  -&gt; Tagged
@@ -190,40 +190,14 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; NonEmpty AssetPropertyValue -&gt; NonEmpty AssetPropertyValue
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty AssetPropertyValue
-</span><a href="#local-6989586621679792999"><span class="hs-identifier hs-var">pPropertyValues_</span></a></span><span>
+</span><a href="#local-6989586621679793862"><span class="hs-identifier hs-var">pPropertyValues_</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The name of the property alias associated with your asset property. You</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- must specify either a @propertyAlias@ or both an @aliasId@ and a</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- @propertyId@. Accepts substitution templates.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#putAssetPropertyValueEntry_propertyAlias"><span class="hs-identifier hs-type">putAssetPropertyValueEntry_propertyAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="putAssetPropertyValueEntry_propertyAlias"><span class="annot"><span class="annottext">putAssetPropertyValueEntry_propertyAlias :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PutAssetPropertyValueEntry -&gt; f PutAssetPropertyValueEntry
-</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#putAssetPropertyValueEntry_propertyAlias"><span class="hs-identifier hs-var hs-var">putAssetPropertyValueEntry_propertyAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAssetPropertyValueEntry -&gt; Maybe Text)
--&gt; (PutAssetPropertyValueEntry
-    -&gt; Maybe Text -&gt; PutAssetPropertyValueEntry)
--&gt; Lens
-     PutAssetPropertyValueEntry
-     PutAssetPropertyValueEntry
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792993"><span class="annot"><span class="annottext">Maybe Text
-propertyAlias :: Maybe Text
-$sel:propertyAlias:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679792993"><span class="hs-identifier hs-var hs-var">propertyAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792993"><span class="hs-identifier hs-var">propertyAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792992"><span class="annot"><span class="annottext">s :: PutAssetPropertyValueEntry
-</span><a href="#local-6989586621679792992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792991"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAssetPropertyValueEntry
-</span><a href="#local-6989586621679792992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propertyAlias:PutAssetPropertyValueEntry' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3ApropertyAlias%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var">propertyAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | Optional. A unique identifier for this entry that you can define to</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- better track which message caused an error in case of failure. Accepts</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- substitution templates. Defaults to a new UUID.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#putAssetPropertyValueEntry_entryId"><span class="hs-identifier hs-type">putAssetPropertyValueEntry_entryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="putAssetPropertyValueEntry_entryId"><span class="annot"><span class="annottext">putAssetPropertyValueEntry_entryId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-94"></span><span class="hs-comment">-- | Optional. A unique identifier for this entry that you can define to</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- better track which message caused an error in case of failure. Accepts</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- substitution templates. Defaults to a new UUID.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#putAssetPropertyValueEntry_entryId"><span class="hs-identifier hs-type">putAssetPropertyValueEntry_entryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="putAssetPropertyValueEntry_entryId"><span class="annot"><span class="annottext">putAssetPropertyValueEntry_entryId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PutAssetPropertyValueEntry -&gt; f PutAssetPropertyValueEntry
 </span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#putAssetPropertyValueEntry_entryId"><span class="hs-identifier hs-var hs-var">putAssetPropertyValueEntry_entryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAssetPropertyValueEntry -&gt; Maybe Text)
 -&gt; (PutAssetPropertyValueEntry
@@ -234,24 +208,24 @@ $sel:propertyAlias:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&g
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792989"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679793856"><span class="annot"><span class="annottext">Maybe Text
 entryId :: Maybe Text
 $sel:entryId:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679792989"><span class="hs-identifier hs-var hs-var">entryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792989"><span class="hs-identifier hs-var">entryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792988"><span class="annot"><span class="annottext">s :: PutAssetPropertyValueEntry
-</span><a href="#local-6989586621679792988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792987"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAssetPropertyValueEntry
-</span><a href="#local-6989586621679792988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entryId:PutAssetPropertyValueEntry' :: Maybe Text
+</span><a href="#local-6989586621679793856"><span class="hs-identifier hs-var hs-var">entryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679793856"><span class="hs-identifier hs-var">entryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679793855"><span class="annot"><span class="annottext">s :: PutAssetPropertyValueEntry
+</span><a href="#local-6989586621679793855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679793854"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679793854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAssetPropertyValueEntry
+</span><a href="#local-6989586621679793855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entryId:PutAssetPropertyValueEntry' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3AentryId%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var">entryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | The ID of the IoT SiteWise asset. You must specify either a</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- @propertyAlias@ or both an @aliasId@ and a @propertyId@. Accepts</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- substitution templates.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#putAssetPropertyValueEntry_assetId"><span class="hs-identifier hs-type">putAssetPropertyValueEntry_assetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="putAssetPropertyValueEntry_assetId"><span class="annot"><span class="annottext">putAssetPropertyValueEntry_assetId :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679793854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The name of the property alias associated with your asset property. You</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- must specify either a @propertyAlias@ or both an @aliasId@ and a</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- @propertyId@. Accepts substitution templates.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#putAssetPropertyValueEntry_propertyAlias"><span class="hs-identifier hs-type">putAssetPropertyValueEntry_propertyAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="putAssetPropertyValueEntry_propertyAlias"><span class="annot"><span class="annottext">putAssetPropertyValueEntry_propertyAlias :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PutAssetPropertyValueEntry -&gt; f PutAssetPropertyValueEntry
-</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#putAssetPropertyValueEntry_assetId"><span class="hs-identifier hs-var hs-var">putAssetPropertyValueEntry_assetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAssetPropertyValueEntry -&gt; Maybe Text)
+</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#putAssetPropertyValueEntry_propertyAlias"><span class="hs-identifier hs-var hs-var">putAssetPropertyValueEntry_propertyAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAssetPropertyValueEntry -&gt; Maybe Text)
 -&gt; (PutAssetPropertyValueEntry
     -&gt; Maybe Text -&gt; PutAssetPropertyValueEntry)
 -&gt; Lens
@@ -260,22 +234,22 @@ $sel:entryId:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&gt; May
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792985"><span class="annot"><span class="annottext">Maybe Text
-assetId :: Maybe Text
-$sel:assetId:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679792985"><span class="hs-identifier hs-var hs-var">assetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792985"><span class="hs-identifier hs-var">assetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792984"><span class="annot"><span class="annottext">s :: PutAssetPropertyValueEntry
-</span><a href="#local-6989586621679792984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792983"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAssetPropertyValueEntry
-</span><a href="#local-6989586621679792984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assetId:PutAssetPropertyValueEntry' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3AassetId%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var">assetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | The ID of the asset\'s property. You must specify either a</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- @propertyAlias@ or both an @aliasId@ and a @propertyId@. Accepts</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- substitution templates.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#putAssetPropertyValueEntry_propertyId"><span class="hs-identifier hs-type">putAssetPropertyValueEntry_propertyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="putAssetPropertyValueEntry_propertyId"><span class="annot"><span class="annottext">putAssetPropertyValueEntry_propertyId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679793852"><span class="annot"><span class="annottext">Maybe Text
+propertyAlias :: Maybe Text
+$sel:propertyAlias:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679793852"><span class="hs-identifier hs-var hs-var">propertyAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679793852"><span class="hs-identifier hs-var">propertyAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679793851"><span class="annot"><span class="annottext">s :: PutAssetPropertyValueEntry
+</span><a href="#local-6989586621679793851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679793850"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679793850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAssetPropertyValueEntry
+</span><a href="#local-6989586621679793851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propertyAlias:PutAssetPropertyValueEntry' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3ApropertyAlias%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var">propertyAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679793850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The ID of the asset\'s property. You must specify either a</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- @propertyAlias@ or both an @aliasId@ and a @propertyId@. Accepts</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- substitution templates.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#putAssetPropertyValueEntry_propertyId"><span class="hs-identifier hs-type">putAssetPropertyValueEntry_propertyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="putAssetPropertyValueEntry_propertyId"><span class="annot"><span class="annottext">putAssetPropertyValueEntry_propertyId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PutAssetPropertyValueEntry -&gt; f PutAssetPropertyValueEntry
 </span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#putAssetPropertyValueEntry_propertyId"><span class="hs-identifier hs-var hs-var">putAssetPropertyValueEntry_propertyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAssetPropertyValueEntry -&gt; Maybe Text)
 -&gt; (PutAssetPropertyValueEntry
@@ -286,16 +260,42 @@ $sel:assetId:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&gt; May
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792981"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679793848"><span class="annot"><span class="annottext">Maybe Text
 propertyId :: Maybe Text
 $sel:propertyId:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679792981"><span class="hs-identifier hs-var hs-var">propertyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792981"><span class="hs-identifier hs-var">propertyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792980"><span class="annot"><span class="annottext">s :: PutAssetPropertyValueEntry
-</span><a href="#local-6989586621679792980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792979"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAssetPropertyValueEntry
-</span><a href="#local-6989586621679792980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propertyId:PutAssetPropertyValueEntry' :: Maybe Text
+</span><a href="#local-6989586621679793848"><span class="hs-identifier hs-var hs-var">propertyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679793848"><span class="hs-identifier hs-var">propertyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679793847"><span class="annot"><span class="annottext">s :: PutAssetPropertyValueEntry
+</span><a href="#local-6989586621679793847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679793846"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679793846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAssetPropertyValueEntry
+</span><a href="#local-6989586621679793847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propertyId:PutAssetPropertyValueEntry' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3ApropertyId%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var">propertyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679793846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The ID of the IoT SiteWise asset. You must specify either a</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- @propertyAlias@ or both an @aliasId@ and a @propertyId@. Accepts</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- substitution templates.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#putAssetPropertyValueEntry_assetId"><span class="hs-identifier hs-type">putAssetPropertyValueEntry_assetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="putAssetPropertyValueEntry_assetId"><span class="annot"><span class="annottext">putAssetPropertyValueEntry_assetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutAssetPropertyValueEntry -&gt; f PutAssetPropertyValueEntry
+</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#putAssetPropertyValueEntry_assetId"><span class="hs-identifier hs-var hs-var">putAssetPropertyValueEntry_assetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAssetPropertyValueEntry -&gt; Maybe Text)
+-&gt; (PutAssetPropertyValueEntry
+    -&gt; Maybe Text -&gt; PutAssetPropertyValueEntry)
+-&gt; Lens
+     PutAssetPropertyValueEntry
+     PutAssetPropertyValueEntry
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679793844"><span class="annot"><span class="annottext">Maybe Text
+assetId :: Maybe Text
+$sel:assetId:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679793844"><span class="hs-identifier hs-var hs-var">assetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679793844"><span class="hs-identifier hs-var">assetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679793843"><span class="annot"><span class="annottext">s :: PutAssetPropertyValueEntry
+</span><a href="#local-6989586621679793843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679793842"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679793842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAssetPropertyValueEntry
+</span><a href="#local-6989586621679793843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assetId:PutAssetPropertyValueEntry' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3AassetId%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var">assetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679793842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | A list of property values to insert that each contain timestamp,</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- quality, and value (TQV) information.</span><span>
@@ -311,16 +311,16 @@ $sel:propertyId:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&gt; 
      (NonEmpty AssetPropertyValue)
      (NonEmpty AssetPropertyValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792977"><span class="annot"><span class="annottext">NonEmpty AssetPropertyValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679793840"><span class="annot"><span class="annottext">NonEmpty AssetPropertyValue
 propertyValues :: NonEmpty AssetPropertyValue
 $sel:propertyValues:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&gt; NonEmpty AssetPropertyValue
-</span><a href="#local-6989586621679792977"><span class="hs-identifier hs-var hs-var">propertyValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty AssetPropertyValue
-</span><a href="#local-6989586621679792977"><span class="hs-identifier hs-var">propertyValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792976"><span class="annot"><span class="annottext">s :: PutAssetPropertyValueEntry
-</span><a href="#local-6989586621679792976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792975"><span class="annot"><span class="annottext">NonEmpty AssetPropertyValue
-</span><a href="#local-6989586621679792975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAssetPropertyValueEntry
-</span><a href="#local-6989586621679792976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propertyValues:PutAssetPropertyValueEntry' :: NonEmpty AssetPropertyValue
+</span><a href="#local-6989586621679793840"><span class="hs-identifier hs-var hs-var">propertyValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty AssetPropertyValue
+</span><a href="#local-6989586621679793840"><span class="hs-identifier hs-var">propertyValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679793839"><span class="annot"><span class="annottext">s :: PutAssetPropertyValueEntry
+</span><a href="#local-6989586621679793839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679793838"><span class="annot"><span class="annottext">NonEmpty AssetPropertyValue
+</span><a href="#local-6989586621679793838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAssetPropertyValueEntry
+</span><a href="#local-6989586621679793839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propertyValues:PutAssetPropertyValueEntry' :: NonEmpty AssetPropertyValue
 </span><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#%24sel%3ApropertyValues%3APutAssetPropertyValueEntry%27"><span class="hs-identifier hs-var">propertyValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty AssetPropertyValue
-</span><a href="#local-6989586621679792975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty AssetPropertyValue -&gt; f (NonEmpty AssetPropertyValue))
+</span><a href="#local-6989586621679793838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty AssetPropertyValue -&gt; f (NonEmpty AssetPropertyValue))
  -&gt; PutAssetPropertyValueEntry -&gt; f PutAssetPropertyValueEntry)
 -&gt; ((NonEmpty AssetPropertyValue
      -&gt; f (NonEmpty AssetPropertyValue))
@@ -331,11 +331,11 @@ $sel:propertyValues:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty AssetPropertyValue -&gt; f (NonEmpty AssetPropertyValue))
 -&gt; NonEmpty AssetPropertyValue -&gt; f (NonEmpty AssetPropertyValue)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792971"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679792969"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PutAssetPropertyValueEntry
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793834"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679793832"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PutAssetPropertyValueEntry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PutAssetPropertyValueEntry)
@@ -345,8 +345,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PutAssetPropertyValueEntry&quot;</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679792966"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679792966"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679793829"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679793829"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -369,10 +369,10 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; PutAssetPropertyValueEntry)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679792966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679793829"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;propertyAlias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;entryId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
@@ -387,10 +387,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; PutAssetPropertyValueEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679792966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679793829"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;entryId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;propertyAlias&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
@@ -402,10 +402,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; NonEmpty AssetPropertyValue -&gt; PutAssetPropertyValueEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679792966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679793829"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;assetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;propertyId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; NonEmpty AssetPropertyValue -&gt; PutAssetPropertyValueEntry)
@@ -414,73 +414,73 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (NonEmpty AssetPropertyValue -&gt; PutAssetPropertyValueEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679792966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679793829"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;propertyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;assetId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (NonEmpty AssetPropertyValue -&gt; PutAssetPropertyValueEntry)
 -&gt; Parser (NonEmpty AssetPropertyValue)
 -&gt; Parser PutAssetPropertyValueEntry
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679792966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty AssetPropertyValue)
+</span><a href="#local-6989586621679793829"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty AssetPropertyValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;propertyValues&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792959"><span id="local-6989586621679792961"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793822"><span id="local-6989586621679793824"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span></span></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792956"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793819"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792948"><span id="local-6989586621679792950"><span id="local-6989586621679792952"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679792946"><span class="annot"><span class="annottext">toJSON :: PutAssetPropertyValueEntry -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792940"><span id="local-6989586621679792941"><span id="local-6989586621679792942"><span id="local-6989586621679792943"><span id="local-6989586621679792944"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793811"><span id="local-6989586621679793813"><span id="local-6989586621679793815"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679793809"><span class="annot"><span class="annottext">toJSON :: PutAssetPropertyValueEntry -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry%27"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679793803"><span id="local-6989586621679793804"><span id="local-6989586621679793805"><span id="local-6989586621679793806"><span id="local-6989586621679793807"><span class="annot"><span class="annottext">Maybe Text
 NonEmpty AssetPropertyValue
 propertyValues :: NonEmpty AssetPropertyValue
-propertyId :: Maybe Text
 assetId :: Maybe Text
-entryId :: Maybe Text
+propertyId :: Maybe Text
 propertyAlias :: Maybe Text
+entryId :: Maybe Text
 $sel:propertyValues:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&gt; NonEmpty AssetPropertyValue
-$sel:propertyId:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&gt; Maybe Text
 $sel:assetId:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&gt; Maybe Text
-$sel:entryId:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&gt; Maybe Text
+$sel:propertyId:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&gt; Maybe Text
 $sel:propertyAlias:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679792940"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:entryId:PutAssetPropertyValueEntry' :: PutAssetPropertyValueEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679793803"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-144"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;propertyAlias&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792944"><span class="hs-identifier hs-var">propertyAlias</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;entryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792943"><span class="hs-identifier hs-var">entryId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;assetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><a href="#local-6989586621679793807"><span class="hs-identifier hs-var">entryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;propertyAlias&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792942"><span class="hs-identifier hs-var">assetId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679793806"><span class="hs-identifier hs-var">propertyAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;propertyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792941"><span class="hs-identifier hs-var">propertyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679793805"><span class="hs-identifier hs-var">propertyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679793804"><span class="hs-identifier hs-var">assetId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -488,7 +488,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;propertyValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty AssetPropertyValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty AssetPropertyValue
-</span><a href="#local-6989586621679792940"><span class="hs-identifier hs-var">propertyValues</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679793803"><span class="hs-identifier hs-var">propertyValues</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span></pre></body></html>

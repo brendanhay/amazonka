@@ -28,37 +28,37 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Contains information about a virtual MFA device.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newVirtualMFADevice' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679433265"><span id="local-6989586621679433266"></span></span><span class="hs-keyword">data</span><span> </span><span id="VirtualMFADevice"><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-var">VirtualMFADevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VirtualMFADevice%27"><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-var">VirtualMFADevice'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IAM user associated with this virtual MFA device.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Auser%3AVirtualMFADevice%27"><span class="annot"><span class="annottext">VirtualMFADevice -&gt; Maybe User
-</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3Auser%3AVirtualMFADevice%27"><span class="hs-identifier hs-var hs-var">user</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The date and time on which the virtual MFA device was enabled.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AenableDate%3AVirtualMFADevice%27"><span class="annot"><span class="annottext">VirtualMFADevice -&gt; Maybe ISO8601
-</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3AenableDate%3AVirtualMFADevice%27"><span class="hs-identifier hs-var hs-var">enableDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A QR code PNG image that encodes</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @otpauth:\/\/totp\/$virtualMFADeviceName\@$AccountName?secret=$Base32String@</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- where @$virtualMFADeviceName@ is one of the create call arguments.</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @AccountName@ is the user name if set (otherwise, the account ID</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- otherwise), and @Base32String@ is the seed in base32 format. The</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @Base32String@ value is base64-encoded.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AqRCodePNG%3AVirtualMFADevice%27"><span class="annot"><span class="annottext">VirtualMFADevice -&gt; Maybe (Sensitive Base64)
+</span><span id="line-31"></span><span id="local-6989586621679433795"><span id="local-6989586621679433796"></span></span><span class="hs-keyword">data</span><span> </span><span id="VirtualMFADevice"><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-var">VirtualMFADevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VirtualMFADevice%27"><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-var">VirtualMFADevice'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A QR code PNG image that encodes</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @otpauth:\/\/totp\/$virtualMFADeviceName\@$AccountName?secret=$Base32String@</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- where @$virtualMFADeviceName@ is one of the create call arguments.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @AccountName@ is the user name if set (otherwise, the account ID</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- otherwise), and @Base32String@ is the seed in base32 format. The</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @Base32String@ value is base64-encoded.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AqRCodePNG%3AVirtualMFADevice%27"><span class="annot"><span class="annottext">VirtualMFADevice -&gt; Maybe (Sensitive Base64)
 </span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3AqRCodePNG%3AVirtualMFADevice%27"><span class="hs-identifier hs-var hs-var">qRCodePNG</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A list of tags that are attached to the virtual MFA device. For more</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- information about tagging, see</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Atags%3AVirtualMFADevice%27"><span class="annot"><span class="annottext">VirtualMFADevice -&gt; Maybe [Tag]
-</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3Atags%3AVirtualMFADevice%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The base32 seed defined as specified in</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3548.txt RFC3548&gt;. The</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- @Base32StringSeed@ is base64-encoded.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3Abase32StringSeed%3AVirtualMFADevice%27"><span class="annot"><span class="annottext">VirtualMFADevice -&gt; Maybe (Sensitive Base64)
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The base32 seed defined as specified in</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3548.txt RFC3548&gt;. The</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @Base32StringSeed@ is base64-encoded.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Abase32StringSeed%3AVirtualMFADevice%27"><span class="annot"><span class="annottext">VirtualMFADevice -&gt; Maybe (Sensitive Base64)
 </span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3Abase32StringSeed%3AVirtualMFADevice%27"><span class="hs-identifier hs-var hs-var">base32StringSeed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The IAM user associated with this virtual MFA device.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Auser%3AVirtualMFADevice%27"><span class="annot"><span class="annottext">VirtualMFADevice -&gt; Maybe User
+</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3Auser%3AVirtualMFADevice%27"><span class="hs-identifier hs-var hs-var">user</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The date and time on which the virtual MFA device was enabled.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AenableDate%3AVirtualMFADevice%27"><span class="annot"><span class="annottext">VirtualMFADevice -&gt; Maybe ISO8601
+</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3AenableDate%3AVirtualMFADevice%27"><span class="hs-identifier hs-var hs-var">enableDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | A list of tags that are attached to the virtual MFA device. For more</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- information about tagging, see</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Atags%3AVirtualMFADevice%27"><span class="annot"><span class="annottext">VirtualMFADevice -&gt; Maybe [Tag]
+</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3Atags%3AVirtualMFADevice%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The serial number associated with @VirtualMFADevice@.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AserialNumber%3AVirtualMFADevice%27"><span class="annot"><span class="annottext">VirtualMFADevice -&gt; Text
 </span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3AserialNumber%3AVirtualMFADevice%27"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433254"><span id="local-6989586621679433256"><span class="annot"><span class="annottext">VirtualMFADevice -&gt; VirtualMFADevice -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433784"><span id="local-6989586621679433786"><span class="annot"><span class="annottext">VirtualMFADevice -&gt; VirtualMFADevice -&gt; Bool
 (VirtualMFADevice -&gt; VirtualMFADevice -&gt; Bool)
 -&gt; (VirtualMFADevice -&gt; VirtualMFADevice -&gt; Bool)
 -&gt; Eq VirtualMFADevice
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VirtualMFADevice -&gt; VirtualMFADevice -&gt; Bool
 == :: VirtualMFADevice -&gt; VirtualMFADevice -&gt; Bool
 $c== :: VirtualMFADevice -&gt; VirtualMFADevice -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433247"><span id="local-6989586621679433249"><span id="local-6989586621679433251"><span class="annot"><span class="annottext">Int -&gt; VirtualMFADevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433777"><span id="local-6989586621679433779"><span id="local-6989586621679433781"><span class="annot"><span class="annottext">Int -&gt; VirtualMFADevice -&gt; ShowS
 [VirtualMFADevice] -&gt; ShowS
 VirtualMFADevice -&gt; String
 (Int -&gt; VirtualMFADevice -&gt; ShowS)
@@ -101,33 +101,33 @@ $cfrom :: forall x. VirtualMFADevice -&gt; Rep VirtualMFADevice x
 </span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'user', 'virtualMFADevice_user' - The IAM user associated with this virtual MFA device.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'enableDate', 'virtualMFADevice_enableDate' - The date and time on which the virtual MFA device was enabled.</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'qRCodePNG', 'virtualMFADevice_qRCodePNG' - A QR code PNG image that encodes</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- @otpauth:\/\/totp\/$virtualMFADeviceName\@$AccountName?secret=$Base32String@</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- where @$virtualMFADeviceName@ is one of the create call arguments.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- @AccountName@ is the user name if set (otherwise, the account ID</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- otherwise), and @Base32String@ is the seed in base32 format. The</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- @Base32String@ value is base64-encoded.--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'tags', 'virtualMFADevice_tags' - A list of tags that are attached to the virtual MFA device. For more</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- information about tagging, see</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
-</span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'base32StringSeed', 'virtualMFADevice_base32StringSeed' - The base32 seed defined as specified in</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3548.txt RFC3548&gt;. The</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- @Base32StringSeed@ is base64-encoded.--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'qRCodePNG', 'virtualMFADevice_qRCodePNG' - A QR code PNG image that encodes</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- @otpauth:\/\/totp\/$virtualMFADeviceName\@$AccountName?secret=$Base32String@</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- where @$virtualMFADeviceName@ is one of the create call arguments.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- @AccountName@ is the user name if set (otherwise, the account ID</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- otherwise), and @Base32String@ is the seed in base32 format. The</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- @Base32String@ value is base64-encoded.--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'base32StringSeed', 'virtualMFADevice_base32StringSeed' - The base32 seed defined as specified in</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3548.txt RFC3548&gt;. The</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- @Base32StringSeed@ is base64-encoded.--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'user', 'virtualMFADevice_user' - The IAM user associated with this virtual MFA device.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'enableDate', 'virtualMFADevice_enableDate' - The date and time on which the virtual MFA device was enabled.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'tags', 'virtualMFADevice_tags' - A list of tags that are attached to the virtual MFA device. For more</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- information about tagging, see</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- 'serialNumber', 'virtualMFADevice_serialNumber' - The serial number associated with @VirtualMFADevice@.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#newVirtualMFADevice"><span class="hs-identifier hs-type">newVirtualMFADevice</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -135,79 +135,218 @@ $cfrom :: forall x. VirtualMFADevice -&gt; Rep VirtualMFADevice x
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span>
 </span><span id="line-98"></span><span id="newVirtualMFADevice"><span class="annot"><span class="annottext">newVirtualMFADevice :: Text -&gt; VirtualMFADevice
-</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#newVirtualMFADevice"><span class="hs-identifier hs-var hs-var">newVirtualMFADevice</span></a></span></span><span> </span><span id="local-6989586621679433241"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433241"><span class="hs-identifier hs-var">pSerialNumber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">VirtualMFADevice' :: Maybe User
+</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#newVirtualMFADevice"><span class="hs-identifier hs-var hs-var">newVirtualMFADevice</span></a></span></span><span> </span><span id="local-6989586621679433771"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433771"><span class="hs-identifier hs-var">pSerialNumber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">VirtualMFADevice' :: Maybe (Sensitive Base64)
+-&gt; Maybe (Sensitive Base64)
+-&gt; Maybe User
 -&gt; Maybe ISO8601
--&gt; Maybe (Sensitive Base64)
 -&gt; Maybe [Tag]
--&gt; Maybe (Sensitive Base64)
 -&gt; Text
 -&gt; VirtualMFADevice
 </span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:user:VirtualMFADevice' :: Maybe User
-</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3Auser%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">user</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe User
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableDate:VirtualMFADevice' :: Maybe ISO8601
-</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3AenableDate%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">enableDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:qRCodePNG:VirtualMFADevice' :: Maybe (Sensitive Base64)
+</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:qRCodePNG:VirtualMFADevice' :: Maybe (Sensitive Base64)
 </span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3AqRCodePNG%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">qRCodePNG</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:VirtualMFADevice' :: Maybe [Tag]
-</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3Atags%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:base32StringSeed:VirtualMFADevice' :: Maybe (Sensitive Base64)
+</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3Abase32StringSeed%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">base32StringSeed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:base32StringSeed:VirtualMFADevice' :: Maybe (Sensitive Base64)
-</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3Abase32StringSeed%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">base32StringSeed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:user:VirtualMFADevice' :: Maybe User
+</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3Auser%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">user</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe User
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableDate:VirtualMFADevice' :: Maybe ISO8601
+</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3AenableDate%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">enableDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:VirtualMFADevice' :: Maybe [Tag]
+</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3Atags%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:serialNumber:VirtualMFADevice' :: Text
 </span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3AserialNumber%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">serialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433241"><span class="hs-identifier hs-var">pSerialNumber_</span></a></span><span>
+</span><a href="#local-6989586621679433771"><span class="hs-identifier hs-var">pSerialNumber_</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The IAM user associated with this virtual MFA device.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_user"><span class="hs-identifier hs-type">virtualMFADevice_user</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="virtualMFADevice_user"><span class="annot"><span class="annottext">virtualMFADevice_user :: (Maybe User -&gt; f (Maybe User))
+</span><span id="line-108"></span><span class="hs-comment">-- | A QR code PNG image that encodes</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- @otpauth:\/\/totp\/$virtualMFADeviceName\@$AccountName?secret=$Base32String@</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- where @$virtualMFADeviceName@ is one of the create call arguments.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- @AccountName@ is the user name if set (otherwise, the account ID</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- otherwise), and @Base32String@ is the seed in base32 format. The</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- @Base32String@ value is base64-encoded.--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_qRCodePNG"><span class="hs-identifier hs-type">virtualMFADevice_qRCodePNG</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="virtualMFADevice_qRCodePNG"><span class="annot"><span class="annottext">virtualMFADevice_qRCodePNG :: (Maybe ByteString -&gt; f (Maybe ByteString))
+-&gt; VirtualMFADevice -&gt; f VirtualMFADevice
+</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_qRCodePNG"><span class="hs-identifier hs-var hs-var">virtualMFADevice_qRCodePNG</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualMFADevice -&gt; Maybe (Sensitive Base64))
+-&gt; (VirtualMFADevice
+    -&gt; Maybe (Sensitive Base64) -&gt; VirtualMFADevice)
+-&gt; Lens
+     VirtualMFADevice
+     VirtualMFADevice
+     (Maybe (Sensitive Base64))
+     (Maybe (Sensitive Base64))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433767"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+qRCodePNG :: Maybe (Sensitive Base64)
+$sel:qRCodePNG:VirtualMFADevice' :: VirtualMFADevice -&gt; Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679433767"><span class="hs-identifier hs-var hs-var">qRCodePNG</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679433767"><span class="hs-identifier hs-var">qRCodePNG</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433766"><span class="annot"><span class="annottext">s :: VirtualMFADevice
+</span><a href="#local-6989586621679433766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433765"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679433765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualMFADevice
+</span><a href="#local-6989586621679433766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qRCodePNG:VirtualMFADevice' :: Maybe (Sensitive Base64)
+</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3AqRCodePNG%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">qRCodePNG</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679433765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
+ -&gt; VirtualMFADevice -&gt; f VirtualMFADevice)
+-&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
+    -&gt; Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
+-&gt; (Maybe ByteString -&gt; f (Maybe ByteString))
+-&gt; VirtualMFADevice
+-&gt; f VirtualMFADevice
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Base64) (Sensitive Base64) ByteString ByteString
+-&gt; Iso
+     (Maybe (Sensitive Base64))
+     (Maybe (Sensitive Base64))
+     (Maybe ByteString)
+     (Maybe ByteString)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Exchange ByteString ByteString Base64 (Identity Base64)
+-&gt; Exchange
+     ByteString
+     ByteString
+     (Sensitive Base64)
+     (Identity (Sensitive Base64))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Exchange ByteString ByteString Base64 (Identity Base64)
+ -&gt; Exchange
+      ByteString
+      ByteString
+      (Sensitive Base64)
+      (Identity (Sensitive Base64)))
+-&gt; (Exchange ByteString ByteString ByteString (Identity ByteString)
+    -&gt; Exchange ByteString ByteString Base64 (Identity Base64))
+-&gt; AnIso
+     (Sensitive Base64) (Sensitive Base64) ByteString ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Exchange ByteString ByteString ByteString (Identity ByteString)
+-&gt; Exchange ByteString ByteString Base64 (Identity Base64)
+Iso' Base64 ByteString
+</span><span class="hs-identifier hs-var">Core._Base64</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The base32 seed defined as specified in</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3548.txt RFC3548&gt;. The</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- @Base32StringSeed@ is base64-encoded.--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_base32StringSeed"><span class="hs-identifier hs-type">virtualMFADevice_base32StringSeed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="virtualMFADevice_base32StringSeed"><span class="annot"><span class="annottext">virtualMFADevice_base32StringSeed :: (Maybe ByteString -&gt; f (Maybe ByteString))
+-&gt; VirtualMFADevice -&gt; f VirtualMFADevice
+</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_base32StringSeed"><span class="hs-identifier hs-var hs-var">virtualMFADevice_base32StringSeed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualMFADevice -&gt; Maybe (Sensitive Base64))
+-&gt; (VirtualMFADevice
+    -&gt; Maybe (Sensitive Base64) -&gt; VirtualMFADevice)
+-&gt; Lens
+     VirtualMFADevice
+     VirtualMFADevice
+     (Maybe (Sensitive Base64))
+     (Maybe (Sensitive Base64))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433759"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+base32StringSeed :: Maybe (Sensitive Base64)
+$sel:base32StringSeed:VirtualMFADevice' :: VirtualMFADevice -&gt; Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679433759"><span class="hs-identifier hs-var hs-var">base32StringSeed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679433759"><span class="hs-identifier hs-var">base32StringSeed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433758"><span class="annot"><span class="annottext">s :: VirtualMFADevice
+</span><a href="#local-6989586621679433758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433757"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679433757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualMFADevice
+</span><a href="#local-6989586621679433758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:base32StringSeed:VirtualMFADevice' :: Maybe (Sensitive Base64)
+</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3Abase32StringSeed%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">base32StringSeed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679433757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
+ -&gt; VirtualMFADevice -&gt; f VirtualMFADevice)
+-&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
+    -&gt; Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
+-&gt; (Maybe ByteString -&gt; f (Maybe ByteString))
+-&gt; VirtualMFADevice
+-&gt; f VirtualMFADevice
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Base64) (Sensitive Base64) ByteString ByteString
+-&gt; Iso
+     (Maybe (Sensitive Base64))
+     (Maybe (Sensitive Base64))
+     (Maybe ByteString)
+     (Maybe ByteString)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Exchange ByteString ByteString Base64 (Identity Base64)
+-&gt; Exchange
+     ByteString
+     ByteString
+     (Sensitive Base64)
+     (Identity (Sensitive Base64))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Exchange ByteString ByteString Base64 (Identity Base64)
+ -&gt; Exchange
+      ByteString
+      ByteString
+      (Sensitive Base64)
+      (Identity (Sensitive Base64)))
+-&gt; (Exchange ByteString ByteString ByteString (Identity ByteString)
+    -&gt; Exchange ByteString ByteString Base64 (Identity Base64))
+-&gt; AnIso
+     (Sensitive Base64) (Sensitive Base64) ByteString ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Exchange ByteString ByteString ByteString (Identity ByteString)
+-&gt; Exchange ByteString ByteString Base64 (Identity Base64)
+Iso' Base64 ByteString
+</span><span class="hs-identifier hs-var">Core._Base64</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The IAM user associated with this virtual MFA device.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_user"><span class="hs-identifier hs-type">virtualMFADevice_user</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="virtualMFADevice_user"><span class="annot"><span class="annottext">virtualMFADevice_user :: (Maybe User -&gt; f (Maybe User))
 -&gt; VirtualMFADevice -&gt; f VirtualMFADevice
 </span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_user"><span class="hs-identifier hs-var hs-var">virtualMFADevice_user</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualMFADevice -&gt; Maybe User)
 -&gt; (VirtualMFADevice -&gt; Maybe User -&gt; VirtualMFADevice)
 -&gt; Lens VirtualMFADevice VirtualMFADevice (Maybe User) (Maybe User)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433237"><span class="annot"><span class="annottext">Maybe User
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433755"><span class="annot"><span class="annottext">Maybe User
 user :: Maybe User
 $sel:user:VirtualMFADevice' :: VirtualMFADevice -&gt; Maybe User
-</span><a href="#local-6989586621679433237"><span class="hs-identifier hs-var hs-var">user</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe User
-</span><a href="#local-6989586621679433237"><span class="hs-identifier hs-var">user</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433236"><span class="annot"><span class="annottext">s :: VirtualMFADevice
-</span><a href="#local-6989586621679433236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433235"><span class="annot"><span class="annottext">Maybe User
-</span><a href="#local-6989586621679433235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualMFADevice
-</span><a href="#local-6989586621679433236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:user:VirtualMFADevice' :: Maybe User
+</span><a href="#local-6989586621679433755"><span class="hs-identifier hs-var hs-var">user</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe User
+</span><a href="#local-6989586621679433755"><span class="hs-identifier hs-var">user</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433754"><span class="annot"><span class="annottext">s :: VirtualMFADevice
+</span><a href="#local-6989586621679433754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433753"><span class="annot"><span class="annottext">Maybe User
+</span><a href="#local-6989586621679433753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualMFADevice
+</span><a href="#local-6989586621679433754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:user:VirtualMFADevice' :: Maybe User
 </span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3Auser%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">user</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe User
-</span><a href="#local-6989586621679433235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | The date and time on which the virtual MFA device was enabled.</span><span>
-</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_enableDate"><span class="hs-identifier hs-type">virtualMFADevice_enableDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span id="virtualMFADevice_enableDate"><span class="annot"><span class="annottext">virtualMFADevice_enableDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679433753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The date and time on which the virtual MFA device was enabled.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_enableDate"><span class="hs-identifier hs-type">virtualMFADevice_enableDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="virtualMFADevice_enableDate"><span class="annot"><span class="annottext">virtualMFADevice_enableDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; VirtualMFADevice -&gt; f VirtualMFADevice
 </span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_enableDate"><span class="hs-identifier hs-var hs-var">virtualMFADevice_enableDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualMFADevice -&gt; Maybe ISO8601)
 -&gt; (VirtualMFADevice -&gt; Maybe ISO8601 -&gt; VirtualMFADevice)
 -&gt; Lens
      VirtualMFADevice VirtualMFADevice (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433233"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433751"><span class="annot"><span class="annottext">Maybe ISO8601
 enableDate :: Maybe ISO8601
 $sel:enableDate:VirtualMFADevice' :: VirtualMFADevice -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679433233"><span class="hs-identifier hs-var hs-var">enableDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679433233"><span class="hs-identifier hs-var">enableDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433232"><span class="annot"><span class="annottext">s :: VirtualMFADevice
-</span><a href="#local-6989586621679433232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433231"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679433231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualMFADevice
-</span><a href="#local-6989586621679433232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableDate:VirtualMFADevice' :: Maybe ISO8601
+</span><a href="#local-6989586621679433751"><span class="hs-identifier hs-var hs-var">enableDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679433751"><span class="hs-identifier hs-var">enableDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433750"><span class="annot"><span class="annottext">s :: VirtualMFADevice
+</span><a href="#local-6989586621679433750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433749"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679433749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualMFADevice
+</span><a href="#local-6989586621679433750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableDate:VirtualMFADevice' :: Maybe ISO8601
 </span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3AenableDate%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">enableDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679433231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679433749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; VirtualMFADevice -&gt; f VirtualMFADevice)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -224,100 +363,29 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | A QR code PNG image that encodes</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- @otpauth:\/\/totp\/$virtualMFADeviceName\@$AccountName?secret=$Base32String@</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- where @$virtualMFADeviceName@ is one of the create call arguments.</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- @AccountName@ is the user name if set (otherwise, the account ID</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- otherwise), and @Base32String@ is the seed in base32 format. The</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- @Base32String@ value is base64-encoded.--</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_qRCodePNG"><span class="hs-identifier hs-type">virtualMFADevice_qRCodePNG</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="virtualMFADevice_qRCodePNG"><span class="annot"><span class="annottext">virtualMFADevice_qRCodePNG :: (Maybe ByteString -&gt; f (Maybe ByteString))
--&gt; VirtualMFADevice -&gt; f VirtualMFADevice
-</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_qRCodePNG"><span class="hs-identifier hs-var hs-var">virtualMFADevice_qRCodePNG</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualMFADevice -&gt; Maybe (Sensitive Base64))
--&gt; (VirtualMFADevice
-    -&gt; Maybe (Sensitive Base64) -&gt; VirtualMFADevice)
--&gt; Lens
-     VirtualMFADevice
-     VirtualMFADevice
-     (Maybe (Sensitive Base64))
-     (Maybe (Sensitive Base64))
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433226"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-qRCodePNG :: Maybe (Sensitive Base64)
-$sel:qRCodePNG:VirtualMFADevice' :: VirtualMFADevice -&gt; Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679433226"><span class="hs-identifier hs-var hs-var">qRCodePNG</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679433226"><span class="hs-identifier hs-var">qRCodePNG</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433225"><span class="annot"><span class="annottext">s :: VirtualMFADevice
-</span><a href="#local-6989586621679433225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433224"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679433224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualMFADevice
-</span><a href="#local-6989586621679433225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qRCodePNG:VirtualMFADevice' :: Maybe (Sensitive Base64)
-</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3AqRCodePNG%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">qRCodePNG</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679433224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
- -&gt; VirtualMFADevice -&gt; f VirtualMFADevice)
--&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
-    -&gt; Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
--&gt; (Maybe ByteString -&gt; f (Maybe ByteString))
--&gt; VirtualMFADevice
--&gt; f VirtualMFADevice
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Base64) (Sensitive Base64) ByteString ByteString
--&gt; Iso
-     (Maybe (Sensitive Base64))
-     (Maybe (Sensitive Base64))
-     (Maybe ByteString)
-     (Maybe ByteString)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Exchange ByteString ByteString Base64 (Identity Base64)
--&gt; Exchange
-     ByteString
-     ByteString
-     (Sensitive Base64)
-     (Identity (Sensitive Base64))
-forall a. Iso' (Sensitive a) a
-</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Exchange ByteString ByteString Base64 (Identity Base64)
- -&gt; Exchange
-      ByteString
-      ByteString
-      (Sensitive Base64)
-      (Identity (Sensitive Base64)))
--&gt; (Exchange ByteString ByteString ByteString (Identity ByteString)
-    -&gt; Exchange ByteString ByteString Base64 (Identity Base64))
--&gt; AnIso
-     (Sensitive Base64) (Sensitive Base64) ByteString ByteString
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Exchange ByteString ByteString ByteString (Identity ByteString)
--&gt; Exchange ByteString ByteString Base64 (Identity Base64)
-Iso' Base64 ByteString
-</span><span class="hs-identifier hs-var">Core._Base64</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | A list of tags that are attached to the virtual MFA device. For more</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- information about tagging, see</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_tags"><span class="hs-identifier hs-type">virtualMFADevice_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="virtualMFADevice_tags"><span class="annot"><span class="annottext">virtualMFADevice_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | A list of tags that are attached to the virtual MFA device. For more</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- information about tagging, see</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_tags"><span class="hs-identifier hs-type">virtualMFADevice_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="virtualMFADevice_tags"><span class="annot"><span class="annottext">virtualMFADevice_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; VirtualMFADevice -&gt; f VirtualMFADevice
 </span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_tags"><span class="hs-identifier hs-var hs-var">virtualMFADevice_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualMFADevice -&gt; Maybe [Tag])
 -&gt; (VirtualMFADevice -&gt; Maybe [Tag] -&gt; VirtualMFADevice)
 -&gt; Lens
      VirtualMFADevice VirtualMFADevice (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433220"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433746"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:VirtualMFADevice' :: VirtualMFADevice -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679433220"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679433220"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433219"><span class="annot"><span class="annottext">s :: VirtualMFADevice
-</span><a href="#local-6989586621679433219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433218"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679433218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualMFADevice
-</span><a href="#local-6989586621679433219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:VirtualMFADevice' :: Maybe [Tag]
+</span><a href="#local-6989586621679433746"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679433746"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433745"><span class="annot"><span class="annottext">s :: VirtualMFADevice
+</span><a href="#local-6989586621679433745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433744"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679433744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualMFADevice
+</span><a href="#local-6989586621679433745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:VirtualMFADevice' :: Maybe [Tag]
 </span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3Atags%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679433218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679433744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; VirtualMFADevice -&gt; f VirtualMFADevice)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -331,76 +399,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | The base32 seed defined as specified in</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3548.txt RFC3548&gt;. The</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- @Base32StringSeed@ is base64-encoded.--</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_base32StringSeed"><span class="hs-identifier hs-type">virtualMFADevice_base32StringSeed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="virtualMFADevice_base32StringSeed"><span class="annot"><span class="annottext">virtualMFADevice_base32StringSeed :: (Maybe ByteString -&gt; f (Maybe ByteString))
--&gt; VirtualMFADevice -&gt; f VirtualMFADevice
-</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_base32StringSeed"><span class="hs-identifier hs-var hs-var">virtualMFADevice_base32StringSeed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualMFADevice -&gt; Maybe (Sensitive Base64))
--&gt; (VirtualMFADevice
-    -&gt; Maybe (Sensitive Base64) -&gt; VirtualMFADevice)
--&gt; Lens
-     VirtualMFADevice
-     VirtualMFADevice
-     (Maybe (Sensitive Base64))
-     (Maybe (Sensitive Base64))
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433215"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-base32StringSeed :: Maybe (Sensitive Base64)
-$sel:base32StringSeed:VirtualMFADevice' :: VirtualMFADevice -&gt; Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679433215"><span class="hs-identifier hs-var hs-var">base32StringSeed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679433215"><span class="hs-identifier hs-var">base32StringSeed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433214"><span class="annot"><span class="annottext">s :: VirtualMFADevice
-</span><a href="#local-6989586621679433214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433213"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679433213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualMFADevice
-</span><a href="#local-6989586621679433214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:base32StringSeed:VirtualMFADevice' :: Maybe (Sensitive Base64)
-</span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3Abase32StringSeed%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">base32StringSeed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679433213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
- -&gt; VirtualMFADevice -&gt; f VirtualMFADevice)
--&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
-    -&gt; Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
--&gt; (Maybe ByteString -&gt; f (Maybe ByteString))
--&gt; VirtualMFADevice
--&gt; f VirtualMFADevice
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Base64) (Sensitive Base64) ByteString ByteString
--&gt; Iso
-     (Maybe (Sensitive Base64))
-     (Maybe (Sensitive Base64))
-     (Maybe ByteString)
-     (Maybe ByteString)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Exchange ByteString ByteString Base64 (Identity Base64)
--&gt; Exchange
-     ByteString
-     ByteString
-     (Sensitive Base64)
-     (Identity (Sensitive Base64))
-forall a. Iso' (Sensitive a) a
-</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Exchange ByteString ByteString Base64 (Identity Base64)
- -&gt; Exchange
-      ByteString
-      ByteString
-      (Sensitive Base64)
-      (Identity (Sensitive Base64)))
--&gt; (Exchange ByteString ByteString ByteString (Identity ByteString)
-    -&gt; Exchange ByteString ByteString Base64 (Identity Base64))
--&gt; AnIso
-     (Sensitive Base64) (Sensitive Base64) ByteString ByteString
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Exchange ByteString ByteString ByteString (Identity ByteString)
--&gt; Exchange ByteString ByteString Base64 (Identity Base64)
-Iso' Base64 ByteString
-</span><span class="hs-identifier hs-var">Core._Base64</span></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The serial number associated with @VirtualMFADevice@.</span><span>
 </span><span id="line-147"></span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#virtualMFADevice_serialNumber"><span class="hs-identifier hs-type">virtualMFADevice_serialNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -409,101 +409,99 @@ Iso' Base64 ByteString
 -&gt; (VirtualMFADevice -&gt; Text -&gt; VirtualMFADevice)
 -&gt; Lens VirtualMFADevice VirtualMFADevice Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433211"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433741"><span class="annot"><span class="annottext">Text
 serialNumber :: Text
 $sel:serialNumber:VirtualMFADevice' :: VirtualMFADevice -&gt; Text
-</span><a href="#local-6989586621679433211"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433211"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433210"><span class="annot"><span class="annottext">s :: VirtualMFADevice
-</span><a href="#local-6989586621679433210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433209"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualMFADevice
-</span><a href="#local-6989586621679433210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serialNumber:VirtualMFADevice' :: Text
+</span><a href="#local-6989586621679433741"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433741"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433740"><span class="annot"><span class="annottext">s :: VirtualMFADevice
+</span><a href="#local-6989586621679433740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-type">VirtualMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433739"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualMFADevice
+</span><a href="#local-6989586621679433740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serialNumber:VirtualMFADevice' :: Text
 </span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#%24sel%3AserialNumber%3AVirtualMFADevice%27"><span class="hs-identifier hs-var">serialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679433206"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String VirtualMFADevice
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679433204"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679433204"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">Maybe User
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679433736"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String VirtualMFADevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679433734"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679433734"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+-&gt; Maybe (Sensitive Base64)
+-&gt; Maybe User
 -&gt; Maybe ISO8601
--&gt; Maybe (Sensitive Base64)
 -&gt; Maybe [Tag]
--&gt; Maybe (Sensitive Base64)
 -&gt; Text
 -&gt; VirtualMFADevice
 </span><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice%27"><span class="hs-identifier hs-var">VirtualMFADevice'</span></a></span><span>
-</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">(Maybe User
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">(Maybe (Sensitive Base64)
+ -&gt; Maybe (Sensitive Base64)
+ -&gt; Maybe User
  -&gt; Maybe ISO8601
- -&gt; Maybe (Sensitive Base64)
  -&gt; Maybe [Tag]
- -&gt; Maybe (Sensitive Base64)
  -&gt; Text
  -&gt; VirtualMFADevice)
--&gt; Either String (Maybe User)
+-&gt; Either String (Maybe (Sensitive Base64))
 -&gt; Either
      String
-     (Maybe ISO8601
-      -&gt; Maybe (Sensitive Base64)
+     (Maybe (Sensitive Base64)
+      -&gt; Maybe User
+      -&gt; Maybe ISO8601
       -&gt; Maybe [Tag]
-      -&gt; Maybe (Sensitive Base64)
       -&gt; Text
       -&gt; VirtualMFADevice)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679433204"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe User)
+</span><a href="#local-6989586621679433734"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe (Sensitive Base64))
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;User&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;QRCodePNG&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe ISO8601
-   -&gt; Maybe (Sensitive Base64)
-   -&gt; Maybe [Tag]
-   -&gt; Maybe (Sensitive Base64)
-   -&gt; Text
-   -&gt; VirtualMFADevice)
--&gt; Either String (Maybe ISO8601)
--&gt; Either
-     String
-     (Maybe (Sensitive Base64)
-      -&gt; Maybe [Tag]
-      -&gt; Maybe (Sensitive Base64)
-      -&gt; Text
-      -&gt; VirtualMFADevice)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679433204"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EnableDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
   (Maybe (Sensitive Base64)
+   -&gt; Maybe User
+   -&gt; Maybe ISO8601
    -&gt; Maybe [Tag]
-   -&gt; Maybe (Sensitive Base64)
    -&gt; Text
    -&gt; VirtualMFADevice)
 -&gt; Either String (Maybe (Sensitive Base64))
 -&gt; Either
      String
-     (Maybe [Tag]
-      -&gt; Maybe (Sensitive Base64) -&gt; Text -&gt; VirtualMFADevice)
+     (Maybe User
+      -&gt; Maybe ISO8601 -&gt; Maybe [Tag] -&gt; Text -&gt; VirtualMFADevice)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679433204"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe (Sensitive Base64))
+</span><a href="#local-6989586621679433734"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe (Sensitive Base64))
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;QRCodePNG&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;Base32StringSeed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe [Tag]
-   -&gt; Maybe (Sensitive Base64) -&gt; Text -&gt; VirtualMFADevice)
--&gt; Either String (Maybe [Tag])
+  (Maybe User
+   -&gt; Maybe ISO8601 -&gt; Maybe [Tag] -&gt; Text -&gt; VirtualMFADevice)
+-&gt; Either String (Maybe User)
 -&gt; Either
-     String (Maybe (Sensitive Base64) -&gt; Text -&gt; VirtualMFADevice)
+     String (Maybe ISO8601 -&gt; Maybe [Tag] -&gt; Text -&gt; VirtualMFADevice)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679433734"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe User)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;User&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe ISO8601 -&gt; Maybe [Tag] -&gt; Text -&gt; VirtualMFADevice)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe [Tag] -&gt; Text -&gt; VirtualMFADevice)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679433734"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnableDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; Text -&gt; VirtualMFADevice)
+-&gt; Either String (Maybe [Tag])
+-&gt; Either String (Text -&gt; VirtualMFADevice)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679433204"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679433734"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -511,7 +509,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-157"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-158"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Tag]))
 -&gt; Either String (Maybe [Tag])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -524,27 +522,17 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe (Sensitive Base64) -&gt; Text -&gt; VirtualMFADevice)
--&gt; Either String (Maybe (Sensitive Base64))
--&gt; Either String (Text -&gt; VirtualMFADevice)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679433204"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe (Sensitive Base64))
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Base32StringSeed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; VirtualMFADevice)
 -&gt; Either String Text -&gt; Either String VirtualMFADevice
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679433204"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679433734"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SerialNumber&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433194"><span id="local-6989586621679433196"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433724"><span id="local-6989586621679433726"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span></span></span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433191"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433721"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.VirtualMFADevice.html#VirtualMFADevice"><span class="hs-identifier hs-type">VirtualMFADevice</span></a></span></span><span>
 </span><span id="line-165"></span></pre></body></html>

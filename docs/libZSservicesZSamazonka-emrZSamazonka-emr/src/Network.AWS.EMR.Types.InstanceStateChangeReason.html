@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The details of the status change reason for the instance.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInstanceStateChangeReason' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679371029"><span id="local-6989586621679371030"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceStateChangeReason"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason"><span class="hs-identifier hs-var">InstanceStateChangeReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceStateChangeReason%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason%27"><span class="hs-identifier hs-var">InstanceStateChangeReason'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status change reason description.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Amessage%3AInstanceStateChangeReason%27"><span class="annot"><span class="annottext">InstanceStateChangeReason -&gt; Maybe Text
-</span><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#%24sel%3Amessage%3AInstanceStateChangeReason%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The programmable code for the state change reason.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Acode%3AInstanceStateChangeReason%27"><span class="annot"><span class="annottext">InstanceStateChangeReason -&gt; Maybe InstanceStateChangeReasonCode
-</span><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#%24sel%3Acode%3AInstanceStateChangeReason%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReasonCode.html#InstanceStateChangeReasonCode"><span class="hs-identifier hs-type">InstanceStateChangeReasonCode</span></a></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679371379"><span id="local-6989586621679371380"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceStateChangeReason"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason"><span class="hs-identifier hs-var">InstanceStateChangeReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceStateChangeReason%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason%27"><span class="hs-identifier hs-var">InstanceStateChangeReason'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The programmable code for the state change reason.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Acode%3AInstanceStateChangeReason%27"><span class="annot"><span class="annottext">InstanceStateChangeReason -&gt; Maybe InstanceStateChangeReasonCode
+</span><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#%24sel%3Acode%3AInstanceStateChangeReason%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReasonCode.html#InstanceStateChangeReasonCode"><span class="hs-identifier hs-type">InstanceStateChangeReasonCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The status change reason description.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Amessage%3AInstanceStateChangeReason%27"><span class="annot"><span class="annottext">InstanceStateChangeReason -&gt; Maybe Text
+</span><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#%24sel%3Amessage%3AInstanceStateChangeReason%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371022"><span id="local-6989586621679371024"><span class="annot"><span class="annottext">InstanceStateChangeReason -&gt; InstanceStateChangeReason -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371372"><span id="local-6989586621679371374"><span class="annot"><span class="annottext">InstanceStateChangeReason -&gt; InstanceStateChangeReason -&gt; Bool
 (InstanceStateChangeReason -&gt; InstanceStateChangeReason -&gt; Bool)
 -&gt; (InstanceStateChangeReason -&gt; InstanceStateChangeReason -&gt; Bool)
 -&gt; Eq InstanceStateChangeReason
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceStateChangeReason -&gt; InstanceStateChangeReason -&gt; Bool
 == :: InstanceStateChangeReason -&gt; InstanceStateChangeReason -&gt; Bool
 $c== :: InstanceStateChangeReason -&gt; InstanceStateChangeReason -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371013"><span id="local-6989586621679371015"><span id="local-6989586621679371017"><span id="local-6989586621679371019"><span class="annot"><span class="annottext">ReadPrec [InstanceStateChangeReason]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371363"><span id="local-6989586621679371365"><span id="local-6989586621679371367"><span id="local-6989586621679371369"><span class="annot"><span class="annottext">ReadPrec [InstanceStateChangeReason]
 ReadPrec InstanceStateChangeReason
 Int -&gt; ReadS InstanceStateChangeReason
 ReadS [InstanceStateChangeReason]
@@ -64,7 +64,7 @@ readList :: ReadS [InstanceStateChangeReason]
 $creadList :: ReadS [InstanceStateChangeReason]
 readsPrec :: Int -&gt; ReadS InstanceStateChangeReason
 $creadsPrec :: Int -&gt; ReadS InstanceStateChangeReason
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371006"><span id="local-6989586621679371008"><span id="local-6989586621679371010"><span class="annot"><span class="annottext">Int -&gt; InstanceStateChangeReason -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371356"><span id="local-6989586621679371358"><span id="local-6989586621679371360"><span class="annot"><span class="annottext">Int -&gt; InstanceStateChangeReason -&gt; ShowS
 [InstanceStateChangeReason] -&gt; ShowS
 InstanceStateChangeReason -&gt; String
 (Int -&gt; InstanceStateChangeReason -&gt; ShowS)
@@ -104,54 +104,29 @@ InstanceStateChangeReason -&gt; Rep InstanceStateChangeReason x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'message', 'instanceStateChangeReason_message' - The status change reason description.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'code', 'instanceStateChangeReason_code' - The programmable code for the state change reason.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'code', 'instanceStateChangeReason_code' - The programmable code for the state change reason.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'message', 'instanceStateChangeReason_message' - The status change reason description.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#newInstanceStateChangeReason"><span class="hs-identifier hs-type">newInstanceStateChangeReason</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason"><span class="hs-identifier hs-type">InstanceStateChangeReason</span></a></span><span>
 </span><span id="line-51"></span><span id="newInstanceStateChangeReason"><span class="annot"><span class="annottext">newInstanceStateChangeReason :: InstanceStateChangeReason
 </span><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#newInstanceStateChangeReason"><span class="hs-identifier hs-var hs-var">newInstanceStateChangeReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">InstanceStateChangeReason' :: Maybe Text
--&gt; Maybe InstanceStateChangeReasonCode -&gt; InstanceStateChangeReason
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">InstanceStateChangeReason' :: Maybe InstanceStateChangeReasonCode
+-&gt; Maybe Text -&gt; InstanceStateChangeReason
 </span><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason%27"><span class="hs-identifier hs-type">InstanceStateChangeReason'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:InstanceStateChangeReason' :: Maybe Text
-</span><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#%24sel%3Amessage%3AInstanceStateChangeReason%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:InstanceStateChangeReason' :: Maybe InstanceStateChangeReasonCode
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:code:InstanceStateChangeReason' :: Maybe InstanceStateChangeReasonCode
 </span><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#%24sel%3Acode%3AInstanceStateChangeReason%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceStateChangeReasonCode
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | The status change reason description.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#instanceStateChangeReason_message"><span class="hs-identifier hs-type">instanceStateChangeReason_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason"><span class="hs-identifier hs-type">InstanceStateChangeReason</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="instanceStateChangeReason_message"><span class="annot"><span class="annottext">instanceStateChangeReason_message :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InstanceStateChangeReason -&gt; f InstanceStateChangeReason
-</span><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#instanceStateChangeReason_message"><span class="hs-identifier hs-var hs-var">instanceStateChangeReason_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceStateChangeReason -&gt; Maybe Text)
--&gt; (InstanceStateChangeReason
-    -&gt; Maybe Text -&gt; InstanceStateChangeReason)
--&gt; Lens
-     InstanceStateChangeReason
-     InstanceStateChangeReason
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason%27"><span class="hs-identifier hs-type">InstanceStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370997"><span class="annot"><span class="annottext">Maybe Text
-message :: Maybe Text
-$sel:message:InstanceStateChangeReason' :: InstanceStateChangeReason -&gt; Maybe Text
-</span><a href="#local-6989586621679370997"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370997"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370996"><span class="annot"><span class="annottext">s :: InstanceStateChangeReason
-</span><a href="#local-6989586621679370996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason%27"><span class="hs-identifier hs-type">InstanceStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370995"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStateChangeReason
-</span><a href="#local-6989586621679370996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:InstanceStateChangeReason' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:InstanceStateChangeReason' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#%24sel%3Amessage%3AInstanceStateChangeReason%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason"><span class="hs-identifier hs-type">InstanceStateChangeReason</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The programmable code for the state change reason.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#instanceStateChangeReason_code"><span class="hs-identifier hs-type">instanceStateChangeReason_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason"><span class="hs-identifier hs-type">InstanceStateChangeReason</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReasonCode.html#InstanceStateChangeReasonCode"><span class="hs-identifier hs-type">InstanceStateChangeReasonCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="instanceStateChangeReason_code"><span class="annot"><span class="annottext">instanceStateChangeReason_code :: (Maybe InstanceStateChangeReasonCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The programmable code for the state change reason.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#instanceStateChangeReason_code"><span class="hs-identifier hs-type">instanceStateChangeReason_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason"><span class="hs-identifier hs-type">InstanceStateChangeReason</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReasonCode.html#InstanceStateChangeReasonCode"><span class="hs-identifier hs-type">InstanceStateChangeReasonCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="instanceStateChangeReason_code"><span class="annot"><span class="annottext">instanceStateChangeReason_code :: (Maybe InstanceStateChangeReasonCode
  -&gt; f (Maybe InstanceStateChangeReasonCode))
 -&gt; InstanceStateChangeReason -&gt; f InstanceStateChangeReason
 </span><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#instanceStateChangeReason_code"><span class="hs-identifier hs-var hs-var">instanceStateChangeReason_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceStateChangeReason -&gt; Maybe InstanceStateChangeReasonCode)
@@ -164,58 +139,78 @@ $sel:message:InstanceStateChangeReason' :: InstanceStateChangeReason -&gt; Maybe
      (Maybe InstanceStateChangeReasonCode)
      (Maybe InstanceStateChangeReasonCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason%27"><span class="hs-identifier hs-type">InstanceStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370993"><span class="annot"><span class="annottext">Maybe InstanceStateChangeReasonCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason%27"><span class="hs-identifier hs-type">InstanceStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371347"><span class="annot"><span class="annottext">Maybe InstanceStateChangeReasonCode
 code :: Maybe InstanceStateChangeReasonCode
 $sel:code:InstanceStateChangeReason' :: InstanceStateChangeReason -&gt; Maybe InstanceStateChangeReasonCode
-</span><a href="#local-6989586621679370993"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceStateChangeReasonCode
-</span><a href="#local-6989586621679370993"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370992"><span class="annot"><span class="annottext">s :: InstanceStateChangeReason
-</span><a href="#local-6989586621679370992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason%27"><span class="hs-identifier hs-type">InstanceStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370991"><span class="annot"><span class="annottext">Maybe InstanceStateChangeReasonCode
-</span><a href="#local-6989586621679370991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStateChangeReason
-</span><a href="#local-6989586621679370992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:InstanceStateChangeReason' :: Maybe InstanceStateChangeReasonCode
+</span><a href="#local-6989586621679371347"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceStateChangeReasonCode
+</span><a href="#local-6989586621679371347"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371346"><span class="annot"><span class="annottext">s :: InstanceStateChangeReason
+</span><a href="#local-6989586621679371346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason%27"><span class="hs-identifier hs-type">InstanceStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371345"><span class="annot"><span class="annottext">Maybe InstanceStateChangeReasonCode
+</span><a href="#local-6989586621679371345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStateChangeReason
+</span><a href="#local-6989586621679371346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:InstanceStateChangeReason' :: Maybe InstanceStateChangeReasonCode
 </span><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#%24sel%3Acode%3AInstanceStateChangeReason%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceStateChangeReasonCode
-</span><a href="#local-6989586621679370991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason"><span class="hs-identifier hs-type">InstanceStateChangeReason</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370988"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason"><span class="hs-identifier hs-type">InstanceStateChangeReason</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679370986"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceStateChangeReason
+</span><a href="#local-6989586621679371345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason"><span class="hs-identifier hs-type">InstanceStateChangeReason</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The status change reason description.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#instanceStateChangeReason_message"><span class="hs-identifier hs-type">instanceStateChangeReason_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason"><span class="hs-identifier hs-type">InstanceStateChangeReason</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="instanceStateChangeReason_message"><span class="annot"><span class="annottext">instanceStateChangeReason_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceStateChangeReason -&gt; f InstanceStateChangeReason
+</span><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#instanceStateChangeReason_message"><span class="hs-identifier hs-var hs-var">instanceStateChangeReason_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceStateChangeReason -&gt; Maybe Text)
+-&gt; (InstanceStateChangeReason
+    -&gt; Maybe Text -&gt; InstanceStateChangeReason)
+-&gt; Lens
+     InstanceStateChangeReason
+     InstanceStateChangeReason
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason%27"><span class="hs-identifier hs-type">InstanceStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371343"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:InstanceStateChangeReason' :: InstanceStateChangeReason -&gt; Maybe Text
+</span><a href="#local-6989586621679371343"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371343"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371342"><span class="annot"><span class="annottext">s :: InstanceStateChangeReason
+</span><a href="#local-6989586621679371342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason%27"><span class="hs-identifier hs-type">InstanceStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371341"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStateChangeReason
+</span><a href="#local-6989586621679371342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:InstanceStateChangeReason' :: Maybe Text
+</span><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#%24sel%3Amessage%3AInstanceStateChangeReason%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason"><span class="hs-identifier hs-type">InstanceStateChangeReason</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371338"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason"><span class="hs-identifier hs-type">InstanceStateChangeReason</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679371336"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceStateChangeReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InstanceStateChangeReason)
 -&gt; Value
 -&gt; Parser InstanceStateChangeReason
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InstanceStateChangeReason&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370983"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370983"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe InstanceStateChangeReasonCode -&gt; InstanceStateChangeReason
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371333"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371333"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe InstanceStateChangeReasonCode
+-&gt; Maybe Text -&gt; InstanceStateChangeReason
 </span><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason%27"><span class="hs-identifier hs-var">InstanceStateChangeReason'</span></a></span><span>
-</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe InstanceStateChangeReasonCode
- -&gt; InstanceStateChangeReason)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe InstanceStateChangeReasonCode -&gt; InstanceStateChangeReason)
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InstanceStateChangeReasonCode
+ -&gt; Maybe Text -&gt; InstanceStateChangeReason)
+-&gt; Parser (Maybe InstanceStateChangeReasonCode)
+-&gt; Parser (Maybe Text -&gt; InstanceStateChangeReason)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe InstanceStateChangeReasonCode -&gt; InstanceStateChangeReason)
--&gt; Parser (Maybe InstanceStateChangeReasonCode)
--&gt; Parser InstanceStateChangeReason
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceStateChangeReasonCode)
+</span><a href="#local-6989586621679371333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceStateChangeReasonCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Code&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370977"><span id="local-6989586621679370979"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason"><span class="hs-identifier hs-type">InstanceStateChangeReason</span></a></span></span></span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370974"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason"><span class="hs-identifier hs-type">InstanceStateChangeReason</span></a></span></span><span>
-</span><span id="line-79"></span></pre></body></html>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; InstanceStateChangeReason)
+-&gt; Parser (Maybe Text) -&gt; Parser InstanceStateChangeReason
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371327"><span id="local-6989586621679371329"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason"><span class="hs-identifier hs-type">InstanceStateChangeReason</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371324"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReason.html#InstanceStateChangeReason"><span class="hs-identifier hs-type">InstanceStateChangeReason</span></a></span></span><span>
+</span><span id="line-78"></span></pre></body></html>

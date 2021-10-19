@@ -42,13 +42,13 @@
 </span><span id="line-42"></span><span class="hs-comment">-- Sharpen (sharpest) do convolution filtering. * Conserve does min\/max</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- noise reduction. * Spatial does frequency-domain filtering based on JND</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- principles. * Temporal optimizes video quality for complex motion.</span><span>
-</span><span id="line-45"></span><span id="local-6989586621679991852"><span id="local-6989586621679991853"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NoiseReducerFilter"><span class="annot"><a href="Network.AWS.MediaConvert.Types.NoiseReducerFilter.html#NoiseReducerFilter"><span class="hs-identifier hs-var">NoiseReducerFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NoiseReducerFilter%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.NoiseReducerFilter.html#NoiseReducerFilter%27"><span class="hs-identifier hs-var">NoiseReducerFilter'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679996643"><span id="local-6989586621679996644"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NoiseReducerFilter"><span class="annot"><a href="Network.AWS.MediaConvert.Types.NoiseReducerFilter.html#NoiseReducerFilter"><span class="hs-identifier hs-var">NoiseReducerFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NoiseReducerFilter%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.NoiseReducerFilter.html#NoiseReducerFilter%27"><span class="hs-identifier hs-var">NoiseReducerFilter'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNoiseReducerFilter"><span class="annot"><span class="annottext">NoiseReducerFilter -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.NoiseReducerFilter.html#fromNoiseReducerFilter"><span class="hs-identifier hs-var hs-var">fromNoiseReducerFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991844"><span id="local-6989586621679991846"><span id="local-6989586621679991848"><span class="annot"><span class="annottext">Int -&gt; NoiseReducerFilter -&gt; ShowS
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679996635"><span id="local-6989586621679996637"><span id="local-6989586621679996639"><span class="annot"><span class="annottext">Int -&gt; NoiseReducerFilter -&gt; ShowS
 [NoiseReducerFilter] -&gt; ShowS
 NoiseReducerFilter -&gt; String
 (Int -&gt; NoiseReducerFilter -&gt; ShowS)
@@ -64,7 +64,7 @@ $cshow :: NoiseReducerFilter -&gt; String
 showsPrec :: Int -&gt; NoiseReducerFilter -&gt; ShowS
 $cshowsPrec :: Int -&gt; NoiseReducerFilter -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679991835"><span id="local-6989586621679991837"><span id="local-6989586621679991839"><span id="local-6989586621679991841"><span class="annot"><span class="annottext">ReadPrec [NoiseReducerFilter]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679996626"><span id="local-6989586621679996628"><span id="local-6989586621679996630"><span id="local-6989586621679996632"><span class="annot"><span class="annottext">ReadPrec [NoiseReducerFilter]
 ReadPrec NoiseReducerFilter
 Int -&gt; ReadS NoiseReducerFilter
 ReadS [NoiseReducerFilter]
@@ -85,7 +85,7 @@ $creadList :: ReadS [NoiseReducerFilter]
 readsPrec :: Int -&gt; ReadS NoiseReducerFilter
 $creadsPrec :: Int -&gt; ReadS NoiseReducerFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679991830"><span id="local-6989586621679991832"><span class="annot"><span class="annottext">NoiseReducerFilter -&gt; NoiseReducerFilter -&gt; Bool
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679996621"><span id="local-6989586621679996623"><span class="annot"><span class="annottext">NoiseReducerFilter -&gt; NoiseReducerFilter -&gt; Bool
 (NoiseReducerFilter -&gt; NoiseReducerFilter -&gt; Bool)
 -&gt; (NoiseReducerFilter -&gt; NoiseReducerFilter -&gt; Bool)
 -&gt; Eq NoiseReducerFilter
@@ -95,7 +95,7 @@ $c/= :: NoiseReducerFilter -&gt; NoiseReducerFilter -&gt; Bool
 == :: NoiseReducerFilter -&gt; NoiseReducerFilter -&gt; Bool
 $c== :: NoiseReducerFilter -&gt; NoiseReducerFilter -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679991814"><span id="local-6989586621679991816"><span id="local-6989586621679991818"><span id="local-6989586621679991820"><span id="local-6989586621679991822"><span id="local-6989586621679991824"><span id="local-6989586621679991826"><span class="annot"><span class="annottext">Eq NoiseReducerFilter
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679996605"><span id="local-6989586621679996607"><span id="local-6989586621679996609"><span id="local-6989586621679996611"><span id="local-6989586621679996613"><span id="local-6989586621679996615"><span id="local-6989586621679996617"><span class="annot"><span class="annottext">Eq NoiseReducerFilter
 Eq NoiseReducerFilter
 -&gt; (NoiseReducerFilter -&gt; NoiseReducerFilter -&gt; Ordering)
 -&gt; (NoiseReducerFilter -&gt; NoiseReducerFilter -&gt; Bool)
@@ -146,7 +146,7 @@ $cfrom :: forall x. NoiseReducerFilter -&gt; Rep NoiseReducerFilter x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991806"><span id="local-6989586621679991808"><span class="annot"><span class="annottext">Int -&gt; NoiseReducerFilter -&gt; Int
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679996597"><span id="local-6989586621679996599"><span class="annot"><span class="annottext">Int -&gt; NoiseReducerFilter -&gt; Int
 NoiseReducerFilter -&gt; Int
 (Int -&gt; NoiseReducerFilter -&gt; Int)
 -&gt; (NoiseReducerFilter -&gt; Int) -&gt; Hashable NoiseReducerFilter
@@ -156,53 +156,53 @@ $chash :: NoiseReducerFilter -&gt; Int
 hashWithSalt :: Int -&gt; NoiseReducerFilter -&gt; Int
 $chashWithSalt :: Int -&gt; NoiseReducerFilter -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679991803"><span class="annot"><span class="annottext">NoiseReducerFilter -&gt; ()
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679996594"><span class="annot"><span class="annottext">NoiseReducerFilter -&gt; ()
 (NoiseReducerFilter -&gt; ()) -&gt; NFData NoiseReducerFilter
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NoiseReducerFilter -&gt; ()
 $crnf :: NoiseReducerFilter -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679991800"><span class="annot"><span class="annottext">Text -&gt; Either String NoiseReducerFilter
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679996591"><span class="annot"><span class="annottext">Text -&gt; Either String NoiseReducerFilter
 (Text -&gt; Either String NoiseReducerFilter)
 -&gt; FromText NoiseReducerFilter
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NoiseReducerFilter
 $cfromText :: Text -&gt; Either String NoiseReducerFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679991797"><span class="annot"><span class="annottext">NoiseReducerFilter -&gt; Text
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679996588"><span class="annot"><span class="annottext">NoiseReducerFilter -&gt; Text
 (NoiseReducerFilter -&gt; Text) -&gt; ToText NoiseReducerFilter
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NoiseReducerFilter -&gt; Text
 $ctoText :: NoiseReducerFilter -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679991794"><span class="annot"><span class="annottext">NoiseReducerFilter -&gt; ByteString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679996585"><span class="annot"><span class="annottext">NoiseReducerFilter -&gt; ByteString
 (NoiseReducerFilter -&gt; ByteString)
 -&gt; ToByteString NoiseReducerFilter
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NoiseReducerFilter -&gt; ByteString
 $ctoBS :: NoiseReducerFilter -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679991791"><span class="annot"><span class="annottext">NoiseReducerFilter -&gt; ByteStringBuilder
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679996582"><span class="annot"><span class="annottext">NoiseReducerFilter -&gt; ByteStringBuilder
 (NoiseReducerFilter -&gt; ByteStringBuilder)
 -&gt; ToLog NoiseReducerFilter
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NoiseReducerFilter -&gt; ByteStringBuilder
 $cbuild :: NoiseReducerFilter -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679991788"><span class="annot"><span class="annottext">HeaderName -&gt; NoiseReducerFilter -&gt; [Header]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679996579"><span class="annot"><span class="annottext">HeaderName -&gt; NoiseReducerFilter -&gt; [Header]
 (HeaderName -&gt; NoiseReducerFilter -&gt; [Header])
 -&gt; ToHeader NoiseReducerFilter
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NoiseReducerFilter -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NoiseReducerFilter -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679991785"><span class="annot"><span class="annottext">NoiseReducerFilter -&gt; QueryString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679996576"><span class="annot"><span class="annottext">NoiseReducerFilter -&gt; QueryString
 (NoiseReducerFilter -&gt; QueryString) -&gt; ToQuery NoiseReducerFilter
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NoiseReducerFilter -&gt; QueryString
 $ctoQuery :: NoiseReducerFilter -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679991780"><span id="local-6989586621679991782"><span class="annot"><span class="annottext">Value -&gt; Parser [NoiseReducerFilter]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679996571"><span id="local-6989586621679996573"><span class="annot"><span class="annottext">Value -&gt; Parser [NoiseReducerFilter]
 Value -&gt; Parser NoiseReducerFilter
 (Value -&gt; Parser NoiseReducerFilter)
 -&gt; (Value -&gt; Parser [NoiseReducerFilter])
@@ -214,7 +214,7 @@ $cparseJSONList :: Value -&gt; Parser [NoiseReducerFilter]
 parseJSON :: Value -&gt; Parser NoiseReducerFilter
 $cparseJSON :: Value -&gt; Parser NoiseReducerFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679991775"><span id="local-6989586621679991777"><span class="annot"><span class="annottext">FromJSONKeyFunction [NoiseReducerFilter]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679996566"><span id="local-6989586621679996568"><span class="annot"><span class="annottext">FromJSONKeyFunction [NoiseReducerFilter]
 FromJSONKeyFunction NoiseReducerFilter
 FromJSONKeyFunction NoiseReducerFilter
 -&gt; FromJSONKeyFunction [NoiseReducerFilter]
@@ -226,7 +226,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NoiseReducerFilter]
 fromJSONKey :: FromJSONKeyFunction NoiseReducerFilter
 $cfromJSONKey :: FromJSONKeyFunction NoiseReducerFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679991766"><span id="local-6989586621679991768"><span id="local-6989586621679991770"><span id="local-6989586621679991772"><span class="annot"><span class="annottext">[NoiseReducerFilter] -&gt; Encoding
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679996557"><span id="local-6989586621679996559"><span id="local-6989586621679996561"><span id="local-6989586621679996563"><span class="annot"><span class="annottext">[NoiseReducerFilter] -&gt; Encoding
 [NoiseReducerFilter] -&gt; Value
 NoiseReducerFilter -&gt; Encoding
 NoiseReducerFilter -&gt; Value
@@ -250,7 +250,7 @@ $ctoEncoding :: NoiseReducerFilter -&gt; Encoding
 toJSON :: NoiseReducerFilter -&gt; Value
 $ctoJSON :: NoiseReducerFilter -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679991761"><span id="local-6989586621679991763"><span class="annot"><span class="annottext">ToJSONKeyFunction [NoiseReducerFilter]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679996552"><span id="local-6989586621679996554"><span class="annot"><span class="annottext">ToJSONKeyFunction [NoiseReducerFilter]
 ToJSONKeyFunction NoiseReducerFilter
 ToJSONKeyFunction NoiseReducerFilter
 -&gt; ToJSONKeyFunction [NoiseReducerFilter]
@@ -262,14 +262,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NoiseReducerFilter]
 toJSONKey :: ToJSONKeyFunction NoiseReducerFilter
 $ctoJSONKey :: ToJSONKeyFunction NoiseReducerFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679991758"><span class="annot"><span class="annottext">[Node] -&gt; Either String NoiseReducerFilter
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679996549"><span class="annot"><span class="annottext">[Node] -&gt; Either String NoiseReducerFilter
 ([Node] -&gt; Either String NoiseReducerFilter)
 -&gt; FromXML NoiseReducerFilter
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NoiseReducerFilter
 $cparseXML :: [Node] -&gt; Either String NoiseReducerFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679991755"><span class="annot"><span class="annottext">NoiseReducerFilter -&gt; XML
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679996546"><span class="annot"><span class="annottext">NoiseReducerFilter -&gt; XML
 (NoiseReducerFilter -&gt; XML) -&gt; ToXML NoiseReducerFilter
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NoiseReducerFilter -&gt; XML

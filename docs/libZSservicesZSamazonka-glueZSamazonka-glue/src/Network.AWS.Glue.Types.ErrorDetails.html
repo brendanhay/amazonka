@@ -26,15 +26,15 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An object containing error details.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newErrorDetails' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679684816"><span id="local-6989586621679684817"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorDetails"><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-var">ErrorDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorDetails%27"><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-var">ErrorDetails'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error message for an error.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AerrorMessage%3AErrorDetails%27"><span class="annot"><span class="annottext">ErrorDetails -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.ErrorDetails.html#%24sel%3AerrorMessage%3AErrorDetails%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The error code for an error.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AerrorCode%3AErrorDetails%27"><span class="annot"><span class="annottext">ErrorDetails -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.ErrorDetails.html#%24sel%3AerrorCode%3AErrorDetails%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679686467"><span id="local-6989586621679686468"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorDetails"><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-var">ErrorDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorDetails%27"><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-var">ErrorDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code for an error.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AerrorCode%3AErrorDetails%27"><span class="annot"><span class="annottext">ErrorDetails -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.ErrorDetails.html#%24sel%3AerrorCode%3AErrorDetails%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The error message for an error.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AerrorMessage%3AErrorDetails%27"><span class="annot"><span class="annottext">ErrorDetails -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.ErrorDetails.html#%24sel%3AerrorMessage%3AErrorDetails%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679684809"><span id="local-6989586621679684811"><span class="annot"><span class="annottext">ErrorDetails -&gt; ErrorDetails -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679686460"><span id="local-6989586621679686462"><span class="annot"><span class="annottext">ErrorDetails -&gt; ErrorDetails -&gt; Bool
 (ErrorDetails -&gt; ErrorDetails -&gt; Bool)
 -&gt; (ErrorDetails -&gt; ErrorDetails -&gt; Bool) -&gt; Eq ErrorDetails
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ErrorDetails -&gt; ErrorDetails -&gt; Bool
 == :: ErrorDetails -&gt; ErrorDetails -&gt; Bool
 $c== :: ErrorDetails -&gt; ErrorDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684800"><span id="local-6989586621679684802"><span id="local-6989586621679684804"><span id="local-6989586621679684806"><span class="annot"><span class="annottext">ReadPrec [ErrorDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679686451"><span id="local-6989586621679686453"><span id="local-6989586621679686455"><span id="local-6989586621679686457"><span class="annot"><span class="annottext">ReadPrec [ErrorDetails]
 ReadPrec ErrorDetails
 Int -&gt; ReadS ErrorDetails
 ReadS [ErrorDetails]
@@ -62,7 +62,7 @@ readList :: ReadS [ErrorDetails]
 $creadList :: ReadS [ErrorDetails]
 readsPrec :: Int -&gt; ReadS ErrorDetails
 $creadsPrec :: Int -&gt; ReadS ErrorDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684793"><span id="local-6989586621679684795"><span id="local-6989586621679684797"><span class="annot"><span class="annottext">Int -&gt; ErrorDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679686444"><span id="local-6989586621679686446"><span id="local-6989586621679686448"><span class="annot"><span class="annottext">Int -&gt; ErrorDetails -&gt; ShowS
 [ErrorDetails] -&gt; ShowS
 ErrorDetails -&gt; String
 (Int -&gt; ErrorDetails -&gt; ShowS)
@@ -96,63 +96,63 @@ $cfrom :: forall x. ErrorDetails -&gt; Rep ErrorDetails x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'errorMessage', 'errorDetails_errorMessage' - The error message for an error.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'errorCode', 'errorDetails_errorCode' - The error code for an error.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'errorCode', 'errorDetails_errorCode' - The error code for an error.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'errorMessage', 'errorDetails_errorMessage' - The error message for an error.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#newErrorDetails"><span class="hs-identifier hs-type">newErrorDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span>
 </span><span id="line-50"></span><span id="newErrorDetails"><span class="annot"><span class="annottext">newErrorDetails :: ErrorDetails
 </span><a href="Network.AWS.Glue.Types.ErrorDetails.html#newErrorDetails"><span class="hs-identifier hs-var hs-var">newErrorDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ErrorDetails' :: Maybe Text -&gt; Maybe Text -&gt; ErrorDetails
 </span><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errorMessage:ErrorDetails' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.ErrorDetails.html#%24sel%3AerrorMessage%3AErrorDetails%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errorCode:ErrorDetails' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.ErrorDetails.html#%24sel%3AerrorCode%3AErrorDetails%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:ErrorDetails' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.ErrorDetails.html#%24sel%3AerrorCode%3AErrorDetails%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:ErrorDetails' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.ErrorDetails.html#%24sel%3AerrorMessage%3AErrorDetails%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- | The error message for an error.</span><span>
-</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#errorDetails_errorMessage"><span class="hs-identifier hs-type">errorDetails_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-58"></span><span id="errorDetails_errorMessage"><span class="annot"><span class="annottext">errorDetails_errorMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ErrorDetails -&gt; f ErrorDetails
-</span><a href="Network.AWS.Glue.Types.ErrorDetails.html#errorDetails_errorMessage"><span class="hs-identifier hs-var hs-var">errorDetails_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ErrorDetails -&gt; Maybe Text)
--&gt; (ErrorDetails -&gt; Maybe Text -&gt; ErrorDetails)
--&gt; Lens ErrorDetails ErrorDetails (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684784"><span class="annot"><span class="annottext">Maybe Text
-errorMessage :: Maybe Text
-$sel:errorMessage:ErrorDetails' :: ErrorDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679684784"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679684784"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684783"><span class="annot"><span class="annottext">s :: ErrorDetails
-</span><a href="#local-6989586621679684783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684782"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679684782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetails
-</span><a href="#local-6989586621679684783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:ErrorDetails' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.ErrorDetails.html#%24sel%3AerrorMessage%3AErrorDetails%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679684782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | The error code for an error.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#errorDetails_errorCode"><span class="hs-identifier hs-type">errorDetails_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="errorDetails_errorCode"><span class="annot"><span class="annottext">errorDetails_errorCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ErrorDetails -&gt; f ErrorDetails
+</span><span id="line-56"></span><span class="hs-comment">-- | The error code for an error.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#errorDetails_errorCode"><span class="hs-identifier hs-type">errorDetails_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="errorDetails_errorCode"><span class="annot"><span class="annottext">errorDetails_errorCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ErrorDetails -&gt; f ErrorDetails
 </span><a href="Network.AWS.Glue.Types.ErrorDetails.html#errorDetails_errorCode"><span class="hs-identifier hs-var hs-var">errorDetails_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ErrorDetails -&gt; Maybe Text)
 -&gt; (ErrorDetails -&gt; Maybe Text -&gt; ErrorDetails)
 -&gt; Lens ErrorDetails ErrorDetails (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684780"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679686435"><span class="annot"><span class="annottext">Maybe Text
 errorCode :: Maybe Text
 $sel:errorCode:ErrorDetails' :: ErrorDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679684780"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679684780"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684779"><span class="annot"><span class="annottext">s :: ErrorDetails
-</span><a href="#local-6989586621679684779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684778"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679684778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetails
-</span><a href="#local-6989586621679684779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:ErrorDetails' :: Maybe Text
+</span><a href="#local-6989586621679686435"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679686435"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679686434"><span class="annot"><span class="annottext">s :: ErrorDetails
+</span><a href="#local-6989586621679686434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679686433"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679686433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetails
+</span><a href="#local-6989586621679686434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:ErrorDetails' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.ErrorDetails.html#%24sel%3AerrorCode%3AErrorDetails%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679684778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679686433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The error message for an error.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#errorDetails_errorMessage"><span class="hs-identifier hs-type">errorDetails_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="errorDetails_errorMessage"><span class="annot"><span class="annottext">errorDetails_errorMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ErrorDetails -&gt; f ErrorDetails
+</span><a href="Network.AWS.Glue.Types.ErrorDetails.html#errorDetails_errorMessage"><span class="hs-identifier hs-var hs-var">errorDetails_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ErrorDetails -&gt; Maybe Text)
+-&gt; (ErrorDetails -&gt; Maybe Text -&gt; ErrorDetails)
+-&gt; Lens ErrorDetails ErrorDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679686431"><span class="annot"><span class="annottext">Maybe Text
+errorMessage :: Maybe Text
+$sel:errorMessage:ErrorDetails' :: ErrorDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679686431"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679686431"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679686430"><span class="annot"><span class="annottext">s :: ErrorDetails
+</span><a href="#local-6989586621679686430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679686429"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679686429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetails
+</span><a href="#local-6989586621679686430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:ErrorDetails' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.ErrorDetails.html#%24sel%3AerrorMessage%3AErrorDetails%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679686429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684775"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679684773"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ErrorDetails
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679686426"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679686424"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ErrorDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ErrorDetails) -&gt; Value -&gt; Parser ErrorDetails
@@ -160,29 +160,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ErrorDetails&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679684770"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684770"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679686421"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679686421"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; ErrorDetails
 </span><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-var">ErrorDetails'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; ErrorDetails)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ErrorDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684770"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679686421"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ErrorDetails)
 -&gt; Parser (Maybe Text) -&gt; Parser ErrorDetails
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684770"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679686421"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684764"><span id="local-6989586621679684766"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679686415"><span id="local-6989586621679686417"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684761"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679686412"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

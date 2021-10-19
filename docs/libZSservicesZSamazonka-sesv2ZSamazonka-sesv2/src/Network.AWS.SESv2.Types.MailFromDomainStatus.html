@@ -45,13 +45,13 @@
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- -   @TEMPORARY_FAILURE@ &#8211; A temporary issue occurred, which prevented</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--     Amazon SES from determining the status of the MAIL FROM domain.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679327271"><span id="local-6989586621679327272"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MailFromDomainStatus"><span class="annot"><a href="Network.AWS.SESv2.Types.MailFromDomainStatus.html#MailFromDomainStatus"><span class="hs-identifier hs-var">MailFromDomainStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MailFromDomainStatus%27"><span class="annot"><a href="Network.AWS.SESv2.Types.MailFromDomainStatus.html#MailFromDomainStatus%27"><span class="hs-identifier hs-var">MailFromDomainStatus'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679329779"><span id="local-6989586621679329780"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MailFromDomainStatus"><span class="annot"><a href="Network.AWS.SESv2.Types.MailFromDomainStatus.html#MailFromDomainStatus"><span class="hs-identifier hs-var">MailFromDomainStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MailFromDomainStatus%27"><span class="annot"><a href="Network.AWS.SESv2.Types.MailFromDomainStatus.html#MailFromDomainStatus%27"><span class="hs-identifier hs-var">MailFromDomainStatus'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMailFromDomainStatus"><span class="annot"><span class="annottext">MailFromDomainStatus -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.MailFromDomainStatus.html#fromMailFromDomainStatus"><span class="hs-identifier hs-var hs-var">fromMailFromDomainStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327263"><span id="local-6989586621679327265"><span id="local-6989586621679327267"><span class="annot"><span class="annottext">Int -&gt; MailFromDomainStatus -&gt; ShowS
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329771"><span id="local-6989586621679329773"><span id="local-6989586621679329775"><span class="annot"><span class="annottext">Int -&gt; MailFromDomainStatus -&gt; ShowS
 [MailFromDomainStatus] -&gt; ShowS
 MailFromDomainStatus -&gt; String
 (Int -&gt; MailFromDomainStatus -&gt; ShowS)
@@ -67,7 +67,7 @@ $cshow :: MailFromDomainStatus -&gt; String
 showsPrec :: Int -&gt; MailFromDomainStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; MailFromDomainStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679327254"><span id="local-6989586621679327256"><span id="local-6989586621679327258"><span id="local-6989586621679327260"><span class="annot"><span class="annottext">ReadPrec [MailFromDomainStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679329762"><span id="local-6989586621679329764"><span id="local-6989586621679329766"><span id="local-6989586621679329768"><span class="annot"><span class="annottext">ReadPrec [MailFromDomainStatus]
 ReadPrec MailFromDomainStatus
 Int -&gt; ReadS MailFromDomainStatus
 ReadS [MailFromDomainStatus]
@@ -88,7 +88,7 @@ $creadList :: ReadS [MailFromDomainStatus]
 readsPrec :: Int -&gt; ReadS MailFromDomainStatus
 $creadsPrec :: Int -&gt; ReadS MailFromDomainStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679327249"><span id="local-6989586621679327251"><span class="annot"><span class="annottext">MailFromDomainStatus -&gt; MailFromDomainStatus -&gt; Bool
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679329757"><span id="local-6989586621679329759"><span class="annot"><span class="annottext">MailFromDomainStatus -&gt; MailFromDomainStatus -&gt; Bool
 (MailFromDomainStatus -&gt; MailFromDomainStatus -&gt; Bool)
 -&gt; (MailFromDomainStatus -&gt; MailFromDomainStatus -&gt; Bool)
 -&gt; Eq MailFromDomainStatus
@@ -98,7 +98,7 @@ $c/= :: MailFromDomainStatus -&gt; MailFromDomainStatus -&gt; Bool
 == :: MailFromDomainStatus -&gt; MailFromDomainStatus -&gt; Bool
 $c== :: MailFromDomainStatus -&gt; MailFromDomainStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679327233"><span id="local-6989586621679327235"><span id="local-6989586621679327237"><span id="local-6989586621679327239"><span id="local-6989586621679327241"><span id="local-6989586621679327243"><span id="local-6989586621679327245"><span class="annot"><span class="annottext">Eq MailFromDomainStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679329741"><span id="local-6989586621679329743"><span id="local-6989586621679329745"><span id="local-6989586621679329747"><span id="local-6989586621679329749"><span id="local-6989586621679329751"><span id="local-6989586621679329753"><span class="annot"><span class="annottext">Eq MailFromDomainStatus
 Eq MailFromDomainStatus
 -&gt; (MailFromDomainStatus -&gt; MailFromDomainStatus -&gt; Ordering)
 -&gt; (MailFromDomainStatus -&gt; MailFromDomainStatus -&gt; Bool)
@@ -156,7 +156,7 @@ $cfrom :: forall x. MailFromDomainStatus -&gt; Rep MailFromDomainStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327225"><span id="local-6989586621679327227"><span class="annot"><span class="annottext">Int -&gt; MailFromDomainStatus -&gt; Int
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329733"><span id="local-6989586621679329735"><span class="annot"><span class="annottext">Int -&gt; MailFromDomainStatus -&gt; Int
 MailFromDomainStatus -&gt; Int
 (Int -&gt; MailFromDomainStatus -&gt; Int)
 -&gt; (MailFromDomainStatus -&gt; Int) -&gt; Hashable MailFromDomainStatus
@@ -166,54 +166,54 @@ $chash :: MailFromDomainStatus -&gt; Int
 hashWithSalt :: Int -&gt; MailFromDomainStatus -&gt; Int
 $chashWithSalt :: Int -&gt; MailFromDomainStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679327222"><span class="annot"><span class="annottext">MailFromDomainStatus -&gt; ()
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679329730"><span class="annot"><span class="annottext">MailFromDomainStatus -&gt; ()
 (MailFromDomainStatus -&gt; ()) -&gt; NFData MailFromDomainStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MailFromDomainStatus -&gt; ()
 $crnf :: MailFromDomainStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679327219"><span class="annot"><span class="annottext">Text -&gt; Either String MailFromDomainStatus
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679329727"><span class="annot"><span class="annottext">Text -&gt; Either String MailFromDomainStatus
 (Text -&gt; Either String MailFromDomainStatus)
 -&gt; FromText MailFromDomainStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MailFromDomainStatus
 $cfromText :: Text -&gt; Either String MailFromDomainStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679327216"><span class="annot"><span class="annottext">MailFromDomainStatus -&gt; Text
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679329724"><span class="annot"><span class="annottext">MailFromDomainStatus -&gt; Text
 (MailFromDomainStatus -&gt; Text) -&gt; ToText MailFromDomainStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MailFromDomainStatus -&gt; Text
 $ctoText :: MailFromDomainStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679327213"><span class="annot"><span class="annottext">MailFromDomainStatus -&gt; ByteString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679329721"><span class="annot"><span class="annottext">MailFromDomainStatus -&gt; ByteString
 (MailFromDomainStatus -&gt; ByteString)
 -&gt; ToByteString MailFromDomainStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MailFromDomainStatus -&gt; ByteString
 $ctoBS :: MailFromDomainStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679327210"><span class="annot"><span class="annottext">MailFromDomainStatus -&gt; ByteStringBuilder
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679329718"><span class="annot"><span class="annottext">MailFromDomainStatus -&gt; ByteStringBuilder
 (MailFromDomainStatus -&gt; ByteStringBuilder)
 -&gt; ToLog MailFromDomainStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MailFromDomainStatus -&gt; ByteStringBuilder
 $cbuild :: MailFromDomainStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679327207"><span class="annot"><span class="annottext">HeaderName -&gt; MailFromDomainStatus -&gt; [Header]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679329715"><span class="annot"><span class="annottext">HeaderName -&gt; MailFromDomainStatus -&gt; [Header]
 (HeaderName -&gt; MailFromDomainStatus -&gt; [Header])
 -&gt; ToHeader MailFromDomainStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MailFromDomainStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MailFromDomainStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679327204"><span class="annot"><span class="annottext">MailFromDomainStatus -&gt; QueryString
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679329712"><span class="annot"><span class="annottext">MailFromDomainStatus -&gt; QueryString
 (MailFromDomainStatus -&gt; QueryString)
 -&gt; ToQuery MailFromDomainStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MailFromDomainStatus -&gt; QueryString
 $ctoQuery :: MailFromDomainStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679327199"><span id="local-6989586621679327201"><span class="annot"><span class="annottext">Value -&gt; Parser [MailFromDomainStatus]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679329707"><span id="local-6989586621679329709"><span class="annot"><span class="annottext">Value -&gt; Parser [MailFromDomainStatus]
 Value -&gt; Parser MailFromDomainStatus
 (Value -&gt; Parser MailFromDomainStatus)
 -&gt; (Value -&gt; Parser [MailFromDomainStatus])
@@ -225,7 +225,7 @@ $cparseJSONList :: Value -&gt; Parser [MailFromDomainStatus]
 parseJSON :: Value -&gt; Parser MailFromDomainStatus
 $cparseJSON :: Value -&gt; Parser MailFromDomainStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679327194"><span id="local-6989586621679327196"><span class="annot"><span class="annottext">FromJSONKeyFunction [MailFromDomainStatus]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679329702"><span id="local-6989586621679329704"><span class="annot"><span class="annottext">FromJSONKeyFunction [MailFromDomainStatus]
 FromJSONKeyFunction MailFromDomainStatus
 FromJSONKeyFunction MailFromDomainStatus
 -&gt; FromJSONKeyFunction [MailFromDomainStatus]
@@ -237,7 +237,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MailFromDomainStatus]
 fromJSONKey :: FromJSONKeyFunction MailFromDomainStatus
 $cfromJSONKey :: FromJSONKeyFunction MailFromDomainStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679327185"><span id="local-6989586621679327187"><span id="local-6989586621679327189"><span id="local-6989586621679327191"><span class="annot"><span class="annottext">[MailFromDomainStatus] -&gt; Encoding
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679329693"><span id="local-6989586621679329695"><span id="local-6989586621679329697"><span id="local-6989586621679329699"><span class="annot"><span class="annottext">[MailFromDomainStatus] -&gt; Encoding
 [MailFromDomainStatus] -&gt; Value
 MailFromDomainStatus -&gt; Encoding
 MailFromDomainStatus -&gt; Value
@@ -261,7 +261,7 @@ $ctoEncoding :: MailFromDomainStatus -&gt; Encoding
 toJSON :: MailFromDomainStatus -&gt; Value
 $ctoJSON :: MailFromDomainStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679327180"><span id="local-6989586621679327182"><span class="annot"><span class="annottext">ToJSONKeyFunction [MailFromDomainStatus]
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679329688"><span id="local-6989586621679329690"><span class="annot"><span class="annottext">ToJSONKeyFunction [MailFromDomainStatus]
 ToJSONKeyFunction MailFromDomainStatus
 ToJSONKeyFunction MailFromDomainStatus
 -&gt; ToJSONKeyFunction [MailFromDomainStatus]
@@ -273,14 +273,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MailFromDomainStatus]
 toJSONKey :: ToJSONKeyFunction MailFromDomainStatus
 $ctoJSONKey :: ToJSONKeyFunction MailFromDomainStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679327177"><span class="annot"><span class="annottext">[Node] -&gt; Either String MailFromDomainStatus
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679329685"><span class="annot"><span class="annottext">[Node] -&gt; Either String MailFromDomainStatus
 ([Node] -&gt; Either String MailFromDomainStatus)
 -&gt; FromXML MailFromDomainStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MailFromDomainStatus
 $cparseXML :: [Node] -&gt; Either String MailFromDomainStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679327174"><span class="annot"><span class="annottext">MailFromDomainStatus -&gt; XML
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679329682"><span class="annot"><span class="annottext">MailFromDomainStatus -&gt; XML
 (MailFromDomainStatus -&gt; XML) -&gt; ToXML MailFromDomainStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MailFromDomainStatus -&gt; XML

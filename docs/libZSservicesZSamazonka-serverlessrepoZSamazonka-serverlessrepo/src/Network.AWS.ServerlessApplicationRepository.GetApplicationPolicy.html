@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.html"><span class="hs-identifier">Network.AWS.ServerlessApplicationRepository.Types</span></a></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetApplicationPolicy' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679191713"><span id="local-6989586621679191714"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApplicationPolicy"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy"><span class="hs-identifier hs-var">GetApplicationPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApplicationPolicy%27"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy%27"><span class="hs-identifier hs-var">GetApplicationPolicy'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679191827"><span id="local-6989586621679191828"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApplicationPolicy"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy"><span class="hs-identifier hs-var">GetApplicationPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApplicationPolicy%27"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy%27"><span class="hs-identifier hs-var">GetApplicationPolicy'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the application.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AapplicationId%3AGetApplicationPolicy%27"><span class="annot"><span class="annottext">GetApplicationPolicy -&gt; Text
 </span><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#%24sel%3AapplicationId%3AGetApplicationPolicy%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191707"><span id="local-6989586621679191709"><span class="annot"><span class="annottext">GetApplicationPolicy -&gt; GetApplicationPolicy -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191821"><span id="local-6989586621679191823"><span class="annot"><span class="annottext">GetApplicationPolicy -&gt; GetApplicationPolicy -&gt; Bool
 (GetApplicationPolicy -&gt; GetApplicationPolicy -&gt; Bool)
 -&gt; (GetApplicationPolicy -&gt; GetApplicationPolicy -&gt; Bool)
 -&gt; Eq GetApplicationPolicy
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetApplicationPolicy -&gt; GetApplicationPolicy -&gt; Bool
 == :: GetApplicationPolicy -&gt; GetApplicationPolicy -&gt; Bool
 $c== :: GetApplicationPolicy -&gt; GetApplicationPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191698"><span id="local-6989586621679191700"><span id="local-6989586621679191702"><span id="local-6989586621679191704"><span class="annot"><span class="annottext">ReadPrec [GetApplicationPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191812"><span id="local-6989586621679191814"><span id="local-6989586621679191816"><span id="local-6989586621679191818"><span class="annot"><span class="annottext">ReadPrec [GetApplicationPolicy]
 ReadPrec GetApplicationPolicy
 Int -&gt; ReadS GetApplicationPolicy
 ReadS [GetApplicationPolicy]
@@ -81,7 +81,7 @@ readList :: ReadS [GetApplicationPolicy]
 $creadList :: ReadS [GetApplicationPolicy]
 readsPrec :: Int -&gt; ReadS GetApplicationPolicy
 $creadsPrec :: Int -&gt; ReadS GetApplicationPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191691"><span id="local-6989586621679191693"><span id="local-6989586621679191695"><span class="annot"><span class="annottext">Int -&gt; GetApplicationPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191805"><span id="local-6989586621679191807"><span id="local-6989586621679191809"><span class="annot"><span class="annottext">Int -&gt; GetApplicationPolicy -&gt; ShowS
 [GetApplicationPolicy] -&gt; ShowS
 GetApplicationPolicy -&gt; String
 (Int -&gt; GetApplicationPolicy -&gt; ShowS)
@@ -121,14 +121,14 @@ $cfrom :: forall x. GetApplicationPolicy -&gt; Rep GetApplicationPolicy x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy"><span class="hs-identifier hs-type">GetApplicationPolicy</span></a></span><span>
 </span><span id="line-69"></span><span id="newGetApplicationPolicy"><span class="annot"><span class="annottext">newGetApplicationPolicy :: Text -&gt; GetApplicationPolicy
-</span><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#newGetApplicationPolicy"><span class="hs-identifier hs-var hs-var">newGetApplicationPolicy</span></a></span></span><span> </span><span id="local-6989586621679191686"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191686"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#newGetApplicationPolicy"><span class="hs-identifier hs-var hs-var">newGetApplicationPolicy</span></a></span></span><span> </span><span id="local-6989586621679191800"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679191800"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetApplicationPolicy' :: Text -&gt; GetApplicationPolicy
 </span><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy%27"><span class="hs-identifier hs-type">GetApplicationPolicy'</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationId:GetApplicationPolicy' :: Text
 </span><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#%24sel%3AapplicationId%3AGetApplicationPolicy%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191686"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
+</span><a href="#local-6989586621679191800"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the application.</span><span>
@@ -138,27 +138,27 @@ $cfrom :: forall x. GetApplicationPolicy -&gt; Rep GetApplicationPolicy x
 -&gt; (GetApplicationPolicy -&gt; Text -&gt; GetApplicationPolicy)
 -&gt; Lens GetApplicationPolicy GetApplicationPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy%27"><span class="hs-identifier hs-type">GetApplicationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191683"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy%27"><span class="hs-identifier hs-type">GetApplicationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191797"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:GetApplicationPolicy' :: GetApplicationPolicy -&gt; Text
-</span><a href="#local-6989586621679191683"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191683"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191682"><span class="annot"><span class="annottext">s :: GetApplicationPolicy
-</span><a href="#local-6989586621679191682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy%27"><span class="hs-identifier hs-type">GetApplicationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191681"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationPolicy
-</span><a href="#local-6989586621679191682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetApplicationPolicy' :: Text
+</span><a href="#local-6989586621679191797"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679191797"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191796"><span class="annot"><span class="annottext">s :: GetApplicationPolicy
+</span><a href="#local-6989586621679191796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy%27"><span class="hs-identifier hs-type">GetApplicationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191795"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679191795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationPolicy
+</span><a href="#local-6989586621679191796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetApplicationPolicy' :: Text
 </span><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#%24sel%3AapplicationId%3AGetApplicationPolicy%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy"><span class="hs-identifier hs-type">GetApplicationPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy"><span class="hs-identifier hs-type">GetApplicationPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy"><span class="hs-identifier hs-type">GetApplicationPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy"><span class="hs-identifier hs-type">GetApplicationPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse"><span class="hs-identifier hs-type">GetApplicationPolicyResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679191677"><span class="annot"><span class="annottext">request :: GetApplicationPolicy -&gt; Request GetApplicationPolicy
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679191791"><span class="annot"><span class="annottext">request :: GetApplicationPolicy -&gt; Request GetApplicationPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetApplicationPolicy -&gt; Request GetApplicationPolicy
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ServerlessApplicationRepository.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679191673"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679191787"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetApplicationPolicy
 -&gt; ClientResponse ClientBody
@@ -184,10 +184,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679191670"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191670"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679191669"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679191669"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679191668"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679191668"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679191784"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679191784"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679191783"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679191783"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679191782"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679191782"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ApplicationPolicyStatement]
 -&gt; Int -&gt; GetApplicationPolicyResponse
 </span><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse%27"><span class="hs-identifier hs-var">GetApplicationPolicyResponse'</span></a></span><span>
@@ -197,7 +197,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetApplicationPolicyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679191668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679191782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [ApplicationPolicyStatement]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -217,15 +217,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191670"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191784"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191659"><span id="local-6989586621679191661"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy"><span class="hs-identifier hs-type">GetApplicationPolicy</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191773"><span id="local-6989586621679191775"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy"><span class="hs-identifier hs-type">GetApplicationPolicy</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191656"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy"><span class="hs-identifier hs-type">GetApplicationPolicy</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191770"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy"><span class="hs-identifier hs-type">GetApplicationPolicy</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy"><span class="hs-identifier hs-type">GetApplicationPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679191652"><span class="annot"><span class="annottext">toHeaders :: GetApplicationPolicy -&gt; ResponseHeaders
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679191766"><span class="annot"><span class="annottext">toHeaders :: GetApplicationPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetApplicationPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -245,11 +245,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy"><span class="hs-identifier hs-type">GetApplicationPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679191646"><span class="annot"><span class="annottext">toPath :: GetApplicationPolicy -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy%27"><span class="hs-identifier hs-type">GetApplicationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191644"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679191760"><span class="annot"><span class="annottext">toPath :: GetApplicationPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy%27"><span class="hs-identifier hs-type">GetApplicationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191758"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:GetApplicationPolicy' :: GetApplicationPolicy -&gt; Text
-</span><a href="#local-6989586621679191644"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679191758"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -258,13 +258,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191644"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679191758"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/policy&quot;</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicy"><span class="hs-identifier hs-type">GetApplicationPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679191640"><span class="annot"><span class="annottext">toQuery :: GetApplicationPolicy -&gt; QueryString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679191754"><span class="annot"><span class="annottext">toQuery :: GetApplicationPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetApplicationPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -272,7 +272,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newGetApplicationPolicyResponse' smart constructor.</span><span>
-</span><span id="line-119"></span><span id="local-6989586621679191637"><span id="local-6989586621679191638"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApplicationPolicyResponse"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse"><span class="hs-identifier hs-var">GetApplicationPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApplicationPolicyResponse%27"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse%27"><span class="hs-identifier hs-var">GetApplicationPolicyResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span id="local-6989586621679191751"><span id="local-6989586621679191752"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApplicationPolicyResponse"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse"><span class="hs-identifier hs-var">GetApplicationPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApplicationPolicyResponse%27"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse%27"><span class="hs-identifier hs-var">GetApplicationPolicyResponse'</span></a></span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of policy statements applied to the application.</span><span>
 </span><span id="line-121"></span><span>    </span><span id="%24sel%3Astatements%3AGetApplicationPolicyResponse%27"><span class="annot"><span class="annottext">GetApplicationPolicyResponse -&gt; Maybe [ApplicationPolicyStatement]
 </span><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#%24sel%3Astatements%3AGetApplicationPolicyResponse%27"><span class="hs-identifier hs-var hs-var">statements</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -280,7 +280,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetApplicationPolicyResponse%27"><span class="annot"><span class="annottext">GetApplicationPolicyResponse -&gt; Int
 </span><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#%24sel%3AhttpStatus%3AGetApplicationPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191631"><span id="local-6989586621679191633"><span class="annot"><span class="annottext">GetApplicationPolicyResponse
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191745"><span id="local-6989586621679191747"><span class="annot"><span class="annottext">GetApplicationPolicyResponse
 -&gt; GetApplicationPolicyResponse -&gt; Bool
 (GetApplicationPolicyResponse
  -&gt; GetApplicationPolicyResponse -&gt; Bool)
@@ -296,7 +296,7 @@ $c/= :: GetApplicationPolicyResponse
 -&gt; GetApplicationPolicyResponse -&gt; Bool
 $c== :: GetApplicationPolicyResponse
 -&gt; GetApplicationPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191623"><span id="local-6989586621679191625"><span id="local-6989586621679191627"><span id="local-6989586621679191629"><span class="annot"><span class="annottext">ReadPrec [GetApplicationPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191737"><span id="local-6989586621679191739"><span id="local-6989586621679191741"><span id="local-6989586621679191743"><span class="annot"><span class="annottext">ReadPrec [GetApplicationPolicyResponse]
 ReadPrec GetApplicationPolicyResponse
 Int -&gt; ReadS GetApplicationPolicyResponse
 ReadS [GetApplicationPolicyResponse]
@@ -316,7 +316,7 @@ readList :: ReadS [GetApplicationPolicyResponse]
 $creadList :: ReadS [GetApplicationPolicyResponse]
 readsPrec :: Int -&gt; ReadS GetApplicationPolicyResponse
 $creadsPrec :: Int -&gt; ReadS GetApplicationPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191617"><span id="local-6989586621679191619"><span id="local-6989586621679191621"><span class="annot"><span class="annottext">Int -&gt; GetApplicationPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191731"><span id="local-6989586621679191733"><span id="local-6989586621679191735"><span class="annot"><span class="annottext">Int -&gt; GetApplicationPolicyResponse -&gt; ShowS
 [GetApplicationPolicyResponse] -&gt; ShowS
 GetApplicationPolicyResponse -&gt; String
 (Int -&gt; GetApplicationPolicyResponse -&gt; ShowS)
@@ -364,8 +364,8 @@ GetApplicationPolicyResponse -&gt; Rep GetApplicationPolicyResponse x
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse"><span class="hs-identifier hs-type">GetApplicationPolicyResponse</span></a></span><span>
 </span><span id="line-142"></span><span id="newGetApplicationPolicyResponse"><span class="annot"><span class="annottext">newGetApplicationPolicyResponse :: Int -&gt; GetApplicationPolicyResponse
-</span><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#newGetApplicationPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetApplicationPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679191614"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191614"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#newGetApplicationPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetApplicationPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679191728"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679191728"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">GetApplicationPolicyResponse' :: Maybe [ApplicationPolicyStatement]
 -&gt; Int -&gt; GetApplicationPolicyResponse
 </span><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse%27"><span class="hs-identifier hs-type">GetApplicationPolicyResponse'</span></a></span><span>
@@ -376,7 +376,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetApplicationPolicyResponse' :: Int
 </span><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#%24sel%3AhttpStatus%3AGetApplicationPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191614"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679191728"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | An array of policy statements applied to the application.</span><span>
@@ -395,16 +395,16 @@ forall a. Maybe a
      (Maybe [ApplicationPolicyStatement])
      (Maybe [ApplicationPolicyStatement])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse%27"><span class="hs-identifier hs-type">GetApplicationPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191613"><span class="annot"><span class="annottext">Maybe [ApplicationPolicyStatement]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse%27"><span class="hs-identifier hs-type">GetApplicationPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191727"><span class="annot"><span class="annottext">Maybe [ApplicationPolicyStatement]
 statements :: Maybe [ApplicationPolicyStatement]
 $sel:statements:GetApplicationPolicyResponse' :: GetApplicationPolicyResponse -&gt; Maybe [ApplicationPolicyStatement]
-</span><a href="#local-6989586621679191613"><span class="hs-identifier hs-var hs-var">statements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ApplicationPolicyStatement]
-</span><a href="#local-6989586621679191613"><span class="hs-identifier hs-var">statements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191612"><span class="annot"><span class="annottext">s :: GetApplicationPolicyResponse
-</span><a href="#local-6989586621679191612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse%27"><span class="hs-identifier hs-type">GetApplicationPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191611"><span class="annot"><span class="annottext">Maybe [ApplicationPolicyStatement]
-</span><a href="#local-6989586621679191611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationPolicyResponse
-</span><a href="#local-6989586621679191612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statements:GetApplicationPolicyResponse' :: Maybe [ApplicationPolicyStatement]
+</span><a href="#local-6989586621679191727"><span class="hs-identifier hs-var hs-var">statements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ApplicationPolicyStatement]
+</span><a href="#local-6989586621679191727"><span class="hs-identifier hs-var">statements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191726"><span class="annot"><span class="annottext">s :: GetApplicationPolicyResponse
+</span><a href="#local-6989586621679191726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse%27"><span class="hs-identifier hs-type">GetApplicationPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191725"><span class="annot"><span class="annottext">Maybe [ApplicationPolicyStatement]
+</span><a href="#local-6989586621679191725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationPolicyResponse
+</span><a href="#local-6989586621679191726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statements:GetApplicationPolicyResponse' :: Maybe [ApplicationPolicyStatement]
 </span><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#%24sel%3Astatements%3AGetApplicationPolicyResponse%27"><span class="hs-identifier hs-var">statements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ApplicationPolicyStatement]
-</span><a href="#local-6989586621679191611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse"><span class="hs-identifier hs-type">GetApplicationPolicyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ApplicationPolicyStatement]
+</span><a href="#local-6989586621679191725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse"><span class="hs-identifier hs-type">GetApplicationPolicyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ApplicationPolicyStatement]
   -&gt; f (Maybe [ApplicationPolicyStatement]))
  -&gt; GetApplicationPolicyResponse -&gt; f GetApplicationPolicyResponse)
 -&gt; ((Maybe [ApplicationPolicyStatement]
@@ -434,8 +434,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ApplicationPolicyStatement]
   [ApplicationPolicyStatement]
   [ApplicationPolicyStatement]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-154"></span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#getApplicationPolicyResponse_httpStatus"><span class="hs-identifier hs-type">getApplicationPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse"><span class="hs-identifier hs-type">GetApplicationPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -447,16 +447,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      GetApplicationPolicyResponse GetApplicationPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse%27"><span class="hs-identifier hs-type">GetApplicationPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191607"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse%27"><span class="hs-identifier hs-type">GetApplicationPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191721"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetApplicationPolicyResponse' :: GetApplicationPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679191607"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191607"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191606"><span class="annot"><span class="annottext">s :: GetApplicationPolicyResponse
-</span><a href="#local-6989586621679191606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse%27"><span class="hs-identifier hs-type">GetApplicationPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191605"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationPolicyResponse
-</span><a href="#local-6989586621679191606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetApplicationPolicyResponse' :: Int
+</span><a href="#local-6989586621679191721"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679191721"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191720"><span class="annot"><span class="annottext">s :: GetApplicationPolicyResponse
+</span><a href="#local-6989586621679191720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse%27"><span class="hs-identifier hs-type">GetApplicationPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191719"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679191719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationPolicyResponse
+</span><a href="#local-6989586621679191720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetApplicationPolicyResponse' :: Int
 </span><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#%24sel%3AhttpStatus%3AGetApplicationPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse"><span class="hs-identifier hs-type">GetApplicationPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse"><span class="hs-identifier hs-type">GetApplicationPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191603"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse"><span class="hs-identifier hs-type">GetApplicationPolicyResponse</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191717"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy.html#GetApplicationPolicyResponse"><span class="hs-identifier hs-type">GetApplicationPolicyResponse</span></a></span></span><span>
 </span><span id="line-158"></span></pre></body></html>

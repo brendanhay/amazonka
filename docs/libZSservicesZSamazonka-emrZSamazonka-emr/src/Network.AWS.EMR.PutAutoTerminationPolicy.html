@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newPutAutoTerminationPolicy' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679385595"><span id="local-6989586621679385596"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAutoTerminationPolicy"><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-var">PutAutoTerminationPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAutoTerminationPolicy%27"><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy%27"><span class="hs-identifier hs-var">PutAutoTerminationPolicy'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679385979"><span id="local-6989586621679385980"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAutoTerminationPolicy"><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-var">PutAutoTerminationPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAutoTerminationPolicy%27"><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy%27"><span class="hs-identifier hs-var">PutAutoTerminationPolicy'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the auto-termination policy to attach to the cluster.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AautoTerminationPolicy%3APutAutoTerminationPolicy%27"><span class="annot"><span class="annottext">PutAutoTerminationPolicy -&gt; Maybe AutoTerminationPolicy
 </span><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#%24sel%3AautoTerminationPolicy%3APutAutoTerminationPolicy%27"><span class="hs-identifier hs-var hs-var">autoTerminationPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoTerminationPolicy.html#AutoTerminationPolicy"><span class="hs-identifier hs-type">AutoTerminationPolicy</span></a></span><span class="hs-special">,</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AclusterId%3APutAutoTerminationPolicy%27"><span class="annot"><span class="annottext">PutAutoTerminationPolicy -&gt; Text
 </span><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#%24sel%3AclusterId%3APutAutoTerminationPolicy%27"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385588"><span id="local-6989586621679385590"><span class="annot"><span class="annottext">PutAutoTerminationPolicy -&gt; PutAutoTerminationPolicy -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385972"><span id="local-6989586621679385974"><span class="annot"><span class="annottext">PutAutoTerminationPolicy -&gt; PutAutoTerminationPolicy -&gt; Bool
 (PutAutoTerminationPolicy -&gt; PutAutoTerminationPolicy -&gt; Bool)
 -&gt; (PutAutoTerminationPolicy -&gt; PutAutoTerminationPolicy -&gt; Bool)
 -&gt; Eq PutAutoTerminationPolicy
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutAutoTerminationPolicy -&gt; PutAutoTerminationPolicy -&gt; Bool
 == :: PutAutoTerminationPolicy -&gt; PutAutoTerminationPolicy -&gt; Bool
 $c== :: PutAutoTerminationPolicy -&gt; PutAutoTerminationPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385579"><span id="local-6989586621679385581"><span id="local-6989586621679385583"><span id="local-6989586621679385585"><span class="annot"><span class="annottext">ReadPrec [PutAutoTerminationPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385963"><span id="local-6989586621679385965"><span id="local-6989586621679385967"><span id="local-6989586621679385969"><span class="annot"><span class="annottext">ReadPrec [PutAutoTerminationPolicy]
 ReadPrec PutAutoTerminationPolicy
 Int -&gt; ReadS PutAutoTerminationPolicy
 ReadS [PutAutoTerminationPolicy]
@@ -89,7 +89,7 @@ readList :: ReadS [PutAutoTerminationPolicy]
 $creadList :: ReadS [PutAutoTerminationPolicy]
 readsPrec :: Int -&gt; ReadS PutAutoTerminationPolicy
 $creadsPrec :: Int -&gt; ReadS PutAutoTerminationPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385572"><span id="local-6989586621679385574"><span id="local-6989586621679385576"><span class="annot"><span class="annottext">Int -&gt; PutAutoTerminationPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385956"><span id="local-6989586621679385958"><span id="local-6989586621679385960"><span class="annot"><span class="annottext">Int -&gt; PutAutoTerminationPolicy -&gt; ShowS
 [PutAutoTerminationPolicy] -&gt; ShowS
 PutAutoTerminationPolicy -&gt; String
 (Int -&gt; PutAutoTerminationPolicy -&gt; ShowS)
@@ -138,8 +138,8 @@ PutAutoTerminationPolicy -&gt; Rep PutAutoTerminationPolicy x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-type">PutAutoTerminationPolicy</span></a></span><span>
 </span><span id="line-79"></span><span id="newPutAutoTerminationPolicy"><span class="annot"><span class="annottext">newPutAutoTerminationPolicy :: Text -&gt; PutAutoTerminationPolicy
-</span><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#newPutAutoTerminationPolicy"><span class="hs-identifier hs-var hs-var">newPutAutoTerminationPolicy</span></a></span></span><span> </span><span id="local-6989586621679385567"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385567"><span class="hs-identifier hs-var">pClusterId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#newPutAutoTerminationPolicy"><span class="hs-identifier hs-var hs-var">newPutAutoTerminationPolicy</span></a></span></span><span> </span><span id="local-6989586621679385951"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385951"><span class="hs-identifier hs-var">pClusterId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">PutAutoTerminationPolicy' :: Maybe AutoTerminationPolicy -&gt; Text -&gt; PutAutoTerminationPolicy
 </span><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy%27"><span class="hs-identifier hs-type">PutAutoTerminationPolicy'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:autoTerminationPolicy:PutAutoTerminationPolicy' :: Maybe AutoTerminationPolicy
@@ -149,7 +149,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterId:PutAutoTerminationPolicy' :: Text
 </span><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#%24sel%3AclusterId%3APutAutoTerminationPolicy%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385567"><span class="hs-identifier hs-var">pClusterId_</span></a></span><span>
+</span><a href="#local-6989586621679385951"><span class="hs-identifier hs-var">pClusterId_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | Specifies the auto-termination policy to attach to the cluster.</span><span>
@@ -165,16 +165,16 @@ forall a. Maybe a
      (Maybe AutoTerminationPolicy)
      (Maybe AutoTerminationPolicy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy%27"><span class="hs-identifier hs-type">PutAutoTerminationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385564"><span class="annot"><span class="annottext">Maybe AutoTerminationPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy%27"><span class="hs-identifier hs-type">PutAutoTerminationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385948"><span class="annot"><span class="annottext">Maybe AutoTerminationPolicy
 autoTerminationPolicy :: Maybe AutoTerminationPolicy
 $sel:autoTerminationPolicy:PutAutoTerminationPolicy' :: PutAutoTerminationPolicy -&gt; Maybe AutoTerminationPolicy
-</span><a href="#local-6989586621679385564"><span class="hs-identifier hs-var hs-var">autoTerminationPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoTerminationPolicy
-</span><a href="#local-6989586621679385564"><span class="hs-identifier hs-var">autoTerminationPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385563"><span class="annot"><span class="annottext">s :: PutAutoTerminationPolicy
-</span><a href="#local-6989586621679385563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy%27"><span class="hs-identifier hs-type">PutAutoTerminationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385562"><span class="annot"><span class="annottext">Maybe AutoTerminationPolicy
-</span><a href="#local-6989586621679385562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAutoTerminationPolicy
-</span><a href="#local-6989586621679385563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoTerminationPolicy:PutAutoTerminationPolicy' :: Maybe AutoTerminationPolicy
+</span><a href="#local-6989586621679385948"><span class="hs-identifier hs-var hs-var">autoTerminationPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoTerminationPolicy
+</span><a href="#local-6989586621679385948"><span class="hs-identifier hs-var">autoTerminationPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385947"><span class="annot"><span class="annottext">s :: PutAutoTerminationPolicy
+</span><a href="#local-6989586621679385947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy%27"><span class="hs-identifier hs-type">PutAutoTerminationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385946"><span class="annot"><span class="annottext">Maybe AutoTerminationPolicy
+</span><a href="#local-6989586621679385946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAutoTerminationPolicy
+</span><a href="#local-6989586621679385947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoTerminationPolicy:PutAutoTerminationPolicy' :: Maybe AutoTerminationPolicy
 </span><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#%24sel%3AautoTerminationPolicy%3APutAutoTerminationPolicy%27"><span class="hs-identifier hs-var">autoTerminationPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoTerminationPolicy
-</span><a href="#local-6989586621679385562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-type">PutAutoTerminationPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-type">PutAutoTerminationPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | Specifies the ID of the Amazon EMR cluster to which the auto-termination</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- policy will be attached.</span><span>
@@ -185,28 +185,28 @@ $sel:autoTerminationPolicy:PutAutoTerminationPolicy' :: PutAutoTerminationPolicy
 -&gt; (PutAutoTerminationPolicy -&gt; Text -&gt; PutAutoTerminationPolicy)
 -&gt; Lens PutAutoTerminationPolicy PutAutoTerminationPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy%27"><span class="hs-identifier hs-type">PutAutoTerminationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385561"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy%27"><span class="hs-identifier hs-type">PutAutoTerminationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385945"><span class="annot"><span class="annottext">Text
 clusterId :: Text
 $sel:clusterId:PutAutoTerminationPolicy' :: PutAutoTerminationPolicy -&gt; Text
-</span><a href="#local-6989586621679385561"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385561"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385560"><span class="annot"><span class="annottext">s :: PutAutoTerminationPolicy
-</span><a href="#local-6989586621679385560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy%27"><span class="hs-identifier hs-type">PutAutoTerminationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385559"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAutoTerminationPolicy
-</span><a href="#local-6989586621679385560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:PutAutoTerminationPolicy' :: Text
+</span><a href="#local-6989586621679385945"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385945"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385944"><span class="annot"><span class="annottext">s :: PutAutoTerminationPolicy
+</span><a href="#local-6989586621679385944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy%27"><span class="hs-identifier hs-type">PutAutoTerminationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385943"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAutoTerminationPolicy
+</span><a href="#local-6989586621679385944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:PutAutoTerminationPolicy' :: Text
 </span><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#%24sel%3AclusterId%3APutAutoTerminationPolicy%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-type">PutAutoTerminationPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-type">PutAutoTerminationPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-type">PutAutoTerminationPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-type">PutAutoTerminationPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicyResponse"><span class="hs-identifier hs-type">PutAutoTerminationPolicyResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679385555"><span class="annot"><span class="annottext">request :: PutAutoTerminationPolicy -&gt; Request PutAutoTerminationPolicy
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679385939"><span class="annot"><span class="annottext">request :: PutAutoTerminationPolicy -&gt; Request PutAutoTerminationPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; PutAutoTerminationPolicy -&gt; Request PutAutoTerminationPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EMR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679385551"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679385935"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutAutoTerminationPolicy
 -&gt; ClientResponse ClientBody
@@ -232,10 +232,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385548"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385548"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385547"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679385547"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385546"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679385546"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385932"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385932"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385931"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679385931"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385930"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679385930"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutAutoTerminationPolicyResponse
 </span><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicyResponse%27"><span class="hs-identifier hs-var">PutAutoTerminationPolicyResponse'</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutAutoTerminationPolicyResponse)
@@ -247,15 +247,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385548"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385932"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385539"><span id="local-6989586621679385541"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-type">PutAutoTerminationPolicy</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385923"><span id="local-6989586621679385925"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-type">PutAutoTerminationPolicy</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-type">PutAutoTerminationPolicy</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385920"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-type">PutAutoTerminationPolicy</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-type">PutAutoTerminationPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679385532"><span class="annot"><span class="annottext">toHeaders :: PutAutoTerminationPolicy -&gt; ResponseHeaders
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679385916"><span class="annot"><span class="annottext">toHeaders :: PutAutoTerminationPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutAutoTerminationPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -282,15 +282,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385522"><span id="local-6989586621679385524"><span id="local-6989586621679385526"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-type">PutAutoTerminationPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679385520"><span class="annot"><span class="annottext">toJSON :: PutAutoTerminationPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy%27"><span class="hs-identifier hs-type">PutAutoTerminationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385517"><span id="local-6989586621679385518"><span class="annot"><span class="annottext">Maybe AutoTerminationPolicy
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385906"><span id="local-6989586621679385908"><span id="local-6989586621679385910"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-type">PutAutoTerminationPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679385904"><span class="annot"><span class="annottext">toJSON :: PutAutoTerminationPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy%27"><span class="hs-identifier hs-type">PutAutoTerminationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385901"><span id="local-6989586621679385902"><span class="annot"><span class="annottext">Maybe AutoTerminationPolicy
 Text
 clusterId :: Text
 autoTerminationPolicy :: Maybe AutoTerminationPolicy
 $sel:clusterId:PutAutoTerminationPolicy' :: PutAutoTerminationPolicy -&gt; Text
 $sel:autoTerminationPolicy:PutAutoTerminationPolicy' :: PutAutoTerminationPolicy -&gt; Maybe AutoTerminationPolicy
-</span><a href="#local-6989586621679385517"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679385901"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -304,26 +304,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AutoTerminationPolicy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AutoTerminationPolicy
-</span><a href="#local-6989586621679385518"><span class="hs-identifier hs-var">autoTerminationPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679385902"><span class="hs-identifier hs-var">autoTerminationPolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClusterId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385517"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385901"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-type">PutAutoTerminationPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679385511"><span class="annot"><span class="annottext">toPath :: PutAutoTerminationPolicy -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679385895"><span class="annot"><span class="annottext">toPath :: PutAutoTerminationPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutAutoTerminationPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicy"><span class="hs-identifier hs-type">PutAutoTerminationPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679385507"><span class="annot"><span class="annottext">toQuery :: PutAutoTerminationPolicy -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679385891"><span class="annot"><span class="annottext">toQuery :: PutAutoTerminationPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutAutoTerminationPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -331,12 +331,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newPutAutoTerminationPolicyResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679385504"><span id="local-6989586621679385505"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAutoTerminationPolicyResponse"><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicyResponse"><span class="hs-identifier hs-var">PutAutoTerminationPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAutoTerminationPolicyResponse%27"><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicyResponse%27"><span class="hs-identifier hs-var">PutAutoTerminationPolicyResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span id="local-6989586621679385888"><span id="local-6989586621679385889"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAutoTerminationPolicyResponse"><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicyResponse"><span class="hs-identifier hs-var">PutAutoTerminationPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAutoTerminationPolicyResponse%27"><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicyResponse%27"><span class="hs-identifier hs-var">PutAutoTerminationPolicyResponse'</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutAutoTerminationPolicyResponse%27"><span class="annot"><span class="annottext">PutAutoTerminationPolicyResponse -&gt; Int
 </span><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#%24sel%3AhttpStatus%3APutAutoTerminationPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385499"><span id="local-6989586621679385501"><span class="annot"><span class="annottext">PutAutoTerminationPolicyResponse
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385883"><span id="local-6989586621679385885"><span class="annot"><span class="annottext">PutAutoTerminationPolicyResponse
 -&gt; PutAutoTerminationPolicyResponse -&gt; Bool
 (PutAutoTerminationPolicyResponse
  -&gt; PutAutoTerminationPolicyResponse -&gt; Bool)
@@ -352,7 +352,7 @@ $c/= :: PutAutoTerminationPolicyResponse
 -&gt; PutAutoTerminationPolicyResponse -&gt; Bool
 $c== :: PutAutoTerminationPolicyResponse
 -&gt; PutAutoTerminationPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385491"><span id="local-6989586621679385493"><span id="local-6989586621679385495"><span id="local-6989586621679385497"><span class="annot"><span class="annottext">ReadPrec [PutAutoTerminationPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385875"><span id="local-6989586621679385877"><span id="local-6989586621679385879"><span id="local-6989586621679385881"><span class="annot"><span class="annottext">ReadPrec [PutAutoTerminationPolicyResponse]
 ReadPrec PutAutoTerminationPolicyResponse
 Int -&gt; ReadS PutAutoTerminationPolicyResponse
 ReadS [PutAutoTerminationPolicyResponse]
@@ -372,7 +372,7 @@ readList :: ReadS [PutAutoTerminationPolicyResponse]
 $creadList :: ReadS [PutAutoTerminationPolicyResponse]
 readsPrec :: Int -&gt; ReadS PutAutoTerminationPolicyResponse
 $creadsPrec :: Int -&gt; ReadS PutAutoTerminationPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385485"><span id="local-6989586621679385487"><span id="local-6989586621679385489"><span class="annot"><span class="annottext">Int -&gt; PutAutoTerminationPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385869"><span id="local-6989586621679385871"><span id="local-6989586621679385873"><span class="annot"><span class="annottext">Int -&gt; PutAutoTerminationPolicyResponse -&gt; ShowS
 [PutAutoTerminationPolicyResponse] -&gt; ShowS
 PutAutoTerminationPolicyResponse -&gt; String
 (Int -&gt; PutAutoTerminationPolicyResponse -&gt; ShowS)
@@ -424,14 +424,14 @@ PutAutoTerminationPolicyResponse
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicyResponse"><span class="hs-identifier hs-type">PutAutoTerminationPolicyResponse</span></a></span><span>
 </span><span id="line-162"></span><span id="newPutAutoTerminationPolicyResponse"><span class="annot"><span class="annottext">newPutAutoTerminationPolicyResponse :: Int -&gt; PutAutoTerminationPolicyResponse
-</span><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#newPutAutoTerminationPolicyResponse"><span class="hs-identifier hs-var hs-var">newPutAutoTerminationPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679385482"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385482"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#newPutAutoTerminationPolicyResponse"><span class="hs-identifier hs-var hs-var">newPutAutoTerminationPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679385866"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385866"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">PutAutoTerminationPolicyResponse' :: Int -&gt; PutAutoTerminationPolicyResponse
 </span><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicyResponse%27"><span class="hs-identifier hs-type">PutAutoTerminationPolicyResponse'</span></a></span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutAutoTerminationPolicyResponse' :: Int
 </span><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#%24sel%3AhttpStatus%3APutAutoTerminationPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385482"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679385866"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -448,18 +448,18 @@ PutAutoTerminationPolicyResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicyResponse%27"><span class="hs-identifier hs-type">PutAutoTerminationPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385481"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicyResponse%27"><span class="hs-identifier hs-type">PutAutoTerminationPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385865"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutAutoTerminationPolicyResponse' :: PutAutoTerminationPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679385481"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385481"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385480"><span class="annot"><span class="annottext">s :: PutAutoTerminationPolicyResponse
-</span><a href="#local-6989586621679385480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicyResponse%27"><span class="hs-identifier hs-type">PutAutoTerminationPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385479"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAutoTerminationPolicyResponse
-</span><a href="#local-6989586621679385480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutAutoTerminationPolicyResponse' :: Int
+</span><a href="#local-6989586621679385865"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385865"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385864"><span class="annot"><span class="annottext">s :: PutAutoTerminationPolicyResponse
+</span><a href="#local-6989586621679385864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicyResponse%27"><span class="hs-identifier hs-type">PutAutoTerminationPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385863"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAutoTerminationPolicyResponse
+</span><a href="#local-6989586621679385864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutAutoTerminationPolicyResponse' :: Int
 </span><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#%24sel%3AhttpStatus%3APutAutoTerminationPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicyResponse"><span class="hs-identifier hs-type">PutAutoTerminationPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicyResponse"><span class="hs-identifier hs-type">PutAutoTerminationPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679385477"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679385861"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.PutAutoTerminationPolicy.html#PutAutoTerminationPolicyResponse"><span class="hs-identifier hs-type">PutAutoTerminationPolicyResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

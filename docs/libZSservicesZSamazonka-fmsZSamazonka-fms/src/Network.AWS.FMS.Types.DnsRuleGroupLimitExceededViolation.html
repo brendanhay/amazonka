@@ -29,18 +29,18 @@
 </span><span id="line-29"></span><span class="hs-comment">-- due to the limit.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDnsRuleGroupLimitExceededViolation' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679244986"><span id="local-6989586621679244987"></span></span><span class="hs-keyword">data</span><span> </span><span id="DnsRuleGroupLimitExceededViolation"><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-var">DnsRuleGroupLimitExceededViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DnsRuleGroupLimitExceededViolation%27"><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-var">DnsRuleGroupLimitExceededViolation'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the VPC ID.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AviolationTarget%3ADnsRuleGroupLimitExceededViolation%27"><span class="annot"><span class="annottext">DnsRuleGroupLimitExceededViolation -&gt; Maybe Text
-</span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#%24sel%3AviolationTarget%3ADnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-var hs-var">violationTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A description of the violation that specifies the rule group and VPC.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AviolationTargetDescription%3ADnsRuleGroupLimitExceededViolation%27"><span class="annot"><span class="annottext">DnsRuleGroupLimitExceededViolation -&gt; Maybe Text
+</span><span id="line-32"></span><span id="local-6989586621679245216"><span id="local-6989586621679245217"></span></span><span class="hs-keyword">data</span><span> </span><span id="DnsRuleGroupLimitExceededViolation"><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-var">DnsRuleGroupLimitExceededViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DnsRuleGroupLimitExceededViolation%27"><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-var">DnsRuleGroupLimitExceededViolation'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of the violation that specifies the rule group and VPC.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AviolationTargetDescription%3ADnsRuleGroupLimitExceededViolation%27"><span class="annot"><span class="annottext">DnsRuleGroupLimitExceededViolation -&gt; Maybe Text
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#%24sel%3AviolationTargetDescription%3ADnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-var hs-var">violationTargetDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Information about the VPC ID.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AviolationTarget%3ADnsRuleGroupLimitExceededViolation%27"><span class="annot"><span class="annottext">DnsRuleGroupLimitExceededViolation -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#%24sel%3AviolationTarget%3ADnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-var hs-var">violationTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The number of rule groups currently associated with the VPC.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AnumberOfRuleGroupsAlreadyAssociated%3ADnsRuleGroupLimitExceededViolation%27"><span class="annot"><span class="annottext">DnsRuleGroupLimitExceededViolation -&gt; Maybe Int
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#%24sel%3AnumberOfRuleGroupsAlreadyAssociated%3ADnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-var hs-var">numberOfRuleGroupsAlreadyAssociated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244978"><span id="local-6989586621679244980"><span class="annot"><span class="annottext">DnsRuleGroupLimitExceededViolation
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245208"><span id="local-6989586621679245210"><span class="annot"><span class="annottext">DnsRuleGroupLimitExceededViolation
 -&gt; DnsRuleGroupLimitExceededViolation -&gt; Bool
 (DnsRuleGroupLimitExceededViolation
  -&gt; DnsRuleGroupLimitExceededViolation -&gt; Bool)
@@ -56,7 +56,7 @@ $c/= :: DnsRuleGroupLimitExceededViolation
 -&gt; DnsRuleGroupLimitExceededViolation -&gt; Bool
 $c== :: DnsRuleGroupLimitExceededViolation
 -&gt; DnsRuleGroupLimitExceededViolation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244969"><span id="local-6989586621679244971"><span id="local-6989586621679244973"><span id="local-6989586621679244975"><span class="annot"><span class="annottext">ReadPrec [DnsRuleGroupLimitExceededViolation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245199"><span id="local-6989586621679245201"><span id="local-6989586621679245203"><span id="local-6989586621679245205"><span class="annot"><span class="annottext">ReadPrec [DnsRuleGroupLimitExceededViolation]
 ReadPrec DnsRuleGroupLimitExceededViolation
 Int -&gt; ReadS DnsRuleGroupLimitExceededViolation
 ReadS [DnsRuleGroupLimitExceededViolation]
@@ -76,7 +76,7 @@ readList :: ReadS [DnsRuleGroupLimitExceededViolation]
 $creadList :: ReadS [DnsRuleGroupLimitExceededViolation]
 readsPrec :: Int -&gt; ReadS DnsRuleGroupLimitExceededViolation
 $creadsPrec :: Int -&gt; ReadS DnsRuleGroupLimitExceededViolation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244962"><span id="local-6989586621679244964"><span id="local-6989586621679244966"><span class="annot"><span class="annottext">Int -&gt; DnsRuleGroupLimitExceededViolation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245192"><span id="local-6989586621679245194"><span id="local-6989586621679245196"><span class="annot"><span class="annottext">Int -&gt; DnsRuleGroupLimitExceededViolation -&gt; ShowS
 [DnsRuleGroupLimitExceededViolation] -&gt; ShowS
 DnsRuleGroupLimitExceededViolation -&gt; String
 (Int -&gt; DnsRuleGroupLimitExceededViolation -&gt; ShowS)
@@ -122,9 +122,9 @@ DnsRuleGroupLimitExceededViolation
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'violationTarget', 'dnsRuleGroupLimitExceededViolation_violationTarget' - Information about the VPC ID.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'violationTargetDescription', 'dnsRuleGroupLimitExceededViolation_violationTargetDescription' - A description of the violation that specifies the rule group and VPC.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'violationTargetDescription', 'dnsRuleGroupLimitExceededViolation_violationTargetDescription' - A description of the violation that specifies the rule group and VPC.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'violationTarget', 'dnsRuleGroupLimitExceededViolation_violationTarget' - Information about the VPC ID.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- 'numberOfRuleGroupsAlreadyAssociated', 'dnsRuleGroupLimitExceededViolation_numberOfRuleGroupsAlreadyAssociated' - The number of rule groups currently associated with the VPC.</span><span>
 </span><span id="line-55"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#newDnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">newDnsRuleGroupLimitExceededViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -134,51 +134,25 @@ DnsRuleGroupLimitExceededViolation
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">DnsRuleGroupLimitExceededViolation' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Int -&gt; DnsRuleGroupLimitExceededViolation
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation'</span></a></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:violationTarget:DnsRuleGroupLimitExceededViolation' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#%24sel%3AviolationTarget%3ADnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-var">violationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:violationTargetDescription:DnsRuleGroupLimitExceededViolation' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#%24sel%3AviolationTargetDescription%3ADnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-var">violationTargetDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:violationTargetDescription:DnsRuleGroupLimitExceededViolation' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#%24sel%3AviolationTargetDescription%3ADnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-var">violationTargetDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:violationTarget:DnsRuleGroupLimitExceededViolation' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#%24sel%3AviolationTarget%3ADnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-var">violationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:numberOfRuleGroupsAlreadyAssociated:DnsRuleGroupLimitExceededViolation' :: Maybe Int
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:numberOfRuleGroupsAlreadyAssociated:DnsRuleGroupLimitExceededViolation' :: Maybe Int
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#%24sel%3AnumberOfRuleGroupsAlreadyAssociated%3ADnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-var">numberOfRuleGroupsAlreadyAssociated</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | Information about the VPC ID.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#dnsRuleGroupLimitExceededViolation_violationTarget"><span class="hs-identifier hs-type">dnsRuleGroupLimitExceededViolation_violationTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="dnsRuleGroupLimitExceededViolation_violationTarget"><span class="annot"><span class="annottext">dnsRuleGroupLimitExceededViolation_violationTarget :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DnsRuleGroupLimitExceededViolation
--&gt; f DnsRuleGroupLimitExceededViolation
-</span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#dnsRuleGroupLimitExceededViolation_violationTarget"><span class="hs-identifier hs-var hs-var">dnsRuleGroupLimitExceededViolation_violationTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DnsRuleGroupLimitExceededViolation -&gt; Maybe Text)
--&gt; (DnsRuleGroupLimitExceededViolation
-    -&gt; Maybe Text -&gt; DnsRuleGroupLimitExceededViolation)
--&gt; Lens
-     DnsRuleGroupLimitExceededViolation
-     DnsRuleGroupLimitExceededViolation
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244953"><span class="annot"><span class="annottext">Maybe Text
-violationTarget :: Maybe Text
-$sel:violationTarget:DnsRuleGroupLimitExceededViolation' :: DnsRuleGroupLimitExceededViolation -&gt; Maybe Text
-</span><a href="#local-6989586621679244953"><span class="hs-identifier hs-var hs-var">violationTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244953"><span class="hs-identifier hs-var">violationTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244952"><span class="annot"><span class="annottext">s :: DnsRuleGroupLimitExceededViolation
-</span><a href="#local-6989586621679244952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244951"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRuleGroupLimitExceededViolation
-</span><a href="#local-6989586621679244952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationTarget:DnsRuleGroupLimitExceededViolation' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#%24sel%3AviolationTarget%3ADnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-var">violationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | A description of the violation that specifies the rule group and VPC.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#dnsRuleGroupLimitExceededViolation_violationTargetDescription"><span class="hs-identifier hs-type">dnsRuleGroupLimitExceededViolation_violationTargetDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="dnsRuleGroupLimitExceededViolation_violationTargetDescription"><span class="annot"><span class="annottext">dnsRuleGroupLimitExceededViolation_violationTargetDescription :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | A description of the violation that specifies the rule group and VPC.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#dnsRuleGroupLimitExceededViolation_violationTargetDescription"><span class="hs-identifier hs-type">dnsRuleGroupLimitExceededViolation_violationTargetDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="dnsRuleGroupLimitExceededViolation_violationTargetDescription"><span class="annot"><span class="annottext">dnsRuleGroupLimitExceededViolation_violationTargetDescription :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DnsRuleGroupLimitExceededViolation
 -&gt; f DnsRuleGroupLimitExceededViolation
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#dnsRuleGroupLimitExceededViolation_violationTargetDescription"><span class="hs-identifier hs-var hs-var">dnsRuleGroupLimitExceededViolation_violationTargetDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DnsRuleGroupLimitExceededViolation -&gt; Maybe Text)
@@ -190,20 +164,45 @@ $sel:violationTarget:DnsRuleGroupLimitExceededViolation' :: DnsRuleGroupLimitExc
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244949"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245183"><span class="annot"><span class="annottext">Maybe Text
 violationTargetDescription :: Maybe Text
 $sel:violationTargetDescription:DnsRuleGroupLimitExceededViolation' :: DnsRuleGroupLimitExceededViolation -&gt; Maybe Text
-</span><a href="#local-6989586621679244949"><span class="hs-identifier hs-var hs-var">violationTargetDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244949"><span class="hs-identifier hs-var">violationTargetDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244948"><span class="annot"><span class="annottext">s :: DnsRuleGroupLimitExceededViolation
-</span><a href="#local-6989586621679244948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244947"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRuleGroupLimitExceededViolation
-</span><a href="#local-6989586621679244948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationTargetDescription:DnsRuleGroupLimitExceededViolation' :: Maybe Text
+</span><a href="#local-6989586621679245183"><span class="hs-identifier hs-var hs-var">violationTargetDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245183"><span class="hs-identifier hs-var">violationTargetDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245182"><span class="annot"><span class="annottext">s :: DnsRuleGroupLimitExceededViolation
+</span><a href="#local-6989586621679245182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245181"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRuleGroupLimitExceededViolation
+</span><a href="#local-6989586621679245182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationTargetDescription:DnsRuleGroupLimitExceededViolation' :: Maybe Text
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#%24sel%3AviolationTargetDescription%3ADnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-var">violationTargetDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | The number of rule groups currently associated with the VPC.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#dnsRuleGroupLimitExceededViolation_numberOfRuleGroupsAlreadyAssociated"><span class="hs-identifier hs-type">dnsRuleGroupLimitExceededViolation_numberOfRuleGroupsAlreadyAssociated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="dnsRuleGroupLimitExceededViolation_numberOfRuleGroupsAlreadyAssociated"><span class="annot"><span class="annottext">dnsRuleGroupLimitExceededViolation_numberOfRuleGroupsAlreadyAssociated :: (Maybe Int -&gt; f (Maybe Int))
+</span><a href="#local-6989586621679245181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | Information about the VPC ID.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#dnsRuleGroupLimitExceededViolation_violationTarget"><span class="hs-identifier hs-type">dnsRuleGroupLimitExceededViolation_violationTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="dnsRuleGroupLimitExceededViolation_violationTarget"><span class="annot"><span class="annottext">dnsRuleGroupLimitExceededViolation_violationTarget :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DnsRuleGroupLimitExceededViolation
+-&gt; f DnsRuleGroupLimitExceededViolation
+</span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#dnsRuleGroupLimitExceededViolation_violationTarget"><span class="hs-identifier hs-var hs-var">dnsRuleGroupLimitExceededViolation_violationTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DnsRuleGroupLimitExceededViolation -&gt; Maybe Text)
+-&gt; (DnsRuleGroupLimitExceededViolation
+    -&gt; Maybe Text -&gt; DnsRuleGroupLimitExceededViolation)
+-&gt; Lens
+     DnsRuleGroupLimitExceededViolation
+     DnsRuleGroupLimitExceededViolation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245179"><span class="annot"><span class="annottext">Maybe Text
+violationTarget :: Maybe Text
+$sel:violationTarget:DnsRuleGroupLimitExceededViolation' :: DnsRuleGroupLimitExceededViolation -&gt; Maybe Text
+</span><a href="#local-6989586621679245179"><span class="hs-identifier hs-var hs-var">violationTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245179"><span class="hs-identifier hs-var">violationTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245178"><span class="annot"><span class="annottext">s :: DnsRuleGroupLimitExceededViolation
+</span><a href="#local-6989586621679245178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245177"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRuleGroupLimitExceededViolation
+</span><a href="#local-6989586621679245178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationTarget:DnsRuleGroupLimitExceededViolation' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#%24sel%3AviolationTarget%3ADnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-var">violationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The number of rule groups currently associated with the VPC.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#dnsRuleGroupLimitExceededViolation_numberOfRuleGroupsAlreadyAssociated"><span class="hs-identifier hs-type">dnsRuleGroupLimitExceededViolation_numberOfRuleGroupsAlreadyAssociated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="dnsRuleGroupLimitExceededViolation_numberOfRuleGroupsAlreadyAssociated"><span class="annot"><span class="annottext">dnsRuleGroupLimitExceededViolation_numberOfRuleGroupsAlreadyAssociated :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; DnsRuleGroupLimitExceededViolation
 -&gt; f DnsRuleGroupLimitExceededViolation
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#dnsRuleGroupLimitExceededViolation_numberOfRuleGroupsAlreadyAssociated"><span class="hs-identifier hs-var hs-var">dnsRuleGroupLimitExceededViolation_numberOfRuleGroupsAlreadyAssociated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DnsRuleGroupLimitExceededViolation -&gt; Maybe Int)
@@ -215,72 +214,72 @@ $sel:violationTargetDescription:DnsRuleGroupLimitExceededViolation' :: DnsRuleGr
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244945"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245175"><span class="annot"><span class="annottext">Maybe Int
 numberOfRuleGroupsAlreadyAssociated :: Maybe Int
 $sel:numberOfRuleGroupsAlreadyAssociated:DnsRuleGroupLimitExceededViolation' :: DnsRuleGroupLimitExceededViolation -&gt; Maybe Int
-</span><a href="#local-6989586621679244945"><span class="hs-identifier hs-var hs-var">numberOfRuleGroupsAlreadyAssociated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679244945"><span class="hs-identifier hs-var">numberOfRuleGroupsAlreadyAssociated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244944"><span class="annot"><span class="annottext">s :: DnsRuleGroupLimitExceededViolation
-</span><a href="#local-6989586621679244944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244943"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679244943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRuleGroupLimitExceededViolation
-</span><a href="#local-6989586621679244944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfRuleGroupsAlreadyAssociated:DnsRuleGroupLimitExceededViolation' :: Maybe Int
+</span><a href="#local-6989586621679245175"><span class="hs-identifier hs-var hs-var">numberOfRuleGroupsAlreadyAssociated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679245175"><span class="hs-identifier hs-var">numberOfRuleGroupsAlreadyAssociated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245174"><span class="annot"><span class="annottext">s :: DnsRuleGroupLimitExceededViolation
+</span><a href="#local-6989586621679245174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245173"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679245173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRuleGroupLimitExceededViolation
+</span><a href="#local-6989586621679245174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfRuleGroupsAlreadyAssociated:DnsRuleGroupLimitExceededViolation' :: Maybe Int
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#%24sel%3AnumberOfRuleGroupsAlreadyAssociated%3ADnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-var">numberOfRuleGroupsAlreadyAssociated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679244943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679244940"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
-</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679244938"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DnsRuleGroupLimitExceededViolation
+</span><a href="#local-6989586621679245173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679245170"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679245168"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DnsRuleGroupLimitExceededViolation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DnsRuleGroupLimitExceededViolation)
 -&gt; Value
 -&gt; Parser DnsRuleGroupLimitExceededViolation
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DnsRuleGroupLimitExceededViolation&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244935"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244935"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245165"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245165"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Int -&gt; DnsRuleGroupLimitExceededViolation
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation%27"><span class="hs-identifier hs-var">DnsRuleGroupLimitExceededViolation'</span></a></span><span>
-</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text -&gt; Maybe Int -&gt; DnsRuleGroupLimitExceededViolation)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text -&gt; Maybe Int -&gt; DnsRuleGroupLimitExceededViolation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679245165"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ViolationTarget&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;ViolationTargetDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text -&gt; Maybe Int -&gt; DnsRuleGroupLimitExceededViolation)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Int -&gt; DnsRuleGroupLimitExceededViolation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679245165"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ViolationTargetDescription&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; DnsRuleGroupLimitExceededViolation)
+</span><span class="hs-string">&quot;ViolationTarget&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; DnsRuleGroupLimitExceededViolation)
 -&gt; Parser (Maybe Int) -&gt; Parser DnsRuleGroupLimitExceededViolation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679245165"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfRuleGroupsAlreadyAssociated&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679244929"><span id="local-6989586621679244931"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
-</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span></span></span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679244926"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span></span><span>
-</span><span id="line-100"></span></pre></body></html>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679245159"><span id="local-6989586621679245161"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679245156"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation.html#DnsRuleGroupLimitExceededViolation"><span class="hs-identifier hs-type">DnsRuleGroupLimitExceededViolation</span></a></span></span><span>
+</span><span id="line-99"></span></pre></body></html>

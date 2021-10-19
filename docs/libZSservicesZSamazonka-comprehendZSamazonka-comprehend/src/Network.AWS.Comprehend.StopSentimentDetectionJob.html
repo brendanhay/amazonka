@@ -46,8 +46,8 @@
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#newStopSentimentDetectionJobResponse"><span class="hs-identifier">newStopSentimentDetectionJobResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#stopSentimentDetectionJobResponse_jobStatus"><span class="hs-identifier">stopSentimentDetectionJobResponse_jobStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#stopSentimentDetectionJobResponse_jobId"><span class="hs-identifier">stopSentimentDetectionJobResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#stopSentimentDetectionJobResponse_jobId"><span class="hs-identifier">stopSentimentDetectionJobResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#stopSentimentDetectionJobResponse_jobStatus"><span class="hs-identifier">stopSentimentDetectionJobResponse_jobStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#stopSentimentDetectionJobResponse_httpStatus"><span class="hs-identifier">stopSentimentDetectionJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span class="hs-keyword">where</span><span>
@@ -60,12 +60,12 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newStopSentimentDetectionJob' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679353036"><span id="local-6989586621679353037"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopSentimentDetectionJob"><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob"><span class="hs-identifier hs-var">StopSentimentDetectionJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopSentimentDetectionJob%27"><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob%27"><span class="hs-identifier hs-var">StopSentimentDetectionJob'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679353315"><span id="local-6989586621679353316"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopSentimentDetectionJob"><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob"><span class="hs-identifier hs-var">StopSentimentDetectionJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopSentimentDetectionJob%27"><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob%27"><span class="hs-identifier hs-var">StopSentimentDetectionJob'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the sentiment detection job to stop.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AjobId%3AStopSentimentDetectionJob%27"><span class="annot"><span class="annottext">StopSentimentDetectionJob -&gt; Text
 </span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#%24sel%3AjobId%3AStopSentimentDetectionJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353030"><span id="local-6989586621679353032"><span class="annot"><span class="annottext">StopSentimentDetectionJob -&gt; StopSentimentDetectionJob -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353309"><span id="local-6989586621679353311"><span class="annot"><span class="annottext">StopSentimentDetectionJob -&gt; StopSentimentDetectionJob -&gt; Bool
 (StopSentimentDetectionJob -&gt; StopSentimentDetectionJob -&gt; Bool)
 -&gt; (StopSentimentDetectionJob -&gt; StopSentimentDetectionJob -&gt; Bool)
 -&gt; Eq StopSentimentDetectionJob
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopSentimentDetectionJob -&gt; StopSentimentDetectionJob -&gt; Bool
 == :: StopSentimentDetectionJob -&gt; StopSentimentDetectionJob -&gt; Bool
 $c== :: StopSentimentDetectionJob -&gt; StopSentimentDetectionJob -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353021"><span id="local-6989586621679353023"><span id="local-6989586621679353025"><span id="local-6989586621679353027"><span class="annot"><span class="annottext">ReadPrec [StopSentimentDetectionJob]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353300"><span id="local-6989586621679353302"><span id="local-6989586621679353304"><span id="local-6989586621679353306"><span class="annot"><span class="annottext">ReadPrec [StopSentimentDetectionJob]
 ReadPrec StopSentimentDetectionJob
 Int -&gt; ReadS StopSentimentDetectionJob
 ReadS [StopSentimentDetectionJob]
@@ -94,7 +94,7 @@ readList :: ReadS [StopSentimentDetectionJob]
 $creadList :: ReadS [StopSentimentDetectionJob]
 readsPrec :: Int -&gt; ReadS StopSentimentDetectionJob
 $creadsPrec :: Int -&gt; ReadS StopSentimentDetectionJob
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353014"><span id="local-6989586621679353016"><span id="local-6989586621679353018"><span class="annot"><span class="annottext">Int -&gt; StopSentimentDetectionJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353293"><span id="local-6989586621679353295"><span id="local-6989586621679353297"><span class="annot"><span class="annottext">Int -&gt; StopSentimentDetectionJob -&gt; ShowS
 [StopSentimentDetectionJob] -&gt; ShowS
 StopSentimentDetectionJob -&gt; String
 (Int -&gt; StopSentimentDetectionJob -&gt; ShowS)
@@ -140,12 +140,12 @@ StopSentimentDetectionJob -&gt; Rep StopSentimentDetectionJob x
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob"><span class="hs-identifier hs-type">StopSentimentDetectionJob</span></a></span><span>
 </span><span id="line-82"></span><span id="newStopSentimentDetectionJob"><span class="annot"><span class="annottext">newStopSentimentDetectionJob :: Text -&gt; StopSentimentDetectionJob
-</span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#newStopSentimentDetectionJob"><span class="hs-identifier hs-var hs-var">newStopSentimentDetectionJob</span></a></span></span><span> </span><span id="local-6989586621679353009"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679353009"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#newStopSentimentDetectionJob"><span class="hs-identifier hs-var hs-var">newStopSentimentDetectionJob</span></a></span></span><span> </span><span id="local-6989586621679353288"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353288"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">StopSentimentDetectionJob' :: Text -&gt; StopSentimentDetectionJob
 </span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob%27"><span class="hs-identifier hs-type">StopSentimentDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StopSentimentDetectionJob' :: Text
 </span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#%24sel%3AjobId%3AStopSentimentDetectionJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679353009"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679353288"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The identifier of the sentiment detection job to stop.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#stopSentimentDetectionJob_jobId"><span class="hs-identifier hs-type">stopSentimentDetectionJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob"><span class="hs-identifier hs-type">StopSentimentDetectionJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -156,28 +156,28 @@ StopSentimentDetectionJob -&gt; Rep StopSentimentDetectionJob x
 -&gt; Lens
      StopSentimentDetectionJob StopSentimentDetectionJob Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob%27"><span class="hs-identifier hs-type">StopSentimentDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353006"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob%27"><span class="hs-identifier hs-type">StopSentimentDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353285"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:StopSentimentDetectionJob' :: StopSentimentDetectionJob -&gt; Text
-</span><a href="#local-6989586621679353006"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679353006"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353005"><span class="annot"><span class="annottext">s :: StopSentimentDetectionJob
-</span><a href="#local-6989586621679353005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob%27"><span class="hs-identifier hs-type">StopSentimentDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353004"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679353004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopSentimentDetectionJob
-</span><a href="#local-6989586621679353005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StopSentimentDetectionJob' :: Text
+</span><a href="#local-6989586621679353285"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353285"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353284"><span class="annot"><span class="annottext">s :: StopSentimentDetectionJob
+</span><a href="#local-6989586621679353284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob%27"><span class="hs-identifier hs-type">StopSentimentDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353283"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopSentimentDetectionJob
+</span><a href="#local-6989586621679353284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StopSentimentDetectionJob' :: Text
 </span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#%24sel%3AjobId%3AStopSentimentDetectionJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679353004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob"><span class="hs-identifier hs-type">StopSentimentDetectionJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob"><span class="hs-identifier hs-type">StopSentimentDetectionJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob"><span class="hs-identifier hs-type">StopSentimentDetectionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob"><span class="hs-identifier hs-type">StopSentimentDetectionJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679353000"><span class="annot"><span class="annottext">request :: StopSentimentDetectionJob -&gt; Request StopSentimentDetectionJob
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679353279"><span class="annot"><span class="annottext">request :: StopSentimentDetectionJob -&gt; Request StopSentimentDetectionJob
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; StopSentimentDetectionJob -&gt; Request StopSentimentDetectionJob
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679352996"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679353275"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopSentimentDetectionJob
 -&gt; ClientResponse ClientBody
@@ -203,34 +203,36 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679352993"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679352993"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679352992"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679352992"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679352991"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679352991"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe JobStatus
--&gt; Maybe Text -&gt; Int -&gt; StopSentimentDetectionJobResponse
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679353272"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679353272"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679353271"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679353271"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679353270"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679353270"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe JobStatus -&gt; Int -&gt; StopSentimentDetectionJobResponse
 </span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-var">StopSentimentDetectionJobResponse'</span></a></span><span>
-</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe JobStatus
- -&gt; Maybe Text -&gt; Int -&gt; StopSentimentDetectionJobResponse)
--&gt; Either String (Maybe JobStatus)
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe JobStatus -&gt; Int -&gt; StopSentimentDetectionJobResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; StopSentimentDetectionJobResponse)
+     String
+     (Maybe JobStatus -&gt; Int -&gt; StopSentimentDetectionJobResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679352991"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe JobStatus)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;JobStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Int -&gt; StopSentimentDetectionJobResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; StopSentimentDetectionJobResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679352991"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679353270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe JobStatus -&gt; Int -&gt; StopSentimentDetectionJobResponse)
+-&gt; Either String (Maybe JobStatus)
+-&gt; Either String (Int -&gt; StopSentimentDetectionJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679353270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe JobStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StopSentimentDetectionJobResponse)
 -&gt; Either String Int
 -&gt; Either String StopSentimentDetectionJobResponse
@@ -240,15 +242,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679352993"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353272"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352983"><span id="local-6989586621679352985"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob"><span class="hs-identifier hs-type">StopSentimentDetectionJob</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353262"><span id="local-6989586621679353264"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob"><span class="hs-identifier hs-type">StopSentimentDetectionJob</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352980"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob"><span class="hs-identifier hs-type">StopSentimentDetectionJob</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob"><span class="hs-identifier hs-type">StopSentimentDetectionJob</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob"><span class="hs-identifier hs-type">StopSentimentDetectionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679352976"><span class="annot"><span class="annottext">toHeaders :: StopSentimentDetectionJob -&gt; ResponseHeaders
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679353255"><span class="annot"><span class="annottext">toHeaders :: StopSentimentDetectionJob -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopSentimentDetectionJob -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -275,12 +277,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352966"><span id="local-6989586621679352968"><span id="local-6989586621679352970"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob"><span class="hs-identifier hs-type">StopSentimentDetectionJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679352964"><span class="annot"><span class="annottext">toJSON :: StopSentimentDetectionJob -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob%27"><span class="hs-identifier hs-type">StopSentimentDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352962"><span class="annot"><span class="annottext">Text
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353245"><span id="local-6989586621679353247"><span id="local-6989586621679353249"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob"><span class="hs-identifier hs-type">StopSentimentDetectionJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679353243"><span class="annot"><span class="annottext">toJSON :: StopSentimentDetectionJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob%27"><span class="hs-identifier hs-type">StopSentimentDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353241"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:StopSentimentDetectionJob' :: StopSentimentDetectionJob -&gt; Text
-</span><a href="#local-6989586621679352962"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679353241"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -292,18 +294,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;JobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679352962"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679353241"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob"><span class="hs-identifier hs-type">StopSentimentDetectionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679352956"><span class="annot"><span class="annottext">toPath :: StopSentimentDetectionJob -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679353235"><span class="annot"><span class="annottext">toPath :: StopSentimentDetectionJob -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopSentimentDetectionJob -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJob"><span class="hs-identifier hs-type">StopSentimentDetectionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679352952"><span class="annot"><span class="annottext">toQuery :: StopSentimentDetectionJob -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679353231"><span class="annot"><span class="annottext">toQuery :: StopSentimentDetectionJob -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopSentimentDetectionJob -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -311,20 +313,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newStopSentimentDetectionJobResponse' smart constructor.</span><span>
-</span><span id="line-136"></span><span id="local-6989586621679352949"><span id="local-6989586621679352950"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopSentimentDetectionJobResponse"><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse"><span class="hs-identifier hs-var">StopSentimentDetectionJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopSentimentDetectionJobResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-var">StopSentimentDetectionJobResponse'</span></a></span></span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if</span><span>
-</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- the job was previously stopped with the @StopSentimentDetectionJob@</span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- operation.</span><span>
-</span><span id="line-140"></span><span>    </span><span id="%24sel%3AjobStatus%3AStopSentimentDetectionJobResponse%27"><span class="annot"><span class="annottext">StopSentimentDetectionJobResponse -&gt; Maybe JobStatus
-</span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#%24sel%3AjobStatus%3AStopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The identifier of the sentiment detection job to stop.</span><span>
-</span><span id="line-142"></span><span>    </span><span id="%24sel%3AjobId%3AStopSentimentDetectionJobResponse%27"><span class="annot"><span class="annottext">StopSentimentDetectionJobResponse -&gt; Maybe Text
+</span><span id="line-136"></span><span id="local-6989586621679353228"><span id="local-6989586621679353229"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopSentimentDetectionJobResponse"><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse"><span class="hs-identifier hs-var">StopSentimentDetectionJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopSentimentDetectionJobResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-var">StopSentimentDetectionJobResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the sentiment detection job to stop.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AjobId%3AStopSentimentDetectionJobResponse%27"><span class="annot"><span class="annottext">StopSentimentDetectionJobResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#%24sel%3AjobId%3AStopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- the job was previously stopped with the @StopSentimentDetectionJob@</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AjobStatus%3AStopSentimentDetectionJobResponse%27"><span class="annot"><span class="annottext">StopSentimentDetectionJobResponse -&gt; Maybe JobStatus
+</span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#%24sel%3AjobStatus%3AStopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopSentimentDetectionJobResponse%27"><span class="annot"><span class="annottext">StopSentimentDetectionJobResponse -&gt; Int
 </span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#%24sel%3AhttpStatus%3AStopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679352942"><span id="local-6989586621679352944"><span class="annot"><span class="annottext">StopSentimentDetectionJobResponse
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353221"><span id="local-6989586621679353223"><span class="annot"><span class="annottext">StopSentimentDetectionJobResponse
 -&gt; StopSentimentDetectionJobResponse -&gt; Bool
 (StopSentimentDetectionJobResponse
  -&gt; StopSentimentDetectionJobResponse -&gt; Bool)
@@ -340,7 +342,7 @@ $c/= :: StopSentimentDetectionJobResponse
 -&gt; StopSentimentDetectionJobResponse -&gt; Bool
 $c== :: StopSentimentDetectionJobResponse
 -&gt; StopSentimentDetectionJobResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352934"><span id="local-6989586621679352936"><span id="local-6989586621679352938"><span id="local-6989586621679352940"><span class="annot"><span class="annottext">ReadPrec [StopSentimentDetectionJobResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353213"><span id="local-6989586621679353215"><span id="local-6989586621679353217"><span id="local-6989586621679353219"><span class="annot"><span class="annottext">ReadPrec [StopSentimentDetectionJobResponse]
 ReadPrec StopSentimentDetectionJobResponse
 Int -&gt; ReadS StopSentimentDetectionJobResponse
 ReadS [StopSentimentDetectionJobResponse]
@@ -360,7 +362,7 @@ readList :: ReadS [StopSentimentDetectionJobResponse]
 $creadList :: ReadS [StopSentimentDetectionJobResponse]
 readsPrec :: Int -&gt; ReadS StopSentimentDetectionJobResponse
 $creadsPrec :: Int -&gt; ReadS StopSentimentDetectionJobResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352928"><span id="local-6989586621679352930"><span id="local-6989586621679352932"><span class="annot"><span class="annottext">Int -&gt; StopSentimentDetectionJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353207"><span id="local-6989586621679353209"><span id="local-6989586621679353211"><span class="annot"><span class="annottext">Int -&gt; StopSentimentDetectionJobResponse -&gt; ShowS
 [StopSentimentDetectionJobResponse] -&gt; ShowS
 StopSentimentDetectionJobResponse -&gt; String
 (Int -&gt; StopSentimentDetectionJobResponse -&gt; ShowS)
@@ -406,11 +408,11 @@ StopSentimentDetectionJobResponse
 </span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-155"></span><span class="hs-comment">--</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- 'jobStatus', 'stopSentimentDetectionJobResponse_jobStatus' - Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- the job was previously stopped with the @StopSentimentDetectionJob@</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- operation.</span><span>
-</span><span id="line-159"></span><span class="hs-comment">--</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- 'jobId', 'stopSentimentDetectionJobResponse_jobId' - The identifier of the sentiment detection job to stop.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'jobId', 'stopSentimentDetectionJobResponse_jobId' - The identifier of the sentiment detection job to stop.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'jobStatus', 'stopSentimentDetectionJobResponse_jobStatus' - Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- the job was previously stopped with the @StopSentimentDetectionJob@</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- operation.</span><span>
 </span><span id="line-161"></span><span class="hs-comment">--</span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- 'httpStatus', 'stopSentimentDetectionJobResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-163"></span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#newStopSentimentDetectionJobResponse"><span class="hs-identifier hs-type">newStopSentimentDetectionJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -418,55 +420,28 @@ StopSentimentDetectionJobResponse
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse</span></a></span><span>
 </span><span id="line-167"></span><span id="newStopSentimentDetectionJobResponse"><span class="annot"><span class="annottext">newStopSentimentDetectionJobResponse :: Int -&gt; StopSentimentDetectionJobResponse
-</span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#newStopSentimentDetectionJobResponse"><span class="hs-identifier hs-var hs-var">newStopSentimentDetectionJobResponse</span></a></span></span><span> </span><span id="local-6989586621679352925"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679352925"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">StopSentimentDetectionJobResponse' :: Maybe JobStatus
--&gt; Maybe Text -&gt; Int -&gt; StopSentimentDetectionJobResponse
+</span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#newStopSentimentDetectionJobResponse"><span class="hs-identifier hs-var hs-var">newStopSentimentDetectionJobResponse</span></a></span></span><span> </span><span id="local-6989586621679353204"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679353204"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">StopSentimentDetectionJobResponse' :: Maybe Text
+-&gt; Maybe JobStatus -&gt; Int -&gt; StopSentimentDetectionJobResponse
 </span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse'</span></a></span><span>
-</span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobStatus:StopSentimentDetectionJobResponse' :: Maybe JobStatus
-</span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#%24sel%3AjobStatus%3AStopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobId:StopSentimentDetectionJobResponse' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#%24sel%3AjobId%3AStopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:StopSentimentDetectionJobResponse' :: Maybe Text
-</span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#%24sel%3AjobId%3AStopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobStatus:StopSentimentDetectionJobResponse' :: Maybe JobStatus
+</span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#%24sel%3AjobStatus%3AStopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopSentimentDetectionJobResponse' :: Int
 </span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#%24sel%3AhttpStatus%3AStopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679352925"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679353204"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- the job was previously stopped with the @StopSentimentDetectionJob@</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- operation.</span><span>
-</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#stopSentimentDetectionJobResponse_jobStatus"><span class="hs-identifier hs-type">stopSentimentDetectionJobResponse_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-179"></span><span id="stopSentimentDetectionJobResponse_jobStatus"><span class="annot"><span class="annottext">stopSentimentDetectionJobResponse_jobStatus :: (Maybe JobStatus -&gt; f (Maybe JobStatus))
--&gt; StopSentimentDetectionJobResponse
--&gt; f StopSentimentDetectionJobResponse
-</span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#stopSentimentDetectionJobResponse_jobStatus"><span class="hs-identifier hs-var hs-var">stopSentimentDetectionJobResponse_jobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopSentimentDetectionJobResponse -&gt; Maybe JobStatus)
--&gt; (StopSentimentDetectionJobResponse
-    -&gt; Maybe JobStatus -&gt; StopSentimentDetectionJobResponse)
--&gt; Lens
-     StopSentimentDetectionJobResponse
-     StopSentimentDetectionJobResponse
-     (Maybe JobStatus)
-     (Maybe JobStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352924"><span class="annot"><span class="annottext">Maybe JobStatus
-jobStatus :: Maybe JobStatus
-$sel:jobStatus:StopSentimentDetectionJobResponse' :: StopSentimentDetectionJobResponse -&gt; Maybe JobStatus
-</span><a href="#local-6989586621679352924"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
-</span><a href="#local-6989586621679352924"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352923"><span class="annot"><span class="annottext">s :: StopSentimentDetectionJobResponse
-</span><a href="#local-6989586621679352923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352922"><span class="annot"><span class="annottext">Maybe JobStatus
-</span><a href="#local-6989586621679352922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopSentimentDetectionJobResponse
-</span><a href="#local-6989586621679352923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:StopSentimentDetectionJobResponse' :: Maybe JobStatus
-</span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#%24sel%3AjobStatus%3AStopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
-</span><a href="#local-6989586621679352922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- | The identifier of the sentiment detection job to stop.</span><span>
-</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#stopSentimentDetectionJobResponse_jobId"><span class="hs-identifier hs-type">stopSentimentDetectionJobResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span id="stopSentimentDetectionJobResponse_jobId"><span class="annot"><span class="annottext">stopSentimentDetectionJobResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-175"></span><span class="hs-comment">-- | The identifier of the sentiment detection job to stop.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#stopSentimentDetectionJobResponse_jobId"><span class="hs-identifier hs-type">stopSentimentDetectionJobResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="stopSentimentDetectionJobResponse_jobId"><span class="annot"><span class="annottext">stopSentimentDetectionJobResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; StopSentimentDetectionJobResponse
 -&gt; f StopSentimentDetectionJobResponse
 </span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#stopSentimentDetectionJobResponse_jobId"><span class="hs-identifier hs-var hs-var">stopSentimentDetectionJobResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopSentimentDetectionJobResponse -&gt; Maybe Text)
@@ -478,16 +453,43 @@ $sel:jobStatus:StopSentimentDetectionJobResponse' :: StopSentimentDetectionJobRe
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352921"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353203"><span class="annot"><span class="annottext">Maybe Text
 jobId :: Maybe Text
 $sel:jobId:StopSentimentDetectionJobResponse' :: StopSentimentDetectionJobResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679352921"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679352921"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352920"><span class="annot"><span class="annottext">s :: StopSentimentDetectionJobResponse
-</span><a href="#local-6989586621679352920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352919"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679352919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopSentimentDetectionJobResponse
-</span><a href="#local-6989586621679352920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StopSentimentDetectionJobResponse' :: Maybe Text
+</span><a href="#local-6989586621679353203"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353203"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353202"><span class="annot"><span class="annottext">s :: StopSentimentDetectionJobResponse
+</span><a href="#local-6989586621679353202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353201"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopSentimentDetectionJobResponse
+</span><a href="#local-6989586621679353202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StopSentimentDetectionJobResponse' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#%24sel%3AjobId%3AStopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679352919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- the job was previously stopped with the @StopSentimentDetectionJob@</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#stopSentimentDetectionJobResponse_jobStatus"><span class="hs-identifier hs-type">stopSentimentDetectionJobResponse_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="stopSentimentDetectionJobResponse_jobStatus"><span class="annot"><span class="annottext">stopSentimentDetectionJobResponse_jobStatus :: (Maybe JobStatus -&gt; f (Maybe JobStatus))
+-&gt; StopSentimentDetectionJobResponse
+-&gt; f StopSentimentDetectionJobResponse
+</span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#stopSentimentDetectionJobResponse_jobStatus"><span class="hs-identifier hs-var hs-var">stopSentimentDetectionJobResponse_jobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopSentimentDetectionJobResponse -&gt; Maybe JobStatus)
+-&gt; (StopSentimentDetectionJobResponse
+    -&gt; Maybe JobStatus -&gt; StopSentimentDetectionJobResponse)
+-&gt; Lens
+     StopSentimentDetectionJobResponse
+     StopSentimentDetectionJobResponse
+     (Maybe JobStatus)
+     (Maybe JobStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353200"><span class="annot"><span class="annottext">Maybe JobStatus
+jobStatus :: Maybe JobStatus
+$sel:jobStatus:StopSentimentDetectionJobResponse' :: StopSentimentDetectionJobResponse -&gt; Maybe JobStatus
+</span><a href="#local-6989586621679353200"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679353200"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353199"><span class="annot"><span class="annottext">s :: StopSentimentDetectionJobResponse
+</span><a href="#local-6989586621679353199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353198"><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679353198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopSentimentDetectionJobResponse
+</span><a href="#local-6989586621679353199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:StopSentimentDetectionJobResponse' :: Maybe JobStatus
+</span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#%24sel%3AjobStatus%3AStopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679353198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#stopSentimentDetectionJobResponse_httpStatus"><span class="hs-identifier hs-type">stopSentimentDetectionJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -503,18 +505,18 @@ $sel:jobId:StopSentimentDetectionJobResponse' :: StopSentimentDetectionJobRespon
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352918"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353197"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopSentimentDetectionJobResponse' :: StopSentimentDetectionJobResponse -&gt; Int
-</span><a href="#local-6989586621679352918"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679352918"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352917"><span class="annot"><span class="annottext">s :: StopSentimentDetectionJobResponse
-</span><a href="#local-6989586621679352917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352916"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679352916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopSentimentDetectionJobResponse
-</span><a href="#local-6989586621679352917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopSentimentDetectionJobResponse' :: Int
+</span><a href="#local-6989586621679353197"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679353197"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353196"><span class="annot"><span class="annottext">s :: StopSentimentDetectionJobResponse
+</span><a href="#local-6989586621679353196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353195"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679353195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopSentimentDetectionJobResponse
+</span><a href="#local-6989586621679353196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopSentimentDetectionJobResponse' :: Int
 </span><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#%24sel%3AhttpStatus%3AStopSentimentDetectionJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679352916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679352914"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679353193"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopSentimentDetectionJob.html#StopSentimentDetectionJobResponse"><span class="hs-identifier hs-type">StopSentimentDetectionJobResponse</span></a></span></span><span>
 </span><span id="line-192"></span></pre></body></html>

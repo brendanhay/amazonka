@@ -28,28 +28,28 @@
 </span><span id="line-28"></span><span class="hs-comment">-- DescribeAuditMitigationActionsTask.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTaskStatisticsForAuditCheck' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679800372"><span id="local-6989586621679800373"></span></span><span class="hs-keyword">data</span><span> </span><span id="TaskStatisticsForAuditCheck"><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-var">TaskStatisticsForAuditCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskStatisticsForAuditCheck%27"><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">TaskStatisticsForAuditCheck'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of findings for which all mitigation actions succeeded when</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- applied.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsucceededFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck -&gt; Maybe Integer
-</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AsucceededFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var hs-var">succeededFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The total number of findings to which a task is being applied.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtotalFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck -&gt; Maybe Integer
-</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AtotalFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var hs-var">totalFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The number of findings for which at least one of the actions failed when</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- applied.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AfailedFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck -&gt; Maybe Integer
-</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AfailedFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var hs-var">failedFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The number of findings skipped because of filter conditions provided in</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- the parameters to the command.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AskippedFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck -&gt; Maybe Integer
+</span><span id="line-31"></span><span id="local-6989586621679801249"><span id="local-6989586621679801250"></span></span><span class="hs-keyword">data</span><span> </span><span id="TaskStatisticsForAuditCheck"><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-var">TaskStatisticsForAuditCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskStatisticsForAuditCheck%27"><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">TaskStatisticsForAuditCheck'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of findings to which the mitigation action task was canceled</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- when applied.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcanceledFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck -&gt; Maybe Integer
+</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AcanceledFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var hs-var">canceledFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The number of findings skipped because of filter conditions provided in</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the parameters to the command.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AskippedFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck -&gt; Maybe Integer
 </span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AskippedFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var hs-var">skippedFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The number of findings to which the mitigation action task was canceled</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- when applied.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcanceledFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck -&gt; Maybe Integer
-</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AcanceledFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var hs-var">canceledFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The total number of findings to which a task is being applied.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AtotalFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck -&gt; Maybe Integer
+</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AtotalFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var hs-var">totalFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The number of findings for which at least one of the actions failed when</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- applied.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AfailedFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck -&gt; Maybe Integer
+</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AfailedFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var hs-var">failedFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The number of findings for which all mitigation actions succeeded when</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- applied.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AsucceededFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck -&gt; Maybe Integer
+</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AsucceededFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var hs-var">succeededFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800362"><span id="local-6989586621679800364"><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck -&gt; TaskStatisticsForAuditCheck -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679801239"><span id="local-6989586621679801241"><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck -&gt; TaskStatisticsForAuditCheck -&gt; Bool
 (TaskStatisticsForAuditCheck
  -&gt; TaskStatisticsForAuditCheck -&gt; Bool)
 -&gt; (TaskStatisticsForAuditCheck
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TaskStatisticsForAuditCheck -&gt; TaskStatisticsForAuditCheck -&gt; Bool
 == :: TaskStatisticsForAuditCheck -&gt; TaskStatisticsForAuditCheck -&gt; Bool
 $c== :: TaskStatisticsForAuditCheck -&gt; TaskStatisticsForAuditCheck -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800353"><span id="local-6989586621679800355"><span id="local-6989586621679800357"><span id="local-6989586621679800359"><span class="annot"><span class="annottext">ReadPrec [TaskStatisticsForAuditCheck]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679801230"><span id="local-6989586621679801232"><span id="local-6989586621679801234"><span id="local-6989586621679801236"><span class="annot"><span class="annottext">ReadPrec [TaskStatisticsForAuditCheck]
 ReadPrec TaskStatisticsForAuditCheck
 Int -&gt; ReadS TaskStatisticsForAuditCheck
 ReadS [TaskStatisticsForAuditCheck]
@@ -80,7 +80,7 @@ readList :: ReadS [TaskStatisticsForAuditCheck]
 $creadList :: ReadS [TaskStatisticsForAuditCheck]
 readsPrec :: Int -&gt; ReadS TaskStatisticsForAuditCheck
 $creadsPrec :: Int -&gt; ReadS TaskStatisticsForAuditCheck
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800346"><span id="local-6989586621679800348"><span id="local-6989586621679800350"><span class="annot"><span class="annottext">Int -&gt; TaskStatisticsForAuditCheck -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679801223"><span id="local-6989586621679801225"><span id="local-6989586621679801227"><span class="annot"><span class="annottext">Int -&gt; TaskStatisticsForAuditCheck -&gt; ShowS
 [TaskStatisticsForAuditCheck] -&gt; ShowS
 TaskStatisticsForAuditCheck -&gt; String
 (Int -&gt; TaskStatisticsForAuditCheck -&gt; ShowS)
@@ -120,19 +120,19 @@ TaskStatisticsForAuditCheck -&gt; Rep TaskStatisticsForAuditCheck x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'succeededFindingsCount', 'taskStatisticsForAuditCheck_succeededFindingsCount' - The number of findings for which all mitigation actions succeeded when</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- applied.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'canceledFindingsCount', 'taskStatisticsForAuditCheck_canceledFindingsCount' - The number of findings to which the mitigation action task was canceled</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- when applied.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'totalFindingsCount', 'taskStatisticsForAuditCheck_totalFindingsCount' - The total number of findings to which a task is being applied.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'failedFindingsCount', 'taskStatisticsForAuditCheck_failedFindingsCount' - The number of findings for which at least one of the actions failed when</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- applied.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'skippedFindingsCount', 'taskStatisticsForAuditCheck_skippedFindingsCount' - The number of findings skipped because of filter conditions provided in</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- the parameters to the command.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'totalFindingsCount', 'taskStatisticsForAuditCheck_totalFindingsCount' - The total number of findings to which a task is being applied.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'skippedFindingsCount', 'taskStatisticsForAuditCheck_skippedFindingsCount' - The number of findings skipped because of filter conditions provided in</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- the parameters to the command.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'failedFindingsCount', 'taskStatisticsForAuditCheck_failedFindingsCount' - The number of findings for which at least one of the actions failed when</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- applied.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'canceledFindingsCount', 'taskStatisticsForAuditCheck_canceledFindingsCount' - The number of findings to which the mitigation action task was canceled</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- when applied.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'succeededFindingsCount', 'taskStatisticsForAuditCheck_succeededFindingsCount' - The number of findings for which all mitigation actions succeeded when</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- applied.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#newTaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">newTaskStatisticsForAuditCheck</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span>
 </span><span id="line-72"></span><span id="newTaskStatisticsForAuditCheck"><span class="annot"><span class="annottext">newTaskStatisticsForAuditCheck :: TaskStatisticsForAuditCheck
@@ -144,132 +144,33 @@ TaskStatisticsForAuditCheck -&gt; Rep TaskStatisticsForAuditCheck x
 -&gt; Maybe Integer
 -&gt; TaskStatisticsForAuditCheck
 </span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:succeededFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
-</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AsucceededFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">succeededFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:canceledFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
+</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AcanceledFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">canceledFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
-</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AtotalFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">totalFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:failedFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
-</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AfailedFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">failedFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:skippedFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:skippedFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
 </span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AskippedFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">skippedFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:canceledFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
-</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AcanceledFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">canceledFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
+</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AtotalFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">totalFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:failedFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
+</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AfailedFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">failedFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:succeededFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
+</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AsucceededFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">succeededFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | The number of findings for which all mitigation actions succeeded when</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- applied.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_succeededFindingsCount"><span class="hs-identifier hs-type">taskStatisticsForAuditCheck_succeededFindingsCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="taskStatisticsForAuditCheck_succeededFindingsCount"><span class="annot"><span class="annottext">taskStatisticsForAuditCheck_succeededFindingsCount :: (Maybe Integer -&gt; f (Maybe Integer))
--&gt; TaskStatisticsForAuditCheck -&gt; f TaskStatisticsForAuditCheck
-</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_succeededFindingsCount"><span class="hs-identifier hs-var hs-var">taskStatisticsForAuditCheck_succeededFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TaskStatisticsForAuditCheck -&gt; Maybe Integer)
--&gt; (TaskStatisticsForAuditCheck
-    -&gt; Maybe Integer -&gt; TaskStatisticsForAuditCheck)
--&gt; Lens
-     TaskStatisticsForAuditCheck
-     TaskStatisticsForAuditCheck
-     (Maybe Integer)
-     (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800337"><span class="annot"><span class="annottext">Maybe Integer
-succeededFindingsCount :: Maybe Integer
-$sel:succeededFindingsCount:TaskStatisticsForAuditCheck' :: TaskStatisticsForAuditCheck -&gt; Maybe Integer
-</span><a href="#local-6989586621679800337"><span class="hs-identifier hs-var hs-var">succeededFindingsCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800337"><span class="hs-identifier hs-var">succeededFindingsCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800336"><span class="annot"><span class="annottext">s :: TaskStatisticsForAuditCheck
-</span><a href="#local-6989586621679800336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800335"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck
-</span><a href="#local-6989586621679800336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:succeededFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
-</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AsucceededFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">succeededFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The total number of findings to which a task is being applied.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_totalFindingsCount"><span class="hs-identifier hs-type">taskStatisticsForAuditCheck_totalFindingsCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="taskStatisticsForAuditCheck_totalFindingsCount"><span class="annot"><span class="annottext">taskStatisticsForAuditCheck_totalFindingsCount :: (Maybe Integer -&gt; f (Maybe Integer))
--&gt; TaskStatisticsForAuditCheck -&gt; f TaskStatisticsForAuditCheck
-</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_totalFindingsCount"><span class="hs-identifier hs-var hs-var">taskStatisticsForAuditCheck_totalFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TaskStatisticsForAuditCheck -&gt; Maybe Integer)
--&gt; (TaskStatisticsForAuditCheck
-    -&gt; Maybe Integer -&gt; TaskStatisticsForAuditCheck)
--&gt; Lens
-     TaskStatisticsForAuditCheck
-     TaskStatisticsForAuditCheck
-     (Maybe Integer)
-     (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800333"><span class="annot"><span class="annottext">Maybe Integer
-totalFindingsCount :: Maybe Integer
-$sel:totalFindingsCount:TaskStatisticsForAuditCheck' :: TaskStatisticsForAuditCheck -&gt; Maybe Integer
-</span><a href="#local-6989586621679800333"><span class="hs-identifier hs-var hs-var">totalFindingsCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800333"><span class="hs-identifier hs-var">totalFindingsCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800332"><span class="annot"><span class="annottext">s :: TaskStatisticsForAuditCheck
-</span><a href="#local-6989586621679800332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800331"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck
-</span><a href="#local-6989586621679800332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
-</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AtotalFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">totalFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The number of findings for which at least one of the actions failed when</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- applied.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_failedFindingsCount"><span class="hs-identifier hs-type">taskStatisticsForAuditCheck_failedFindingsCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="taskStatisticsForAuditCheck_failedFindingsCount"><span class="annot"><span class="annottext">taskStatisticsForAuditCheck_failedFindingsCount :: (Maybe Integer -&gt; f (Maybe Integer))
--&gt; TaskStatisticsForAuditCheck -&gt; f TaskStatisticsForAuditCheck
-</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_failedFindingsCount"><span class="hs-identifier hs-var hs-var">taskStatisticsForAuditCheck_failedFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TaskStatisticsForAuditCheck -&gt; Maybe Integer)
--&gt; (TaskStatisticsForAuditCheck
-    -&gt; Maybe Integer -&gt; TaskStatisticsForAuditCheck)
--&gt; Lens
-     TaskStatisticsForAuditCheck
-     TaskStatisticsForAuditCheck
-     (Maybe Integer)
-     (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800329"><span class="annot"><span class="annottext">Maybe Integer
-failedFindingsCount :: Maybe Integer
-$sel:failedFindingsCount:TaskStatisticsForAuditCheck' :: TaskStatisticsForAuditCheck -&gt; Maybe Integer
-</span><a href="#local-6989586621679800329"><span class="hs-identifier hs-var hs-var">failedFindingsCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800329"><span class="hs-identifier hs-var">failedFindingsCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800328"><span class="annot"><span class="annottext">s :: TaskStatisticsForAuditCheck
-</span><a href="#local-6989586621679800328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800327"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck
-</span><a href="#local-6989586621679800328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
-</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AfailedFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">failedFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The number of findings skipped because of filter conditions provided in</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- the parameters to the command.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_skippedFindingsCount"><span class="hs-identifier hs-type">taskStatisticsForAuditCheck_skippedFindingsCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="taskStatisticsForAuditCheck_skippedFindingsCount"><span class="annot"><span class="annottext">taskStatisticsForAuditCheck_skippedFindingsCount :: (Maybe Integer -&gt; f (Maybe Integer))
--&gt; TaskStatisticsForAuditCheck -&gt; f TaskStatisticsForAuditCheck
-</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_skippedFindingsCount"><span class="hs-identifier hs-var hs-var">taskStatisticsForAuditCheck_skippedFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TaskStatisticsForAuditCheck -&gt; Maybe Integer)
--&gt; (TaskStatisticsForAuditCheck
-    -&gt; Maybe Integer -&gt; TaskStatisticsForAuditCheck)
--&gt; Lens
-     TaskStatisticsForAuditCheck
-     TaskStatisticsForAuditCheck
-     (Maybe Integer)
-     (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800325"><span class="annot"><span class="annottext">Maybe Integer
-skippedFindingsCount :: Maybe Integer
-$sel:skippedFindingsCount:TaskStatisticsForAuditCheck' :: TaskStatisticsForAuditCheck -&gt; Maybe Integer
-</span><a href="#local-6989586621679800325"><span class="hs-identifier hs-var hs-var">skippedFindingsCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800325"><span class="hs-identifier hs-var">skippedFindingsCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800324"><span class="annot"><span class="annottext">s :: TaskStatisticsForAuditCheck
-</span><a href="#local-6989586621679800324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800323"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck
-</span><a href="#local-6989586621679800324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skippedFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
-</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AskippedFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">skippedFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The number of findings to which the mitigation action task was canceled</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- when applied.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_canceledFindingsCount"><span class="hs-identifier hs-type">taskStatisticsForAuditCheck_canceledFindingsCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="taskStatisticsForAuditCheck_canceledFindingsCount"><span class="annot"><span class="annottext">taskStatisticsForAuditCheck_canceledFindingsCount :: (Maybe Integer -&gt; f (Maybe Integer))
+</span><span id="line-82"></span><span class="hs-comment">-- | The number of findings to which the mitigation action task was canceled</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- when applied.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_canceledFindingsCount"><span class="hs-identifier hs-type">taskStatisticsForAuditCheck_canceledFindingsCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="taskStatisticsForAuditCheck_canceledFindingsCount"><span class="annot"><span class="annottext">taskStatisticsForAuditCheck_canceledFindingsCount :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; TaskStatisticsForAuditCheck -&gt; f TaskStatisticsForAuditCheck
 </span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_canceledFindingsCount"><span class="hs-identifier hs-var hs-var">taskStatisticsForAuditCheck_canceledFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TaskStatisticsForAuditCheck -&gt; Maybe Integer)
 -&gt; (TaskStatisticsForAuditCheck
@@ -280,19 +181,118 @@ $sel:skippedFindingsCount:TaskStatisticsForAuditCheck' :: TaskStatisticsForAudit
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800321"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801214"><span class="annot"><span class="annottext">Maybe Integer
 canceledFindingsCount :: Maybe Integer
 $sel:canceledFindingsCount:TaskStatisticsForAuditCheck' :: TaskStatisticsForAuditCheck -&gt; Maybe Integer
-</span><a href="#local-6989586621679800321"><span class="hs-identifier hs-var hs-var">canceledFindingsCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800321"><span class="hs-identifier hs-var">canceledFindingsCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800320"><span class="annot"><span class="annottext">s :: TaskStatisticsForAuditCheck
-</span><a href="#local-6989586621679800320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800319"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck
-</span><a href="#local-6989586621679800320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:canceledFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
+</span><a href="#local-6989586621679801214"><span class="hs-identifier hs-var hs-var">canceledFindingsCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679801214"><span class="hs-identifier hs-var">canceledFindingsCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801213"><span class="annot"><span class="annottext">s :: TaskStatisticsForAuditCheck
+</span><a href="#local-6989586621679801213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801212"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679801212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck
+</span><a href="#local-6989586621679801213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:canceledFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
 </span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AcanceledFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">canceledFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679801212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The number of findings skipped because of filter conditions provided in</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- the parameters to the command.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_skippedFindingsCount"><span class="hs-identifier hs-type">taskStatisticsForAuditCheck_skippedFindingsCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="taskStatisticsForAuditCheck_skippedFindingsCount"><span class="annot"><span class="annottext">taskStatisticsForAuditCheck_skippedFindingsCount :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; TaskStatisticsForAuditCheck -&gt; f TaskStatisticsForAuditCheck
+</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_skippedFindingsCount"><span class="hs-identifier hs-var hs-var">taskStatisticsForAuditCheck_skippedFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TaskStatisticsForAuditCheck -&gt; Maybe Integer)
+-&gt; (TaskStatisticsForAuditCheck
+    -&gt; Maybe Integer -&gt; TaskStatisticsForAuditCheck)
+-&gt; Lens
+     TaskStatisticsForAuditCheck
+     TaskStatisticsForAuditCheck
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801210"><span class="annot"><span class="annottext">Maybe Integer
+skippedFindingsCount :: Maybe Integer
+$sel:skippedFindingsCount:TaskStatisticsForAuditCheck' :: TaskStatisticsForAuditCheck -&gt; Maybe Integer
+</span><a href="#local-6989586621679801210"><span class="hs-identifier hs-var hs-var">skippedFindingsCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679801210"><span class="hs-identifier hs-var">skippedFindingsCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801209"><span class="annot"><span class="annottext">s :: TaskStatisticsForAuditCheck
+</span><a href="#local-6989586621679801209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801208"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679801208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck
+</span><a href="#local-6989586621679801209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skippedFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
+</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AskippedFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">skippedFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679801208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The total number of findings to which a task is being applied.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_totalFindingsCount"><span class="hs-identifier hs-type">taskStatisticsForAuditCheck_totalFindingsCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="taskStatisticsForAuditCheck_totalFindingsCount"><span class="annot"><span class="annottext">taskStatisticsForAuditCheck_totalFindingsCount :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; TaskStatisticsForAuditCheck -&gt; f TaskStatisticsForAuditCheck
+</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_totalFindingsCount"><span class="hs-identifier hs-var hs-var">taskStatisticsForAuditCheck_totalFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TaskStatisticsForAuditCheck -&gt; Maybe Integer)
+-&gt; (TaskStatisticsForAuditCheck
+    -&gt; Maybe Integer -&gt; TaskStatisticsForAuditCheck)
+-&gt; Lens
+     TaskStatisticsForAuditCheck
+     TaskStatisticsForAuditCheck
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801206"><span class="annot"><span class="annottext">Maybe Integer
+totalFindingsCount :: Maybe Integer
+$sel:totalFindingsCount:TaskStatisticsForAuditCheck' :: TaskStatisticsForAuditCheck -&gt; Maybe Integer
+</span><a href="#local-6989586621679801206"><span class="hs-identifier hs-var hs-var">totalFindingsCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679801206"><span class="hs-identifier hs-var">totalFindingsCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801205"><span class="annot"><span class="annottext">s :: TaskStatisticsForAuditCheck
+</span><a href="#local-6989586621679801205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801204"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679801204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck
+</span><a href="#local-6989586621679801205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
+</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AtotalFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">totalFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679801204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The number of findings for which at least one of the actions failed when</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- applied.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_failedFindingsCount"><span class="hs-identifier hs-type">taskStatisticsForAuditCheck_failedFindingsCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="taskStatisticsForAuditCheck_failedFindingsCount"><span class="annot"><span class="annottext">taskStatisticsForAuditCheck_failedFindingsCount :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; TaskStatisticsForAuditCheck -&gt; f TaskStatisticsForAuditCheck
+</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_failedFindingsCount"><span class="hs-identifier hs-var hs-var">taskStatisticsForAuditCheck_failedFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TaskStatisticsForAuditCheck -&gt; Maybe Integer)
+-&gt; (TaskStatisticsForAuditCheck
+    -&gt; Maybe Integer -&gt; TaskStatisticsForAuditCheck)
+-&gt; Lens
+     TaskStatisticsForAuditCheck
+     TaskStatisticsForAuditCheck
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801202"><span class="annot"><span class="annottext">Maybe Integer
+failedFindingsCount :: Maybe Integer
+$sel:failedFindingsCount:TaskStatisticsForAuditCheck' :: TaskStatisticsForAuditCheck -&gt; Maybe Integer
+</span><a href="#local-6989586621679801202"><span class="hs-identifier hs-var hs-var">failedFindingsCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679801202"><span class="hs-identifier hs-var">failedFindingsCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801201"><span class="annot"><span class="annottext">s :: TaskStatisticsForAuditCheck
+</span><a href="#local-6989586621679801201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801200"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679801200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck
+</span><a href="#local-6989586621679801201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
+</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AfailedFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">failedFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679801200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The number of findings for which all mitigation actions succeeded when</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- applied.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_succeededFindingsCount"><span class="hs-identifier hs-type">taskStatisticsForAuditCheck_succeededFindingsCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="taskStatisticsForAuditCheck_succeededFindingsCount"><span class="annot"><span class="annottext">taskStatisticsForAuditCheck_succeededFindingsCount :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; TaskStatisticsForAuditCheck -&gt; f TaskStatisticsForAuditCheck
+</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#taskStatisticsForAuditCheck_succeededFindingsCount"><span class="hs-identifier hs-var hs-var">taskStatisticsForAuditCheck_succeededFindingsCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TaskStatisticsForAuditCheck -&gt; Maybe Integer)
+-&gt; (TaskStatisticsForAuditCheck
+    -&gt; Maybe Integer -&gt; TaskStatisticsForAuditCheck)
+-&gt; Lens
+     TaskStatisticsForAuditCheck
+     TaskStatisticsForAuditCheck
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801198"><span class="annot"><span class="annottext">Maybe Integer
+succeededFindingsCount :: Maybe Integer
+$sel:succeededFindingsCount:TaskStatisticsForAuditCheck' :: TaskStatisticsForAuditCheck -&gt; Maybe Integer
+</span><a href="#local-6989586621679801198"><span class="hs-identifier hs-var hs-var">succeededFindingsCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679801198"><span class="hs-identifier hs-var">succeededFindingsCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801197"><span class="annot"><span class="annottext">s :: TaskStatisticsForAuditCheck
+</span><a href="#local-6989586621679801197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801196"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679801196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskStatisticsForAuditCheck
+</span><a href="#local-6989586621679801197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:succeededFindingsCount:TaskStatisticsForAuditCheck' :: Maybe Integer
+</span><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#%24sel%3AsucceededFindingsCount%3ATaskStatisticsForAuditCheck%27"><span class="hs-identifier hs-var">succeededFindingsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679801196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800316"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679800314"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TaskStatisticsForAuditCheck
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679801193"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679801191"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TaskStatisticsForAuditCheck
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TaskStatisticsForAuditCheck)
@@ -302,8 +302,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TaskStatisticsForAuditCheck&quot;</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679800311"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679800311"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679801188"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679801188"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
 -&gt; Maybe Integer
 -&gt; Maybe Integer
@@ -326,10 +326,10 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; TaskStatisticsForAuditCheck)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679800311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679801188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;succeededFindingsCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;canceledFindingsCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Integer
    -&gt; Maybe Integer
@@ -342,10 +342,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Integer -&gt; Maybe Integer -&gt; TaskStatisticsForAuditCheck)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679800311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679801188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;totalFindingsCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;skippedFindingsCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Integer
    -&gt; Maybe Integer -&gt; Maybe Integer -&gt; TaskStatisticsForAuditCheck)
@@ -354,31 +354,31 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Integer -&gt; Maybe Integer -&gt; TaskStatisticsForAuditCheck)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679800311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679801188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;failedFindingsCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;totalFindingsCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Integer -&gt; Maybe Integer -&gt; TaskStatisticsForAuditCheck)
 -&gt; Parser (Maybe Integer)
 -&gt; Parser (Maybe Integer -&gt; TaskStatisticsForAuditCheck)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679800311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679801188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;skippedFindingsCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;failedFindingsCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; TaskStatisticsForAuditCheck)
 -&gt; Parser (Maybe Integer) -&gt; Parser TaskStatisticsForAuditCheck
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679800311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679801188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;canceledFindingsCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;succeededFindingsCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800305"><span id="local-6989586621679800307"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679801182"><span id="local-6989586621679801184"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800302"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679801179"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatisticsForAuditCheck.html#TaskStatisticsForAuditCheck"><span class="hs-identifier hs-type">TaskStatisticsForAuditCheck</span></a></span></span><span>
 </span><span id="line-122"></span></pre></body></html>

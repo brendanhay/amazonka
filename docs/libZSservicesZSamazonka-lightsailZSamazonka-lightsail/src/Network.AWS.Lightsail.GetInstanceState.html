@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetInstanceState' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679639824"><span id="local-6989586621679639825"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstanceState"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState"><span class="hs-identifier hs-var">GetInstanceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstanceState%27"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState%27"><span class="hs-identifier hs-var">GetInstanceState'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679640803"><span id="local-6989586621679640804"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstanceState"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState"><span class="hs-identifier hs-var">GetInstanceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstanceState%27"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState%27"><span class="hs-identifier hs-var">GetInstanceState'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the instance to get state information about.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AinstanceName%3AGetInstanceState%27"><span class="annot"><span class="annottext">GetInstanceState -&gt; Text
 </span><a href="Network.AWS.Lightsail.GetInstanceState.html#%24sel%3AinstanceName%3AGetInstanceState%27"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679639818"><span id="local-6989586621679639820"><span class="annot"><span class="annottext">GetInstanceState -&gt; GetInstanceState -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679640797"><span id="local-6989586621679640799"><span class="annot"><span class="annottext">GetInstanceState -&gt; GetInstanceState -&gt; Bool
 (GetInstanceState -&gt; GetInstanceState -&gt; Bool)
 -&gt; (GetInstanceState -&gt; GetInstanceState -&gt; Bool)
 -&gt; Eq GetInstanceState
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetInstanceState -&gt; GetInstanceState -&gt; Bool
 == :: GetInstanceState -&gt; GetInstanceState -&gt; Bool
 $c== :: GetInstanceState -&gt; GetInstanceState -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679639809"><span id="local-6989586621679639811"><span id="local-6989586621679639813"><span id="local-6989586621679639815"><span class="annot"><span class="annottext">ReadPrec [GetInstanceState]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679640788"><span id="local-6989586621679640790"><span id="local-6989586621679640792"><span id="local-6989586621679640794"><span class="annot"><span class="annottext">ReadPrec [GetInstanceState]
 ReadPrec GetInstanceState
 Int -&gt; ReadS GetInstanceState
 ReadS [GetInstanceState]
@@ -82,7 +82,7 @@ readList :: ReadS [GetInstanceState]
 $creadList :: ReadS [GetInstanceState]
 readsPrec :: Int -&gt; ReadS GetInstanceState
 $creadsPrec :: Int -&gt; ReadS GetInstanceState
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679639802"><span id="local-6989586621679639804"><span id="local-6989586621679639806"><span class="annot"><span class="annottext">Int -&gt; GetInstanceState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679640781"><span id="local-6989586621679640783"><span id="local-6989586621679640785"><span class="annot"><span class="annottext">Int -&gt; GetInstanceState -&gt; ShowS
 [GetInstanceState] -&gt; ShowS
 GetInstanceState -&gt; String
 (Int -&gt; GetInstanceState -&gt; ShowS)
@@ -122,12 +122,12 @@ $cfrom :: forall x. GetInstanceState -&gt; Rep GetInstanceState x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState"><span class="hs-identifier hs-type">GetInstanceState</span></a></span><span>
 </span><span id="line-70"></span><span id="newGetInstanceState"><span class="annot"><span class="annottext">newGetInstanceState :: Text -&gt; GetInstanceState
-</span><a href="Network.AWS.Lightsail.GetInstanceState.html#newGetInstanceState"><span class="hs-identifier hs-var hs-var">newGetInstanceState</span></a></span></span><span> </span><span id="local-6989586621679639797"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679639797"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetInstanceState.html#newGetInstanceState"><span class="hs-identifier hs-var hs-var">newGetInstanceState</span></a></span></span><span> </span><span id="local-6989586621679640776"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679640776"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">GetInstanceState' :: Text -&gt; GetInstanceState
 </span><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState%27"><span class="hs-identifier hs-type">GetInstanceState'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:GetInstanceState' :: Text
 </span><a href="Network.AWS.Lightsail.GetInstanceState.html#%24sel%3AinstanceName%3AGetInstanceState%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679639797"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679640776"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The name of the instance to get state information about.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#getInstanceState_instanceName"><span class="hs-identifier hs-type">getInstanceState_instanceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState"><span class="hs-identifier hs-type">GetInstanceState</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -136,27 +136,27 @@ $cfrom :: forall x. GetInstanceState -&gt; Rep GetInstanceState x
 -&gt; (GetInstanceState -&gt; Text -&gt; GetInstanceState)
 -&gt; Lens GetInstanceState GetInstanceState Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState%27"><span class="hs-identifier hs-type">GetInstanceState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679639794"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState%27"><span class="hs-identifier hs-type">GetInstanceState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640773"><span class="annot"><span class="annottext">Text
 instanceName :: Text
 $sel:instanceName:GetInstanceState' :: GetInstanceState -&gt; Text
-</span><a href="#local-6989586621679639794"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679639794"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679639793"><span class="annot"><span class="annottext">s :: GetInstanceState
-</span><a href="#local-6989586621679639793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState%27"><span class="hs-identifier hs-type">GetInstanceState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679639792"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679639792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceState
-</span><a href="#local-6989586621679639793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:GetInstanceState' :: Text
+</span><a href="#local-6989586621679640773"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679640773"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640772"><span class="annot"><span class="annottext">s :: GetInstanceState
+</span><a href="#local-6989586621679640772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState%27"><span class="hs-identifier hs-type">GetInstanceState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640771"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679640771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceState
+</span><a href="#local-6989586621679640772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:GetInstanceState' :: Text
 </span><a href="Network.AWS.Lightsail.GetInstanceState.html#%24sel%3AinstanceName%3AGetInstanceState%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679639792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState"><span class="hs-identifier hs-type">GetInstanceState</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679640771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState"><span class="hs-identifier hs-type">GetInstanceState</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState"><span class="hs-identifier hs-type">GetInstanceState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState"><span class="hs-identifier hs-type">GetInstanceState</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse"><span class="hs-identifier hs-type">GetInstanceStateResponse</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679639788"><span class="annot"><span class="annottext">request :: GetInstanceState -&gt; Request GetInstanceState
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679640767"><span class="annot"><span class="annottext">request :: GetInstanceState -&gt; Request GetInstanceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetInstanceState -&gt; Request GetInstanceState
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679639784"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679640763"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetInstanceState
 -&gt; ClientResponse ClientBody
@@ -180,10 +180,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679639781"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679639781"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679639780"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679639780"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679639779"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679639779"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679640760"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679640760"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679640759"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679640759"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679640758"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679640758"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe InstanceState -&gt; Int -&gt; GetInstanceStateResponse
 </span><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse%27"><span class="hs-identifier hs-var">GetInstanceStateResponse'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InstanceState -&gt; Int -&gt; GetInstanceStateResponse)
@@ -191,7 +191,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetInstanceStateResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679639779"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InstanceState)
+</span><a href="#local-6989586621679640758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InstanceState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
@@ -203,15 +203,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679639781"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679640760"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679639771"><span id="local-6989586621679639773"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState"><span class="hs-identifier hs-type">GetInstanceState</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679640750"><span id="local-6989586621679640752"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState"><span class="hs-identifier hs-type">GetInstanceState</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679639768"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState"><span class="hs-identifier hs-type">GetInstanceState</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679640747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState"><span class="hs-identifier hs-type">GetInstanceState</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState"><span class="hs-identifier hs-type">GetInstanceState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679639764"><span class="annot"><span class="annottext">toHeaders :: GetInstanceState -&gt; ResponseHeaders
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679640743"><span class="annot"><span class="annottext">toHeaders :: GetInstanceState -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetInstanceState -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -238,12 +238,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679639754"><span id="local-6989586621679639756"><span id="local-6989586621679639758"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState"><span class="hs-identifier hs-type">GetInstanceState</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679639752"><span class="annot"><span class="annottext">toJSON :: GetInstanceState -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState%27"><span class="hs-identifier hs-type">GetInstanceState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679639750"><span class="annot"><span class="annottext">Text
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679640733"><span id="local-6989586621679640735"><span id="local-6989586621679640737"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState"><span class="hs-identifier hs-type">GetInstanceState</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679640731"><span class="annot"><span class="annottext">toJSON :: GetInstanceState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState%27"><span class="hs-identifier hs-type">GetInstanceState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640729"><span class="annot"><span class="annottext">Text
 instanceName :: Text
 $sel:instanceName:GetInstanceState' :: GetInstanceState -&gt; Text
-</span><a href="#local-6989586621679639750"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679640729"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -255,18 +255,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;instanceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679639750"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679640729"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState"><span class="hs-identifier hs-type">GetInstanceState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679639744"><span class="annot"><span class="annottext">toPath :: GetInstanceState -&gt; ByteString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679640723"><span class="annot"><span class="annottext">toPath :: GetInstanceState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetInstanceState -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceState"><span class="hs-identifier hs-type">GetInstanceState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679639740"><span class="annot"><span class="annottext">toQuery :: GetInstanceState -&gt; QueryString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679640719"><span class="annot"><span class="annottext">toQuery :: GetInstanceState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetInstanceState -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -274,7 +274,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newGetInstanceStateResponse' smart constructor.</span><span>
-</span><span id="line-123"></span><span id="local-6989586621679639737"><span id="local-6989586621679639738"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstanceStateResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse"><span class="hs-identifier hs-var">GetInstanceStateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstanceStateResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse%27"><span class="hs-identifier hs-var">GetInstanceStateResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span id="local-6989586621679640716"><span id="local-6989586621679640717"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstanceStateResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse"><span class="hs-identifier hs-var">GetInstanceStateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstanceStateResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse%27"><span class="hs-identifier hs-var">GetInstanceStateResponse'</span></a></span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the instance.</span><span>
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3Astate%3AGetInstanceStateResponse%27"><span class="annot"><span class="annottext">GetInstanceStateResponse -&gt; Maybe InstanceState
 </span><a href="Network.AWS.Lightsail.GetInstanceState.html#%24sel%3Astate%3AGetInstanceStateResponse%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceState.html#InstanceState"><span class="hs-identifier hs-type">InstanceState</span></a></span><span class="hs-special">,</span><span>
@@ -282,7 +282,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetInstanceStateResponse%27"><span class="annot"><span class="annottext">GetInstanceStateResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetInstanceState.html#%24sel%3AhttpStatus%3AGetInstanceStateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679639731"><span id="local-6989586621679639733"><span class="annot"><span class="annottext">GetInstanceStateResponse -&gt; GetInstanceStateResponse -&gt; Bool
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679640710"><span id="local-6989586621679640712"><span class="annot"><span class="annottext">GetInstanceStateResponse -&gt; GetInstanceStateResponse -&gt; Bool
 (GetInstanceStateResponse -&gt; GetInstanceStateResponse -&gt; Bool)
 -&gt; (GetInstanceStateResponse -&gt; GetInstanceStateResponse -&gt; Bool)
 -&gt; Eq GetInstanceStateResponse
@@ -291,7 +291,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetInstanceStateResponse -&gt; GetInstanceStateResponse -&gt; Bool
 == :: GetInstanceStateResponse -&gt; GetInstanceStateResponse -&gt; Bool
 $c== :: GetInstanceStateResponse -&gt; GetInstanceStateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679639723"><span id="local-6989586621679639725"><span id="local-6989586621679639727"><span id="local-6989586621679639729"><span class="annot"><span class="annottext">ReadPrec [GetInstanceStateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679640702"><span id="local-6989586621679640704"><span id="local-6989586621679640706"><span id="local-6989586621679640708"><span class="annot"><span class="annottext">ReadPrec [GetInstanceStateResponse]
 ReadPrec GetInstanceStateResponse
 Int -&gt; ReadS GetInstanceStateResponse
 ReadS [GetInstanceStateResponse]
@@ -311,7 +311,7 @@ readList :: ReadS [GetInstanceStateResponse]
 $creadList :: ReadS [GetInstanceStateResponse]
 readsPrec :: Int -&gt; ReadS GetInstanceStateResponse
 $creadsPrec :: Int -&gt; ReadS GetInstanceStateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679639717"><span id="local-6989586621679639719"><span id="local-6989586621679639721"><span class="annot"><span class="annottext">Int -&gt; GetInstanceStateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679640696"><span id="local-6989586621679640698"><span id="local-6989586621679640700"><span class="annot"><span class="annottext">Int -&gt; GetInstanceStateResponse -&gt; ShowS
 [GetInstanceStateResponse] -&gt; ShowS
 GetInstanceStateResponse -&gt; String
 (Int -&gt; GetInstanceStateResponse -&gt; ShowS)
@@ -359,8 +359,8 @@ GetInstanceStateResponse -&gt; Rep GetInstanceStateResponse x
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse"><span class="hs-identifier hs-type">GetInstanceStateResponse</span></a></span><span>
 </span><span id="line-146"></span><span id="newGetInstanceStateResponse"><span class="annot"><span class="annottext">newGetInstanceStateResponse :: Int -&gt; GetInstanceStateResponse
-</span><a href="Network.AWS.Lightsail.GetInstanceState.html#newGetInstanceStateResponse"><span class="hs-identifier hs-var hs-var">newGetInstanceStateResponse</span></a></span></span><span> </span><span id="local-6989586621679639714"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679639714"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetInstanceState.html#newGetInstanceStateResponse"><span class="hs-identifier hs-var hs-var">newGetInstanceStateResponse</span></a></span></span><span> </span><span id="local-6989586621679640693"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679640693"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">GetInstanceStateResponse' :: Maybe InstanceState -&gt; Int -&gt; GetInstanceStateResponse
 </span><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse%27"><span class="hs-identifier hs-type">GetInstanceStateResponse'</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:GetInstanceStateResponse' :: Maybe InstanceState
@@ -369,7 +369,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstanceStateResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetInstanceState.html#%24sel%3AhttpStatus%3AGetInstanceStateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679639714"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679640693"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The state of the instance.</span><span>
@@ -385,16 +385,16 @@ forall a. Maybe a
      (Maybe InstanceState)
      (Maybe InstanceState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse%27"><span class="hs-identifier hs-type">GetInstanceStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679639713"><span class="annot"><span class="annottext">Maybe InstanceState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse%27"><span class="hs-identifier hs-type">GetInstanceStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640692"><span class="annot"><span class="annottext">Maybe InstanceState
 state :: Maybe InstanceState
 $sel:state:GetInstanceStateResponse' :: GetInstanceStateResponse -&gt; Maybe InstanceState
-</span><a href="#local-6989586621679639713"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceState
-</span><a href="#local-6989586621679639713"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679639712"><span class="annot"><span class="annottext">s :: GetInstanceStateResponse
-</span><a href="#local-6989586621679639712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse%27"><span class="hs-identifier hs-type">GetInstanceStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679639711"><span class="annot"><span class="annottext">Maybe InstanceState
-</span><a href="#local-6989586621679639711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceStateResponse
-</span><a href="#local-6989586621679639712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:GetInstanceStateResponse' :: Maybe InstanceState
+</span><a href="#local-6989586621679640692"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceState
+</span><a href="#local-6989586621679640692"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640691"><span class="annot"><span class="annottext">s :: GetInstanceStateResponse
+</span><a href="#local-6989586621679640691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse%27"><span class="hs-identifier hs-type">GetInstanceStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640690"><span class="annot"><span class="annottext">Maybe InstanceState
+</span><a href="#local-6989586621679640690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceStateResponse
+</span><a href="#local-6989586621679640691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:GetInstanceStateResponse' :: Maybe InstanceState
 </span><a href="Network.AWS.Lightsail.GetInstanceState.html#%24sel%3Astate%3AGetInstanceStateResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceState
-</span><a href="#local-6989586621679639711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse"><span class="hs-identifier hs-type">GetInstanceStateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679640690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse"><span class="hs-identifier hs-type">GetInstanceStateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#getInstanceStateResponse_httpStatus"><span class="hs-identifier hs-type">getInstanceStateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse"><span class="hs-identifier hs-type">GetInstanceStateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -404,16 +404,16 @@ $sel:state:GetInstanceStateResponse' :: GetInstanceStateResponse -&gt; Maybe Ins
 -&gt; (GetInstanceStateResponse -&gt; Int -&gt; GetInstanceStateResponse)
 -&gt; Lens GetInstanceStateResponse GetInstanceStateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse%27"><span class="hs-identifier hs-type">GetInstanceStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679639710"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse%27"><span class="hs-identifier hs-type">GetInstanceStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640689"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetInstanceStateResponse' :: GetInstanceStateResponse -&gt; Int
-</span><a href="#local-6989586621679639710"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679639710"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679639709"><span class="annot"><span class="annottext">s :: GetInstanceStateResponse
-</span><a href="#local-6989586621679639709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse%27"><span class="hs-identifier hs-type">GetInstanceStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679639708"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679639708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceStateResponse
-</span><a href="#local-6989586621679639709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstanceStateResponse' :: Int
+</span><a href="#local-6989586621679640689"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679640689"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640688"><span class="annot"><span class="annottext">s :: GetInstanceStateResponse
+</span><a href="#local-6989586621679640688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse%27"><span class="hs-identifier hs-type">GetInstanceStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640687"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679640687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceStateResponse
+</span><a href="#local-6989586621679640688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstanceStateResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetInstanceState.html#%24sel%3AhttpStatus%3AGetInstanceStateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679639708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse"><span class="hs-identifier hs-type">GetInstanceStateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679640687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse"><span class="hs-identifier hs-type">GetInstanceStateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679639706"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse"><span class="hs-identifier hs-type">GetInstanceStateResponse</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679640685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceState.html#GetInstanceStateResponse"><span class="hs-identifier hs-type">GetInstanceStateResponse</span></a></span></span><span>
 </span><span id="line-161"></span></pre></body></html>

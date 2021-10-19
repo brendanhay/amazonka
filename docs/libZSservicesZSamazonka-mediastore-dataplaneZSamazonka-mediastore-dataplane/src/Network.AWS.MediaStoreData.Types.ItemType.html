@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679147060"><span id="local-6989586621679147061"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ItemType"><span class="annot"><a href="Network.AWS.MediaStoreData.Types.ItemType.html#ItemType"><span class="hs-identifier hs-var">ItemType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ItemType%27"><span class="annot"><a href="Network.AWS.MediaStoreData.Types.ItemType.html#ItemType%27"><span class="hs-identifier hs-var">ItemType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679147065"><span id="local-6989586621679147066"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ItemType"><span class="annot"><a href="Network.AWS.MediaStoreData.Types.ItemType.html#ItemType"><span class="hs-identifier hs-var">ItemType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ItemType%27"><span class="annot"><a href="Network.AWS.MediaStoreData.Types.ItemType.html#ItemType%27"><span class="hs-identifier hs-var">ItemType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromItemType"><span class="annot"><span class="annottext">ItemType -&gt; Text
 </span><a href="Network.AWS.MediaStoreData.Types.ItemType.html#fromItemType"><span class="hs-identifier hs-var hs-var">fromItemType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679147052"><span id="local-6989586621679147054"><span id="local-6989586621679147056"><span class="annot"><span class="annottext">Int -&gt; ItemType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679147057"><span id="local-6989586621679147059"><span id="local-6989586621679147061"><span class="annot"><span class="annottext">Int -&gt; ItemType -&gt; ShowS
 [ItemType] -&gt; ShowS
 ItemType -&gt; String
 (Int -&gt; ItemType -&gt; ShowS)
@@ -49,7 +49,7 @@ $cshow :: ItemType -&gt; String
 showsPrec :: Int -&gt; ItemType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ItemType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679147043"><span id="local-6989586621679147045"><span id="local-6989586621679147047"><span id="local-6989586621679147049"><span class="annot"><span class="annottext">ReadPrec [ItemType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679147048"><span id="local-6989586621679147050"><span id="local-6989586621679147052"><span id="local-6989586621679147054"><span class="annot"><span class="annottext">ReadPrec [ItemType]
 ReadPrec ItemType
 Int -&gt; ReadS ItemType
 ReadS [ItemType]
@@ -70,7 +70,7 @@ $creadList :: ReadS [ItemType]
 readsPrec :: Int -&gt; ReadS ItemType
 $creadsPrec :: Int -&gt; ReadS ItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679147038"><span id="local-6989586621679147040"><span class="annot"><span class="annottext">ItemType -&gt; ItemType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679147043"><span id="local-6989586621679147045"><span class="annot"><span class="annottext">ItemType -&gt; ItemType -&gt; Bool
 (ItemType -&gt; ItemType -&gt; Bool)
 -&gt; (ItemType -&gt; ItemType -&gt; Bool) -&gt; Eq ItemType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ $c/= :: ItemType -&gt; ItemType -&gt; Bool
 == :: ItemType -&gt; ItemType -&gt; Bool
 $c== :: ItemType -&gt; ItemType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679147022"><span id="local-6989586621679147024"><span id="local-6989586621679147026"><span id="local-6989586621679147028"><span id="local-6989586621679147030"><span id="local-6989586621679147032"><span id="local-6989586621679147034"><span class="annot"><span class="annottext">Eq ItemType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679147027"><span id="local-6989586621679147029"><span id="local-6989586621679147031"><span id="local-6989586621679147033"><span id="local-6989586621679147035"><span id="local-6989586621679147037"><span id="local-6989586621679147039"><span class="annot"><span class="annottext">Eq ItemType
 Eq ItemType
 -&gt; (ItemType -&gt; ItemType -&gt; Ordering)
 -&gt; (ItemType -&gt; ItemType -&gt; Bool)
@@ -129,7 +129,7 @@ $cfrom :: forall x. ItemType -&gt; Rep ItemType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679147014"><span id="local-6989586621679147016"><span class="annot"><span class="annottext">Int -&gt; ItemType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679147019"><span id="local-6989586621679147021"><span class="annot"><span class="annottext">Int -&gt; ItemType -&gt; Int
 ItemType -&gt; Int
 (Int -&gt; ItemType -&gt; Int) -&gt; (ItemType -&gt; Int) -&gt; Hashable ItemType
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -138,49 +138,49 @@ $chash :: ItemType -&gt; Int
 hashWithSalt :: Int -&gt; ItemType -&gt; Int
 $chashWithSalt :: Int -&gt; ItemType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679147011"><span class="annot"><span class="annottext">ItemType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679147016"><span class="annot"><span class="annottext">ItemType -&gt; ()
 (ItemType -&gt; ()) -&gt; NFData ItemType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ItemType -&gt; ()
 $crnf :: ItemType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679147008"><span class="annot"><span class="annottext">Text -&gt; Either String ItemType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679147013"><span class="annot"><span class="annottext">Text -&gt; Either String ItemType
 (Text -&gt; Either String ItemType) -&gt; FromText ItemType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ItemType
 $cfromText :: Text -&gt; Either String ItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679147005"><span class="annot"><span class="annottext">ItemType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679147010"><span class="annot"><span class="annottext">ItemType -&gt; Text
 (ItemType -&gt; Text) -&gt; ToText ItemType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ItemType -&gt; Text
 $ctoText :: ItemType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679147002"><span class="annot"><span class="annottext">ItemType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679147007"><span class="annot"><span class="annottext">ItemType -&gt; ByteString
 (ItemType -&gt; ByteString) -&gt; ToByteString ItemType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ItemType -&gt; ByteString
 $ctoBS :: ItemType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679146999"><span class="annot"><span class="annottext">ItemType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679147004"><span class="annot"><span class="annottext">ItemType -&gt; ByteStringBuilder
 (ItemType -&gt; ByteStringBuilder) -&gt; ToLog ItemType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ItemType -&gt; ByteStringBuilder
 $cbuild :: ItemType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679146996"><span class="annot"><span class="annottext">HeaderName -&gt; ItemType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679147001"><span class="annot"><span class="annottext">HeaderName -&gt; ItemType -&gt; [Header]
 (HeaderName -&gt; ItemType -&gt; [Header]) -&gt; ToHeader ItemType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ItemType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ItemType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679146993"><span class="annot"><span class="annottext">ItemType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679146998"><span class="annot"><span class="annottext">ItemType -&gt; QueryString
 (ItemType -&gt; QueryString) -&gt; ToQuery ItemType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ItemType -&gt; QueryString
 $ctoQuery :: ItemType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679146988"><span id="local-6989586621679146990"><span class="annot"><span class="annottext">Value -&gt; Parser [ItemType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679146993"><span id="local-6989586621679146995"><span class="annot"><span class="annottext">Value -&gt; Parser [ItemType]
 Value -&gt; Parser ItemType
 (Value -&gt; Parser ItemType)
 -&gt; (Value -&gt; Parser [ItemType]) -&gt; FromJSON ItemType
@@ -191,7 +191,7 @@ $cparseJSONList :: Value -&gt; Parser [ItemType]
 parseJSON :: Value -&gt; Parser ItemType
 $cparseJSON :: Value -&gt; Parser ItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679146983"><span id="local-6989586621679146985"><span class="annot"><span class="annottext">FromJSONKeyFunction [ItemType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679146988"><span id="local-6989586621679146990"><span class="annot"><span class="annottext">FromJSONKeyFunction [ItemType]
 FromJSONKeyFunction ItemType
 FromJSONKeyFunction ItemType
 -&gt; FromJSONKeyFunction [ItemType] -&gt; FromJSONKey ItemType
@@ -202,7 +202,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ItemType]
 fromJSONKey :: FromJSONKeyFunction ItemType
 $cfromJSONKey :: FromJSONKeyFunction ItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679146974"><span id="local-6989586621679146976"><span id="local-6989586621679146978"><span id="local-6989586621679146980"><span class="annot"><span class="annottext">[ItemType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679146979"><span id="local-6989586621679146981"><span id="local-6989586621679146983"><span id="local-6989586621679146985"><span class="annot"><span class="annottext">[ItemType] -&gt; Encoding
 [ItemType] -&gt; Value
 ItemType -&gt; Encoding
 ItemType -&gt; Value
@@ -226,7 +226,7 @@ $ctoEncoding :: ItemType -&gt; Encoding
 toJSON :: ItemType -&gt; Value
 $ctoJSON :: ItemType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679146969"><span id="local-6989586621679146971"><span class="annot"><span class="annottext">ToJSONKeyFunction [ItemType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679146974"><span id="local-6989586621679146976"><span class="annot"><span class="annottext">ToJSONKeyFunction [ItemType]
 ToJSONKeyFunction ItemType
 ToJSONKeyFunction ItemType
 -&gt; ToJSONKeyFunction [ItemType] -&gt; ToJSONKey ItemType
@@ -237,13 +237,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ItemType]
 toJSONKey :: ToJSONKeyFunction ItemType
 $ctoJSONKey :: ToJSONKeyFunction ItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679146966"><span class="annot"><span class="annottext">[Node] -&gt; Either String ItemType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679146971"><span class="annot"><span class="annottext">[Node] -&gt; Either String ItemType
 ([Node] -&gt; Either String ItemType) -&gt; FromXML ItemType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ItemType
 $cparseXML :: [Node] -&gt; Either String ItemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679146963"><span class="annot"><span class="annottext">ItemType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679146968"><span class="annot"><span class="annottext">ItemType -&gt; XML
 (ItemType -&gt; XML) -&gt; ToXML ItemType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ItemType -&gt; XML

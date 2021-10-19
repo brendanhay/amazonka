@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- request and the current value for that limit.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newHostedZoneLimit' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679294842"><span id="local-6989586621679294843"></span></span><span class="hs-keyword">data</span><span> </span><span id="HostedZoneLimit"><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit"><span class="hs-identifier hs-var">HostedZoneLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HostedZoneLimit%27"><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit%27"><span class="hs-identifier hs-var">HostedZoneLimit'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679294989"><span id="local-6989586621679294990"></span></span><span class="hs-keyword">data</span><span> </span><span id="HostedZoneLimit"><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit"><span class="hs-identifier hs-var">HostedZoneLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HostedZoneLimit%27"><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit%27"><span class="hs-identifier hs-var">HostedZoneLimit'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The limit that you requested. Valid values include the following:</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   __MAX_RRSETS_BY_ZONE__: The maximum number of records that you can</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Avalue%3AHostedZoneLimit%27"><span class="annot"><span class="annottext">HostedZoneLimit -&gt; Natural
 </span><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#%24sel%3Avalue%3AHostedZoneLimit%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294835"><span id="local-6989586621679294837"><span class="annot"><span class="annottext">HostedZoneLimit -&gt; HostedZoneLimit -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294982"><span id="local-6989586621679294984"><span class="annot"><span class="annottext">HostedZoneLimit -&gt; HostedZoneLimit -&gt; Bool
 (HostedZoneLimit -&gt; HostedZoneLimit -&gt; Bool)
 -&gt; (HostedZoneLimit -&gt; HostedZoneLimit -&gt; Bool)
 -&gt; Eq HostedZoneLimit
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HostedZoneLimit -&gt; HostedZoneLimit -&gt; Bool
 == :: HostedZoneLimit -&gt; HostedZoneLimit -&gt; Bool
 $c== :: HostedZoneLimit -&gt; HostedZoneLimit -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294826"><span id="local-6989586621679294828"><span id="local-6989586621679294830"><span id="local-6989586621679294832"><span class="annot"><span class="annottext">ReadPrec [HostedZoneLimit]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294973"><span id="local-6989586621679294975"><span id="local-6989586621679294977"><span id="local-6989586621679294979"><span class="annot"><span class="annottext">ReadPrec [HostedZoneLimit]
 ReadPrec HostedZoneLimit
 Int -&gt; ReadS HostedZoneLimit
 ReadS [HostedZoneLimit]
@@ -72,7 +72,7 @@ readList :: ReadS [HostedZoneLimit]
 $creadList :: ReadS [HostedZoneLimit]
 readsPrec :: Int -&gt; ReadS HostedZoneLimit
 $creadsPrec :: Int -&gt; ReadS HostedZoneLimit
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294819"><span id="local-6989586621679294821"><span id="local-6989586621679294823"><span class="annot"><span class="annottext">Int -&gt; HostedZoneLimit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294966"><span id="local-6989586621679294968"><span id="local-6989586621679294970"><span class="annot"><span class="annottext">Int -&gt; HostedZoneLimit -&gt; ShowS
 [HostedZoneLimit] -&gt; ShowS
 HostedZoneLimit -&gt; String
 (Int -&gt; HostedZoneLimit -&gt; ShowS)
@@ -122,15 +122,15 @@ $cfrom :: forall x. HostedZoneLimit -&gt; Rep HostedZoneLimit x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit"><span class="hs-identifier hs-type">HostedZoneLimit</span></a></span><span>
 </span><span id="line-69"></span><span id="newHostedZoneLimit"><span class="annot"><span class="annottext">newHostedZoneLimit :: HostedZoneLimitType -&gt; Natural -&gt; HostedZoneLimit
-</span><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#newHostedZoneLimit"><span class="hs-identifier hs-var hs-var">newHostedZoneLimit</span></a></span></span><span> </span><span id="local-6989586621679294813"><span class="annot"><span class="annottext">HostedZoneLimitType
-</span><a href="#local-6989586621679294813"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679294812"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679294812"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#newHostedZoneLimit"><span class="hs-identifier hs-var hs-var">newHostedZoneLimit</span></a></span></span><span> </span><span id="local-6989586621679294960"><span class="annot"><span class="annottext">HostedZoneLimitType
+</span><a href="#local-6989586621679294960"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679294959"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679294959"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">HostedZoneLimit' :: HostedZoneLimitType -&gt; Natural -&gt; HostedZoneLimit
 </span><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit%27"><span class="hs-identifier hs-type">HostedZoneLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':HostedZoneLimit' :: HostedZoneLimitType
 </span><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#%24sel%3Atype%27%3AHostedZoneLimit%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HostedZoneLimitType
-</span><a href="#local-6989586621679294813"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:HostedZoneLimit' :: Natural
+</span><a href="#local-6989586621679294960"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:HostedZoneLimit' :: Natural
 </span><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#%24sel%3Avalue%3AHostedZoneLimit%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679294812"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679294959"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The limit that you requested. Valid values include the following:</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
@@ -150,16 +150,16 @@ $cfrom :: forall x. HostedZoneLimit -&gt; Rep HostedZoneLimit x
      HostedZoneLimitType
      HostedZoneLimitType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit%27"><span class="hs-identifier hs-type">HostedZoneLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294808"><span class="annot"><span class="annottext">HostedZoneLimitType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit%27"><span class="hs-identifier hs-type">HostedZoneLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294955"><span class="annot"><span class="annottext">HostedZoneLimitType
 type' :: HostedZoneLimitType
 $sel:type':HostedZoneLimit' :: HostedZoneLimit -&gt; HostedZoneLimitType
-</span><a href="#local-6989586621679294808"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedZoneLimitType
-</span><a href="#local-6989586621679294808"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294807"><span class="annot"><span class="annottext">s :: HostedZoneLimit
-</span><a href="#local-6989586621679294807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit%27"><span class="hs-identifier hs-type">HostedZoneLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294806"><span class="annot"><span class="annottext">HostedZoneLimitType
-</span><a href="#local-6989586621679294806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedZoneLimit
-</span><a href="#local-6989586621679294807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':HostedZoneLimit' :: HostedZoneLimitType
+</span><a href="#local-6989586621679294955"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedZoneLimitType
+</span><a href="#local-6989586621679294955"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294954"><span class="annot"><span class="annottext">s :: HostedZoneLimit
+</span><a href="#local-6989586621679294954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit%27"><span class="hs-identifier hs-type">HostedZoneLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294953"><span class="annot"><span class="annottext">HostedZoneLimitType
+</span><a href="#local-6989586621679294953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedZoneLimit
+</span><a href="#local-6989586621679294954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':HostedZoneLimit' :: HostedZoneLimitType
 </span><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#%24sel%3Atype%27%3AHostedZoneLimit%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HostedZoneLimitType
-</span><a href="#local-6989586621679294806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit"><span class="hs-identifier hs-type">HostedZoneLimit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit"><span class="hs-identifier hs-type">HostedZoneLimit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The current value for the limit that is specified by @Type@.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#hostedZoneLimit_value"><span class="hs-identifier hs-type">hostedZoneLimit_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit"><span class="hs-identifier hs-type">HostedZoneLimit</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -168,21 +168,21 @@ $sel:type':HostedZoneLimit' :: HostedZoneLimit -&gt; HostedZoneLimitType
 -&gt; (HostedZoneLimit -&gt; Natural -&gt; HostedZoneLimit)
 -&gt; Lens HostedZoneLimit HostedZoneLimit Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit%27"><span class="hs-identifier hs-type">HostedZoneLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294804"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit%27"><span class="hs-identifier hs-type">HostedZoneLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294951"><span class="annot"><span class="annottext">Natural
 value :: Natural
 $sel:value:HostedZoneLimit' :: HostedZoneLimit -&gt; Natural
-</span><a href="#local-6989586621679294804"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679294804"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294803"><span class="annot"><span class="annottext">s :: HostedZoneLimit
-</span><a href="#local-6989586621679294803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit%27"><span class="hs-identifier hs-type">HostedZoneLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294802"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679294802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedZoneLimit
-</span><a href="#local-6989586621679294803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:HostedZoneLimit' :: Natural
+</span><a href="#local-6989586621679294951"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679294951"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294950"><span class="annot"><span class="annottext">s :: HostedZoneLimit
+</span><a href="#local-6989586621679294950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit%27"><span class="hs-identifier hs-type">HostedZoneLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294949"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679294949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostedZoneLimit
+</span><a href="#local-6989586621679294950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:HostedZoneLimit' :: Natural
 </span><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#%24sel%3Avalue%3AHostedZoneLimit%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679294802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit"><span class="hs-identifier hs-type">HostedZoneLimit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit"><span class="hs-identifier hs-type">HostedZoneLimit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit"><span class="hs-identifier hs-type">HostedZoneLimit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679294799"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HostedZoneLimit
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679294797"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679294797"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679294946"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HostedZoneLimit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679294944"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679294944"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">HostedZoneLimitType -&gt; Natural -&gt; HostedZoneLimit
 </span><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit%27"><span class="hs-identifier hs-var">HostedZoneLimit'</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">(HostedZoneLimitType -&gt; Natural -&gt; HostedZoneLimit)
@@ -190,19 +190,19 @@ $sel:value:HostedZoneLimit' :: HostedZoneLimit -&gt; Natural
 -&gt; Either String (Natural -&gt; HostedZoneLimit)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679294797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String HostedZoneLimitType
+</span><a href="#local-6989586621679294944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String HostedZoneLimitType
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Natural -&gt; HostedZoneLimit)
 -&gt; Either String Natural -&gt; Either String HostedZoneLimit
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679294797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Natural
+</span><a href="#local-6989586621679294944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Natural
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294791"><span id="local-6989586621679294793"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit"><span class="hs-identifier hs-type">HostedZoneLimit</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294938"><span id="local-6989586621679294940"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit"><span class="hs-identifier hs-type">HostedZoneLimit</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294788"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit"><span class="hs-identifier hs-type">HostedZoneLimit</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294935"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HostedZoneLimit.html#HostedZoneLimit"><span class="hs-identifier hs-type">HostedZoneLimit</span></a></span></span><span>
 </span><span id="line-94"></span></pre></body></html>

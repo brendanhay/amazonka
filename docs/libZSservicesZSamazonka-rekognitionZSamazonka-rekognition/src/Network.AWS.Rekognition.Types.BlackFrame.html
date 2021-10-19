@@ -31,33 +31,33 @@
 </span><span id="line-31"></span><span class="hs-comment">-- see StartSegmentDetection.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newBlackFrame' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679321745"><span id="local-6989586621679321746"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlackFrame"><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-var">BlackFrame</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlackFrame%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-var">BlackFrame'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The minimum percentage of pixels in a frame that need to have a</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- luminance below the max_black_pixel_value for a frame to be considered a</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- black frame. Luminance is calculated using the BT.709 matrix.</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- The default value is 99, which means at least 99% of all pixels in the</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- frame are black pixels as per the @MaxPixelThreshold@ set. You can</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- reduce this value to allow more noise on the black frame.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AminCoveragePercentage%3ABlackFrame%27"><span class="annot"><span class="annottext">BlackFrame -&gt; Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.BlackFrame.html#%24sel%3AminCoveragePercentage%3ABlackFrame%27"><span class="hs-identifier hs-var hs-var">minCoveragePercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A threshold used to determine the maximum luminance value for a pixel to</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- be considered black. In a full color range video, luminance values range</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- from 0-255. A pixel value of 0 is pure black, and the most strict</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- filter. The maximum black pixel value is computed as follows:</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- max_black_pixel_value = minimum_luminance + MaxPixelThreshold</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- *luminance_range.</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- For example, for a full range video with BlackPixelThreshold = 0.1,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- max_black_pixel_value is 0 + 0.1 * (255-0) = 25.5.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679322022"><span id="local-6989586621679322023"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlackFrame"><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-var">BlackFrame</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlackFrame%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-var">BlackFrame'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A threshold used to determine the maximum luminance value for a pixel to</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- be considered black. In a full color range video, luminance values range</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- from 0-255. A pixel value of 0 is pure black, and the most strict</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- filter. The maximum black pixel value is computed as follows:</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- max_black_pixel_value = minimum_luminance + MaxPixelThreshold</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- *luminance_range.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- For example, for a full range video with BlackPixelThreshold = 0.1,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- max_black_pixel_value is 0 + 0.1 * (255-0) = 25.5.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- The default value of MaxPixelThreshold is 0.2, which maps to a</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- max_black_pixel_value of 51 for a full range video. You can lower this</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- threshold to be more strict on black levels.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AmaxPixelThreshold%3ABlackFrame%27"><span class="annot"><span class="annottext">BlackFrame -&gt; Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.BlackFrame.html#%24sel%3AmaxPixelThreshold%3ABlackFrame%27"><span class="hs-identifier hs-var hs-var">maxPixelThreshold</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The minimum percentage of pixels in a frame that need to have a</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- luminance below the max_black_pixel_value for a frame to be considered a</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- black frame. Luminance is calculated using the BT.709 matrix.</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- The default value of MaxPixelThreshold is 0.2, which maps to a</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- max_black_pixel_value of 51 for a full range video. You can lower this</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- threshold to be more strict on black levels.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AmaxPixelThreshold%3ABlackFrame%27"><span class="annot"><span class="annottext">BlackFrame -&gt; Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.BlackFrame.html#%24sel%3AmaxPixelThreshold%3ABlackFrame%27"><span class="hs-identifier hs-var hs-var">maxPixelThreshold</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- The default value is 99, which means at least 99% of all pixels in the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- frame are black pixels as per the @MaxPixelThreshold@ set. You can</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- reduce this value to allow more noise on the black frame.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AminCoveragePercentage%3ABlackFrame%27"><span class="annot"><span class="annottext">BlackFrame -&gt; Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.BlackFrame.html#%24sel%3AminCoveragePercentage%3ABlackFrame%27"><span class="hs-identifier hs-var hs-var">minCoveragePercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321738"><span id="local-6989586621679321740"><span class="annot"><span class="annottext">BlackFrame -&gt; BlackFrame -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322015"><span id="local-6989586621679322017"><span class="annot"><span class="annottext">BlackFrame -&gt; BlackFrame -&gt; Bool
 (BlackFrame -&gt; BlackFrame -&gt; Bool)
 -&gt; (BlackFrame -&gt; BlackFrame -&gt; Bool) -&gt; Eq BlackFrame
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BlackFrame -&gt; BlackFrame -&gt; Bool
 == :: BlackFrame -&gt; BlackFrame -&gt; Bool
 $c== :: BlackFrame -&gt; BlackFrame -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321729"><span id="local-6989586621679321731"><span id="local-6989586621679321733"><span id="local-6989586621679321735"><span class="annot"><span class="annottext">ReadPrec [BlackFrame]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322006"><span id="local-6989586621679322008"><span id="local-6989586621679322010"><span id="local-6989586621679322012"><span class="annot"><span class="annottext">ReadPrec [BlackFrame]
 ReadPrec BlackFrame
 Int -&gt; ReadS BlackFrame
 ReadS [BlackFrame]
@@ -85,7 +85,7 @@ readList :: ReadS [BlackFrame]
 $creadList :: ReadS [BlackFrame]
 readsPrec :: Int -&gt; ReadS BlackFrame
 $creadsPrec :: Int -&gt; ReadS BlackFrame
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321722"><span id="local-6989586621679321724"><span id="local-6989586621679321726"><span class="annot"><span class="annottext">Int -&gt; BlackFrame -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321999"><span id="local-6989586621679322001"><span id="local-6989586621679322003"><span class="annot"><span class="annottext">Int -&gt; BlackFrame -&gt; ShowS
 [BlackFrame] -&gt; ShowS
 BlackFrame -&gt; String
 (Int -&gt; BlackFrame -&gt; ShowS)
@@ -118,131 +118,130 @@ $cfrom :: forall x. BlackFrame -&gt; Rep BlackFrame x
 </span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'minCoveragePercentage', 'blackFrame_minCoveragePercentage' - The minimum percentage of pixels in a frame that need to have a</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- luminance below the max_black_pixel_value for a frame to be considered a</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- black frame. Luminance is calculated using the BT.709 matrix.</span><span>
-</span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- The default value is 99, which means at least 99% of all pixels in the</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- frame are black pixels as per the @MaxPixelThreshold@ set. You can</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- reduce this value to allow more noise on the black frame.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'maxPixelThreshold', 'blackFrame_maxPixelThreshold' - A threshold used to determine the maximum luminance value for a pixel to</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- be considered black. In a full color range video, luminance values range</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- from 0-255. A pixel value of 0 is pure black, and the most strict</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- filter. The maximum black pixel value is computed as follows:</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- max_black_pixel_value = minimum_luminance + MaxPixelThreshold</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- *luminance_range.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- For example, for a full range video with BlackPixelThreshold = 0.1,</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- max_black_pixel_value is 0 + 0.1 * (255-0) = 25.5.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'maxPixelThreshold', 'blackFrame_maxPixelThreshold' - A threshold used to determine the maximum luminance value for a pixel to</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- be considered black. In a full color range video, luminance values range</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- from 0-255. A pixel value of 0 is pure black, and the most strict</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- filter. The maximum black pixel value is computed as follows:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- max_black_pixel_value = minimum_luminance + MaxPixelThreshold</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- *luminance_range.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- For example, for a full range video with BlackPixelThreshold = 0.1,</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- max_black_pixel_value is 0 + 0.1 * (255-0) = 25.5.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The default value of MaxPixelThreshold is 0.2, which maps to a</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- max_black_pixel_value of 51 for a full range video. You can lower this</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- threshold to be more strict on black levels.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'minCoveragePercentage', 'blackFrame_minCoveragePercentage' - The minimum percentage of pixels in a frame that need to have a</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- luminance below the max_black_pixel_value for a frame to be considered a</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- black frame. Luminance is calculated using the BT.709 matrix.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- The default value of MaxPixelThreshold is 0.2, which maps to a</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- max_black_pixel_value of 51 for a full range video. You can lower this</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- threshold to be more strict on black levels.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The default value is 99, which means at least 99% of all pixels in the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- frame are black pixels as per the @MaxPixelThreshold@ set. You can</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- reduce this value to allow more noise on the black frame.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#newBlackFrame"><span class="hs-identifier hs-type">newBlackFrame</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span><span>
 </span><span id="line-91"></span><span id="newBlackFrame"><span class="annot"><span class="annottext">newBlackFrame :: BlackFrame
 </span><a href="Network.AWS.Rekognition.Types.BlackFrame.html#newBlackFrame"><span class="hs-identifier hs-var hs-var">newBlackFrame</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">BlackFrame' :: Maybe Double -&gt; Maybe Double -&gt; BlackFrame
 </span><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:minCoveragePercentage:BlackFrame' :: Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.BlackFrame.html#%24sel%3AminCoveragePercentage%3ABlackFrame%27"><span class="hs-identifier hs-var">minCoveragePercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Maybe Double
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxPixelThreshold:BlackFrame' :: Maybe Double
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxPixelThreshold:BlackFrame' :: Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.BlackFrame.html#%24sel%3AmaxPixelThreshold%3ABlackFrame%27"><span class="hs-identifier hs-var">maxPixelThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The minimum percentage of pixels in a frame that need to have a</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- luminance below the max_black_pixel_value for a frame to be considered a</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- black frame. Luminance is calculated using the BT.709 matrix.</span><span>
-</span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- The default value is 99, which means at least 99% of all pixels in the</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- frame are black pixels as per the @MaxPixelThreshold@ set. You can</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- reduce this value to allow more noise on the black frame.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#blackFrame_minCoveragePercentage"><span class="hs-identifier hs-type">blackFrame_minCoveragePercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="blackFrame_minCoveragePercentage"><span class="annot"><span class="annottext">blackFrame_minCoveragePercentage :: (Maybe Double -&gt; f (Maybe Double)) -&gt; BlackFrame -&gt; f BlackFrame
-</span><a href="Network.AWS.Rekognition.Types.BlackFrame.html#blackFrame_minCoveragePercentage"><span class="hs-identifier hs-var hs-var">blackFrame_minCoveragePercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlackFrame -&gt; Maybe Double)
--&gt; (BlackFrame -&gt; Maybe Double -&gt; BlackFrame)
--&gt; Lens BlackFrame BlackFrame (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321713"><span class="annot"><span class="annottext">Maybe Double
-minCoveragePercentage :: Maybe Double
-$sel:minCoveragePercentage:BlackFrame' :: BlackFrame -&gt; Maybe Double
-</span><a href="#local-6989586621679321713"><span class="hs-identifier hs-var hs-var">minCoveragePercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679321713"><span class="hs-identifier hs-var">minCoveragePercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321712"><span class="annot"><span class="annottext">s :: BlackFrame
-</span><a href="#local-6989586621679321712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321711"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679321711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackFrame
-</span><a href="#local-6989586621679321712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minCoveragePercentage:BlackFrame' :: Maybe Double
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:minCoveragePercentage:BlackFrame' :: Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.BlackFrame.html#%24sel%3AminCoveragePercentage%3ABlackFrame%27"><span class="hs-identifier hs-var">minCoveragePercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679321711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | A threshold used to determine the maximum luminance value for a pixel to</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- be considered black. In a full color range video, luminance values range</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- from 0-255. A pixel value of 0 is pure black, and the most strict</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- filter. The maximum black pixel value is computed as follows:</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- max_black_pixel_value = minimum_luminance + MaxPixelThreshold</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- *luminance_range.</span><span>
-</span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- For example, for a full range video with BlackPixelThreshold = 0.1,</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- max_black_pixel_value is 0 + 0.1 * (255-0) = 25.5.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- The default value of MaxPixelThreshold is 0.2, which maps to a</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- max_black_pixel_value of 51 for a full range video. You can lower this</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- threshold to be more strict on black levels.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#blackFrame_maxPixelThreshold"><span class="hs-identifier hs-type">blackFrame_maxPixelThreshold</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="blackFrame_maxPixelThreshold"><span class="annot"><span class="annottext">blackFrame_maxPixelThreshold :: (Maybe Double -&gt; f (Maybe Double)) -&gt; BlackFrame -&gt; f BlackFrame
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | A threshold used to determine the maximum luminance value for a pixel to</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- be considered black. In a full color range video, luminance values range</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- from 0-255. A pixel value of 0 is pure black, and the most strict</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- filter. The maximum black pixel value is computed as follows:</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- max_black_pixel_value = minimum_luminance + MaxPixelThreshold</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- *luminance_range.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- For example, for a full range video with BlackPixelThreshold = 0.1,</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- max_black_pixel_value is 0 + 0.1 * (255-0) = 25.5.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- The default value of MaxPixelThreshold is 0.2, which maps to a</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- max_black_pixel_value of 51 for a full range video. You can lower this</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- threshold to be more strict on black levels.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#blackFrame_maxPixelThreshold"><span class="hs-identifier hs-type">blackFrame_maxPixelThreshold</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="blackFrame_maxPixelThreshold"><span class="annot"><span class="annottext">blackFrame_maxPixelThreshold :: (Maybe Double -&gt; f (Maybe Double)) -&gt; BlackFrame -&gt; f BlackFrame
 </span><a href="Network.AWS.Rekognition.Types.BlackFrame.html#blackFrame_maxPixelThreshold"><span class="hs-identifier hs-var hs-var">blackFrame_maxPixelThreshold</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlackFrame -&gt; Maybe Double)
 -&gt; (BlackFrame -&gt; Maybe Double -&gt; BlackFrame)
 -&gt; Lens BlackFrame BlackFrame (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321709"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321990"><span class="annot"><span class="annottext">Maybe Double
 maxPixelThreshold :: Maybe Double
 $sel:maxPixelThreshold:BlackFrame' :: BlackFrame -&gt; Maybe Double
-</span><a href="#local-6989586621679321709"><span class="hs-identifier hs-var hs-var">maxPixelThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679321709"><span class="hs-identifier hs-var">maxPixelThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321708"><span class="annot"><span class="annottext">s :: BlackFrame
-</span><a href="#local-6989586621679321708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321707"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679321707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackFrame
-</span><a href="#local-6989586621679321708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxPixelThreshold:BlackFrame' :: Maybe Double
+</span><a href="#local-6989586621679321990"><span class="hs-identifier hs-var hs-var">maxPixelThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679321990"><span class="hs-identifier hs-var">maxPixelThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321989"><span class="annot"><span class="annottext">s :: BlackFrame
+</span><a href="#local-6989586621679321989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321988"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679321988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackFrame
+</span><a href="#local-6989586621679321989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxPixelThreshold:BlackFrame' :: Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.BlackFrame.html#%24sel%3AmaxPixelThreshold%3ABlackFrame%27"><span class="hs-identifier hs-var">maxPixelThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679321707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321703"><span id="local-6989586621679321705"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span></span></span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span></span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321692"><span id="local-6989586621679321694"><span id="local-6989586621679321696"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679321690"><span class="annot"><span class="annottext">toJSON :: BlackFrame -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321687"><span id="local-6989586621679321688"><span class="annot"><span class="annottext">Maybe Double
-maxPixelThreshold :: Maybe Double
+</span><a href="#local-6989586621679321988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The minimum percentage of pixels in a frame that need to have a</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- luminance below the max_black_pixel_value for a frame to be considered a</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- black frame. Luminance is calculated using the BT.709 matrix.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- The default value is 99, which means at least 99% of all pixels in the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- frame are black pixels as per the @MaxPixelThreshold@ set. You can</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- reduce this value to allow more noise on the black frame.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#blackFrame_minCoveragePercentage"><span class="hs-identifier hs-type">blackFrame_minCoveragePercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="blackFrame_minCoveragePercentage"><span class="annot"><span class="annottext">blackFrame_minCoveragePercentage :: (Maybe Double -&gt; f (Maybe Double)) -&gt; BlackFrame -&gt; f BlackFrame
+</span><a href="Network.AWS.Rekognition.Types.BlackFrame.html#blackFrame_minCoveragePercentage"><span class="hs-identifier hs-var hs-var">blackFrame_minCoveragePercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlackFrame -&gt; Maybe Double)
+-&gt; (BlackFrame -&gt; Maybe Double -&gt; BlackFrame)
+-&gt; Lens BlackFrame BlackFrame (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321986"><span class="annot"><span class="annottext">Maybe Double
 minCoveragePercentage :: Maybe Double
-$sel:maxPixelThreshold:BlackFrame' :: BlackFrame -&gt; Maybe Double
 $sel:minCoveragePercentage:BlackFrame' :: BlackFrame -&gt; Maybe Double
-</span><a href="#local-6989586621679321687"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><a href="#local-6989586621679321986"><span class="hs-identifier hs-var hs-var">minCoveragePercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679321986"><span class="hs-identifier hs-var">minCoveragePercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321985"><span class="annot"><span class="annottext">s :: BlackFrame
+</span><a href="#local-6989586621679321985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321984"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679321984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlackFrame
+</span><a href="#local-6989586621679321985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minCoveragePercentage:BlackFrame' :: Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.BlackFrame.html#%24sel%3AminCoveragePercentage%3ABlackFrame%27"><span class="hs-identifier hs-var">minCoveragePercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679321984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321980"><span id="local-6989586621679321982"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321977"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321969"><span id="local-6989586621679321971"><span id="local-6989586621679321973"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame"><span class="hs-identifier hs-type">BlackFrame</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679321967"><span class="annot"><span class="annottext">toJSON :: BlackFrame -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.BlackFrame.html#BlackFrame%27"><span class="hs-identifier hs-type">BlackFrame'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321964"><span id="local-6989586621679321965"><span class="annot"><span class="annottext">Maybe Double
+minCoveragePercentage :: Maybe Double
+maxPixelThreshold :: Maybe Double
+$sel:minCoveragePercentage:BlackFrame' :: BlackFrame -&gt; Maybe Double
+$sel:maxPixelThreshold:BlackFrame' :: BlackFrame -&gt; Maybe Double
+</span><a href="#local-6989586621679321964"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MinCoveragePercentage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679321688"><span class="hs-identifier hs-var">minCoveragePercentage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-131"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxPixelThreshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679321687"><span class="hs-identifier hs-var">maxPixelThreshold</span></a></span><span>
-</span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span></pre></body></html>
+</span><a href="#local-6989586621679321965"><span class="hs-identifier hs-var">maxPixelThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MinCoveragePercentage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679321964"><span class="hs-identifier hs-var">minCoveragePercentage</span></a></span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span></pre></body></html>

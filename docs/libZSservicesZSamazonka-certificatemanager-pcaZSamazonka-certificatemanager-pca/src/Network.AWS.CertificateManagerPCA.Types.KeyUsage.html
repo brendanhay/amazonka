@@ -27,36 +27,36 @@
 </span><span id="line-27"></span><span class="hs-comment">-- certificate can be used. Default value for each option is false.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newKeyUsage' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679209844"><span id="local-6989586621679209845"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyUsage"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-var">KeyUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyUsage%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-var">KeyUsage'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679209903"><span id="local-6989586621679209904"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyUsage"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-var">KeyUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyUsage%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-var">KeyUsage'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Key can be used to decipher data.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AdataEncipherment%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe Bool
 </span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AdataEncipherment%3AKeyUsage%27"><span class="hs-identifier hs-var hs-var">dataEncipherment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Key can be used to sign certificates.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AkeyCertSign%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe Bool
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyCertSign%3AKeyUsage%27"><span class="hs-identifier hs-var hs-var">keyCertSign</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Key can be used to sign CRLs.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcRLSign%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe Bool
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AcRLSign%3AKeyUsage%27"><span class="hs-identifier hs-var hs-var">cRLSign</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Key can be used to encipher data.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AkeyEncipherment%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe Bool
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyEncipherment%3AKeyUsage%27"><span class="hs-identifier hs-var hs-var">keyEncipherment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Key can be used only to encipher data.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AencipherOnly%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe Bool
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Key can be used only to encipher data.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AencipherOnly%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe Bool
 </span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AencipherOnly%3AKeyUsage%27"><span class="hs-identifier hs-var hs-var">encipherOnly</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Key can be used in a key-agreement protocol.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AkeyAgreement%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe Bool
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyAgreement%3AKeyUsage%27"><span class="hs-identifier hs-var hs-var">keyAgreement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Key can be used for digital signing.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AdigitalSignature%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe Bool
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Key can be used for non-repudiation.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AnonRepudiation%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe Bool
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AnonRepudiation%3AKeyUsage%27"><span class="hs-identifier hs-var hs-var">nonRepudiation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Key can be used to sign CRLs.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcRLSign%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe Bool
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AcRLSign%3AKeyUsage%27"><span class="hs-identifier hs-var hs-var">cRLSign</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Key can be used for digital signing.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdigitalSignature%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe Bool
 </span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AdigitalSignature%3AKeyUsage%27"><span class="hs-identifier hs-var hs-var">digitalSignature</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Key can be used only to decipher data.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AdecipherOnly%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe Bool
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Key can be used to sign certificates.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AkeyCertSign%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe Bool
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyCertSign%3AKeyUsage%27"><span class="hs-identifier hs-var hs-var">keyCertSign</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Key can be used only to decipher data.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AdecipherOnly%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe Bool
 </span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AdecipherOnly%3AKeyUsage%27"><span class="hs-identifier hs-var hs-var">decipherOnly</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Key can be used for non-repudiation.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AnonRepudiation%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe Bool
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AnonRepudiation%3AKeyUsage%27"><span class="hs-identifier hs-var hs-var">nonRepudiation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Key can be used to encipher data.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AkeyEncipherment%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe Bool
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyEncipherment%3AKeyUsage%27"><span class="hs-identifier hs-var hs-var">keyEncipherment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Key can be used in a key-agreement protocol.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AkeyAgreement%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe Bool
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyAgreement%3AKeyUsage%27"><span class="hs-identifier hs-var hs-var">keyAgreement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209830"><span id="local-6989586621679209832"><span class="annot"><span class="annottext">KeyUsage -&gt; KeyUsage -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209889"><span id="local-6989586621679209891"><span class="annot"><span class="annottext">KeyUsage -&gt; KeyUsage -&gt; Bool
 (KeyUsage -&gt; KeyUsage -&gt; Bool)
 -&gt; (KeyUsage -&gt; KeyUsage -&gt; Bool) -&gt; Eq KeyUsage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KeyUsage -&gt; KeyUsage -&gt; Bool
 == :: KeyUsage -&gt; KeyUsage -&gt; Bool
 $c== :: KeyUsage -&gt; KeyUsage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209821"><span id="local-6989586621679209823"><span id="local-6989586621679209825"><span id="local-6989586621679209827"><span class="annot"><span class="annottext">ReadPrec [KeyUsage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209880"><span id="local-6989586621679209882"><span id="local-6989586621679209884"><span id="local-6989586621679209886"><span class="annot"><span class="annottext">ReadPrec [KeyUsage]
 ReadPrec KeyUsage
 Int -&gt; ReadS KeyUsage
 ReadS [KeyUsage]
@@ -84,7 +84,7 @@ readList :: ReadS [KeyUsage]
 $creadList :: ReadS [KeyUsage]
 readsPrec :: Int -&gt; ReadS KeyUsage
 $creadsPrec :: Int -&gt; ReadS KeyUsage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209814"><span id="local-6989586621679209816"><span id="local-6989586621679209818"><span class="annot"><span class="annottext">Int -&gt; KeyUsage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209873"><span id="local-6989586621679209875"><span id="local-6989586621679209877"><span class="annot"><span class="annottext">Int -&gt; KeyUsage -&gt; ShowS
 [KeyUsage] -&gt; ShowS
 KeyUsage -&gt; String
 (Int -&gt; KeyUsage -&gt; ShowS)
@@ -117,21 +117,21 @@ $cfrom :: forall x. KeyUsage -&gt; Rep KeyUsage x
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- 'dataEncipherment', 'keyUsage_dataEncipherment' - Key can be used to decipher data.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'keyCertSign', 'keyUsage_keyCertSign' - Key can be used to sign certificates.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'encipherOnly', 'keyUsage_encipherOnly' - Key can be used only to encipher data.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'cRLSign', 'keyUsage_cRLSign' - Key can be used to sign CRLs.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'nonRepudiation', 'keyUsage_nonRepudiation' - Key can be used for non-repudiation.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'keyEncipherment', 'keyUsage_keyEncipherment' - Key can be used to encipher data.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'cRLSign', 'keyUsage_cRLSign' - Key can be used to sign CRLs.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'encipherOnly', 'keyUsage_encipherOnly' - Key can be used only to encipher data.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'digitalSignature', 'keyUsage_digitalSignature' - Key can be used for digital signing.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'keyAgreement', 'keyUsage_keyAgreement' - Key can be used in a key-agreement protocol.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'keyCertSign', 'keyUsage_keyCertSign' - Key can be used to sign certificates.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'digitalSignature', 'keyUsage_digitalSignature' - Key can be used for digital signing.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'decipherOnly', 'keyUsage_decipherOnly' - Key can be used only to decipher data.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'decipherOnly', 'keyUsage_decipherOnly' - Key can be used only to decipher data.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'keyEncipherment', 'keyUsage_keyEncipherment' - Key can be used to encipher data.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'nonRepudiation', 'keyUsage_nonRepudiation' - Key can be used for non-repudiation.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'keyAgreement', 'keyUsage_keyAgreement' - Key can be used in a key-agreement protocol.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#newKeyUsage"><span class="hs-identifier hs-type">newKeyUsage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span>
 </span><span id="line-79"></span><span id="newKeyUsage"><span class="annot"><span class="annottext">newKeyUsage :: KeyUsage
@@ -151,36 +151,36 @@ $cfrom :: forall x. KeyUsage -&gt; Rep KeyUsage x
 </span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AdataEncipherment%3AKeyUsage%27"><span class="hs-identifier hs-var">dataEncipherment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyCertSign:KeyUsage' :: Maybe Bool
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyCertSign%3AKeyUsage%27"><span class="hs-identifier hs-var">keyCertSign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:cRLSign:KeyUsage' :: Maybe Bool
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AcRLSign%3AKeyUsage%27"><span class="hs-identifier hs-var">cRLSign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyEncipherment:KeyUsage' :: Maybe Bool
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyEncipherment%3AKeyUsage%27"><span class="hs-identifier hs-var">keyEncipherment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:encipherOnly:KeyUsage' :: Maybe Bool
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:encipherOnly:KeyUsage' :: Maybe Bool
 </span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AencipherOnly%3AKeyUsage%27"><span class="hs-identifier hs-var">encipherOnly</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyAgreement:KeyUsage' :: Maybe Bool
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyAgreement%3AKeyUsage%27"><span class="hs-identifier hs-var">keyAgreement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:nonRepudiation:KeyUsage' :: Maybe Bool
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AnonRepudiation%3AKeyUsage%27"><span class="hs-identifier hs-var">nonRepudiation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:digitalSignature:KeyUsage' :: Maybe Bool
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:cRLSign:KeyUsage' :: Maybe Bool
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AcRLSign%3AKeyUsage%27"><span class="hs-identifier hs-var">cRLSign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:digitalSignature:KeyUsage' :: Maybe Bool
 </span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AdigitalSignature%3AKeyUsage%27"><span class="hs-identifier hs-var">digitalSignature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:decipherOnly:KeyUsage' :: Maybe Bool
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyCertSign:KeyUsage' :: Maybe Bool
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyCertSign%3AKeyUsage%27"><span class="hs-identifier hs-var">keyCertSign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:decipherOnly:KeyUsage' :: Maybe Bool
 </span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AdecipherOnly%3AKeyUsage%27"><span class="hs-identifier hs-var">decipherOnly</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:nonRepudiation:KeyUsage' :: Maybe Bool
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AnonRepudiation%3AKeyUsage%27"><span class="hs-identifier hs-var">nonRepudiation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyEncipherment:KeyUsage' :: Maybe Bool
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyEncipherment%3AKeyUsage%27"><span class="hs-identifier hs-var">keyEncipherment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyAgreement:KeyUsage' :: Maybe Bool
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyAgreement%3AKeyUsage%27"><span class="hs-identifier hs-var">keyAgreement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
@@ -192,171 +192,171 @@ forall a. Maybe a
 -&gt; (KeyUsage -&gt; Maybe Bool -&gt; KeyUsage)
 -&gt; Lens KeyUsage KeyUsage (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209805"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209864"><span class="annot"><span class="annottext">Maybe Bool
 dataEncipherment :: Maybe Bool
 $sel:dataEncipherment:KeyUsage' :: KeyUsage -&gt; Maybe Bool
-</span><a href="#local-6989586621679209805"><span class="hs-identifier hs-var hs-var">dataEncipherment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209805"><span class="hs-identifier hs-var">dataEncipherment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209804"><span class="annot"><span class="annottext">s :: KeyUsage
-</span><a href="#local-6989586621679209804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209803"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
-</span><a href="#local-6989586621679209804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataEncipherment:KeyUsage' :: Maybe Bool
+</span><a href="#local-6989586621679209864"><span class="hs-identifier hs-var hs-var">dataEncipherment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209864"><span class="hs-identifier hs-var">dataEncipherment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209863"><span class="annot"><span class="annottext">s :: KeyUsage
+</span><a href="#local-6989586621679209863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209862"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
+</span><a href="#local-6989586621679209863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataEncipherment:KeyUsage' :: Maybe Bool
 </span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AdataEncipherment%3AKeyUsage%27"><span class="hs-identifier hs-var">dataEncipherment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | Key can be used to sign certificates.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_keyCertSign"><span class="hs-identifier hs-type">keyUsage_keyCertSign</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="keyUsage_keyCertSign"><span class="annot"><span class="annottext">keyUsage_keyCertSign :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; KeyUsage -&gt; f KeyUsage
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_keyCertSign"><span class="hs-identifier hs-var hs-var">keyUsage_keyCertSign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyUsage -&gt; Maybe Bool)
--&gt; (KeyUsage -&gt; Maybe Bool -&gt; KeyUsage)
--&gt; Lens KeyUsage KeyUsage (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209801"><span class="annot"><span class="annottext">Maybe Bool
-keyCertSign :: Maybe Bool
-$sel:keyCertSign:KeyUsage' :: KeyUsage -&gt; Maybe Bool
-</span><a href="#local-6989586621679209801"><span class="hs-identifier hs-var hs-var">keyCertSign</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209801"><span class="hs-identifier hs-var">keyCertSign</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209800"><span class="annot"><span class="annottext">s :: KeyUsage
-</span><a href="#local-6989586621679209800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209799"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
-</span><a href="#local-6989586621679209800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyCertSign:KeyUsage' :: Maybe Bool
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyCertSign%3AKeyUsage%27"><span class="hs-identifier hs-var">keyCertSign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | Key can be used to sign CRLs.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_cRLSign"><span class="hs-identifier hs-type">keyUsage_cRLSign</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="keyUsage_cRLSign"><span class="annot"><span class="annottext">keyUsage_cRLSign :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; KeyUsage -&gt; f KeyUsage
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_cRLSign"><span class="hs-identifier hs-var hs-var">keyUsage_cRLSign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyUsage -&gt; Maybe Bool)
--&gt; (KeyUsage -&gt; Maybe Bool -&gt; KeyUsage)
--&gt; Lens KeyUsage KeyUsage (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209797"><span class="annot"><span class="annottext">Maybe Bool
-cRLSign :: Maybe Bool
-$sel:cRLSign:KeyUsage' :: KeyUsage -&gt; Maybe Bool
-</span><a href="#local-6989586621679209797"><span class="hs-identifier hs-var hs-var">cRLSign</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209797"><span class="hs-identifier hs-var">cRLSign</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209796"><span class="annot"><span class="annottext">s :: KeyUsage
-</span><a href="#local-6989586621679209796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209795"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
-</span><a href="#local-6989586621679209796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cRLSign:KeyUsage' :: Maybe Bool
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AcRLSign%3AKeyUsage%27"><span class="hs-identifier hs-var">cRLSign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | Key can be used to encipher data.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_keyEncipherment"><span class="hs-identifier hs-type">keyUsage_keyEncipherment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="keyUsage_keyEncipherment"><span class="annot"><span class="annottext">keyUsage_keyEncipherment :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; KeyUsage -&gt; f KeyUsage
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_keyEncipherment"><span class="hs-identifier hs-var hs-var">keyUsage_keyEncipherment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyUsage -&gt; Maybe Bool)
--&gt; (KeyUsage -&gt; Maybe Bool -&gt; KeyUsage)
--&gt; Lens KeyUsage KeyUsage (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209793"><span class="annot"><span class="annottext">Maybe Bool
-keyEncipherment :: Maybe Bool
-$sel:keyEncipherment:KeyUsage' :: KeyUsage -&gt; Maybe Bool
-</span><a href="#local-6989586621679209793"><span class="hs-identifier hs-var hs-var">keyEncipherment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209793"><span class="hs-identifier hs-var">keyEncipherment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209792"><span class="annot"><span class="annottext">s :: KeyUsage
-</span><a href="#local-6989586621679209792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209791"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
-</span><a href="#local-6989586621679209792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyEncipherment:KeyUsage' :: Maybe Bool
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyEncipherment%3AKeyUsage%27"><span class="hs-identifier hs-var">keyEncipherment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | Key can be used only to encipher data.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_encipherOnly"><span class="hs-identifier hs-type">keyUsage_encipherOnly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="keyUsage_encipherOnly"><span class="annot"><span class="annottext">keyUsage_encipherOnly :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; KeyUsage -&gt; f KeyUsage
+</span><span id="line-96"></span><span class="hs-comment">-- | Key can be used only to encipher data.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_encipherOnly"><span class="hs-identifier hs-type">keyUsage_encipherOnly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="keyUsage_encipherOnly"><span class="annot"><span class="annottext">keyUsage_encipherOnly :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; KeyUsage -&gt; f KeyUsage
 </span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_encipherOnly"><span class="hs-identifier hs-var hs-var">keyUsage_encipherOnly</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyUsage -&gt; Maybe Bool)
 -&gt; (KeyUsage -&gt; Maybe Bool -&gt; KeyUsage)
 -&gt; Lens KeyUsage KeyUsage (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209789"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209860"><span class="annot"><span class="annottext">Maybe Bool
 encipherOnly :: Maybe Bool
 $sel:encipherOnly:KeyUsage' :: KeyUsage -&gt; Maybe Bool
-</span><a href="#local-6989586621679209789"><span class="hs-identifier hs-var hs-var">encipherOnly</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209789"><span class="hs-identifier hs-var">encipherOnly</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209788"><span class="annot"><span class="annottext">s :: KeyUsage
-</span><a href="#local-6989586621679209788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209787"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
-</span><a href="#local-6989586621679209788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encipherOnly:KeyUsage' :: Maybe Bool
+</span><a href="#local-6989586621679209860"><span class="hs-identifier hs-var hs-var">encipherOnly</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209860"><span class="hs-identifier hs-var">encipherOnly</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209859"><span class="annot"><span class="annottext">s :: KeyUsage
+</span><a href="#local-6989586621679209859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209858"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
+</span><a href="#local-6989586621679209859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encipherOnly:KeyUsage' :: Maybe Bool
 </span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AencipherOnly%3AKeyUsage%27"><span class="hs-identifier hs-var">encipherOnly</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | Key can be used in a key-agreement protocol.</span><span>
-</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_keyAgreement"><span class="hs-identifier hs-type">keyUsage_keyAgreement</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span id="keyUsage_keyAgreement"><span class="annot"><span class="annottext">keyUsage_keyAgreement :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; KeyUsage -&gt; f KeyUsage
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_keyAgreement"><span class="hs-identifier hs-var hs-var">keyUsage_keyAgreement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyUsage -&gt; Maybe Bool)
--&gt; (KeyUsage -&gt; Maybe Bool -&gt; KeyUsage)
--&gt; Lens KeyUsage KeyUsage (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209785"><span class="annot"><span class="annottext">Maybe Bool
-keyAgreement :: Maybe Bool
-$sel:keyAgreement:KeyUsage' :: KeyUsage -&gt; Maybe Bool
-</span><a href="#local-6989586621679209785"><span class="hs-identifier hs-var hs-var">keyAgreement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209785"><span class="hs-identifier hs-var">keyAgreement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209784"><span class="annot"><span class="annottext">s :: KeyUsage
-</span><a href="#local-6989586621679209784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209783"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
-</span><a href="#local-6989586621679209784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyAgreement:KeyUsage' :: Maybe Bool
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyAgreement%3AKeyUsage%27"><span class="hs-identifier hs-var">keyAgreement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | Key can be used for digital signing.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_digitalSignature"><span class="hs-identifier hs-type">keyUsage_digitalSignature</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="keyUsage_digitalSignature"><span class="annot"><span class="annottext">keyUsage_digitalSignature :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; KeyUsage -&gt; f KeyUsage
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_digitalSignature"><span class="hs-identifier hs-var hs-var">keyUsage_digitalSignature</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyUsage -&gt; Maybe Bool)
--&gt; (KeyUsage -&gt; Maybe Bool -&gt; KeyUsage)
--&gt; Lens KeyUsage KeyUsage (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209781"><span class="annot"><span class="annottext">Maybe Bool
-digitalSignature :: Maybe Bool
-$sel:digitalSignature:KeyUsage' :: KeyUsage -&gt; Maybe Bool
-</span><a href="#local-6989586621679209781"><span class="hs-identifier hs-var hs-var">digitalSignature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209781"><span class="hs-identifier hs-var">digitalSignature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209780"><span class="annot"><span class="annottext">s :: KeyUsage
-</span><a href="#local-6989586621679209780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209779"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
-</span><a href="#local-6989586621679209780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:digitalSignature:KeyUsage' :: Maybe Bool
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AdigitalSignature%3AKeyUsage%27"><span class="hs-identifier hs-var">digitalSignature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | Key can be used only to decipher data.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_decipherOnly"><span class="hs-identifier hs-type">keyUsage_decipherOnly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="keyUsage_decipherOnly"><span class="annot"><span class="annottext">keyUsage_decipherOnly :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; KeyUsage -&gt; f KeyUsage
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_decipherOnly"><span class="hs-identifier hs-var hs-var">keyUsage_decipherOnly</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyUsage -&gt; Maybe Bool)
--&gt; (KeyUsage -&gt; Maybe Bool -&gt; KeyUsage)
--&gt; Lens KeyUsage KeyUsage (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209777"><span class="annot"><span class="annottext">Maybe Bool
-decipherOnly :: Maybe Bool
-$sel:decipherOnly:KeyUsage' :: KeyUsage -&gt; Maybe Bool
-</span><a href="#local-6989586621679209777"><span class="hs-identifier hs-var hs-var">decipherOnly</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209777"><span class="hs-identifier hs-var">decipherOnly</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209776"><span class="annot"><span class="annottext">s :: KeyUsage
-</span><a href="#local-6989586621679209776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209775"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
-</span><a href="#local-6989586621679209776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:decipherOnly:KeyUsage' :: Maybe Bool
-</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AdecipherOnly%3AKeyUsage%27"><span class="hs-identifier hs-var">decipherOnly</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | Key can be used for non-repudiation.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_nonRepudiation"><span class="hs-identifier hs-type">keyUsage_nonRepudiation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="keyUsage_nonRepudiation"><span class="annot"><span class="annottext">keyUsage_nonRepudiation :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; KeyUsage -&gt; f KeyUsage
+</span><a href="#local-6989586621679209858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Key can be used for non-repudiation.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_nonRepudiation"><span class="hs-identifier hs-type">keyUsage_nonRepudiation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="keyUsage_nonRepudiation"><span class="annot"><span class="annottext">keyUsage_nonRepudiation :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; KeyUsage -&gt; f KeyUsage
 </span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_nonRepudiation"><span class="hs-identifier hs-var hs-var">keyUsage_nonRepudiation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyUsage -&gt; Maybe Bool)
 -&gt; (KeyUsage -&gt; Maybe Bool -&gt; KeyUsage)
 -&gt; Lens KeyUsage KeyUsage (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209773"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209856"><span class="annot"><span class="annottext">Maybe Bool
 nonRepudiation :: Maybe Bool
 $sel:nonRepudiation:KeyUsage' :: KeyUsage -&gt; Maybe Bool
-</span><a href="#local-6989586621679209773"><span class="hs-identifier hs-var hs-var">nonRepudiation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209773"><span class="hs-identifier hs-var">nonRepudiation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209772"><span class="annot"><span class="annottext">s :: KeyUsage
-</span><a href="#local-6989586621679209772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209771"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
-</span><a href="#local-6989586621679209772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonRepudiation:KeyUsage' :: Maybe Bool
+</span><a href="#local-6989586621679209856"><span class="hs-identifier hs-var hs-var">nonRepudiation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209856"><span class="hs-identifier hs-var">nonRepudiation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209855"><span class="annot"><span class="annottext">s :: KeyUsage
+</span><a href="#local-6989586621679209855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209854"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
+</span><a href="#local-6989586621679209855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonRepudiation:KeyUsage' :: Maybe Bool
 </span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AnonRepudiation%3AKeyUsage%27"><span class="hs-identifier hs-var">nonRepudiation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | Key can be used to sign CRLs.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_cRLSign"><span class="hs-identifier hs-type">keyUsage_cRLSign</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="keyUsage_cRLSign"><span class="annot"><span class="annottext">keyUsage_cRLSign :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; KeyUsage -&gt; f KeyUsage
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_cRLSign"><span class="hs-identifier hs-var hs-var">keyUsage_cRLSign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyUsage -&gt; Maybe Bool)
+-&gt; (KeyUsage -&gt; Maybe Bool -&gt; KeyUsage)
+-&gt; Lens KeyUsage KeyUsage (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209852"><span class="annot"><span class="annottext">Maybe Bool
+cRLSign :: Maybe Bool
+$sel:cRLSign:KeyUsage' :: KeyUsage -&gt; Maybe Bool
+</span><a href="#local-6989586621679209852"><span class="hs-identifier hs-var hs-var">cRLSign</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209852"><span class="hs-identifier hs-var">cRLSign</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209851"><span class="annot"><span class="annottext">s :: KeyUsage
+</span><a href="#local-6989586621679209851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209850"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
+</span><a href="#local-6989586621679209851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cRLSign:KeyUsage' :: Maybe Bool
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AcRLSign%3AKeyUsage%27"><span class="hs-identifier hs-var">cRLSign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | Key can be used for digital signing.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_digitalSignature"><span class="hs-identifier hs-type">keyUsage_digitalSignature</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="keyUsage_digitalSignature"><span class="annot"><span class="annottext">keyUsage_digitalSignature :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; KeyUsage -&gt; f KeyUsage
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_digitalSignature"><span class="hs-identifier hs-var hs-var">keyUsage_digitalSignature</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyUsage -&gt; Maybe Bool)
+-&gt; (KeyUsage -&gt; Maybe Bool -&gt; KeyUsage)
+-&gt; Lens KeyUsage KeyUsage (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209848"><span class="annot"><span class="annottext">Maybe Bool
+digitalSignature :: Maybe Bool
+$sel:digitalSignature:KeyUsage' :: KeyUsage -&gt; Maybe Bool
+</span><a href="#local-6989586621679209848"><span class="hs-identifier hs-var hs-var">digitalSignature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209848"><span class="hs-identifier hs-var">digitalSignature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209847"><span class="annot"><span class="annottext">s :: KeyUsage
+</span><a href="#local-6989586621679209847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209846"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
+</span><a href="#local-6989586621679209847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:digitalSignature:KeyUsage' :: Maybe Bool
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AdigitalSignature%3AKeyUsage%27"><span class="hs-identifier hs-var">digitalSignature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Key can be used to sign certificates.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_keyCertSign"><span class="hs-identifier hs-type">keyUsage_keyCertSign</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="keyUsage_keyCertSign"><span class="annot"><span class="annottext">keyUsage_keyCertSign :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; KeyUsage -&gt; f KeyUsage
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_keyCertSign"><span class="hs-identifier hs-var hs-var">keyUsage_keyCertSign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyUsage -&gt; Maybe Bool)
+-&gt; (KeyUsage -&gt; Maybe Bool -&gt; KeyUsage)
+-&gt; Lens KeyUsage KeyUsage (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209844"><span class="annot"><span class="annottext">Maybe Bool
+keyCertSign :: Maybe Bool
+$sel:keyCertSign:KeyUsage' :: KeyUsage -&gt; Maybe Bool
+</span><a href="#local-6989586621679209844"><span class="hs-identifier hs-var hs-var">keyCertSign</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209844"><span class="hs-identifier hs-var">keyCertSign</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209843"><span class="annot"><span class="annottext">s :: KeyUsage
+</span><a href="#local-6989586621679209843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209842"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
+</span><a href="#local-6989586621679209843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyCertSign:KeyUsage' :: Maybe Bool
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyCertSign%3AKeyUsage%27"><span class="hs-identifier hs-var">keyCertSign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Key can be used only to decipher data.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_decipherOnly"><span class="hs-identifier hs-type">keyUsage_decipherOnly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="keyUsage_decipherOnly"><span class="annot"><span class="annottext">keyUsage_decipherOnly :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; KeyUsage -&gt; f KeyUsage
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_decipherOnly"><span class="hs-identifier hs-var hs-var">keyUsage_decipherOnly</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyUsage -&gt; Maybe Bool)
+-&gt; (KeyUsage -&gt; Maybe Bool -&gt; KeyUsage)
+-&gt; Lens KeyUsage KeyUsage (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209840"><span class="annot"><span class="annottext">Maybe Bool
+decipherOnly :: Maybe Bool
+$sel:decipherOnly:KeyUsage' :: KeyUsage -&gt; Maybe Bool
+</span><a href="#local-6989586621679209840"><span class="hs-identifier hs-var hs-var">decipherOnly</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209840"><span class="hs-identifier hs-var">decipherOnly</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209839"><span class="annot"><span class="annottext">s :: KeyUsage
+</span><a href="#local-6989586621679209839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209838"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
+</span><a href="#local-6989586621679209839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:decipherOnly:KeyUsage' :: Maybe Bool
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AdecipherOnly%3AKeyUsage%27"><span class="hs-identifier hs-var">decipherOnly</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Key can be used to encipher data.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_keyEncipherment"><span class="hs-identifier hs-type">keyUsage_keyEncipherment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="keyUsage_keyEncipherment"><span class="annot"><span class="annottext">keyUsage_keyEncipherment :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; KeyUsage -&gt; f KeyUsage
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_keyEncipherment"><span class="hs-identifier hs-var hs-var">keyUsage_keyEncipherment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyUsage -&gt; Maybe Bool)
+-&gt; (KeyUsage -&gt; Maybe Bool -&gt; KeyUsage)
+-&gt; Lens KeyUsage KeyUsage (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209836"><span class="annot"><span class="annottext">Maybe Bool
+keyEncipherment :: Maybe Bool
+$sel:keyEncipherment:KeyUsage' :: KeyUsage -&gt; Maybe Bool
+</span><a href="#local-6989586621679209836"><span class="hs-identifier hs-var hs-var">keyEncipherment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209836"><span class="hs-identifier hs-var">keyEncipherment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209835"><span class="annot"><span class="annottext">s :: KeyUsage
+</span><a href="#local-6989586621679209835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209834"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
+</span><a href="#local-6989586621679209835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyEncipherment:KeyUsage' :: Maybe Bool
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyEncipherment%3AKeyUsage%27"><span class="hs-identifier hs-var">keyEncipherment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | Key can be used in a key-agreement protocol.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_keyAgreement"><span class="hs-identifier hs-type">keyUsage_keyAgreement</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="keyUsage_keyAgreement"><span class="annot"><span class="annottext">keyUsage_keyAgreement :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; KeyUsage -&gt; f KeyUsage
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#keyUsage_keyAgreement"><span class="hs-identifier hs-var hs-var">keyUsage_keyAgreement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyUsage -&gt; Maybe Bool)
+-&gt; (KeyUsage -&gt; Maybe Bool -&gt; KeyUsage)
+-&gt; Lens KeyUsage KeyUsage (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209832"><span class="annot"><span class="annottext">Maybe Bool
+keyAgreement :: Maybe Bool
+$sel:keyAgreement:KeyUsage' :: KeyUsage -&gt; Maybe Bool
+</span><a href="#local-6989586621679209832"><span class="hs-identifier hs-var hs-var">keyAgreement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209832"><span class="hs-identifier hs-var">keyAgreement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209831"><span class="annot"><span class="annottext">s :: KeyUsage
+</span><a href="#local-6989586621679209831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209830"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
+</span><a href="#local-6989586621679209831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyAgreement:KeyUsage' :: Maybe Bool
+</span><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#%24sel%3AkeyAgreement%3AKeyUsage%27"><span class="hs-identifier hs-var">keyAgreement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209768"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679209766"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KeyUsage
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209827"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679209825"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KeyUsage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser KeyUsage) -&gt; Value -&gt; Parser KeyUsage
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KeyUsage&quot;</span></span><span>
-</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209763"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209763"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209822"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209822"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe Bool
 -&gt; Maybe Bool
@@ -391,7 +391,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; KeyUsage)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679209822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataEncipherment&quot;</span></span><span class="hs-special">)</span><span>
@@ -417,10 +417,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KeyUsage)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679209822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;KeyCertSign&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;EncipherOnly&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Bool
    -&gt; Maybe Bool
@@ -441,10 +441,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KeyUsage)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679209822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CRLSign&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;NonRepudiation&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Bool
    -&gt; Maybe Bool
@@ -463,10 +463,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KeyUsage)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679209822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;KeyEncipherment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;CRLSign&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Bool
    -&gt; Maybe Bool
@@ -479,73 +479,73 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; KeyUsage)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679209822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EncipherOnly&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;DigitalSignature&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; KeyUsage)
 -&gt; Parser (Maybe Bool)
 -&gt; Parser (Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; KeyUsage)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679209822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;KeyAgreement&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;KeyCertSign&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; KeyUsage)
 -&gt; Parser (Maybe Bool)
 -&gt; Parser (Maybe Bool -&gt; Maybe Bool -&gt; KeyUsage)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679209822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DigitalSignature&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;DecipherOnly&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Bool -&gt; KeyUsage)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Bool -&gt; KeyUsage)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679209822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DecipherOnly&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;KeyEncipherment&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; KeyUsage)
 -&gt; Parser (Maybe Bool) -&gt; Parser KeyUsage
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679209822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NonRepudiation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;KeyAgreement&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209757"><span id="local-6989586621679209759"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209816"><span id="local-6989586621679209818"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209754"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209813"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209746"><span id="local-6989586621679209748"><span id="local-6989586621679209750"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679209744"><span class="annot"><span class="annottext">toJSON :: KeyUsage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209734"><span id="local-6989586621679209735"><span id="local-6989586621679209736"><span id="local-6989586621679209737"><span id="local-6989586621679209738"><span id="local-6989586621679209739"><span id="local-6989586621679209740"><span id="local-6989586621679209741"><span id="local-6989586621679209742"><span class="annot"><span class="annottext">Maybe Bool
-nonRepudiation :: Maybe Bool
-decipherOnly :: Maybe Bool
-digitalSignature :: Maybe Bool
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209805"><span id="local-6989586621679209807"><span id="local-6989586621679209809"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679209803"><span class="annot"><span class="annottext">toJSON :: KeyUsage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209793"><span id="local-6989586621679209794"><span id="local-6989586621679209795"><span id="local-6989586621679209796"><span id="local-6989586621679209797"><span id="local-6989586621679209798"><span id="local-6989586621679209799"><span id="local-6989586621679209800"><span id="local-6989586621679209801"><span class="annot"><span class="annottext">Maybe Bool
 keyAgreement :: Maybe Bool
-encipherOnly :: Maybe Bool
 keyEncipherment :: Maybe Bool
-cRLSign :: Maybe Bool
+decipherOnly :: Maybe Bool
 keyCertSign :: Maybe Bool
+digitalSignature :: Maybe Bool
+cRLSign :: Maybe Bool
+nonRepudiation :: Maybe Bool
+encipherOnly :: Maybe Bool
 dataEncipherment :: Maybe Bool
-$sel:nonRepudiation:KeyUsage' :: KeyUsage -&gt; Maybe Bool
-$sel:decipherOnly:KeyUsage' :: KeyUsage -&gt; Maybe Bool
-$sel:digitalSignature:KeyUsage' :: KeyUsage -&gt; Maybe Bool
 $sel:keyAgreement:KeyUsage' :: KeyUsage -&gt; Maybe Bool
-$sel:encipherOnly:KeyUsage' :: KeyUsage -&gt; Maybe Bool
 $sel:keyEncipherment:KeyUsage' :: KeyUsage -&gt; Maybe Bool
-$sel:cRLSign:KeyUsage' :: KeyUsage -&gt; Maybe Bool
+$sel:decipherOnly:KeyUsage' :: KeyUsage -&gt; Maybe Bool
 $sel:keyCertSign:KeyUsage' :: KeyUsage -&gt; Maybe Bool
+$sel:digitalSignature:KeyUsage' :: KeyUsage -&gt; Maybe Bool
+$sel:cRLSign:KeyUsage' :: KeyUsage -&gt; Maybe Bool
+$sel:nonRepudiation:KeyUsage' :: KeyUsage -&gt; Maybe Bool
+$sel:encipherOnly:KeyUsage' :: KeyUsage -&gt; Maybe Bool
 $sel:dataEncipherment:KeyUsage' :: KeyUsage -&gt; Maybe Bool
-</span><a href="#local-6989586621679209734"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679209793"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -558,66 +558,66 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209742"><span class="hs-identifier hs-var">dataEncipherment</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209801"><span class="hs-identifier hs-var">dataEncipherment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;KeyCertSign&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209741"><span class="hs-identifier hs-var">keyCertSign</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CRLSign&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209740"><span class="hs-identifier hs-var">cRLSign</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;KeyEncipherment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209739"><span class="hs-identifier hs-var">keyEncipherment</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EncipherOnly&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209738"><span class="hs-identifier hs-var">encipherOnly</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;KeyAgreement&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+</span><a href="#local-6989586621679209800"><span class="hs-identifier hs-var">encipherOnly</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NonRepudiation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209799"><span class="hs-identifier hs-var">nonRepudiation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CRLSign&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209737"><span class="hs-identifier hs-var">keyAgreement</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209798"><span class="hs-identifier hs-var">cRLSign</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DigitalSignature&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209736"><span class="hs-identifier hs-var">digitalSignature</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209797"><span class="hs-identifier hs-var">digitalSignature</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyCertSign&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209796"><span class="hs-identifier hs-var">keyCertSign</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DecipherOnly&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209735"><span class="hs-identifier hs-var">decipherOnly</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NonRepudiation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+</span><a href="#local-6989586621679209795"><span class="hs-identifier hs-var">decipherOnly</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyEncipherment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679209734"><span class="hs-identifier hs-var">nonRepudiation</span></a></span><span>
+</span><a href="#local-6989586621679209794"><span class="hs-identifier hs-var">keyEncipherment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyAgreement&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209793"><span class="hs-identifier hs-var">keyAgreement</span></a></span><span>
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span></pre></body></html>

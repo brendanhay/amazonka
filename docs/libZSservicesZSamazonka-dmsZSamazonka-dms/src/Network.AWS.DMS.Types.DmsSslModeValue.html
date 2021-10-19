@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679430792"><span id="local-6989586621679430793"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DmsSslModeValue"><span class="annot"><a href="Network.AWS.DMS.Types.DmsSslModeValue.html#DmsSslModeValue"><span class="hs-identifier hs-var">DmsSslModeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DmsSslModeValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.DmsSslModeValue.html#DmsSslModeValue%27"><span class="hs-identifier hs-var">DmsSslModeValue'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679431063"><span id="local-6989586621679431064"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DmsSslModeValue"><span class="annot"><a href="Network.AWS.DMS.Types.DmsSslModeValue.html#DmsSslModeValue"><span class="hs-identifier hs-var">DmsSslModeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DmsSslModeValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.DmsSslModeValue.html#DmsSslModeValue%27"><span class="hs-identifier hs-var">DmsSslModeValue'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDmsSslModeValue"><span class="annot"><span class="annottext">DmsSslModeValue -&gt; Text
 </span><a href="Network.AWS.DMS.Types.DmsSslModeValue.html#fromDmsSslModeValue"><span class="hs-identifier hs-var hs-var">fromDmsSslModeValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679430784"><span id="local-6989586621679430786"><span id="local-6989586621679430788"><span class="annot"><span class="annottext">Int -&gt; DmsSslModeValue -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431055"><span id="local-6989586621679431057"><span id="local-6989586621679431059"><span class="annot"><span class="annottext">Int -&gt; DmsSslModeValue -&gt; ShowS
 [DmsSslModeValue] -&gt; ShowS
 DmsSslModeValue -&gt; String
 (Int -&gt; DmsSslModeValue -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: DmsSslModeValue -&gt; String
 showsPrec :: Int -&gt; DmsSslModeValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; DmsSslModeValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679430775"><span id="local-6989586621679430777"><span id="local-6989586621679430779"><span id="local-6989586621679430781"><span class="annot"><span class="annottext">ReadPrec [DmsSslModeValue]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679431046"><span id="local-6989586621679431048"><span id="local-6989586621679431050"><span id="local-6989586621679431052"><span class="annot"><span class="annottext">ReadPrec [DmsSslModeValue]
 ReadPrec DmsSslModeValue
 Int -&gt; ReadS DmsSslModeValue
 ReadS [DmsSslModeValue]
@@ -74,7 +74,7 @@ $creadList :: ReadS [DmsSslModeValue]
 readsPrec :: Int -&gt; ReadS DmsSslModeValue
 $creadsPrec :: Int -&gt; ReadS DmsSslModeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679430770"><span id="local-6989586621679430772"><span class="annot"><span class="annottext">DmsSslModeValue -&gt; DmsSslModeValue -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679431041"><span id="local-6989586621679431043"><span class="annot"><span class="annottext">DmsSslModeValue -&gt; DmsSslModeValue -&gt; Bool
 (DmsSslModeValue -&gt; DmsSslModeValue -&gt; Bool)
 -&gt; (DmsSslModeValue -&gt; DmsSslModeValue -&gt; Bool)
 -&gt; Eq DmsSslModeValue
@@ -84,7 +84,7 @@ $c/= :: DmsSslModeValue -&gt; DmsSslModeValue -&gt; Bool
 == :: DmsSslModeValue -&gt; DmsSslModeValue -&gt; Bool
 $c== :: DmsSslModeValue -&gt; DmsSslModeValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679430754"><span id="local-6989586621679430756"><span id="local-6989586621679430758"><span id="local-6989586621679430760"><span id="local-6989586621679430762"><span id="local-6989586621679430764"><span id="local-6989586621679430766"><span class="annot"><span class="annottext">Eq DmsSslModeValue
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679431025"><span id="local-6989586621679431027"><span id="local-6989586621679431029"><span id="local-6989586621679431031"><span id="local-6989586621679431033"><span id="local-6989586621679431035"><span id="local-6989586621679431037"><span class="annot"><span class="annottext">Eq DmsSslModeValue
 Eq DmsSslModeValue
 -&gt; (DmsSslModeValue -&gt; DmsSslModeValue -&gt; Ordering)
 -&gt; (DmsSslModeValue -&gt; DmsSslModeValue -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. DmsSslModeValue -&gt; Rep DmsSslModeValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679430746"><span id="local-6989586621679430748"><span class="annot"><span class="annottext">Int -&gt; DmsSslModeValue -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431017"><span id="local-6989586621679431019"><span class="annot"><span class="annottext">Int -&gt; DmsSslModeValue -&gt; Int
 DmsSslModeValue -&gt; Int
 (Int -&gt; DmsSslModeValue -&gt; Int)
 -&gt; (DmsSslModeValue -&gt; Int) -&gt; Hashable DmsSslModeValue
@@ -145,50 +145,50 @@ $chash :: DmsSslModeValue -&gt; Int
 hashWithSalt :: Int -&gt; DmsSslModeValue -&gt; Int
 $chashWithSalt :: Int -&gt; DmsSslModeValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679430743"><span class="annot"><span class="annottext">DmsSslModeValue -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679431014"><span class="annot"><span class="annottext">DmsSslModeValue -&gt; ()
 (DmsSslModeValue -&gt; ()) -&gt; NFData DmsSslModeValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DmsSslModeValue -&gt; ()
 $crnf :: DmsSslModeValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679430740"><span class="annot"><span class="annottext">Text -&gt; Either String DmsSslModeValue
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679431011"><span class="annot"><span class="annottext">Text -&gt; Either String DmsSslModeValue
 (Text -&gt; Either String DmsSslModeValue) -&gt; FromText DmsSslModeValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DmsSslModeValue
 $cfromText :: Text -&gt; Either String DmsSslModeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679430737"><span class="annot"><span class="annottext">DmsSslModeValue -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679431008"><span class="annot"><span class="annottext">DmsSslModeValue -&gt; Text
 (DmsSslModeValue -&gt; Text) -&gt; ToText DmsSslModeValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DmsSslModeValue -&gt; Text
 $ctoText :: DmsSslModeValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679430734"><span class="annot"><span class="annottext">DmsSslModeValue -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679431005"><span class="annot"><span class="annottext">DmsSslModeValue -&gt; ByteString
 (DmsSslModeValue -&gt; ByteString) -&gt; ToByteString DmsSslModeValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DmsSslModeValue -&gt; ByteString
 $ctoBS :: DmsSslModeValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679430731"><span class="annot"><span class="annottext">DmsSslModeValue -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679431002"><span class="annot"><span class="annottext">DmsSslModeValue -&gt; ByteStringBuilder
 (DmsSslModeValue -&gt; ByteStringBuilder) -&gt; ToLog DmsSslModeValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DmsSslModeValue -&gt; ByteStringBuilder
 $cbuild :: DmsSslModeValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679430728"><span class="annot"><span class="annottext">HeaderName -&gt; DmsSslModeValue -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679430999"><span class="annot"><span class="annottext">HeaderName -&gt; DmsSslModeValue -&gt; [Header]
 (HeaderName -&gt; DmsSslModeValue -&gt; [Header])
 -&gt; ToHeader DmsSslModeValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DmsSslModeValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DmsSslModeValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679430725"><span class="annot"><span class="annottext">DmsSslModeValue -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679430996"><span class="annot"><span class="annottext">DmsSslModeValue -&gt; QueryString
 (DmsSslModeValue -&gt; QueryString) -&gt; ToQuery DmsSslModeValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DmsSslModeValue -&gt; QueryString
 $ctoQuery :: DmsSslModeValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679430720"><span id="local-6989586621679430722"><span class="annot"><span class="annottext">Value -&gt; Parser [DmsSslModeValue]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679430991"><span id="local-6989586621679430993"><span class="annot"><span class="annottext">Value -&gt; Parser [DmsSslModeValue]
 Value -&gt; Parser DmsSslModeValue
 (Value -&gt; Parser DmsSslModeValue)
 -&gt; (Value -&gt; Parser [DmsSslModeValue]) -&gt; FromJSON DmsSslModeValue
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [DmsSslModeValue]
 parseJSON :: Value -&gt; Parser DmsSslModeValue
 $cparseJSON :: Value -&gt; Parser DmsSslModeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679430715"><span id="local-6989586621679430717"><span class="annot"><span class="annottext">FromJSONKeyFunction [DmsSslModeValue]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679430986"><span id="local-6989586621679430988"><span class="annot"><span class="annottext">FromJSONKeyFunction [DmsSslModeValue]
 FromJSONKeyFunction DmsSslModeValue
 FromJSONKeyFunction DmsSslModeValue
 -&gt; FromJSONKeyFunction [DmsSslModeValue]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DmsSslModeValue]
 fromJSONKey :: FromJSONKeyFunction DmsSslModeValue
 $cfromJSONKey :: FromJSONKeyFunction DmsSslModeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679430706"><span id="local-6989586621679430708"><span id="local-6989586621679430710"><span id="local-6989586621679430712"><span class="annot"><span class="annottext">[DmsSslModeValue] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679430977"><span id="local-6989586621679430979"><span id="local-6989586621679430981"><span id="local-6989586621679430983"><span class="annot"><span class="annottext">[DmsSslModeValue] -&gt; Encoding
 [DmsSslModeValue] -&gt; Value
 DmsSslModeValue -&gt; Encoding
 DmsSslModeValue -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: DmsSslModeValue -&gt; Encoding
 toJSON :: DmsSslModeValue -&gt; Value
 $ctoJSON :: DmsSslModeValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679430701"><span id="local-6989586621679430703"><span class="annot"><span class="annottext">ToJSONKeyFunction [DmsSslModeValue]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679430972"><span id="local-6989586621679430974"><span class="annot"><span class="annottext">ToJSONKeyFunction [DmsSslModeValue]
 ToJSONKeyFunction DmsSslModeValue
 ToJSONKeyFunction DmsSslModeValue
 -&gt; ToJSONKeyFunction [DmsSslModeValue] -&gt; ToJSONKey DmsSslModeValue
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DmsSslModeValue]
 toJSONKey :: ToJSONKeyFunction DmsSslModeValue
 $ctoJSONKey :: ToJSONKeyFunction DmsSslModeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679430698"><span class="annot"><span class="annottext">[Node] -&gt; Either String DmsSslModeValue
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679430969"><span class="annot"><span class="annottext">[Node] -&gt; Either String DmsSslModeValue
 ([Node] -&gt; Either String DmsSslModeValue)
 -&gt; FromXML DmsSslModeValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DmsSslModeValue
 $cparseXML :: [Node] -&gt; Either String DmsSslModeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679430695"><span class="annot"><span class="annottext">DmsSslModeValue -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679430966"><span class="annot"><span class="annottext">DmsSslModeValue -&gt; XML
 (DmsSslModeValue -&gt; XML) -&gt; ToXML DmsSslModeValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DmsSslModeValue -&gt; XML

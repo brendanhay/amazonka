@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Policy statement applied to the application.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newApplicationPolicyStatement' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679188669"><span id="local-6989586621679188670"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationPolicyStatement"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-var">ApplicationPolicyStatement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationPolicyStatement%27"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-var">ApplicationPolicyStatement'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679188773"><span id="local-6989586621679188774"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationPolicyStatement"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-var">ApplicationPolicyStatement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationPolicyStatement%27"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-var">ApplicationPolicyStatement'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique ID for the statement.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AstatementId%3AApplicationPolicyStatement%27"><span class="annot"><span class="annottext">ApplicationPolicyStatement -&gt; Maybe Text
 </span><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#%24sel%3AstatementId%3AApplicationPolicyStatement%27"><span class="hs-identifier hs-var hs-var">statementId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Aactions%3AApplicationPolicyStatement%27"><span class="annot"><span class="annottext">ApplicationPolicyStatement -&gt; [Text]
 </span><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#%24sel%3Aactions%3AApplicationPolicyStatement%27"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188660"><span id="local-6989586621679188662"><span class="annot"><span class="annottext">ApplicationPolicyStatement -&gt; ApplicationPolicyStatement -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188764"><span id="local-6989586621679188766"><span class="annot"><span class="annottext">ApplicationPolicyStatement -&gt; ApplicationPolicyStatement -&gt; Bool
 (ApplicationPolicyStatement -&gt; ApplicationPolicyStatement -&gt; Bool)
 -&gt; (ApplicationPolicyStatement
     -&gt; ApplicationPolicyStatement -&gt; Bool)
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ApplicationPolicyStatement -&gt; ApplicationPolicyStatement -&gt; Bool
 == :: ApplicationPolicyStatement -&gt; ApplicationPolicyStatement -&gt; Bool
 $c== :: ApplicationPolicyStatement -&gt; ApplicationPolicyStatement -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188651"><span id="local-6989586621679188653"><span id="local-6989586621679188655"><span id="local-6989586621679188657"><span class="annot"><span class="annottext">ReadPrec [ApplicationPolicyStatement]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188755"><span id="local-6989586621679188757"><span id="local-6989586621679188759"><span id="local-6989586621679188761"><span class="annot"><span class="annottext">ReadPrec [ApplicationPolicyStatement]
 ReadPrec ApplicationPolicyStatement
 Int -&gt; ReadS ApplicationPolicyStatement
 ReadS [ApplicationPolicyStatement]
@@ -73,7 +73,7 @@ readList :: ReadS [ApplicationPolicyStatement]
 $creadList :: ReadS [ApplicationPolicyStatement]
 readsPrec :: Int -&gt; ReadS ApplicationPolicyStatement
 $creadsPrec :: Int -&gt; ReadS ApplicationPolicyStatement
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188644"><span id="local-6989586621679188646"><span id="local-6989586621679188648"><span class="annot"><span class="annottext">Int -&gt; ApplicationPolicyStatement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188748"><span id="local-6989586621679188750"><span id="local-6989586621679188752"><span class="annot"><span class="annottext">Int -&gt; ApplicationPolicyStatement -&gt; ShowS
 [ApplicationPolicyStatement] -&gt; ShowS
 ApplicationPolicyStatement -&gt; String
 (Int -&gt; ApplicationPolicyStatement -&gt; ShowS)
@@ -162,16 +162,16 @@ forall a. Monoid a =&gt; a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188635"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188739"><span class="annot"><span class="annottext">Maybe Text
 statementId :: Maybe Text
 $sel:statementId:ApplicationPolicyStatement' :: ApplicationPolicyStatement -&gt; Maybe Text
-</span><a href="#local-6989586621679188635"><span class="hs-identifier hs-var hs-var">statementId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188635"><span class="hs-identifier hs-var">statementId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188634"><span class="annot"><span class="annottext">s :: ApplicationPolicyStatement
-</span><a href="#local-6989586621679188634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188633"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationPolicyStatement
-</span><a href="#local-6989586621679188634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statementId:ApplicationPolicyStatement' :: Maybe Text
+</span><a href="#local-6989586621679188739"><span class="hs-identifier hs-var hs-var">statementId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188739"><span class="hs-identifier hs-var">statementId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188738"><span class="annot"><span class="annottext">s :: ApplicationPolicyStatement
+</span><a href="#local-6989586621679188738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188737"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationPolicyStatement
+</span><a href="#local-6989586621679188738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statementId:ApplicationPolicyStatement' :: Maybe Text
 </span><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#%24sel%3AstatementId%3AApplicationPolicyStatement%27"><span class="hs-identifier hs-var">statementId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679188737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | An array of PrinciplalOrgIDs, which corresponds to AWS IAM</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#principal-org-id aws:PrincipalOrgID&gt;</span><span>
@@ -188,16 +188,16 @@ $sel:statementId:ApplicationPolicyStatement' :: ApplicationPolicyStatement -&gt;
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188631"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188735"><span class="annot"><span class="annottext">Maybe [Text]
 principalOrgIDs :: Maybe [Text]
 $sel:principalOrgIDs:ApplicationPolicyStatement' :: ApplicationPolicyStatement -&gt; Maybe [Text]
-</span><a href="#local-6989586621679188631"><span class="hs-identifier hs-var hs-var">principalOrgIDs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679188631"><span class="hs-identifier hs-var">principalOrgIDs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188630"><span class="annot"><span class="annottext">s :: ApplicationPolicyStatement
-</span><a href="#local-6989586621679188630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188629"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679188629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationPolicyStatement
-</span><a href="#local-6989586621679188630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalOrgIDs:ApplicationPolicyStatement' :: Maybe [Text]
+</span><a href="#local-6989586621679188735"><span class="hs-identifier hs-var hs-var">principalOrgIDs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679188735"><span class="hs-identifier hs-var">principalOrgIDs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188734"><span class="annot"><span class="annottext">s :: ApplicationPolicyStatement
+</span><a href="#local-6989586621679188734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188733"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679188733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationPolicyStatement
+</span><a href="#local-6989586621679188734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalOrgIDs:ApplicationPolicyStatement' :: Maybe [Text]
 </span><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#%24sel%3AprincipalOrgIDs%3AApplicationPolicyStatement%27"><span class="hs-identifier hs-var">principalOrgIDs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679188629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679188733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ApplicationPolicyStatement -&gt; f ApplicationPolicyStatement)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -211,8 +211,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | An array of AWS account IDs, or * to make the application public.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#applicationPolicyStatement_principals"><span class="hs-identifier hs-type">applicationPolicyStatement_principals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -224,16 +224,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      ApplicationPolicyStatement ApplicationPolicyStatement [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188624"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188728"><span class="annot"><span class="annottext">[Text]
 principals :: [Text]
 $sel:principals:ApplicationPolicyStatement' :: ApplicationPolicyStatement -&gt; [Text]
-</span><a href="#local-6989586621679188624"><span class="hs-identifier hs-var hs-var">principals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679188624"><span class="hs-identifier hs-var">principals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188623"><span class="annot"><span class="annottext">s :: ApplicationPolicyStatement
-</span><a href="#local-6989586621679188623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188622"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679188622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationPolicyStatement
-</span><a href="#local-6989586621679188623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principals:ApplicationPolicyStatement' :: [Text]
+</span><a href="#local-6989586621679188728"><span class="hs-identifier hs-var hs-var">principals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679188728"><span class="hs-identifier hs-var">principals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188727"><span class="annot"><span class="annottext">s :: ApplicationPolicyStatement
+</span><a href="#local-6989586621679188727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188726"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679188726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationPolicyStatement
+</span><a href="#local-6989586621679188727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principals:ApplicationPolicyStatement' :: [Text]
 </span><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#%24sel%3Aprincipals%3AApplicationPolicyStatement%27"><span class="hs-identifier hs-var">principals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679188622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679188726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; ApplicationPolicyStatement -&gt; f ApplicationPolicyStatement)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -241,8 +241,8 @@ $sel:principals:ApplicationPolicyStatement' :: ApplicationPolicyStatement -&gt; 
 -&gt; f ApplicationPolicyStatement
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | For the list of actions supported for this operation, see</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions Application Permissions&gt;.</span><span>
@@ -255,16 +255,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      ApplicationPolicyStatement ApplicationPolicyStatement [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188620"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188724"><span class="annot"><span class="annottext">[Text]
 actions :: [Text]
 $sel:actions:ApplicationPolicyStatement' :: ApplicationPolicyStatement -&gt; [Text]
-</span><a href="#local-6989586621679188620"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679188620"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188619"><span class="annot"><span class="annottext">s :: ApplicationPolicyStatement
-</span><a href="#local-6989586621679188619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188618"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679188618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationPolicyStatement
-</span><a href="#local-6989586621679188619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:ApplicationPolicyStatement' :: [Text]
+</span><a href="#local-6989586621679188724"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679188724"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188723"><span class="annot"><span class="annottext">s :: ApplicationPolicyStatement
+</span><a href="#local-6989586621679188723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188722"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679188722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationPolicyStatement
+</span><a href="#local-6989586621679188723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:ApplicationPolicyStatement' :: [Text]
 </span><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#%24sel%3Aactions%3AApplicationPolicyStatement%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679188618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679188722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; ApplicationPolicyStatement -&gt; f ApplicationPolicyStatement)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -272,11 +272,11 @@ $sel:actions:ApplicationPolicyStatement' :: ApplicationPolicyStatement -&gt; [Te
 -&gt; f ApplicationPolicyStatement
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188615"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679188613"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApplicationPolicyStatement
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188719"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679188717"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApplicationPolicyStatement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ApplicationPolicyStatement)
@@ -286,8 +286,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ApplicationPolicyStatement&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679188610"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188610"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679188714"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188714"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [Text] -&gt; [Text] -&gt; [Text] -&gt; ApplicationPolicyStatement
 </span><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-var">ApplicationPolicyStatement'</span></a></span><span>
@@ -298,7 +298,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe [Text] -&gt; [Text] -&gt; [Text] -&gt; ApplicationPolicyStatement)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679188714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statementId&quot;</span></span><span class="hs-special">)</span><span>
@@ -308,7 +308,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser ([Text] -&gt; [Text] -&gt; ApplicationPolicyStatement)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679188714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;principalOrgIDs&quot;</span></span><span>
@@ -323,7 +323,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser [Text] -&gt; Parser ([Text] -&gt; ApplicationPolicyStatement)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+</span><a href="#local-6989586621679188714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;principals&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
@@ -335,7 +335,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser [Text] -&gt; Parser ApplicationPolicyStatement
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+</span><a href="#local-6989586621679188714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
@@ -345,13 +345,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188603"><span id="local-6989586621679188605"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188707"><span id="local-6989586621679188709"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188600"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188592"><span id="local-6989586621679188594"><span id="local-6989586621679188596"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679188590"><span class="annot"><span class="annottext">toJSON :: ApplicationPolicyStatement -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188585"><span id="local-6989586621679188586"><span id="local-6989586621679188587"><span id="local-6989586621679188588"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188696"><span id="local-6989586621679188698"><span id="local-6989586621679188700"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement"><span class="hs-identifier hs-type">ApplicationPolicyStatement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679188694"><span class="annot"><span class="annottext">toJSON :: ApplicationPolicyStatement -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement.html#ApplicationPolicyStatement%27"><span class="hs-identifier hs-type">ApplicationPolicyStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188689"><span id="local-6989586621679188690"><span id="local-6989586621679188691"><span id="local-6989586621679188692"><span class="annot"><span class="annottext">[Text]
 Maybe [Text]
 Maybe Text
 actions :: [Text]
@@ -362,7 +362,7 @@ $sel:actions:ApplicationPolicyStatement' :: ApplicationPolicyStatement -&gt; [Te
 $sel:principals:ApplicationPolicyStatement' :: ApplicationPolicyStatement -&gt; [Text]
 $sel:principalOrgIDs:ApplicationPolicyStatement' :: ApplicationPolicyStatement -&gt; Maybe [Text]
 $sel:statementId:ApplicationPolicyStatement' :: ApplicationPolicyStatement -&gt; Maybe Text
-</span><a href="#local-6989586621679188585"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679188689"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -374,7 +374,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188588"><span class="hs-identifier hs-var">statementId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679188692"><span class="hs-identifier hs-var">statementId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;principalOrgIDs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -382,21 +382,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679188587"><span class="hs-identifier hs-var">principalOrgIDs</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679188691"><span class="hs-identifier hs-var">principalOrgIDs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;principals&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679188586"><span class="hs-identifier hs-var">principals</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679188690"><span class="hs-identifier hs-var">principals</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679188585"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679188689"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span></pre></body></html>

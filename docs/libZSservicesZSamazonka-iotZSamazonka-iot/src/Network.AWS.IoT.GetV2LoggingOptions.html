@@ -35,9 +35,9 @@
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#newGetV2LoggingOptionsResponse"><span class="hs-identifier">newGetV2LoggingOptionsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_roleArn"><span class="hs-identifier">getV2LoggingOptionsResponse_roleArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_disableAllLogs"><span class="hs-identifier">getV2LoggingOptionsResponse_disableAllLogs</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_defaultLogLevel"><span class="hs-identifier">getV2LoggingOptionsResponse_defaultLogLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_disableAllLogs"><span class="hs-identifier">getV2LoggingOptionsResponse_disableAllLogs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_defaultLogLevel"><span class="hs-identifier">getV2LoggingOptionsResponse_defaultLogLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_roleArn"><span class="hs-identifier">getV2LoggingOptionsResponse_roleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_httpStatus"><span class="hs-identifier">getV2LoggingOptionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span class="hs-keyword">where</span><span>
@@ -50,10 +50,10 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetV2LoggingOptions' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679829167"><span id="local-6989586621679829168"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetV2LoggingOptions"><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptions"><span class="hs-identifier hs-var">GetV2LoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetV2LoggingOptions%27"><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptions%27"><span class="hs-identifier hs-var">GetV2LoggingOptions'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679830136"><span id="local-6989586621679830137"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetV2LoggingOptions"><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptions"><span class="hs-identifier hs-var">GetV2LoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetV2LoggingOptions%27"><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptions%27"><span class="hs-identifier hs-var">GetV2LoggingOptions'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679829162"><span id="local-6989586621679829164"><span class="annot"><span class="annottext">GetV2LoggingOptions -&gt; GetV2LoggingOptions -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679830131"><span id="local-6989586621679830133"><span class="annot"><span class="annottext">GetV2LoggingOptions -&gt; GetV2LoggingOptions -&gt; Bool
 (GetV2LoggingOptions -&gt; GetV2LoggingOptions -&gt; Bool)
 -&gt; (GetV2LoggingOptions -&gt; GetV2LoggingOptions -&gt; Bool)
 -&gt; Eq GetV2LoggingOptions
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetV2LoggingOptions -&gt; GetV2LoggingOptions -&gt; Bool
 == :: GetV2LoggingOptions -&gt; GetV2LoggingOptions -&gt; Bool
 $c== :: GetV2LoggingOptions -&gt; GetV2LoggingOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679829153"><span id="local-6989586621679829155"><span id="local-6989586621679829157"><span id="local-6989586621679829159"><span class="annot"><span class="annottext">ReadPrec [GetV2LoggingOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830122"><span id="local-6989586621679830124"><span id="local-6989586621679830126"><span id="local-6989586621679830128"><span class="annot"><span class="annottext">ReadPrec [GetV2LoggingOptions]
 ReadPrec GetV2LoggingOptions
 Int -&gt; ReadS GetV2LoggingOptions
 ReadS [GetV2LoggingOptions]
@@ -82,7 +82,7 @@ readList :: ReadS [GetV2LoggingOptions]
 $creadList :: ReadS [GetV2LoggingOptions]
 readsPrec :: Int -&gt; ReadS GetV2LoggingOptions
 $creadsPrec :: Int -&gt; ReadS GetV2LoggingOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679829146"><span id="local-6989586621679829148"><span id="local-6989586621679829150"><span class="annot"><span class="annottext">Int -&gt; GetV2LoggingOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830115"><span id="local-6989586621679830117"><span id="local-6989586621679830119"><span class="annot"><span class="annottext">Int -&gt; GetV2LoggingOptions -&gt; ShowS
 [GetV2LoggingOptions] -&gt; ShowS
 GetV2LoggingOptions -&gt; String
 (Int -&gt; GetV2LoggingOptions -&gt; ShowS)
@@ -122,12 +122,12 @@ $cfrom :: forall x. GetV2LoggingOptions -&gt; Rep GetV2LoggingOptions x
 </span><span id="line-67"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-68"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptions"><span class="hs-identifier hs-type">GetV2LoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679829138"><span class="annot"><span class="annottext">request :: GetV2LoggingOptions -&gt; Request GetV2LoggingOptions
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679830107"><span class="annot"><span class="annottext">request :: GetV2LoggingOptions -&gt; Request GetV2LoggingOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetV2LoggingOptions -&gt; Request GetV2LoggingOptions
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679829134"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679830103"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetV2LoggingOptions
 -&gt; ClientResponse ClientBody
@@ -153,55 +153,53 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679829131"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679829131"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679829130"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679829130"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679829129"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679829129"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Bool
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679830100"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679830100"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679830099"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679830099"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679830098"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679830098"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe LogLevel
+-&gt; Maybe Text
 -&gt; Int
 -&gt; GetV2LoggingOptionsResponse
 </span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var">GetV2LoggingOptionsResponse'</span></a></span><span>
-</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Bool
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
  -&gt; Maybe LogLevel
+ -&gt; Maybe Text
  -&gt; Int
  -&gt; GetV2LoggingOptionsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Bool
-      -&gt; Maybe LogLevel -&gt; Int -&gt; GetV2LoggingOptionsResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679829129"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Bool
-   -&gt; Maybe LogLevel -&gt; Int -&gt; GetV2LoggingOptionsResponse)
 -&gt; Either String (Maybe Bool)
 -&gt; Either
-     String (Maybe LogLevel -&gt; Int -&gt; GetV2LoggingOptionsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679829129"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+     String
+     (Maybe LogLevel
+      -&gt; Maybe Text -&gt; Int -&gt; GetV2LoggingOptionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679830098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;disableAllLogs&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe LogLevel -&gt; Int -&gt; GetV2LoggingOptionsResponse)
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe LogLevel
+   -&gt; Maybe Text -&gt; Int -&gt; GetV2LoggingOptionsResponse)
 -&gt; Either String (Maybe LogLevel)
--&gt; Either String (Int -&gt; GetV2LoggingOptionsResponse)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetV2LoggingOptionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679829129"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LogLevel)
+</span><a href="#local-6989586621679830098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LogLevel)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;defaultLogLevel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetV2LoggingOptionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetV2LoggingOptionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679830098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetV2LoggingOptionsResponse)
 -&gt; Either String Int -&gt; Either String GetV2LoggingOptionsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -210,15 +208,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679829131"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679830100"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679829121"><span id="local-6989586621679829123"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptions"><span class="hs-identifier hs-type">GetV2LoggingOptions</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830090"><span id="local-6989586621679830092"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptions"><span class="hs-identifier hs-type">GetV2LoggingOptions</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679829118"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptions"><span class="hs-identifier hs-type">GetV2LoggingOptions</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830087"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptions"><span class="hs-identifier hs-type">GetV2LoggingOptions</span></a></span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptions"><span class="hs-identifier hs-type">GetV2LoggingOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679829114"><span class="annot"><span class="annottext">toHeaders :: GetV2LoggingOptions -&gt; ResponseHeaders
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679830083"><span class="annot"><span class="annottext">toHeaders :: GetV2LoggingOptions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetV2LoggingOptions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -226,14 +224,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptions"><span class="hs-identifier hs-type">GetV2LoggingOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679829109"><span class="annot"><span class="annottext">toPath :: GetV2LoggingOptions -&gt; ByteString
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679830078"><span class="annot"><span class="annottext">toPath :: GetV2LoggingOptions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetV2LoggingOptions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/v2LoggingOptions&quot;</span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptions"><span class="hs-identifier hs-type">GetV2LoggingOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679829105"><span class="annot"><span class="annottext">toQuery :: GetV2LoggingOptions -&gt; QueryString
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679830074"><span class="annot"><span class="annottext">toQuery :: GetV2LoggingOptions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetV2LoggingOptions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -241,21 +239,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | /See:/ 'newGetV2LoggingOptionsResponse' smart constructor.</span><span>
-</span><span id="line-95"></span><span id="local-6989586621679829102"><span id="local-6989586621679829103"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetV2LoggingOptionsResponse"><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-var">GetV2LoggingOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetV2LoggingOptionsResponse%27"><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var">GetV2LoggingOptionsResponse'</span></a></span></span><span>
-</span><span id="line-96"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IAM role ARN IoT uses to write to your CloudWatch logs.</span><span>
-</span><span id="line-97"></span><span>    </span><span id="%24sel%3AroleArn%3AGetV2LoggingOptionsResponse%27"><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#%24sel%3AroleArn%3AGetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | Disables all logs.</span><span>
-</span><span id="line-99"></span><span>    </span><span id="%24sel%3AdisableAllLogs%3AGetV2LoggingOptionsResponse%27"><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse -&gt; Maybe Bool
+</span><span id="line-95"></span><span id="local-6989586621679830071"><span id="local-6989586621679830072"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetV2LoggingOptionsResponse"><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-var">GetV2LoggingOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetV2LoggingOptionsResponse%27"><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var">GetV2LoggingOptionsResponse'</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Disables all logs.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AdisableAllLogs%3AGetV2LoggingOptionsResponse%27"><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse -&gt; Maybe Bool
 </span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#%24sel%3AdisableAllLogs%3AGetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var hs-var">disableAllLogs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | The default log level.</span><span>
-</span><span id="line-101"></span><span>    </span><span id="%24sel%3AdefaultLogLevel%3AGetV2LoggingOptionsResponse%27"><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse -&gt; Maybe LogLevel
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | The default log level.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AdefaultLogLevel%3AGetV2LoggingOptionsResponse%27"><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse -&gt; Maybe LogLevel
 </span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#%24sel%3AdefaultLogLevel%3AGetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var hs-var">defaultLogLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogLevel.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | The IAM role ARN IoT uses to write to your CloudWatch logs.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AroleArn%3AGetV2LoggingOptionsResponse%27"><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#%24sel%3AroleArn%3AGetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-103"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetV2LoggingOptionsResponse%27"><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse -&gt; Int
 </span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#%24sel%3AhttpStatus%3AGetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679829094"><span id="local-6989586621679829096"><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse -&gt; GetV2LoggingOptionsResponse -&gt; Bool
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679830063"><span id="local-6989586621679830065"><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse -&gt; GetV2LoggingOptionsResponse -&gt; Bool
 (GetV2LoggingOptionsResponse
  -&gt; GetV2LoggingOptionsResponse -&gt; Bool)
 -&gt; (GetV2LoggingOptionsResponse
@@ -266,7 +264,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetV2LoggingOptionsResponse -&gt; GetV2LoggingOptionsResponse -&gt; Bool
 == :: GetV2LoggingOptionsResponse -&gt; GetV2LoggingOptionsResponse -&gt; Bool
 $c== :: GetV2LoggingOptionsResponse -&gt; GetV2LoggingOptionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679829086"><span id="local-6989586621679829088"><span id="local-6989586621679829090"><span id="local-6989586621679829092"><span class="annot"><span class="annottext">ReadPrec [GetV2LoggingOptionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830055"><span id="local-6989586621679830057"><span id="local-6989586621679830059"><span id="local-6989586621679830061"><span class="annot"><span class="annottext">ReadPrec [GetV2LoggingOptionsResponse]
 ReadPrec GetV2LoggingOptionsResponse
 Int -&gt; ReadS GetV2LoggingOptionsResponse
 ReadS [GetV2LoggingOptionsResponse]
@@ -286,7 +284,7 @@ readList :: ReadS [GetV2LoggingOptionsResponse]
 $creadList :: ReadS [GetV2LoggingOptionsResponse]
 readsPrec :: Int -&gt; ReadS GetV2LoggingOptionsResponse
 $creadsPrec :: Int -&gt; ReadS GetV2LoggingOptionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679829080"><span id="local-6989586621679829082"><span id="local-6989586621679829084"><span class="annot"><span class="annottext">Int -&gt; GetV2LoggingOptionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830049"><span id="local-6989586621679830051"><span id="local-6989586621679830053"><span class="annot"><span class="annottext">Int -&gt; GetV2LoggingOptionsResponse -&gt; ShowS
 [GetV2LoggingOptionsResponse] -&gt; ShowS
 GetV2LoggingOptionsResponse -&gt; String
 (Int -&gt; GetV2LoggingOptionsResponse -&gt; ShowS)
@@ -326,11 +324,11 @@ GetV2LoggingOptionsResponse -&gt; Rep GetV2LoggingOptionsResponse x
 </span><span id="line-112"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- 'roleArn', 'getV2LoggingOptionsResponse_roleArn' - The IAM role ARN IoT uses to write to your CloudWatch logs.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'disableAllLogs', 'getV2LoggingOptionsResponse_disableAllLogs' - Disables all logs.</span><span>
 </span><span id="line-116"></span><span class="hs-comment">--</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- 'disableAllLogs', 'getV2LoggingOptionsResponse_disableAllLogs' - Disables all logs.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'defaultLogLevel', 'getV2LoggingOptionsResponse_defaultLogLevel' - The default log level.</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- 'defaultLogLevel', 'getV2LoggingOptionsResponse_defaultLogLevel' - The default log level.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'roleArn', 'getV2LoggingOptionsResponse_roleArn' - The IAM role ARN IoT uses to write to your CloudWatch logs.</span><span>
 </span><span id="line-120"></span><span class="hs-comment">--</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- 'httpStatus', 'getV2LoggingOptionsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#newGetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">newGetV2LoggingOptionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -338,59 +336,35 @@ GetV2LoggingOptionsResponse -&gt; Rep GetV2LoggingOptionsResponse x
 </span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span><span>
 </span><span id="line-126"></span><span id="newGetV2LoggingOptionsResponse"><span class="annot"><span class="annottext">newGetV2LoggingOptionsResponse :: Int -&gt; GetV2LoggingOptionsResponse
-</span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#newGetV2LoggingOptionsResponse"><span class="hs-identifier hs-var hs-var">newGetV2LoggingOptionsResponse</span></a></span></span><span> </span><span id="local-6989586621679829077"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679829077"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-127"></span><span>  </span><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse' :: Maybe Text
--&gt; Maybe Bool
+</span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#newGetV2LoggingOptionsResponse"><span class="hs-identifier hs-var hs-var">newGetV2LoggingOptionsResponse</span></a></span></span><span> </span><span id="local-6989586621679830046"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679830046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse' :: Maybe Bool
 -&gt; Maybe LogLevel
+-&gt; Maybe Text
 -&gt; Int
 -&gt; GetV2LoggingOptionsResponse
 </span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse'</span></a></span><span>
-</span><span id="line-128"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleArn:GetV2LoggingOptionsResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#%24sel%3AroleArn%3AGetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-128"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:disableAllLogs:GetV2LoggingOptionsResponse' :: Maybe Bool
+</span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#%24sel%3AdisableAllLogs%3AGetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var">disableAllLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:disableAllLogs:GetV2LoggingOptionsResponse' :: Maybe Bool
-</span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#%24sel%3AdisableAllLogs%3AGetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var">disableAllLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultLogLevel:GetV2LoggingOptionsResponse' :: Maybe LogLevel
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultLogLevel:GetV2LoggingOptionsResponse' :: Maybe LogLevel
 </span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#%24sel%3AdefaultLogLevel%3AGetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var">defaultLogLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:GetV2LoggingOptionsResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#%24sel%3AroleArn%3AGetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetV2LoggingOptionsResponse' :: Int
 </span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#%24sel%3AhttpStatus%3AGetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679829077"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679830046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | The IAM role ARN IoT uses to write to your CloudWatch logs.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_roleArn"><span class="hs-identifier hs-type">getV2LoggingOptionsResponse_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="getV2LoggingOptionsResponse_roleArn"><span class="annot"><span class="annottext">getV2LoggingOptionsResponse_roleArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetV2LoggingOptionsResponse -&gt; f GetV2LoggingOptionsResponse
-</span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_roleArn"><span class="hs-identifier hs-var hs-var">getV2LoggingOptionsResponse_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetV2LoggingOptionsResponse -&gt; Maybe Text)
--&gt; (GetV2LoggingOptionsResponse
-    -&gt; Maybe Text -&gt; GetV2LoggingOptionsResponse)
--&gt; Lens
-     GetV2LoggingOptionsResponse
-     GetV2LoggingOptionsResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679829074"><span class="annot"><span class="annottext">Maybe Text
-roleArn :: Maybe Text
-$sel:roleArn:GetV2LoggingOptionsResponse' :: GetV2LoggingOptionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679829074"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679829074"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679829073"><span class="annot"><span class="annottext">s :: GetV2LoggingOptionsResponse
-</span><a href="#local-6989586621679829073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679829072"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679829072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse
-</span><a href="#local-6989586621679829073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:GetV2LoggingOptionsResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#%24sel%3AroleArn%3AGetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679829072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | Disables all logs.</span><span>
-</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_disableAllLogs"><span class="hs-identifier hs-type">getV2LoggingOptionsResponse_disableAllLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span id="getV2LoggingOptionsResponse_disableAllLogs"><span class="annot"><span class="annottext">getV2LoggingOptionsResponse_disableAllLogs :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-135"></span><span class="hs-comment">-- | Disables all logs.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_disableAllLogs"><span class="hs-identifier hs-type">getV2LoggingOptionsResponse_disableAllLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="getV2LoggingOptionsResponse_disableAllLogs"><span class="annot"><span class="annottext">getV2LoggingOptionsResponse_disableAllLogs :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; GetV2LoggingOptionsResponse -&gt; f GetV2LoggingOptionsResponse
 </span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_disableAllLogs"><span class="hs-identifier hs-var hs-var">getV2LoggingOptionsResponse_disableAllLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetV2LoggingOptionsResponse -&gt; Maybe Bool)
 -&gt; (GetV2LoggingOptionsResponse
@@ -401,20 +375,20 @@ $sel:roleArn:GetV2LoggingOptionsResponse' :: GetV2LoggingOptionsResponse -&gt; M
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679829071"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830043"><span class="annot"><span class="annottext">Maybe Bool
 disableAllLogs :: Maybe Bool
 $sel:disableAllLogs:GetV2LoggingOptionsResponse' :: GetV2LoggingOptionsResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679829071"><span class="hs-identifier hs-var hs-var">disableAllLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679829071"><span class="hs-identifier hs-var">disableAllLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679829070"><span class="annot"><span class="annottext">s :: GetV2LoggingOptionsResponse
-</span><a href="#local-6989586621679829070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679829069"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679829069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse
-</span><a href="#local-6989586621679829070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disableAllLogs:GetV2LoggingOptionsResponse' :: Maybe Bool
+</span><a href="#local-6989586621679830043"><span class="hs-identifier hs-var hs-var">disableAllLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679830043"><span class="hs-identifier hs-var">disableAllLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830042"><span class="annot"><span class="annottext">s :: GetV2LoggingOptionsResponse
+</span><a href="#local-6989586621679830042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830041"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679830041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse
+</span><a href="#local-6989586621679830042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disableAllLogs:GetV2LoggingOptionsResponse' :: Maybe Bool
 </span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#%24sel%3AdisableAllLogs%3AGetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var">disableAllLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679829069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- | The default log level.</span><span>
-</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_defaultLogLevel"><span class="hs-identifier hs-type">getV2LoggingOptionsResponse_defaultLogLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogLevel.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span id="getV2LoggingOptionsResponse_defaultLogLevel"><span class="annot"><span class="annottext">getV2LoggingOptionsResponse_defaultLogLevel :: (Maybe LogLevel -&gt; f (Maybe LogLevel))
+</span><a href="#local-6989586621679830041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The default log level.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_defaultLogLevel"><span class="hs-identifier hs-type">getV2LoggingOptionsResponse_defaultLogLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogLevel.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="getV2LoggingOptionsResponse_defaultLogLevel"><span class="annot"><span class="annottext">getV2LoggingOptionsResponse_defaultLogLevel :: (Maybe LogLevel -&gt; f (Maybe LogLevel))
 -&gt; GetV2LoggingOptionsResponse -&gt; f GetV2LoggingOptionsResponse
 </span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_defaultLogLevel"><span class="hs-identifier hs-var hs-var">getV2LoggingOptionsResponse_defaultLogLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetV2LoggingOptionsResponse -&gt; Maybe LogLevel)
 -&gt; (GetV2LoggingOptionsResponse
@@ -425,16 +399,40 @@ $sel:disableAllLogs:GetV2LoggingOptionsResponse' :: GetV2LoggingOptionsResponse 
      (Maybe LogLevel)
      (Maybe LogLevel)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679829068"><span class="annot"><span class="annottext">Maybe LogLevel
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830040"><span class="annot"><span class="annottext">Maybe LogLevel
 defaultLogLevel :: Maybe LogLevel
 $sel:defaultLogLevel:GetV2LoggingOptionsResponse' :: GetV2LoggingOptionsResponse -&gt; Maybe LogLevel
-</span><a href="#local-6989586621679829068"><span class="hs-identifier hs-var hs-var">defaultLogLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
-</span><a href="#local-6989586621679829068"><span class="hs-identifier hs-var">defaultLogLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679829067"><span class="annot"><span class="annottext">s :: GetV2LoggingOptionsResponse
-</span><a href="#local-6989586621679829067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679829066"><span class="annot"><span class="annottext">Maybe LogLevel
-</span><a href="#local-6989586621679829066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse
-</span><a href="#local-6989586621679829067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultLogLevel:GetV2LoggingOptionsResponse' :: Maybe LogLevel
+</span><a href="#local-6989586621679830040"><span class="hs-identifier hs-var hs-var">defaultLogLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
+</span><a href="#local-6989586621679830040"><span class="hs-identifier hs-var">defaultLogLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830039"><span class="annot"><span class="annottext">s :: GetV2LoggingOptionsResponse
+</span><a href="#local-6989586621679830039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830038"><span class="annot"><span class="annottext">Maybe LogLevel
+</span><a href="#local-6989586621679830038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse
+</span><a href="#local-6989586621679830039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultLogLevel:GetV2LoggingOptionsResponse' :: Maybe LogLevel
 </span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#%24sel%3AdefaultLogLevel%3AGetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var">defaultLogLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
-</span><a href="#local-6989586621679829066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679830038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The IAM role ARN IoT uses to write to your CloudWatch logs.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_roleArn"><span class="hs-identifier hs-type">getV2LoggingOptionsResponse_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="getV2LoggingOptionsResponse_roleArn"><span class="annot"><span class="annottext">getV2LoggingOptionsResponse_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetV2LoggingOptionsResponse -&gt; f GetV2LoggingOptionsResponse
+</span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_roleArn"><span class="hs-identifier hs-var hs-var">getV2LoggingOptionsResponse_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetV2LoggingOptionsResponse -&gt; Maybe Text)
+-&gt; (GetV2LoggingOptionsResponse
+    -&gt; Maybe Text -&gt; GetV2LoggingOptionsResponse)
+-&gt; Lens
+     GetV2LoggingOptionsResponse
+     GetV2LoggingOptionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830037"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:GetV2LoggingOptionsResponse' :: GetV2LoggingOptionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679830037"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679830037"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830036"><span class="annot"><span class="annottext">s :: GetV2LoggingOptionsResponse
+</span><a href="#local-6989586621679830036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830035"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679830035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse
+</span><a href="#local-6989586621679830036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:GetV2LoggingOptionsResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#%24sel%3AroleArn%3AGetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679830035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-148"></span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#getV2LoggingOptionsResponse_httpStatus"><span class="hs-identifier hs-type">getV2LoggingOptionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -446,16 +444,16 @@ $sel:defaultLogLevel:GetV2LoggingOptionsResponse' :: GetV2LoggingOptionsResponse
 -&gt; Lens
      GetV2LoggingOptionsResponse GetV2LoggingOptionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679829065"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830034"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetV2LoggingOptionsResponse' :: GetV2LoggingOptionsResponse -&gt; Int
-</span><a href="#local-6989586621679829065"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679829065"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679829064"><span class="annot"><span class="annottext">s :: GetV2LoggingOptionsResponse
-</span><a href="#local-6989586621679829064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679829063"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679829063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse
-</span><a href="#local-6989586621679829064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetV2LoggingOptionsResponse' :: Int
+</span><a href="#local-6989586621679830034"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679830034"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830033"><span class="annot"><span class="annottext">s :: GetV2LoggingOptionsResponse
+</span><a href="#local-6989586621679830033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830032"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679830032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetV2LoggingOptionsResponse
+</span><a href="#local-6989586621679830033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetV2LoggingOptionsResponse' :: Int
 </span><a href="Network.AWS.IoT.GetV2LoggingOptions.html#%24sel%3AhttpStatus%3AGetV2LoggingOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679829063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679830032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679829061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830030"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetV2LoggingOptions.html#GetV2LoggingOptionsResponse"><span class="hs-identifier hs-type">GetV2LoggingOptionsResponse</span></a></span></span><span>
 </span><span id="line-152"></span></pre></body></html>

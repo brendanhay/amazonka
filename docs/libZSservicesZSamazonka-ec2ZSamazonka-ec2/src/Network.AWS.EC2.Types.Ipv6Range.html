@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | [EC2-VPC only] Describes an IPv6 range.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newIpv6Range' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681087336"><span id="local-6989586621681087337"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ipv6Range"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range"><span class="hs-identifier hs-var">Ipv6Range</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ipv6Range%27"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range%27"><span class="hs-identifier hs-var">Ipv6Range'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681122027"><span id="local-6989586621681122028"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ipv6Range"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range"><span class="hs-identifier hs-var">Ipv6Range</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ipv6Range%27"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range%27"><span class="hs-identifier hs-var">Ipv6Range'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IPv6 CIDR range. You can either specify a CIDR range or a source</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- security group, not both. To specify a single IPv6 address, use the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- \/128 prefix length.</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Adescription%3AIpv6Range%27"><span class="annot"><span class="annottext">Ipv6Range -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.Ipv6Range.html#%24sel%3Adescription%3AIpv6Range%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681087329"><span id="local-6989586621681087331"><span class="annot"><span class="annottext">Ipv6Range -&gt; Ipv6Range -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681122020"><span id="local-6989586621681122022"><span class="annot"><span class="annottext">Ipv6Range -&gt; Ipv6Range -&gt; Bool
 (Ipv6Range -&gt; Ipv6Range -&gt; Bool)
 -&gt; (Ipv6Range -&gt; Ipv6Range -&gt; Bool) -&gt; Eq Ipv6Range
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Ipv6Range -&gt; Ipv6Range -&gt; Bool
 == :: Ipv6Range -&gt; Ipv6Range -&gt; Bool
 $c== :: Ipv6Range -&gt; Ipv6Range -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681087320"><span id="local-6989586621681087322"><span id="local-6989586621681087324"><span id="local-6989586621681087326"><span class="annot"><span class="annottext">ReadPrec [Ipv6Range]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681122011"><span id="local-6989586621681122013"><span id="local-6989586621681122015"><span id="local-6989586621681122017"><span class="annot"><span class="annottext">ReadPrec [Ipv6Range]
 ReadPrec Ipv6Range
 Int -&gt; ReadS Ipv6Range
 ReadS [Ipv6Range]
@@ -69,7 +69,7 @@ readList :: ReadS [Ipv6Range]
 $creadList :: ReadS [Ipv6Range]
 readsPrec :: Int -&gt; ReadS Ipv6Range
 $creadsPrec :: Int -&gt; ReadS Ipv6Range
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681087313"><span id="local-6989586621681087315"><span id="local-6989586621681087317"><span class="annot"><span class="annottext">Int -&gt; Ipv6Range -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681122004"><span id="local-6989586621681122006"><span id="local-6989586621681122008"><span class="annot"><span class="annottext">Int -&gt; Ipv6Range -&gt; ShowS
 [Ipv6Range] -&gt; ShowS
 Ipv6Range -&gt; String
 (Int -&gt; Ipv6Range -&gt; ShowS)
@@ -136,16 +136,16 @@ forall a. Maybe a
 -&gt; (Ipv6Range -&gt; Maybe Text -&gt; Ipv6Range)
 -&gt; Lens Ipv6Range Ipv6Range (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range%27"><span class="hs-identifier hs-type">Ipv6Range'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681087304"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range%27"><span class="hs-identifier hs-type">Ipv6Range'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121995"><span class="annot"><span class="annottext">Maybe Text
 cidrIpv6 :: Maybe Text
 $sel:cidrIpv6:Ipv6Range' :: Ipv6Range -&gt; Maybe Text
-</span><a href="#local-6989586621681087304"><span class="hs-identifier hs-var hs-var">cidrIpv6</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681087304"><span class="hs-identifier hs-var">cidrIpv6</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681087303"><span class="annot"><span class="annottext">s :: Ipv6Range
-</span><a href="#local-6989586621681087303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range%27"><span class="hs-identifier hs-type">Ipv6Range'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681087302"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681087302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ipv6Range
-</span><a href="#local-6989586621681087303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrIpv6:Ipv6Range' :: Maybe Text
+</span><a href="#local-6989586621681121995"><span class="hs-identifier hs-var hs-var">cidrIpv6</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681121995"><span class="hs-identifier hs-var">cidrIpv6</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681121994"><span class="annot"><span class="annottext">s :: Ipv6Range
+</span><a href="#local-6989586621681121994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range%27"><span class="hs-identifier hs-type">Ipv6Range'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681121993"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681121993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ipv6Range
+</span><a href="#local-6989586621681121994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrIpv6:Ipv6Range' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.Ipv6Range.html#%24sel%3AcidrIpv6%3AIpv6Range%27"><span class="hs-identifier hs-var">cidrIpv6</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681087302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range"><span class="hs-identifier hs-type">Ipv6Range</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681121993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range"><span class="hs-identifier hs-type">Ipv6Range</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | A description for the security group rule that references this IPv6</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- address range.</span><span>
@@ -158,21 +158,21 @@ $sel:cidrIpv6:Ipv6Range' :: Ipv6Range -&gt; Maybe Text
 -&gt; (Ipv6Range -&gt; Maybe Text -&gt; Ipv6Range)
 -&gt; Lens Ipv6Range Ipv6Range (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range%27"><span class="hs-identifier hs-type">Ipv6Range'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681087300"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range%27"><span class="hs-identifier hs-type">Ipv6Range'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121991"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:Ipv6Range' :: Ipv6Range -&gt; Maybe Text
-</span><a href="#local-6989586621681087300"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681087300"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681087299"><span class="annot"><span class="annottext">s :: Ipv6Range
-</span><a href="#local-6989586621681087299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range%27"><span class="hs-identifier hs-type">Ipv6Range'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681087298"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681087298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ipv6Range
-</span><a href="#local-6989586621681087299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Ipv6Range' :: Maybe Text
+</span><a href="#local-6989586621681121991"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681121991"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681121990"><span class="annot"><span class="annottext">s :: Ipv6Range
+</span><a href="#local-6989586621681121990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range%27"><span class="hs-identifier hs-type">Ipv6Range'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681121989"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681121989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ipv6Range
+</span><a href="#local-6989586621681121990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Ipv6Range' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.Ipv6Range.html#%24sel%3Adescription%3AIpv6Range%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681087298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range"><span class="hs-identifier hs-type">Ipv6Range</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681121989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range"><span class="hs-identifier hs-type">Ipv6Range</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range"><span class="hs-identifier hs-type">Ipv6Range</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621681087295"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Ipv6Range
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681087293"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681087293"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621681121986"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Ipv6Range
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681121984"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681121984"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Ipv6Range
 </span><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range%27"><span class="hs-identifier hs-var">Ipv6Range'</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Ipv6Range)
@@ -180,7 +180,7 @@ $sel:description:Ipv6Range' :: Ipv6Range -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; Ipv6Range)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681087293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681121984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cidrIpv6&quot;</span></span><span class="hs-special">)</span><span>
@@ -188,23 +188,23 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String Ipv6Range
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681087293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681121984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681087287"><span id="local-6989586621681087289"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range"><span class="hs-identifier hs-type">Ipv6Range</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681121978"><span id="local-6989586621681121980"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range"><span class="hs-identifier hs-type">Ipv6Range</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681087284"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range"><span class="hs-identifier hs-type">Ipv6Range</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681121975"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range"><span class="hs-identifier hs-type">Ipv6Range</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range"><span class="hs-identifier hs-type">Ipv6Range</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621681087280"><span class="annot"><span class="annottext">toQuery :: Ipv6Range -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range%27"><span class="hs-identifier hs-type">Ipv6Range'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681087277"><span id="local-6989586621681087278"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621681121971"><span class="annot"><span class="annottext">toQuery :: Ipv6Range -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Range.html#Ipv6Range%27"><span class="hs-identifier hs-type">Ipv6Range'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121968"><span id="local-6989586621681121969"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 cidrIpv6 :: Maybe Text
 $sel:description:Ipv6Range' :: Ipv6Range -&gt; Maybe Text
 $sel:cidrIpv6:Ipv6Range' :: Ipv6Range -&gt; Maybe Text
-</span><a href="#local-6989586621681087277"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681121968"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -212,11 +212,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;CidrIpv6&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681087278"><span class="hs-identifier hs-var">cidrIpv6</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681121969"><span class="hs-identifier hs-var">cidrIpv6</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681087277"><span class="hs-identifier hs-var">description</span></a></span><span>
+</span><a href="#local-6989586621681121968"><span class="hs-identifier hs-var">description</span></a></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span></pre></body></html>

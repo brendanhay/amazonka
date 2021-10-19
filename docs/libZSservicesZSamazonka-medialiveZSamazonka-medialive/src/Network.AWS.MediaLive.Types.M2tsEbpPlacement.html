@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | M2ts Ebp Placement</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679893674"><span id="local-6989586621679893675"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsEbpPlacement"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsEbpPlacement.html#M2tsEbpPlacement"><span class="hs-identifier hs-var">M2tsEbpPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsEbpPlacement%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsEbpPlacement.html#M2tsEbpPlacement%27"><span class="hs-identifier hs-var">M2tsEbpPlacement'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679900343"><span id="local-6989586621679900344"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsEbpPlacement"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsEbpPlacement.html#M2tsEbpPlacement"><span class="hs-identifier hs-var">M2tsEbpPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsEbpPlacement%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsEbpPlacement.html#M2tsEbpPlacement%27"><span class="hs-identifier hs-var">M2tsEbpPlacement'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM2tsEbpPlacement"><span class="annot"><span class="annottext">M2tsEbpPlacement -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.M2tsEbpPlacement.html#fromM2tsEbpPlacement"><span class="hs-identifier hs-var hs-var">fromM2tsEbpPlacement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679893666"><span id="local-6989586621679893668"><span id="local-6989586621679893670"><span class="annot"><span class="annottext">Int -&gt; M2tsEbpPlacement -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679900335"><span id="local-6989586621679900337"><span id="local-6989586621679900339"><span class="annot"><span class="annottext">Int -&gt; M2tsEbpPlacement -&gt; ShowS
 [M2tsEbpPlacement] -&gt; ShowS
 M2tsEbpPlacement -&gt; String
 (Int -&gt; M2tsEbpPlacement -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: M2tsEbpPlacement -&gt; String
 showsPrec :: Int -&gt; M2tsEbpPlacement -&gt; ShowS
 $cshowsPrec :: Int -&gt; M2tsEbpPlacement -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679893657"><span id="local-6989586621679893659"><span id="local-6989586621679893661"><span id="local-6989586621679893663"><span class="annot"><span class="annottext">ReadPrec [M2tsEbpPlacement]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679900326"><span id="local-6989586621679900328"><span id="local-6989586621679900330"><span id="local-6989586621679900332"><span class="annot"><span class="annottext">ReadPrec [M2tsEbpPlacement]
 ReadPrec M2tsEbpPlacement
 Int -&gt; ReadS M2tsEbpPlacement
 ReadS [M2tsEbpPlacement]
@@ -73,7 +73,7 @@ $creadList :: ReadS [M2tsEbpPlacement]
 readsPrec :: Int -&gt; ReadS M2tsEbpPlacement
 $creadsPrec :: Int -&gt; ReadS M2tsEbpPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679893652"><span id="local-6989586621679893654"><span class="annot"><span class="annottext">M2tsEbpPlacement -&gt; M2tsEbpPlacement -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679900321"><span id="local-6989586621679900323"><span class="annot"><span class="annottext">M2tsEbpPlacement -&gt; M2tsEbpPlacement -&gt; Bool
 (M2tsEbpPlacement -&gt; M2tsEbpPlacement -&gt; Bool)
 -&gt; (M2tsEbpPlacement -&gt; M2tsEbpPlacement -&gt; Bool)
 -&gt; Eq M2tsEbpPlacement
@@ -83,7 +83,7 @@ $c/= :: M2tsEbpPlacement -&gt; M2tsEbpPlacement -&gt; Bool
 == :: M2tsEbpPlacement -&gt; M2tsEbpPlacement -&gt; Bool
 $c== :: M2tsEbpPlacement -&gt; M2tsEbpPlacement -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679893636"><span id="local-6989586621679893638"><span id="local-6989586621679893640"><span id="local-6989586621679893642"><span id="local-6989586621679893644"><span id="local-6989586621679893646"><span id="local-6989586621679893648"><span class="annot"><span class="annottext">Eq M2tsEbpPlacement
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679900305"><span id="local-6989586621679900307"><span id="local-6989586621679900309"><span id="local-6989586621679900311"><span id="local-6989586621679900313"><span id="local-6989586621679900315"><span id="local-6989586621679900317"><span class="annot"><span class="annottext">Eq M2tsEbpPlacement
 Eq M2tsEbpPlacement
 -&gt; (M2tsEbpPlacement -&gt; M2tsEbpPlacement -&gt; Ordering)
 -&gt; (M2tsEbpPlacement -&gt; M2tsEbpPlacement -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. M2tsEbpPlacement -&gt; Rep M2tsEbpPlacement x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679893628"><span id="local-6989586621679893630"><span class="annot"><span class="annottext">Int -&gt; M2tsEbpPlacement -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679900297"><span id="local-6989586621679900299"><span class="annot"><span class="annottext">Int -&gt; M2tsEbpPlacement -&gt; Int
 M2tsEbpPlacement -&gt; Int
 (Int -&gt; M2tsEbpPlacement -&gt; Int)
 -&gt; (M2tsEbpPlacement -&gt; Int) -&gt; Hashable M2tsEbpPlacement
@@ -144,51 +144,51 @@ $chash :: M2tsEbpPlacement -&gt; Int
 hashWithSalt :: Int -&gt; M2tsEbpPlacement -&gt; Int
 $chashWithSalt :: Int -&gt; M2tsEbpPlacement -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679893625"><span class="annot"><span class="annottext">M2tsEbpPlacement -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679900294"><span class="annot"><span class="annottext">M2tsEbpPlacement -&gt; ()
 (M2tsEbpPlacement -&gt; ()) -&gt; NFData M2tsEbpPlacement
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: M2tsEbpPlacement -&gt; ()
 $crnf :: M2tsEbpPlacement -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679893622"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsEbpPlacement
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679900291"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsEbpPlacement
 (Text -&gt; Either String M2tsEbpPlacement)
 -&gt; FromText M2tsEbpPlacement
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String M2tsEbpPlacement
 $cfromText :: Text -&gt; Either String M2tsEbpPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679893619"><span class="annot"><span class="annottext">M2tsEbpPlacement -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679900288"><span class="annot"><span class="annottext">M2tsEbpPlacement -&gt; Text
 (M2tsEbpPlacement -&gt; Text) -&gt; ToText M2tsEbpPlacement
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: M2tsEbpPlacement -&gt; Text
 $ctoText :: M2tsEbpPlacement -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679893616"><span class="annot"><span class="annottext">M2tsEbpPlacement -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679900285"><span class="annot"><span class="annottext">M2tsEbpPlacement -&gt; ByteString
 (M2tsEbpPlacement -&gt; ByteString) -&gt; ToByteString M2tsEbpPlacement
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: M2tsEbpPlacement -&gt; ByteString
 $ctoBS :: M2tsEbpPlacement -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679893613"><span class="annot"><span class="annottext">M2tsEbpPlacement -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679900282"><span class="annot"><span class="annottext">M2tsEbpPlacement -&gt; ByteStringBuilder
 (M2tsEbpPlacement -&gt; ByteStringBuilder) -&gt; ToLog M2tsEbpPlacement
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: M2tsEbpPlacement -&gt; ByteStringBuilder
 $cbuild :: M2tsEbpPlacement -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679893610"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsEbpPlacement -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679900279"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsEbpPlacement -&gt; [Header]
 (HeaderName -&gt; M2tsEbpPlacement -&gt; [Header])
 -&gt; ToHeader M2tsEbpPlacement
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; M2tsEbpPlacement -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; M2tsEbpPlacement -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679893607"><span class="annot"><span class="annottext">M2tsEbpPlacement -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679900276"><span class="annot"><span class="annottext">M2tsEbpPlacement -&gt; QueryString
 (M2tsEbpPlacement -&gt; QueryString) -&gt; ToQuery M2tsEbpPlacement
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: M2tsEbpPlacement -&gt; QueryString
 $ctoQuery :: M2tsEbpPlacement -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679893602"><span id="local-6989586621679893604"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsEbpPlacement]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679900271"><span id="local-6989586621679900273"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsEbpPlacement]
 Value -&gt; Parser M2tsEbpPlacement
 (Value -&gt; Parser M2tsEbpPlacement)
 -&gt; (Value -&gt; Parser [M2tsEbpPlacement])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [M2tsEbpPlacement]
 parseJSON :: Value -&gt; Parser M2tsEbpPlacement
 $cparseJSON :: Value -&gt; Parser M2tsEbpPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679893597"><span id="local-6989586621679893599"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsEbpPlacement]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679900266"><span id="local-6989586621679900268"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsEbpPlacement]
 FromJSONKeyFunction M2tsEbpPlacement
 FromJSONKeyFunction M2tsEbpPlacement
 -&gt; FromJSONKeyFunction [M2tsEbpPlacement]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [M2tsEbpPlacement]
 fromJSONKey :: FromJSONKeyFunction M2tsEbpPlacement
 $cfromJSONKey :: FromJSONKeyFunction M2tsEbpPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679893588"><span id="local-6989586621679893590"><span id="local-6989586621679893592"><span id="local-6989586621679893594"><span class="annot"><span class="annottext">[M2tsEbpPlacement] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679900257"><span id="local-6989586621679900259"><span id="local-6989586621679900261"><span id="local-6989586621679900263"><span class="annot"><span class="annottext">[M2tsEbpPlacement] -&gt; Encoding
 [M2tsEbpPlacement] -&gt; Value
 M2tsEbpPlacement -&gt; Encoding
 M2tsEbpPlacement -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: M2tsEbpPlacement -&gt; Encoding
 toJSON :: M2tsEbpPlacement -&gt; Value
 $ctoJSON :: M2tsEbpPlacement -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679893583"><span id="local-6989586621679893585"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsEbpPlacement]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679900252"><span id="local-6989586621679900254"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsEbpPlacement]
 ToJSONKeyFunction M2tsEbpPlacement
 ToJSONKeyFunction M2tsEbpPlacement
 -&gt; ToJSONKeyFunction [M2tsEbpPlacement]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [M2tsEbpPlacement]
 toJSONKey :: ToJSONKeyFunction M2tsEbpPlacement
 $ctoJSONKey :: ToJSONKeyFunction M2tsEbpPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679893580"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsEbpPlacement
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679900249"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsEbpPlacement
 ([Node] -&gt; Either String M2tsEbpPlacement)
 -&gt; FromXML M2tsEbpPlacement
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String M2tsEbpPlacement
 $cparseXML :: [Node] -&gt; Either String M2tsEbpPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679893577"><span class="annot"><span class="annottext">M2tsEbpPlacement -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679900246"><span class="annot"><span class="annottext">M2tsEbpPlacement -&gt; XML
 (M2tsEbpPlacement -&gt; XML) -&gt; ToXML M2tsEbpPlacement
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: M2tsEbpPlacement -&gt; XML

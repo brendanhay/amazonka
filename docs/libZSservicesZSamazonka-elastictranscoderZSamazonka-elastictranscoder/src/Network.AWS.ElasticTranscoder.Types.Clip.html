@@ -28,19 +28,19 @@
 </span><span id="line-28"></span><span class="hs-comment">-- the same clip settings.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newClip' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679212973"><span id="local-6989586621679212974"></span></span><span class="hs-keyword">data</span><span> </span><span id="Clip"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip"><span class="hs-identifier hs-var">Clip</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Clip%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip%27"><span class="hs-identifier hs-var">Clip'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679213095"><span id="local-6989586621679213096"></span></span><span class="hs-keyword">data</span><span> </span><span id="Clip"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip"><span class="hs-identifier hs-var">Clip</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Clip%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip%27"><span class="hs-identifier hs-var">Clip'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Settings that determine when a clip begins and how long it lasts.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AtimeSpan%3AClip%27"><span class="annot"><span class="annottext">Clip -&gt; Maybe TimeSpan
 </span><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#%24sel%3AtimeSpan%3AClip%27"><span class="hs-identifier hs-var hs-var">timeSpan</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.TimeSpan.html#TimeSpan"><span class="hs-identifier hs-type">TimeSpan</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212967"><span id="local-6989586621679212969"><span class="annot"><span class="annottext">Clip -&gt; Clip -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213089"><span id="local-6989586621679213091"><span class="annot"><span class="annottext">Clip -&gt; Clip -&gt; Bool
 (Clip -&gt; Clip -&gt; Bool) -&gt; (Clip -&gt; Clip -&gt; Bool) -&gt; Eq Clip
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Clip -&gt; Clip -&gt; Bool
 $c/= :: Clip -&gt; Clip -&gt; Bool
 == :: Clip -&gt; Clip -&gt; Bool
 $c== :: Clip -&gt; Clip -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212958"><span id="local-6989586621679212960"><span id="local-6989586621679212962"><span id="local-6989586621679212964"><span class="annot"><span class="annottext">ReadPrec [Clip]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213080"><span id="local-6989586621679213082"><span id="local-6989586621679213084"><span id="local-6989586621679213086"><span class="annot"><span class="annottext">ReadPrec [Clip]
 ReadPrec Clip
 Int -&gt; ReadS Clip
 ReadS [Clip]
@@ -57,7 +57,7 @@ readList :: ReadS [Clip]
 $creadList :: ReadS [Clip]
 readsPrec :: Int -&gt; ReadS Clip
 $creadsPrec :: Int -&gt; ReadS Clip
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212951"><span id="local-6989586621679212953"><span id="local-6989586621679212955"><span class="annot"><span class="annottext">Int -&gt; Clip -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213073"><span id="local-6989586621679213075"><span id="local-6989586621679213077"><span class="annot"><span class="annottext">Int -&gt; Clip -&gt; ShowS
 [Clip] -&gt; ShowS
 Clip -&gt; String
 (Int -&gt; Clip -&gt; ShowS)
@@ -105,45 +105,45 @@ forall a. Maybe a
 -&gt; (Clip -&gt; Maybe TimeSpan -&gt; Clip)
 -&gt; Lens Clip Clip (Maybe TimeSpan) (Maybe TimeSpan)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip%27"><span class="hs-identifier hs-type">Clip'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212942"><span class="annot"><span class="annottext">Maybe TimeSpan
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip%27"><span class="hs-identifier hs-type">Clip'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213064"><span class="annot"><span class="annottext">Maybe TimeSpan
 timeSpan :: Maybe TimeSpan
 $sel:timeSpan:Clip' :: Clip -&gt; Maybe TimeSpan
-</span><a href="#local-6989586621679212942"><span class="hs-identifier hs-var hs-var">timeSpan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeSpan
-</span><a href="#local-6989586621679212942"><span class="hs-identifier hs-var">timeSpan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212941"><span class="annot"><span class="annottext">s :: Clip
-</span><a href="#local-6989586621679212941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip%27"><span class="hs-identifier hs-type">Clip'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212940"><span class="annot"><span class="annottext">Maybe TimeSpan
-</span><a href="#local-6989586621679212940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Clip
-</span><a href="#local-6989586621679212941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeSpan:Clip' :: Maybe TimeSpan
+</span><a href="#local-6989586621679213064"><span class="hs-identifier hs-var hs-var">timeSpan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeSpan
+</span><a href="#local-6989586621679213064"><span class="hs-identifier hs-var">timeSpan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213063"><span class="annot"><span class="annottext">s :: Clip
+</span><a href="#local-6989586621679213063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip%27"><span class="hs-identifier hs-type">Clip'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213062"><span class="annot"><span class="annottext">Maybe TimeSpan
+</span><a href="#local-6989586621679213062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Clip
+</span><a href="#local-6989586621679213063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeSpan:Clip' :: Maybe TimeSpan
 </span><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#%24sel%3AtimeSpan%3AClip%27"><span class="hs-identifier hs-var">timeSpan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimeSpan
-</span><a href="#local-6989586621679212940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip"><span class="hs-identifier hs-type">Clip</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip"><span class="hs-identifier hs-type">Clip</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212937"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip"><span class="hs-identifier hs-type">Clip</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679212935"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Clip
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213059"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip"><span class="hs-identifier hs-type">Clip</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679213057"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Clip
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Clip) -&gt; Value -&gt; Parser Clip
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Clip&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212932"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212932"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeSpan -&gt; Clip
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213054"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213054"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeSpan -&gt; Clip
 </span><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip%27"><span class="hs-identifier hs-var">Clip'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe TimeSpan -&gt; Clip) -&gt; Parser (Maybe TimeSpan) -&gt; Parser Clip
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeSpan)
+</span><a href="#local-6989586621679213054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeSpan)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TimeSpan&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212926"><span id="local-6989586621679212928"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip"><span class="hs-identifier hs-type">Clip</span></a></span></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213048"><span id="local-6989586621679213050"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip"><span class="hs-identifier hs-type">Clip</span></a></span></span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip"><span class="hs-identifier hs-type">Clip</span></a></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213045"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip"><span class="hs-identifier hs-type">Clip</span></a></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212915"><span id="local-6989586621679212917"><span id="local-6989586621679212919"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip"><span class="hs-identifier hs-type">Clip</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679212913"><span class="annot"><span class="annottext">toJSON :: Clip -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip%27"><span class="hs-identifier hs-type">Clip'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212911"><span class="annot"><span class="annottext">Maybe TimeSpan
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213037"><span id="local-6989586621679213039"><span id="local-6989586621679213041"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip"><span class="hs-identifier hs-type">Clip</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679213035"><span class="annot"><span class="annottext">toJSON :: Clip -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Clip.html#Clip%27"><span class="hs-identifier hs-type">Clip'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213033"><span class="annot"><span class="annottext">Maybe TimeSpan
 timeSpan :: Maybe TimeSpan
 $sel:timeSpan:Clip' :: Clip -&gt; Maybe TimeSpan
-</span><a href="#local-6989586621679212911"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679213033"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -155,6 +155,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TimeSpan -&gt; Pair) -&gt; Maybe TimeSpan -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimeSpan
-</span><a href="#local-6989586621679212911"><span class="hs-identifier hs-var">timeSpan</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679213033"><span class="hs-identifier hs-var">timeSpan</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span></pre></body></html>

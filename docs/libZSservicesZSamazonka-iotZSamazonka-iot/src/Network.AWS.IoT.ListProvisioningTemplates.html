@@ -42,8 +42,8 @@
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#newListProvisioningTemplatesResponse"><span class="hs-identifier">newListProvisioningTemplatesResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#listProvisioningTemplatesResponse_nextToken"><span class="hs-identifier">listProvisioningTemplatesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#listProvisioningTemplatesResponse_templates"><span class="hs-identifier">listProvisioningTemplatesResponse_templates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#listProvisioningTemplatesResponse_templates"><span class="hs-identifier">listProvisioningTemplatesResponse_templates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#listProvisioningTemplatesResponse_nextToken"><span class="hs-identifier">listProvisioningTemplatesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#listProvisioningTemplatesResponse_httpStatus"><span class="hs-identifier">listProvisioningTemplatesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span class="hs-keyword">where</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListProvisioningTemplates' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679820873"><span id="local-6989586621679820874"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProvisioningTemplates"><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates"><span class="hs-identifier hs-var">ListProvisioningTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProvisioningTemplates%27"><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates%27"><span class="hs-identifier hs-var">ListProvisioningTemplates'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679821806"><span id="local-6989586621679821807"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProvisioningTemplates"><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates"><span class="hs-identifier hs-var">ListProvisioningTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProvisioningTemplates%27"><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates%27"><span class="hs-identifier hs-var">ListProvisioningTemplates'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to retrieve the next set of results.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListProvisioningTemplates%27"><span class="annot"><span class="annottext">ListProvisioningTemplates -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#%24sel%3AnextToken%3AListProvisioningTemplates%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AmaxResults%3AListProvisioningTemplates%27"><span class="annot"><span class="annottext">ListProvisioningTemplates -&gt; Maybe Natural
 </span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#%24sel%3AmaxResults%3AListProvisioningTemplates%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679820866"><span id="local-6989586621679820868"><span class="annot"><span class="annottext">ListProvisioningTemplates -&gt; ListProvisioningTemplates -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679821799"><span id="local-6989586621679821801"><span class="annot"><span class="annottext">ListProvisioningTemplates -&gt; ListProvisioningTemplates -&gt; Bool
 (ListProvisioningTemplates -&gt; ListProvisioningTemplates -&gt; Bool)
 -&gt; (ListProvisioningTemplates -&gt; ListProvisioningTemplates -&gt; Bool)
 -&gt; Eq ListProvisioningTemplates
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListProvisioningTemplates -&gt; ListProvisioningTemplates -&gt; Bool
 == :: ListProvisioningTemplates -&gt; ListProvisioningTemplates -&gt; Bool
 $c== :: ListProvisioningTemplates -&gt; ListProvisioningTemplates -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679820857"><span id="local-6989586621679820859"><span id="local-6989586621679820861"><span id="local-6989586621679820863"><span class="annot"><span class="annottext">ReadPrec [ListProvisioningTemplates]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679821790"><span id="local-6989586621679821792"><span id="local-6989586621679821794"><span id="local-6989586621679821796"><span class="annot"><span class="annottext">ReadPrec [ListProvisioningTemplates]
 ReadPrec ListProvisioningTemplates
 Int -&gt; ReadS ListProvisioningTemplates
 ReadS [ListProvisioningTemplates]
@@ -93,7 +93,7 @@ readList :: ReadS [ListProvisioningTemplates]
 $creadList :: ReadS [ListProvisioningTemplates]
 readsPrec :: Int -&gt; ReadS ListProvisioningTemplates
 $creadsPrec :: Int -&gt; ReadS ListProvisioningTemplates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679820850"><span id="local-6989586621679820852"><span id="local-6989586621679820854"><span class="annot"><span class="annottext">Int -&gt; ListProvisioningTemplates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679821783"><span id="local-6989586621679821785"><span id="local-6989586621679821787"><span class="annot"><span class="annottext">Int -&gt; ListProvisioningTemplates -&gt; ShowS
 [ListProvisioningTemplates] -&gt; ShowS
 ListProvisioningTemplates -&gt; String
 (Int -&gt; ListProvisioningTemplates -&gt; ShowS)
@@ -166,16 +166,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates%27"><span class="hs-identifier hs-type">ListProvisioningTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820844"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates%27"><span class="hs-identifier hs-type">ListProvisioningTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821777"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListProvisioningTemplates' :: ListProvisioningTemplates -&gt; Maybe Text
-</span><a href="#local-6989586621679820844"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820844"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820843"><span class="annot"><span class="annottext">s :: ListProvisioningTemplates
-</span><a href="#local-6989586621679820843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates%27"><span class="hs-identifier hs-type">ListProvisioningTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820842"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisioningTemplates
-</span><a href="#local-6989586621679820843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListProvisioningTemplates' :: Maybe Text
+</span><a href="#local-6989586621679821777"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679821777"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679821776"><span class="annot"><span class="annottext">s :: ListProvisioningTemplates
+</span><a href="#local-6989586621679821776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates%27"><span class="hs-identifier hs-type">ListProvisioningTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679821775"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679821775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisioningTemplates
+</span><a href="#local-6989586621679821776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListProvisioningTemplates' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#%24sel%3AnextToken%3AListProvisioningTemplates%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates"><span class="hs-identifier hs-type">ListProvisioningTemplates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679821775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates"><span class="hs-identifier hs-type">ListProvisioningTemplates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The maximum number of results to return at one time.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#listProvisioningTemplates_maxResults"><span class="hs-identifier hs-type">listProvisioningTemplates_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates"><span class="hs-identifier hs-type">ListProvisioningTemplates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -190,30 +190,30 @@ $sel:nextToken:ListProvisioningTemplates' :: ListProvisioningTemplates -&gt; May
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates%27"><span class="hs-identifier hs-type">ListProvisioningTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820841"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates%27"><span class="hs-identifier hs-type">ListProvisioningTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821774"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListProvisioningTemplates' :: ListProvisioningTemplates -&gt; Maybe Natural
-</span><a href="#local-6989586621679820841"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679820841"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820840"><span class="annot"><span class="annottext">s :: ListProvisioningTemplates
-</span><a href="#local-6989586621679820840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates%27"><span class="hs-identifier hs-type">ListProvisioningTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820839"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679820839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisioningTemplates
-</span><a href="#local-6989586621679820840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListProvisioningTemplates' :: Maybe Natural
+</span><a href="#local-6989586621679821774"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679821774"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679821773"><span class="annot"><span class="annottext">s :: ListProvisioningTemplates
+</span><a href="#local-6989586621679821773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates%27"><span class="hs-identifier hs-type">ListProvisioningTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679821772"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679821772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisioningTemplates
+</span><a href="#local-6989586621679821773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListProvisioningTemplates' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#%24sel%3AmaxResults%3AListProvisioningTemplates%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679820839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates"><span class="hs-identifier hs-type">ListProvisioningTemplates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679821772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates"><span class="hs-identifier hs-type">ListProvisioningTemplates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates"><span class="hs-identifier hs-type">ListProvisioningTemplates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679820835"><span class="annot"><span class="annottext">page :: ListProvisioningTemplates
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679821768"><span class="annot"><span class="annottext">page :: ListProvisioningTemplates
 -&gt; AWSResponse ListProvisioningTemplates
 -&gt; Maybe ListProvisioningTemplates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679820833"><span class="annot"><span class="annottext">ListProvisioningTemplates
-</span><a href="#local-6989586621679820833"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679820832"><span class="annot"><span class="annottext">AWSResponse ListProvisioningTemplates
-</span><a href="#local-6989586621679820832"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679821766"><span class="annot"><span class="annottext">ListProvisioningTemplates
+</span><a href="#local-6989586621679821766"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679821765"><span class="annot"><span class="annottext">AWSResponse ListProvisioningTemplates
+</span><a href="#local-6989586621679821765"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-98"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListProvisioningTemplates
 ListProvisioningTemplatesResponse
-</span><a href="#local-6989586621679820832"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679821765"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse
 -&gt; Getting (First Text) ListProvisioningTemplatesResponse Text
 -&gt; Maybe Text
@@ -243,7 +243,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-104"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListProvisioningTemplates
 ListProvisioningTemplatesResponse
-</span><a href="#local-6989586621679820832"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679821765"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse
 -&gt; Getting
      (First [ProvisioningTemplateSummary])
@@ -307,7 +307,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">ListProvisioningTemplates
-</span><a href="#local-6989586621679820833"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679821766"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ListProvisioningTemplates
 -&gt; (ListProvisioningTemplates -&gt; ListProvisioningTemplates)
 -&gt; ListProvisioningTemplates
@@ -328,7 +328,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListProvisioningTemplates
 ListProvisioningTemplatesResponse
-</span><a href="#local-6989586621679820832"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679821765"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse
 -&gt; Getting (First Text) ListProvisioningTemplatesResponse Text
 -&gt; Maybe Text
@@ -354,13 +354,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates"><span class="hs-identifier hs-type">ListProvisioningTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679820822"><span class="annot"><span class="annottext">request :: ListProvisioningTemplates -&gt; Request ListProvisioningTemplates
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679821755"><span class="annot"><span class="annottext">request :: ListProvisioningTemplates -&gt; Request ListProvisioningTemplates
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListProvisioningTemplates -&gt; Request ListProvisioningTemplates
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679820818"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679821751"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListProvisioningTemplates
 -&gt; ClientResponse ClientBody
@@ -386,39 +386,21 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679820815"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820815"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679820814"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679820814"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679820813"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679820813"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [ProvisioningTemplateSummary]
--&gt; Int
--&gt; ListProvisioningTemplatesResponse
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679821748"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679821748"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679821747"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679821747"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679821746"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679821746"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ProvisioningTemplateSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListProvisioningTemplatesResponse
 </span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-var">ListProvisioningTemplatesResponse'</span></a></span><span>
-</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [ProvisioningTemplateSummary]
- -&gt; Int
- -&gt; ListProvisioningTemplatesResponse)
--&gt; Either String (Maybe Text)
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ProvisioningTemplateSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListProvisioningTemplatesResponse)
+-&gt; Either String (Maybe [ProvisioningTemplateSummary])
 -&gt; Either
-     String
-     (Maybe [ProvisioningTemplateSummary]
-      -&gt; Int -&gt; ListProvisioningTemplatesResponse)
+     String (Maybe Text -&gt; Int -&gt; ListProvisioningTemplatesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679820813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [ProvisioningTemplateSummary]
-   -&gt; Int -&gt; ListProvisioningTemplatesResponse)
--&gt; Either String (Maybe [ProvisioningTemplateSummary])
--&gt; Either String (Int -&gt; ListProvisioningTemplatesResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679820813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679821746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [ProvisioningTemplateSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -430,6 +412,16 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisioningTemplateSummary]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; ListProvisioningTemplatesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListProvisioningTemplatesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679821746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListProvisioningTemplatesResponse)
 -&gt; Either String Int
 -&gt; Either String ListProvisioningTemplatesResponse
@@ -439,15 +431,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820815"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679821748"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679820804"><span id="local-6989586621679820806"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates"><span class="hs-identifier hs-type">ListProvisioningTemplates</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679821737"><span id="local-6989586621679821739"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates"><span class="hs-identifier hs-type">ListProvisioningTemplates</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679820801"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates"><span class="hs-identifier hs-type">ListProvisioningTemplates</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679821734"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates"><span class="hs-identifier hs-type">ListProvisioningTemplates</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates"><span class="hs-identifier hs-type">ListProvisioningTemplates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679820797"><span class="annot"><span class="annottext">toHeaders :: ListProvisioningTemplates -&gt; ResponseHeaders
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679821730"><span class="annot"><span class="annottext">toHeaders :: ListProvisioningTemplates -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListProvisioningTemplates -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -455,21 +447,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates"><span class="hs-identifier hs-type">ListProvisioningTemplates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679820792"><span class="annot"><span class="annottext">toPath :: ListProvisioningTemplates -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679821725"><span class="annot"><span class="annottext">toPath :: ListProvisioningTemplates -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListProvisioningTemplates -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/provisioning-templates&quot;</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates"><span class="hs-identifier hs-type">ListProvisioningTemplates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679820788"><span class="annot"><span class="annottext">toQuery :: ListProvisioningTemplates -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates%27"><span class="hs-identifier hs-type">ListProvisioningTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820785"><span id="local-6989586621679820786"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679821721"><span class="annot"><span class="annottext">toQuery :: ListProvisioningTemplates -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplates%27"><span class="hs-identifier hs-type">ListProvisioningTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821718"><span id="local-6989586621679821719"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListProvisioningTemplates' :: ListProvisioningTemplates -&gt; Maybe Natural
 $sel:nextToken:ListProvisioningTemplates' :: ListProvisioningTemplates -&gt; Maybe Text
-</span><a href="#local-6989586621679820785"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679821718"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -477,28 +469,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820786"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679821719"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679820785"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679821718"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newListProvisioningTemplatesResponse' smart constructor.</span><span>
-</span><span id="line-149"></span><span id="local-6989586621679820782"><span id="local-6989586621679820783"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProvisioningTemplatesResponse"><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse"><span class="hs-identifier hs-var">ListProvisioningTemplatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProvisioningTemplatesResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-var">ListProvisioningTemplatesResponse'</span></a></span></span><span>
-</span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to retrieve the next set of results.</span><span>
-</span><span id="line-151"></span><span>    </span><span id="%24sel%3AnextToken%3AListProvisioningTemplatesResponse%27"><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#%24sel%3AnextToken%3AListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | A list of fleet provisioning templates</span><span>
-</span><span id="line-153"></span><span>    </span><span id="%24sel%3Atemplates%3AListProvisioningTemplatesResponse%27"><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse
+</span><span id="line-149"></span><span id="local-6989586621679821715"><span id="local-6989586621679821716"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProvisioningTemplatesResponse"><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse"><span class="hs-identifier hs-var">ListProvisioningTemplatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProvisioningTemplatesResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-var">ListProvisioningTemplatesResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of fleet provisioning templates</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3Atemplates%3AListProvisioningTemplatesResponse%27"><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse
 -&gt; Maybe [ProvisioningTemplateSummary]
 </span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#%24sel%3Atemplates%3AListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-var hs-var">templates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.ProvisioningTemplateSummary.html#ProvisioningTemplateSummary"><span class="hs-identifier hs-type">ProvisioningTemplateSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | A token to retrieve the next set of results.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AnextToken%3AListProvisioningTemplatesResponse%27"><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#%24sel%3AnextToken%3AListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListProvisioningTemplatesResponse%27"><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#%24sel%3AhttpStatus%3AListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679820775"><span id="local-6989586621679820777"><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679821708"><span id="local-6989586621679821710"><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse
 -&gt; ListProvisioningTemplatesResponse -&gt; Bool
 (ListProvisioningTemplatesResponse
  -&gt; ListProvisioningTemplatesResponse -&gt; Bool)
@@ -514,7 +506,7 @@ $c/= :: ListProvisioningTemplatesResponse
 -&gt; ListProvisioningTemplatesResponse -&gt; Bool
 $c== :: ListProvisioningTemplatesResponse
 -&gt; ListProvisioningTemplatesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679820767"><span id="local-6989586621679820769"><span id="local-6989586621679820771"><span id="local-6989586621679820773"><span class="annot"><span class="annottext">ReadPrec [ListProvisioningTemplatesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679821700"><span id="local-6989586621679821702"><span id="local-6989586621679821704"><span id="local-6989586621679821706"><span class="annot"><span class="annottext">ReadPrec [ListProvisioningTemplatesResponse]
 ReadPrec ListProvisioningTemplatesResponse
 Int -&gt; ReadS ListProvisioningTemplatesResponse
 ReadS [ListProvisioningTemplatesResponse]
@@ -534,7 +526,7 @@ readList :: ReadS [ListProvisioningTemplatesResponse]
 $creadList :: ReadS [ListProvisioningTemplatesResponse]
 readsPrec :: Int -&gt; ReadS ListProvisioningTemplatesResponse
 $creadsPrec :: Int -&gt; ReadS ListProvisioningTemplatesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679820761"><span id="local-6989586621679820763"><span id="local-6989586621679820765"><span class="annot"><span class="annottext">Int -&gt; ListProvisioningTemplatesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679821694"><span id="local-6989586621679821696"><span id="local-6989586621679821698"><span class="annot"><span class="annottext">Int -&gt; ListProvisioningTemplatesResponse -&gt; ShowS
 [ListProvisioningTemplatesResponse] -&gt; ShowS
 ListProvisioningTemplatesResponse -&gt; String
 (Int -&gt; ListProvisioningTemplatesResponse -&gt; ShowS)
@@ -580,9 +572,9 @@ ListProvisioningTemplatesResponse
 </span><span id="line-164"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-166"></span><span class="hs-comment">--</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- 'nextToken', 'listProvisioningTemplatesResponse_nextToken' - A token to retrieve the next set of results.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'templates', 'listProvisioningTemplatesResponse_templates' - A list of fleet provisioning templates</span><span>
 </span><span id="line-168"></span><span class="hs-comment">--</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- 'templates', 'listProvisioningTemplatesResponse_templates' - A list of fleet provisioning templates</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'nextToken', 'listProvisioningTemplatesResponse_nextToken' - A token to retrieve the next set of results.</span><span>
 </span><span id="line-170"></span><span class="hs-comment">--</span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'listProvisioningTemplatesResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#newListProvisioningTemplatesResponse"><span class="hs-identifier hs-type">newListProvisioningTemplatesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -590,51 +582,28 @@ ListProvisioningTemplatesResponse
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse</span></a></span><span>
 </span><span id="line-176"></span><span id="newListProvisioningTemplatesResponse"><span class="annot"><span class="annottext">newListProvisioningTemplatesResponse :: Int -&gt; ListProvisioningTemplatesResponse
-</span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#newListProvisioningTemplatesResponse"><span class="hs-identifier hs-var hs-var">newListProvisioningTemplatesResponse</span></a></span></span><span> </span><span id="local-6989586621679820758"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse' :: Maybe Text
--&gt; Maybe [ProvisioningTemplateSummary]
--&gt; Int
--&gt; ListProvisioningTemplatesResponse
+</span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#newListProvisioningTemplatesResponse"><span class="hs-identifier hs-var hs-var">newListProvisioningTemplatesResponse</span></a></span></span><span> </span><span id="local-6989586621679821691"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679821691"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse' :: Maybe [ProvisioningTemplateSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListProvisioningTemplatesResponse
 </span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse'</span></a></span><span>
-</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListProvisioningTemplatesResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#%24sel%3AnextToken%3AListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:templates:ListProvisioningTemplatesResponse' :: Maybe [ProvisioningTemplateSummary]
+</span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#%24sel%3Atemplates%3AListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-var">templates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ProvisioningTemplateSummary]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:templates:ListProvisioningTemplatesResponse' :: Maybe [ProvisioningTemplateSummary]
-</span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#%24sel%3Atemplates%3AListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-var">templates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisioningTemplateSummary]
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListProvisioningTemplatesResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#%24sel%3AnextToken%3AListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListProvisioningTemplatesResponse' :: Int
 </span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#%24sel%3AhttpStatus%3AListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679821691"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- | A token to retrieve the next set of results.</span><span>
-</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#listProvisioningTemplatesResponse_nextToken"><span class="hs-identifier hs-type">listProvisioningTemplatesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span id="listProvisioningTemplatesResponse_nextToken"><span class="annot"><span class="annottext">listProvisioningTemplatesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListProvisioningTemplatesResponse
--&gt; f ListProvisioningTemplatesResponse
-</span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#listProvisioningTemplatesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listProvisioningTemplatesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProvisioningTemplatesResponse -&gt; Maybe Text)
--&gt; (ListProvisioningTemplatesResponse
-    -&gt; Maybe Text -&gt; ListProvisioningTemplatesResponse)
--&gt; Lens' ListProvisioningTemplatesResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820757"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListProvisioningTemplatesResponse' :: ListProvisioningTemplatesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679820757"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820757"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820756"><span class="annot"><span class="annottext">s :: ListProvisioningTemplatesResponse
-</span><a href="#local-6989586621679820756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820755"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse
-</span><a href="#local-6989586621679820756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListProvisioningTemplatesResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#%24sel%3AnextToken%3AListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- | A list of fleet provisioning templates</span><span>
-</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#listProvisioningTemplatesResponse_templates"><span class="hs-identifier hs-type">listProvisioningTemplatesResponse_templates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.ProvisioningTemplateSummary.html#ProvisioningTemplateSummary"><span class="hs-identifier hs-type">ProvisioningTemplateSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span id="listProvisioningTemplatesResponse_templates"><span class="annot"><span class="annottext">listProvisioningTemplatesResponse_templates :: (Maybe [ProvisioningTemplateSummary]
+</span><span id="line-184"></span><span class="hs-comment">-- | A list of fleet provisioning templates</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#listProvisioningTemplatesResponse_templates"><span class="hs-identifier hs-type">listProvisioningTemplatesResponse_templates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.ProvisioningTemplateSummary.html#ProvisioningTemplateSummary"><span class="hs-identifier hs-type">ProvisioningTemplateSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="listProvisioningTemplatesResponse_templates"><span class="annot"><span class="annottext">listProvisioningTemplatesResponse_templates :: (Maybe [ProvisioningTemplateSummary]
  -&gt; f (Maybe [ProvisioningTemplateSummary]))
 -&gt; ListProvisioningTemplatesResponse
 -&gt; f ListProvisioningTemplatesResponse
@@ -647,17 +616,17 @@ $sel:nextToken:ListProvisioningTemplatesResponse' :: ListProvisioningTemplatesRe
      ListProvisioningTemplatesResponse
      (Maybe [ProvisioningTemplateSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820754"><span class="annot"><span class="annottext">Maybe [ProvisioningTemplateSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821690"><span class="annot"><span class="annottext">Maybe [ProvisioningTemplateSummary]
 templates :: Maybe [ProvisioningTemplateSummary]
 $sel:templates:ListProvisioningTemplatesResponse' :: ListProvisioningTemplatesResponse
 -&gt; Maybe [ProvisioningTemplateSummary]
-</span><a href="#local-6989586621679820754"><span class="hs-identifier hs-var hs-var">templates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisioningTemplateSummary]
-</span><a href="#local-6989586621679820754"><span class="hs-identifier hs-var">templates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820753"><span class="annot"><span class="annottext">s :: ListProvisioningTemplatesResponse
-</span><a href="#local-6989586621679820753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820752"><span class="annot"><span class="annottext">Maybe [ProvisioningTemplateSummary]
-</span><a href="#local-6989586621679820752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse
-</span><a href="#local-6989586621679820753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templates:ListProvisioningTemplatesResponse' :: Maybe [ProvisioningTemplateSummary]
+</span><a href="#local-6989586621679821690"><span class="hs-identifier hs-var hs-var">templates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisioningTemplateSummary]
+</span><a href="#local-6989586621679821690"><span class="hs-identifier hs-var">templates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679821689"><span class="annot"><span class="annottext">s :: ListProvisioningTemplatesResponse
+</span><a href="#local-6989586621679821689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679821688"><span class="annot"><span class="annottext">Maybe [ProvisioningTemplateSummary]
+</span><a href="#local-6989586621679821688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse
+</span><a href="#local-6989586621679821689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templates:ListProvisioningTemplatesResponse' :: Maybe [ProvisioningTemplateSummary]
 </span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#%24sel%3Atemplates%3AListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-var">templates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisioningTemplateSummary]
-</span><a href="#local-6989586621679820752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ProvisioningTemplateSummary]
+</span><a href="#local-6989586621679821688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ProvisioningTemplateSummary]
   -&gt; f (Maybe [ProvisioningTemplateSummary]))
  -&gt; ListProvisioningTemplatesResponse
  -&gt; f ListProvisioningTemplatesResponse)
@@ -688,8 +657,29 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ProvisioningTemplateSummary]
   [ProvisioningTemplateSummary]
   [ProvisioningTemplateSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | A token to retrieve the next set of results.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#listProvisioningTemplatesResponse_nextToken"><span class="hs-identifier hs-type">listProvisioningTemplatesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="listProvisioningTemplatesResponse_nextToken"><span class="annot"><span class="annottext">listProvisioningTemplatesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListProvisioningTemplatesResponse
+-&gt; f ListProvisioningTemplatesResponse
+</span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#listProvisioningTemplatesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listProvisioningTemplatesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProvisioningTemplatesResponse -&gt; Maybe Text)
+-&gt; (ListProvisioningTemplatesResponse
+    -&gt; Maybe Text -&gt; ListProvisioningTemplatesResponse)
+-&gt; Lens' ListProvisioningTemplatesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821685"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListProvisioningTemplatesResponse' :: ListProvisioningTemplatesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679821685"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679821685"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679821684"><span class="annot"><span class="annottext">s :: ListProvisioningTemplatesResponse
+</span><a href="#local-6989586621679821684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679821683"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679821683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse
+</span><a href="#local-6989586621679821684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListProvisioningTemplatesResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#%24sel%3AnextToken%3AListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679821683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-193"></span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#listProvisioningTemplatesResponse_httpStatus"><span class="hs-identifier hs-type">listProvisioningTemplatesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -705,18 +695,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820749"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821682"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListProvisioningTemplatesResponse' :: ListProvisioningTemplatesResponse -&gt; Int
-</span><a href="#local-6989586621679820749"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820749"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820748"><span class="annot"><span class="annottext">s :: ListProvisioningTemplatesResponse
-</span><a href="#local-6989586621679820748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820747"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse
-</span><a href="#local-6989586621679820748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListProvisioningTemplatesResponse' :: Int
+</span><a href="#local-6989586621679821682"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679821682"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679821681"><span class="annot"><span class="annottext">s :: ListProvisioningTemplatesResponse
+</span><a href="#local-6989586621679821681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679821680"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679821680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisioningTemplatesResponse
+</span><a href="#local-6989586621679821681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListProvisioningTemplatesResponse' :: Int
 </span><a href="Network.AWS.IoT.ListProvisioningTemplates.html#%24sel%3AhttpStatus%3AListProvisioningTemplatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679821680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679820745"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679821678"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListProvisioningTemplates.html#ListProvisioningTemplatesResponse"><span class="hs-identifier hs-type">ListProvisioningTemplatesResponse</span></a></span></span><span>
 </span><span id="line-199"></span></pre></body></html>

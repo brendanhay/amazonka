@@ -58,13 +58,13 @@
 </span><span id="line-58"></span><span class="hs-comment">-- -   @DataURI@ - Sets the search criteria to the data file(s) used in the</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--     @BatchPrediction@. The URL can identify either a file or an Amazon</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--     Simple Storage Service (Amazon S3) bucket or directory.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679249689"><span id="local-6989586621679249690"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BatchPredictionFilterVariable"><span class="annot"><a href="Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.html#BatchPredictionFilterVariable"><span class="hs-identifier hs-var">BatchPredictionFilterVariable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPredictionFilterVariable%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.html#BatchPredictionFilterVariable%27"><span class="hs-identifier hs-var">BatchPredictionFilterVariable'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679249767"><span id="local-6989586621679249768"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BatchPredictionFilterVariable"><span class="annot"><a href="Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.html#BatchPredictionFilterVariable"><span class="hs-identifier hs-var">BatchPredictionFilterVariable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPredictionFilterVariable%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.html#BatchPredictionFilterVariable%27"><span class="hs-identifier hs-var">BatchPredictionFilterVariable'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBatchPredictionFilterVariable"><span class="annot"><span class="annottext">BatchPredictionFilterVariable -&gt; Text
 </span><a href="Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable.html#fromBatchPredictionFilterVariable"><span class="hs-identifier hs-var hs-var">fromBatchPredictionFilterVariable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249681"><span id="local-6989586621679249683"><span id="local-6989586621679249685"><span class="annot"><span class="annottext">Int -&gt; BatchPredictionFilterVariable -&gt; ShowS
+</span><span id="line-66"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249759"><span id="local-6989586621679249761"><span id="local-6989586621679249763"><span class="annot"><span class="annottext">Int -&gt; BatchPredictionFilterVariable -&gt; ShowS
 [BatchPredictionFilterVariable] -&gt; ShowS
 BatchPredictionFilterVariable -&gt; String
 (Int -&gt; BatchPredictionFilterVariable -&gt; ShowS)
@@ -80,7 +80,7 @@ $cshow :: BatchPredictionFilterVariable -&gt; String
 showsPrec :: Int -&gt; BatchPredictionFilterVariable -&gt; ShowS
 $cshowsPrec :: Int -&gt; BatchPredictionFilterVariable -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679249672"><span id="local-6989586621679249674"><span id="local-6989586621679249676"><span id="local-6989586621679249678"><span class="annot"><span class="annottext">ReadPrec [BatchPredictionFilterVariable]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679249750"><span id="local-6989586621679249752"><span id="local-6989586621679249754"><span id="local-6989586621679249756"><span class="annot"><span class="annottext">ReadPrec [BatchPredictionFilterVariable]
 ReadPrec BatchPredictionFilterVariable
 Int -&gt; ReadS BatchPredictionFilterVariable
 ReadS [BatchPredictionFilterVariable]
@@ -101,7 +101,7 @@ $creadList :: ReadS [BatchPredictionFilterVariable]
 readsPrec :: Int -&gt; ReadS BatchPredictionFilterVariable
 $creadsPrec :: Int -&gt; ReadS BatchPredictionFilterVariable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679249667"><span id="local-6989586621679249669"><span class="annot"><span class="annottext">BatchPredictionFilterVariable
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679249745"><span id="local-6989586621679249747"><span class="annot"><span class="annottext">BatchPredictionFilterVariable
 -&gt; BatchPredictionFilterVariable -&gt; Bool
 (BatchPredictionFilterVariable
  -&gt; BatchPredictionFilterVariable -&gt; Bool)
@@ -118,7 +118,7 @@ $c/= :: BatchPredictionFilterVariable
 $c== :: BatchPredictionFilterVariable
 -&gt; BatchPredictionFilterVariable -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679249651"><span id="local-6989586621679249653"><span id="local-6989586621679249655"><span id="local-6989586621679249657"><span id="local-6989586621679249659"><span id="local-6989586621679249661"><span id="local-6989586621679249663"><span class="annot"><span class="annottext">Eq BatchPredictionFilterVariable
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679249729"><span id="local-6989586621679249731"><span id="local-6989586621679249733"><span id="local-6989586621679249735"><span id="local-6989586621679249737"><span id="local-6989586621679249739"><span id="local-6989586621679249741"><span class="annot"><span class="annottext">Eq BatchPredictionFilterVariable
 Eq BatchPredictionFilterVariable
 -&gt; (BatchPredictionFilterVariable
     -&gt; BatchPredictionFilterVariable -&gt; Ordering)
@@ -205,7 +205,7 @@ BatchPredictionFilterVariable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249643"><span id="local-6989586621679249645"><span class="annot"><span class="annottext">Int -&gt; BatchPredictionFilterVariable -&gt; Int
+</span><span id="line-73"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249721"><span id="local-6989586621679249723"><span class="annot"><span class="annottext">Int -&gt; BatchPredictionFilterVariable -&gt; Int
 BatchPredictionFilterVariable -&gt; Int
 (Int -&gt; BatchPredictionFilterVariable -&gt; Int)
 -&gt; (BatchPredictionFilterVariable -&gt; Int)
@@ -216,56 +216,56 @@ $chash :: BatchPredictionFilterVariable -&gt; Int
 hashWithSalt :: Int -&gt; BatchPredictionFilterVariable -&gt; Int
 $chashWithSalt :: Int -&gt; BatchPredictionFilterVariable -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679249640"><span class="annot"><span class="annottext">BatchPredictionFilterVariable -&gt; ()
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679249718"><span class="annot"><span class="annottext">BatchPredictionFilterVariable -&gt; ()
 (BatchPredictionFilterVariable -&gt; ())
 -&gt; NFData BatchPredictionFilterVariable
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BatchPredictionFilterVariable -&gt; ()
 $crnf :: BatchPredictionFilterVariable -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679249637"><span class="annot"><span class="annottext">Text -&gt; Either String BatchPredictionFilterVariable
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679249715"><span class="annot"><span class="annottext">Text -&gt; Either String BatchPredictionFilterVariable
 (Text -&gt; Either String BatchPredictionFilterVariable)
 -&gt; FromText BatchPredictionFilterVariable
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BatchPredictionFilterVariable
 $cfromText :: Text -&gt; Either String BatchPredictionFilterVariable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679249634"><span class="annot"><span class="annottext">BatchPredictionFilterVariable -&gt; Text
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679249712"><span class="annot"><span class="annottext">BatchPredictionFilterVariable -&gt; Text
 (BatchPredictionFilterVariable -&gt; Text)
 -&gt; ToText BatchPredictionFilterVariable
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BatchPredictionFilterVariable -&gt; Text
 $ctoText :: BatchPredictionFilterVariable -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679249631"><span class="annot"><span class="annottext">BatchPredictionFilterVariable -&gt; ByteString
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679249709"><span class="annot"><span class="annottext">BatchPredictionFilterVariable -&gt; ByteString
 (BatchPredictionFilterVariable -&gt; ByteString)
 -&gt; ToByteString BatchPredictionFilterVariable
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BatchPredictionFilterVariable -&gt; ByteString
 $ctoBS :: BatchPredictionFilterVariable -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621679249628"><span class="annot"><span class="annottext">BatchPredictionFilterVariable -&gt; ByteStringBuilder
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679249706"><span class="annot"><span class="annottext">BatchPredictionFilterVariable -&gt; ByteStringBuilder
 (BatchPredictionFilterVariable -&gt; ByteStringBuilder)
 -&gt; ToLog BatchPredictionFilterVariable
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BatchPredictionFilterVariable -&gt; ByteStringBuilder
 $cbuild :: BatchPredictionFilterVariable -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span id="local-6989586621679249625"><span class="annot"><span class="annottext">HeaderName -&gt; BatchPredictionFilterVariable -&gt; [Header]
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679249703"><span class="annot"><span class="annottext">HeaderName -&gt; BatchPredictionFilterVariable -&gt; [Header]
 (HeaderName -&gt; BatchPredictionFilterVariable -&gt; [Header])
 -&gt; ToHeader BatchPredictionFilterVariable
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BatchPredictionFilterVariable -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BatchPredictionFilterVariable -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621679249622"><span class="annot"><span class="annottext">BatchPredictionFilterVariable -&gt; QueryString
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679249700"><span class="annot"><span class="annottext">BatchPredictionFilterVariable -&gt; QueryString
 (BatchPredictionFilterVariable -&gt; QueryString)
 -&gt; ToQuery BatchPredictionFilterVariable
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BatchPredictionFilterVariable -&gt; QueryString
 $ctoQuery :: BatchPredictionFilterVariable -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span id="local-6989586621679249617"><span id="local-6989586621679249619"><span class="annot"><span class="annottext">Value -&gt; Parser [BatchPredictionFilterVariable]
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679249695"><span id="local-6989586621679249697"><span class="annot"><span class="annottext">Value -&gt; Parser [BatchPredictionFilterVariable]
 Value -&gt; Parser BatchPredictionFilterVariable
 (Value -&gt; Parser BatchPredictionFilterVariable)
 -&gt; (Value -&gt; Parser [BatchPredictionFilterVariable])
@@ -277,7 +277,7 @@ $cparseJSONList :: Value -&gt; Parser [BatchPredictionFilterVariable]
 parseJSON :: Value -&gt; Parser BatchPredictionFilterVariable
 $cparseJSON :: Value -&gt; Parser BatchPredictionFilterVariable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span id="local-6989586621679249612"><span id="local-6989586621679249614"><span class="annot"><span class="annottext">FromJSONKeyFunction [BatchPredictionFilterVariable]
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679249690"><span id="local-6989586621679249692"><span class="annot"><span class="annottext">FromJSONKeyFunction [BatchPredictionFilterVariable]
 FromJSONKeyFunction BatchPredictionFilterVariable
 FromJSONKeyFunction BatchPredictionFilterVariable
 -&gt; FromJSONKeyFunction [BatchPredictionFilterVariable]
@@ -289,7 +289,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BatchPredictionFilterVariable]
 fromJSONKey :: FromJSONKeyFunction BatchPredictionFilterVariable
 $cfromJSONKey :: FromJSONKeyFunction BatchPredictionFilterVariable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span id="local-6989586621679249603"><span id="local-6989586621679249605"><span id="local-6989586621679249607"><span id="local-6989586621679249609"><span class="annot"><span class="annottext">[BatchPredictionFilterVariable] -&gt; Encoding
+</span><span id="line-83"></span><span>      </span><span id="local-6989586621679249681"><span id="local-6989586621679249683"><span id="local-6989586621679249685"><span id="local-6989586621679249687"><span class="annot"><span class="annottext">[BatchPredictionFilterVariable] -&gt; Encoding
 [BatchPredictionFilterVariable] -&gt; Value
 BatchPredictionFilterVariable -&gt; Encoding
 BatchPredictionFilterVariable -&gt; Value
@@ -313,7 +313,7 @@ $ctoEncoding :: BatchPredictionFilterVariable -&gt; Encoding
 toJSON :: BatchPredictionFilterVariable -&gt; Value
 $ctoJSON :: BatchPredictionFilterVariable -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span id="local-6989586621679249598"><span id="local-6989586621679249600"><span class="annot"><span class="annottext">ToJSONKeyFunction [BatchPredictionFilterVariable]
+</span><span id="line-84"></span><span>      </span><span id="local-6989586621679249676"><span id="local-6989586621679249678"><span class="annot"><span class="annottext">ToJSONKeyFunction [BatchPredictionFilterVariable]
 ToJSONKeyFunction BatchPredictionFilterVariable
 ToJSONKeyFunction BatchPredictionFilterVariable
 -&gt; ToJSONKeyFunction [BatchPredictionFilterVariable]
@@ -325,14 +325,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BatchPredictionFilterVariable]
 toJSONKey :: ToJSONKeyFunction BatchPredictionFilterVariable
 $ctoJSONKey :: ToJSONKeyFunction BatchPredictionFilterVariable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span id="local-6989586621679249595"><span class="annot"><span class="annottext">[Node] -&gt; Either String BatchPredictionFilterVariable
+</span><span id="line-85"></span><span>      </span><span id="local-6989586621679249673"><span class="annot"><span class="annottext">[Node] -&gt; Either String BatchPredictionFilterVariable
 ([Node] -&gt; Either String BatchPredictionFilterVariable)
 -&gt; FromXML BatchPredictionFilterVariable
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BatchPredictionFilterVariable
 $cparseXML :: [Node] -&gt; Either String BatchPredictionFilterVariable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span id="local-6989586621679249592"><span class="annot"><span class="annottext">BatchPredictionFilterVariable -&gt; XML
+</span><span id="line-86"></span><span>      </span><span id="local-6989586621679249670"><span class="annot"><span class="annottext">BatchPredictionFilterVariable -&gt; XML
 (BatchPredictionFilterVariable -&gt; XML)
 -&gt; ToXML BatchPredictionFilterVariable
 forall a. (a -&gt; XML) -&gt; ToXML a

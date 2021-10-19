@@ -27,25 +27,25 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A property that allows a node to repel a set of pods.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTaint' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679269074"><span id="local-6989586621679269075"></span></span><span class="hs-keyword">data</span><span> </span><span id="Taint"><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-var">Taint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Taint%27"><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint%27"><span class="hs-identifier hs-var">Taint'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679269339"><span id="local-6989586621679269340"></span></span><span class="hs-keyword">data</span><span> </span><span id="Taint"><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-var">Taint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Taint%27"><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint%27"><span class="hs-identifier hs-var">Taint'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The effect of the taint.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aeffect%3ATaint%27"><span class="annot"><span class="annottext">Taint -&gt; Maybe TaintEffect
 </span><a href="Network.AWS.EKS.Types.Taint.html#%24sel%3Aeffect%3ATaint%27"><span class="hs-identifier hs-var hs-var">effect</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.TaintEffect.html#TaintEffect"><span class="hs-identifier hs-type">TaintEffect</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The key of the taint.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Akey%3ATaint%27"><span class="annot"><span class="annottext">Taint -&gt; Maybe Text
-</span><a href="Network.AWS.EKS.Types.Taint.html#%24sel%3Akey%3ATaint%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The value of the taint.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Avalue%3ATaint%27"><span class="annot"><span class="annottext">Taint -&gt; Maybe Text
-</span><a href="Network.AWS.EKS.Types.Taint.html#%24sel%3Avalue%3ATaint%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The value of the taint.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3ATaint%27"><span class="annot"><span class="annottext">Taint -&gt; Maybe Text
+</span><a href="Network.AWS.EKS.Types.Taint.html#%24sel%3Avalue%3ATaint%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The key of the taint.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Akey%3ATaint%27"><span class="annot"><span class="annottext">Taint -&gt; Maybe Text
+</span><a href="Network.AWS.EKS.Types.Taint.html#%24sel%3Akey%3ATaint%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269066"><span id="local-6989586621679269068"><span class="annot"><span class="annottext">Taint -&gt; Taint -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269331"><span id="local-6989586621679269333"><span class="annot"><span class="annottext">Taint -&gt; Taint -&gt; Bool
 (Taint -&gt; Taint -&gt; Bool) -&gt; (Taint -&gt; Taint -&gt; Bool) -&gt; Eq Taint
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Taint -&gt; Taint -&gt; Bool
 $c/= :: Taint -&gt; Taint -&gt; Bool
 == :: Taint -&gt; Taint -&gt; Bool
 $c== :: Taint -&gt; Taint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269057"><span id="local-6989586621679269059"><span id="local-6989586621679269061"><span id="local-6989586621679269063"><span class="annot"><span class="annottext">ReadPrec [Taint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269322"><span id="local-6989586621679269324"><span id="local-6989586621679269326"><span id="local-6989586621679269328"><span class="annot"><span class="annottext">ReadPrec [Taint]
 ReadPrec Taint
 Int -&gt; ReadS Taint
 ReadS [Taint]
@@ -65,7 +65,7 @@ readList :: ReadS [Taint]
 $creadList :: ReadS [Taint]
 readsPrec :: Int -&gt; ReadS Taint
 $creadsPrec :: Int -&gt; ReadS Taint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269050"><span id="local-6989586621679269052"><span id="local-6989586621679269054"><span class="annot"><span class="annottext">Int -&gt; Taint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269315"><span id="local-6989586621679269317"><span id="local-6989586621679269319"><span class="annot"><span class="annottext">Int -&gt; Taint -&gt; ShowS
 [Taint] -&gt; ShowS
 Taint -&gt; String
 (Int -&gt; Taint -&gt; ShowS)
@@ -98,9 +98,9 @@ $cfrom :: forall x. Taint -&gt; Rep Taint x
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- 'effect', 'taint_effect' - The effect of the taint.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'key', 'taint_key' - The key of the taint.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'value', 'taint_value' - The value of the taint.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'value', 'taint_value' - The value of the taint.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'key', 'taint_key' - The key of the taint.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#newTaint"><span class="hs-identifier hs-type">newTaint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span>
 </span><span id="line-55"></span><span id="newTaint"><span class="annot"><span class="annottext">newTaint :: Taint
@@ -111,12 +111,12 @@ $cfrom :: forall x. Taint -&gt; Rep Taint x
 </span><a href="Network.AWS.EKS.Types.Taint.html#%24sel%3Aeffect%3ATaint%27"><span class="hs-identifier hs-var">effect</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaintEffect
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:Taint' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.Taint.html#%24sel%3Akey%3ATaint%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:Taint' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.Taint.html#%24sel%3Avalue%3ATaint%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:Taint' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.Taint.html#%24sel%3Avalue%3ATaint%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:Taint' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.Taint.html#%24sel%3Akey%3ATaint%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
@@ -128,63 +128,63 @@ forall a. Maybe a
 -&gt; (Taint -&gt; Maybe TaintEffect -&gt; Taint)
 -&gt; Lens Taint Taint (Maybe TaintEffect) (Maybe TaintEffect)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint%27"><span class="hs-identifier hs-type">Taint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269041"><span class="annot"><span class="annottext">Maybe TaintEffect
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint%27"><span class="hs-identifier hs-type">Taint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269306"><span class="annot"><span class="annottext">Maybe TaintEffect
 effect :: Maybe TaintEffect
 $sel:effect:Taint' :: Taint -&gt; Maybe TaintEffect
-</span><a href="#local-6989586621679269041"><span class="hs-identifier hs-var hs-var">effect</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaintEffect
-</span><a href="#local-6989586621679269041"><span class="hs-identifier hs-var">effect</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269040"><span class="annot"><span class="annottext">s :: Taint
-</span><a href="#local-6989586621679269040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint%27"><span class="hs-identifier hs-type">Taint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269039"><span class="annot"><span class="annottext">Maybe TaintEffect
-</span><a href="#local-6989586621679269039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Taint
-</span><a href="#local-6989586621679269040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effect:Taint' :: Maybe TaintEffect
+</span><a href="#local-6989586621679269306"><span class="hs-identifier hs-var hs-var">effect</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaintEffect
+</span><a href="#local-6989586621679269306"><span class="hs-identifier hs-var">effect</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269305"><span class="annot"><span class="annottext">s :: Taint
+</span><a href="#local-6989586621679269305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint%27"><span class="hs-identifier hs-type">Taint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269304"><span class="annot"><span class="annottext">Maybe TaintEffect
+</span><a href="#local-6989586621679269304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Taint
+</span><a href="#local-6989586621679269305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effect:Taint' :: Maybe TaintEffect
 </span><a href="Network.AWS.EKS.Types.Taint.html#%24sel%3Aeffect%3ATaint%27"><span class="hs-identifier hs-var">effect</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaintEffect
-</span><a href="#local-6989586621679269039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679269304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The key of the taint.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#taint_key"><span class="hs-identifier hs-type">taint_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="taint_key"><span class="annot"><span class="annottext">taint_key :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Taint -&gt; f Taint
-</span><a href="Network.AWS.EKS.Types.Taint.html#taint_key"><span class="hs-identifier hs-var hs-var">taint_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Taint -&gt; Maybe Text)
--&gt; (Taint -&gt; Maybe Text -&gt; Taint)
--&gt; Lens Taint Taint (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint%27"><span class="hs-identifier hs-type">Taint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269037"><span class="annot"><span class="annottext">Maybe Text
-key :: Maybe Text
-$sel:key:Taint' :: Taint -&gt; Maybe Text
-</span><a href="#local-6989586621679269037"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269037"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269036"><span class="annot"><span class="annottext">s :: Taint
-</span><a href="#local-6989586621679269036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint%27"><span class="hs-identifier hs-type">Taint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269035"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Taint
-</span><a href="#local-6989586621679269036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Taint' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.Taint.html#%24sel%3Akey%3ATaint%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The value of the taint.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#taint_value"><span class="hs-identifier hs-type">taint_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="taint_value"><span class="annot"><span class="annottext">taint_value :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Taint -&gt; f Taint
+</span><span id="line-66"></span><span class="hs-comment">-- | The value of the taint.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#taint_value"><span class="hs-identifier hs-type">taint_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="taint_value"><span class="annot"><span class="annottext">taint_value :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Taint -&gt; f Taint
 </span><a href="Network.AWS.EKS.Types.Taint.html#taint_value"><span class="hs-identifier hs-var hs-var">taint_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Taint -&gt; Maybe Text)
 -&gt; (Taint -&gt; Maybe Text -&gt; Taint)
 -&gt; Lens Taint Taint (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint%27"><span class="hs-identifier hs-type">Taint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269033"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint%27"><span class="hs-identifier hs-type">Taint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269302"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:Taint' :: Taint -&gt; Maybe Text
-</span><a href="#local-6989586621679269033"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269033"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269032"><span class="annot"><span class="annottext">s :: Taint
-</span><a href="#local-6989586621679269032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint%27"><span class="hs-identifier hs-type">Taint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269031"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Taint
-</span><a href="#local-6989586621679269032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Taint' :: Maybe Text
+</span><a href="#local-6989586621679269302"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269302"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269301"><span class="annot"><span class="annottext">s :: Taint
+</span><a href="#local-6989586621679269301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint%27"><span class="hs-identifier hs-type">Taint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269300"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Taint
+</span><a href="#local-6989586621679269301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Taint' :: Maybe Text
 </span><a href="Network.AWS.EKS.Types.Taint.html#%24sel%3Avalue%3ATaint%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679269300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The key of the taint.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#taint_key"><span class="hs-identifier hs-type">taint_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="taint_key"><span class="annot"><span class="annottext">taint_key :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Taint -&gt; f Taint
+</span><a href="Network.AWS.EKS.Types.Taint.html#taint_key"><span class="hs-identifier hs-var hs-var">taint_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Taint -&gt; Maybe Text)
+-&gt; (Taint -&gt; Maybe Text -&gt; Taint)
+-&gt; Lens Taint Taint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint%27"><span class="hs-identifier hs-type">Taint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269298"><span class="annot"><span class="annottext">Maybe Text
+key :: Maybe Text
+$sel:key:Taint' :: Taint -&gt; Maybe Text
+</span><a href="#local-6989586621679269298"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269298"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269297"><span class="annot"><span class="annottext">s :: Taint
+</span><a href="#local-6989586621679269297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint%27"><span class="hs-identifier hs-type">Taint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269296"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Taint
+</span><a href="#local-6989586621679269297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Taint' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.Taint.html#%24sel%3Akey%3ATaint%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269028"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679269026"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Taint
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269293"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679269291"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Taint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Taint) -&gt; Value -&gt; Parser Taint
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Taint&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679269023"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679269023"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679269288"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269288"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe TaintEffect -&gt; Maybe Text -&gt; Maybe Text -&gt; Taint
 </span><a href="Network.AWS.EKS.Types.Taint.html#Taint%27"><span class="hs-identifier hs-var">Taint'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TaintEffect -&gt; Maybe Text -&gt; Maybe Text -&gt; Taint)
@@ -192,7 +192,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Taint)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679269023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TaintEffect)
+</span><a href="#local-6989586621679269288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TaintEffect)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;effect&quot;</span></span><span class="hs-special">)</span><span>
@@ -200,34 +200,34 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Taint)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679269023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;key&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Taint) -&gt; Parser (Maybe Text) -&gt; Parser Taint
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679269023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679269288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Taint) -&gt; Parser (Maybe Text) -&gt; Parser Taint
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;key&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269017"><span id="local-6989586621679269019"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269282"><span id="local-6989586621679269284"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269014"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269279"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269006"><span id="local-6989586621679269008"><span id="local-6989586621679269010"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679269004"><span class="annot"><span class="annottext">toJSON :: Taint -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint%27"><span class="hs-identifier hs-type">Taint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269000"><span id="local-6989586621679269001"><span id="local-6989586621679269002"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269271"><span id="local-6989586621679269273"><span id="local-6989586621679269275"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679269269"><span class="annot"><span class="annottext">toJSON :: Taint -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint%27"><span class="hs-identifier hs-type">Taint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269265"><span id="local-6989586621679269266"><span id="local-6989586621679269267"><span class="annot"><span class="annottext">Maybe Text
 Maybe TaintEffect
-value :: Maybe Text
 key :: Maybe Text
+value :: Maybe Text
 effect :: Maybe TaintEffect
-$sel:value:Taint' :: Taint -&gt; Maybe Text
 $sel:key:Taint' :: Taint -&gt; Maybe Text
+$sel:value:Taint' :: Taint -&gt; Maybe Text
 $sel:effect:Taint' :: Taint -&gt; Maybe TaintEffect
-</span><a href="#local-6989586621679269000"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679269265"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -239,21 +239,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TaintEffect -&gt; Pair) -&gt; Maybe TaintEffect -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TaintEffect
-</span><a href="#local-6989586621679269002"><span class="hs-identifier hs-var">effect</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679269267"><span class="hs-identifier hs-var">effect</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269001"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269000"><span class="hs-identifier hs-var">value</span></a></span><span>
+</span><a href="#local-6989586621679269266"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269265"><span class="hs-identifier hs-var">key</span></a></span><span>
 </span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span></pre></body></html>

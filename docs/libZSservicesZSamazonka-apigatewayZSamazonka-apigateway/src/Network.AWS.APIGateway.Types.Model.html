@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html Models and Mappings&gt;</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newModel' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679367625"><span id="local-6989586621679367626"></span></span><span class="hs-keyword">data</span><span> </span><span id="Model"><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-var">Model</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Model%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-var">Model'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679368128"><span id="local-6989586621679368129"></span></span><span class="hs-keyword">data</span><span> </span><span id="Model"><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-var">Model</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Model%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-var">Model'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The schema for the model. For @application\/json@ models, this should be</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4&gt;</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- model. Do not include \&quot;\\*\/\&quot; characters in the description of any</span><span>
@@ -48,27 +48,27 @@
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- Gateway to fail.</span><span>
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Aschema%3AModel%27"><span class="annot"><span class="annottext">Model -&gt; Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3Aschema%3AModel%27"><span class="hs-identifier hs-var hs-var">schema</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The content-type for the model.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AcontentType%3AModel%27"><span class="annot"><span class="annottext">Model -&gt; Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3AcontentType%3AModel%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The name of the model. Must be an alphanumeric string.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aname%3AModel%27"><span class="annot"><span class="annottext">Model -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3Aname%3AModel%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The identifier for the model resource.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3Aid%3AModel%27"><span class="annot"><span class="annottext">Model -&gt; Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3Aid%3AModel%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The name of the model. Must be an alphanumeric string.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3Aname%3AModel%27"><span class="annot"><span class="annottext">Model -&gt; Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3Aname%3AModel%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The description of the model.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3Adescription%3AModel%27"><span class="annot"><span class="annottext">Model -&gt; Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3Adescription%3AModel%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The description of the model.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Adescription%3AModel%27"><span class="annot"><span class="annottext">Model -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3Adescription%3AModel%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The content-type for the model.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AcontentType%3AModel%27"><span class="annot"><span class="annottext">Model -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3AcontentType%3AModel%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367615"><span id="local-6989586621679367617"><span class="annot"><span class="annottext">Model -&gt; Model -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368118"><span id="local-6989586621679368120"><span class="annot"><span class="annottext">Model -&gt; Model -&gt; Bool
 (Model -&gt; Model -&gt; Bool) -&gt; (Model -&gt; Model -&gt; Bool) -&gt; Eq Model
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Model -&gt; Model -&gt; Bool
 $c/= :: Model -&gt; Model -&gt; Bool
 == :: Model -&gt; Model -&gt; Bool
 $c== :: Model -&gt; Model -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367606"><span id="local-6989586621679367608"><span id="local-6989586621679367610"><span id="local-6989586621679367612"><span class="annot"><span class="annottext">ReadPrec [Model]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368109"><span id="local-6989586621679368111"><span id="local-6989586621679368113"><span id="local-6989586621679368115"><span class="annot"><span class="annottext">ReadPrec [Model]
 ReadPrec Model
 Int -&gt; ReadS Model
 ReadS [Model]
@@ -88,7 +88,7 @@ readList :: ReadS [Model]
 $creadList :: ReadS [Model]
 readsPrec :: Int -&gt; ReadS Model
 $creadsPrec :: Int -&gt; ReadS Model
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367599"><span id="local-6989586621679367601"><span id="local-6989586621679367603"><span class="annot"><span class="annottext">Int -&gt; Model -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368102"><span id="local-6989586621679368104"><span id="local-6989586621679368106"><span class="annot"><span class="annottext">Int -&gt; Model -&gt; ShowS
 [Model] -&gt; ShowS
 Model -&gt; String
 (Int -&gt; Model -&gt; ShowS)
@@ -127,13 +127,13 @@ $cfrom :: forall x. Model -&gt; Rep Model x
 </span><span id="line-74"></span><span class="hs-comment">-- JavaScript, causing the installation of your API\'s SDK generated by API</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- Gateway to fail.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'contentType', 'model_contentType' - The content-type for the model.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'name', 'model_name' - The name of the model. Must be an alphanumeric string.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- 'id', 'model_id' - The identifier for the model resource.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'name', 'model_name' - The name of the model. Must be an alphanumeric string.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'description', 'model_description' - The description of the model.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'description', 'model_description' - The description of the model.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'contentType', 'model_contentType' - The content-type for the model.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#newModel"><span class="hs-identifier hs-type">newModel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span>
 </span><span id="line-86"></span><span id="newModel"><span class="annot"><span class="annottext">newModel :: Model
@@ -145,20 +145,20 @@ $cfrom :: forall x. Model -&gt; Rep Model x
 </span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3Aschema%3AModel%27"><span class="hs-identifier hs-var">schema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentType:Model' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3AcontentType%3AModel%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Model' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3Aname%3AModel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Model' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3Aid%3AModel%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Model' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3Aname%3AModel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Model' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3Adescription%3AModel%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Model' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3Adescription%3AModel%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentType:Model' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3AcontentType%3AModel%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
@@ -176,34 +176,34 @@ forall a. Maybe a
 -&gt; (Model -&gt; Maybe Text -&gt; Model)
 -&gt; Lens Model Model (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367590"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368093"><span class="annot"><span class="annottext">Maybe Text
 schema :: Maybe Text
 $sel:schema:Model' :: Model -&gt; Maybe Text
-</span><a href="#local-6989586621679367590"><span class="hs-identifier hs-var hs-var">schema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367590"><span class="hs-identifier hs-var">schema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367589"><span class="annot"><span class="annottext">s :: Model
-</span><a href="#local-6989586621679367589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367588"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Model
-</span><a href="#local-6989586621679367589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schema:Model' :: Maybe Text
+</span><a href="#local-6989586621679368093"><span class="hs-identifier hs-var hs-var">schema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368093"><span class="hs-identifier hs-var">schema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368092"><span class="annot"><span class="annottext">s :: Model
+</span><a href="#local-6989586621679368092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368091"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Model
+</span><a href="#local-6989586621679368092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schema:Model' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3Aschema%3AModel%27"><span class="hs-identifier hs-var">schema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The content-type for the model.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#model_contentType"><span class="hs-identifier hs-type">model_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="model_contentType"><span class="annot"><span class="annottext">model_contentType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Model -&gt; f Model
-</span><a href="Network.AWS.APIGateway.Types.Model.html#model_contentType"><span class="hs-identifier hs-var hs-var">model_contentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Model -&gt; Maybe Text)
+</span><span id="line-105"></span><span class="hs-comment">-- | The name of the model. Must be an alphanumeric string.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#model_name"><span class="hs-identifier hs-type">model_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="model_name"><span class="annot"><span class="annottext">model_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Model -&gt; f Model
+</span><a href="Network.AWS.APIGateway.Types.Model.html#model_name"><span class="hs-identifier hs-var hs-var">model_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Model -&gt; Maybe Text)
 -&gt; (Model -&gt; Maybe Text -&gt; Model)
 -&gt; Lens Model Model (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367586"><span class="annot"><span class="annottext">Maybe Text
-contentType :: Maybe Text
-$sel:contentType:Model' :: Model -&gt; Maybe Text
-</span><a href="#local-6989586621679367586"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367586"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367585"><span class="annot"><span class="annottext">s :: Model
-</span><a href="#local-6989586621679367585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367584"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Model
-</span><a href="#local-6989586621679367585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:Model' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3AcontentType%3AModel%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368089"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Model' :: Model -&gt; Maybe Text
+</span><a href="#local-6989586621679368089"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368089"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368088"><span class="annot"><span class="annottext">s :: Model
+</span><a href="#local-6989586621679368088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368087"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Model
+</span><a href="#local-6989586621679368088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Model' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3Aname%3AModel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The identifier for the model resource.</span><span>
 </span><span id="line-110"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#model_id"><span class="hs-identifier hs-type">model_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -212,63 +212,63 @@ $sel:contentType:Model' :: Model -&gt; Maybe Text
 -&gt; (Model -&gt; Maybe Text -&gt; Model)
 -&gt; Lens Model Model (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367582"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368085"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:Model' :: Model -&gt; Maybe Text
-</span><a href="#local-6989586621679367582"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367582"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367581"><span class="annot"><span class="annottext">s :: Model
-</span><a href="#local-6989586621679367581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367580"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Model
-</span><a href="#local-6989586621679367581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Model' :: Maybe Text
+</span><a href="#local-6989586621679368085"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368085"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368084"><span class="annot"><span class="annottext">s :: Model
+</span><a href="#local-6989586621679368084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368083"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Model
+</span><a href="#local-6989586621679368084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Model' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3Aid%3AModel%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The name of the model. Must be an alphanumeric string.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#model_name"><span class="hs-identifier hs-type">model_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="model_name"><span class="annot"><span class="annottext">model_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Model -&gt; f Model
-</span><a href="Network.AWS.APIGateway.Types.Model.html#model_name"><span class="hs-identifier hs-var hs-var">model_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Model -&gt; Maybe Text)
--&gt; (Model -&gt; Maybe Text -&gt; Model)
--&gt; Lens Model Model (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367578"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:Model' :: Model -&gt; Maybe Text
-</span><a href="#local-6989586621679367578"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367578"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367577"><span class="annot"><span class="annottext">s :: Model
-</span><a href="#local-6989586621679367577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367576"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Model
-</span><a href="#local-6989586621679367577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Model' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3Aname%3AModel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | The description of the model.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#model_description"><span class="hs-identifier hs-type">model_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="model_description"><span class="annot"><span class="annottext">model_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Model -&gt; f Model
+</span><span id="line-113"></span><span class="hs-comment">-- | The description of the model.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#model_description"><span class="hs-identifier hs-type">model_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="model_description"><span class="annot"><span class="annottext">model_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Model -&gt; f Model
 </span><a href="Network.AWS.APIGateway.Types.Model.html#model_description"><span class="hs-identifier hs-var hs-var">model_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Model -&gt; Maybe Text)
 -&gt; (Model -&gt; Maybe Text -&gt; Model)
 -&gt; Lens Model Model (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367574"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368081"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:Model' :: Model -&gt; Maybe Text
-</span><a href="#local-6989586621679367574"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367574"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367573"><span class="annot"><span class="annottext">s :: Model
-</span><a href="#local-6989586621679367573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367572"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Model
-</span><a href="#local-6989586621679367573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Model' :: Maybe Text
+</span><a href="#local-6989586621679368081"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368081"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368080"><span class="annot"><span class="annottext">s :: Model
+</span><a href="#local-6989586621679368080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368079"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Model
+</span><a href="#local-6989586621679368080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Model' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3Adescription%3AModel%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The content-type for the model.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#model_contentType"><span class="hs-identifier hs-type">model_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="model_contentType"><span class="annot"><span class="annottext">model_contentType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Model -&gt; f Model
+</span><a href="Network.AWS.APIGateway.Types.Model.html#model_contentType"><span class="hs-identifier hs-var hs-var">model_contentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Model -&gt; Maybe Text)
+-&gt; (Model -&gt; Maybe Text -&gt; Model)
+-&gt; Lens Model Model (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368077"><span class="annot"><span class="annottext">Maybe Text
+contentType :: Maybe Text
+$sel:contentType:Model' :: Model -&gt; Maybe Text
+</span><a href="#local-6989586621679368077"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368077"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368076"><span class="annot"><span class="annottext">s :: Model
+</span><a href="#local-6989586621679368076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-type">Model'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368075"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Model
+</span><a href="#local-6989586621679368076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:Model' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Model.html#%24sel%3AcontentType%3AModel%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367569"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679367567"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Model
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368072"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679368070"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Model
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Model) -&gt; Value -&gt; Parser Model
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Model&quot;</span></span><span>
-</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367564"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367564"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368067"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368067"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Model
 </span><a href="Network.AWS.APIGateway.Types.Model.html#Model%27"><span class="hs-identifier hs-var">Model'</span></a></span><span>
@@ -279,7 +279,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Model)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679368067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;schema&quot;</span></span><span class="hs-special">)</span><span>
@@ -289,16 +289,16 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Model)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679368067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;contentType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Model)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Model)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679368067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
@@ -306,20 +306,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Model)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Model) -&gt; Parser (Maybe Text) -&gt; Parser Model
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679368067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Model) -&gt; Parser (Maybe Text) -&gt; Parser Model
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;contentType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367558"><span id="local-6989586621679367560"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368061"><span id="local-6989586621679368063"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span></span></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367555"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368058"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span></span><span>
 </span><span id="line-137"></span></pre></body></html>

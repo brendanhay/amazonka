@@ -107,10 +107,10 @@
 </span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#newDecrypt"><span class="hs-identifier">newDecrypt</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decrypt_grantTokens"><span class="hs-identifier">decrypt_grantTokens</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decrypt_encryptionAlgorithm"><span class="hs-identifier">decrypt_encryptionAlgorithm</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decrypt_encryptionContext"><span class="hs-identifier">decrypt_encryptionContext</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decrypt_keyId"><span class="hs-identifier">decrypt_keyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decrypt_keyId"><span class="hs-identifier">decrypt_keyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decrypt_encryptionContext"><span class="hs-identifier">decrypt_encryptionContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decrypt_grantTokens"><span class="hs-identifier">decrypt_grantTokens</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decrypt_encryptionAlgorithm"><span class="hs-identifier">decrypt_encryptionAlgorithm</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decrypt_ciphertextBlob"><span class="hs-identifier">decrypt_ciphertextBlob</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -118,9 +118,9 @@
 </span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#newDecryptResponse"><span class="hs-identifier">newDecryptResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_plaintext"><span class="hs-identifier">decryptResponse_plaintext</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_encryptionAlgorithm"><span class="hs-identifier">decryptResponse_encryptionAlgorithm</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_keyId"><span class="hs-identifier">decryptResponse_keyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_keyId"><span class="hs-identifier">decryptResponse_keyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_plaintext"><span class="hs-identifier">decryptResponse_plaintext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_encryptionAlgorithm"><span class="hs-identifier">decryptResponse_encryptionAlgorithm</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_httpStatus"><span class="hs-identifier">decryptResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span class="hs-keyword">where</span><span>
@@ -133,81 +133,81 @@
 </span><span id="line-133"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newDecrypt' smart constructor.</span><span>
-</span><span id="line-136"></span><span id="local-6989586621679259247"><span id="local-6989586621679259248"></span></span><span class="hs-keyword">data</span><span> </span><span id="Decrypt"><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-var">Decrypt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Decrypt%27"><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-var">Decrypt'</span></a></span></span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of grant tokens.</span><span>
-</span><span id="line-138"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- Use a grant token when your permission to call this operation comes from</span><span>
-</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- a new grant that has not yet achieved /eventual consistency/. For more</span><span>
-</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token&gt;</span><span>
-</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- and</span><span>
-</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token&gt;</span><span>
-</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
-</span><span id="line-146"></span><span>    </span><span id="%24sel%3AgrantTokens%3ADecrypt%27"><span class="annot"><span class="annottext">Decrypt -&gt; Maybe [Text]
-</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AgrantTokens%3ADecrypt%27"><span class="hs-identifier hs-var hs-var">grantTokens</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | Specifies the encryption algorithm that will be used to decrypt the</span><span>
-</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- ciphertext. Specify the same algorithm that was used to encrypt the</span><span>
-</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- data. If you specify a different algorithm, the @Decrypt@ operation</span><span>
-</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- fails.</span><span>
-</span><span id="line-151"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- This parameter is required only when the ciphertext was encrypted under</span><span>
-</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- an asymmetric KMS key. The default value, @SYMMETRIC_DEFAULT@,</span><span>
-</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- represents the only supported algorithm that is valid for symmetric KMS</span><span>
-</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- keys.</span><span>
-</span><span id="line-156"></span><span>    </span><span id="%24sel%3AencryptionAlgorithm%3ADecrypt%27"><span class="annot"><span class="annottext">Decrypt -&gt; Maybe EncryptionAlgorithmSpec
-</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AencryptionAlgorithm%3ADecrypt%27"><span class="hs-identifier hs-var hs-var">encryptionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.EncryptionAlgorithmSpec.html#EncryptionAlgorithmSpec"><span class="hs-identifier hs-type">EncryptionAlgorithmSpec</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | Specifies the encryption context to use when decrypting the data. An</span><span>
-</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- encryption context is valid only for</span><span>
-</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations&gt;</span><span>
-</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- with a symmetric KMS key. The standard asymmetric encryption algorithms</span><span>
-</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- that KMS uses do not support an encryption context.</span><span>
-</span><span id="line-162"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- An /encryption context/ is a collection of non-secret key-value pairs</span><span>
-</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- that represents additional authenticated data. When you use an</span><span>
-</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- encryption context to encrypt data, you must specify the same (an exact</span><span>
-</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- case-sensitive match) encryption context to decrypt the data. An</span><span>
-</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- encryption context is optional when encrypting with a symmetric KMS key,</span><span>
-</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- but it is highly recommended.</span><span>
-</span><span id="line-169"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context&gt;</span><span>
-</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
-</span><span id="line-173"></span><span>    </span><span id="%24sel%3AencryptionContext%3ADecrypt%27"><span class="annot"><span class="annottext">Decrypt -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AencryptionContext%3ADecrypt%27"><span class="hs-identifier hs-var hs-var">encryptionContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | Specifies the KMS key that KMS uses to decrypt the ciphertext. Enter a</span><span>
-</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- key ID of the KMS key that was used to encrypt the ciphertext.</span><span>
-</span><span id="line-176"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- This parameter is required only when the ciphertext was encrypted under</span><span>
-</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- an asymmetric KMS key. If you used a symmetric KMS key, KMS can get the</span><span>
-</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- KMS key from metadata that it adds to the symmetric ciphertext blob.</span><span>
-</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- However, it is always recommended as a best practice. This practice</span><span>
-</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- ensures that you use the KMS key that you intend.</span><span>
-</span><span id="line-182"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.</span><span>
-</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- When using an alias name, prefix it with @\&quot;alias\/\&quot;@. To specify a KMS</span><span>
-</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- key in a different Amazon Web Services account, you must use the key ARN</span><span>
-</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- or alias ARN.</span><span>
-</span><span id="line-187"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- For example:</span><span>
-</span><span id="line-189"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
-</span><span id="line-191"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- -   Key ARN:</span><span>
-</span><span id="line-193"></span><span>    </span><span class="hs-comment">--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
-</span><span id="line-194"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- -   Alias name: @alias\/ExampleAlias@</span><span>
-</span><span id="line-196"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- -   Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias\/ExampleAlias@</span><span>
-</span><span id="line-198"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- To get the key ID and key ARN for a KMS key, use ListKeys or</span><span>
-</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- DescribeKey. To get the alias name and alias ARN, use ListAliases.</span><span>
-</span><span id="line-201"></span><span>    </span><span id="%24sel%3AkeyId%3ADecrypt%27"><span class="annot"><span class="annottext">Decrypt -&gt; Maybe Text
+</span><span id="line-136"></span><span id="local-6989586621679259476"><span id="local-6989586621679259477"></span></span><span class="hs-keyword">data</span><span> </span><span id="Decrypt"><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-var">Decrypt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Decrypt%27"><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-var">Decrypt'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the KMS key that KMS uses to decrypt the ciphertext. Enter a</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- key ID of the KMS key that was used to encrypt the ciphertext.</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- This parameter is required only when the ciphertext was encrypted under</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- an asymmetric KMS key. If you used a symmetric KMS key, KMS can get the</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- KMS key from metadata that it adds to the symmetric ciphertext blob.</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- However, it is always recommended as a best practice. This practice</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- ensures that you use the KMS key that you intend.</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- When using an alias name, prefix it with @\&quot;alias\/\&quot;@. To specify a KMS</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- key in a different Amazon Web Services account, you must use the key ARN</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- or alias ARN.</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- -   Key ARN:</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- -   Alias name: @alias\/ExampleAlias@</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- -   Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias\/ExampleAlias@</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- To get the key ID and key ARN for a KMS key, use ListKeys or</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- DescribeKey. To get the alias name and alias ARN, use ListAliases.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AkeyId%3ADecrypt%27"><span class="annot"><span class="annottext">Decrypt -&gt; Maybe Text
 </span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AkeyId%3ADecrypt%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | Specifies the encryption context to use when decrypting the data. An</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- encryption context is valid only for</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations&gt;</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- with a symmetric KMS key. The standard asymmetric encryption algorithms</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- that KMS uses do not support an encryption context.</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- An /encryption context/ is a collection of non-secret key-value pairs</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- that represents additional authenticated data. When you use an</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- encryption context to encrypt data, you must specify the same (an exact</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- case-sensitive match) encryption context to decrypt the data. An</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- encryption context is optional when encrypting with a symmetric KMS key,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- but it is highly recommended.</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context&gt;</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AencryptionContext%3ADecrypt%27"><span class="annot"><span class="annottext">Decrypt -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AencryptionContext%3ADecrypt%27"><span class="hs-identifier hs-var hs-var">encryptionContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | A list of grant tokens.</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- Use a grant token when your permission to call this operation comes from</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- a new grant that has not yet achieved /eventual consistency/. For more</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token&gt;</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- and</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token&gt;</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AgrantTokens%3ADecrypt%27"><span class="annot"><span class="annottext">Decrypt -&gt; Maybe [Text]
+</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AgrantTokens%3ADecrypt%27"><span class="hs-identifier hs-var hs-var">grantTokens</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | Specifies the encryption algorithm that will be used to decrypt the</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- ciphertext. Specify the same algorithm that was used to encrypt the</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- data. If you specify a different algorithm, the @Decrypt@ operation</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- fails.</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- This parameter is required only when the ciphertext was encrypted under</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- an asymmetric KMS key. The default value, @SYMMETRIC_DEFAULT@,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- represents the only supported algorithm that is valid for symmetric KMS</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- keys.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AencryptionAlgorithm%3ADecrypt%27"><span class="annot"><span class="annottext">Decrypt -&gt; Maybe EncryptionAlgorithmSpec
+</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AencryptionAlgorithm%3ADecrypt%27"><span class="hs-identifier hs-var hs-var">encryptionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.EncryptionAlgorithmSpec.html#EncryptionAlgorithmSpec"><span class="hs-identifier hs-type">EncryptionAlgorithmSpec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | Ciphertext to be decrypted. The blob includes metadata.</span><span>
 </span><span id="line-203"></span><span>    </span><span id="%24sel%3AciphertextBlob%3ADecrypt%27"><span class="annot"><span class="annottext">Decrypt -&gt; Base64
 </span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AciphertextBlob%3ADecrypt%27"><span class="hs-identifier hs-var hs-var">ciphertextBlob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span>
 </span><span id="line-204"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-205"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259237"><span id="local-6989586621679259239"><span class="annot"><span class="annottext">Decrypt -&gt; Decrypt -&gt; Bool
+</span><span id="line-205"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259466"><span id="local-6989586621679259468"><span class="annot"><span class="annottext">Decrypt -&gt; Decrypt -&gt; Bool
 (Decrypt -&gt; Decrypt -&gt; Bool)
 -&gt; (Decrypt -&gt; Decrypt -&gt; Bool) -&gt; Eq Decrypt
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -215,7 +215,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Decrypt -&gt; Decrypt -&gt; Bool
 == :: Decrypt -&gt; Decrypt -&gt; Bool
 $c== :: Decrypt -&gt; Decrypt -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259228"><span id="local-6989586621679259230"><span id="local-6989586621679259232"><span id="local-6989586621679259234"><span class="annot"><span class="annottext">ReadPrec [Decrypt]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259457"><span id="local-6989586621679259459"><span id="local-6989586621679259461"><span id="local-6989586621679259463"><span class="annot"><span class="annottext">ReadPrec [Decrypt]
 ReadPrec Decrypt
 Int -&gt; ReadS Decrypt
 ReadS [Decrypt]
@@ -235,7 +235,7 @@ readList :: ReadS [Decrypt]
 $creadList :: ReadS [Decrypt]
 readsPrec :: Int -&gt; ReadS Decrypt
 $creadsPrec :: Int -&gt; ReadS Decrypt
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259221"><span id="local-6989586621679259223"><span id="local-6989586621679259225"><span class="annot"><span class="annottext">Int -&gt; Decrypt -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259450"><span id="local-6989586621679259452"><span id="local-6989586621679259454"><span class="annot"><span class="annottext">Int -&gt; Decrypt -&gt; ShowS
 [Decrypt] -&gt; ShowS
 Decrypt -&gt; String
 (Int -&gt; Decrypt -&gt; ShowS)
@@ -266,70 +266,70 @@ $cfrom :: forall x. Decrypt -&gt; Rep Decrypt x
 </span><span id="line-212"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-214"></span><span class="hs-comment">--</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- 'grantTokens', 'decrypt_grantTokens' - A list of grant tokens.</span><span>
-</span><span id="line-216"></span><span class="hs-comment">--</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- Use a grant token when your permission to call this operation comes from</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- a new grant that has not yet achieved /eventual consistency/. For more</span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token&gt;</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- and</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token&gt;</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
-</span><span id="line-224"></span><span class="hs-comment">--</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- 'encryptionAlgorithm', 'decrypt_encryptionAlgorithm' - Specifies the encryption algorithm that will be used to decrypt the</span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- ciphertext. Specify the same algorithm that was used to encrypt the</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- data. If you specify a different algorithm, the @Decrypt@ operation</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- fails.</span><span>
-</span><span id="line-229"></span><span class="hs-comment">--</span><span>
-</span><span id="line-230"></span><span class="hs-comment">-- This parameter is required only when the ciphertext was encrypted under</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- an asymmetric KMS key. The default value, @SYMMETRIC_DEFAULT@,</span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- represents the only supported algorithm that is valid for symmetric KMS</span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- keys.</span><span>
-</span><span id="line-234"></span><span class="hs-comment">--</span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- 'encryptionContext', 'decrypt_encryptionContext' - Specifies the encryption context to use when decrypting the data. An</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- encryption context is valid only for</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations&gt;</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- with a symmetric KMS key. The standard asymmetric encryption algorithms</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- that KMS uses do not support an encryption context.</span><span>
-</span><span id="line-240"></span><span class="hs-comment">--</span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- An /encryption context/ is a collection of non-secret key-value pairs</span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- that represents additional authenticated data. When you use an</span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- encryption context to encrypt data, you must specify the same (an exact</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- case-sensitive match) encryption context to decrypt the data. An</span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- encryption context is optional when encrypting with a symmetric KMS key,</span><span>
-</span><span id="line-246"></span><span class="hs-comment">-- but it is highly recommended.</span><span>
-</span><span id="line-247"></span><span class="hs-comment">--</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context&gt;</span><span>
-</span><span id="line-250"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
-</span><span id="line-251"></span><span class="hs-comment">--</span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- 'keyId', 'decrypt_keyId' - Specifies the KMS key that KMS uses to decrypt the ciphertext. Enter a</span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- key ID of the KMS key that was used to encrypt the ciphertext.</span><span>
-</span><span id="line-254"></span><span class="hs-comment">--</span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- This parameter is required only when the ciphertext was encrypted under</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- an asymmetric KMS key. If you used a symmetric KMS key, KMS can get the</span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- KMS key from metadata that it adds to the symmetric ciphertext blob.</span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- However, it is always recommended as a best practice. This practice</span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- ensures that you use the KMS key that you intend.</span><span>
-</span><span id="line-260"></span><span class="hs-comment">--</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- When using an alias name, prefix it with @\&quot;alias\/\&quot;@. To specify a KMS</span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- key in a different Amazon Web Services account, you must use the key ARN</span><span>
-</span><span id="line-264"></span><span class="hs-comment">-- or alias ARN.</span><span>
-</span><span id="line-265"></span><span class="hs-comment">--</span><span>
-</span><span id="line-266"></span><span class="hs-comment">-- For example:</span><span>
-</span><span id="line-267"></span><span class="hs-comment">--</span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'keyId', 'decrypt_keyId' - Specifies the KMS key that KMS uses to decrypt the ciphertext. Enter a</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- key ID of the KMS key that was used to encrypt the ciphertext.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- This parameter is required only when the ciphertext was encrypted under</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- an asymmetric KMS key. If you used a symmetric KMS key, KMS can get the</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- KMS key from metadata that it adds to the symmetric ciphertext blob.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- However, it is always recommended as a best practice. This practice</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- ensures that you use the KMS key that you intend.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- When using an alias name, prefix it with @\&quot;alias\/\&quot;@. To specify a KMS</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- key in a different Amazon Web Services account, you must use the key ARN</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- or alias ARN.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- -   Key ARN:</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- -   Alias name: @alias\/ExampleAlias@</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- -   Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias\/ExampleAlias@</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- To get the key ID and key ARN for a KMS key, use ListKeys or</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- DescribeKey. To get the alias name and alias ARN, use ListAliases.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 'encryptionContext', 'decrypt_encryptionContext' - Specifies the encryption context to use when decrypting the data. An</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- encryption context is valid only for</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations&gt;</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- with a symmetric KMS key. The standard asymmetric encryption algorithms</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- that KMS uses do not support an encryption context.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- An /encryption context/ is a collection of non-secret key-value pairs</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- that represents additional authenticated data. When you use an</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- encryption context to encrypt data, you must specify the same (an exact</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- case-sensitive match) encryption context to decrypt the data. An</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- encryption context is optional when encrypting with a symmetric KMS key,</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- but it is highly recommended.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context&gt;</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- 'grantTokens', 'decrypt_grantTokens' - A list of grant tokens.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- Use a grant token when your permission to call this operation comes from</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- a new grant that has not yet achieved /eventual consistency/. For more</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token&gt;</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token&gt;</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
 </span><span id="line-269"></span><span class="hs-comment">--</span><span>
-</span><span id="line-270"></span><span class="hs-comment">-- -   Key ARN:</span><span>
-</span><span id="line-271"></span><span class="hs-comment">--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
-</span><span id="line-272"></span><span class="hs-comment">--</span><span>
-</span><span id="line-273"></span><span class="hs-comment">-- -   Alias name: @alias\/ExampleAlias@</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- 'encryptionAlgorithm', 'decrypt_encryptionAlgorithm' - Specifies the encryption algorithm that will be used to decrypt the</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- ciphertext. Specify the same algorithm that was used to encrypt the</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- data. If you specify a different algorithm, the @Decrypt@ operation</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- fails.</span><span>
 </span><span id="line-274"></span><span class="hs-comment">--</span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- -   Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias\/ExampleAlias@</span><span>
-</span><span id="line-276"></span><span class="hs-comment">--</span><span>
-</span><span id="line-277"></span><span class="hs-comment">-- To get the key ID and key ARN for a KMS key, use ListKeys or</span><span>
-</span><span id="line-278"></span><span class="hs-comment">-- DescribeKey. To get the alias name and alias ARN, use ListAliases.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- This parameter is required only when the ciphertext was encrypted under</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- an asymmetric KMS key. The default value, @SYMMETRIC_DEFAULT@,</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- represents the only supported algorithm that is valid for symmetric KMS</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- keys.</span><span>
 </span><span id="line-279"></span><span class="hs-comment">--</span><span>
 </span><span id="line-280"></span><span class="hs-comment">-- 'ciphertextBlob', 'decrypt_ciphertextBlob' - Ciphertext to be decrypted. The blob includes metadata.--</span><span>
 </span><span id="line-281"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
@@ -341,29 +341,29 @@ $cfrom :: forall x. Decrypt -&gt; Rep Decrypt x
 </span><span id="line-287"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-288"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span>
 </span><span id="line-289"></span><span id="newDecrypt"><span class="annot"><span class="annottext">newDecrypt :: ByteString -&gt; Decrypt
-</span><a href="Network.AWS.KMS.Decrypt.html#newDecrypt"><span class="hs-identifier hs-var hs-var">newDecrypt</span></a></span></span><span> </span><span id="local-6989586621679259216"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679259216"><span class="hs-identifier hs-var">pCiphertextBlob_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-290"></span><span>  </span><span class="annot"><span class="annottext">Decrypt' :: Maybe [Text]
--&gt; Maybe EncryptionAlgorithmSpec
+</span><a href="Network.AWS.KMS.Decrypt.html#newDecrypt"><span class="hs-identifier hs-var hs-var">newDecrypt</span></a></span></span><span> </span><span id="local-6989586621679259445"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679259445"><span class="hs-identifier hs-var">pCiphertextBlob_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-290"></span><span>  </span><span class="annot"><span class="annottext">Decrypt' :: Maybe Text
 -&gt; Maybe (HashMap Text Text)
--&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe EncryptionAlgorithmSpec
 -&gt; Base64
 -&gt; Decrypt
 </span><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span>
-</span><span id="line-291"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:grantTokens:Decrypt' :: Maybe [Text]
-</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AgrantTokens%3ADecrypt%27"><span class="hs-identifier hs-var">grantTokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-291"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyId:Decrypt' :: Maybe Text
+</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AkeyId%3ADecrypt%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionAlgorithm:Decrypt' :: Maybe EncryptionAlgorithmSpec
-</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AencryptionAlgorithm%3ADecrypt%27"><span class="hs-identifier hs-var">encryptionAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-293"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionContext:Decrypt' :: Maybe (HashMap Text Text)
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionContext:Decrypt' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AencryptionContext%3ADecrypt%27"><span class="hs-identifier hs-var">encryptionContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyId:Decrypt' :: Maybe Text
-</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AkeyId%3ADecrypt%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-293"></span><span>      </span><span class="annot"><span class="annottext">$sel:grantTokens:Decrypt' :: Maybe [Text]
+</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AgrantTokens%3ADecrypt%27"><span class="hs-identifier hs-var">grantTokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionAlgorithm:Decrypt' :: Maybe EncryptionAlgorithmSpec
+</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AencryptionAlgorithm%3ADecrypt%27"><span class="hs-identifier hs-var">encryptionAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-295"></span><span>      </span><span class="annot"><span class="annottext">$sel:ciphertextBlob:Decrypt' :: Base64
@@ -376,99 +376,71 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679259216"><span class="hs-identifier hs-var">pCiphertextBlob_</span></a></span><span>
+</span><a href="#local-6989586621679259445"><span class="hs-identifier hs-var">pCiphertextBlob_</span></a></span><span>
 </span><span id="line-297"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-298"></span><span>
-</span><span id="line-299"></span><span class="hs-comment">-- | A list of grant tokens.</span><span>
-</span><span id="line-300"></span><span class="hs-comment">--</span><span>
-</span><span id="line-301"></span><span class="hs-comment">-- Use a grant token when your permission to call this operation comes from</span><span>
-</span><span id="line-302"></span><span class="hs-comment">-- a new grant that has not yet achieved /eventual consistency/. For more</span><span>
-</span><span id="line-303"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-304"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token&gt;</span><span>
-</span><span id="line-305"></span><span class="hs-comment">-- and</span><span>
-</span><span id="line-306"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token&gt;</span><span>
-</span><span id="line-307"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
-</span><span id="line-308"></span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decrypt_grantTokens"><span class="hs-identifier hs-type">decrypt_grantTokens</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-309"></span><span id="decrypt_grantTokens"><span class="annot"><span class="annottext">decrypt_grantTokens :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Decrypt -&gt; f Decrypt
-</span><a href="Network.AWS.KMS.Decrypt.html#decrypt_grantTokens"><span class="hs-identifier hs-var hs-var">decrypt_grantTokens</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Decrypt -&gt; Maybe [Text])
--&gt; (Decrypt -&gt; Maybe [Text] -&gt; Decrypt)
--&gt; Lens Decrypt Decrypt (Maybe [Text]) (Maybe [Text])
+</span><span id="line-299"></span><span class="hs-comment">-- | Specifies the KMS key that KMS uses to decrypt the ciphertext. Enter a</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- key ID of the KMS key that was used to encrypt the ciphertext.</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- This parameter is required only when the ciphertext was encrypted under</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- an asymmetric KMS key. If you used a symmetric KMS key, KMS can get the</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- KMS key from metadata that it adds to the symmetric ciphertext blob.</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- However, it is always recommended as a best practice. This practice</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- ensures that you use the KMS key that you intend.</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- When using an alias name, prefix it with @\&quot;alias\/\&quot;@. To specify a KMS</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- key in a different Amazon Web Services account, you must use the key ARN</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- or alias ARN.</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- -   Key ARN:</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- -   Alias name: @alias\/ExampleAlias@</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- -   Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias\/ExampleAlias@</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- To get the key ID and key ARN for a KMS key, use ListKeys or</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- DescribeKey. To get the alias name and alias ARN, use ListAliases.</span><span>
+</span><span id="line-326"></span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decrypt_keyId"><span class="hs-identifier hs-type">decrypt_keyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span id="decrypt_keyId"><span class="annot"><span class="annottext">decrypt_keyId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Decrypt -&gt; f Decrypt
+</span><a href="Network.AWS.KMS.Decrypt.html#decrypt_keyId"><span class="hs-identifier hs-var hs-var">decrypt_keyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Decrypt -&gt; Maybe Text)
+-&gt; (Decrypt -&gt; Maybe Text -&gt; Decrypt)
+-&gt; Lens Decrypt Decrypt (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259211"><span class="annot"><span class="annottext">Maybe [Text]
-grantTokens :: Maybe [Text]
-$sel:grantTokens:Decrypt' :: Decrypt -&gt; Maybe [Text]
-</span><a href="#local-6989586621679259211"><span class="hs-identifier hs-var hs-var">grantTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679259211"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259210"><span class="annot"><span class="annottext">s :: Decrypt
-</span><a href="#local-6989586621679259210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259209"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679259209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Decrypt
-</span><a href="#local-6989586621679259210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantTokens:Decrypt' :: Maybe [Text]
-</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AgrantTokens%3ADecrypt%27"><span class="hs-identifier hs-var">grantTokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679259209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Decrypt -&gt; f Decrypt)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; Decrypt
--&gt; f Decrypt
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-310"></span><span>
-</span><span id="line-311"></span><span class="hs-comment">-- | Specifies the encryption algorithm that will be used to decrypt the</span><span>
-</span><span id="line-312"></span><span class="hs-comment">-- ciphertext. Specify the same algorithm that was used to encrypt the</span><span>
-</span><span id="line-313"></span><span class="hs-comment">-- data. If you specify a different algorithm, the @Decrypt@ operation</span><span>
-</span><span id="line-314"></span><span class="hs-comment">-- fails.</span><span>
-</span><span id="line-315"></span><span class="hs-comment">--</span><span>
-</span><span id="line-316"></span><span class="hs-comment">-- This parameter is required only when the ciphertext was encrypted under</span><span>
-</span><span id="line-317"></span><span class="hs-comment">-- an asymmetric KMS key. The default value, @SYMMETRIC_DEFAULT@,</span><span>
-</span><span id="line-318"></span><span class="hs-comment">-- represents the only supported algorithm that is valid for symmetric KMS</span><span>
-</span><span id="line-319"></span><span class="hs-comment">-- keys.</span><span>
-</span><span id="line-320"></span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decrypt_encryptionAlgorithm"><span class="hs-identifier hs-type">decrypt_encryptionAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.EncryptionAlgorithmSpec.html#EncryptionAlgorithmSpec"><span class="hs-identifier hs-type">EncryptionAlgorithmSpec</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-321"></span><span id="decrypt_encryptionAlgorithm"><span class="annot"><span class="annottext">decrypt_encryptionAlgorithm :: (Maybe EncryptionAlgorithmSpec
- -&gt; f (Maybe EncryptionAlgorithmSpec))
--&gt; Decrypt -&gt; f Decrypt
-</span><a href="Network.AWS.KMS.Decrypt.html#decrypt_encryptionAlgorithm"><span class="hs-identifier hs-var hs-var">decrypt_encryptionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Decrypt -&gt; Maybe EncryptionAlgorithmSpec)
--&gt; (Decrypt -&gt; Maybe EncryptionAlgorithmSpec -&gt; Decrypt)
--&gt; Lens
-     Decrypt
-     Decrypt
-     (Maybe EncryptionAlgorithmSpec)
-     (Maybe EncryptionAlgorithmSpec)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259205"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-encryptionAlgorithm :: Maybe EncryptionAlgorithmSpec
-$sel:encryptionAlgorithm:Decrypt' :: Decrypt -&gt; Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679259205"><span class="hs-identifier hs-var hs-var">encryptionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679259205"><span class="hs-identifier hs-var">encryptionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259204"><span class="annot"><span class="annottext">s :: Decrypt
-</span><a href="#local-6989586621679259204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259203"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679259203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Decrypt
-</span><a href="#local-6989586621679259204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionAlgorithm:Decrypt' :: Maybe EncryptionAlgorithmSpec
-</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AencryptionAlgorithm%3ADecrypt%27"><span class="hs-identifier hs-var">encryptionAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679259203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-322"></span><span>
-</span><span id="line-323"></span><span class="hs-comment">-- | Specifies the encryption context to use when decrypting the data. An</span><span>
-</span><span id="line-324"></span><span class="hs-comment">-- encryption context is valid only for</span><span>
-</span><span id="line-325"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations&gt;</span><span>
-</span><span id="line-326"></span><span class="hs-comment">-- with a symmetric KMS key. The standard asymmetric encryption algorithms</span><span>
-</span><span id="line-327"></span><span class="hs-comment">-- that KMS uses do not support an encryption context.</span><span>
-</span><span id="line-328"></span><span class="hs-comment">--</span><span>
-</span><span id="line-329"></span><span class="hs-comment">-- An /encryption context/ is a collection of non-secret key-value pairs</span><span>
-</span><span id="line-330"></span><span class="hs-comment">-- that represents additional authenticated data. When you use an</span><span>
-</span><span id="line-331"></span><span class="hs-comment">-- encryption context to encrypt data, you must specify the same (an exact</span><span>
-</span><span id="line-332"></span><span class="hs-comment">-- case-sensitive match) encryption context to decrypt the data. An</span><span>
-</span><span id="line-333"></span><span class="hs-comment">-- encryption context is optional when encrypting with a symmetric KMS key,</span><span>
-</span><span id="line-334"></span><span class="hs-comment">-- but it is highly recommended.</span><span>
-</span><span id="line-335"></span><span class="hs-comment">--</span><span>
-</span><span id="line-336"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-337"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context&gt;</span><span>
-</span><span id="line-338"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
-</span><span id="line-339"></span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decrypt_encryptionContext"><span class="hs-identifier hs-type">decrypt_encryptionContext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-340"></span><span id="decrypt_encryptionContext"><span class="annot"><span class="annottext">decrypt_encryptionContext :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259440"><span class="annot"><span class="annottext">Maybe Text
+keyId :: Maybe Text
+$sel:keyId:Decrypt' :: Decrypt -&gt; Maybe Text
+</span><a href="#local-6989586621679259440"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259440"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259439"><span class="annot"><span class="annottext">s :: Decrypt
+</span><a href="#local-6989586621679259439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259438"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Decrypt
+</span><a href="#local-6989586621679259439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:Decrypt' :: Maybe Text
+</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AkeyId%3ADecrypt%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- | Specifies the encryption context to use when decrypting the data. An</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- encryption context is valid only for</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations&gt;</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- with a symmetric KMS key. The standard asymmetric encryption algorithms</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- that KMS uses do not support an encryption context.</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- An /encryption context/ is a collection of non-secret key-value pairs</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- that represents additional authenticated data. When you use an</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- encryption context to encrypt data, you must specify the same (an exact</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- case-sensitive match) encryption context to decrypt the data. An</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- encryption context is optional when encrypting with a symmetric KMS key,</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- but it is highly recommended.</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context&gt;</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-345"></span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decrypt_encryptionContext"><span class="hs-identifier hs-type">decrypt_encryptionContext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-346"></span><span id="decrypt_encryptionContext"><span class="annot"><span class="annottext">decrypt_encryptionContext :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; Decrypt -&gt; f Decrypt
 </span><a href="Network.AWS.KMS.Decrypt.html#decrypt_encryptionContext"><span class="hs-identifier hs-var hs-var">decrypt_encryptionContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Decrypt -&gt; Maybe (HashMap Text Text))
 -&gt; (Decrypt -&gt; Maybe (HashMap Text Text) -&gt; Decrypt)
@@ -478,16 +450,16 @@ $sel:encryptionAlgorithm:Decrypt' :: Decrypt -&gt; Maybe EncryptionAlgorithmSpec
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259202"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259437"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 encryptionContext :: Maybe (HashMap Text Text)
 $sel:encryptionContext:Decrypt' :: Decrypt -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679259202"><span class="hs-identifier hs-var hs-var">encryptionContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679259202"><span class="hs-identifier hs-var">encryptionContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259201"><span class="annot"><span class="annottext">s :: Decrypt
-</span><a href="#local-6989586621679259201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259200"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679259200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Decrypt
-</span><a href="#local-6989586621679259201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionContext:Decrypt' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679259437"><span class="hs-identifier hs-var hs-var">encryptionContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679259437"><span class="hs-identifier hs-var">encryptionContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259436"><span class="annot"><span class="annottext">s :: Decrypt
+</span><a href="#local-6989586621679259436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259435"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679259435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Decrypt
+</span><a href="#local-6989586621679259436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionContext:Decrypt' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AencryptionContext%3ADecrypt%27"><span class="hs-identifier hs-var">encryptionContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679259200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679259435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; Decrypt -&gt; f Decrypt)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -513,52 +485,80 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-341"></span><span>
-</span><span id="line-342"></span><span class="hs-comment">-- | Specifies the KMS key that KMS uses to decrypt the ciphertext. Enter a</span><span>
-</span><span id="line-343"></span><span class="hs-comment">-- key ID of the KMS key that was used to encrypt the ciphertext.</span><span>
-</span><span id="line-344"></span><span class="hs-comment">--</span><span>
-</span><span id="line-345"></span><span class="hs-comment">-- This parameter is required only when the ciphertext was encrypted under</span><span>
-</span><span id="line-346"></span><span class="hs-comment">-- an asymmetric KMS key. If you used a symmetric KMS key, KMS can get the</span><span>
-</span><span id="line-347"></span><span class="hs-comment">-- KMS key from metadata that it adds to the symmetric ciphertext blob.</span><span>
-</span><span id="line-348"></span><span class="hs-comment">-- However, it is always recommended as a best practice. This practice</span><span>
-</span><span id="line-349"></span><span class="hs-comment">-- ensures that you use the KMS key that you intend.</span><span>
-</span><span id="line-350"></span><span class="hs-comment">--</span><span>
-</span><span id="line-351"></span><span class="hs-comment">-- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.</span><span>
-</span><span id="line-352"></span><span class="hs-comment">-- When using an alias name, prefix it with @\&quot;alias\/\&quot;@. To specify a KMS</span><span>
-</span><span id="line-353"></span><span class="hs-comment">-- key in a different Amazon Web Services account, you must use the key ARN</span><span>
-</span><span id="line-354"></span><span class="hs-comment">-- or alias ARN.</span><span>
-</span><span id="line-355"></span><span class="hs-comment">--</span><span>
-</span><span id="line-356"></span><span class="hs-comment">-- For example:</span><span>
-</span><span id="line-357"></span><span class="hs-comment">--</span><span>
-</span><span id="line-358"></span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
-</span><span id="line-359"></span><span class="hs-comment">--</span><span>
-</span><span id="line-360"></span><span class="hs-comment">-- -   Key ARN:</span><span>
-</span><span id="line-361"></span><span class="hs-comment">--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
-</span><span id="line-362"></span><span class="hs-comment">--</span><span>
-</span><span id="line-363"></span><span class="hs-comment">-- -   Alias name: @alias\/ExampleAlias@</span><span>
-</span><span id="line-364"></span><span class="hs-comment">--</span><span>
-</span><span id="line-365"></span><span class="hs-comment">-- -   Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias\/ExampleAlias@</span><span>
-</span><span id="line-366"></span><span class="hs-comment">--</span><span>
-</span><span id="line-367"></span><span class="hs-comment">-- To get the key ID and key ARN for a KMS key, use ListKeys or</span><span>
-</span><span id="line-368"></span><span class="hs-comment">-- DescribeKey. To get the alias name and alias ARN, use ListAliases.</span><span>
-</span><span id="line-369"></span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decrypt_keyId"><span class="hs-identifier hs-type">decrypt_keyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-370"></span><span id="decrypt_keyId"><span class="annot"><span class="annottext">decrypt_keyId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Decrypt -&gt; f Decrypt
-</span><a href="Network.AWS.KMS.Decrypt.html#decrypt_keyId"><span class="hs-identifier hs-var hs-var">decrypt_keyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Decrypt -&gt; Maybe Text)
--&gt; (Decrypt -&gt; Maybe Text -&gt; Decrypt)
--&gt; Lens Decrypt Decrypt (Maybe Text) (Maybe Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-347"></span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- | A list of grant tokens.</span><span>
+</span><span id="line-349"></span><span class="hs-comment">--</span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- Use a grant token when your permission to call this operation comes from</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- a new grant that has not yet achieved /eventual consistency/. For more</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token&gt;</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token&gt;</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-357"></span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decrypt_grantTokens"><span class="hs-identifier hs-type">decrypt_grantTokens</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-358"></span><span id="decrypt_grantTokens"><span class="annot"><span class="annottext">decrypt_grantTokens :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Decrypt -&gt; f Decrypt
+</span><a href="Network.AWS.KMS.Decrypt.html#decrypt_grantTokens"><span class="hs-identifier hs-var hs-var">decrypt_grantTokens</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Decrypt -&gt; Maybe [Text])
+-&gt; (Decrypt -&gt; Maybe [Text] -&gt; Decrypt)
+-&gt; Lens Decrypt Decrypt (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259199"><span class="annot"><span class="annottext">Maybe Text
-keyId :: Maybe Text
-$sel:keyId:Decrypt' :: Decrypt -&gt; Maybe Text
-</span><a href="#local-6989586621679259199"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259199"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259198"><span class="annot"><span class="annottext">s :: Decrypt
-</span><a href="#local-6989586621679259198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259197"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Decrypt
-</span><a href="#local-6989586621679259198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:Decrypt' :: Maybe Text
-</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AkeyId%3ADecrypt%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259431"><span class="annot"><span class="annottext">Maybe [Text]
+grantTokens :: Maybe [Text]
+$sel:grantTokens:Decrypt' :: Decrypt -&gt; Maybe [Text]
+</span><a href="#local-6989586621679259431"><span class="hs-identifier hs-var hs-var">grantTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679259431"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259430"><span class="annot"><span class="annottext">s :: Decrypt
+</span><a href="#local-6989586621679259430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259429"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679259429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Decrypt
+</span><a href="#local-6989586621679259430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantTokens:Decrypt' :: Maybe [Text]
+</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AgrantTokens%3ADecrypt%27"><span class="hs-identifier hs-var">grantTokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679259429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Decrypt -&gt; f Decrypt)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Decrypt
+-&gt; f Decrypt
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-359"></span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- | Specifies the encryption algorithm that will be used to decrypt the</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- ciphertext. Specify the same algorithm that was used to encrypt the</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- data. If you specify a different algorithm, the @Decrypt@ operation</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- fails.</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- This parameter is required only when the ciphertext was encrypted under</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- an asymmetric KMS key. The default value, @SYMMETRIC_DEFAULT@,</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- represents the only supported algorithm that is valid for symmetric KMS</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- keys.</span><span>
+</span><span id="line-369"></span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decrypt_encryptionAlgorithm"><span class="hs-identifier hs-type">decrypt_encryptionAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.EncryptionAlgorithmSpec.html#EncryptionAlgorithmSpec"><span class="hs-identifier hs-type">EncryptionAlgorithmSpec</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-370"></span><span id="decrypt_encryptionAlgorithm"><span class="annot"><span class="annottext">decrypt_encryptionAlgorithm :: (Maybe EncryptionAlgorithmSpec
+ -&gt; f (Maybe EncryptionAlgorithmSpec))
+-&gt; Decrypt -&gt; f Decrypt
+</span><a href="Network.AWS.KMS.Decrypt.html#decrypt_encryptionAlgorithm"><span class="hs-identifier hs-var hs-var">decrypt_encryptionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Decrypt -&gt; Maybe EncryptionAlgorithmSpec)
+-&gt; (Decrypt -&gt; Maybe EncryptionAlgorithmSpec -&gt; Decrypt)
+-&gt; Lens
+     Decrypt
+     Decrypt
+     (Maybe EncryptionAlgorithmSpec)
+     (Maybe EncryptionAlgorithmSpec)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259428"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+encryptionAlgorithm :: Maybe EncryptionAlgorithmSpec
+$sel:encryptionAlgorithm:Decrypt' :: Decrypt -&gt; Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679259428"><span class="hs-identifier hs-var hs-var">encryptionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679259428"><span class="hs-identifier hs-var">encryptionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259427"><span class="annot"><span class="annottext">s :: Decrypt
+</span><a href="#local-6989586621679259427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259426"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679259426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Decrypt
+</span><a href="#local-6989586621679259427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionAlgorithm:Decrypt' :: Maybe EncryptionAlgorithmSpec
+</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AencryptionAlgorithm%3ADecrypt%27"><span class="hs-identifier hs-var">encryptionAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679259426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-371"></span><span>
 </span><span id="line-372"></span><span class="hs-comment">-- | Ciphertext to be decrypted. The blob includes metadata.--</span><span>
 </span><span id="line-373"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
@@ -571,16 +571,16 @@ $sel:keyId:Decrypt' :: Decrypt -&gt; Maybe Text
 -&gt; (Decrypt -&gt; Base64 -&gt; Decrypt)
 -&gt; Lens Decrypt Decrypt Base64 Base64
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259196"><span class="annot"><span class="annottext">Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259425"><span class="annot"><span class="annottext">Base64
 ciphertextBlob :: Base64
 $sel:ciphertextBlob:Decrypt' :: Decrypt -&gt; Base64
-</span><a href="#local-6989586621679259196"><span class="hs-identifier hs-var hs-var">ciphertextBlob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679259196"><span class="hs-identifier hs-var">ciphertextBlob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259195"><span class="annot"><span class="annottext">s :: Decrypt
-</span><a href="#local-6989586621679259195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259194"><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679259194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Decrypt
-</span><a href="#local-6989586621679259195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ciphertextBlob:Decrypt' :: Base64
+</span><a href="#local-6989586621679259425"><span class="hs-identifier hs-var hs-var">ciphertextBlob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679259425"><span class="hs-identifier hs-var">ciphertextBlob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259424"><span class="annot"><span class="annottext">s :: Decrypt
+</span><a href="#local-6989586621679259424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259423"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679259423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Decrypt
+</span><a href="#local-6989586621679259424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ciphertextBlob:Decrypt' :: Base64
 </span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AciphertextBlob%3ADecrypt%27"><span class="hs-identifier hs-var">ciphertextBlob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679259194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; Decrypt -&gt; f Decrypt)
+</span><a href="#local-6989586621679259423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; Decrypt -&gt; f Decrypt)
 -&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
 -&gt; (ByteString -&gt; f ByteString)
 -&gt; Decrypt
@@ -592,12 +592,12 @@ Iso' Base64 ByteString
 </span><span id="line-379"></span><span>
 </span><span id="line-380"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-381"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span><span>
-</span><span id="line-382"></span><span>  </span><span id="local-6989586621679259190"><span class="annot"><span class="annottext">request :: Decrypt -&gt; Request Decrypt
+</span><span id="line-382"></span><span>  </span><span id="local-6989586621679259419"><span class="annot"><span class="annottext">request :: Decrypt -&gt; Request Decrypt
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Decrypt -&gt; Request Decrypt
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-383"></span><span>  </span><span id="local-6989586621679259186"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-383"></span><span>  </span><span id="local-6989586621679259415"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy Decrypt
 -&gt; ClientResponse ClientBody
@@ -621,53 +621,55 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-385"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259183"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259183"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259182"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679259182"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259181"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259181"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-386"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><span id="line-385"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259412"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259412"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259411"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679259411"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259410"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259410"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-386"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe (Sensitive Base64)
 -&gt; Maybe EncryptionAlgorithmSpec
--&gt; Maybe Text
 -&gt; Int
 -&gt; DecryptResponse
 </span><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-var">DecryptResponse'</span></a></span><span>
-</span><span id="line-387"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (Sensitive Base64)
+</span><span id="line-387"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe (Sensitive Base64)
  -&gt; Maybe EncryptionAlgorithmSpec
- -&gt; Maybe Text
  -&gt; Int
  -&gt; DecryptResponse)
--&gt; Either String (Maybe (Sensitive Base64))
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe EncryptionAlgorithmSpec
-      -&gt; Maybe Text -&gt; Int -&gt; DecryptResponse)
+     (Maybe (Sensitive Base64)
+      -&gt; Maybe EncryptionAlgorithmSpec -&gt; Int -&gt; DecryptResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive Base64))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Plaintext&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-388"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe EncryptionAlgorithmSpec
-   -&gt; Maybe Text -&gt; Int -&gt; DecryptResponse)
--&gt; Either String (Maybe EncryptionAlgorithmSpec)
--&gt; Either String (Maybe Text -&gt; Int -&gt; DecryptResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe EncryptionAlgorithmSpec)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EncryptionAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-389"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DecryptResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; DecryptResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679259410"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-388"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (Sensitive Base64)
+   -&gt; Maybe EncryptionAlgorithmSpec -&gt; Int -&gt; DecryptResponse)
+-&gt; Either String (Maybe (Sensitive Base64))
+-&gt; Either
+     String (Maybe EncryptionAlgorithmSpec -&gt; Int -&gt; DecryptResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259410"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive Base64))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Plaintext&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-389"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe EncryptionAlgorithmSpec -&gt; Int -&gt; DecryptResponse)
+-&gt; Either String (Maybe EncryptionAlgorithmSpec)
+-&gt; Either String (Int -&gt; DecryptResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259410"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe EncryptionAlgorithmSpec)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-390"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DecryptResponse)
 -&gt; Either String Int -&gt; Either String DecryptResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -676,15 +678,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259183"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259412"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-391"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-392"></span><span>
-</span><span id="line-393"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259173"><span id="local-6989586621679259175"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span></span></span><span>
+</span><span id="line-393"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259402"><span id="local-6989586621679259404"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span></span></span><span>
 </span><span id="line-394"></span><span>
-</span><span id="line-395"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259170"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span></span><span>
+</span><span id="line-395"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259399"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span></span><span>
 </span><span id="line-396"></span><span>
 </span><span id="line-397"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-398"></span><span>  </span><span id="local-6989586621679259166"><span class="annot"><span class="annottext">toHeaders :: Decrypt -&gt; ResponseHeaders
+</span><span id="line-398"></span><span>  </span><span id="local-6989586621679259395"><span class="annot"><span class="annottext">toHeaders :: Decrypt -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-399"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; Decrypt -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -709,61 +711,61 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-407"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-408"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-409"></span><span>
-</span><span id="line-410"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259156"><span id="local-6989586621679259158"><span id="local-6989586621679259160"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-411"></span><span>  </span><span id="local-6989586621679259154"><span class="annot"><span class="annottext">toJSON :: Decrypt -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259148"><span id="local-6989586621679259149"><span id="local-6989586621679259150"><span id="local-6989586621679259151"><span id="local-6989586621679259152"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-410"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259385"><span id="local-6989586621679259387"><span id="local-6989586621679259389"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-411"></span><span>  </span><span id="local-6989586621679259383"><span class="annot"><span class="annottext">toJSON :: Decrypt -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt%27"><span class="hs-identifier hs-type">Decrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259377"><span id="local-6989586621679259378"><span id="local-6989586621679259379"><span id="local-6989586621679259380"><span id="local-6989586621679259381"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 Maybe (HashMap Text Text)
 Maybe EncryptionAlgorithmSpec
 Base64
 ciphertextBlob :: Base64
-keyId :: Maybe Text
-encryptionContext :: Maybe (HashMap Text Text)
 encryptionAlgorithm :: Maybe EncryptionAlgorithmSpec
 grantTokens :: Maybe [Text]
+encryptionContext :: Maybe (HashMap Text Text)
+keyId :: Maybe Text
 $sel:ciphertextBlob:Decrypt' :: Decrypt -&gt; Base64
-$sel:keyId:Decrypt' :: Decrypt -&gt; Maybe Text
-$sel:encryptionContext:Decrypt' :: Decrypt -&gt; Maybe (HashMap Text Text)
 $sel:encryptionAlgorithm:Decrypt' :: Decrypt -&gt; Maybe EncryptionAlgorithmSpec
 $sel:grantTokens:Decrypt' :: Decrypt -&gt; Maybe [Text]
-</span><a href="#local-6989586621679259148"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:encryptionContext:Decrypt' :: Decrypt -&gt; Maybe (HashMap Text Text)
+$sel:keyId:Decrypt' :: Decrypt -&gt; Maybe Text
+</span><a href="#local-6989586621679259377"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-412"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-413"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-414"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;GrantTokens&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679259152"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-415"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EncryptionAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EncryptionAlgorithmSpec -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-416"></span><span>              </span><span class="annot"><span class="annottext">(EncryptionAlgorithmSpec -&gt; Pair)
--&gt; Maybe EncryptionAlgorithmSpec -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679259151"><span class="hs-identifier hs-var">encryptionAlgorithm</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-417"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EncryptionContext&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-418"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
--&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679259150"><span class="hs-identifier hs-var">encryptionContext</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-419"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259149"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259381"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-415"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionContext&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-416"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679259380"><span class="hs-identifier hs-var">encryptionContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-417"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GrantTokens&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679259379"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-418"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EncryptionAlgorithmSpec -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-419"></span><span>              </span><span class="annot"><span class="annottext">(EncryptionAlgorithmSpec -&gt; Pair)
+-&gt; Maybe EncryptionAlgorithmSpec -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679259378"><span class="hs-identifier hs-var">encryptionAlgorithm</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-420"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -771,19 +773,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;CiphertextBlob&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679259148"><span class="hs-identifier hs-var">ciphertextBlob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259377"><span class="hs-identifier hs-var">ciphertextBlob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-422"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-423"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-424"></span><span>
 </span><span id="line-425"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-426"></span><span>  </span><span id="local-6989586621679259142"><span class="annot"><span class="annottext">toPath :: Decrypt -&gt; ByteString
+</span><span id="line-426"></span><span>  </span><span id="local-6989586621679259371"><span class="annot"><span class="annottext">toPath :: Decrypt -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Decrypt -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-427"></span><span>
 </span><span id="line-428"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#Decrypt"><span class="hs-identifier hs-type">Decrypt</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-429"></span><span>  </span><span id="local-6989586621679259138"><span class="annot"><span class="annottext">toQuery :: Decrypt -&gt; QueryString
+</span><span id="line-429"></span><span>  </span><span id="local-6989586621679259367"><span class="annot"><span class="annottext">toQuery :: Decrypt -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; Decrypt -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -791,25 +793,25 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-430"></span><span>
 </span><span id="line-431"></span><span class="hs-comment">-- | /See:/ 'newDecryptResponse' smart constructor.</span><span>
-</span><span id="line-432"></span><span id="local-6989586621679259135"><span id="local-6989586621679259136"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecryptResponse"><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-var">DecryptResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecryptResponse%27"><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-var">DecryptResponse'</span></a></span></span><span>
-</span><span id="line-433"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Decrypted plaintext data. When you use the HTTP API or the Amazon Web</span><span>
-</span><span id="line-434"></span><span>    </span><span class="hs-comment">-- Services CLI, the value is Base64-encoded. Otherwise, it is not</span><span>
-</span><span id="line-435"></span><span>    </span><span class="hs-comment">-- Base64-encoded.</span><span>
-</span><span id="line-436"></span><span>    </span><span id="%24sel%3Aplaintext%3ADecryptResponse%27"><span class="annot"><span class="annottext">DecryptResponse -&gt; Maybe (Sensitive Base64)
-</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3Aplaintext%3ADecryptResponse%27"><span class="hs-identifier hs-var hs-var">plaintext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-437"></span><span>    </span><span class="hs-comment">-- | The encryption algorithm that was used to decrypt the ciphertext.</span><span>
-</span><span id="line-438"></span><span>    </span><span id="%24sel%3AencryptionAlgorithm%3ADecryptResponse%27"><span class="annot"><span class="annottext">DecryptResponse -&gt; Maybe EncryptionAlgorithmSpec
-</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AencryptionAlgorithm%3ADecryptResponse%27"><span class="hs-identifier hs-var hs-var">encryptionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.EncryptionAlgorithmSpec.html#EncryptionAlgorithmSpec"><span class="hs-identifier hs-type">EncryptionAlgorithmSpec</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-439"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
-</span><span id="line-440"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN&gt;)</span><span>
-</span><span id="line-441"></span><span>    </span><span class="hs-comment">-- of the KMS key that was used to decrypt the ciphertext.</span><span>
-</span><span id="line-442"></span><span>    </span><span id="%24sel%3AkeyId%3ADecryptResponse%27"><span class="annot"><span class="annottext">DecryptResponse -&gt; Maybe Text
+</span><span id="line-432"></span><span id="local-6989586621679259364"><span id="local-6989586621679259365"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecryptResponse"><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-var">DecryptResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecryptResponse%27"><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-var">DecryptResponse'</span></a></span></span><span>
+</span><span id="line-433"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-434"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN&gt;)</span><span>
+</span><span id="line-435"></span><span>    </span><span class="hs-comment">-- of the KMS key that was used to decrypt the ciphertext.</span><span>
+</span><span id="line-436"></span><span>    </span><span id="%24sel%3AkeyId%3ADecryptResponse%27"><span class="annot"><span class="annottext">DecryptResponse -&gt; Maybe Text
 </span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AkeyId%3ADecryptResponse%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-437"></span><span>    </span><span class="hs-comment">-- | Decrypted plaintext data. When you use the HTTP API or the Amazon Web</span><span>
+</span><span id="line-438"></span><span>    </span><span class="hs-comment">-- Services CLI, the value is Base64-encoded. Otherwise, it is not</span><span>
+</span><span id="line-439"></span><span>    </span><span class="hs-comment">-- Base64-encoded.</span><span>
+</span><span id="line-440"></span><span>    </span><span id="%24sel%3Aplaintext%3ADecryptResponse%27"><span class="annot"><span class="annottext">DecryptResponse -&gt; Maybe (Sensitive Base64)
+</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3Aplaintext%3ADecryptResponse%27"><span class="hs-identifier hs-var hs-var">plaintext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-441"></span><span>    </span><span class="hs-comment">-- | The encryption algorithm that was used to decrypt the ciphertext.</span><span>
+</span><span id="line-442"></span><span>    </span><span id="%24sel%3AencryptionAlgorithm%3ADecryptResponse%27"><span class="annot"><span class="annottext">DecryptResponse -&gt; Maybe EncryptionAlgorithmSpec
+</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AencryptionAlgorithm%3ADecryptResponse%27"><span class="hs-identifier hs-var hs-var">encryptionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.EncryptionAlgorithmSpec.html#EncryptionAlgorithmSpec"><span class="hs-identifier hs-type">EncryptionAlgorithmSpec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-443"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-444"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADecryptResponse%27"><span class="annot"><span class="annottext">DecryptResponse -&gt; Int
 </span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AhttpStatus%3ADecryptResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-445"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-446"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259127"><span id="local-6989586621679259129"><span class="annot"><span class="annottext">DecryptResponse -&gt; DecryptResponse -&gt; Bool
+</span><span id="line-446"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259356"><span id="local-6989586621679259358"><span class="annot"><span class="annottext">DecryptResponse -&gt; DecryptResponse -&gt; Bool
 (DecryptResponse -&gt; DecryptResponse -&gt; Bool)
 -&gt; (DecryptResponse -&gt; DecryptResponse -&gt; Bool)
 -&gt; Eq DecryptResponse
@@ -818,7 +820,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DecryptResponse -&gt; DecryptResponse -&gt; Bool
 == :: DecryptResponse -&gt; DecryptResponse -&gt; Bool
 $c== :: DecryptResponse -&gt; DecryptResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259121"><span id="local-6989586621679259123"><span id="local-6989586621679259125"><span class="annot"><span class="annottext">Int -&gt; DecryptResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259350"><span id="local-6989586621679259352"><span id="local-6989586621679259354"><span class="annot"><span class="annottext">Int -&gt; DecryptResponse -&gt; ShowS
 [DecryptResponse] -&gt; ShowS
 DecryptResponse -&gt; String
 (Int -&gt; DecryptResponse -&gt; ShowS)
@@ -852,19 +854,19 @@ $cfrom :: forall x. DecryptResponse -&gt; Rep DecryptResponse x
 </span><span id="line-453"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-454"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-455"></span><span class="hs-comment">--</span><span>
-</span><span id="line-456"></span><span class="hs-comment">-- 'plaintext', 'decryptResponse_plaintext' - Decrypted plaintext data. When you use the HTTP API or the Amazon Web</span><span>
-</span><span id="line-457"></span><span class="hs-comment">-- Services CLI, the value is Base64-encoded. Otherwise, it is not</span><span>
-</span><span id="line-458"></span><span class="hs-comment">-- Base64-encoded.--</span><span>
-</span><span id="line-459"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
-</span><span id="line-460"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
-</span><span id="line-461"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
-</span><span id="line-462"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
-</span><span id="line-463"></span><span class="hs-comment">--</span><span>
-</span><span id="line-464"></span><span class="hs-comment">-- 'encryptionAlgorithm', 'decryptResponse_encryptionAlgorithm' - The encryption algorithm that was used to decrypt the ciphertext.</span><span>
-</span><span id="line-465"></span><span class="hs-comment">--</span><span>
-</span><span id="line-466"></span><span class="hs-comment">-- 'keyId', 'decryptResponse_keyId' - The Amazon Resource Name</span><span>
-</span><span id="line-467"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN&gt;)</span><span>
-</span><span id="line-468"></span><span class="hs-comment">-- of the KMS key that was used to decrypt the ciphertext.</span><span>
+</span><span id="line-456"></span><span class="hs-comment">-- 'keyId', 'decryptResponse_keyId' - The Amazon Resource Name</span><span>
+</span><span id="line-457"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN&gt;)</span><span>
+</span><span id="line-458"></span><span class="hs-comment">-- of the KMS key that was used to decrypt the ciphertext.</span><span>
+</span><span id="line-459"></span><span class="hs-comment">--</span><span>
+</span><span id="line-460"></span><span class="hs-comment">-- 'plaintext', 'decryptResponse_plaintext' - Decrypted plaintext data. When you use the HTTP API or the Amazon Web</span><span>
+</span><span id="line-461"></span><span class="hs-comment">-- Services CLI, the value is Base64-encoded. Otherwise, it is not</span><span>
+</span><span id="line-462"></span><span class="hs-comment">-- Base64-encoded.--</span><span>
+</span><span id="line-463"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-464"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-465"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-467"></span><span class="hs-comment">--</span><span>
+</span><span id="line-468"></span><span class="hs-comment">-- 'encryptionAlgorithm', 'decryptResponse_encryptionAlgorithm' - The encryption algorithm that was used to decrypt the ciphertext.</span><span>
 </span><span id="line-469"></span><span class="hs-comment">--</span><span>
 </span><span id="line-470"></span><span class="hs-comment">-- 'httpStatus', 'decryptResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-471"></span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#newDecryptResponse"><span class="hs-identifier hs-type">newDecryptResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -872,40 +874,61 @@ $cfrom :: forall x. DecryptResponse -&gt; Rep DecryptResponse x
 </span><span id="line-473"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-474"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span><span>
 </span><span id="line-475"></span><span id="newDecryptResponse"><span class="annot"><span class="annottext">newDecryptResponse :: Int -&gt; DecryptResponse
-</span><a href="Network.AWS.KMS.Decrypt.html#newDecryptResponse"><span class="hs-identifier hs-var hs-var">newDecryptResponse</span></a></span></span><span> </span><span id="local-6989586621679259118"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259118"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-476"></span><span>  </span><span class="annot"><span class="annottext">DecryptResponse' :: Maybe (Sensitive Base64)
+</span><a href="Network.AWS.KMS.Decrypt.html#newDecryptResponse"><span class="hs-identifier hs-var hs-var">newDecryptResponse</span></a></span></span><span> </span><span id="local-6989586621679259347"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259347"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-476"></span><span>  </span><span class="annot"><span class="annottext">DecryptResponse' :: Maybe Text
+-&gt; Maybe (Sensitive Base64)
 -&gt; Maybe EncryptionAlgorithmSpec
--&gt; Maybe Text
 -&gt; Int
 -&gt; DecryptResponse
 </span><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-type">DecryptResponse'</span></a></span><span>
-</span><span id="line-477"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:plaintext:DecryptResponse' :: Maybe (Sensitive Base64)
+</span><span id="line-477"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyId:DecryptResponse' :: Maybe Text
+</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AkeyId%3ADecryptResponse%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-478"></span><span>      </span><span class="annot"><span class="annottext">$sel:plaintext:DecryptResponse' :: Maybe (Sensitive Base64)
 </span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3Aplaintext%3ADecryptResponse%27"><span class="hs-identifier hs-var">plaintext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-478"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionAlgorithm:DecryptResponse' :: Maybe EncryptionAlgorithmSpec
+</span><span id="line-479"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionAlgorithm:DecryptResponse' :: Maybe EncryptionAlgorithmSpec
 </span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AencryptionAlgorithm%3ADecryptResponse%27"><span class="hs-identifier hs-var">encryptionAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-479"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyId:DecryptResponse' :: Maybe Text
-</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AkeyId%3ADecryptResponse%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-480"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DecryptResponse' :: Int
 </span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AhttpStatus%3ADecryptResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259118"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679259347"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-481"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-482"></span><span>
-</span><span id="line-483"></span><span class="hs-comment">-- | Decrypted plaintext data. When you use the HTTP API or the Amazon Web</span><span>
-</span><span id="line-484"></span><span class="hs-comment">-- Services CLI, the value is Base64-encoded. Otherwise, it is not</span><span>
-</span><span id="line-485"></span><span class="hs-comment">-- Base64-encoded.--</span><span>
-</span><span id="line-486"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
-</span><span id="line-487"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
-</span><span id="line-488"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
-</span><span id="line-489"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
-</span><span id="line-490"></span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_plaintext"><span class="hs-identifier hs-type">decryptResponse_plaintext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
-</span><span id="line-491"></span><span id="decryptResponse_plaintext"><span class="annot"><span class="annottext">decryptResponse_plaintext :: (Maybe ByteString -&gt; f (Maybe ByteString))
+</span><span id="line-483"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-484"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN&gt;)</span><span>
+</span><span id="line-485"></span><span class="hs-comment">-- of the KMS key that was used to decrypt the ciphertext.</span><span>
+</span><span id="line-486"></span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_keyId"><span class="hs-identifier hs-type">decryptResponse_keyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-487"></span><span id="decryptResponse_keyId"><span class="annot"><span class="annottext">decryptResponse_keyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DecryptResponse -&gt; f DecryptResponse
+</span><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_keyId"><span class="hs-identifier hs-var hs-var">decryptResponse_keyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DecryptResponse -&gt; Maybe Text)
+-&gt; (DecryptResponse -&gt; Maybe Text -&gt; DecryptResponse)
+-&gt; Lens DecryptResponse DecryptResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-type">DecryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259346"><span class="annot"><span class="annottext">Maybe Text
+keyId :: Maybe Text
+$sel:keyId:DecryptResponse' :: DecryptResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679259346"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259346"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259345"><span class="annot"><span class="annottext">s :: DecryptResponse
+</span><a href="#local-6989586621679259345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-type">DecryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259344"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecryptResponse
+</span><a href="#local-6989586621679259345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:DecryptResponse' :: Maybe Text
+</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AkeyId%3ADecryptResponse%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-488"></span><span>
+</span><span id="line-489"></span><span class="hs-comment">-- | Decrypted plaintext data. When you use the HTTP API or the Amazon Web</span><span>
+</span><span id="line-490"></span><span class="hs-comment">-- Services CLI, the value is Base64-encoded. Otherwise, it is not</span><span>
+</span><span id="line-491"></span><span class="hs-comment">-- Base64-encoded.--</span><span>
+</span><span id="line-492"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-493"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-494"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-495"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-496"></span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_plaintext"><span class="hs-identifier hs-type">decryptResponse_plaintext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-497"></span><span id="decryptResponse_plaintext"><span class="annot"><span class="annottext">decryptResponse_plaintext :: (Maybe ByteString -&gt; f (Maybe ByteString))
 -&gt; DecryptResponse -&gt; f DecryptResponse
 </span><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_plaintext"><span class="hs-identifier hs-var hs-var">decryptResponse_plaintext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DecryptResponse -&gt; Maybe (Sensitive Base64))
 -&gt; (DecryptResponse -&gt; Maybe (Sensitive Base64) -&gt; DecryptResponse)
@@ -915,16 +938,16 @@ forall a. Maybe a
      (Maybe (Sensitive Base64))
      (Maybe (Sensitive Base64))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-type">DecryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259117"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-type">DecryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259343"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
 plaintext :: Maybe (Sensitive Base64)
 $sel:plaintext:DecryptResponse' :: DecryptResponse -&gt; Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679259117"><span class="hs-identifier hs-var hs-var">plaintext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679259117"><span class="hs-identifier hs-var">plaintext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259116"><span class="annot"><span class="annottext">s :: DecryptResponse
-</span><a href="#local-6989586621679259116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-type">DecryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259115"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679259115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecryptResponse
-</span><a href="#local-6989586621679259116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:plaintext:DecryptResponse' :: Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679259343"><span class="hs-identifier hs-var hs-var">plaintext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679259343"><span class="hs-identifier hs-var">plaintext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259342"><span class="annot"><span class="annottext">s :: DecryptResponse
+</span><a href="#local-6989586621679259342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-type">DecryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259341"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679259341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecryptResponse
+</span><a href="#local-6989586621679259342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:plaintext:DecryptResponse' :: Maybe (Sensitive Base64)
 </span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3Aplaintext%3ADecryptResponse%27"><span class="hs-identifier hs-var">plaintext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679259115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
+</span><a href="#local-6989586621679259341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
  -&gt; DecryptResponse -&gt; f DecryptResponse)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
@@ -963,10 +986,10 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 -&gt; Exchange ByteString ByteString Base64 (Identity Base64)
 Iso' Base64 ByteString
 </span><span class="hs-identifier hs-var">Core._Base64</span></span><span class="hs-special">)</span><span>
-</span><span id="line-492"></span><span>
-</span><span id="line-493"></span><span class="hs-comment">-- | The encryption algorithm that was used to decrypt the ciphertext.</span><span>
-</span><span id="line-494"></span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_encryptionAlgorithm"><span class="hs-identifier hs-type">decryptResponse_encryptionAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.EncryptionAlgorithmSpec.html#EncryptionAlgorithmSpec"><span class="hs-identifier hs-type">EncryptionAlgorithmSpec</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-495"></span><span id="decryptResponse_encryptionAlgorithm"><span class="annot"><span class="annottext">decryptResponse_encryptionAlgorithm :: (Maybe EncryptionAlgorithmSpec
+</span><span id="line-498"></span><span>
+</span><span id="line-499"></span><span class="hs-comment">-- | The encryption algorithm that was used to decrypt the ciphertext.</span><span>
+</span><span id="line-500"></span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_encryptionAlgorithm"><span class="hs-identifier hs-type">decryptResponse_encryptionAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.EncryptionAlgorithmSpec.html#EncryptionAlgorithmSpec"><span class="hs-identifier hs-type">EncryptionAlgorithmSpec</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-501"></span><span id="decryptResponse_encryptionAlgorithm"><span class="annot"><span class="annottext">decryptResponse_encryptionAlgorithm :: (Maybe EncryptionAlgorithmSpec
  -&gt; f (Maybe EncryptionAlgorithmSpec))
 -&gt; DecryptResponse -&gt; f DecryptResponse
 </span><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_encryptionAlgorithm"><span class="hs-identifier hs-var hs-var">decryptResponse_encryptionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DecryptResponse -&gt; Maybe EncryptionAlgorithmSpec)
@@ -978,37 +1001,16 @@ Iso' Base64 ByteString
      (Maybe EncryptionAlgorithmSpec)
      (Maybe EncryptionAlgorithmSpec)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-type">DecryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259113"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-type">DecryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259339"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
 encryptionAlgorithm :: Maybe EncryptionAlgorithmSpec
 $sel:encryptionAlgorithm:DecryptResponse' :: DecryptResponse -&gt; Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679259113"><span class="hs-identifier hs-var hs-var">encryptionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679259113"><span class="hs-identifier hs-var">encryptionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259112"><span class="annot"><span class="annottext">s :: DecryptResponse
-</span><a href="#local-6989586621679259112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-type">DecryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259111"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679259111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecryptResponse
-</span><a href="#local-6989586621679259112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionAlgorithm:DecryptResponse' :: Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679259339"><span class="hs-identifier hs-var hs-var">encryptionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679259339"><span class="hs-identifier hs-var">encryptionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259338"><span class="annot"><span class="annottext">s :: DecryptResponse
+</span><a href="#local-6989586621679259338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-type">DecryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259337"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679259337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecryptResponse
+</span><a href="#local-6989586621679259338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionAlgorithm:DecryptResponse' :: Maybe EncryptionAlgorithmSpec
 </span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AencryptionAlgorithm%3ADecryptResponse%27"><span class="hs-identifier hs-var">encryptionAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679259111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-496"></span><span>
-</span><span id="line-497"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
-</span><span id="line-498"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN&gt;)</span><span>
-</span><span id="line-499"></span><span class="hs-comment">-- of the KMS key that was used to decrypt the ciphertext.</span><span>
-</span><span id="line-500"></span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_keyId"><span class="hs-identifier hs-type">decryptResponse_keyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-501"></span><span id="decryptResponse_keyId"><span class="annot"><span class="annottext">decryptResponse_keyId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DecryptResponse -&gt; f DecryptResponse
-</span><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_keyId"><span class="hs-identifier hs-var hs-var">decryptResponse_keyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DecryptResponse -&gt; Maybe Text)
--&gt; (DecryptResponse -&gt; Maybe Text -&gt; DecryptResponse)
--&gt; Lens DecryptResponse DecryptResponse (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-type">DecryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259110"><span class="annot"><span class="annottext">Maybe Text
-keyId :: Maybe Text
-$sel:keyId:DecryptResponse' :: DecryptResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679259110"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259110"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259109"><span class="annot"><span class="annottext">s :: DecryptResponse
-</span><a href="#local-6989586621679259109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-type">DecryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259108"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecryptResponse
-</span><a href="#local-6989586621679259109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:DecryptResponse' :: Maybe Text
-</span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AkeyId%3ADecryptResponse%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-502"></span><span>
 </span><span id="line-503"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-504"></span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#decryptResponse_httpStatus"><span class="hs-identifier hs-type">decryptResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1017,16 +1019,16 @@ $sel:keyId:DecryptResponse' :: DecryptResponse -&gt; Maybe Text
 -&gt; (DecryptResponse -&gt; Int -&gt; DecryptResponse)
 -&gt; Lens DecryptResponse DecryptResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-type">DecryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259107"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-type">DecryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259336"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DecryptResponse' :: DecryptResponse -&gt; Int
-</span><a href="#local-6989586621679259107"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259107"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259106"><span class="annot"><span class="annottext">s :: DecryptResponse
-</span><a href="#local-6989586621679259106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-type">DecryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259105"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecryptResponse
-</span><a href="#local-6989586621679259106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DecryptResponse' :: Int
+</span><a href="#local-6989586621679259336"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259336"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259335"><span class="annot"><span class="annottext">s :: DecryptResponse
+</span><a href="#local-6989586621679259335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse%27"><span class="hs-identifier hs-type">DecryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259334"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecryptResponse
+</span><a href="#local-6989586621679259335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DecryptResponse' :: Int
 </span><a href="Network.AWS.KMS.Decrypt.html#%24sel%3AhttpStatus%3ADecryptResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-506"></span><span>
-</span><span id="line-507"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259103"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span></span><span>
+</span><span id="line-507"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259332"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Decrypt.html#DecryptResponse"><span class="hs-identifier hs-type">DecryptResponse</span></a></span></span><span>
 </span><span id="line-508"></span></pre></body></html>

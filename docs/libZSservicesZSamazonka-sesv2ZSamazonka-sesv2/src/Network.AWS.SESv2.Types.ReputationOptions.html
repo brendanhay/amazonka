@@ -24,23 +24,24 @@
 </span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-25"></span><span>
 </span><span id="line-26"></span><span class="hs-comment">-- | Enable or disable collection of reputation metrics for emails that you</span><span>
-</span><span id="line-27"></span><span class="hs-comment">-- send using this configuration set in the current AWS Region.</span><span>
-</span><span id="line-28"></span><span class="hs-comment">--</span><span>
-</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newReputationOptions' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679328630"><span id="local-6989586621679328631"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReputationOptions"><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-var">ReputationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReputationOptions%27"><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-var">ReputationOptions'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If @true@, tracking of reputation metrics is enabled for the</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- configuration set. If @false@, tracking of reputation metrics is</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- disabled for the configuration set.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AreputationMetricsEnabled%3AReputationOptions%27"><span class="annot"><span class="annottext">ReputationOptions -&gt; Maybe Bool
-</span><a href="Network.AWS.SESv2.Types.ReputationOptions.html#%24sel%3AreputationMetricsEnabled%3AReputationOptions%27"><span class="hs-identifier hs-var hs-var">reputationMetricsEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The date and time (in Unix time) when the reputation metrics were last</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- given a fresh start. When your account is given a fresh start, your</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- reputation metrics are calculated starting from the date of the fresh</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- start.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlastFreshStart%3AReputationOptions%27"><span class="annot"><span class="annottext">ReputationOptions -&gt; Maybe POSIX
-</span><a href="Network.AWS.SESv2.Types.ReputationOptions.html#%24sel%3AlastFreshStart%3AReputationOptions%27"><span class="hs-identifier hs-var hs-var">lastFreshStart</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679328623"><span id="local-6989586621679328625"><span class="annot"><span class="annottext">ReputationOptions -&gt; ReputationOptions -&gt; Bool
+</span><span id="line-27"></span><span class="hs-comment">-- send using this configuration set in the current Amazon Web Services</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Region.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newReputationOptions' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679331139"><span id="local-6989586621679331140"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReputationOptions"><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-var">ReputationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReputationOptions%27"><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-var">ReputationOptions'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time (in Unix time) when the reputation metrics were last</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- given a fresh start. When your account is given a fresh start, your</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- reputation metrics are calculated starting from the date of the fresh</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- start.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlastFreshStart%3AReputationOptions%27"><span class="annot"><span class="annottext">ReputationOptions -&gt; Maybe POSIX
+</span><a href="Network.AWS.SESv2.Types.ReputationOptions.html#%24sel%3AlastFreshStart%3AReputationOptions%27"><span class="hs-identifier hs-var hs-var">lastFreshStart</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | If @true@, tracking of reputation metrics is enabled for the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- configuration set. If @false@, tracking of reputation metrics is</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- disabled for the configuration set.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AreputationMetricsEnabled%3AReputationOptions%27"><span class="annot"><span class="annottext">ReputationOptions -&gt; Maybe Bool
+</span><a href="Network.AWS.SESv2.Types.ReputationOptions.html#%24sel%3AreputationMetricsEnabled%3AReputationOptions%27"><span class="hs-identifier hs-var hs-var">reputationMetricsEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331132"><span id="local-6989586621679331134"><span class="annot"><span class="annottext">ReputationOptions -&gt; ReputationOptions -&gt; Bool
 (ReputationOptions -&gt; ReputationOptions -&gt; Bool)
 -&gt; (ReputationOptions -&gt; ReputationOptions -&gt; Bool)
 -&gt; Eq ReputationOptions
@@ -49,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReputationOptions -&gt; ReputationOptions -&gt; Bool
 == :: ReputationOptions -&gt; ReputationOptions -&gt; Bool
 $c== :: ReputationOptions -&gt; ReputationOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328614"><span id="local-6989586621679328616"><span id="local-6989586621679328618"><span id="local-6989586621679328620"><span class="annot"><span class="annottext">ReadPrec [ReputationOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331123"><span id="local-6989586621679331125"><span id="local-6989586621679331127"><span id="local-6989586621679331129"><span class="annot"><span class="annottext">ReadPrec [ReputationOptions]
 ReadPrec ReputationOptions
 Int -&gt; ReadS ReputationOptions
 ReadS [ReputationOptions]
@@ -69,7 +70,7 @@ readList :: ReadS [ReputationOptions]
 $creadList :: ReadS [ReputationOptions]
 readsPrec :: Int -&gt; ReadS ReputationOptions
 $creadsPrec :: Int -&gt; ReadS ReputationOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328607"><span id="local-6989586621679328609"><span id="local-6989586621679328611"><span class="annot"><span class="annottext">Int -&gt; ReputationOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331116"><span id="local-6989586621679331118"><span id="local-6989586621679331120"><span class="annot"><span class="annottext">Int -&gt; ReputationOptions -&gt; ShowS
 [ReputationOptions] -&gt; ShowS
 ReputationOptions -&gt; String
 (Int -&gt; ReputationOptions -&gt; ShowS)
@@ -94,84 +95,62 @@ forall a.
 $cto :: forall x. Rep ReputationOptions x -&gt; ReputationOptions
 $cfrom :: forall x. ReputationOptions -&gt; Rep ReputationOptions x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-42"></span><span>
-</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'ReputationOptions' with all optional fields omitted.</span><span>
-</span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'reputationMetricsEnabled', 'reputationOptions_reputationMetricsEnabled' - If @true@, tracking of reputation metrics is enabled for the</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- configuration set. If @false@, tracking of reputation metrics is</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- disabled for the configuration set.</span><span>
-</span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'lastFreshStart', 'reputationOptions_lastFreshStart' - The date and time (in Unix time) when the reputation metrics were last</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- given a fresh start. When your account is given a fresh start, your</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- reputation metrics are calculated starting from the date of the fresh</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- start.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#newReputationOptions"><span class="hs-identifier hs-type">newReputationOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span>
-</span><span id="line-61"></span><span id="newReputationOptions"><span class="annot"><span class="annottext">newReputationOptions :: ReputationOptions
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'ReputationOptions' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'lastFreshStart', 'reputationOptions_lastFreshStart' - The date and time (in Unix time) when the reputation metrics were last</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- given a fresh start. When your account is given a fresh start, your</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- reputation metrics are calculated starting from the date of the fresh</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- start.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'reputationMetricsEnabled', 'reputationOptions_reputationMetricsEnabled' - If @true@, tracking of reputation metrics is enabled for the</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- configuration set. If @false@, tracking of reputation metrics is</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- disabled for the configuration set.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#newReputationOptions"><span class="hs-identifier hs-type">newReputationOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span>
+</span><span id="line-62"></span><span id="newReputationOptions"><span class="annot"><span class="annottext">newReputationOptions :: ReputationOptions
 </span><a href="Network.AWS.SESv2.Types.ReputationOptions.html#newReputationOptions"><span class="hs-identifier hs-var hs-var">newReputationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">ReputationOptions' :: Maybe Bool -&gt; Maybe POSIX -&gt; ReputationOptions
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">ReputationOptions' :: Maybe POSIX -&gt; Maybe Bool -&gt; ReputationOptions
 </span><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reputationMetricsEnabled:ReputationOptions' :: Maybe Bool
-</span><a href="Network.AWS.SESv2.Types.ReputationOptions.html#%24sel%3AreputationMetricsEnabled%3AReputationOptions%27"><span class="hs-identifier hs-var">reputationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastFreshStart:ReputationOptions' :: Maybe POSIX
+</span><a href="Network.AWS.SESv2.Types.ReputationOptions.html#%24sel%3AlastFreshStart%3AReputationOptions%27"><span class="hs-identifier hs-var">lastFreshStart</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastFreshStart:ReputationOptions' :: Maybe POSIX
-</span><a href="Network.AWS.SESv2.Types.ReputationOptions.html#%24sel%3AlastFreshStart%3AReputationOptions%27"><span class="hs-identifier hs-var">lastFreshStart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:reputationMetricsEnabled:ReputationOptions' :: Maybe Bool
+</span><a href="Network.AWS.SESv2.Types.ReputationOptions.html#%24sel%3AreputationMetricsEnabled%3AReputationOptions%27"><span class="hs-identifier hs-var">reputationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | If @true@, tracking of reputation metrics is enabled for the</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- configuration set. If @false@, tracking of reputation metrics is</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- disabled for the configuration set.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#reputationOptions_reputationMetricsEnabled"><span class="hs-identifier hs-type">reputationOptions_reputationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="reputationOptions_reputationMetricsEnabled"><span class="annot"><span class="annottext">reputationOptions_reputationMetricsEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ReputationOptions -&gt; f ReputationOptions
-</span><a href="Network.AWS.SESv2.Types.ReputationOptions.html#reputationOptions_reputationMetricsEnabled"><span class="hs-identifier hs-var hs-var">reputationOptions_reputationMetricsEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReputationOptions -&gt; Maybe Bool)
--&gt; (ReputationOptions -&gt; Maybe Bool -&gt; ReputationOptions)
--&gt; Lens
-     ReputationOptions ReputationOptions (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328598"><span class="annot"><span class="annottext">Maybe Bool
-reputationMetricsEnabled :: Maybe Bool
-$sel:reputationMetricsEnabled:ReputationOptions' :: ReputationOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679328598"><span class="hs-identifier hs-var hs-var">reputationMetricsEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679328598"><span class="hs-identifier hs-var">reputationMetricsEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328597"><span class="annot"><span class="annottext">s :: ReputationOptions
-</span><a href="#local-6989586621679328597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328596"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679328596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReputationOptions
-</span><a href="#local-6989586621679328597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reputationMetricsEnabled:ReputationOptions' :: Maybe Bool
-</span><a href="Network.AWS.SESv2.Types.ReputationOptions.html#%24sel%3AreputationMetricsEnabled%3AReputationOptions%27"><span class="hs-identifier hs-var">reputationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679328596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | The date and time (in Unix time) when the reputation metrics were last</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- given a fresh start. When your account is given a fresh start, your</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- reputation metrics are calculated starting from the date of the fresh</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- start.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#reputationOptions_lastFreshStart"><span class="hs-identifier hs-type">reputationOptions_lastFreshStart</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="reputationOptions_lastFreshStart"><span class="annot"><span class="annottext">reputationOptions_lastFreshStart :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The date and time (in Unix time) when the reputation metrics were last</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- given a fresh start. When your account is given a fresh start, your</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- reputation metrics are calculated starting from the date of the fresh</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- start.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#reputationOptions_lastFreshStart"><span class="hs-identifier hs-type">reputationOptions_lastFreshStart</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="reputationOptions_lastFreshStart"><span class="annot"><span class="annottext">reputationOptions_lastFreshStart :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ReputationOptions -&gt; f ReputationOptions
 </span><a href="Network.AWS.SESv2.Types.ReputationOptions.html#reputationOptions_lastFreshStart"><span class="hs-identifier hs-var hs-var">reputationOptions_lastFreshStart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReputationOptions -&gt; Maybe POSIX)
 -&gt; (ReputationOptions -&gt; Maybe POSIX -&gt; ReputationOptions)
 -&gt; Lens
      ReputationOptions ReputationOptions (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328594"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331107"><span class="annot"><span class="annottext">Maybe POSIX
 lastFreshStart :: Maybe POSIX
 $sel:lastFreshStart:ReputationOptions' :: ReputationOptions -&gt; Maybe POSIX
-</span><a href="#local-6989586621679328594"><span class="hs-identifier hs-var hs-var">lastFreshStart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679328594"><span class="hs-identifier hs-var">lastFreshStart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328593"><span class="annot"><span class="annottext">s :: ReputationOptions
-</span><a href="#local-6989586621679328593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328592"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679328592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReputationOptions
-</span><a href="#local-6989586621679328593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastFreshStart:ReputationOptions' :: Maybe POSIX
+</span><a href="#local-6989586621679331107"><span class="hs-identifier hs-var hs-var">lastFreshStart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679331107"><span class="hs-identifier hs-var">lastFreshStart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331106"><span class="annot"><span class="annottext">s :: ReputationOptions
+</span><a href="#local-6989586621679331106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331105"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679331105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReputationOptions
+</span><a href="#local-6989586621679331106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastFreshStart:ReputationOptions' :: Maybe POSIX
 </span><a href="Network.AWS.SESv2.Types.ReputationOptions.html#%24sel%3AlastFreshStart%3AReputationOptions%27"><span class="hs-identifier hs-var">lastFreshStart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679328592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679331105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ReputationOptions -&gt; f ReputationOptions)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -187,74 +166,96 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328586"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679328584"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReputationOptions
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | If @true@, tracking of reputation metrics is enabled for the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- configuration set. If @false@, tracking of reputation metrics is</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- disabled for the configuration set.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#reputationOptions_reputationMetricsEnabled"><span class="hs-identifier hs-type">reputationOptions_reputationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="reputationOptions_reputationMetricsEnabled"><span class="annot"><span class="annottext">reputationOptions_reputationMetricsEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ReputationOptions -&gt; f ReputationOptions
+</span><a href="Network.AWS.SESv2.Types.ReputationOptions.html#reputationOptions_reputationMetricsEnabled"><span class="hs-identifier hs-var hs-var">reputationOptions_reputationMetricsEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReputationOptions -&gt; Maybe Bool)
+-&gt; (ReputationOptions -&gt; Maybe Bool -&gt; ReputationOptions)
+-&gt; Lens
+     ReputationOptions ReputationOptions (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331100"><span class="annot"><span class="annottext">Maybe Bool
+reputationMetricsEnabled :: Maybe Bool
+$sel:reputationMetricsEnabled:ReputationOptions' :: ReputationOptions -&gt; Maybe Bool
+</span><a href="#local-6989586621679331100"><span class="hs-identifier hs-var hs-var">reputationMetricsEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679331100"><span class="hs-identifier hs-var">reputationMetricsEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331099"><span class="annot"><span class="annottext">s :: ReputationOptions
+</span><a href="#local-6989586621679331099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331098"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679331098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReputationOptions
+</span><a href="#local-6989586621679331099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reputationMetricsEnabled:ReputationOptions' :: Maybe Bool
+</span><a href="Network.AWS.SESv2.Types.ReputationOptions.html#%24sel%3AreputationMetricsEnabled%3AReputationOptions%27"><span class="hs-identifier hs-var">reputationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679331098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331095"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679331093"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReputationOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReputationOptions)
 -&gt; Value
 -&gt; Parser ReputationOptions
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReputationOptions&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679328581"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328581"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe POSIX -&gt; ReputationOptions
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331090"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331090"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe Bool -&gt; ReputationOptions
 </span><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-var">ReputationOptions'</span></a></span><span>
-</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe POSIX -&gt; ReputationOptions)
--&gt; Parser (Maybe Bool) -&gt; Parser (Maybe POSIX -&gt; ReputationOptions)
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe Bool -&gt; ReputationOptions)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Bool -&gt; ReputationOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328581"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReputationMetricsEnabled&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; ReputationOptions)
--&gt; Parser (Maybe POSIX) -&gt; Parser ReputationOptions
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328581"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679331090"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastFreshStart&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328575"><span id="local-6989586621679328577"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span></span></span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328572"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span></span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328564"><span id="local-6989586621679328566"><span id="local-6989586621679328568"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679328562"><span class="annot"><span class="annottext">toJSON :: ReputationOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328559"><span id="local-6989586621679328560"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; ReputationOptions)
+-&gt; Parser (Maybe Bool) -&gt; Parser ReputationOptions
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331090"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReputationMetricsEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331084"><span id="local-6989586621679331086"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331081"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331073"><span id="local-6989586621679331075"><span id="local-6989586621679331077"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679331071"><span class="annot"><span class="annottext">toJSON :: ReputationOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331068"><span id="local-6989586621679331069"><span class="annot"><span class="annottext">Maybe Bool
 Maybe POSIX
-lastFreshStart :: Maybe POSIX
 reputationMetricsEnabled :: Maybe Bool
-$sel:lastFreshStart:ReputationOptions' :: ReputationOptions -&gt; Maybe POSIX
+lastFreshStart :: Maybe POSIX
 $sel:reputationMetricsEnabled:ReputationOptions' :: ReputationOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679328559"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:lastFreshStart:ReputationOptions' :: ReputationOptions -&gt; Maybe POSIX
+</span><a href="#local-6989586621679331068"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-99"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReputationMetricsEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679328560"><span class="hs-identifier hs-var">reputationMetricsEnabled</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastFreshStart&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679328559"><span class="hs-identifier hs-var">lastFreshStart</span></a></span><span>
-</span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span></pre></body></html>
+</span><a href="#local-6989586621679331069"><span class="hs-identifier hs-var">lastFreshStart</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReputationMetricsEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679331068"><span class="hs-identifier hs-var">reputationMetricsEnabled</span></a></span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span></pre></body></html>

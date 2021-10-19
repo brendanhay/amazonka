@@ -28,23 +28,23 @@
 </span><span id="line-28"></span><span class="hs-comment">-- text part, and an HTML part.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSimpleEmail' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679612297"><span id="local-6989586621679612298"></span></span><span class="hs-keyword">data</span><span> </span><span id="SimpleEmail"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-var">SimpleEmail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SimpleEmail%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail%27"><span class="hs-identifier hs-var">SimpleEmail'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The body of the email message, in plain text format. We recommend using</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- plain text format for email clients that don\'t render HTML content and</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- clients that are connected to high-latency networks, such as mobile</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- devices.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtextPart%3ASimpleEmail%27"><span class="annot"><span class="annottext">SimpleEmail -&gt; Maybe SimpleEmailPart
-</span><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#%24sel%3AtextPart%3ASimpleEmail%27"><span class="hs-identifier hs-var hs-var">textPart</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmailPart.html#SimpleEmailPart"><span class="hs-identifier hs-type">SimpleEmailPart</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The subject line, or title, of the email.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Asubject%3ASimpleEmail%27"><span class="annot"><span class="annottext">SimpleEmail -&gt; Maybe SimpleEmailPart
+</span><span id="line-31"></span><span id="local-6989586621679612792"><span id="local-6989586621679612793"></span></span><span class="hs-keyword">data</span><span> </span><span id="SimpleEmail"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-var">SimpleEmail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SimpleEmail%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail%27"><span class="hs-identifier hs-var">SimpleEmail'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The subject line, or title, of the email.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Asubject%3ASimpleEmail%27"><span class="annot"><span class="annottext">SimpleEmail -&gt; Maybe SimpleEmailPart
 </span><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#%24sel%3Asubject%3ASimpleEmail%27"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmailPart.html#SimpleEmailPart"><span class="hs-identifier hs-type">SimpleEmailPart</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The body of the email message, in plain text format. We recommend using</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- plain text format for email clients that don\'t render HTML content and</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- clients that are connected to high-latency networks, such as mobile</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- devices.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtextPart%3ASimpleEmail%27"><span class="annot"><span class="annottext">SimpleEmail -&gt; Maybe SimpleEmailPart
+</span><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#%24sel%3AtextPart%3ASimpleEmail%27"><span class="hs-identifier hs-var hs-var">textPart</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmailPart.html#SimpleEmailPart"><span class="hs-identifier hs-type">SimpleEmailPart</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The body of the email message, in HTML format. We recommend using HTML</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- format for email clients that render HTML content. You can include</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- links, formatted text, and more in an HTML message.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AhtmlPart%3ASimpleEmail%27"><span class="annot"><span class="annottext">SimpleEmail -&gt; Maybe SimpleEmailPart
 </span><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#%24sel%3AhtmlPart%3ASimpleEmail%27"><span class="hs-identifier hs-var hs-var">htmlPart</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmailPart.html#SimpleEmailPart"><span class="hs-identifier hs-type">SimpleEmailPart</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679612289"><span id="local-6989586621679612291"><span class="annot"><span class="annottext">SimpleEmail -&gt; SimpleEmail -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679612784"><span id="local-6989586621679612786"><span class="annot"><span class="annottext">SimpleEmail -&gt; SimpleEmail -&gt; Bool
 (SimpleEmail -&gt; SimpleEmail -&gt; Bool)
 -&gt; (SimpleEmail -&gt; SimpleEmail -&gt; Bool) -&gt; Eq SimpleEmail
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SimpleEmail -&gt; SimpleEmail -&gt; Bool
 == :: SimpleEmail -&gt; SimpleEmail -&gt; Bool
 $c== :: SimpleEmail -&gt; SimpleEmail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679612280"><span id="local-6989586621679612282"><span id="local-6989586621679612284"><span id="local-6989586621679612286"><span class="annot"><span class="annottext">ReadPrec [SimpleEmail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679612775"><span id="local-6989586621679612777"><span id="local-6989586621679612779"><span id="local-6989586621679612781"><span class="annot"><span class="annottext">ReadPrec [SimpleEmail]
 ReadPrec SimpleEmail
 Int -&gt; ReadS SimpleEmail
 ReadS [SimpleEmail]
@@ -72,7 +72,7 @@ readList :: ReadS [SimpleEmail]
 $creadList :: ReadS [SimpleEmail]
 readsPrec :: Int -&gt; ReadS SimpleEmail
 $creadsPrec :: Int -&gt; ReadS SimpleEmail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679612273"><span id="local-6989586621679612275"><span id="local-6989586621679612277"><span class="annot"><span class="annottext">Int -&gt; SimpleEmail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679612768"><span id="local-6989586621679612770"><span id="local-6989586621679612772"><span class="annot"><span class="annottext">Int -&gt; SimpleEmail -&gt; ShowS
 [SimpleEmail] -&gt; ShowS
 SimpleEmail -&gt; String
 (Int -&gt; SimpleEmail -&gt; ShowS)
@@ -106,12 +106,12 @@ $cfrom :: forall x. SimpleEmail -&gt; Rep SimpleEmail x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'textPart', 'simpleEmail_textPart' - The body of the email message, in plain text format. We recommend using</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- plain text format for email clients that don\'t render HTML content and</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- clients that are connected to high-latency networks, such as mobile</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- devices.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'subject', 'simpleEmail_subject' - The subject line, or title, of the email.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'subject', 'simpleEmail_subject' - The subject line, or title, of the email.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'textPart', 'simpleEmail_textPart' - The body of the email message, in plain text format. We recommend using</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- plain text format for email clients that don\'t render HTML content and</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- clients that are connected to high-latency networks, such as mobile</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- devices.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- 'htmlPart', 'simpleEmail_htmlPart' - The body of the email message, in HTML format. We recommend using HTML</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- format for email clients that render HTML content. You can include</span><span>
@@ -123,12 +123,12 @@ $cfrom :: forall x. SimpleEmail -&gt; Rep SimpleEmail x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">SimpleEmail' :: Maybe SimpleEmailPart
 -&gt; Maybe SimpleEmailPart -&gt; Maybe SimpleEmailPart -&gt; SimpleEmail
 </span><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail%27"><span class="hs-identifier hs-type">SimpleEmail'</span></a></span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:textPart:SimpleEmail' :: Maybe SimpleEmailPart
-</span><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#%24sel%3AtextPart%3ASimpleEmail%27"><span class="hs-identifier hs-var">textPart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subject:SimpleEmail' :: Maybe SimpleEmailPart
+</span><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#%24sel%3Asubject%3ASimpleEmail%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:subject:SimpleEmail' :: Maybe SimpleEmailPart
-</span><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#%24sel%3Asubject%3ASimpleEmail%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:textPart:SimpleEmail' :: Maybe SimpleEmailPart
+</span><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#%24sel%3AtextPart%3ASimpleEmail%27"><span class="hs-identifier hs-var">textPart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:htmlPart:SimpleEmail' :: Maybe SimpleEmailPart
@@ -137,35 +137,9 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The body of the email message, in plain text format. We recommend using</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- plain text format for email clients that don\'t render HTML content and</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- clients that are connected to high-latency networks, such as mobile</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- devices.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#simpleEmail_textPart"><span class="hs-identifier hs-type">simpleEmail_textPart</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-type">SimpleEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmailPart.html#SimpleEmailPart"><span class="hs-identifier hs-type">SimpleEmailPart</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="simpleEmail_textPart"><span class="annot"><span class="annottext">simpleEmail_textPart :: (Maybe SimpleEmailPart -&gt; f (Maybe SimpleEmailPart))
--&gt; SimpleEmail -&gt; f SimpleEmail
-</span><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#simpleEmail_textPart"><span class="hs-identifier hs-var hs-var">simpleEmail_textPart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimpleEmail -&gt; Maybe SimpleEmailPart)
--&gt; (SimpleEmail -&gt; Maybe SimpleEmailPart -&gt; SimpleEmail)
--&gt; Lens
-     SimpleEmail
-     SimpleEmail
-     (Maybe SimpleEmailPart)
-     (Maybe SimpleEmailPart)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail%27"><span class="hs-identifier hs-type">SimpleEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612264"><span class="annot"><span class="annottext">Maybe SimpleEmailPart
-textPart :: Maybe SimpleEmailPart
-$sel:textPart:SimpleEmail' :: SimpleEmail -&gt; Maybe SimpleEmailPart
-</span><a href="#local-6989586621679612264"><span class="hs-identifier hs-var hs-var">textPart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
-</span><a href="#local-6989586621679612264"><span class="hs-identifier hs-var">textPart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612263"><span class="annot"><span class="annottext">s :: SimpleEmail
-</span><a href="#local-6989586621679612263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail%27"><span class="hs-identifier hs-type">SimpleEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612262"><span class="annot"><span class="annottext">Maybe SimpleEmailPart
-</span><a href="#local-6989586621679612262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimpleEmail
-</span><a href="#local-6989586621679612263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textPart:SimpleEmail' :: Maybe SimpleEmailPart
-</span><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#%24sel%3AtextPart%3ASimpleEmail%27"><span class="hs-identifier hs-var">textPart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
-</span><a href="#local-6989586621679612262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-type">SimpleEmail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The subject line, or title, of the email.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#simpleEmail_subject"><span class="hs-identifier hs-type">simpleEmail_subject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-type">SimpleEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmailPart.html#SimpleEmailPart"><span class="hs-identifier hs-type">SimpleEmailPart</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="simpleEmail_subject"><span class="annot"><span class="annottext">simpleEmail_subject :: (Maybe SimpleEmailPart -&gt; f (Maybe SimpleEmailPart))
+</span><span id="line-73"></span><span class="hs-comment">-- | The subject line, or title, of the email.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#simpleEmail_subject"><span class="hs-identifier hs-type">simpleEmail_subject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-type">SimpleEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmailPart.html#SimpleEmailPart"><span class="hs-identifier hs-type">SimpleEmailPart</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="simpleEmail_subject"><span class="annot"><span class="annottext">simpleEmail_subject :: (Maybe SimpleEmailPart -&gt; f (Maybe SimpleEmailPart))
 -&gt; SimpleEmail -&gt; f SimpleEmail
 </span><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#simpleEmail_subject"><span class="hs-identifier hs-var hs-var">simpleEmail_subject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimpleEmail -&gt; Maybe SimpleEmailPart)
 -&gt; (SimpleEmail -&gt; Maybe SimpleEmailPart -&gt; SimpleEmail)
@@ -175,16 +149,42 @@ $sel:textPart:SimpleEmail' :: SimpleEmail -&gt; Maybe SimpleEmailPart
      (Maybe SimpleEmailPart)
      (Maybe SimpleEmailPart)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail%27"><span class="hs-identifier hs-type">SimpleEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612260"><span class="annot"><span class="annottext">Maybe SimpleEmailPart
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail%27"><span class="hs-identifier hs-type">SimpleEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612759"><span class="annot"><span class="annottext">Maybe SimpleEmailPart
 subject :: Maybe SimpleEmailPart
 $sel:subject:SimpleEmail' :: SimpleEmail -&gt; Maybe SimpleEmailPart
-</span><a href="#local-6989586621679612260"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
-</span><a href="#local-6989586621679612260"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612259"><span class="annot"><span class="annottext">s :: SimpleEmail
-</span><a href="#local-6989586621679612259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail%27"><span class="hs-identifier hs-type">SimpleEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612258"><span class="annot"><span class="annottext">Maybe SimpleEmailPart
-</span><a href="#local-6989586621679612258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimpleEmail
-</span><a href="#local-6989586621679612259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:SimpleEmail' :: Maybe SimpleEmailPart
+</span><a href="#local-6989586621679612759"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
+</span><a href="#local-6989586621679612759"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612758"><span class="annot"><span class="annottext">s :: SimpleEmail
+</span><a href="#local-6989586621679612758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail%27"><span class="hs-identifier hs-type">SimpleEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612757"><span class="annot"><span class="annottext">Maybe SimpleEmailPart
+</span><a href="#local-6989586621679612757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimpleEmail
+</span><a href="#local-6989586621679612758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:SimpleEmail' :: Maybe SimpleEmailPart
 </span><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#%24sel%3Asubject%3ASimpleEmail%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
-</span><a href="#local-6989586621679612258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-type">SimpleEmail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679612757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-type">SimpleEmail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The body of the email message, in plain text format. We recommend using</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- plain text format for email clients that don\'t render HTML content and</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- clients that are connected to high-latency networks, such as mobile</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- devices.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#simpleEmail_textPart"><span class="hs-identifier hs-type">simpleEmail_textPart</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-type">SimpleEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmailPart.html#SimpleEmailPart"><span class="hs-identifier hs-type">SimpleEmailPart</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="simpleEmail_textPart"><span class="annot"><span class="annottext">simpleEmail_textPart :: (Maybe SimpleEmailPart -&gt; f (Maybe SimpleEmailPart))
+-&gt; SimpleEmail -&gt; f SimpleEmail
+</span><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#simpleEmail_textPart"><span class="hs-identifier hs-var hs-var">simpleEmail_textPart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimpleEmail -&gt; Maybe SimpleEmailPart)
+-&gt; (SimpleEmail -&gt; Maybe SimpleEmailPart -&gt; SimpleEmail)
+-&gt; Lens
+     SimpleEmail
+     SimpleEmail
+     (Maybe SimpleEmailPart)
+     (Maybe SimpleEmailPart)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail%27"><span class="hs-identifier hs-type">SimpleEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612755"><span class="annot"><span class="annottext">Maybe SimpleEmailPart
+textPart :: Maybe SimpleEmailPart
+$sel:textPart:SimpleEmail' :: SimpleEmail -&gt; Maybe SimpleEmailPart
+</span><a href="#local-6989586621679612755"><span class="hs-identifier hs-var hs-var">textPart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
+</span><a href="#local-6989586621679612755"><span class="hs-identifier hs-var">textPart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612754"><span class="annot"><span class="annottext">s :: SimpleEmail
+</span><a href="#local-6989586621679612754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail%27"><span class="hs-identifier hs-type">SimpleEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612753"><span class="annot"><span class="annottext">Maybe SimpleEmailPart
+</span><a href="#local-6989586621679612753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimpleEmail
+</span><a href="#local-6989586621679612754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textPart:SimpleEmail' :: Maybe SimpleEmailPart
+</span><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#%24sel%3AtextPart%3ASimpleEmail%27"><span class="hs-identifier hs-var">textPart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
+</span><a href="#local-6989586621679612753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-type">SimpleEmail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The body of the email message, in HTML format. We recommend using HTML</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- format for email clients that render HTML content. You can include</span><span>
@@ -200,57 +200,57 @@ $sel:subject:SimpleEmail' :: SimpleEmail -&gt; Maybe SimpleEmailPart
      (Maybe SimpleEmailPart)
      (Maybe SimpleEmailPart)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail%27"><span class="hs-identifier hs-type">SimpleEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612256"><span class="annot"><span class="annottext">Maybe SimpleEmailPart
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail%27"><span class="hs-identifier hs-type">SimpleEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612751"><span class="annot"><span class="annottext">Maybe SimpleEmailPart
 htmlPart :: Maybe SimpleEmailPart
 $sel:htmlPart:SimpleEmail' :: SimpleEmail -&gt; Maybe SimpleEmailPart
-</span><a href="#local-6989586621679612256"><span class="hs-identifier hs-var hs-var">htmlPart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
-</span><a href="#local-6989586621679612256"><span class="hs-identifier hs-var">htmlPart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612255"><span class="annot"><span class="annottext">s :: SimpleEmail
-</span><a href="#local-6989586621679612255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail%27"><span class="hs-identifier hs-type">SimpleEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612254"><span class="annot"><span class="annottext">Maybe SimpleEmailPart
-</span><a href="#local-6989586621679612254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimpleEmail
-</span><a href="#local-6989586621679612255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:htmlPart:SimpleEmail' :: Maybe SimpleEmailPart
+</span><a href="#local-6989586621679612751"><span class="hs-identifier hs-var hs-var">htmlPart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
+</span><a href="#local-6989586621679612751"><span class="hs-identifier hs-var">htmlPart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612750"><span class="annot"><span class="annottext">s :: SimpleEmail
+</span><a href="#local-6989586621679612750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail%27"><span class="hs-identifier hs-type">SimpleEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612749"><span class="annot"><span class="annottext">Maybe SimpleEmailPart
+</span><a href="#local-6989586621679612749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimpleEmail
+</span><a href="#local-6989586621679612750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:htmlPart:SimpleEmail' :: Maybe SimpleEmailPart
 </span><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#%24sel%3AhtmlPart%3ASimpleEmail%27"><span class="hs-identifier hs-var">htmlPart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
-</span><a href="#local-6989586621679612254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-type">SimpleEmail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679612749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-type">SimpleEmail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612250"><span id="local-6989586621679612252"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-type">SimpleEmail</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612745"><span id="local-6989586621679612747"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-type">SimpleEmail</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612247"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-type">SimpleEmail</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612742"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-type">SimpleEmail</span></a></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612239"><span id="local-6989586621679612241"><span id="local-6989586621679612243"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-type">SimpleEmail</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679612237"><span class="annot"><span class="annottext">toJSON :: SimpleEmail -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail%27"><span class="hs-identifier hs-type">SimpleEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612233"><span id="local-6989586621679612234"><span id="local-6989586621679612235"><span class="annot"><span class="annottext">Maybe SimpleEmailPart
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612734"><span id="local-6989586621679612736"><span id="local-6989586621679612738"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail"><span class="hs-identifier hs-type">SimpleEmail</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679612732"><span class="annot"><span class="annottext">toJSON :: SimpleEmail -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleEmail.html#SimpleEmail%27"><span class="hs-identifier hs-type">SimpleEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612728"><span id="local-6989586621679612729"><span id="local-6989586621679612730"><span class="annot"><span class="annottext">Maybe SimpleEmailPart
 htmlPart :: Maybe SimpleEmailPart
-subject :: Maybe SimpleEmailPart
 textPart :: Maybe SimpleEmailPart
+subject :: Maybe SimpleEmailPart
 $sel:htmlPart:SimpleEmail' :: SimpleEmail -&gt; Maybe SimpleEmailPart
-$sel:subject:SimpleEmail' :: SimpleEmail -&gt; Maybe SimpleEmailPart
 $sel:textPart:SimpleEmail' :: SimpleEmail -&gt; Maybe SimpleEmailPart
-</span><a href="#local-6989586621679612233"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:subject:SimpleEmail' :: SimpleEmail -&gt; Maybe SimpleEmailPart
+</span><a href="#local-6989586621679612728"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TextPart&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SimpleEmailPart -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SimpleEmailPart -&gt; Pair) -&gt; Maybe SimpleEmailPart -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
-</span><a href="#local-6989586621679612235"><span class="hs-identifier hs-var">textPart</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Subject&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SimpleEmailPart -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SimpleEmailPart -&gt; Pair) -&gt; Maybe SimpleEmailPart -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
-</span><a href="#local-6989586621679612234"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679612730"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TextPart&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SimpleEmailPart -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SimpleEmailPart -&gt; Pair) -&gt; Maybe SimpleEmailPart -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
+</span><a href="#local-6989586621679612729"><span class="hs-identifier hs-var">textPart</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HtmlPart&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SimpleEmailPart -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SimpleEmailPart -&gt; Pair) -&gt; Maybe SimpleEmailPart -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SimpleEmailPart
-</span><a href="#local-6989586621679612233"><span class="hs-identifier hs-var">htmlPart</span></a></span><span>
+</span><a href="#local-6989586621679612728"><span class="hs-identifier hs-var">htmlPart</span></a></span><span>
 </span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span></pre></body></html>

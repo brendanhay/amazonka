@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Configure egress access logging.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newEgressAccessLogs' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679235041"><span id="local-6989586621679235042"></span></span><span class="hs-keyword">data</span><span> </span><span id="EgressAccessLogs"><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs"><span class="hs-identifier hs-var">EgressAccessLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EgressAccessLogs%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs%27"><span class="hs-identifier hs-var">EgressAccessLogs'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679235165"><span id="local-6989586621679235166"></span></span><span class="hs-keyword">data</span><span> </span><span id="EgressAccessLogs"><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs"><span class="hs-identifier hs-var">EgressAccessLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EgressAccessLogs%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs%27"><span class="hs-identifier hs-var">EgressAccessLogs'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Customize the log group name.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AlogGroupName%3AEgressAccessLogs%27"><span class="annot"><span class="annottext">EgressAccessLogs -&gt; Maybe Text
 </span><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#%24sel%3AlogGroupName%3AEgressAccessLogs%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235035"><span id="local-6989586621679235037"><span class="annot"><span class="annottext">EgressAccessLogs -&gt; EgressAccessLogs -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235159"><span id="local-6989586621679235161"><span class="annot"><span class="annottext">EgressAccessLogs -&gt; EgressAccessLogs -&gt; Bool
 (EgressAccessLogs -&gt; EgressAccessLogs -&gt; Bool)
 -&gt; (EgressAccessLogs -&gt; EgressAccessLogs -&gt; Bool)
 -&gt; Eq EgressAccessLogs
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EgressAccessLogs -&gt; EgressAccessLogs -&gt; Bool
 == :: EgressAccessLogs -&gt; EgressAccessLogs -&gt; Bool
 $c== :: EgressAccessLogs -&gt; EgressAccessLogs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235026"><span id="local-6989586621679235028"><span id="local-6989586621679235030"><span id="local-6989586621679235032"><span class="annot"><span class="annottext">ReadPrec [EgressAccessLogs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235150"><span id="local-6989586621679235152"><span id="local-6989586621679235154"><span id="local-6989586621679235156"><span class="annot"><span class="annottext">ReadPrec [EgressAccessLogs]
 ReadPrec EgressAccessLogs
 Int -&gt; ReadS EgressAccessLogs
 ReadS [EgressAccessLogs]
@@ -60,7 +60,7 @@ readList :: ReadS [EgressAccessLogs]
 $creadList :: ReadS [EgressAccessLogs]
 readsPrec :: Int -&gt; ReadS EgressAccessLogs
 $creadsPrec :: Int -&gt; ReadS EgressAccessLogs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235019"><span id="local-6989586621679235021"><span id="local-6989586621679235023"><span class="annot"><span class="annottext">Int -&gt; EgressAccessLogs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235143"><span id="local-6989586621679235145"><span id="local-6989586621679235147"><span class="annot"><span class="annottext">Int -&gt; EgressAccessLogs -&gt; ShowS
 [EgressAccessLogs] -&gt; ShowS
 EgressAccessLogs -&gt; String
 (Int -&gt; EgressAccessLogs -&gt; ShowS)
@@ -113,19 +113,19 @@ forall a. Maybe a
 -&gt; (EgressAccessLogs -&gt; Maybe Text -&gt; EgressAccessLogs)
 -&gt; Lens EgressAccessLogs EgressAccessLogs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs%27"><span class="hs-identifier hs-type">EgressAccessLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235010"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs%27"><span class="hs-identifier hs-type">EgressAccessLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235134"><span class="annot"><span class="annottext">Maybe Text
 logGroupName :: Maybe Text
 $sel:logGroupName:EgressAccessLogs' :: EgressAccessLogs -&gt; Maybe Text
-</span><a href="#local-6989586621679235010"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235010"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235009"><span class="annot"><span class="annottext">s :: EgressAccessLogs
-</span><a href="#local-6989586621679235009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs%27"><span class="hs-identifier hs-type">EgressAccessLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235008"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EgressAccessLogs
-</span><a href="#local-6989586621679235009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:EgressAccessLogs' :: Maybe Text
+</span><a href="#local-6989586621679235134"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235134"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235133"><span class="annot"><span class="annottext">s :: EgressAccessLogs
+</span><a href="#local-6989586621679235133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs%27"><span class="hs-identifier hs-type">EgressAccessLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235132"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EgressAccessLogs
+</span><a href="#local-6989586621679235133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:EgressAccessLogs' :: Maybe Text
 </span><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#%24sel%3AlogGroupName%3AEgressAccessLogs%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs"><span class="hs-identifier hs-type">EgressAccessLogs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679235132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs"><span class="hs-identifier hs-type">EgressAccessLogs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235005"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs"><span class="hs-identifier hs-type">EgressAccessLogs</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679235003"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EgressAccessLogs
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235129"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs"><span class="hs-identifier hs-type">EgressAccessLogs</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679235127"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EgressAccessLogs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EgressAccessLogs)
@@ -135,30 +135,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EgressAccessLogs&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235000"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679235000"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235124"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235124"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; EgressAccessLogs
 </span><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs%27"><span class="hs-identifier hs-var">EgressAccessLogs'</span></a></span><span>
 </span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; EgressAccessLogs)
 -&gt; Parser (Maybe Text) -&gt; Parser EgressAccessLogs
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679235000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679235124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logGroupName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234994"><span id="local-6989586621679234996"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs"><span class="hs-identifier hs-type">EgressAccessLogs</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235118"><span id="local-6989586621679235120"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs"><span class="hs-identifier hs-type">EgressAccessLogs</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234991"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs"><span class="hs-identifier hs-type">EgressAccessLogs</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs"><span class="hs-identifier hs-type">EgressAccessLogs</span></a></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234983"><span id="local-6989586621679234985"><span id="local-6989586621679234987"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs"><span class="hs-identifier hs-type">EgressAccessLogs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679234981"><span class="annot"><span class="annottext">toJSON :: EgressAccessLogs -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs%27"><span class="hs-identifier hs-type">EgressAccessLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234979"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235107"><span id="local-6989586621679235109"><span id="local-6989586621679235111"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs"><span class="hs-identifier hs-type">EgressAccessLogs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679235105"><span class="annot"><span class="annottext">toJSON :: EgressAccessLogs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs%27"><span class="hs-identifier hs-type">EgressAccessLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235103"><span class="annot"><span class="annottext">Maybe Text
 logGroupName :: Maybe Text
 $sel:logGroupName:EgressAccessLogs' :: EgressAccessLogs -&gt; Maybe Text
-</span><a href="#local-6989586621679234979"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679235103"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -170,6 +170,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234979"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679235103"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span></pre></body></html>

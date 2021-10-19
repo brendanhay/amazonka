@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679432537"><span id="local-6989586621679432538"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameServerProtectionPolicy"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerProtectionPolicy.html#GameServerProtectionPolicy"><span class="hs-identifier hs-var">GameServerProtectionPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameServerProtectionPolicy%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerProtectionPolicy.html#GameServerProtectionPolicy%27"><span class="hs-identifier hs-var">GameServerProtectionPolicy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679432982"><span id="local-6989586621679432983"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameServerProtectionPolicy"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerProtectionPolicy.html#GameServerProtectionPolicy"><span class="hs-identifier hs-var">GameServerProtectionPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameServerProtectionPolicy%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerProtectionPolicy.html#GameServerProtectionPolicy%27"><span class="hs-identifier hs-var">GameServerProtectionPolicy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGameServerProtectionPolicy"><span class="annot"><span class="annottext">GameServerProtectionPolicy -&gt; Text
 </span><a href="Network.AWS.GameLift.Types.GameServerProtectionPolicy.html#fromGameServerProtectionPolicy"><span class="hs-identifier hs-var hs-var">fromGameServerProtectionPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432529"><span id="local-6989586621679432531"><span id="local-6989586621679432533"><span class="annot"><span class="annottext">Int -&gt; GameServerProtectionPolicy -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432974"><span id="local-6989586621679432976"><span id="local-6989586621679432978"><span class="annot"><span class="annottext">Int -&gt; GameServerProtectionPolicy -&gt; ShowS
 [GameServerProtectionPolicy] -&gt; ShowS
 GameServerProtectionPolicy -&gt; String
 (Int -&gt; GameServerProtectionPolicy -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: GameServerProtectionPolicy -&gt; String
 showsPrec :: Int -&gt; GameServerProtectionPolicy -&gt; ShowS
 $cshowsPrec :: Int -&gt; GameServerProtectionPolicy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679432520"><span id="local-6989586621679432522"><span id="local-6989586621679432524"><span id="local-6989586621679432526"><span class="annot"><span class="annottext">ReadPrec [GameServerProtectionPolicy]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679432965"><span id="local-6989586621679432967"><span id="local-6989586621679432969"><span id="local-6989586621679432971"><span class="annot"><span class="annottext">ReadPrec [GameServerProtectionPolicy]
 ReadPrec GameServerProtectionPolicy
 Int -&gt; ReadS GameServerProtectionPolicy
 ReadS [GameServerProtectionPolicy]
@@ -72,7 +72,7 @@ $creadList :: ReadS [GameServerProtectionPolicy]
 readsPrec :: Int -&gt; ReadS GameServerProtectionPolicy
 $creadsPrec :: Int -&gt; ReadS GameServerProtectionPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679432515"><span id="local-6989586621679432517"><span class="annot"><span class="annottext">GameServerProtectionPolicy -&gt; GameServerProtectionPolicy -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679432960"><span id="local-6989586621679432962"><span class="annot"><span class="annottext">GameServerProtectionPolicy -&gt; GameServerProtectionPolicy -&gt; Bool
 (GameServerProtectionPolicy -&gt; GameServerProtectionPolicy -&gt; Bool)
 -&gt; (GameServerProtectionPolicy
     -&gt; GameServerProtectionPolicy -&gt; Bool)
@@ -83,7 +83,7 @@ $c/= :: GameServerProtectionPolicy -&gt; GameServerProtectionPolicy -&gt; Bool
 == :: GameServerProtectionPolicy -&gt; GameServerProtectionPolicy -&gt; Bool
 $c== :: GameServerProtectionPolicy -&gt; GameServerProtectionPolicy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679432499"><span id="local-6989586621679432501"><span id="local-6989586621679432503"><span id="local-6989586621679432505"><span id="local-6989586621679432507"><span id="local-6989586621679432509"><span id="local-6989586621679432511"><span class="annot"><span class="annottext">Eq GameServerProtectionPolicy
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679432944"><span id="local-6989586621679432946"><span id="local-6989586621679432948"><span id="local-6989586621679432950"><span id="local-6989586621679432952"><span id="local-6989586621679432954"><span id="local-6989586621679432956"><span class="annot"><span class="annottext">Eq GameServerProtectionPolicy
 Eq GameServerProtectionPolicy
 -&gt; (GameServerProtectionPolicy
     -&gt; GameServerProtectionPolicy -&gt; Ordering)
@@ -155,7 +155,7 @@ GameServerProtectionPolicy -&gt; Rep GameServerProtectionPolicy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432491"><span id="local-6989586621679432493"><span class="annot"><span class="annottext">Int -&gt; GameServerProtectionPolicy -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432936"><span id="local-6989586621679432938"><span class="annot"><span class="annottext">Int -&gt; GameServerProtectionPolicy -&gt; Int
 GameServerProtectionPolicy -&gt; Int
 (Int -&gt; GameServerProtectionPolicy -&gt; Int)
 -&gt; (GameServerProtectionPolicy -&gt; Int)
@@ -166,56 +166,56 @@ $chash :: GameServerProtectionPolicy -&gt; Int
 hashWithSalt :: Int -&gt; GameServerProtectionPolicy -&gt; Int
 $chashWithSalt :: Int -&gt; GameServerProtectionPolicy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679432488"><span class="annot"><span class="annottext">GameServerProtectionPolicy -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679432933"><span class="annot"><span class="annottext">GameServerProtectionPolicy -&gt; ()
 (GameServerProtectionPolicy -&gt; ())
 -&gt; NFData GameServerProtectionPolicy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: GameServerProtectionPolicy -&gt; ()
 $crnf :: GameServerProtectionPolicy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679432485"><span class="annot"><span class="annottext">Text -&gt; Either String GameServerProtectionPolicy
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679432930"><span class="annot"><span class="annottext">Text -&gt; Either String GameServerProtectionPolicy
 (Text -&gt; Either String GameServerProtectionPolicy)
 -&gt; FromText GameServerProtectionPolicy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String GameServerProtectionPolicy
 $cfromText :: Text -&gt; Either String GameServerProtectionPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679432482"><span class="annot"><span class="annottext">GameServerProtectionPolicy -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679432927"><span class="annot"><span class="annottext">GameServerProtectionPolicy -&gt; Text
 (GameServerProtectionPolicy -&gt; Text)
 -&gt; ToText GameServerProtectionPolicy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: GameServerProtectionPolicy -&gt; Text
 $ctoText :: GameServerProtectionPolicy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679432479"><span class="annot"><span class="annottext">GameServerProtectionPolicy -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679432924"><span class="annot"><span class="annottext">GameServerProtectionPolicy -&gt; ByteString
 (GameServerProtectionPolicy -&gt; ByteString)
 -&gt; ToByteString GameServerProtectionPolicy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: GameServerProtectionPolicy -&gt; ByteString
 $ctoBS :: GameServerProtectionPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679432476"><span class="annot"><span class="annottext">GameServerProtectionPolicy -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679432921"><span class="annot"><span class="annottext">GameServerProtectionPolicy -&gt; ByteStringBuilder
 (GameServerProtectionPolicy -&gt; ByteStringBuilder)
 -&gt; ToLog GameServerProtectionPolicy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: GameServerProtectionPolicy -&gt; ByteStringBuilder
 $cbuild :: GameServerProtectionPolicy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679432473"><span class="annot"><span class="annottext">HeaderName -&gt; GameServerProtectionPolicy -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679432918"><span class="annot"><span class="annottext">HeaderName -&gt; GameServerProtectionPolicy -&gt; [Header]
 (HeaderName -&gt; GameServerProtectionPolicy -&gt; [Header])
 -&gt; ToHeader GameServerProtectionPolicy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; GameServerProtectionPolicy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; GameServerProtectionPolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679432470"><span class="annot"><span class="annottext">GameServerProtectionPolicy -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679432915"><span class="annot"><span class="annottext">GameServerProtectionPolicy -&gt; QueryString
 (GameServerProtectionPolicy -&gt; QueryString)
 -&gt; ToQuery GameServerProtectionPolicy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: GameServerProtectionPolicy -&gt; QueryString
 $ctoQuery :: GameServerProtectionPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679432465"><span id="local-6989586621679432467"><span class="annot"><span class="annottext">Value -&gt; Parser [GameServerProtectionPolicy]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679432910"><span id="local-6989586621679432912"><span class="annot"><span class="annottext">Value -&gt; Parser [GameServerProtectionPolicy]
 Value -&gt; Parser GameServerProtectionPolicy
 (Value -&gt; Parser GameServerProtectionPolicy)
 -&gt; (Value -&gt; Parser [GameServerProtectionPolicy])
@@ -227,7 +227,7 @@ $cparseJSONList :: Value -&gt; Parser [GameServerProtectionPolicy]
 parseJSON :: Value -&gt; Parser GameServerProtectionPolicy
 $cparseJSON :: Value -&gt; Parser GameServerProtectionPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679432460"><span id="local-6989586621679432462"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameServerProtectionPolicy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679432905"><span id="local-6989586621679432907"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameServerProtectionPolicy]
 FromJSONKeyFunction GameServerProtectionPolicy
 FromJSONKeyFunction GameServerProtectionPolicy
 -&gt; FromJSONKeyFunction [GameServerProtectionPolicy]
@@ -239,7 +239,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [GameServerProtectionPolicy]
 fromJSONKey :: FromJSONKeyFunction GameServerProtectionPolicy
 $cfromJSONKey :: FromJSONKeyFunction GameServerProtectionPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679432451"><span id="local-6989586621679432453"><span id="local-6989586621679432455"><span id="local-6989586621679432457"><span class="annot"><span class="annottext">[GameServerProtectionPolicy] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679432896"><span id="local-6989586621679432898"><span id="local-6989586621679432900"><span id="local-6989586621679432902"><span class="annot"><span class="annottext">[GameServerProtectionPolicy] -&gt; Encoding
 [GameServerProtectionPolicy] -&gt; Value
 GameServerProtectionPolicy -&gt; Encoding
 GameServerProtectionPolicy -&gt; Value
@@ -263,7 +263,7 @@ $ctoEncoding :: GameServerProtectionPolicy -&gt; Encoding
 toJSON :: GameServerProtectionPolicy -&gt; Value
 $ctoJSON :: GameServerProtectionPolicy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679432446"><span id="local-6989586621679432448"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameServerProtectionPolicy]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679432891"><span id="local-6989586621679432893"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameServerProtectionPolicy]
 ToJSONKeyFunction GameServerProtectionPolicy
 ToJSONKeyFunction GameServerProtectionPolicy
 -&gt; ToJSONKeyFunction [GameServerProtectionPolicy]
@@ -275,14 +275,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [GameServerProtectionPolicy]
 toJSONKey :: ToJSONKeyFunction GameServerProtectionPolicy
 $ctoJSONKey :: ToJSONKeyFunction GameServerProtectionPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679432443"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameServerProtectionPolicy
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679432888"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameServerProtectionPolicy
 ([Node] -&gt; Either String GameServerProtectionPolicy)
 -&gt; FromXML GameServerProtectionPolicy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String GameServerProtectionPolicy
 $cparseXML :: [Node] -&gt; Either String GameServerProtectionPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679432440"><span class="annot"><span class="annottext">GameServerProtectionPolicy -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679432885"><span class="annot"><span class="annottext">GameServerProtectionPolicy -&gt; XML
 (GameServerProtectionPolicy -&gt; XML)
 -&gt; ToXML GameServerProtectionPolicy
 forall a. (a -&gt; XML) -&gt; ToXML a

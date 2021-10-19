@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Details on the cache hit of a pipeline execution step.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCacheHitResult' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680294175"><span id="local-6989586621680294176"></span></span><span class="hs-keyword">data</span><span> </span><span id="CacheHitResult"><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult"><span class="hs-identifier hs-var">CacheHitResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CacheHitResult%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult%27"><span class="hs-identifier hs-var">CacheHitResult'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680295537"><span id="local-6989586621680295538"></span></span><span class="hs-keyword">data</span><span> </span><span id="CacheHitResult"><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult"><span class="hs-identifier hs-var">CacheHitResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CacheHitResult%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult%27"><span class="hs-identifier hs-var">CacheHitResult'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pipeline execution.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AsourcePipelineExecutionArn%3ACacheHitResult%27"><span class="annot"><span class="annottext">CacheHitResult -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#%24sel%3AsourcePipelineExecutionArn%3ACacheHitResult%27"><span class="hs-identifier hs-var hs-var">sourcePipelineExecutionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680294169"><span id="local-6989586621680294171"><span class="annot"><span class="annottext">CacheHitResult -&gt; CacheHitResult -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680295531"><span id="local-6989586621680295533"><span class="annot"><span class="annottext">CacheHitResult -&gt; CacheHitResult -&gt; Bool
 (CacheHitResult -&gt; CacheHitResult -&gt; Bool)
 -&gt; (CacheHitResult -&gt; CacheHitResult -&gt; Bool) -&gt; Eq CacheHitResult
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CacheHitResult -&gt; CacheHitResult -&gt; Bool
 == :: CacheHitResult -&gt; CacheHitResult -&gt; Bool
 $c== :: CacheHitResult -&gt; CacheHitResult -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680294160"><span id="local-6989586621680294162"><span id="local-6989586621680294164"><span id="local-6989586621680294166"><span class="annot"><span class="annottext">ReadPrec [CacheHitResult]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680295522"><span id="local-6989586621680295524"><span id="local-6989586621680295526"><span id="local-6989586621680295528"><span class="annot"><span class="annottext">ReadPrec [CacheHitResult]
 ReadPrec CacheHitResult
 Int -&gt; ReadS CacheHitResult
 ReadS [CacheHitResult]
@@ -59,7 +59,7 @@ readList :: ReadS [CacheHitResult]
 $creadList :: ReadS [CacheHitResult]
 readsPrec :: Int -&gt; ReadS CacheHitResult
 $creadsPrec :: Int -&gt; ReadS CacheHitResult
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680294153"><span id="local-6989586621680294155"><span id="local-6989586621680294157"><span class="annot"><span class="annottext">Int -&gt; CacheHitResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680295515"><span id="local-6989586621680295517"><span id="local-6989586621680295519"><span class="annot"><span class="annottext">Int -&gt; CacheHitResult -&gt; ShowS
 [CacheHitResult] -&gt; ShowS
 CacheHitResult -&gt; String
 (Int -&gt; CacheHitResult -&gt; ShowS)
@@ -115,19 +115,19 @@ forall a. Maybe a
 -&gt; (CacheHitResult -&gt; Maybe Text -&gt; CacheHitResult)
 -&gt; Lens CacheHitResult CacheHitResult (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult%27"><span class="hs-identifier hs-type">CacheHitResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680294144"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult%27"><span class="hs-identifier hs-type">CacheHitResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680295506"><span class="annot"><span class="annottext">Maybe Text
 sourcePipelineExecutionArn :: Maybe Text
 $sel:sourcePipelineExecutionArn:CacheHitResult' :: CacheHitResult -&gt; Maybe Text
-</span><a href="#local-6989586621680294144"><span class="hs-identifier hs-var hs-var">sourcePipelineExecutionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680294144"><span class="hs-identifier hs-var">sourcePipelineExecutionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680294143"><span class="annot"><span class="annottext">s :: CacheHitResult
-</span><a href="#local-6989586621680294143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult%27"><span class="hs-identifier hs-type">CacheHitResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680294142"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680294142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheHitResult
-</span><a href="#local-6989586621680294143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePipelineExecutionArn:CacheHitResult' :: Maybe Text
+</span><a href="#local-6989586621680295506"><span class="hs-identifier hs-var hs-var">sourcePipelineExecutionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680295506"><span class="hs-identifier hs-var">sourcePipelineExecutionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680295505"><span class="annot"><span class="annottext">s :: CacheHitResult
+</span><a href="#local-6989586621680295505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult%27"><span class="hs-identifier hs-type">CacheHitResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680295504"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680295504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheHitResult
+</span><a href="#local-6989586621680295505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePipelineExecutionArn:CacheHitResult' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#%24sel%3AsourcePipelineExecutionArn%3ACacheHitResult%27"><span class="hs-identifier hs-var">sourcePipelineExecutionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680294142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult"><span class="hs-identifier hs-type">CacheHitResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680295504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult"><span class="hs-identifier hs-type">CacheHitResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680294139"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult"><span class="hs-identifier hs-type">CacheHitResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621680294137"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CacheHitResult
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680295501"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult"><span class="hs-identifier hs-type">CacheHitResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621680295499"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CacheHitResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CacheHitResult)
@@ -137,21 +137,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CacheHitResult&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680294134"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680294134"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680295496"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680295496"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; CacheHitResult
 </span><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult%27"><span class="hs-identifier hs-var">CacheHitResult'</span></a></span><span>
 </span><span id="line-62"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; CacheHitResult)
 -&gt; Parser (Maybe Text) -&gt; Parser CacheHitResult
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680294134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680295496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourcePipelineExecutionArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680294128"><span id="local-6989586621680294130"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult"><span class="hs-identifier hs-type">CacheHitResult</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680295490"><span id="local-6989586621680295492"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult"><span class="hs-identifier hs-type">CacheHitResult</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680294125"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult"><span class="hs-identifier hs-type">CacheHitResult</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680295487"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CacheHitResult.html#CacheHitResult"><span class="hs-identifier hs-type">CacheHitResult</span></a></span></span><span>
 </span><span id="line-68"></span></pre></body></html>

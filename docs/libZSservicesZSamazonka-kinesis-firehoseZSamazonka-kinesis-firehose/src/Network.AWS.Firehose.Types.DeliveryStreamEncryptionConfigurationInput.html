@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Server-Side Encryption (SSE).</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDeliveryStreamEncryptionConfigurationInput' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679258180"><span id="local-6989586621679258181"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeliveryStreamEncryptionConfigurationInput"><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-var">DeliveryStreamEncryptionConfigurationInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliveryStreamEncryptionConfigurationInput%27"><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput%27"><span class="hs-identifier hs-var">DeliveryStreamEncryptionConfigurationInput'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679272404"><span id="local-6989586621679272405"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeliveryStreamEncryptionConfigurationInput"><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-var">DeliveryStreamEncryptionConfigurationInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliveryStreamEncryptionConfigurationInput%27"><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput%27"><span class="hs-identifier hs-var">DeliveryStreamEncryptionConfigurationInput'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you set @KeyType@ to @CUSTOMER_MANAGED_CMK@, you must specify the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Amazon Resource Name (ARN) of the CMK. If you set @KeyType@ to</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @AWS_OWNED_CMK@, Kinesis Data Firehose uses a service-account CMK.</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AkeyType%3ADeliveryStreamEncryptionConfigurationInput%27"><span class="annot"><span class="annottext">DeliveryStreamEncryptionConfigurationInput -&gt; KeyType
 </span><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#%24sel%3AkeyType%3ADeliveryStreamEncryptionConfigurationInput%27"><span class="hs-identifier hs-var hs-var">keyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.KeyType.html#KeyType"><span class="hs-identifier hs-type">KeyType</span></a></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258173"><span id="local-6989586621679258175"><span class="annot"><span class="annottext">DeliveryStreamEncryptionConfigurationInput
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272397"><span id="local-6989586621679272399"><span class="annot"><span class="annottext">DeliveryStreamEncryptionConfigurationInput
 -&gt; DeliveryStreamEncryptionConfigurationInput -&gt; Bool
 (DeliveryStreamEncryptionConfigurationInput
  -&gt; DeliveryStreamEncryptionConfigurationInput -&gt; Bool)
@@ -79,7 +79,7 @@ $c/= :: DeliveryStreamEncryptionConfigurationInput
 -&gt; DeliveryStreamEncryptionConfigurationInput -&gt; Bool
 $c== :: DeliveryStreamEncryptionConfigurationInput
 -&gt; DeliveryStreamEncryptionConfigurationInput -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258164"><span id="local-6989586621679258166"><span id="local-6989586621679258168"><span id="local-6989586621679258170"><span class="annot"><span class="annottext">ReadPrec [DeliveryStreamEncryptionConfigurationInput]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272388"><span id="local-6989586621679272390"><span id="local-6989586621679272392"><span id="local-6989586621679272394"><span class="annot"><span class="annottext">ReadPrec [DeliveryStreamEncryptionConfigurationInput]
 ReadPrec DeliveryStreamEncryptionConfigurationInput
 Int -&gt; ReadS DeliveryStreamEncryptionConfigurationInput
 ReadS [DeliveryStreamEncryptionConfigurationInput]
@@ -99,7 +99,7 @@ readList :: ReadS [DeliveryStreamEncryptionConfigurationInput]
 $creadList :: ReadS [DeliveryStreamEncryptionConfigurationInput]
 readsPrec :: Int -&gt; ReadS DeliveryStreamEncryptionConfigurationInput
 $creadsPrec :: Int -&gt; ReadS DeliveryStreamEncryptionConfigurationInput
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258157"><span id="local-6989586621679258159"><span id="local-6989586621679258161"><span class="annot"><span class="annottext">Int -&gt; DeliveryStreamEncryptionConfigurationInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272381"><span id="local-6989586621679272383"><span id="local-6989586621679272385"><span class="annot"><span class="annottext">Int -&gt; DeliveryStreamEncryptionConfigurationInput -&gt; ShowS
 [DeliveryStreamEncryptionConfigurationInput] -&gt; ShowS
 DeliveryStreamEncryptionConfigurationInput -&gt; String
 (Int -&gt; DeliveryStreamEncryptionConfigurationInput -&gt; ShowS)
@@ -181,8 +181,8 @@ DeliveryStreamEncryptionConfigurationInput
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput</span></a></span><span>
 </span><span id="line-108"></span><span id="newDeliveryStreamEncryptionConfigurationInput"><span class="annot"><span class="annottext">newDeliveryStreamEncryptionConfigurationInput :: KeyType -&gt; DeliveryStreamEncryptionConfigurationInput
 </span><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#newDeliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-var hs-var">newDeliveryStreamEncryptionConfigurationInput</span></a></span></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679258151"><span class="annot"><span class="annottext">KeyType
-</span><a href="#local-6989586621679258151"><span class="hs-identifier hs-var">pKeyType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679272375"><span class="annot"><span class="annottext">KeyType
+</span><a href="#local-6989586621679272375"><span class="hs-identifier hs-var">pKeyType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">DeliveryStreamEncryptionConfigurationInput' :: Maybe Text -&gt; KeyType -&gt; DeliveryStreamEncryptionConfigurationInput
 </span><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput%27"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput'</span></a></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyARN:DeliveryStreamEncryptionConfigurationInput' :: Maybe Text
@@ -192,7 +192,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:keyType:DeliveryStreamEncryptionConfigurationInput' :: KeyType
 </span><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#%24sel%3AkeyType%3ADeliveryStreamEncryptionConfigurationInput%27"><span class="hs-identifier hs-var">keyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KeyType
-</span><a href="#local-6989586621679258151"><span class="hs-identifier hs-var">pKeyType_</span></a></span><span>
+</span><a href="#local-6989586621679272375"><span class="hs-identifier hs-var">pKeyType_</span></a></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | If you set @KeyType@ to @CUSTOMER_MANAGED_CMK@, you must specify the</span><span>
@@ -211,16 +211,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput%27"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258147"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput%27"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272371"><span class="annot"><span class="annottext">Maybe Text
 keyARN :: Maybe Text
 $sel:keyARN:DeliveryStreamEncryptionConfigurationInput' :: DeliveryStreamEncryptionConfigurationInput -&gt; Maybe Text
-</span><a href="#local-6989586621679258147"><span class="hs-identifier hs-var hs-var">keyARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258147"><span class="hs-identifier hs-var">keyARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258146"><span class="annot"><span class="annottext">s :: DeliveryStreamEncryptionConfigurationInput
-</span><a href="#local-6989586621679258146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput%27"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258145"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryStreamEncryptionConfigurationInput
-</span><a href="#local-6989586621679258146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyARN:DeliveryStreamEncryptionConfigurationInput' :: Maybe Text
+</span><a href="#local-6989586621679272371"><span class="hs-identifier hs-var hs-var">keyARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272371"><span class="hs-identifier hs-var">keyARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272370"><span class="annot"><span class="annottext">s :: DeliveryStreamEncryptionConfigurationInput
+</span><a href="#local-6989586621679272370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput%27"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272369"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryStreamEncryptionConfigurationInput
+</span><a href="#local-6989586621679272370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyARN:DeliveryStreamEncryptionConfigurationInput' :: Maybe Text
 </span><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#%24sel%3AkeyARN%3ADeliveryStreamEncryptionConfigurationInput%27"><span class="hs-identifier hs-var">keyARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | Indicates the type of customer master key (CMK) to use for encryption.</span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- The default setting is @AWS_OWNED_CMK@. For more information about CMKs,</span><span>
@@ -261,38 +261,38 @@ $sel:keyARN:DeliveryStreamEncryptionConfigurationInput' :: DeliveryStreamEncrypt
      KeyType
      KeyType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput%27"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258143"><span class="annot"><span class="annottext">KeyType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput%27"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272367"><span class="annot"><span class="annottext">KeyType
 keyType :: KeyType
 $sel:keyType:DeliveryStreamEncryptionConfigurationInput' :: DeliveryStreamEncryptionConfigurationInput -&gt; KeyType
-</span><a href="#local-6989586621679258143"><span class="hs-identifier hs-var hs-var">keyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyType
-</span><a href="#local-6989586621679258143"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258142"><span class="annot"><span class="annottext">s :: DeliveryStreamEncryptionConfigurationInput
-</span><a href="#local-6989586621679258142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput%27"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258141"><span class="annot"><span class="annottext">KeyType
-</span><a href="#local-6989586621679258141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryStreamEncryptionConfigurationInput
-</span><a href="#local-6989586621679258142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyType:DeliveryStreamEncryptionConfigurationInput' :: KeyType
+</span><a href="#local-6989586621679272367"><span class="hs-identifier hs-var hs-var">keyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyType
+</span><a href="#local-6989586621679272367"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272366"><span class="annot"><span class="annottext">s :: DeliveryStreamEncryptionConfigurationInput
+</span><a href="#local-6989586621679272366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput%27"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272365"><span class="annot"><span class="annottext">KeyType
+</span><a href="#local-6989586621679272365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryStreamEncryptionConfigurationInput
+</span><a href="#local-6989586621679272366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyType:DeliveryStreamEncryptionConfigurationInput' :: KeyType
 </span><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#%24sel%3AkeyType%3ADeliveryStreamEncryptionConfigurationInput%27"><span class="hs-identifier hs-var">keyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KeyType
-</span><a href="#local-6989586621679258141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679258137"><span id="local-6989586621679258139"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679272361"><span id="local-6989586621679272363"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679258134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679272358"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput</span></a></span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679258126"><span id="local-6989586621679258128"><span id="local-6989586621679258130"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679272350"><span id="local-6989586621679272352"><span id="local-6989586621679272354"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput</span></a></span></span></span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679258124"><span class="annot"><span class="annottext">toJSON :: DeliveryStreamEncryptionConfigurationInput -&gt; Value
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679272348"><span class="annot"><span class="annottext">toJSON :: DeliveryStreamEncryptionConfigurationInput -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span>
-</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput%27"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258121"><span id="local-6989586621679258122"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput.html#DeliveryStreamEncryptionConfigurationInput%27"><span class="hs-identifier hs-type">DeliveryStreamEncryptionConfigurationInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272345"><span id="local-6989586621679272346"><span class="annot"><span class="annottext">Maybe Text
 KeyType
 keyType :: KeyType
 keyARN :: Maybe Text
 $sel:keyType:DeliveryStreamEncryptionConfigurationInput' :: DeliveryStreamEncryptionConfigurationInput -&gt; KeyType
 $sel:keyARN:DeliveryStreamEncryptionConfigurationInput' :: DeliveryStreamEncryptionConfigurationInput -&gt; Maybe Text
-</span><a href="#local-6989586621679258121"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679272345"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-166"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -304,14 +304,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258122"><span class="hs-identifier hs-var">keyARN</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679272346"><span class="hs-identifier hs-var">keyARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>              </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KeyType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">KeyType
-</span><a href="#local-6989586621679258121"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272345"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>            </span><span class="hs-special">]</span><span>
 </span><span id="line-170"></span><span>        </span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span></pre></body></html>

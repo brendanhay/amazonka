@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621681145622"><span id="local-6989586621681145623"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VolumeAttachmentState"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttachmentState.html#VolumeAttachmentState"><span class="hs-identifier hs-var">VolumeAttachmentState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VolumeAttachmentState%27"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttachmentState.html#VolumeAttachmentState%27"><span class="hs-identifier hs-var">VolumeAttachmentState'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621681180788"><span id="local-6989586621681180789"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VolumeAttachmentState"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttachmentState.html#VolumeAttachmentState"><span class="hs-identifier hs-var">VolumeAttachmentState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VolumeAttachmentState%27"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttachmentState.html#VolumeAttachmentState%27"><span class="hs-identifier hs-var">VolumeAttachmentState'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVolumeAttachmentState"><span class="annot"><span class="annottext">VolumeAttachmentState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.VolumeAttachmentState.html#fromVolumeAttachmentState"><span class="hs-identifier hs-var hs-var">fromVolumeAttachmentState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681145614"><span id="local-6989586621681145616"><span id="local-6989586621681145618"><span class="annot"><span class="annottext">Int -&gt; VolumeAttachmentState -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681180780"><span id="local-6989586621681180782"><span id="local-6989586621681180784"><span class="annot"><span class="annottext">Int -&gt; VolumeAttachmentState -&gt; ShowS
 [VolumeAttachmentState] -&gt; ShowS
 VolumeAttachmentState -&gt; String
 (Int -&gt; VolumeAttachmentState -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: VolumeAttachmentState -&gt; String
 showsPrec :: Int -&gt; VolumeAttachmentState -&gt; ShowS
 $cshowsPrec :: Int -&gt; VolumeAttachmentState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681145605"><span id="local-6989586621681145607"><span id="local-6989586621681145609"><span id="local-6989586621681145611"><span class="annot"><span class="annottext">ReadPrec [VolumeAttachmentState]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681180771"><span id="local-6989586621681180773"><span id="local-6989586621681180775"><span id="local-6989586621681180777"><span class="annot"><span class="annottext">ReadPrec [VolumeAttachmentState]
 ReadPrec VolumeAttachmentState
 Int -&gt; ReadS VolumeAttachmentState
 ReadS [VolumeAttachmentState]
@@ -76,7 +76,7 @@ $creadList :: ReadS [VolumeAttachmentState]
 readsPrec :: Int -&gt; ReadS VolumeAttachmentState
 $creadsPrec :: Int -&gt; ReadS VolumeAttachmentState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681145600"><span id="local-6989586621681145602"><span class="annot"><span class="annottext">VolumeAttachmentState -&gt; VolumeAttachmentState -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681180766"><span id="local-6989586621681180768"><span class="annot"><span class="annottext">VolumeAttachmentState -&gt; VolumeAttachmentState -&gt; Bool
 (VolumeAttachmentState -&gt; VolumeAttachmentState -&gt; Bool)
 -&gt; (VolumeAttachmentState -&gt; VolumeAttachmentState -&gt; Bool)
 -&gt; Eq VolumeAttachmentState
@@ -86,7 +86,7 @@ $c/= :: VolumeAttachmentState -&gt; VolumeAttachmentState -&gt; Bool
 == :: VolumeAttachmentState -&gt; VolumeAttachmentState -&gt; Bool
 $c== :: VolumeAttachmentState -&gt; VolumeAttachmentState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621681145584"><span id="local-6989586621681145586"><span id="local-6989586621681145588"><span id="local-6989586621681145590"><span id="local-6989586621681145592"><span id="local-6989586621681145594"><span id="local-6989586621681145596"><span class="annot"><span class="annottext">Eq VolumeAttachmentState
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681180750"><span id="local-6989586621681180752"><span id="local-6989586621681180754"><span id="local-6989586621681180756"><span id="local-6989586621681180758"><span id="local-6989586621681180760"><span id="local-6989586621681180762"><span class="annot"><span class="annottext">Eq VolumeAttachmentState
 Eq VolumeAttachmentState
 -&gt; (VolumeAttachmentState -&gt; VolumeAttachmentState -&gt; Ordering)
 -&gt; (VolumeAttachmentState -&gt; VolumeAttachmentState -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. VolumeAttachmentState -&gt; Rep VolumeAttachmentState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681145576"><span id="local-6989586621681145578"><span class="annot"><span class="annottext">Int -&gt; VolumeAttachmentState -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681180742"><span id="local-6989586621681180744"><span class="annot"><span class="annottext">Int -&gt; VolumeAttachmentState -&gt; Int
 VolumeAttachmentState -&gt; Int
 (Int -&gt; VolumeAttachmentState -&gt; Int)
 -&gt; (VolumeAttachmentState -&gt; Int) -&gt; Hashable VolumeAttachmentState
@@ -154,54 +154,54 @@ $chash :: VolumeAttachmentState -&gt; Int
 hashWithSalt :: Int -&gt; VolumeAttachmentState -&gt; Int
 $chashWithSalt :: Int -&gt; VolumeAttachmentState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681145573"><span class="annot"><span class="annottext">VolumeAttachmentState -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681180739"><span class="annot"><span class="annottext">VolumeAttachmentState -&gt; ()
 (VolumeAttachmentState -&gt; ()) -&gt; NFData VolumeAttachmentState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VolumeAttachmentState -&gt; ()
 $crnf :: VolumeAttachmentState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681145570"><span class="annot"><span class="annottext">Text -&gt; Either String VolumeAttachmentState
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681180736"><span class="annot"><span class="annottext">Text -&gt; Either String VolumeAttachmentState
 (Text -&gt; Either String VolumeAttachmentState)
 -&gt; FromText VolumeAttachmentState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VolumeAttachmentState
 $cfromText :: Text -&gt; Either String VolumeAttachmentState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681145567"><span class="annot"><span class="annottext">VolumeAttachmentState -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681180733"><span class="annot"><span class="annottext">VolumeAttachmentState -&gt; Text
 (VolumeAttachmentState -&gt; Text) -&gt; ToText VolumeAttachmentState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VolumeAttachmentState -&gt; Text
 $ctoText :: VolumeAttachmentState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681145564"><span class="annot"><span class="annottext">VolumeAttachmentState -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681180730"><span class="annot"><span class="annottext">VolumeAttachmentState -&gt; ByteString
 (VolumeAttachmentState -&gt; ByteString)
 -&gt; ToByteString VolumeAttachmentState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VolumeAttachmentState -&gt; ByteString
 $ctoBS :: VolumeAttachmentState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681145561"><span class="annot"><span class="annottext">VolumeAttachmentState -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681180727"><span class="annot"><span class="annottext">VolumeAttachmentState -&gt; ByteStringBuilder
 (VolumeAttachmentState -&gt; ByteStringBuilder)
 -&gt; ToLog VolumeAttachmentState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VolumeAttachmentState -&gt; ByteStringBuilder
 $cbuild :: VolumeAttachmentState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681145558"><span class="annot"><span class="annottext">HeaderName -&gt; VolumeAttachmentState -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681180724"><span class="annot"><span class="annottext">HeaderName -&gt; VolumeAttachmentState -&gt; [Header]
 (HeaderName -&gt; VolumeAttachmentState -&gt; [Header])
 -&gt; ToHeader VolumeAttachmentState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VolumeAttachmentState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VolumeAttachmentState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681145555"><span class="annot"><span class="annottext">VolumeAttachmentState -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681180721"><span class="annot"><span class="annottext">VolumeAttachmentState -&gt; QueryString
 (VolumeAttachmentState -&gt; QueryString)
 -&gt; ToQuery VolumeAttachmentState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VolumeAttachmentState -&gt; QueryString
 $ctoQuery :: VolumeAttachmentState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681145550"><span id="local-6989586621681145552"><span class="annot"><span class="annottext">Value -&gt; Parser [VolumeAttachmentState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681180716"><span id="local-6989586621681180718"><span class="annot"><span class="annottext">Value -&gt; Parser [VolumeAttachmentState]
 Value -&gt; Parser VolumeAttachmentState
 (Value -&gt; Parser VolumeAttachmentState)
 -&gt; (Value -&gt; Parser [VolumeAttachmentState])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [VolumeAttachmentState]
 parseJSON :: Value -&gt; Parser VolumeAttachmentState
 $cparseJSON :: Value -&gt; Parser VolumeAttachmentState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681145545"><span id="local-6989586621681145547"><span class="annot"><span class="annottext">FromJSONKeyFunction [VolumeAttachmentState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681180711"><span id="local-6989586621681180713"><span class="annot"><span class="annottext">FromJSONKeyFunction [VolumeAttachmentState]
 FromJSONKeyFunction VolumeAttachmentState
 FromJSONKeyFunction VolumeAttachmentState
 -&gt; FromJSONKeyFunction [VolumeAttachmentState]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VolumeAttachmentState]
 fromJSONKey :: FromJSONKeyFunction VolumeAttachmentState
 $cfromJSONKey :: FromJSONKeyFunction VolumeAttachmentState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681145536"><span id="local-6989586621681145538"><span id="local-6989586621681145540"><span id="local-6989586621681145542"><span class="annot"><span class="annottext">[VolumeAttachmentState] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681180702"><span id="local-6989586621681180704"><span id="local-6989586621681180706"><span id="local-6989586621681180708"><span class="annot"><span class="annottext">[VolumeAttachmentState] -&gt; Encoding
 [VolumeAttachmentState] -&gt; Value
 VolumeAttachmentState -&gt; Encoding
 VolumeAttachmentState -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: VolumeAttachmentState -&gt; Encoding
 toJSON :: VolumeAttachmentState -&gt; Value
 $ctoJSON :: VolumeAttachmentState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681145531"><span id="local-6989586621681145533"><span class="annot"><span class="annottext">ToJSONKeyFunction [VolumeAttachmentState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681180697"><span id="local-6989586621681180699"><span class="annot"><span class="annottext">ToJSONKeyFunction [VolumeAttachmentState]
 ToJSONKeyFunction VolumeAttachmentState
 ToJSONKeyFunction VolumeAttachmentState
 -&gt; ToJSONKeyFunction [VolumeAttachmentState]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VolumeAttachmentState]
 toJSONKey :: ToJSONKeyFunction VolumeAttachmentState
 $ctoJSONKey :: ToJSONKeyFunction VolumeAttachmentState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681145528"><span class="annot"><span class="annottext">[Node] -&gt; Either String VolumeAttachmentState
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681180694"><span class="annot"><span class="annottext">[Node] -&gt; Either String VolumeAttachmentState
 ([Node] -&gt; Either String VolumeAttachmentState)
 -&gt; FromXML VolumeAttachmentState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VolumeAttachmentState
 $cparseXML :: [Node] -&gt; Either String VolumeAttachmentState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681145525"><span class="annot"><span class="annottext">VolumeAttachmentState -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681180691"><span class="annot"><span class="annottext">VolumeAttachmentState -&gt; XML
 (VolumeAttachmentState -&gt; XML) -&gt; ToXML VolumeAttachmentState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VolumeAttachmentState -&gt; XML

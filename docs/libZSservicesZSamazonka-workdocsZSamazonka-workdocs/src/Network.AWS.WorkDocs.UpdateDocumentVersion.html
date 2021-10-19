@@ -31,8 +31,8 @@
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#newUpdateDocumentVersion"><span class="hs-identifier">newUpdateDocumentVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_versionStatus"><span class="hs-identifier">updateDocumentVersion_versionStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_authenticationToken"><span class="hs-identifier">updateDocumentVersion_authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_authenticationToken"><span class="hs-identifier">updateDocumentVersion_authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_versionStatus"><span class="hs-identifier">updateDocumentVersion_versionStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_documentId"><span class="hs-identifier">updateDocumentVersion_documentId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_versionId"><span class="hs-identifier">updateDocumentVersion_versionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
@@ -50,14 +50,14 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.html"><span class="hs-identifier">Network.AWS.WorkDocs.Types</span></a></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateDocumentVersion' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679276051"><span id="local-6989586621679276052"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDocumentVersion"><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-var">UpdateDocumentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDocumentVersion%27"><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-var">UpdateDocumentVersion'</span></a></span></span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the version.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AversionStatus%3AUpdateDocumentVersion%27"><span class="annot"><span class="annottext">UpdateDocumentVersion -&gt; Maybe DocumentVersionStatus
-</span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#%24sel%3AversionStatus%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var hs-var">versionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.DocumentVersionStatus.html#DocumentVersionStatus"><span class="hs-identifier hs-type">DocumentVersionStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AauthenticationToken%3AUpdateDocumentVersion%27"><span class="annot"><span class="annottext">UpdateDocumentVersion -&gt; Maybe (Sensitive Text)
+</span><span id="line-53"></span><span id="local-6989586621679276215"><span id="local-6989586621679276216"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDocumentVersion"><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-var">UpdateDocumentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDocumentVersion%27"><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-var">UpdateDocumentVersion'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AauthenticationToken%3AUpdateDocumentVersion%27"><span class="annot"><span class="annottext">UpdateDocumentVersion -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#%24sel%3AauthenticationToken%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The status of the version.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AversionStatus%3AUpdateDocumentVersion%27"><span class="annot"><span class="annottext">UpdateDocumentVersion -&gt; Maybe DocumentVersionStatus
+</span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#%24sel%3AversionStatus%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var hs-var">versionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.DocumentVersionStatus.html#DocumentVersionStatus"><span class="hs-identifier hs-type">DocumentVersionStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The ID of the document.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AdocumentId%3AUpdateDocumentVersion%27"><span class="annot"><span class="annottext">UpdateDocumentVersion -&gt; Text
 </span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#%24sel%3AdocumentId%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var hs-var">documentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AversionId%3AUpdateDocumentVersion%27"><span class="annot"><span class="annottext">UpdateDocumentVersion -&gt; Text
 </span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#%24sel%3AversionId%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276042"><span id="local-6989586621679276044"><span class="annot"><span class="annottext">UpdateDocumentVersion -&gt; UpdateDocumentVersion -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276206"><span id="local-6989586621679276208"><span class="annot"><span class="annottext">UpdateDocumentVersion -&gt; UpdateDocumentVersion -&gt; Bool
 (UpdateDocumentVersion -&gt; UpdateDocumentVersion -&gt; Bool)
 -&gt; (UpdateDocumentVersion -&gt; UpdateDocumentVersion -&gt; Bool)
 -&gt; Eq UpdateDocumentVersion
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDocumentVersion -&gt; UpdateDocumentVersion -&gt; Bool
 == :: UpdateDocumentVersion -&gt; UpdateDocumentVersion -&gt; Bool
 $c== :: UpdateDocumentVersion -&gt; UpdateDocumentVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276035"><span id="local-6989586621679276037"><span id="local-6989586621679276039"><span class="annot"><span class="annottext">Int -&gt; UpdateDocumentVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276199"><span id="local-6989586621679276201"><span id="local-6989586621679276203"><span class="annot"><span class="annottext">Int -&gt; UpdateDocumentVersion -&gt; ShowS
 [UpdateDocumentVersion] -&gt; ShowS
 UpdateDocumentVersion -&gt; String
 (Int -&gt; UpdateDocumentVersion -&gt; ShowS)
@@ -108,10 +108,10 @@ $cfrom :: forall x. UpdateDocumentVersion -&gt; Rep UpdateDocumentVersion x
 </span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'versionStatus', 'updateDocumentVersion_versionStatus' - The status of the version.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'authenticationToken', 'updateDocumentVersion_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'authenticationToken', 'updateDocumentVersion_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'versionStatus', 'updateDocumentVersion_versionStatus' - The status of the version.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- 'documentId', 'updateDocumentVersion_documentId' - The ID of the document.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
@@ -123,57 +123,36 @@ $cfrom :: forall x. UpdateDocumentVersion -&gt; Rep UpdateDocumentVersion x
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span>
 </span><span id="line-88"></span><span id="newUpdateDocumentVersion"><span class="annot"><span class="annottext">newUpdateDocumentVersion :: Text -&gt; Text -&gt; UpdateDocumentVersion
-</span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#newUpdateDocumentVersion"><span class="hs-identifier hs-var hs-var">newUpdateDocumentVersion</span></a></span></span><span> </span><span id="local-6989586621679276030"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276030"><span class="hs-identifier hs-var">pDocumentId_</span></a></span></span><span> </span><span id="local-6989586621679276029"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276029"><span class="hs-identifier hs-var">pVersionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">UpdateDocumentVersion' :: Maybe DocumentVersionStatus
--&gt; Maybe (Sensitive Text) -&gt; Text -&gt; Text -&gt; UpdateDocumentVersion
+</span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#newUpdateDocumentVersion"><span class="hs-identifier hs-var hs-var">newUpdateDocumentVersion</span></a></span></span><span> </span><span id="local-6989586621679276194"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276194"><span class="hs-identifier hs-var">pDocumentId_</span></a></span></span><span> </span><span id="local-6989586621679276193"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276193"><span class="hs-identifier hs-var">pVersionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">UpdateDocumentVersion' :: Maybe (Sensitive Text)
+-&gt; Maybe DocumentVersionStatus
+-&gt; Text
+-&gt; Text
+-&gt; UpdateDocumentVersion
 </span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versionStatus:UpdateDocumentVersion' :: Maybe DocumentVersionStatus
-</span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#%24sel%3AversionStatus%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">versionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Maybe DocumentVersionStatus
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authenticationToken:UpdateDocumentVersion' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#%24sel%3AauthenticationToken%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:authenticationToken:UpdateDocumentVersion' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#%24sel%3AauthenticationToken%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionStatus:UpdateDocumentVersion' :: Maybe DocumentVersionStatus
+</span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#%24sel%3AversionStatus%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">versionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentVersionStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentId:UpdateDocumentVersion' :: Text
 </span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#%24sel%3AdocumentId%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">documentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276030"><span class="hs-identifier hs-var">pDocumentId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276194"><span class="hs-identifier hs-var">pDocumentId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionId:UpdateDocumentVersion' :: Text
 </span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#%24sel%3AversionId%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276029"><span class="hs-identifier hs-var">pVersionId_</span></a></span><span>
+</span><a href="#local-6989586621679276193"><span class="hs-identifier hs-var">pVersionId_</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The status of the version.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_versionStatus"><span class="hs-identifier hs-type">updateDocumentVersion_versionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.DocumentVersionStatus.html#DocumentVersionStatus"><span class="hs-identifier hs-type">DocumentVersionStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="updateDocumentVersion_versionStatus"><span class="annot"><span class="annottext">updateDocumentVersion_versionStatus :: (Maybe DocumentVersionStatus -&gt; f (Maybe DocumentVersionStatus))
--&gt; UpdateDocumentVersion -&gt; f UpdateDocumentVersion
-</span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_versionStatus"><span class="hs-identifier hs-var hs-var">updateDocumentVersion_versionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDocumentVersion -&gt; Maybe DocumentVersionStatus)
--&gt; (UpdateDocumentVersion
-    -&gt; Maybe DocumentVersionStatus -&gt; UpdateDocumentVersion)
--&gt; Lens
-     UpdateDocumentVersion
-     UpdateDocumentVersion
-     (Maybe DocumentVersionStatus)
-     (Maybe DocumentVersionStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276026"><span class="annot"><span class="annottext">Maybe DocumentVersionStatus
-versionStatus :: Maybe DocumentVersionStatus
-$sel:versionStatus:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe DocumentVersionStatus
-</span><a href="#local-6989586621679276026"><span class="hs-identifier hs-var hs-var">versionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentVersionStatus
-</span><a href="#local-6989586621679276026"><span class="hs-identifier hs-var">versionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276025"><span class="annot"><span class="annottext">s :: UpdateDocumentVersion
-</span><a href="#local-6989586621679276025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276024"><span class="annot"><span class="annottext">Maybe DocumentVersionStatus
-</span><a href="#local-6989586621679276024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentVersion
-</span><a href="#local-6989586621679276025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionStatus:UpdateDocumentVersion' :: Maybe DocumentVersionStatus
-</span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#%24sel%3AversionStatus%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">versionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentVersionStatus
-</span><a href="#local-6989586621679276024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_authenticationToken"><span class="hs-identifier hs-type">updateDocumentVersion_authenticationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="updateDocumentVersion_authenticationToken"><span class="annot"><span class="annottext">updateDocumentVersion_authenticationToken :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-97"></span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_authenticationToken"><span class="hs-identifier hs-type">updateDocumentVersion_authenticationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="updateDocumentVersion_authenticationToken"><span class="annot"><span class="annottext">updateDocumentVersion_authenticationToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UpdateDocumentVersion -&gt; f UpdateDocumentVersion
 </span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_authenticationToken"><span class="hs-identifier hs-var hs-var">updateDocumentVersion_authenticationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDocumentVersion -&gt; Maybe (Sensitive Text))
 -&gt; (UpdateDocumentVersion
@@ -184,16 +163,16 @@ $sel:versionStatus:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe D
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276023"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276190"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 authenticationToken :: Maybe (Sensitive Text)
 $sel:authenticationToken:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679276023"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679276023"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276022"><span class="annot"><span class="annottext">s :: UpdateDocumentVersion
-</span><a href="#local-6989586621679276022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276021"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679276021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentVersion
-</span><a href="#local-6989586621679276022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:UpdateDocumentVersion' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679276190"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679276190"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276189"><span class="annot"><span class="annottext">s :: UpdateDocumentVersion
+</span><a href="#local-6989586621679276189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276188"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679276188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentVersion
+</span><a href="#local-6989586621679276189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:UpdateDocumentVersion' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#%24sel%3AauthenticationToken%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679276021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679276188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; UpdateDocumentVersion -&gt; f UpdateDocumentVersion)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -213,6 +192,30 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The status of the version.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_versionStatus"><span class="hs-identifier hs-type">updateDocumentVersion_versionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.DocumentVersionStatus.html#DocumentVersionStatus"><span class="hs-identifier hs-type">DocumentVersionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="updateDocumentVersion_versionStatus"><span class="annot"><span class="annottext">updateDocumentVersion_versionStatus :: (Maybe DocumentVersionStatus -&gt; f (Maybe DocumentVersionStatus))
+-&gt; UpdateDocumentVersion -&gt; f UpdateDocumentVersion
+</span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_versionStatus"><span class="hs-identifier hs-var hs-var">updateDocumentVersion_versionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDocumentVersion -&gt; Maybe DocumentVersionStatus)
+-&gt; (UpdateDocumentVersion
+    -&gt; Maybe DocumentVersionStatus -&gt; UpdateDocumentVersion)
+-&gt; Lens
+     UpdateDocumentVersion
+     UpdateDocumentVersion
+     (Maybe DocumentVersionStatus)
+     (Maybe DocumentVersionStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276184"><span class="annot"><span class="annottext">Maybe DocumentVersionStatus
+versionStatus :: Maybe DocumentVersionStatus
+$sel:versionStatus:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe DocumentVersionStatus
+</span><a href="#local-6989586621679276184"><span class="hs-identifier hs-var hs-var">versionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentVersionStatus
+</span><a href="#local-6989586621679276184"><span class="hs-identifier hs-var">versionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276183"><span class="annot"><span class="annottext">s :: UpdateDocumentVersion
+</span><a href="#local-6989586621679276183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276182"><span class="annot"><span class="annottext">Maybe DocumentVersionStatus
+</span><a href="#local-6989586621679276182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentVersion
+</span><a href="#local-6989586621679276183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionStatus:UpdateDocumentVersion' :: Maybe DocumentVersionStatus
+</span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#%24sel%3AversionStatus%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">versionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentVersionStatus
+</span><a href="#local-6989586621679276182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The ID of the document.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_documentId"><span class="hs-identifier hs-type">updateDocumentVersion_documentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -222,16 +225,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (UpdateDocumentVersion -&gt; Text -&gt; UpdateDocumentVersion)
 -&gt; Lens UpdateDocumentVersion UpdateDocumentVersion Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276017"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276181"><span class="annot"><span class="annottext">Text
 documentId :: Text
 $sel:documentId:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Text
-</span><a href="#local-6989586621679276017"><span class="hs-identifier hs-var hs-var">documentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276017"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276016"><span class="annot"><span class="annottext">s :: UpdateDocumentVersion
-</span><a href="#local-6989586621679276016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276015"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentVersion
-</span><a href="#local-6989586621679276016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentId:UpdateDocumentVersion' :: Text
+</span><a href="#local-6989586621679276181"><span class="hs-identifier hs-var hs-var">documentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276181"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276180"><span class="annot"><span class="annottext">s :: UpdateDocumentVersion
+</span><a href="#local-6989586621679276180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276179"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentVersion
+</span><a href="#local-6989586621679276180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentId:UpdateDocumentVersion' :: Text
 </span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#%24sel%3AdocumentId%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">documentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The version ID of the document.</span><span>
 </span><span id="line-111"></span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#updateDocumentVersion_versionId"><span class="hs-identifier hs-type">updateDocumentVersion_versionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -241,27 +244,27 @@ $sel:documentId:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Text
 -&gt; (UpdateDocumentVersion -&gt; Text -&gt; UpdateDocumentVersion)
 -&gt; Lens UpdateDocumentVersion UpdateDocumentVersion Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276014"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276178"><span class="annot"><span class="annottext">Text
 versionId :: Text
 $sel:versionId:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Text
-</span><a href="#local-6989586621679276014"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276014"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276013"><span class="annot"><span class="annottext">s :: UpdateDocumentVersion
-</span><a href="#local-6989586621679276013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276012"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentVersion
-</span><a href="#local-6989586621679276013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:UpdateDocumentVersion' :: Text
+</span><a href="#local-6989586621679276178"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276178"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276177"><span class="annot"><span class="annottext">s :: UpdateDocumentVersion
+</span><a href="#local-6989586621679276177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276176"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentVersion
+</span><a href="#local-6989586621679276177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:UpdateDocumentVersion' :: Text
 </span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#%24sel%3AversionId%3AUpdateDocumentVersion%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-116"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersionResponse"><span class="hs-identifier hs-type">UpdateDocumentVersionResponse</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679276008"><span class="annot"><span class="annottext">request :: UpdateDocumentVersion -&gt; Request UpdateDocumentVersion
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679276172"><span class="annot"><span class="annottext">request :: UpdateDocumentVersion -&gt; Request UpdateDocumentVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDocumentVersion -&gt; Request UpdateDocumentVersion
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkDocs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679276004"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679276168"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateDocumentVersion
 -&gt; ClientResponse ClientBody
@@ -287,24 +290,24 @@ AWSResponse a
 UpdateDocumentVersionResponse
 </span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersionResponse%27"><span class="hs-identifier hs-var">UpdateDocumentVersionResponse'</span></a></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275997"><span id="local-6989586621679275999"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276161"><span id="local-6989586621679276163"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275994"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276158"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679275990"><span class="annot"><span class="annottext">toHeaders :: UpdateDocumentVersion -&gt; [Header]
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275985"><span id="local-6989586621679275986"><span id="local-6989586621679275987"><span id="local-6989586621679275988"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679276154"><span class="annot"><span class="annottext">toHeaders :: UpdateDocumentVersion -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276149"><span id="local-6989586621679276150"><span id="local-6989586621679276151"><span id="local-6989586621679276152"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 Maybe DocumentVersionStatus
 Text
 versionId :: Text
 documentId :: Text
-authenticationToken :: Maybe (Sensitive Text)
 versionStatus :: Maybe DocumentVersionStatus
+authenticationToken :: Maybe (Sensitive Text)
 $sel:versionId:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Text
 $sel:documentId:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Text
-$sel:authenticationToken:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe (Sensitive Text)
 $sel:versionStatus:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe DocumentVersionStatus
-</span><a href="#local-6989586621679275985"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:authenticationToken:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679276149"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -312,7 +315,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Authentication&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe (Sensitive Text) -&gt; [Header]
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679275987"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276152"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
@@ -321,20 +324,20 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275977"><span id="local-6989586621679275979"><span id="local-6989586621679275981"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679275975"><span class="annot"><span class="annottext">toJSON :: UpdateDocumentVersion -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275970"><span id="local-6989586621679275971"><span id="local-6989586621679275972"><span id="local-6989586621679275973"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276141"><span id="local-6989586621679276143"><span id="local-6989586621679276145"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679276139"><span class="annot"><span class="annottext">toJSON :: UpdateDocumentVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276134"><span id="local-6989586621679276135"><span id="local-6989586621679276136"><span id="local-6989586621679276137"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 Maybe DocumentVersionStatus
 Text
 versionId :: Text
 documentId :: Text
-authenticationToken :: Maybe (Sensitive Text)
 versionStatus :: Maybe DocumentVersionStatus
+authenticationToken :: Maybe (Sensitive Text)
 $sel:versionId:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Text
 $sel:documentId:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Text
-$sel:authenticationToken:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe (Sensitive Text)
 $sel:versionStatus:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe DocumentVersionStatus
-</span><a href="#local-6989586621679275970"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:authenticationToken:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679276134"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -348,24 +351,24 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DocumentVersionStatus -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DocumentVersionStatus
-</span><a href="#local-6989586621679275973"><span class="hs-identifier hs-var">versionStatus</span></a></span><span>
+</span><a href="#local-6989586621679276136"><span class="hs-identifier hs-var">versionStatus</span></a></span><span>
 </span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679275963"><span class="annot"><span class="annottext">toPath :: UpdateDocumentVersion -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275958"><span id="local-6989586621679275959"><span id="local-6989586621679275960"><span id="local-6989586621679275961"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679276127"><span class="annot"><span class="annottext">toPath :: UpdateDocumentVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion%27"><span class="hs-identifier hs-type">UpdateDocumentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276122"><span id="local-6989586621679276123"><span id="local-6989586621679276124"><span id="local-6989586621679276125"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 Maybe DocumentVersionStatus
 Text
 versionId :: Text
 documentId :: Text
-authenticationToken :: Maybe (Sensitive Text)
 versionStatus :: Maybe DocumentVersionStatus
+authenticationToken :: Maybe (Sensitive Text)
 $sel:versionId:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Text
 $sel:documentId:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Text
-$sel:authenticationToken:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe (Sensitive Text)
 $sel:versionStatus:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe DocumentVersionStatus
-</span><a href="#local-6989586621679275958"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:authenticationToken:UpdateDocumentVersion' :: UpdateDocumentVersion -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679276122"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -374,17 +377,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275959"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276123"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/versions/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275958"><span class="hs-identifier hs-var">versionId</span></a></span><span>
+</span><a href="#local-6989586621679276122"><span class="hs-identifier hs-var">versionId</span></a></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersion"><span class="hs-identifier hs-type">UpdateDocumentVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679275954"><span class="annot"><span class="annottext">toQuery :: UpdateDocumentVersion -&gt; QueryString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679276118"><span class="annot"><span class="annottext">toQuery :: UpdateDocumentVersion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDocumentVersion -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -392,10 +395,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | /See:/ 'newUpdateDocumentVersionResponse' smart constructor.</span><span>
-</span><span id="line-156"></span><span id="local-6989586621679275950"><span id="local-6989586621679275951"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDocumentVersionResponse"><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersionResponse"><span class="hs-identifier hs-var">UpdateDocumentVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDocumentVersionResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersionResponse%27"><span class="hs-identifier hs-var">UpdateDocumentVersionResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span id="local-6989586621679276114"><span id="local-6989586621679276115"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDocumentVersionResponse"><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersionResponse"><span class="hs-identifier hs-var">UpdateDocumentVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDocumentVersionResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersionResponse%27"><span class="hs-identifier hs-var">UpdateDocumentVersionResponse'</span></a></span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275946"><span id="local-6989586621679275948"><span class="annot"><span class="annottext">UpdateDocumentVersionResponse
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276110"><span id="local-6989586621679276112"><span class="annot"><span class="annottext">UpdateDocumentVersionResponse
 -&gt; UpdateDocumentVersionResponse -&gt; Bool
 (UpdateDocumentVersionResponse
  -&gt; UpdateDocumentVersionResponse -&gt; Bool)
@@ -411,7 +414,7 @@ $c/= :: UpdateDocumentVersionResponse
 -&gt; UpdateDocumentVersionResponse -&gt; Bool
 $c== :: UpdateDocumentVersionResponse
 -&gt; UpdateDocumentVersionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275938"><span id="local-6989586621679275940"><span id="local-6989586621679275942"><span id="local-6989586621679275944"><span class="annot"><span class="annottext">ReadPrec [UpdateDocumentVersionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276102"><span id="local-6989586621679276104"><span id="local-6989586621679276106"><span id="local-6989586621679276108"><span class="annot"><span class="annottext">ReadPrec [UpdateDocumentVersionResponse]
 ReadPrec UpdateDocumentVersionResponse
 Int -&gt; ReadS UpdateDocumentVersionResponse
 ReadS [UpdateDocumentVersionResponse]
@@ -431,7 +434,7 @@ readList :: ReadS [UpdateDocumentVersionResponse]
 $creadList :: ReadS [UpdateDocumentVersionResponse]
 readsPrec :: Int -&gt; ReadS UpdateDocumentVersionResponse
 $creadsPrec :: Int -&gt; ReadS UpdateDocumentVersionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275931"><span id="local-6989586621679275933"><span id="local-6989586621679275935"><span class="annot"><span class="annottext">Int -&gt; UpdateDocumentVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276095"><span id="local-6989586621679276097"><span id="local-6989586621679276099"><span class="annot"><span class="annottext">Int -&gt; UpdateDocumentVersionResponse -&gt; ShowS
 [UpdateDocumentVersionResponse] -&gt; ShowS
 UpdateDocumentVersionResponse -&gt; String
 (Int -&gt; UpdateDocumentVersionResponse -&gt; ShowS)
@@ -480,5 +483,5 @@ UpdateDocumentVersionResponse
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">UpdateDocumentVersionResponse
 </span><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersionResponse%27"><span class="hs-identifier hs-var">UpdateDocumentVersionResponse'</span></a></span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275927"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersionResponse"><span class="hs-identifier hs-type">UpdateDocumentVersionResponse</span></a></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276091"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocumentVersion.html#UpdateDocumentVersionResponse"><span class="hs-identifier hs-type">UpdateDocumentVersionResponse</span></a></span></span><span>
 </span><span id="line-171"></span></pre></body></html>

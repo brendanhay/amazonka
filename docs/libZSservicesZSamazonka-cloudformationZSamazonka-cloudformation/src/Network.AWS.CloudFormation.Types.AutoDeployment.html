@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- organization or organizational unit (OU).</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAutoDeployment' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679413983"><span id="local-6989586621679413984"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoDeployment"><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment"><span class="hs-identifier hs-var">AutoDeployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoDeployment%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment%27"><span class="hs-identifier hs-var">AutoDeployment'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679414382"><span id="local-6989586621679414383"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoDeployment"><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment"><span class="hs-identifier hs-var">AutoDeployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoDeployment%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment%27"><span class="hs-identifier hs-var">AutoDeployment'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If set to @true@, StackSets automatically deploys additional stack</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- instances to Organizations accounts that are added to a target</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- organization or organizational unit (OU) in the specified Regions. If an</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AretainStacksOnAccountRemoval%3AAutoDeployment%27"><span class="annot"><span class="annottext">AutoDeployment -&gt; Maybe Bool
 </span><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#%24sel%3AretainStacksOnAccountRemoval%3AAutoDeployment%27"><span class="hs-identifier hs-var hs-var">retainStacksOnAccountRemoval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413976"><span id="local-6989586621679413978"><span class="annot"><span class="annottext">AutoDeployment -&gt; AutoDeployment -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414375"><span id="local-6989586621679414377"><span class="annot"><span class="annottext">AutoDeployment -&gt; AutoDeployment -&gt; Bool
 (AutoDeployment -&gt; AutoDeployment -&gt; Bool)
 -&gt; (AutoDeployment -&gt; AutoDeployment -&gt; Bool) -&gt; Eq AutoDeployment
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AutoDeployment -&gt; AutoDeployment -&gt; Bool
 == :: AutoDeployment -&gt; AutoDeployment -&gt; Bool
 $c== :: AutoDeployment -&gt; AutoDeployment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413967"><span id="local-6989586621679413969"><span id="local-6989586621679413971"><span id="local-6989586621679413973"><span class="annot"><span class="annottext">ReadPrec [AutoDeployment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414366"><span id="local-6989586621679414368"><span id="local-6989586621679414370"><span id="local-6989586621679414372"><span class="annot"><span class="annottext">ReadPrec [AutoDeployment]
 ReadPrec AutoDeployment
 Int -&gt; ReadS AutoDeployment
 ReadS [AutoDeployment]
@@ -70,7 +70,7 @@ readList :: ReadS [AutoDeployment]
 $creadList :: ReadS [AutoDeployment]
 readsPrec :: Int -&gt; ReadS AutoDeployment
 $creadsPrec :: Int -&gt; ReadS AutoDeployment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413960"><span id="local-6989586621679413962"><span id="local-6989586621679413964"><span class="annot"><span class="annottext">Int -&gt; AutoDeployment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414359"><span id="local-6989586621679414361"><span id="local-6989586621679414363"><span class="annot"><span class="annottext">Int -&gt; AutoDeployment -&gt; ShowS
 [AutoDeployment] -&gt; ShowS
 AutoDeployment -&gt; String
 (Int -&gt; AutoDeployment -&gt; ShowS)
@@ -141,16 +141,16 @@ forall a. Maybe a
 -&gt; (AutoDeployment -&gt; Maybe Bool -&gt; AutoDeployment)
 -&gt; Lens AutoDeployment AutoDeployment (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment%27"><span class="hs-identifier hs-type">AutoDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413951"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment%27"><span class="hs-identifier hs-type">AutoDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414350"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:AutoDeployment' :: AutoDeployment -&gt; Maybe Bool
-</span><a href="#local-6989586621679413951"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679413951"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413950"><span class="annot"><span class="annottext">s :: AutoDeployment
-</span><a href="#local-6989586621679413950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment%27"><span class="hs-identifier hs-type">AutoDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413949"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679413949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoDeployment
-</span><a href="#local-6989586621679413950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:AutoDeployment' :: Maybe Bool
+</span><a href="#local-6989586621679414350"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679414350"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414349"><span class="annot"><span class="annottext">s :: AutoDeployment
+</span><a href="#local-6989586621679414349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment%27"><span class="hs-identifier hs-type">AutoDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414348"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679414348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoDeployment
+</span><a href="#local-6989586621679414349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:AutoDeployment' :: Maybe Bool
 </span><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#%24sel%3Aenabled%3AAutoDeployment%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679413949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment"><span class="hs-identifier hs-type">AutoDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment"><span class="hs-identifier hs-type">AutoDeployment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | If set to @true@, stack resources are retained when an account is</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- removed from a target organization or OU. If set to @false@, stack</span><span>
@@ -162,21 +162,21 @@ $sel:enabled:AutoDeployment' :: AutoDeployment -&gt; Maybe Bool
 -&gt; (AutoDeployment -&gt; Maybe Bool -&gt; AutoDeployment)
 -&gt; Lens AutoDeployment AutoDeployment (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment%27"><span class="hs-identifier hs-type">AutoDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413947"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment%27"><span class="hs-identifier hs-type">AutoDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414346"><span class="annot"><span class="annottext">Maybe Bool
 retainStacksOnAccountRemoval :: Maybe Bool
 $sel:retainStacksOnAccountRemoval:AutoDeployment' :: AutoDeployment -&gt; Maybe Bool
-</span><a href="#local-6989586621679413947"><span class="hs-identifier hs-var hs-var">retainStacksOnAccountRemoval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679413947"><span class="hs-identifier hs-var">retainStacksOnAccountRemoval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413946"><span class="annot"><span class="annottext">s :: AutoDeployment
-</span><a href="#local-6989586621679413946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment%27"><span class="hs-identifier hs-type">AutoDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413945"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679413945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoDeployment
-</span><a href="#local-6989586621679413946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retainStacksOnAccountRemoval:AutoDeployment' :: Maybe Bool
+</span><a href="#local-6989586621679414346"><span class="hs-identifier hs-var hs-var">retainStacksOnAccountRemoval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679414346"><span class="hs-identifier hs-var">retainStacksOnAccountRemoval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414345"><span class="annot"><span class="annottext">s :: AutoDeployment
+</span><a href="#local-6989586621679414345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment%27"><span class="hs-identifier hs-type">AutoDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414344"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679414344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoDeployment
+</span><a href="#local-6989586621679414345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retainStacksOnAccountRemoval:AutoDeployment' :: Maybe Bool
 </span><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#%24sel%3AretainStacksOnAccountRemoval%3AAutoDeployment%27"><span class="hs-identifier hs-var">retainStacksOnAccountRemoval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679413945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment"><span class="hs-identifier hs-type">AutoDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment"><span class="hs-identifier hs-type">AutoDeployment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment"><span class="hs-identifier hs-type">AutoDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679413942"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AutoDeployment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679413940"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679413940"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679414341"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AutoDeployment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679414339"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679414339"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Bool -&gt; AutoDeployment
 </span><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment%27"><span class="hs-identifier hs-var">AutoDeployment'</span></a></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Bool -&gt; AutoDeployment)
@@ -184,7 +184,7 @@ $sel:retainStacksOnAccountRemoval:AutoDeployment' :: AutoDeployment -&gt; Maybe 
 -&gt; Either String (Maybe Bool -&gt; AutoDeployment)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679413940"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679414339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -192,23 +192,23 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Bool) -&gt; Either String AutoDeployment
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679413940"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679414339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RetainStacksOnAccountRemoval&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413934"><span id="local-6989586621679413936"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment"><span class="hs-identifier hs-type">AutoDeployment</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414333"><span id="local-6989586621679414335"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment"><span class="hs-identifier hs-type">AutoDeployment</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413931"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment"><span class="hs-identifier hs-type">AutoDeployment</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414330"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment"><span class="hs-identifier hs-type">AutoDeployment</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment"><span class="hs-identifier hs-type">AutoDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679413927"><span class="annot"><span class="annottext">toQuery :: AutoDeployment -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment%27"><span class="hs-identifier hs-type">AutoDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413924"><span id="local-6989586621679413925"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679414326"><span class="annot"><span class="annottext">toQuery :: AutoDeployment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AutoDeployment.html#AutoDeployment%27"><span class="hs-identifier hs-type">AutoDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414323"><span id="local-6989586621679414324"><span class="annot"><span class="annottext">Maybe Bool
 retainStacksOnAccountRemoval :: Maybe Bool
 enabled :: Maybe Bool
 $sel:retainStacksOnAccountRemoval:AutoDeployment' :: AutoDeployment -&gt; Maybe Bool
 $sel:enabled:AutoDeployment' :: AutoDeployment -&gt; Maybe Bool
-</span><a href="#local-6989586621679413924"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679414323"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -216,12 +216,12 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679413925"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679414324"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;RetainStacksOnAccountRemoval&quot;</span></span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679413924"><span class="hs-identifier hs-var">retainStacksOnAccountRemoval</span></a></span><span>
+</span><a href="#local-6989586621679414323"><span class="hs-identifier hs-var">retainStacksOnAccountRemoval</span></a></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span></pre></body></html>

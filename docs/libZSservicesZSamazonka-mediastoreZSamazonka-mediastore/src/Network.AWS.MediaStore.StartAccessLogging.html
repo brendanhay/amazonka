@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newStartAccessLogging' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679164974"><span id="local-6989586621679164975"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartAccessLogging"><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging"><span class="hs-identifier hs-var">StartAccessLogging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartAccessLogging%27"><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging%27"><span class="hs-identifier hs-var">StartAccessLogging'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679165035"><span id="local-6989586621679165036"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartAccessLogging"><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging"><span class="hs-identifier hs-var">StartAccessLogging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartAccessLogging%27"><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging%27"><span class="hs-identifier hs-var">StartAccessLogging'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the container that you want to start access logging on.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AcontainerName%3AStartAccessLogging%27"><span class="annot"><span class="annottext">StartAccessLogging -&gt; Text
 </span><a href="Network.AWS.MediaStore.StartAccessLogging.html#%24sel%3AcontainerName%3AStartAccessLogging%27"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679164968"><span id="local-6989586621679164970"><span class="annot"><span class="annottext">StartAccessLogging -&gt; StartAccessLogging -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165029"><span id="local-6989586621679165031"><span class="annot"><span class="annottext">StartAccessLogging -&gt; StartAccessLogging -&gt; Bool
 (StartAccessLogging -&gt; StartAccessLogging -&gt; Bool)
 -&gt; (StartAccessLogging -&gt; StartAccessLogging -&gt; Bool)
 -&gt; Eq StartAccessLogging
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartAccessLogging -&gt; StartAccessLogging -&gt; Bool
 == :: StartAccessLogging -&gt; StartAccessLogging -&gt; Bool
 $c== :: StartAccessLogging -&gt; StartAccessLogging -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679164959"><span id="local-6989586621679164961"><span id="local-6989586621679164963"><span id="local-6989586621679164965"><span class="annot"><span class="annottext">ReadPrec [StartAccessLogging]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165020"><span id="local-6989586621679165022"><span id="local-6989586621679165024"><span id="local-6989586621679165026"><span class="annot"><span class="annottext">ReadPrec [StartAccessLogging]
 ReadPrec StartAccessLogging
 Int -&gt; ReadS StartAccessLogging
 ReadS [StartAccessLogging]
@@ -82,7 +82,7 @@ readList :: ReadS [StartAccessLogging]
 $creadList :: ReadS [StartAccessLogging]
 readsPrec :: Int -&gt; ReadS StartAccessLogging
 $creadsPrec :: Int -&gt; ReadS StartAccessLogging
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679164952"><span id="local-6989586621679164954"><span id="local-6989586621679164956"><span class="annot"><span class="annottext">Int -&gt; StartAccessLogging -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165013"><span id="local-6989586621679165015"><span id="local-6989586621679165017"><span class="annot"><span class="annottext">Int -&gt; StartAccessLogging -&gt; ShowS
 [StartAccessLogging] -&gt; ShowS
 StartAccessLogging -&gt; String
 (Int -&gt; StartAccessLogging -&gt; ShowS)
@@ -122,14 +122,14 @@ $cfrom :: forall x. StartAccessLogging -&gt; Rep StartAccessLogging x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging"><span class="hs-identifier hs-type">StartAccessLogging</span></a></span><span>
 </span><span id="line-70"></span><span id="newStartAccessLogging"><span class="annot"><span class="annottext">newStartAccessLogging :: Text -&gt; StartAccessLogging
-</span><a href="Network.AWS.MediaStore.StartAccessLogging.html#newStartAccessLogging"><span class="hs-identifier hs-var hs-var">newStartAccessLogging</span></a></span></span><span> </span><span id="local-6989586621679164947"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679164947"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.StartAccessLogging.html#newStartAccessLogging"><span class="hs-identifier hs-var hs-var">newStartAccessLogging</span></a></span></span><span> </span><span id="local-6989586621679165008"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679165008"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">StartAccessLogging' :: Text -&gt; StartAccessLogging
 </span><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging%27"><span class="hs-identifier hs-type">StartAccessLogging'</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:containerName:StartAccessLogging' :: Text
 </span><a href="Network.AWS.MediaStore.StartAccessLogging.html#%24sel%3AcontainerName%3AStartAccessLogging%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679164947"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span>
+</span><a href="#local-6989586621679165008"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The name of the container that you want to start access logging on.</span><span>
@@ -139,27 +139,27 @@ $cfrom :: forall x. StartAccessLogging -&gt; Rep StartAccessLogging x
 -&gt; (StartAccessLogging -&gt; Text -&gt; StartAccessLogging)
 -&gt; Lens StartAccessLogging StartAccessLogging Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging%27"><span class="hs-identifier hs-type">StartAccessLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679164944"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging%27"><span class="hs-identifier hs-type">StartAccessLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165005"><span class="annot"><span class="annottext">Text
 containerName :: Text
 $sel:containerName:StartAccessLogging' :: StartAccessLogging -&gt; Text
-</span><a href="#local-6989586621679164944"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679164944"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679164943"><span class="annot"><span class="annottext">s :: StartAccessLogging
-</span><a href="#local-6989586621679164943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging%27"><span class="hs-identifier hs-type">StartAccessLogging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679164942"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679164942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartAccessLogging
-</span><a href="#local-6989586621679164943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:StartAccessLogging' :: Text
+</span><a href="#local-6989586621679165005"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679165005"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165004"><span class="annot"><span class="annottext">s :: StartAccessLogging
+</span><a href="#local-6989586621679165004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging%27"><span class="hs-identifier hs-type">StartAccessLogging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165003"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679165003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartAccessLogging
+</span><a href="#local-6989586621679165004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:StartAccessLogging' :: Text
 </span><a href="Network.AWS.MediaStore.StartAccessLogging.html#%24sel%3AcontainerName%3AStartAccessLogging%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679164942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging"><span class="hs-identifier hs-type">StartAccessLogging</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging"><span class="hs-identifier hs-type">StartAccessLogging</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging"><span class="hs-identifier hs-type">StartAccessLogging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging"><span class="hs-identifier hs-type">StartAccessLogging</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLoggingResponse"><span class="hs-identifier hs-type">StartAccessLoggingResponse</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679164938"><span class="annot"><span class="annottext">request :: StartAccessLogging -&gt; Request StartAccessLogging
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679164999"><span class="annot"><span class="annottext">request :: StartAccessLogging -&gt; Request StartAccessLogging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartAccessLogging -&gt; Request StartAccessLogging
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaStore.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679164934"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679164995"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartAccessLogging
 -&gt; ClientResponse ClientBody
@@ -185,10 +185,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679164931"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679164931"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679164930"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679164930"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679164929"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679164929"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679164992"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679164992"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679164991"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679164991"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679164990"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679164990"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StartAccessLoggingResponse
 </span><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLoggingResponse%27"><span class="hs-identifier hs-var">StartAccessLoggingResponse'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StartAccessLoggingResponse)
@@ -199,15 +199,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679164931"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679164992"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679164922"><span id="local-6989586621679164924"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging"><span class="hs-identifier hs-type">StartAccessLogging</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679164983"><span id="local-6989586621679164985"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging"><span class="hs-identifier hs-type">StartAccessLogging</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679164919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging"><span class="hs-identifier hs-type">StartAccessLogging</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679164980"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging"><span class="hs-identifier hs-type">StartAccessLogging</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging"><span class="hs-identifier hs-type">StartAccessLogging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679164915"><span class="annot"><span class="annottext">toHeaders :: StartAccessLogging -&gt; ResponseHeaders
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679164976"><span class="annot"><span class="annottext">toHeaders :: StartAccessLogging -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartAccessLogging -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -234,12 +234,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679164905"><span id="local-6989586621679164907"><span id="local-6989586621679164909"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging"><span class="hs-identifier hs-type">StartAccessLogging</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679164903"><span class="annot"><span class="annottext">toJSON :: StartAccessLogging -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging%27"><span class="hs-identifier hs-type">StartAccessLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679164901"><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679164966"><span id="local-6989586621679164968"><span id="local-6989586621679164970"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging"><span class="hs-identifier hs-type">StartAccessLogging</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679164964"><span class="annot"><span class="annottext">toJSON :: StartAccessLogging -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging%27"><span class="hs-identifier hs-type">StartAccessLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679164962"><span class="annot"><span class="annottext">Text
 containerName :: Text
 $sel:containerName:StartAccessLogging' :: StartAccessLogging -&gt; Text
-</span><a href="#local-6989586621679164901"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679164962"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -252,19 +252,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ContainerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679164901"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679164962"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging"><span class="hs-identifier hs-type">StartAccessLogging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679164895"><span class="annot"><span class="annottext">toPath :: StartAccessLogging -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679164956"><span class="annot"><span class="annottext">toPath :: StartAccessLogging -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartAccessLogging -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLogging"><span class="hs-identifier hs-type">StartAccessLogging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679164891"><span class="annot"><span class="annottext">toQuery :: StartAccessLogging -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679164952"><span class="annot"><span class="annottext">toQuery :: StartAccessLogging -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartAccessLogging -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -272,12 +272,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newStartAccessLoggingResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679164888"><span id="local-6989586621679164889"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartAccessLoggingResponse"><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLoggingResponse"><span class="hs-identifier hs-var">StartAccessLoggingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartAccessLoggingResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLoggingResponse%27"><span class="hs-identifier hs-var">StartAccessLoggingResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679164949"><span id="local-6989586621679164950"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartAccessLoggingResponse"><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLoggingResponse"><span class="hs-identifier hs-var">StartAccessLoggingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartAccessLoggingResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLoggingResponse%27"><span class="hs-identifier hs-var">StartAccessLoggingResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartAccessLoggingResponse%27"><span class="annot"><span class="annottext">StartAccessLoggingResponse -&gt; Int
 </span><a href="Network.AWS.MediaStore.StartAccessLogging.html#%24sel%3AhttpStatus%3AStartAccessLoggingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679164883"><span id="local-6989586621679164885"><span class="annot"><span class="annottext">StartAccessLoggingResponse -&gt; StartAccessLoggingResponse -&gt; Bool
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679164944"><span id="local-6989586621679164946"><span class="annot"><span class="annottext">StartAccessLoggingResponse -&gt; StartAccessLoggingResponse -&gt; Bool
 (StartAccessLoggingResponse -&gt; StartAccessLoggingResponse -&gt; Bool)
 -&gt; (StartAccessLoggingResponse
     -&gt; StartAccessLoggingResponse -&gt; Bool)
@@ -287,7 +287,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartAccessLoggingResponse -&gt; StartAccessLoggingResponse -&gt; Bool
 == :: StartAccessLoggingResponse -&gt; StartAccessLoggingResponse -&gt; Bool
 $c== :: StartAccessLoggingResponse -&gt; StartAccessLoggingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679164875"><span id="local-6989586621679164877"><span id="local-6989586621679164879"><span id="local-6989586621679164881"><span class="annot"><span class="annottext">ReadPrec [StartAccessLoggingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679164936"><span id="local-6989586621679164938"><span id="local-6989586621679164940"><span id="local-6989586621679164942"><span class="annot"><span class="annottext">ReadPrec [StartAccessLoggingResponse]
 ReadPrec StartAccessLoggingResponse
 Int -&gt; ReadS StartAccessLoggingResponse
 ReadS [StartAccessLoggingResponse]
@@ -307,7 +307,7 @@ readList :: ReadS [StartAccessLoggingResponse]
 $creadList :: ReadS [StartAccessLoggingResponse]
 readsPrec :: Int -&gt; ReadS StartAccessLoggingResponse
 $creadsPrec :: Int -&gt; ReadS StartAccessLoggingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679164869"><span id="local-6989586621679164871"><span id="local-6989586621679164873"><span class="annot"><span class="annottext">Int -&gt; StartAccessLoggingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679164930"><span id="local-6989586621679164932"><span id="local-6989586621679164934"><span class="annot"><span class="annottext">Int -&gt; StartAccessLoggingResponse -&gt; ShowS
 [StartAccessLoggingResponse] -&gt; ShowS
 StartAccessLoggingResponse -&gt; String
 (Int -&gt; StartAccessLoggingResponse -&gt; ShowS)
@@ -353,14 +353,14 @@ StartAccessLoggingResponse -&gt; Rep StartAccessLoggingResponse x
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLoggingResponse"><span class="hs-identifier hs-type">StartAccessLoggingResponse</span></a></span><span>
 </span><span id="line-146"></span><span id="newStartAccessLoggingResponse"><span class="annot"><span class="annottext">newStartAccessLoggingResponse :: Int -&gt; StartAccessLoggingResponse
-</span><a href="Network.AWS.MediaStore.StartAccessLogging.html#newStartAccessLoggingResponse"><span class="hs-identifier hs-var hs-var">newStartAccessLoggingResponse</span></a></span></span><span> </span><span id="local-6989586621679164866"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679164866"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.StartAccessLogging.html#newStartAccessLoggingResponse"><span class="hs-identifier hs-var hs-var">newStartAccessLoggingResponse</span></a></span></span><span> </span><span id="local-6989586621679164927"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679164927"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">StartAccessLoggingResponse' :: Int -&gt; StartAccessLoggingResponse
 </span><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLoggingResponse%27"><span class="hs-identifier hs-type">StartAccessLoggingResponse'</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:StartAccessLoggingResponse' :: Int
 </span><a href="Network.AWS.MediaStore.StartAccessLogging.html#%24sel%3AhttpStatus%3AStartAccessLoggingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679164866"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679164927"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -373,16 +373,16 @@ StartAccessLoggingResponse -&gt; Rep StartAccessLoggingResponse x
 -&gt; Lens
      StartAccessLoggingResponse StartAccessLoggingResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLoggingResponse%27"><span class="hs-identifier hs-type">StartAccessLoggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679164865"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLoggingResponse%27"><span class="hs-identifier hs-type">StartAccessLoggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679164926"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StartAccessLoggingResponse' :: StartAccessLoggingResponse -&gt; Int
-</span><a href="#local-6989586621679164865"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679164865"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679164864"><span class="annot"><span class="annottext">s :: StartAccessLoggingResponse
-</span><a href="#local-6989586621679164864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLoggingResponse%27"><span class="hs-identifier hs-type">StartAccessLoggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679164863"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679164863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartAccessLoggingResponse
-</span><a href="#local-6989586621679164864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartAccessLoggingResponse' :: Int
+</span><a href="#local-6989586621679164926"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679164926"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679164925"><span class="annot"><span class="annottext">s :: StartAccessLoggingResponse
+</span><a href="#local-6989586621679164925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLoggingResponse%27"><span class="hs-identifier hs-type">StartAccessLoggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679164924"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679164924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartAccessLoggingResponse
+</span><a href="#local-6989586621679164925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartAccessLoggingResponse' :: Int
 </span><a href="Network.AWS.MediaStore.StartAccessLogging.html#%24sel%3AhttpStatus%3AStartAccessLoggingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679164863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLoggingResponse"><span class="hs-identifier hs-type">StartAccessLoggingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679164924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLoggingResponse"><span class="hs-identifier hs-type">StartAccessLoggingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679164861"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLoggingResponse"><span class="hs-identifier hs-type">StartAccessLoggingResponse</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679164922"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#StartAccessLoggingResponse"><span class="hs-identifier hs-type">StartAccessLoggingResponse</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

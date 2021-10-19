@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newPutCommentReaction' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679358001"><span id="local-6989586621679358002"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutCommentReaction"><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-var">PutCommentReaction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutCommentReaction%27"><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction%27"><span class="hs-identifier hs-var">PutCommentReaction'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679358286"><span id="local-6989586621679358287"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutCommentReaction"><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-var">PutCommentReaction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutCommentReaction%27"><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction%27"><span class="hs-identifier hs-var">PutCommentReaction'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the comment to which you want to add or update a reaction.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AcommentId%3APutCommentReaction%27"><span class="annot"><span class="annottext">PutCommentReaction -&gt; Text
 </span><a href="Network.AWS.CodeCommit.PutCommentReaction.html#%24sel%3AcommentId%3APutCommentReaction%27"><span class="hs-identifier hs-var hs-var">commentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AreactionValue%3APutCommentReaction%27"><span class="annot"><span class="annottext">PutCommentReaction -&gt; Text
 </span><a href="Network.AWS.CodeCommit.PutCommentReaction.html#%24sel%3AreactionValue%3APutCommentReaction%27"><span class="hs-identifier hs-var hs-var">reactionValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357994"><span id="local-6989586621679357996"><span class="annot"><span class="annottext">PutCommentReaction -&gt; PutCommentReaction -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358279"><span id="local-6989586621679358281"><span class="annot"><span class="annottext">PutCommentReaction -&gt; PutCommentReaction -&gt; Bool
 (PutCommentReaction -&gt; PutCommentReaction -&gt; Bool)
 -&gt; (PutCommentReaction -&gt; PutCommentReaction -&gt; Bool)
 -&gt; Eq PutCommentReaction
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutCommentReaction -&gt; PutCommentReaction -&gt; Bool
 == :: PutCommentReaction -&gt; PutCommentReaction -&gt; Bool
 $c== :: PutCommentReaction -&gt; PutCommentReaction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357985"><span id="local-6989586621679357987"><span id="local-6989586621679357989"><span id="local-6989586621679357991"><span class="annot"><span class="annottext">ReadPrec [PutCommentReaction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358270"><span id="local-6989586621679358272"><span id="local-6989586621679358274"><span id="local-6989586621679358276"><span class="annot"><span class="annottext">ReadPrec [PutCommentReaction]
 ReadPrec PutCommentReaction
 Int -&gt; ReadS PutCommentReaction
 ReadS [PutCommentReaction]
@@ -88,7 +88,7 @@ readList :: ReadS [PutCommentReaction]
 $creadList :: ReadS [PutCommentReaction]
 readsPrec :: Int -&gt; ReadS PutCommentReaction
 $creadsPrec :: Int -&gt; ReadS PutCommentReaction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357978"><span id="local-6989586621679357980"><span id="local-6989586621679357982"><span class="annot"><span class="annottext">Int -&gt; PutCommentReaction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358263"><span id="local-6989586621679358265"><span id="local-6989586621679358267"><span class="annot"><span class="annottext">Int -&gt; PutCommentReaction -&gt; ShowS
 [PutCommentReaction] -&gt; ShowS
 PutCommentReaction -&gt; String
 (Int -&gt; PutCommentReaction -&gt; ShowS)
@@ -136,17 +136,17 @@ $cfrom :: forall x. PutCommentReaction -&gt; Rep PutCommentReaction x
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-type">PutCommentReaction</span></a></span><span>
 </span><span id="line-83"></span><span id="newPutCommentReaction"><span class="annot"><span class="annottext">newPutCommentReaction :: Text -&gt; Text -&gt; PutCommentReaction
-</span><a href="Network.AWS.CodeCommit.PutCommentReaction.html#newPutCommentReaction"><span class="hs-identifier hs-var hs-var">newPutCommentReaction</span></a></span></span><span> </span><span id="local-6989586621679357973"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357973"><span class="hs-identifier hs-var">pCommentId_</span></a></span></span><span> </span><span id="local-6989586621679357972"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357972"><span class="hs-identifier hs-var">pReactionValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.PutCommentReaction.html#newPutCommentReaction"><span class="hs-identifier hs-var hs-var">newPutCommentReaction</span></a></span></span><span> </span><span id="local-6989586621679358258"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358258"><span class="hs-identifier hs-var">pCommentId_</span></a></span></span><span> </span><span id="local-6989586621679358257"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358257"><span class="hs-identifier hs-var">pReactionValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">PutCommentReaction' :: Text -&gt; Text -&gt; PutCommentReaction
 </span><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction%27"><span class="hs-identifier hs-type">PutCommentReaction'</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:commentId:PutCommentReaction' :: Text
 </span><a href="Network.AWS.CodeCommit.PutCommentReaction.html#%24sel%3AcommentId%3APutCommentReaction%27"><span class="hs-identifier hs-var">commentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357973"><span class="hs-identifier hs-var">pCommentId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679358258"><span class="hs-identifier hs-var">pCommentId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:reactionValue:PutCommentReaction' :: Text
 </span><a href="Network.AWS.CodeCommit.PutCommentReaction.html#%24sel%3AreactionValue%3APutCommentReaction%27"><span class="hs-identifier hs-var">reactionValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357972"><span class="hs-identifier hs-var">pReactionValue_</span></a></span><span>
+</span><a href="#local-6989586621679358257"><span class="hs-identifier hs-var">pReactionValue_</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The ID of the comment to which you want to add or update a reaction.</span><span>
@@ -156,16 +156,16 @@ $cfrom :: forall x. PutCommentReaction -&gt; Rep PutCommentReaction x
 -&gt; (PutCommentReaction -&gt; Text -&gt; PutCommentReaction)
 -&gt; Lens PutCommentReaction PutCommentReaction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction%27"><span class="hs-identifier hs-type">PutCommentReaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357969"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction%27"><span class="hs-identifier hs-type">PutCommentReaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358254"><span class="annot"><span class="annottext">Text
 commentId :: Text
 $sel:commentId:PutCommentReaction' :: PutCommentReaction -&gt; Text
-</span><a href="#local-6989586621679357969"><span class="hs-identifier hs-var hs-var">commentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357969"><span class="hs-identifier hs-var">commentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357968"><span class="annot"><span class="annottext">s :: PutCommentReaction
-</span><a href="#local-6989586621679357968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction%27"><span class="hs-identifier hs-type">PutCommentReaction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357967"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCommentReaction
-</span><a href="#local-6989586621679357968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commentId:PutCommentReaction' :: Text
+</span><a href="#local-6989586621679358254"><span class="hs-identifier hs-var hs-var">commentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358254"><span class="hs-identifier hs-var">commentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358253"><span class="annot"><span class="annottext">s :: PutCommentReaction
+</span><a href="#local-6989586621679358253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction%27"><span class="hs-identifier hs-type">PutCommentReaction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358252"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCommentReaction
+</span><a href="#local-6989586621679358253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commentId:PutCommentReaction' :: Text
 </span><a href="Network.AWS.CodeCommit.PutCommentReaction.html#%24sel%3AcommentId%3APutCommentReaction%27"><span class="hs-identifier hs-var">commentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-type">PutCommentReaction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-type">PutCommentReaction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The emoji reaction you want to add or update. To remove a reaction,</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- provide a value of blank or null. You can also provide the value of</span><span>
@@ -178,27 +178,27 @@ $sel:commentId:PutCommentReaction' :: PutCommentReaction -&gt; Text
 -&gt; (PutCommentReaction -&gt; Text -&gt; PutCommentReaction)
 -&gt; Lens PutCommentReaction PutCommentReaction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction%27"><span class="hs-identifier hs-type">PutCommentReaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357966"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction%27"><span class="hs-identifier hs-type">PutCommentReaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358251"><span class="annot"><span class="annottext">Text
 reactionValue :: Text
 $sel:reactionValue:PutCommentReaction' :: PutCommentReaction -&gt; Text
-</span><a href="#local-6989586621679357966"><span class="hs-identifier hs-var hs-var">reactionValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357966"><span class="hs-identifier hs-var">reactionValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357965"><span class="annot"><span class="annottext">s :: PutCommentReaction
-</span><a href="#local-6989586621679357965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction%27"><span class="hs-identifier hs-type">PutCommentReaction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357964"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCommentReaction
-</span><a href="#local-6989586621679357965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reactionValue:PutCommentReaction' :: Text
+</span><a href="#local-6989586621679358251"><span class="hs-identifier hs-var hs-var">reactionValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358251"><span class="hs-identifier hs-var">reactionValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358250"><span class="annot"><span class="annottext">s :: PutCommentReaction
+</span><a href="#local-6989586621679358250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction%27"><span class="hs-identifier hs-type">PutCommentReaction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358249"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCommentReaction
+</span><a href="#local-6989586621679358250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reactionValue:PutCommentReaction' :: Text
 </span><a href="Network.AWS.CodeCommit.PutCommentReaction.html#%24sel%3AreactionValue%3APutCommentReaction%27"><span class="hs-identifier hs-var">reactionValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-type">PutCommentReaction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-type">PutCommentReaction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-type">PutCommentReaction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-type">PutCommentReaction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReactionResponse"><span class="hs-identifier hs-type">PutCommentReactionResponse</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679357960"><span class="annot"><span class="annottext">request :: PutCommentReaction -&gt; Request PutCommentReaction
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679358245"><span class="annot"><span class="annottext">request :: PutCommentReaction -&gt; Request PutCommentReaction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutCommentReaction -&gt; Request PutCommentReaction
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679357956"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679358241"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutCommentReaction
 -&gt; ClientResponse ClientBody
@@ -224,12 +224,12 @@ AWSResponse a
 PutCommentReactionResponse
 </span><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReactionResponse%27"><span class="hs-identifier hs-var">PutCommentReactionResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357949"><span id="local-6989586621679357951"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-type">PutCommentReaction</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358234"><span id="local-6989586621679358236"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-type">PutCommentReaction</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-type">PutCommentReaction</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358231"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-type">PutCommentReaction</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-type">PutCommentReaction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679357942"><span class="annot"><span class="annottext">toHeaders :: PutCommentReaction -&gt; [Header]
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679358227"><span class="annot"><span class="annottext">toHeaders :: PutCommentReaction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; PutCommentReaction -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -256,14 +256,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357932"><span id="local-6989586621679357934"><span id="local-6989586621679357936"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-type">PutCommentReaction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679357930"><span class="annot"><span class="annottext">toJSON :: PutCommentReaction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction%27"><span class="hs-identifier hs-type">PutCommentReaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357927"><span id="local-6989586621679357928"><span class="annot"><span class="annottext">Text
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358217"><span id="local-6989586621679358219"><span id="local-6989586621679358221"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-type">PutCommentReaction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679358215"><span class="annot"><span class="annottext">toJSON :: PutCommentReaction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction%27"><span class="hs-identifier hs-type">PutCommentReaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358212"><span id="local-6989586621679358213"><span class="annot"><span class="annottext">Text
 reactionValue :: Text
 commentId :: Text
 $sel:reactionValue:PutCommentReaction' :: PutCommentReaction -&gt; Text
 $sel:commentId:PutCommentReaction' :: PutCommentReaction -&gt; Text
-</span><a href="#local-6989586621679357927"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679358212"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -275,7 +275,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;commentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357928"><span class="hs-identifier hs-var">commentId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679358213"><span class="hs-identifier hs-var">commentId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -283,19 +283,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;reactionValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357927"><span class="hs-identifier hs-var">reactionValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358212"><span class="hs-identifier hs-var">reactionValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-type">PutCommentReaction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679357921"><span class="annot"><span class="annottext">toPath :: PutCommentReaction -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679358206"><span class="annot"><span class="annottext">toPath :: PutCommentReaction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutCommentReaction -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReaction"><span class="hs-identifier hs-type">PutCommentReaction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679357917"><span class="annot"><span class="annottext">toQuery :: PutCommentReaction -&gt; QueryString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679358202"><span class="annot"><span class="annottext">toQuery :: PutCommentReaction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutCommentReaction -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -303,10 +303,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newPutCommentReactionResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679357914"><span id="local-6989586621679357915"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutCommentReactionResponse"><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReactionResponse"><span class="hs-identifier hs-var">PutCommentReactionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutCommentReactionResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReactionResponse%27"><span class="hs-identifier hs-var">PutCommentReactionResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679358199"><span id="local-6989586621679358200"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutCommentReactionResponse"><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReactionResponse"><span class="hs-identifier hs-var">PutCommentReactionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutCommentReactionResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReactionResponse%27"><span class="hs-identifier hs-var">PutCommentReactionResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357910"><span id="local-6989586621679357912"><span class="annot"><span class="annottext">PutCommentReactionResponse -&gt; PutCommentReactionResponse -&gt; Bool
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358195"><span id="local-6989586621679358197"><span class="annot"><span class="annottext">PutCommentReactionResponse -&gt; PutCommentReactionResponse -&gt; Bool
 (PutCommentReactionResponse -&gt; PutCommentReactionResponse -&gt; Bool)
 -&gt; (PutCommentReactionResponse
     -&gt; PutCommentReactionResponse -&gt; Bool)
@@ -316,7 +316,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutCommentReactionResponse -&gt; PutCommentReactionResponse -&gt; Bool
 == :: PutCommentReactionResponse -&gt; PutCommentReactionResponse -&gt; Bool
 $c== :: PutCommentReactionResponse -&gt; PutCommentReactionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357902"><span id="local-6989586621679357904"><span id="local-6989586621679357906"><span id="local-6989586621679357908"><span class="annot"><span class="annottext">ReadPrec [PutCommentReactionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358187"><span id="local-6989586621679358189"><span id="local-6989586621679358191"><span id="local-6989586621679358193"><span class="annot"><span class="annottext">ReadPrec [PutCommentReactionResponse]
 ReadPrec PutCommentReactionResponse
 Int -&gt; ReadS PutCommentReactionResponse
 ReadS [PutCommentReactionResponse]
@@ -336,7 +336,7 @@ readList :: ReadS [PutCommentReactionResponse]
 $creadList :: ReadS [PutCommentReactionResponse]
 readsPrec :: Int -&gt; ReadS PutCommentReactionResponse
 $creadsPrec :: Int -&gt; ReadS PutCommentReactionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357896"><span id="local-6989586621679357898"><span id="local-6989586621679357900"><span class="annot"><span class="annottext">Int -&gt; PutCommentReactionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358181"><span id="local-6989586621679358183"><span id="local-6989586621679358185"><span class="annot"><span class="annottext">Int -&gt; PutCommentReactionResponse -&gt; ShowS
 [PutCommentReactionResponse] -&gt; ShowS
 PutCommentReactionResponse -&gt; String
 (Int -&gt; PutCommentReactionResponse -&gt; ShowS)
@@ -379,5 +379,5 @@ PutCommentReactionResponse -&gt; Rep PutCommentReactionResponse x
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">PutCommentReactionResponse
 </span><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReactionResponse%27"><span class="hs-identifier hs-var">PutCommentReactionResponse'</span></a></span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357892"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReactionResponse"><span class="hs-identifier hs-type">PutCommentReactionResponse</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358177"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutCommentReaction.html#PutCommentReactionResponse"><span class="hs-identifier hs-type">PutCommentReactionResponse</span></a></span></span><span>
 </span><span id="line-160"></span></pre></body></html>

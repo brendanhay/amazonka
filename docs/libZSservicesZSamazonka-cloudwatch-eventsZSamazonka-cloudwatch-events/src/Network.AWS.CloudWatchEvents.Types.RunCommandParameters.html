@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- to specify which EC2 instances are to be sent the command.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRunCommandParameters' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679306131"><span id="local-6989586621679306132"></span></span><span class="hs-keyword">data</span><span> </span><span id="RunCommandParameters"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters"><span class="hs-identifier hs-var">RunCommandParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RunCommandParameters%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters%27"><span class="hs-identifier hs-var">RunCommandParameters'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679306320"><span id="local-6989586621679306321"></span></span><span class="hs-keyword">data</span><span> </span><span id="RunCommandParameters"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters"><span class="hs-identifier hs-var">RunCommandParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RunCommandParameters%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters%27"><span class="hs-identifier hs-var">RunCommandParameters'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Currently, we support including only one RunCommandTarget block, which</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- specifies either an array of InstanceIds or a tag.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3ArunCommandTargets%3ARunCommandParameters%27"><span class="annot"><span class="annottext">RunCommandParameters -&gt; NonEmpty RunCommandTarget
 </span><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#%24sel%3ArunCommandTargets%3ARunCommandParameters%27"><span class="hs-identifier hs-var hs-var">runCommandTargets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandTarget.html#RunCommandTarget"><span class="hs-identifier hs-type">RunCommandTarget</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306125"><span id="local-6989586621679306127"><span class="annot"><span class="annottext">RunCommandParameters -&gt; RunCommandParameters -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306314"><span id="local-6989586621679306316"><span class="annot"><span class="annottext">RunCommandParameters -&gt; RunCommandParameters -&gt; Bool
 (RunCommandParameters -&gt; RunCommandParameters -&gt; Bool)
 -&gt; (RunCommandParameters -&gt; RunCommandParameters -&gt; Bool)
 -&gt; Eq RunCommandParameters
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RunCommandParameters -&gt; RunCommandParameters -&gt; Bool
 == :: RunCommandParameters -&gt; RunCommandParameters -&gt; Bool
 $c== :: RunCommandParameters -&gt; RunCommandParameters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306116"><span id="local-6989586621679306118"><span id="local-6989586621679306120"><span id="local-6989586621679306122"><span class="annot"><span class="annottext">ReadPrec [RunCommandParameters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306305"><span id="local-6989586621679306307"><span id="local-6989586621679306309"><span id="local-6989586621679306311"><span class="annot"><span class="annottext">ReadPrec [RunCommandParameters]
 ReadPrec RunCommandParameters
 Int -&gt; ReadS RunCommandParameters
 ReadS [RunCommandParameters]
@@ -63,7 +63,7 @@ readList :: ReadS [RunCommandParameters]
 $creadList :: ReadS [RunCommandParameters]
 readsPrec :: Int -&gt; ReadS RunCommandParameters
 $creadsPrec :: Int -&gt; ReadS RunCommandParameters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306109"><span id="local-6989586621679306111"><span id="local-6989586621679306113"><span class="annot"><span class="annottext">Int -&gt; RunCommandParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306298"><span id="local-6989586621679306300"><span id="local-6989586621679306302"><span class="annot"><span class="annottext">Int -&gt; RunCommandParameters -&gt; ShowS
 [RunCommandParameters] -&gt; ShowS
 RunCommandParameters -&gt; String
 (Int -&gt; RunCommandParameters -&gt; ShowS)
@@ -104,8 +104,8 @@ $cfrom :: forall x. RunCommandParameters -&gt; Rep RunCommandParameters x
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandTarget.html#RunCommandTarget"><span class="hs-identifier hs-type">RunCommandTarget</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters"><span class="hs-identifier hs-type">RunCommandParameters</span></a></span><span>
 </span><span id="line-52"></span><span id="newRunCommandParameters"><span class="annot"><span class="annottext">newRunCommandParameters :: NonEmpty RunCommandTarget -&gt; RunCommandParameters
-</span><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#newRunCommandParameters"><span class="hs-identifier hs-var hs-var">newRunCommandParameters</span></a></span></span><span> </span><span id="local-6989586621679306103"><span class="annot"><span class="annottext">NonEmpty RunCommandTarget
-</span><a href="#local-6989586621679306103"><span class="hs-identifier hs-var">pRunCommandTargets_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#newRunCommandParameters"><span class="hs-identifier hs-var hs-var">newRunCommandParameters</span></a></span></span><span> </span><span id="local-6989586621679306292"><span class="annot"><span class="annottext">NonEmpty RunCommandTarget
+</span><a href="#local-6989586621679306292"><span class="hs-identifier hs-var">pRunCommandTargets_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">RunCommandParameters' :: NonEmpty RunCommandTarget -&gt; RunCommandParameters
 </span><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters%27"><span class="hs-identifier hs-type">RunCommandParameters'</span></a></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:runCommandTargets:RunCommandParameters' :: NonEmpty RunCommandTarget
@@ -114,15 +114,15 @@ $cfrom :: forall x. RunCommandParameters -&gt; Rep RunCommandParameters x
   (NonEmpty RunCommandTarget) (Identity (NonEmpty RunCommandTarget))
 -&gt; Tagged
      (NonEmpty RunCommandTarget) (Identity (NonEmpty RunCommandTarget))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
    (NonEmpty RunCommandTarget) (Identity (NonEmpty RunCommandTarget))
  -&gt; Tagged
       (NonEmpty RunCommandTarget) (Identity (NonEmpty RunCommandTarget)))
 -&gt; NonEmpty RunCommandTarget -&gt; NonEmpty RunCommandTarget
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty RunCommandTarget
-</span><a href="#local-6989586621679306103"><span class="hs-identifier hs-var">pRunCommandTargets_</span></a></span><span>
+</span><a href="#local-6989586621679306292"><span class="hs-identifier hs-var">pRunCommandTargets_</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | Currently, we support including only one RunCommandTarget block, which</span><span>
@@ -139,16 +139,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty RunCommandTarget)
      (NonEmpty RunCommandTarget)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters%27"><span class="hs-identifier hs-type">RunCommandParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306097"><span class="annot"><span class="annottext">NonEmpty RunCommandTarget
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters%27"><span class="hs-identifier hs-type">RunCommandParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306286"><span class="annot"><span class="annottext">NonEmpty RunCommandTarget
 runCommandTargets :: NonEmpty RunCommandTarget
 $sel:runCommandTargets:RunCommandParameters' :: RunCommandParameters -&gt; NonEmpty RunCommandTarget
-</span><a href="#local-6989586621679306097"><span class="hs-identifier hs-var hs-var">runCommandTargets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty RunCommandTarget
-</span><a href="#local-6989586621679306097"><span class="hs-identifier hs-var">runCommandTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306096"><span class="annot"><span class="annottext">s :: RunCommandParameters
-</span><a href="#local-6989586621679306096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters%27"><span class="hs-identifier hs-type">RunCommandParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306095"><span class="annot"><span class="annottext">NonEmpty RunCommandTarget
-</span><a href="#local-6989586621679306095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunCommandParameters
-</span><a href="#local-6989586621679306096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runCommandTargets:RunCommandParameters' :: NonEmpty RunCommandTarget
+</span><a href="#local-6989586621679306286"><span class="hs-identifier hs-var hs-var">runCommandTargets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty RunCommandTarget
+</span><a href="#local-6989586621679306286"><span class="hs-identifier hs-var">runCommandTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306285"><span class="annot"><span class="annottext">s :: RunCommandParameters
+</span><a href="#local-6989586621679306285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters%27"><span class="hs-identifier hs-type">RunCommandParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306284"><span class="annot"><span class="annottext">NonEmpty RunCommandTarget
+</span><a href="#local-6989586621679306284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunCommandParameters
+</span><a href="#local-6989586621679306285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runCommandTargets:RunCommandParameters' :: NonEmpty RunCommandTarget
 </span><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#%24sel%3ArunCommandTargets%3ARunCommandParameters%27"><span class="hs-identifier hs-var">runCommandTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty RunCommandTarget
-</span><a href="#local-6989586621679306095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters"><span class="hs-identifier hs-type">RunCommandParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty RunCommandTarget -&gt; f (NonEmpty RunCommandTarget))
+</span><a href="#local-6989586621679306284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters"><span class="hs-identifier hs-type">RunCommandParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty RunCommandTarget -&gt; f (NonEmpty RunCommandTarget))
  -&gt; RunCommandParameters -&gt; f RunCommandParameters)
 -&gt; ((NonEmpty RunCommandTarget -&gt; f (NonEmpty RunCommandTarget))
     -&gt; NonEmpty RunCommandTarget -&gt; f (NonEmpty RunCommandTarget))
@@ -158,11 +158,11 @@ $sel:runCommandTargets:RunCommandParameters' :: RunCommandParameters -&gt; NonEm
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty RunCommandTarget -&gt; f (NonEmpty RunCommandTarget))
 -&gt; NonEmpty RunCommandTarget -&gt; f (NonEmpty RunCommandTarget)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306091"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters"><span class="hs-identifier hs-type">RunCommandParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679306089"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RunCommandParameters
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306280"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters"><span class="hs-identifier hs-type">RunCommandParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679306278"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RunCommandParameters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RunCommandParameters)
@@ -172,8 +172,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RunCommandParameters&quot;</span></span><span>
-</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306086"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306086"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306275"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306275"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">NonEmpty RunCommandTarget -&gt; RunCommandParameters
 </span><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters%27"><span class="hs-identifier hs-var">RunCommandParameters'</span></a></span><span>
 </span><span id="line-69"></span><span>            </span><span class="annot"><span class="annottext">(NonEmpty RunCommandTarget -&gt; RunCommandParameters)
@@ -181,22 +181,22 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser RunCommandParameters
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty RunCommandTarget)
+</span><a href="#local-6989586621679306275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty RunCommandTarget)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RunCommandTargets&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306080"><span id="local-6989586621679306082"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters"><span class="hs-identifier hs-type">RunCommandParameters</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306269"><span id="local-6989586621679306271"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters"><span class="hs-identifier hs-type">RunCommandParameters</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306077"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters"><span class="hs-identifier hs-type">RunCommandParameters</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306266"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters"><span class="hs-identifier hs-type">RunCommandParameters</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306069"><span id="local-6989586621679306071"><span id="local-6989586621679306073"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters"><span class="hs-identifier hs-type">RunCommandParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679306067"><span class="annot"><span class="annottext">toJSON :: RunCommandParameters -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters%27"><span class="hs-identifier hs-type">RunCommandParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306065"><span class="annot"><span class="annottext">NonEmpty RunCommandTarget
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306258"><span id="local-6989586621679306260"><span id="local-6989586621679306262"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters"><span class="hs-identifier hs-type">RunCommandParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679306256"><span class="annot"><span class="annottext">toJSON :: RunCommandParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RunCommandParameters.html#RunCommandParameters%27"><span class="hs-identifier hs-type">RunCommandParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306254"><span class="annot"><span class="annottext">NonEmpty RunCommandTarget
 runCommandTargets :: NonEmpty RunCommandTarget
 $sel:runCommandTargets:RunCommandParameters' :: RunCommandParameters -&gt; NonEmpty RunCommandTarget
-</span><a href="#local-6989586621679306065"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679306254"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -209,7 +209,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RunCommandTargets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty RunCommandTarget -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty RunCommandTarget
-</span><a href="#local-6989586621679306065"><span class="hs-identifier hs-var">runCommandTargets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306254"><span class="hs-identifier hs-var">runCommandTargets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span></pre></body></html>

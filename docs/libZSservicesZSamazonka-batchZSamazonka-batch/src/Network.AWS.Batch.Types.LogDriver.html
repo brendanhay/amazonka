@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679262280"><span id="local-6989586621679262281"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LogDriver"><span class="annot"><a href="Network.AWS.Batch.Types.LogDriver.html#LogDriver"><span class="hs-identifier hs-var">LogDriver</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogDriver%27"><span class="annot"><a href="Network.AWS.Batch.Types.LogDriver.html#LogDriver%27"><span class="hs-identifier hs-var">LogDriver'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679262565"><span id="local-6989586621679262566"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LogDriver"><span class="annot"><a href="Network.AWS.Batch.Types.LogDriver.html#LogDriver"><span class="hs-identifier hs-var">LogDriver</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogDriver%27"><span class="annot"><a href="Network.AWS.Batch.Types.LogDriver.html#LogDriver%27"><span class="hs-identifier hs-var">LogDriver'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLogDriver"><span class="annot"><span class="annottext">LogDriver -&gt; Text
 </span><a href="Network.AWS.Batch.Types.LogDriver.html#fromLogDriver"><span class="hs-identifier hs-var hs-var">fromLogDriver</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262272"><span id="local-6989586621679262274"><span id="local-6989586621679262276"><span class="annot"><span class="annottext">Int -&gt; LogDriver -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262557"><span id="local-6989586621679262559"><span id="local-6989586621679262561"><span class="annot"><span class="annottext">Int -&gt; LogDriver -&gt; ShowS
 [LogDriver] -&gt; ShowS
 LogDriver -&gt; String
 (Int -&gt; LogDriver -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: LogDriver -&gt; String
 showsPrec :: Int -&gt; LogDriver -&gt; ShowS
 $cshowsPrec :: Int -&gt; LogDriver -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679262263"><span id="local-6989586621679262265"><span id="local-6989586621679262267"><span id="local-6989586621679262269"><span class="annot"><span class="annottext">ReadPrec [LogDriver]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679262548"><span id="local-6989586621679262550"><span id="local-6989586621679262552"><span id="local-6989586621679262554"><span class="annot"><span class="annottext">ReadPrec [LogDriver]
 ReadPrec LogDriver
 Int -&gt; ReadS LogDriver
 ReadS [LogDriver]
@@ -77,7 +77,7 @@ $creadList :: ReadS [LogDriver]
 readsPrec :: Int -&gt; ReadS LogDriver
 $creadsPrec :: Int -&gt; ReadS LogDriver
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679262258"><span id="local-6989586621679262260"><span class="annot"><span class="annottext">LogDriver -&gt; LogDriver -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679262543"><span id="local-6989586621679262545"><span class="annot"><span class="annottext">LogDriver -&gt; LogDriver -&gt; Bool
 (LogDriver -&gt; LogDriver -&gt; Bool)
 -&gt; (LogDriver -&gt; LogDriver -&gt; Bool) -&gt; Eq LogDriver
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: LogDriver -&gt; LogDriver -&gt; Bool
 == :: LogDriver -&gt; LogDriver -&gt; Bool
 $c== :: LogDriver -&gt; LogDriver -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679262242"><span id="local-6989586621679262244"><span id="local-6989586621679262246"><span id="local-6989586621679262248"><span id="local-6989586621679262250"><span id="local-6989586621679262252"><span id="local-6989586621679262254"><span class="annot"><span class="annottext">Eq LogDriver
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679262527"><span id="local-6989586621679262529"><span id="local-6989586621679262531"><span id="local-6989586621679262533"><span id="local-6989586621679262535"><span id="local-6989586621679262537"><span id="local-6989586621679262539"><span class="annot"><span class="annottext">Eq LogDriver
 Eq LogDriver
 -&gt; (LogDriver -&gt; LogDriver -&gt; Ordering)
 -&gt; (LogDriver -&gt; LogDriver -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. LogDriver -&gt; Rep LogDriver x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262234"><span id="local-6989586621679262236"><span class="annot"><span class="annottext">Int -&gt; LogDriver -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262519"><span id="local-6989586621679262521"><span class="annot"><span class="annottext">Int -&gt; LogDriver -&gt; Int
 LogDriver -&gt; Int
 (Int -&gt; LogDriver -&gt; Int)
 -&gt; (LogDriver -&gt; Int) -&gt; Hashable LogDriver
@@ -146,49 +146,49 @@ $chash :: LogDriver -&gt; Int
 hashWithSalt :: Int -&gt; LogDriver -&gt; Int
 $chashWithSalt :: Int -&gt; LogDriver -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679262231"><span class="annot"><span class="annottext">LogDriver -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679262516"><span class="annot"><span class="annottext">LogDriver -&gt; ()
 (LogDriver -&gt; ()) -&gt; NFData LogDriver
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LogDriver -&gt; ()
 $crnf :: LogDriver -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679262228"><span class="annot"><span class="annottext">Text -&gt; Either String LogDriver
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679262513"><span class="annot"><span class="annottext">Text -&gt; Either String LogDriver
 (Text -&gt; Either String LogDriver) -&gt; FromText LogDriver
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LogDriver
 $cfromText :: Text -&gt; Either String LogDriver
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679262225"><span class="annot"><span class="annottext">LogDriver -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679262510"><span class="annot"><span class="annottext">LogDriver -&gt; Text
 (LogDriver -&gt; Text) -&gt; ToText LogDriver
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LogDriver -&gt; Text
 $ctoText :: LogDriver -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679262222"><span class="annot"><span class="annottext">LogDriver -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679262507"><span class="annot"><span class="annottext">LogDriver -&gt; ByteString
 (LogDriver -&gt; ByteString) -&gt; ToByteString LogDriver
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LogDriver -&gt; ByteString
 $ctoBS :: LogDriver -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679262219"><span class="annot"><span class="annottext">LogDriver -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679262504"><span class="annot"><span class="annottext">LogDriver -&gt; ByteStringBuilder
 (LogDriver -&gt; ByteStringBuilder) -&gt; ToLog LogDriver
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LogDriver -&gt; ByteStringBuilder
 $cbuild :: LogDriver -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679262216"><span class="annot"><span class="annottext">HeaderName -&gt; LogDriver -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679262501"><span class="annot"><span class="annottext">HeaderName -&gt; LogDriver -&gt; [Header]
 (HeaderName -&gt; LogDriver -&gt; [Header]) -&gt; ToHeader LogDriver
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LogDriver -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LogDriver -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679262213"><span class="annot"><span class="annottext">LogDriver -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679262498"><span class="annot"><span class="annottext">LogDriver -&gt; QueryString
 (LogDriver -&gt; QueryString) -&gt; ToQuery LogDriver
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LogDriver -&gt; QueryString
 $ctoQuery :: LogDriver -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679262208"><span id="local-6989586621679262210"><span class="annot"><span class="annottext">Value -&gt; Parser [LogDriver]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679262493"><span id="local-6989586621679262495"><span class="annot"><span class="annottext">Value -&gt; Parser [LogDriver]
 Value -&gt; Parser LogDriver
 (Value -&gt; Parser LogDriver)
 -&gt; (Value -&gt; Parser [LogDriver]) -&gt; FromJSON LogDriver
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [LogDriver]
 parseJSON :: Value -&gt; Parser LogDriver
 $cparseJSON :: Value -&gt; Parser LogDriver
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679262203"><span id="local-6989586621679262205"><span class="annot"><span class="annottext">FromJSONKeyFunction [LogDriver]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679262488"><span id="local-6989586621679262490"><span class="annot"><span class="annottext">FromJSONKeyFunction [LogDriver]
 FromJSONKeyFunction LogDriver
 FromJSONKeyFunction LogDriver
 -&gt; FromJSONKeyFunction [LogDriver] -&gt; FromJSONKey LogDriver
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LogDriver]
 fromJSONKey :: FromJSONKeyFunction LogDriver
 $cfromJSONKey :: FromJSONKeyFunction LogDriver
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679262194"><span id="local-6989586621679262196"><span id="local-6989586621679262198"><span id="local-6989586621679262200"><span class="annot"><span class="annottext">[LogDriver] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679262479"><span id="local-6989586621679262481"><span id="local-6989586621679262483"><span id="local-6989586621679262485"><span class="annot"><span class="annottext">[LogDriver] -&gt; Encoding
 [LogDriver] -&gt; Value
 LogDriver -&gt; Encoding
 LogDriver -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: LogDriver -&gt; Encoding
 toJSON :: LogDriver -&gt; Value
 $ctoJSON :: LogDriver -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679262189"><span id="local-6989586621679262191"><span class="annot"><span class="annottext">ToJSONKeyFunction [LogDriver]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679262474"><span id="local-6989586621679262476"><span class="annot"><span class="annottext">ToJSONKeyFunction [LogDriver]
 ToJSONKeyFunction LogDriver
 ToJSONKeyFunction LogDriver
 -&gt; ToJSONKeyFunction [LogDriver] -&gt; ToJSONKey LogDriver
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LogDriver]
 toJSONKey :: ToJSONKeyFunction LogDriver
 $ctoJSONKey :: ToJSONKeyFunction LogDriver
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679262186"><span class="annot"><span class="annottext">[Node] -&gt; Either String LogDriver
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679262471"><span class="annot"><span class="annottext">[Node] -&gt; Either String LogDriver
 ([Node] -&gt; Either String LogDriver) -&gt; FromXML LogDriver
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LogDriver
 $cparseXML :: [Node] -&gt; Either String LogDriver
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679262183"><span class="annot"><span class="annottext">LogDriver -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679262468"><span class="annot"><span class="annottext">LogDriver -&gt; XML
 (LogDriver -&gt; XML) -&gt; ToXML LogDriver
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LogDriver -&gt; XML

@@ -57,14 +57,14 @@
 </span><span id="line-57"></span><span class="hs-comment">-- | The input for a GetChange request.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newGetChange' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679307484"><span id="local-6989586621679307485"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetChange"><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange"><span class="hs-identifier hs-var">GetChange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetChange%27"><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange%27"><span class="hs-identifier hs-var">GetChange'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679307678"><span id="local-6989586621679307679"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetChange"><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange"><span class="hs-identifier hs-var">GetChange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetChange%27"><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange%27"><span class="hs-identifier hs-var">GetChange'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the change batch request. The value that you specify here is</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the value that @ChangeResourceRecordSets@ returned in the @Id@ element</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- when you submitted the request.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3Aid%3AGetChange%27"><span class="annot"><span class="annottext">GetChange -&gt; ResourceId
 </span><a href="Network.AWS.Route53.GetChange.html#%24sel%3Aid%3AGetChange%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307478"><span id="local-6989586621679307480"><span class="annot"><span class="annottext">GetChange -&gt; GetChange -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307672"><span id="local-6989586621679307674"><span class="annot"><span class="annottext">GetChange -&gt; GetChange -&gt; Bool
 (GetChange -&gt; GetChange -&gt; Bool)
 -&gt; (GetChange -&gt; GetChange -&gt; Bool) -&gt; Eq GetChange
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetChange -&gt; GetChange -&gt; Bool
 == :: GetChange -&gt; GetChange -&gt; Bool
 $c== :: GetChange -&gt; GetChange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307469"><span id="local-6989586621679307471"><span id="local-6989586621679307473"><span id="local-6989586621679307475"><span class="annot"><span class="annottext">ReadPrec [GetChange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307663"><span id="local-6989586621679307665"><span id="local-6989586621679307667"><span id="local-6989586621679307669"><span class="annot"><span class="annottext">ReadPrec [GetChange]
 ReadPrec GetChange
 Int -&gt; ReadS GetChange
 ReadS [GetChange]
@@ -92,7 +92,7 @@ readList :: ReadS [GetChange]
 $creadList :: ReadS [GetChange]
 readsPrec :: Int -&gt; ReadS GetChange
 $creadsPrec :: Int -&gt; ReadS GetChange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307462"><span id="local-6989586621679307464"><span id="local-6989586621679307466"><span class="annot"><span class="annottext">Int -&gt; GetChange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307656"><span id="local-6989586621679307658"><span id="local-6989586621679307660"><span class="annot"><span class="annottext">Int -&gt; GetChange -&gt; ShowS
 [GetChange] -&gt; ShowS
 GetChange -&gt; String
 (Int -&gt; GetChange -&gt; ShowS)
@@ -133,11 +133,11 @@ $cfrom :: forall x. GetChange -&gt; Rep GetChange x
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange"><span class="hs-identifier hs-type">GetChange</span></a></span><span>
 </span><span id="line-83"></span><span id="newGetChange"><span class="annot"><span class="annottext">newGetChange :: ResourceId -&gt; GetChange
-</span><a href="Network.AWS.Route53.GetChange.html#newGetChange"><span class="hs-identifier hs-var hs-var">newGetChange</span></a></span></span><span> </span><span id="local-6989586621679307457"><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679307457"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetChange' :: ResourceId -&gt; GetChange
+</span><a href="Network.AWS.Route53.GetChange.html#newGetChange"><span class="hs-identifier hs-var hs-var">newGetChange</span></a></span></span><span> </span><span id="local-6989586621679307651"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679307651"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetChange' :: ResourceId -&gt; GetChange
 </span><a href="Network.AWS.Route53.GetChange.html#GetChange%27"><span class="hs-identifier hs-type">GetChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetChange' :: ResourceId
 </span><a href="Network.AWS.Route53.GetChange.html#%24sel%3Aid%3AGetChange%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679307457"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679307651"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The ID of the change batch request. The value that you specify here is</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- the value that @ChangeResourceRecordSets@ returned in the @Id@ element</span><span>
@@ -148,25 +148,25 @@ $cfrom :: forall x. GetChange -&gt; Rep GetChange x
 -&gt; (GetChange -&gt; ResourceId -&gt; GetChange)
 -&gt; Lens GetChange GetChange ResourceId ResourceId
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange%27"><span class="hs-identifier hs-type">GetChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307454"><span class="annot"><span class="annottext">ResourceId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange%27"><span class="hs-identifier hs-type">GetChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307648"><span class="annot"><span class="annottext">ResourceId
 id :: ResourceId
 $sel:id:GetChange' :: GetChange -&gt; ResourceId
-</span><a href="#local-6989586621679307454"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679307454"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307453"><span class="annot"><span class="annottext">s :: GetChange
-</span><a href="#local-6989586621679307453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange%27"><span class="hs-identifier hs-type">GetChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307452"><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679307452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChange
-</span><a href="#local-6989586621679307453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetChange' :: ResourceId
+</span><a href="#local-6989586621679307648"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679307648"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307647"><span class="annot"><span class="annottext">s :: GetChange
+</span><a href="#local-6989586621679307647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange%27"><span class="hs-identifier hs-type">GetChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307646"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679307646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChange
+</span><a href="#local-6989586621679307647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetChange' :: ResourceId
 </span><a href="Network.AWS.Route53.GetChange.html#%24sel%3Aid%3AGetChange%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679307452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange"><span class="hs-identifier hs-type">GetChange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange"><span class="hs-identifier hs-type">GetChange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange"><span class="hs-identifier hs-type">GetChange</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange"><span class="hs-identifier hs-type">GetChange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse"><span class="hs-identifier hs-type">GetChangeResponse</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679307448"><span class="annot"><span class="annottext">request :: GetChange -&gt; Request GetChange
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679307642"><span class="annot"><span class="annottext">request :: GetChange -&gt; Request GetChange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetChange -&gt; Request GetChange
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679307444"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679307638"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetChange
 -&gt; ClientResponse ClientBody
@@ -190,10 +190,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307441"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307441"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679307440"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679307440"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679307439"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679307439"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307635"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307635"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679307634"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679307634"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679307633"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307633"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ChangeInfo -&gt; GetChangeResponse
 </span><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse%27"><span class="hs-identifier hs-var">GetChangeResponse'</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ChangeInfo -&gt; GetChangeResponse)
@@ -205,23 +205,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307441"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307635"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either String (ChangeInfo -&gt; GetChangeResponse)
 -&gt; Either String ChangeInfo -&gt; Either String GetChangeResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679307439"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ChangeInfo
+</span><a href="#local-6989586621679307633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ChangeInfo
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ChangeInfo&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307431"><span id="local-6989586621679307433"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange"><span class="hs-identifier hs-type">GetChange</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307625"><span id="local-6989586621679307627"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange"><span class="hs-identifier hs-type">GetChange</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307428"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange"><span class="hs-identifier hs-type">GetChange</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307622"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange"><span class="hs-identifier hs-type">GetChange</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange"><span class="hs-identifier hs-type">GetChange</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679307424"><span class="annot"><span class="annottext">toHeaders :: GetChange -&gt; ResponseHeaders
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679307618"><span class="annot"><span class="annottext">toHeaders :: GetChange -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetChange -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -229,11 +229,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange"><span class="hs-identifier hs-type">GetChange</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679307419"><span class="annot"><span class="annottext">toPath :: GetChange -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange%27"><span class="hs-identifier hs-type">GetChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307417"><span class="annot"><span class="annottext">ResourceId
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679307613"><span class="annot"><span class="annottext">toPath :: GetChange -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange%27"><span class="hs-identifier hs-type">GetChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307611"><span class="annot"><span class="annottext">ResourceId
 id :: ResourceId
 $sel:id:GetChange' :: GetChange -&gt; ResourceId
-</span><a href="#local-6989586621679307417"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679307611"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -241,10 +241,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2013-04-01/change/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ResourceId -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679307417"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679307611"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChange"><span class="hs-identifier hs-type">GetChange</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679307413"><span class="annot"><span class="annottext">toQuery :: GetChange -&gt; QueryString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679307607"><span class="annot"><span class="annottext">toQuery :: GetChange -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetChange -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -254,7 +254,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-117"></span><span class="hs-comment">-- | A complex type that contains the @ChangeInfo@ element.</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- /See:/ 'newGetChangeResponse' smart constructor.</span><span>
-</span><span id="line-120"></span><span id="local-6989586621679307410"><span id="local-6989586621679307411"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetChangeResponse"><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse"><span class="hs-identifier hs-var">GetChangeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetChangeResponse%27"><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse%27"><span class="hs-identifier hs-var">GetChangeResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span id="local-6989586621679307604"><span id="local-6989586621679307605"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetChangeResponse"><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse"><span class="hs-identifier hs-var">GetChangeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetChangeResponse%27"><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse%27"><span class="hs-identifier hs-var">GetChangeResponse'</span></a></span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetChangeResponse%27"><span class="annot"><span class="annottext">GetChangeResponse -&gt; Int
 </span><a href="Network.AWS.Route53.GetChange.html#%24sel%3AhttpStatus%3AGetChangeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -263,7 +263,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3AchangeInfo%3AGetChangeResponse%27"><span class="annot"><span class="annottext">GetChangeResponse -&gt; ChangeInfo
 </span><a href="Network.AWS.Route53.GetChange.html#%24sel%3AchangeInfo%3AGetChangeResponse%27"><span class="hs-identifier hs-var hs-var">changeInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ChangeInfo.html#ChangeInfo"><span class="hs-identifier hs-type">ChangeInfo</span></a></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307404"><span id="local-6989586621679307406"><span class="annot"><span class="annottext">GetChangeResponse -&gt; GetChangeResponse -&gt; Bool
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307598"><span id="local-6989586621679307600"><span class="annot"><span class="annottext">GetChangeResponse -&gt; GetChangeResponse -&gt; Bool
 (GetChangeResponse -&gt; GetChangeResponse -&gt; Bool)
 -&gt; (GetChangeResponse -&gt; GetChangeResponse -&gt; Bool)
 -&gt; Eq GetChangeResponse
@@ -272,7 +272,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetChangeResponse -&gt; GetChangeResponse -&gt; Bool
 == :: GetChangeResponse -&gt; GetChangeResponse -&gt; Bool
 $c== :: GetChangeResponse -&gt; GetChangeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307396"><span id="local-6989586621679307398"><span id="local-6989586621679307400"><span id="local-6989586621679307402"><span class="annot"><span class="annottext">ReadPrec [GetChangeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307590"><span id="local-6989586621679307592"><span id="local-6989586621679307594"><span id="local-6989586621679307596"><span class="annot"><span class="annottext">ReadPrec [GetChangeResponse]
 ReadPrec GetChangeResponse
 Int -&gt; ReadS GetChangeResponse
 ReadS [GetChangeResponse]
@@ -292,7 +292,7 @@ readList :: ReadS [GetChangeResponse]
 $creadList :: ReadS [GetChangeResponse]
 readsPrec :: Int -&gt; ReadS GetChangeResponse
 $creadsPrec :: Int -&gt; ReadS GetChangeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307390"><span id="local-6989586621679307392"><span id="local-6989586621679307394"><span class="annot"><span class="annottext">Int -&gt; GetChangeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307584"><span id="local-6989586621679307586"><span id="local-6989586621679307588"><span class="annot"><span class="annottext">Int -&gt; GetChangeResponse -&gt; ShowS
 [GetChangeResponse] -&gt; ShowS
 GetChangeResponse -&gt; String
 (Int -&gt; GetChangeResponse -&gt; ShowS)
@@ -337,17 +337,17 @@ $cfrom :: forall x. GetChangeResponse -&gt; Rep GetChangeResponse x
 </span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.ChangeInfo.html#ChangeInfo"><span class="hs-identifier hs-type">ChangeInfo</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse"><span class="hs-identifier hs-type">GetChangeResponse</span></a></span><span>
 </span><span id="line-147"></span><span id="newGetChangeResponse"><span class="annot"><span class="annottext">newGetChangeResponse :: Int -&gt; ChangeInfo -&gt; GetChangeResponse
-</span><a href="Network.AWS.Route53.GetChange.html#newGetChangeResponse"><span class="hs-identifier hs-var hs-var">newGetChangeResponse</span></a></span></span><span> </span><span id="local-6989586621679307387"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307387"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679307386"><span class="annot"><span class="annottext">ChangeInfo
-</span><a href="#local-6989586621679307386"><span class="hs-identifier hs-var">pChangeInfo_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53.GetChange.html#newGetChangeResponse"><span class="hs-identifier hs-var hs-var">newGetChangeResponse</span></a></span></span><span> </span><span id="local-6989586621679307581"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307581"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679307580"><span class="annot"><span class="annottext">ChangeInfo
+</span><a href="#local-6989586621679307580"><span class="hs-identifier hs-var">pChangeInfo_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">GetChangeResponse' :: Int -&gt; ChangeInfo -&gt; GetChangeResponse
 </span><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse%27"><span class="hs-identifier hs-type">GetChangeResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetChangeResponse' :: Int
 </span><a href="Network.AWS.Route53.GetChange.html#%24sel%3AhttpStatus%3AGetChangeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307387"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307581"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeInfo:GetChangeResponse' :: ChangeInfo
 </span><a href="Network.AWS.Route53.GetChange.html#%24sel%3AchangeInfo%3AGetChangeResponse%27"><span class="hs-identifier hs-var">changeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeInfo
-</span><a href="#local-6989586621679307386"><span class="hs-identifier hs-var">pChangeInfo_</span></a></span><span>
+</span><a href="#local-6989586621679307580"><span class="hs-identifier hs-var">pChangeInfo_</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -357,16 +357,16 @@ $cfrom :: forall x. GetChangeResponse -&gt; Rep GetChangeResponse x
 -&gt; (GetChangeResponse -&gt; Int -&gt; GetChangeResponse)
 -&gt; Lens GetChangeResponse GetChangeResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse%27"><span class="hs-identifier hs-type">GetChangeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307385"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse%27"><span class="hs-identifier hs-type">GetChangeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307579"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetChangeResponse' :: GetChangeResponse -&gt; Int
-</span><a href="#local-6989586621679307385"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307385"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307384"><span class="annot"><span class="annottext">s :: GetChangeResponse
-</span><a href="#local-6989586621679307384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse%27"><span class="hs-identifier hs-type">GetChangeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307383"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChangeResponse
-</span><a href="#local-6989586621679307384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetChangeResponse' :: Int
+</span><a href="#local-6989586621679307579"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307579"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307578"><span class="annot"><span class="annottext">s :: GetChangeResponse
+</span><a href="#local-6989586621679307578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse%27"><span class="hs-identifier hs-type">GetChangeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307577"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChangeResponse
+</span><a href="#local-6989586621679307578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetChangeResponse' :: Int
 </span><a href="Network.AWS.Route53.GetChange.html#%24sel%3AhttpStatus%3AGetChangeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse"><span class="hs-identifier hs-type">GetChangeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse"><span class="hs-identifier hs-type">GetChangeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | A complex type that contains information about the specified change</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- batch.</span><span>
@@ -377,16 +377,16 @@ $sel:httpStatus:GetChangeResponse' :: GetChangeResponse -&gt; Int
 -&gt; (GetChangeResponse -&gt; ChangeInfo -&gt; GetChangeResponse)
 -&gt; Lens GetChangeResponse GetChangeResponse ChangeInfo ChangeInfo
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse%27"><span class="hs-identifier hs-type">GetChangeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307382"><span class="annot"><span class="annottext">ChangeInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse%27"><span class="hs-identifier hs-type">GetChangeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307576"><span class="annot"><span class="annottext">ChangeInfo
 changeInfo :: ChangeInfo
 $sel:changeInfo:GetChangeResponse' :: GetChangeResponse -&gt; ChangeInfo
-</span><a href="#local-6989586621679307382"><span class="hs-identifier hs-var hs-var">changeInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeInfo
-</span><a href="#local-6989586621679307382"><span class="hs-identifier hs-var">changeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307381"><span class="annot"><span class="annottext">s :: GetChangeResponse
-</span><a href="#local-6989586621679307381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse%27"><span class="hs-identifier hs-type">GetChangeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307380"><span class="annot"><span class="annottext">ChangeInfo
-</span><a href="#local-6989586621679307380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChangeResponse
-</span><a href="#local-6989586621679307381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeInfo:GetChangeResponse' :: ChangeInfo
+</span><a href="#local-6989586621679307576"><span class="hs-identifier hs-var hs-var">changeInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeInfo
+</span><a href="#local-6989586621679307576"><span class="hs-identifier hs-var">changeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307575"><span class="annot"><span class="annottext">s :: GetChangeResponse
+</span><a href="#local-6989586621679307575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse%27"><span class="hs-identifier hs-type">GetChangeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307574"><span class="annot"><span class="annottext">ChangeInfo
+</span><a href="#local-6989586621679307574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChangeResponse
+</span><a href="#local-6989586621679307575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeInfo:GetChangeResponse' :: ChangeInfo
 </span><a href="Network.AWS.Route53.GetChange.html#%24sel%3AchangeInfo%3AGetChangeResponse%27"><span class="hs-identifier hs-var">changeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeInfo
-</span><a href="#local-6989586621679307380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse"><span class="hs-identifier hs-type">GetChangeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse"><span class="hs-identifier hs-type">GetChangeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307378"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse"><span class="hs-identifier hs-type">GetChangeResponse</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307572"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetChange.html#GetChangeResponse"><span class="hs-identifier hs-type">GetChangeResponse</span></a></span></span><span>
 </span><span id="line-163"></span></pre></body></html>

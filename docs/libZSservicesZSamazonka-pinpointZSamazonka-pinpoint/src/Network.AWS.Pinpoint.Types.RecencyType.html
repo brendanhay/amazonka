@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679606740"><span id="local-6989586621679606741"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RecencyType"><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyType.html#RecencyType"><span class="hs-identifier hs-var">RecencyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecencyType%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyType.html#RecencyType%27"><span class="hs-identifier hs-var">RecencyType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679607213"><span id="local-6989586621679607214"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RecencyType"><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyType.html#RecencyType"><span class="hs-identifier hs-var">RecencyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecencyType%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyType.html#RecencyType%27"><span class="hs-identifier hs-var">RecencyType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRecencyType"><span class="annot"><span class="annottext">RecencyType -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.RecencyType.html#fromRecencyType"><span class="hs-identifier hs-var hs-var">fromRecencyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679606732"><span id="local-6989586621679606734"><span id="local-6989586621679606736"><span class="annot"><span class="annottext">Int -&gt; RecencyType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679607205"><span id="local-6989586621679607207"><span id="local-6989586621679607209"><span class="annot"><span class="annottext">Int -&gt; RecencyType -&gt; ShowS
 [RecencyType] -&gt; ShowS
 RecencyType -&gt; String
 (Int -&gt; RecencyType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: RecencyType -&gt; String
 showsPrec :: Int -&gt; RecencyType -&gt; ShowS
 $cshowsPrec :: Int -&gt; RecencyType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679606723"><span id="local-6989586621679606725"><span id="local-6989586621679606727"><span id="local-6989586621679606729"><span class="annot"><span class="annottext">ReadPrec [RecencyType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679607196"><span id="local-6989586621679607198"><span id="local-6989586621679607200"><span id="local-6989586621679607202"><span class="annot"><span class="annottext">ReadPrec [RecencyType]
 ReadPrec RecencyType
 Int -&gt; ReadS RecencyType
 ReadS [RecencyType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [RecencyType]
 readsPrec :: Int -&gt; ReadS RecencyType
 $creadsPrec :: Int -&gt; ReadS RecencyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679606718"><span id="local-6989586621679606720"><span class="annot"><span class="annottext">RecencyType -&gt; RecencyType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679607191"><span id="local-6989586621679607193"><span class="annot"><span class="annottext">RecencyType -&gt; RecencyType -&gt; Bool
 (RecencyType -&gt; RecencyType -&gt; Bool)
 -&gt; (RecencyType -&gt; RecencyType -&gt; Bool) -&gt; Eq RecencyType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: RecencyType -&gt; RecencyType -&gt; Bool
 == :: RecencyType -&gt; RecencyType -&gt; Bool
 $c== :: RecencyType -&gt; RecencyType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679606702"><span id="local-6989586621679606704"><span id="local-6989586621679606706"><span id="local-6989586621679606708"><span id="local-6989586621679606710"><span id="local-6989586621679606712"><span id="local-6989586621679606714"><span class="annot"><span class="annottext">Eq RecencyType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679607175"><span id="local-6989586621679607177"><span id="local-6989586621679607179"><span id="local-6989586621679607181"><span id="local-6989586621679607183"><span id="local-6989586621679607185"><span id="local-6989586621679607187"><span class="annot"><span class="annottext">Eq RecencyType
 Eq RecencyType
 -&gt; (RecencyType -&gt; RecencyType -&gt; Ordering)
 -&gt; (RecencyType -&gt; RecencyType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. RecencyType -&gt; Rep RecencyType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679606694"><span id="local-6989586621679606696"><span class="annot"><span class="annottext">Int -&gt; RecencyType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679607167"><span id="local-6989586621679607169"><span class="annot"><span class="annottext">Int -&gt; RecencyType -&gt; Int
 RecencyType -&gt; Int
 (Int -&gt; RecencyType -&gt; Int)
 -&gt; (RecencyType -&gt; Int) -&gt; Hashable RecencyType
@@ -142,49 +142,49 @@ $chash :: RecencyType -&gt; Int
 hashWithSalt :: Int -&gt; RecencyType -&gt; Int
 $chashWithSalt :: Int -&gt; RecencyType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679606691"><span class="annot"><span class="annottext">RecencyType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679607164"><span class="annot"><span class="annottext">RecencyType -&gt; ()
 (RecencyType -&gt; ()) -&gt; NFData RecencyType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RecencyType -&gt; ()
 $crnf :: RecencyType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679606688"><span class="annot"><span class="annottext">Text -&gt; Either String RecencyType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679607161"><span class="annot"><span class="annottext">Text -&gt; Either String RecencyType
 (Text -&gt; Either String RecencyType) -&gt; FromText RecencyType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RecencyType
 $cfromText :: Text -&gt; Either String RecencyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679606685"><span class="annot"><span class="annottext">RecencyType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679607158"><span class="annot"><span class="annottext">RecencyType -&gt; Text
 (RecencyType -&gt; Text) -&gt; ToText RecencyType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RecencyType -&gt; Text
 $ctoText :: RecencyType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679606682"><span class="annot"><span class="annottext">RecencyType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679607155"><span class="annot"><span class="annottext">RecencyType -&gt; ByteString
 (RecencyType -&gt; ByteString) -&gt; ToByteString RecencyType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RecencyType -&gt; ByteString
 $ctoBS :: RecencyType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679606679"><span class="annot"><span class="annottext">RecencyType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679607152"><span class="annot"><span class="annottext">RecencyType -&gt; ByteStringBuilder
 (RecencyType -&gt; ByteStringBuilder) -&gt; ToLog RecencyType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RecencyType -&gt; ByteStringBuilder
 $cbuild :: RecencyType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679606676"><span class="annot"><span class="annottext">HeaderName -&gt; RecencyType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679607149"><span class="annot"><span class="annottext">HeaderName -&gt; RecencyType -&gt; [Header]
 (HeaderName -&gt; RecencyType -&gt; [Header]) -&gt; ToHeader RecencyType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RecencyType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RecencyType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679606673"><span class="annot"><span class="annottext">RecencyType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679607146"><span class="annot"><span class="annottext">RecencyType -&gt; QueryString
 (RecencyType -&gt; QueryString) -&gt; ToQuery RecencyType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RecencyType -&gt; QueryString
 $ctoQuery :: RecencyType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679606668"><span id="local-6989586621679606670"><span class="annot"><span class="annottext">Value -&gt; Parser [RecencyType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679607141"><span id="local-6989586621679607143"><span class="annot"><span class="annottext">Value -&gt; Parser [RecencyType]
 Value -&gt; Parser RecencyType
 (Value -&gt; Parser RecencyType)
 -&gt; (Value -&gt; Parser [RecencyType]) -&gt; FromJSON RecencyType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [RecencyType]
 parseJSON :: Value -&gt; Parser RecencyType
 $cparseJSON :: Value -&gt; Parser RecencyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679606663"><span id="local-6989586621679606665"><span class="annot"><span class="annottext">FromJSONKeyFunction [RecencyType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679607136"><span id="local-6989586621679607138"><span class="annot"><span class="annottext">FromJSONKeyFunction [RecencyType]
 FromJSONKeyFunction RecencyType
 FromJSONKeyFunction RecencyType
 -&gt; FromJSONKeyFunction [RecencyType] -&gt; FromJSONKey RecencyType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RecencyType]
 fromJSONKey :: FromJSONKeyFunction RecencyType
 $cfromJSONKey :: FromJSONKeyFunction RecencyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679606654"><span id="local-6989586621679606656"><span id="local-6989586621679606658"><span id="local-6989586621679606660"><span class="annot"><span class="annottext">[RecencyType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679607127"><span id="local-6989586621679607129"><span id="local-6989586621679607131"><span id="local-6989586621679607133"><span class="annot"><span class="annottext">[RecencyType] -&gt; Encoding
 [RecencyType] -&gt; Value
 RecencyType -&gt; Encoding
 RecencyType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: RecencyType -&gt; Encoding
 toJSON :: RecencyType -&gt; Value
 $ctoJSON :: RecencyType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679606649"><span id="local-6989586621679606651"><span class="annot"><span class="annottext">ToJSONKeyFunction [RecencyType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679607122"><span id="local-6989586621679607124"><span class="annot"><span class="annottext">ToJSONKeyFunction [RecencyType]
 ToJSONKeyFunction RecencyType
 ToJSONKeyFunction RecencyType
 -&gt; ToJSONKeyFunction [RecencyType] -&gt; ToJSONKey RecencyType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RecencyType]
 toJSONKey :: ToJSONKeyFunction RecencyType
 $ctoJSONKey :: ToJSONKeyFunction RecencyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679606646"><span class="annot"><span class="annottext">[Node] -&gt; Either String RecencyType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679607119"><span class="annot"><span class="annottext">[Node] -&gt; Either String RecencyType
 ([Node] -&gt; Either String RecencyType) -&gt; FromXML RecencyType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RecencyType
 $cparseXML :: [Node] -&gt; Either String RecencyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679606643"><span class="annot"><span class="annottext">RecencyType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679607116"><span class="annot"><span class="annottext">RecencyType -&gt; XML
 (RecencyType -&gt; XML) -&gt; ToXML RecencyType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RecencyType -&gt; XML

@@ -36,8 +36,8 @@
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#newCreateTestGridUrlResponse"><span class="hs-identifier">newCreateTestGridUrlResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_url"><span class="hs-identifier">createTestGridUrlResponse_url</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_expires"><span class="hs-identifier">createTestGridUrlResponse_expires</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_expires"><span class="hs-identifier">createTestGridUrlResponse_expires</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_url"><span class="hs-identifier">createTestGridUrlResponse_url</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_httpStatus"><span class="hs-identifier">createTestGridUrlResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span class="hs-keyword">where</span><span>
@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newCreateTestGridUrl' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679387383"><span id="local-6989586621679387384"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTestGridUrl"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-var">CreateTestGridUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTestGridUrl%27"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-var">CreateTestGridUrl'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679387664"><span id="local-6989586621679387665"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTestGridUrl"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-var">CreateTestGridUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTestGridUrl%27"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-var">CreateTestGridUrl'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | ARN (from CreateTestGridProject or ListTestGridProjects) to associate</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- with the short-term URL.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AprojectArn%3ACreateTestGridUrl%27"><span class="annot"><span class="annottext">CreateTestGridUrl -&gt; Text
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AexpiresInSeconds%3ACreateTestGridUrl%27"><span class="annot"><span class="annottext">CreateTestGridUrl -&gt; Natural
 </span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#%24sel%3AexpiresInSeconds%3ACreateTestGridUrl%27"><span class="hs-identifier hs-var hs-var">expiresInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387376"><span id="local-6989586621679387378"><span class="annot"><span class="annottext">CreateTestGridUrl -&gt; CreateTestGridUrl -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387657"><span id="local-6989586621679387659"><span class="annot"><span class="annottext">CreateTestGridUrl -&gt; CreateTestGridUrl -&gt; Bool
 (CreateTestGridUrl -&gt; CreateTestGridUrl -&gt; Bool)
 -&gt; (CreateTestGridUrl -&gt; CreateTestGridUrl -&gt; Bool)
 -&gt; Eq CreateTestGridUrl
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateTestGridUrl -&gt; CreateTestGridUrl -&gt; Bool
 == :: CreateTestGridUrl -&gt; CreateTestGridUrl -&gt; Bool
 $c== :: CreateTestGridUrl -&gt; CreateTestGridUrl -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387367"><span id="local-6989586621679387369"><span id="local-6989586621679387371"><span id="local-6989586621679387373"><span class="annot"><span class="annottext">ReadPrec [CreateTestGridUrl]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387648"><span id="local-6989586621679387650"><span id="local-6989586621679387652"><span id="local-6989586621679387654"><span class="annot"><span class="annottext">ReadPrec [CreateTestGridUrl]
 ReadPrec CreateTestGridUrl
 Int -&gt; ReadS CreateTestGridUrl
 ReadS [CreateTestGridUrl]
@@ -88,7 +88,7 @@ readList :: ReadS [CreateTestGridUrl]
 $creadList :: ReadS [CreateTestGridUrl]
 readsPrec :: Int -&gt; ReadS CreateTestGridUrl
 $creadsPrec :: Int -&gt; ReadS CreateTestGridUrl
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387360"><span id="local-6989586621679387362"><span id="local-6989586621679387364"><span class="annot"><span class="annottext">Int -&gt; CreateTestGridUrl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387641"><span id="local-6989586621679387643"><span id="local-6989586621679387645"><span class="annot"><span class="annottext">Int -&gt; CreateTestGridUrl -&gt; ShowS
 [CreateTestGridUrl] -&gt; ShowS
 CreateTestGridUrl -&gt; String
 (Int -&gt; CreateTestGridUrl -&gt; ShowS)
@@ -133,17 +133,17 @@ $cfrom :: forall x. CreateTestGridUrl -&gt; Rep CreateTestGridUrl x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span>
 </span><span id="line-80"></span><span id="newCreateTestGridUrl"><span class="annot"><span class="annottext">newCreateTestGridUrl :: Text -&gt; Natural -&gt; CreateTestGridUrl
-</span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#newCreateTestGridUrl"><span class="hs-identifier hs-var hs-var">newCreateTestGridUrl</span></a></span></span><span> </span><span id="local-6989586621679387355"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387355"><span class="hs-identifier hs-var">pProjectArn_</span></a></span></span><span> </span><span id="local-6989586621679387354"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679387354"><span class="hs-identifier hs-var">pExpiresInSeconds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#newCreateTestGridUrl"><span class="hs-identifier hs-var hs-var">newCreateTestGridUrl</span></a></span></span><span> </span><span id="local-6989586621679387636"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387636"><span class="hs-identifier hs-var">pProjectArn_</span></a></span></span><span> </span><span id="local-6989586621679387635"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679387635"><span class="hs-identifier hs-var">pExpiresInSeconds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">CreateTestGridUrl' :: Text -&gt; Natural -&gt; CreateTestGridUrl
 </span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-type">CreateTestGridUrl'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:projectArn:CreateTestGridUrl' :: Text
 </span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#%24sel%3AprojectArn%3ACreateTestGridUrl%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387355"><span class="hs-identifier hs-var">pProjectArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387636"><span class="hs-identifier hs-var">pProjectArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:expiresInSeconds:CreateTestGridUrl' :: Natural
 </span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#%24sel%3AexpiresInSeconds%3ACreateTestGridUrl%27"><span class="hs-identifier hs-var">expiresInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679387354"><span class="hs-identifier hs-var">pExpiresInSeconds_</span></a></span><span>
+</span><a href="#local-6989586621679387635"><span class="hs-identifier hs-var">pExpiresInSeconds_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | ARN (from CreateTestGridProject or ListTestGridProjects) to associate</span><span>
@@ -154,16 +154,16 @@ $cfrom :: forall x. CreateTestGridUrl -&gt; Rep CreateTestGridUrl x
 -&gt; (CreateTestGridUrl -&gt; Text -&gt; CreateTestGridUrl)
 -&gt; Lens CreateTestGridUrl CreateTestGridUrl Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-type">CreateTestGridUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387351"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-type">CreateTestGridUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387632"><span class="annot"><span class="annottext">Text
 projectArn :: Text
 $sel:projectArn:CreateTestGridUrl' :: CreateTestGridUrl -&gt; Text
-</span><a href="#local-6989586621679387351"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387351"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387350"><span class="annot"><span class="annottext">s :: CreateTestGridUrl
-</span><a href="#local-6989586621679387350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-type">CreateTestGridUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387349"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTestGridUrl
-</span><a href="#local-6989586621679387350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectArn:CreateTestGridUrl' :: Text
+</span><a href="#local-6989586621679387632"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387632"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387631"><span class="annot"><span class="annottext">s :: CreateTestGridUrl
+</span><a href="#local-6989586621679387631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-type">CreateTestGridUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387630"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTestGridUrl
+</span><a href="#local-6989586621679387631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectArn:CreateTestGridUrl' :: Text
 </span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#%24sel%3AprojectArn%3ACreateTestGridUrl%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | Lifetime, in seconds, of the URL.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#createTestGridUrl_expiresInSeconds"><span class="hs-identifier hs-type">createTestGridUrl_expiresInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -172,27 +172,27 @@ $sel:projectArn:CreateTestGridUrl' :: CreateTestGridUrl -&gt; Text
 -&gt; (CreateTestGridUrl -&gt; Natural -&gt; CreateTestGridUrl)
 -&gt; Lens CreateTestGridUrl CreateTestGridUrl Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-type">CreateTestGridUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387348"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-type">CreateTestGridUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387629"><span class="annot"><span class="annottext">Natural
 expiresInSeconds :: Natural
 $sel:expiresInSeconds:CreateTestGridUrl' :: CreateTestGridUrl -&gt; Natural
-</span><a href="#local-6989586621679387348"><span class="hs-identifier hs-var hs-var">expiresInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679387348"><span class="hs-identifier hs-var">expiresInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387347"><span class="annot"><span class="annottext">s :: CreateTestGridUrl
-</span><a href="#local-6989586621679387347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-type">CreateTestGridUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387346"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679387346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTestGridUrl
-</span><a href="#local-6989586621679387347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expiresInSeconds:CreateTestGridUrl' :: Natural
+</span><a href="#local-6989586621679387629"><span class="hs-identifier hs-var hs-var">expiresInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679387629"><span class="hs-identifier hs-var">expiresInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387628"><span class="annot"><span class="annottext">s :: CreateTestGridUrl
+</span><a href="#local-6989586621679387628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-type">CreateTestGridUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387627"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679387627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTestGridUrl
+</span><a href="#local-6989586621679387628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expiresInSeconds:CreateTestGridUrl' :: Natural
 </span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#%24sel%3AexpiresInSeconds%3ACreateTestGridUrl%27"><span class="hs-identifier hs-var">expiresInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679387346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679387342"><span class="annot"><span class="annottext">request :: CreateTestGridUrl -&gt; Request CreateTestGridUrl
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679387623"><span class="annot"><span class="annottext">request :: CreateTestGridUrl -&gt; Request CreateTestGridUrl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateTestGridUrl -&gt; Request CreateTestGridUrl
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679387338"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679387619"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateTestGridUrl
 -&gt; ClientResponse ClientBody
@@ -218,32 +218,34 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387335"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387335"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387334"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679387334"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387333"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387333"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
--&gt; Maybe POSIX -&gt; Int -&gt; CreateTestGridUrlResponse
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387616"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387616"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387615"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679387615"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387614"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387614"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe (Sensitive Text) -&gt; Int -&gt; CreateTestGridUrlResponse
 </span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">CreateTestGridUrlResponse'</span></a></span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (Sensitive Text)
- -&gt; Maybe POSIX -&gt; Int -&gt; CreateTestGridUrlResponse)
--&gt; Either String (Maybe (Sensitive Text))
--&gt; Either String (Maybe POSIX -&gt; Int -&gt; CreateTestGridUrlResponse)
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe (Sensitive Text) -&gt; Int -&gt; CreateTestGridUrlResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String (Maybe (Sensitive Text) -&gt; Int -&gt; CreateTestGridUrlResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive Text))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;url&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe POSIX -&gt; Int -&gt; CreateTestGridUrlResponse)
--&gt; Either String (Maybe POSIX)
--&gt; Either String (Int -&gt; CreateTestGridUrlResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679387614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;expires&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe (Sensitive Text) -&gt; Int -&gt; CreateTestGridUrlResponse)
+-&gt; Either String (Maybe (Sensitive Text))
+-&gt; Either String (Int -&gt; CreateTestGridUrlResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;url&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateTestGridUrlResponse)
 -&gt; Either String Int -&gt; Either String CreateTestGridUrlResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -252,15 +254,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387335"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387616"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387325"><span id="local-6989586621679387327"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387606"><span id="local-6989586621679387608"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387322"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387603"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679387318"><span class="annot"><span class="annottext">toHeaders :: CreateTestGridUrl -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679387599"><span class="annot"><span class="annottext">toHeaders :: CreateTestGridUrl -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateTestGridUrl -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -287,15 +289,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387308"><span id="local-6989586621679387310"><span id="local-6989586621679387312"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679387306"><span class="annot"><span class="annottext">toJSON :: CreateTestGridUrl -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-type">CreateTestGridUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387303"><span id="local-6989586621679387304"><span class="annot"><span class="annottext">Natural
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387589"><span id="local-6989586621679387591"><span id="local-6989586621679387593"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679387587"><span class="annot"><span class="annottext">toJSON :: CreateTestGridUrl -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl%27"><span class="hs-identifier hs-type">CreateTestGridUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387584"><span id="local-6989586621679387585"><span class="annot"><span class="annottext">Natural
 Text
 expiresInSeconds :: Natural
 projectArn :: Text
 $sel:expiresInSeconds:CreateTestGridUrl' :: CreateTestGridUrl -&gt; Natural
 $sel:projectArn:CreateTestGridUrl' :: CreateTestGridUrl -&gt; Text
-</span><a href="#local-6989586621679387303"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679387584"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -307,7 +309,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;projectArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387304"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387585"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -315,19 +317,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;expiresInSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679387303"><span class="hs-identifier hs-var">expiresInSeconds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387584"><span class="hs-identifier hs-var">expiresInSeconds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679387297"><span class="annot"><span class="annottext">toPath :: CreateTestGridUrl -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679387578"><span class="annot"><span class="annottext">toPath :: CreateTestGridUrl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateTestGridUrl -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrl"><span class="hs-identifier hs-type">CreateTestGridUrl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679387293"><span class="annot"><span class="annottext">toQuery :: CreateTestGridUrl -&gt; QueryString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679387574"><span class="annot"><span class="annottext">toQuery :: CreateTestGridUrl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateTestGridUrl -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -335,20 +337,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newCreateTestGridUrlResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679387290"><span id="local-6989586621679387291"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTestGridUrlResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-var">CreateTestGridUrlResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTestGridUrlResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">CreateTestGridUrlResponse'</span></a></span></span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds</span><span>
-</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- seconds, to be passed to a @RemoteWebDriver@.</span><span>
-</span><span id="line-148"></span><span>    </span><span id="%24sel%3Aurl%3ACreateTestGridUrlResponse%27"><span class="annot"><span class="annottext">CreateTestGridUrlResponse -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#%24sel%3Aurl%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The number of seconds the URL from CreateTestGridUrlResult$url stays</span><span>
-</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- active.</span><span>
-</span><span id="line-151"></span><span>    </span><span id="%24sel%3Aexpires%3ACreateTestGridUrlResponse%27"><span class="annot"><span class="annottext">CreateTestGridUrlResponse -&gt; Maybe POSIX
+</span><span id="line-145"></span><span id="local-6989586621679387571"><span id="local-6989586621679387572"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTestGridUrlResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-var">CreateTestGridUrlResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTestGridUrlResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">CreateTestGridUrlResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of seconds the URL from CreateTestGridUrlResult$url stays</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- active.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3Aexpires%3ACreateTestGridUrlResponse%27"><span class="annot"><span class="annottext">CreateTestGridUrlResponse -&gt; Maybe POSIX
 </span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#%24sel%3Aexpires%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var hs-var">expires</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- seconds, to be passed to a @RemoteWebDriver@.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3Aurl%3ACreateTestGridUrlResponse%27"><span class="annot"><span class="annottext">CreateTestGridUrlResponse -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#%24sel%3Aurl%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateTestGridUrlResponse%27"><span class="annot"><span class="annottext">CreateTestGridUrlResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#%24sel%3AhttpStatus%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387283"><span id="local-6989586621679387285"><span class="annot"><span class="annottext">CreateTestGridUrlResponse -&gt; CreateTestGridUrlResponse -&gt; Bool
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387564"><span id="local-6989586621679387566"><span class="annot"><span class="annottext">CreateTestGridUrlResponse -&gt; CreateTestGridUrlResponse -&gt; Bool
 (CreateTestGridUrlResponse -&gt; CreateTestGridUrlResponse -&gt; Bool)
 -&gt; (CreateTestGridUrlResponse -&gt; CreateTestGridUrlResponse -&gt; Bool)
 -&gt; Eq CreateTestGridUrlResponse
@@ -357,7 +359,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateTestGridUrlResponse -&gt; CreateTestGridUrlResponse -&gt; Bool
 == :: CreateTestGridUrlResponse -&gt; CreateTestGridUrlResponse -&gt; Bool
 $c== :: CreateTestGridUrlResponse -&gt; CreateTestGridUrlResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387277"><span id="local-6989586621679387279"><span id="local-6989586621679387281"><span class="annot"><span class="annottext">Int -&gt; CreateTestGridUrlResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387558"><span id="local-6989586621679387560"><span id="local-6989586621679387562"><span class="annot"><span class="annottext">Int -&gt; CreateTestGridUrlResponse -&gt; ShowS
 [CreateTestGridUrlResponse] -&gt; ShowS
 CreateTestGridUrlResponse -&gt; String
 (Int -&gt; CreateTestGridUrlResponse -&gt; ShowS)
@@ -397,11 +399,11 @@ CreateTestGridUrlResponse -&gt; Rep CreateTestGridUrlResponse x
 </span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-164"></span><span class="hs-comment">--</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- 'url', 'createTestGridUrlResponse_url' - A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- seconds, to be passed to a @RemoteWebDriver@.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'expires', 'createTestGridUrlResponse_expires' - The number of seconds the URL from CreateTestGridUrlResult$url stays</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- active.</span><span>
 </span><span id="line-167"></span><span class="hs-comment">--</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- 'expires', 'createTestGridUrlResponse_expires' - The number of seconds the URL from CreateTestGridUrlResult$url stays</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- active.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'url', 'createTestGridUrlResponse_url' - A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- seconds, to be passed to a @RemoteWebDriver@.</span><span>
 </span><span id="line-170"></span><span class="hs-comment">--</span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'createTestGridUrlResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#newCreateTestGridUrlResponse"><span class="hs-identifier hs-type">newCreateTestGridUrlResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -409,28 +411,69 @@ CreateTestGridUrlResponse -&gt; Rep CreateTestGridUrlResponse x
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span>
 </span><span id="line-176"></span><span id="newCreateTestGridUrlResponse"><span class="annot"><span class="annottext">newCreateTestGridUrlResponse :: Int -&gt; CreateTestGridUrlResponse
-</span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#newCreateTestGridUrlResponse"><span class="hs-identifier hs-var hs-var">newCreateTestGridUrlResponse</span></a></span></span><span> </span><span id="local-6989586621679387274"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387274"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">CreateTestGridUrlResponse' :: Maybe (Sensitive Text)
--&gt; Maybe POSIX -&gt; Int -&gt; CreateTestGridUrlResponse
+</span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#newCreateTestGridUrlResponse"><span class="hs-identifier hs-var hs-var">newCreateTestGridUrlResponse</span></a></span></span><span> </span><span id="local-6989586621679387555"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387555"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">CreateTestGridUrlResponse' :: Maybe POSIX
+-&gt; Maybe (Sensitive Text) -&gt; Int -&gt; CreateTestGridUrlResponse
 </span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span>
-</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:url:CreateTestGridUrlResponse' :: Maybe (Sensitive Text)
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expires:CreateTestGridUrlResponse' :: Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#%24sel%3Aexpires%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">expires</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:CreateTestGridUrlResponse' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#%24sel%3Aurl%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:expires:CreateTestGridUrlResponse' :: Maybe POSIX
-</span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#%24sel%3Aexpires%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">expires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTestGridUrlResponse' :: Int
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTestGridUrlResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#%24sel%3AhttpStatus%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387274"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- | A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- seconds, to be passed to a @RemoteWebDriver@.</span><span>
-</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_url"><span class="hs-identifier hs-type">createTestGridUrlResponse_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span id="createTestGridUrlResponse_url"><span class="annot"><span class="annottext">createTestGridUrlResponse_url :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679387555"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The number of seconds the URL from CreateTestGridUrlResult$url stays</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- active.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_expires"><span class="hs-identifier hs-type">createTestGridUrlResponse_expires</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="createTestGridUrlResponse_expires"><span class="annot"><span class="annottext">createTestGridUrlResponse_expires :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateTestGridUrlResponse -&gt; f CreateTestGridUrlResponse
+</span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_expires"><span class="hs-identifier hs-var hs-var">createTestGridUrlResponse_expires</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTestGridUrlResponse -&gt; Maybe POSIX)
+-&gt; (CreateTestGridUrlResponse
+    -&gt; Maybe POSIX -&gt; CreateTestGridUrlResponse)
+-&gt; Lens
+     CreateTestGridUrlResponse
+     CreateTestGridUrlResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387554"><span class="annot"><span class="annottext">Maybe POSIX
+expires :: Maybe POSIX
+$sel:expires:CreateTestGridUrlResponse' :: CreateTestGridUrlResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679387554"><span class="hs-identifier hs-var hs-var">expires</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679387554"><span class="hs-identifier hs-var">expires</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387553"><span class="annot"><span class="annottext">s :: CreateTestGridUrlResponse
+</span><a href="#local-6989586621679387553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387552"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679387552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTestGridUrlResponse
+</span><a href="#local-6989586621679387553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expires:CreateTestGridUrlResponse' :: Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#%24sel%3Aexpires%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">expires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679387552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CreateTestGridUrlResponse -&gt; f CreateTestGridUrlResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateTestGridUrlResponse
+-&gt; f CreateTestGridUrlResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- seconds, to be passed to a @RemoteWebDriver@.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_url"><span class="hs-identifier hs-type">createTestGridUrlResponse_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="createTestGridUrlResponse_url"><span class="annot"><span class="annottext">createTestGridUrlResponse_url :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreateTestGridUrlResponse -&gt; f CreateTestGridUrlResponse
 </span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_url"><span class="hs-identifier hs-var hs-var">createTestGridUrlResponse_url</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTestGridUrlResponse -&gt; Maybe (Sensitive Text))
 -&gt; (CreateTestGridUrlResponse
@@ -441,16 +484,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387273"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387548"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 url :: Maybe (Sensitive Text)
 $sel:url:CreateTestGridUrlResponse' :: CreateTestGridUrlResponse -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679387273"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679387273"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387272"><span class="annot"><span class="annottext">s :: CreateTestGridUrlResponse
-</span><a href="#local-6989586621679387272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387271"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679387271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTestGridUrlResponse
-</span><a href="#local-6989586621679387272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:CreateTestGridUrlResponse' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679387548"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679387548"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387547"><span class="annot"><span class="annottext">s :: CreateTestGridUrlResponse
+</span><a href="#local-6989586621679387547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387546"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679387546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTestGridUrlResponse
+</span><a href="#local-6989586621679387547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:CreateTestGridUrlResponse' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#%24sel%3Aurl%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679387271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679387546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; CreateTestGridUrlResponse -&gt; f CreateTestGridUrlResponse)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -470,65 +513,25 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- | The number of seconds the URL from CreateTestGridUrlResult$url stays</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- active.</span><span>
-</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_expires"><span class="hs-identifier hs-type">createTestGridUrlResponse_expires</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span id="createTestGridUrlResponse_expires"><span class="annot"><span class="annottext">createTestGridUrlResponse_expires :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; CreateTestGridUrlResponse -&gt; f CreateTestGridUrlResponse
-</span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_expires"><span class="hs-identifier hs-var hs-var">createTestGridUrlResponse_expires</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTestGridUrlResponse -&gt; Maybe POSIX)
--&gt; (CreateTestGridUrlResponse
-    -&gt; Maybe POSIX -&gt; CreateTestGridUrlResponse)
--&gt; Lens
-     CreateTestGridUrlResponse
-     CreateTestGridUrlResponse
-     (Maybe POSIX)
-     (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387267"><span class="annot"><span class="annottext">Maybe POSIX
-expires :: Maybe POSIX
-$sel:expires:CreateTestGridUrlResponse' :: CreateTestGridUrlResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679387267"><span class="hs-identifier hs-var hs-var">expires</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679387267"><span class="hs-identifier hs-var">expires</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387266"><span class="annot"><span class="annottext">s :: CreateTestGridUrlResponse
-</span><a href="#local-6989586621679387266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387265"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679387265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTestGridUrlResponse
-</span><a href="#local-6989586621679387266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expires:CreateTestGridUrlResponse' :: Maybe POSIX
-</span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#%24sel%3Aexpires%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">expires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679387265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; CreateTestGridUrlResponse -&gt; f CreateTestGridUrlResponse)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; CreateTestGridUrlResponse
--&gt; f CreateTestGridUrlResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_httpStatus"><span class="hs-identifier hs-type">createTestGridUrlResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-195"></span><span id="createTestGridUrlResponse_httpStatus"><span class="annot"><span class="annottext">createTestGridUrlResponse_httpStatus :: (Int -&gt; f Int)
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_httpStatus"><span class="hs-identifier hs-type">createTestGridUrlResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-196"></span><span id="createTestGridUrlResponse_httpStatus"><span class="annot"><span class="annottext">createTestGridUrlResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; CreateTestGridUrlResponse -&gt; f CreateTestGridUrlResponse
 </span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#createTestGridUrlResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createTestGridUrlResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTestGridUrlResponse -&gt; Int)
 -&gt; (CreateTestGridUrlResponse -&gt; Int -&gt; CreateTestGridUrlResponse)
 -&gt; Lens CreateTestGridUrlResponse CreateTestGridUrlResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387263"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387544"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateTestGridUrlResponse' :: CreateTestGridUrlResponse -&gt; Int
-</span><a href="#local-6989586621679387263"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387263"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387262"><span class="annot"><span class="annottext">s :: CreateTestGridUrlResponse
-</span><a href="#local-6989586621679387262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387261"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTestGridUrlResponse
-</span><a href="#local-6989586621679387262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTestGridUrlResponse' :: Int
+</span><a href="#local-6989586621679387544"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387544"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387543"><span class="annot"><span class="annottext">s :: CreateTestGridUrlResponse
+</span><a href="#local-6989586621679387543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse%27"><span class="hs-identifier hs-type">CreateTestGridUrlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387542"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTestGridUrlResponse
+</span><a href="#local-6989586621679387543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTestGridUrlResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#%24sel%3AhttpStatus%3ACreateTestGridUrlResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span></span><span>
-</span><span id="line-198"></span></pre></body></html>
+</span><a href="#local-6989586621679387542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387540"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateTestGridUrl.html#CreateTestGridUrlResponse"><span class="hs-identifier hs-type">CreateTestGridUrlResponse</span></a></span></span><span>
+</span><span id="line-199"></span></pre></body></html>

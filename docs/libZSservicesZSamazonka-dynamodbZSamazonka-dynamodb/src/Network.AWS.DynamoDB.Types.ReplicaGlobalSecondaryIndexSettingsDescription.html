@@ -28,42 +28,42 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Represents the properties of a global secondary index.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newReplicaGlobalSecondaryIndexSettingsDescription' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679377195"><span id="local-6989586621679377196"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicaGlobalSecondaryIndexSettingsDescription"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-var">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of writes consumed per second before DynamoDB returns</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- a @ThrottlingException@.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AprovisionedWriteCapacityUnits%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Maybe Natural
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AprovisionedWriteCapacityUnits%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var hs-var">provisionedWriteCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The maximum number of strongly consistent reads consumed per second</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AprovisionedReadCapacityUnits%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Maybe Natural
+</span><span id="line-31"></span><span id="local-6989586621679377882"><span id="local-6989586621679377883"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicaGlobalSecondaryIndexSettingsDescription"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-var">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the global secondary index:</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- -   @CREATING@ - The global secondary index is being created.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   @UPDATING@ - The global secondary index is being updated.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   @DELETING@ - The global secondary index is being deleted.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   @ACTIVE@ - The global secondary index is ready for use.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AindexStatus%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Maybe IndexStatus
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AindexStatus%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var hs-var">indexStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.IndexStatus.html#IndexStatus"><span class="hs-identifier hs-type">IndexStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The maximum number of strongly consistent reads consumed per second</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AprovisionedReadCapacityUnits%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Maybe Natural
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AprovisionedReadCapacityUnits%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var hs-var">provisionedReadCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Auto scaling settings for a global secondary index replica\'s read</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- capacity units.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AprovisionedReadCapacityAutoScalingSettings%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
--&gt; Maybe AutoScalingSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AprovisionedReadCapacityAutoScalingSettings%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var hs-var">provisionedReadCapacityAutoScalingSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Auto scaling settings for a global secondary index replica\'s write</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- capacity units.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AprovisionedWriteCapacityAutoScalingSettings%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The maximum number of writes consumed per second before DynamoDB returns</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- a @ThrottlingException@.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AprovisionedWriteCapacityUnits%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Maybe Natural
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AprovisionedWriteCapacityUnits%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var hs-var">provisionedWriteCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Auto scaling settings for a global secondary index replica\'s write</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- capacity units.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AprovisionedWriteCapacityAutoScalingSettings%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
 -&gt; Maybe AutoScalingSettingsDescription
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AprovisionedWriteCapacityAutoScalingSettings%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var hs-var">provisionedWriteCapacityAutoScalingSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The current status of the global secondary index:</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   @CREATING@ - The global secondary index is being created.</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   @UPDATING@ - The global secondary index is being updated.</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @DELETING@ - The global secondary index is being deleted.</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   @ACTIVE@ - The global secondary index is ready for use.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AindexStatus%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Maybe IndexStatus
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AindexStatus%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var hs-var">indexStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.IndexStatus.html#IndexStatus"><span class="hs-identifier hs-type">IndexStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Auto scaling settings for a global secondary index replica\'s read</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- capacity units.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AprovisionedReadCapacityAutoScalingSettings%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
+-&gt; Maybe AutoScalingSettingsDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AprovisionedReadCapacityAutoScalingSettings%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var hs-var">provisionedReadCapacityAutoScalingSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The name of the global secondary index. The name must be unique among</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- all other indexes on this table.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AindexName%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AindexName%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377184"><span id="local-6989586621679377186"><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377871"><span id="local-6989586621679377873"><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
 -&gt; ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Bool
 (ReplicaGlobalSecondaryIndexSettingsDescription
  -&gt; ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Bool)
@@ -79,7 +79,7 @@ $c/= :: ReplicaGlobalSecondaryIndexSettingsDescription
 -&gt; ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Bool
 $c== :: ReplicaGlobalSecondaryIndexSettingsDescription
 -&gt; ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377175"><span id="local-6989586621679377177"><span id="local-6989586621679377179"><span id="local-6989586621679377181"><span class="annot"><span class="annottext">ReadPrec [ReplicaGlobalSecondaryIndexSettingsDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377862"><span id="local-6989586621679377864"><span id="local-6989586621679377866"><span id="local-6989586621679377868"><span class="annot"><span class="annottext">ReadPrec [ReplicaGlobalSecondaryIndexSettingsDescription]
 ReadPrec ReplicaGlobalSecondaryIndexSettingsDescription
 Int -&gt; ReadS ReplicaGlobalSecondaryIndexSettingsDescription
 ReadS [ReplicaGlobalSecondaryIndexSettingsDescription]
@@ -99,7 +99,7 @@ readList :: ReadS [ReplicaGlobalSecondaryIndexSettingsDescription]
 $creadList :: ReadS [ReplicaGlobalSecondaryIndexSettingsDescription]
 readsPrec :: Int -&gt; ReadS ReplicaGlobalSecondaryIndexSettingsDescription
 $creadsPrec :: Int -&gt; ReadS ReplicaGlobalSecondaryIndexSettingsDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377168"><span id="local-6989586621679377170"><span id="local-6989586621679377172"><span class="annot"><span class="annottext">Int -&gt; ReplicaGlobalSecondaryIndexSettingsDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377855"><span id="local-6989586621679377857"><span id="local-6989586621679377859"><span class="annot"><span class="annottext">Int -&gt; ReplicaGlobalSecondaryIndexSettingsDescription -&gt; ShowS
 [ReplicaGlobalSecondaryIndexSettingsDescription] -&gt; ShowS
 ReplicaGlobalSecondaryIndexSettingsDescription -&gt; String
 (Int -&gt; ReplicaGlobalSecondaryIndexSettingsDescription -&gt; ShowS)
@@ -145,27 +145,27 @@ ReplicaGlobalSecondaryIndexSettingsDescription
 </span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'provisionedWriteCapacityUnits', 'replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- a @ThrottlingException@.</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'provisionedReadCapacityUnits', 'replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'indexStatus', 'replicaGlobalSecondaryIndexSettingsDescription_indexStatus' - The current status of the global secondary index:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- -   @CREATING@ - The global secondary index is being created.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- -   @UPDATING@ - The global secondary index is being updated.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'provisionedReadCapacityAutoScalingSettings', 'replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityAutoScalingSettings' - Auto scaling settings for a global secondary index replica\'s read</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- capacity units.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'provisionedWriteCapacityAutoScalingSettings', 'replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityAutoScalingSettings' - Auto scaling settings for a global secondary index replica\'s write</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- capacity units.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'indexStatus', 'replicaGlobalSecondaryIndexSettingsDescription_indexStatus' - The current status of the global secondary index:</span><span>
-</span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- -   @CREATING@ - The global secondary index is being created.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- -   @DELETING@ - The global secondary index is being deleted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- -   @ACTIVE@ - The global secondary index is ready for use.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'provisionedReadCapacityUnits', 'replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'provisionedWriteCapacityUnits', 'replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- a @ThrottlingException@.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- -   @UPDATING@ - The global secondary index is being updated.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- -   @DELETING@ - The global secondary index is being deleted.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- -   @ACTIVE@ - The global secondary index is ready for use.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'provisionedWriteCapacityAutoScalingSettings', 'replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityAutoScalingSettings' - Auto scaling settings for a global secondary index replica\'s write</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- capacity units.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'provisionedReadCapacityAutoScalingSettings', 'replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityAutoScalingSettings' - Auto scaling settings for a global secondary index replica\'s read</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- capacity units.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- 'indexName', 'replicaGlobalSecondaryIndexSettingsDescription_indexName' - The name of the global secondary index. The name must be unique among</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- all other indexes on this table.</span><span>
@@ -175,19 +175,19 @@ ReplicaGlobalSecondaryIndexSettingsDescription
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span>
 </span><span id="line-96"></span><span id="newReplicaGlobalSecondaryIndexSettingsDescription"><span class="annot"><span class="annottext">newReplicaGlobalSecondaryIndexSettingsDescription :: Text -&gt; ReplicaGlobalSecondaryIndexSettingsDescription
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#newReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-var hs-var">newReplicaGlobalSecondaryIndexSettingsDescription</span></a></span></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679377162"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377162"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe Natural
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679377849"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377849"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe IndexStatus
+-&gt; Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe AutoScalingSettingsDescription
 -&gt; Maybe AutoScalingSettingsDescription
--&gt; Maybe IndexStatus
 -&gt; Text
 -&gt; ReplicaGlobalSecondaryIndexSettingsDescription
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:provisionedWriteCapacityUnits:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe Natural
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AprovisionedWriteCapacityUnits%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">provisionedWriteCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-99"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:indexStatus:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe IndexStatus
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AindexStatus%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">indexStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe IndexStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:provisionedReadCapacityUnits:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe Natural
@@ -195,9 +195,9 @@ forall a. Maybe a
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:provisionedReadCapacityAutoScalingSettings:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe AutoScalingSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AprovisionedReadCapacityAutoScalingSettings%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">provisionedReadCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:provisionedWriteCapacityUnits:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe Natural
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AprovisionedWriteCapacityUnits%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">provisionedWriteCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:provisionedWriteCapacityAutoScalingSettings:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe AutoScalingSettingsDescription
@@ -205,46 +205,55 @@ forall a. Maybe a
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:indexStatus:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe IndexStatus
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AindexStatus%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">indexStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe IndexStatus
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:provisionedReadCapacityAutoScalingSettings:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe AutoScalingSettingsDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AprovisionedReadCapacityAutoScalingSettings%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">provisionedReadCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:indexName:ReplicaGlobalSecondaryIndexSettingsDescription' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AindexName%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377162"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span>
+</span><a href="#local-6989586621679377849"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | The maximum number of writes consumed per second before DynamoDB returns</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- a @ThrottlingException@.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits"><span class="hs-identifier hs-type">replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits"><span class="annot"><span class="annottext">replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-112"></span><span class="hs-comment">-- | The current status of the global secondary index:</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- -   @CREATING@ - The global secondary index is being created.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- -   @UPDATING@ - The global secondary index is being updated.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   @DELETING@ - The global secondary index is being deleted.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   @ACTIVE@ - The global secondary index is ready for use.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#replicaGlobalSecondaryIndexSettingsDescription_indexStatus"><span class="hs-identifier hs-type">replicaGlobalSecondaryIndexSettingsDescription_indexStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.IndexStatus.html#IndexStatus"><span class="hs-identifier hs-type">IndexStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="replicaGlobalSecondaryIndexSettingsDescription_indexStatus"><span class="annot"><span class="annottext">replicaGlobalSecondaryIndexSettingsDescription_indexStatus :: (Maybe IndexStatus -&gt; f (Maybe IndexStatus))
 -&gt; ReplicaGlobalSecondaryIndexSettingsDescription
 -&gt; f ReplicaGlobalSecondaryIndexSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits"><span class="hs-identifier hs-var hs-var">replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Maybe Natural)
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#replicaGlobalSecondaryIndexSettingsDescription_indexStatus"><span class="hs-identifier hs-var hs-var">replicaGlobalSecondaryIndexSettingsDescription_indexStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaGlobalSecondaryIndexSettingsDescription
+ -&gt; Maybe IndexStatus)
 -&gt; (ReplicaGlobalSecondaryIndexSettingsDescription
-    -&gt; Maybe Natural -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
+    -&gt; Maybe IndexStatus
+    -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
 -&gt; Lens
      ReplicaGlobalSecondaryIndexSettingsDescription
      ReplicaGlobalSecondaryIndexSettingsDescription
-     (Maybe Natural)
-     (Maybe Natural)
+     (Maybe IndexStatus)
+     (Maybe IndexStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377158"><span class="annot"><span class="annottext">Maybe Natural
-provisionedWriteCapacityUnits :: Maybe Natural
-$sel:provisionedWriteCapacityUnits:ReplicaGlobalSecondaryIndexSettingsDescription' :: ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Maybe Natural
-</span><a href="#local-6989586621679377158"><span class="hs-identifier hs-var hs-var">provisionedWriteCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679377158"><span class="hs-identifier hs-var">provisionedWriteCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377157"><span class="annot"><span class="annottext">s :: ReplicaGlobalSecondaryIndexSettingsDescription
-</span><a href="#local-6989586621679377157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377156"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679377156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
-</span><a href="#local-6989586621679377157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedWriteCapacityUnits:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe Natural
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AprovisionedWriteCapacityUnits%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">provisionedWriteCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679377156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | The maximum number of strongly consistent reads consumed per second</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityUnits"><span class="hs-identifier hs-type">replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityUnits"><span class="annot"><span class="annottext">replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityUnits :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377845"><span class="annot"><span class="annottext">Maybe IndexStatus
+indexStatus :: Maybe IndexStatus
+$sel:indexStatus:ReplicaGlobalSecondaryIndexSettingsDescription' :: ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Maybe IndexStatus
+</span><a href="#local-6989586621679377845"><span class="hs-identifier hs-var hs-var">indexStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IndexStatus
+</span><a href="#local-6989586621679377845"><span class="hs-identifier hs-var">indexStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377844"><span class="annot"><span class="annottext">s :: ReplicaGlobalSecondaryIndexSettingsDescription
+</span><a href="#local-6989586621679377844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377843"><span class="annot"><span class="annottext">Maybe IndexStatus
+</span><a href="#local-6989586621679377843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
+</span><a href="#local-6989586621679377844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexStatus:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe IndexStatus
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AindexStatus%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">indexStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IndexStatus
+</span><a href="#local-6989586621679377843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The maximum number of strongly consistent reads consumed per second</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityUnits"><span class="hs-identifier hs-type">replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityUnits"><span class="annot"><span class="annottext">replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityUnits :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; ReplicaGlobalSecondaryIndexSettingsDescription
 -&gt; f ReplicaGlobalSecondaryIndexSettingsDescription
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityUnits"><span class="hs-identifier hs-var hs-var">replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Maybe Natural)
@@ -256,51 +265,47 @@ $sel:provisionedWriteCapacityUnits:ReplicaGlobalSecondaryIndexSettingsDescriptio
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377154"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377841"><span class="annot"><span class="annottext">Maybe Natural
 provisionedReadCapacityUnits :: Maybe Natural
 $sel:provisionedReadCapacityUnits:ReplicaGlobalSecondaryIndexSettingsDescription' :: ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Maybe Natural
-</span><a href="#local-6989586621679377154"><span class="hs-identifier hs-var hs-var">provisionedReadCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679377154"><span class="hs-identifier hs-var">provisionedReadCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377153"><span class="annot"><span class="annottext">s :: ReplicaGlobalSecondaryIndexSettingsDescription
-</span><a href="#local-6989586621679377153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377152"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679377152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
-</span><a href="#local-6989586621679377153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedReadCapacityUnits:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe Natural
+</span><a href="#local-6989586621679377841"><span class="hs-identifier hs-var hs-var">provisionedReadCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679377841"><span class="hs-identifier hs-var">provisionedReadCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377840"><span class="annot"><span class="annottext">s :: ReplicaGlobalSecondaryIndexSettingsDescription
+</span><a href="#local-6989586621679377840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377839"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679377839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
+</span><a href="#local-6989586621679377840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedReadCapacityUnits:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe Natural
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AprovisionedReadCapacityUnits%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">provisionedReadCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679377152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | Auto scaling settings for a global secondary index replica\'s read</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- capacity units.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityAutoScalingSettings"><span class="hs-identifier hs-type">replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityAutoScalingSettings"><span class="annot"><span class="annottext">replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityAutoScalingSettings :: (Maybe AutoScalingSettingsDescription
- -&gt; f (Maybe AutoScalingSettingsDescription))
+</span><a href="#local-6989586621679377839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The maximum number of writes consumed per second before DynamoDB returns</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- a @ThrottlingException@.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits"><span class="hs-identifier hs-type">replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits"><span class="annot"><span class="annottext">replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; ReplicaGlobalSecondaryIndexSettingsDescription
 -&gt; f ReplicaGlobalSecondaryIndexSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityAutoScalingSettings"><span class="hs-identifier hs-var hs-var">replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityAutoScalingSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaGlobalSecondaryIndexSettingsDescription
- -&gt; Maybe AutoScalingSettingsDescription)
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits"><span class="hs-identifier hs-var hs-var">replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Maybe Natural)
 -&gt; (ReplicaGlobalSecondaryIndexSettingsDescription
-    -&gt; Maybe AutoScalingSettingsDescription
-    -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
+    -&gt; Maybe Natural -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
 -&gt; Lens
      ReplicaGlobalSecondaryIndexSettingsDescription
      ReplicaGlobalSecondaryIndexSettingsDescription
-     (Maybe AutoScalingSettingsDescription)
-     (Maybe AutoScalingSettingsDescription)
+     (Maybe Natural)
+     (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377150"><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
-provisionedReadCapacityAutoScalingSettings :: Maybe AutoScalingSettingsDescription
-$sel:provisionedReadCapacityAutoScalingSettings:ReplicaGlobalSecondaryIndexSettingsDescription' :: ReplicaGlobalSecondaryIndexSettingsDescription
--&gt; Maybe AutoScalingSettingsDescription
-</span><a href="#local-6989586621679377150"><span class="hs-identifier hs-var hs-var">provisionedReadCapacityAutoScalingSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
-</span><a href="#local-6989586621679377150"><span class="hs-identifier hs-var">provisionedReadCapacityAutoScalingSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377149"><span class="annot"><span class="annottext">s :: ReplicaGlobalSecondaryIndexSettingsDescription
-</span><a href="#local-6989586621679377149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377148"><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
-</span><a href="#local-6989586621679377148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
-</span><a href="#local-6989586621679377149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedReadCapacityAutoScalingSettings:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe AutoScalingSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AprovisionedReadCapacityAutoScalingSettings%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">provisionedReadCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
-</span><a href="#local-6989586621679377148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | Auto scaling settings for a global secondary index replica\'s write</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- capacity units.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityAutoScalingSettings"><span class="hs-identifier hs-type">replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityAutoScalingSettings"><span class="annot"><span class="annottext">replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityAutoScalingSettings :: (Maybe AutoScalingSettingsDescription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377837"><span class="annot"><span class="annottext">Maybe Natural
+provisionedWriteCapacityUnits :: Maybe Natural
+$sel:provisionedWriteCapacityUnits:ReplicaGlobalSecondaryIndexSettingsDescription' :: ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Maybe Natural
+</span><a href="#local-6989586621679377837"><span class="hs-identifier hs-var hs-var">provisionedWriteCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679377837"><span class="hs-identifier hs-var">provisionedWriteCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377836"><span class="annot"><span class="annottext">s :: ReplicaGlobalSecondaryIndexSettingsDescription
+</span><a href="#local-6989586621679377836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377835"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679377835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
+</span><a href="#local-6989586621679377836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedWriteCapacityUnits:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe Natural
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AprovisionedWriteCapacityUnits%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">provisionedWriteCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679377835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | Auto scaling settings for a global secondary index replica\'s write</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- capacity units.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityAutoScalingSettings"><span class="hs-identifier hs-type">replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityAutoScalingSettings"><span class="annot"><span class="annottext">replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityAutoScalingSettings :: (Maybe AutoScalingSettingsDescription
  -&gt; f (Maybe AutoScalingSettingsDescription))
 -&gt; ReplicaGlobalSecondaryIndexSettingsDescription
 -&gt; f ReplicaGlobalSecondaryIndexSettingsDescription
@@ -315,52 +320,47 @@ $sel:provisionedReadCapacityAutoScalingSettings:ReplicaGlobalSecondaryIndexSetti
      (Maybe AutoScalingSettingsDescription)
      (Maybe AutoScalingSettingsDescription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377146"><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377833"><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
 provisionedWriteCapacityAutoScalingSettings :: Maybe AutoScalingSettingsDescription
 $sel:provisionedWriteCapacityAutoScalingSettings:ReplicaGlobalSecondaryIndexSettingsDescription' :: ReplicaGlobalSecondaryIndexSettingsDescription
 -&gt; Maybe AutoScalingSettingsDescription
-</span><a href="#local-6989586621679377146"><span class="hs-identifier hs-var hs-var">provisionedWriteCapacityAutoScalingSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
-</span><a href="#local-6989586621679377146"><span class="hs-identifier hs-var">provisionedWriteCapacityAutoScalingSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377145"><span class="annot"><span class="annottext">s :: ReplicaGlobalSecondaryIndexSettingsDescription
-</span><a href="#local-6989586621679377145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377144"><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
-</span><a href="#local-6989586621679377144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
-</span><a href="#local-6989586621679377145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedWriteCapacityAutoScalingSettings:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe AutoScalingSettingsDescription
+</span><a href="#local-6989586621679377833"><span class="hs-identifier hs-var hs-var">provisionedWriteCapacityAutoScalingSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
+</span><a href="#local-6989586621679377833"><span class="hs-identifier hs-var">provisionedWriteCapacityAutoScalingSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377832"><span class="annot"><span class="annottext">s :: ReplicaGlobalSecondaryIndexSettingsDescription
+</span><a href="#local-6989586621679377832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377831"><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
+</span><a href="#local-6989586621679377831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
+</span><a href="#local-6989586621679377832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedWriteCapacityAutoScalingSettings:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe AutoScalingSettingsDescription
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AprovisionedWriteCapacityAutoScalingSettings%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">provisionedWriteCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
-</span><a href="#local-6989586621679377144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | The current status of the global secondary index:</span><span>
-</span><span id="line-133"></span><span class="hs-comment">--</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- -   @CREATING@ - The global secondary index is being created.</span><span>
-</span><span id="line-135"></span><span class="hs-comment">--</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- -   @UPDATING@ - The global secondary index is being updated.</span><span>
-</span><span id="line-137"></span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- -   @DELETING@ - The global secondary index is being deleted.</span><span>
-</span><span id="line-139"></span><span class="hs-comment">--</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- -   @ACTIVE@ - The global secondary index is ready for use.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#replicaGlobalSecondaryIndexSettingsDescription_indexStatus"><span class="hs-identifier hs-type">replicaGlobalSecondaryIndexSettingsDescription_indexStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.IndexStatus.html#IndexStatus"><span class="hs-identifier hs-type">IndexStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="replicaGlobalSecondaryIndexSettingsDescription_indexStatus"><span class="annot"><span class="annottext">replicaGlobalSecondaryIndexSettingsDescription_indexStatus :: (Maybe IndexStatus -&gt; f (Maybe IndexStatus))
+</span><a href="#local-6989586621679377831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | Auto scaling settings for a global secondary index replica\'s read</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- capacity units.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityAutoScalingSettings"><span class="hs-identifier hs-type">replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityAutoScalingSettings"><span class="annot"><span class="annottext">replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityAutoScalingSettings :: (Maybe AutoScalingSettingsDescription
+ -&gt; f (Maybe AutoScalingSettingsDescription))
 -&gt; ReplicaGlobalSecondaryIndexSettingsDescription
 -&gt; f ReplicaGlobalSecondaryIndexSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#replicaGlobalSecondaryIndexSettingsDescription_indexStatus"><span class="hs-identifier hs-var hs-var">replicaGlobalSecondaryIndexSettingsDescription_indexStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaGlobalSecondaryIndexSettingsDescription
- -&gt; Maybe IndexStatus)
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityAutoScalingSettings"><span class="hs-identifier hs-var hs-var">replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityAutoScalingSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaGlobalSecondaryIndexSettingsDescription
+ -&gt; Maybe AutoScalingSettingsDescription)
 -&gt; (ReplicaGlobalSecondaryIndexSettingsDescription
-    -&gt; Maybe IndexStatus
+    -&gt; Maybe AutoScalingSettingsDescription
     -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
 -&gt; Lens
      ReplicaGlobalSecondaryIndexSettingsDescription
      ReplicaGlobalSecondaryIndexSettingsDescription
-     (Maybe IndexStatus)
-     (Maybe IndexStatus)
+     (Maybe AutoScalingSettingsDescription)
+     (Maybe AutoScalingSettingsDescription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377142"><span class="annot"><span class="annottext">Maybe IndexStatus
-indexStatus :: Maybe IndexStatus
-$sel:indexStatus:ReplicaGlobalSecondaryIndexSettingsDescription' :: ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Maybe IndexStatus
-</span><a href="#local-6989586621679377142"><span class="hs-identifier hs-var hs-var">indexStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IndexStatus
-</span><a href="#local-6989586621679377142"><span class="hs-identifier hs-var">indexStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377141"><span class="annot"><span class="annottext">s :: ReplicaGlobalSecondaryIndexSettingsDescription
-</span><a href="#local-6989586621679377141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377140"><span class="annot"><span class="annottext">Maybe IndexStatus
-</span><a href="#local-6989586621679377140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
-</span><a href="#local-6989586621679377141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexStatus:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe IndexStatus
-</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AindexStatus%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">indexStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IndexStatus
-</span><a href="#local-6989586621679377140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377829"><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
+provisionedReadCapacityAutoScalingSettings :: Maybe AutoScalingSettingsDescription
+$sel:provisionedReadCapacityAutoScalingSettings:ReplicaGlobalSecondaryIndexSettingsDescription' :: ReplicaGlobalSecondaryIndexSettingsDescription
+-&gt; Maybe AutoScalingSettingsDescription
+</span><a href="#local-6989586621679377829"><span class="hs-identifier hs-var hs-var">provisionedReadCapacityAutoScalingSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
+</span><a href="#local-6989586621679377829"><span class="hs-identifier hs-var">provisionedReadCapacityAutoScalingSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377828"><span class="annot"><span class="annottext">s :: ReplicaGlobalSecondaryIndexSettingsDescription
+</span><a href="#local-6989586621679377828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377827"><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
+</span><a href="#local-6989586621679377827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
+</span><a href="#local-6989586621679377828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedReadCapacityAutoScalingSettings:ReplicaGlobalSecondaryIndexSettingsDescription' :: Maybe AutoScalingSettingsDescription
+</span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AprovisionedReadCapacityAutoScalingSettings%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">provisionedReadCapacityAutoScalingSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingSettingsDescription
+</span><a href="#local-6989586621679377827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The name of the global secondary index. The name must be unique among</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- all other indexes on this table.</span><span>
@@ -377,22 +377,22 @@ $sel:indexStatus:ReplicaGlobalSecondaryIndexSettingsDescription' :: ReplicaGloba
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377138"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377825"><span class="annot"><span class="annottext">Text
 indexName :: Text
 $sel:indexName:ReplicaGlobalSecondaryIndexSettingsDescription' :: ReplicaGlobalSecondaryIndexSettingsDescription -&gt; Text
-</span><a href="#local-6989586621679377138"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377138"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377137"><span class="annot"><span class="annottext">s :: ReplicaGlobalSecondaryIndexSettingsDescription
-</span><a href="#local-6989586621679377137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377136"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
-</span><a href="#local-6989586621679377137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:ReplicaGlobalSecondaryIndexSettingsDescription' :: Text
+</span><a href="#local-6989586621679377825"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377825"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377824"><span class="annot"><span class="annottext">s :: ReplicaGlobalSecondaryIndexSettingsDescription
+</span><a href="#local-6989586621679377824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377823"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaGlobalSecondaryIndexSettingsDescription
+</span><a href="#local-6989586621679377824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:ReplicaGlobalSecondaryIndexSettingsDescription' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#%24sel%3AindexName%3AReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679377133"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679377820"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679377131"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplicaGlobalSecondaryIndexSettingsDescription
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679377818"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplicaGlobalSecondaryIndexSettingsDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object
@@ -403,121 +403,121 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReplicaGlobalSecondaryIndexSettingsDescription&quot;</span></span><span>
-</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377128"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377128"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377815"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377815"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">Maybe IndexStatus
+-&gt; Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe AutoScalingSettingsDescription
 -&gt; Maybe AutoScalingSettingsDescription
--&gt; Maybe IndexStatus
 -&gt; Text
 -&gt; ReplicaGlobalSecondaryIndexSettingsDescription
 </span><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription%27"><span class="hs-identifier hs-var">ReplicaGlobalSecondaryIndexSettingsDescription'</span></a></span><span>
-</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">(Maybe IndexStatus
+ -&gt; Maybe Natural
  -&gt; Maybe Natural
  -&gt; Maybe AutoScalingSettingsDescription
  -&gt; Maybe AutoScalingSettingsDescription
- -&gt; Maybe IndexStatus
  -&gt; Text
  -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
+-&gt; Parser (Maybe IndexStatus)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe AutoScalingSettingsDescription
+      -&gt; Maybe AutoScalingSettingsDescription
+      -&gt; Text
+      -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IndexStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe AutoScalingSettingsDescription
+   -&gt; Maybe AutoScalingSettingsDescription
+   -&gt; Text
+   -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser
      (Maybe Natural
       -&gt; Maybe AutoScalingSettingsDescription
       -&gt; Maybe AutoScalingSettingsDescription
-      -&gt; Maybe IndexStatus
       -&gt; Text
       -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377128"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProvisionedWriteCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;ProvisionedReadCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">Parser
   (Maybe Natural
    -&gt; Maybe AutoScalingSettingsDescription
    -&gt; Maybe AutoScalingSettingsDescription
-   -&gt; Maybe IndexStatus
    -&gt; Text
    -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser
      (Maybe AutoScalingSettingsDescription
       -&gt; Maybe AutoScalingSettingsDescription
-      -&gt; Maybe IndexStatus
       -&gt; Text
       -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377128"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679377815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProvisionedReadCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;ProvisionedWriteCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">Parser
   (Maybe AutoScalingSettingsDescription
    -&gt; Maybe AutoScalingSettingsDescription
-   -&gt; Maybe IndexStatus
    -&gt; Text
    -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
 -&gt; Parser (Maybe AutoScalingSettingsDescription)
 -&gt; Parser
      (Maybe AutoScalingSettingsDescription
-      -&gt; Maybe IndexStatus
-      -&gt; Text
-      -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377128"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-161"></span><span>                              </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoScalingSettingsDescription)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProvisionedReadCapacityAutoScalingSettings&quot;</span></span><span>
-</span><span id="line-162"></span><span>                          </span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>              </span><span class="annot"><span class="annottext">Parser
-  (Maybe AutoScalingSettingsDescription
-   -&gt; Maybe IndexStatus
-   -&gt; Text
-   -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
--&gt; Parser (Maybe AutoScalingSettingsDescription)
--&gt; Parser
-     (Maybe IndexStatus
       -&gt; Text -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377128"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-164"></span><span>                              </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoScalingSettingsDescription)
+</span><a href="#local-6989586621679377815"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-162"></span><span>                              </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoScalingSettingsDescription)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProvisionedWriteCapacityAutoScalingSettings&quot;</span></span><span>
-</span><span id="line-165"></span><span>                          </span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">Parser
-  (Maybe IndexStatus
+</span><span id="line-163"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe AutoScalingSettingsDescription
    -&gt; Text -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
--&gt; Parser (Maybe IndexStatus)
+-&gt; Parser (Maybe AutoScalingSettingsDescription)
 -&gt; Parser (Text -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377128"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IndexStatus)
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377815"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-165"></span><span>                              </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoScalingSettingsDescription)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IndexStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ProvisionedReadCapacityAutoScalingSettings&quot;</span></span><span>
+</span><span id="line-166"></span><span>                          </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">Parser (Text -&gt; ReplicaGlobalSecondaryIndexSettingsDescription)
 -&gt; Parser Text
 -&gt; Parser ReplicaGlobalSecondaryIndexSettingsDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377128"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679377815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IndexName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679377121"><span id="local-6989586621679377123"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679377808"><span id="local-6989586621679377810"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span></span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679377118"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679377805"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription.html#ReplicaGlobalSecondaryIndexSettingsDescription"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndexSettingsDescription</span></a></span></span><span>
 </span><span id="line-177"></span></pre></body></html>

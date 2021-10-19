@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Encryption options for the broker.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEncryptionOptions' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679222837"><span id="local-6989586621679222838"></span></span><span class="hs-keyword">data</span><span> </span><span id="EncryptionOptions"><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions"><span class="hs-identifier hs-var">EncryptionOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionOptions%27"><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions%27"><span class="hs-identifier hs-var">EncryptionOptions'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679222991"><span id="local-6989586621679222992"></span></span><span class="hs-keyword">data</span><span> </span><span id="EncryptionOptions"><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions"><span class="hs-identifier hs-var">EncryptionOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionOptions%27"><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions%27"><span class="hs-identifier hs-var">EncryptionOptions'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The customer master key (CMK) to use for the AWS Key Management Service</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- (KMS). This key is used to encrypt your data at rest. If not provided,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Amazon MQ will use a default CMK to encrypt your data.</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AuseAwsOwnedKey%3AEncryptionOptions%27"><span class="annot"><span class="annottext">EncryptionOptions -&gt; Bool
 </span><a href="Network.AWS.MQ.Types.EncryptionOptions.html#%24sel%3AuseAwsOwnedKey%3AEncryptionOptions%27"><span class="hs-identifier hs-var hs-var">useAwsOwnedKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222830"><span id="local-6989586621679222832"><span class="annot"><span class="annottext">EncryptionOptions -&gt; EncryptionOptions -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222984"><span id="local-6989586621679222986"><span class="annot"><span class="annottext">EncryptionOptions -&gt; EncryptionOptions -&gt; Bool
 (EncryptionOptions -&gt; EncryptionOptions -&gt; Bool)
 -&gt; (EncryptionOptions -&gt; EncryptionOptions -&gt; Bool)
 -&gt; Eq EncryptionOptions
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EncryptionOptions -&gt; EncryptionOptions -&gt; Bool
 == :: EncryptionOptions -&gt; EncryptionOptions -&gt; Bool
 $c== :: EncryptionOptions -&gt; EncryptionOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222821"><span id="local-6989586621679222823"><span id="local-6989586621679222825"><span id="local-6989586621679222827"><span class="annot"><span class="annottext">ReadPrec [EncryptionOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222975"><span id="local-6989586621679222977"><span id="local-6989586621679222979"><span id="local-6989586621679222981"><span class="annot"><span class="annottext">ReadPrec [EncryptionOptions]
 ReadPrec EncryptionOptions
 Int -&gt; ReadS EncryptionOptions
 ReadS [EncryptionOptions]
@@ -69,7 +69,7 @@ readList :: ReadS [EncryptionOptions]
 $creadList :: ReadS [EncryptionOptions]
 readsPrec :: Int -&gt; ReadS EncryptionOptions
 $creadsPrec :: Int -&gt; ReadS EncryptionOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222814"><span id="local-6989586621679222816"><span id="local-6989586621679222818"><span class="annot"><span class="annottext">Int -&gt; EncryptionOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222968"><span id="local-6989586621679222970"><span id="local-6989586621679222972"><span class="annot"><span class="annottext">Int -&gt; EncryptionOptions -&gt; ShowS
 [EncryptionOptions] -&gt; ShowS
 EncryptionOptions -&gt; String
 (Int -&gt; EncryptionOptions -&gt; ShowS)
@@ -115,8 +115,8 @@ $cfrom :: forall x. EncryptionOptions -&gt; Rep EncryptionOptions x
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions"><span class="hs-identifier hs-type">EncryptionOptions</span></a></span><span>
 </span><span id="line-62"></span><span id="newEncryptionOptions"><span class="annot"><span class="annottext">newEncryptionOptions :: Bool -&gt; EncryptionOptions
-</span><a href="Network.AWS.MQ.Types.EncryptionOptions.html#newEncryptionOptions"><span class="hs-identifier hs-var hs-var">newEncryptionOptions</span></a></span></span><span> </span><span id="local-6989586621679222808"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679222808"><span class="hs-identifier hs-var">pUseAwsOwnedKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.Types.EncryptionOptions.html#newEncryptionOptions"><span class="hs-identifier hs-var hs-var">newEncryptionOptions</span></a></span></span><span> </span><span id="local-6989586621679222962"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679222962"><span class="hs-identifier hs-var">pUseAwsOwnedKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">EncryptionOptions' :: Maybe Text -&gt; Bool -&gt; EncryptionOptions
 </span><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions%27"><span class="hs-identifier hs-type">EncryptionOptions'</span></a></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kmsKeyId:EncryptionOptions' :: Maybe Text
@@ -125,7 +125,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:useAwsOwnedKey:EncryptionOptions' :: Bool
 </span><a href="Network.AWS.MQ.Types.EncryptionOptions.html#%24sel%3AuseAwsOwnedKey%3AEncryptionOptions%27"><span class="hs-identifier hs-var">useAwsOwnedKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679222808"><span class="hs-identifier hs-var">pUseAwsOwnedKey_</span></a></span><span>
+</span><a href="#local-6989586621679222962"><span class="hs-identifier hs-var">pUseAwsOwnedKey_</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The customer master key (CMK) to use for the AWS Key Management Service</span><span>
@@ -139,16 +139,16 @@ forall a. Maybe a
 -&gt; Lens
      EncryptionOptions EncryptionOptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions%27"><span class="hs-identifier hs-type">EncryptionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222804"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions%27"><span class="hs-identifier hs-type">EncryptionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222958"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyId :: Maybe Text
 $sel:kmsKeyId:EncryptionOptions' :: EncryptionOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679222804"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222804"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222803"><span class="annot"><span class="annottext">s :: EncryptionOptions
-</span><a href="#local-6989586621679222803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions%27"><span class="hs-identifier hs-type">EncryptionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222802"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionOptions
-</span><a href="#local-6989586621679222803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:EncryptionOptions' :: Maybe Text
+</span><a href="#local-6989586621679222958"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222958"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222957"><span class="annot"><span class="annottext">s :: EncryptionOptions
+</span><a href="#local-6989586621679222957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions%27"><span class="hs-identifier hs-type">EncryptionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222956"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionOptions
+</span><a href="#local-6989586621679222957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:EncryptionOptions' :: Maybe Text
 </span><a href="Network.AWS.MQ.Types.EncryptionOptions.html#%24sel%3AkmsKeyId%3AEncryptionOptions%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions"><span class="hs-identifier hs-type">EncryptionOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions"><span class="hs-identifier hs-type">EncryptionOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | Enables the use of an AWS owned CMK using AWS Key Management Service</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- (KMS). Set to true by default, if no value is provided, for example, for</span><span>
@@ -159,19 +159,19 @@ $sel:kmsKeyId:EncryptionOptions' :: EncryptionOptions -&gt; Maybe Text
 -&gt; (EncryptionOptions -&gt; Bool -&gt; EncryptionOptions)
 -&gt; Lens EncryptionOptions EncryptionOptions Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions%27"><span class="hs-identifier hs-type">EncryptionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222800"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions%27"><span class="hs-identifier hs-type">EncryptionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222954"><span class="annot"><span class="annottext">Bool
 useAwsOwnedKey :: Bool
 $sel:useAwsOwnedKey:EncryptionOptions' :: EncryptionOptions -&gt; Bool
-</span><a href="#local-6989586621679222800"><span class="hs-identifier hs-var hs-var">useAwsOwnedKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679222800"><span class="hs-identifier hs-var">useAwsOwnedKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222799"><span class="annot"><span class="annottext">s :: EncryptionOptions
-</span><a href="#local-6989586621679222799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions%27"><span class="hs-identifier hs-type">EncryptionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222798"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679222798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionOptions
-</span><a href="#local-6989586621679222799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useAwsOwnedKey:EncryptionOptions' :: Bool
+</span><a href="#local-6989586621679222954"><span class="hs-identifier hs-var hs-var">useAwsOwnedKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679222954"><span class="hs-identifier hs-var">useAwsOwnedKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222953"><span class="annot"><span class="annottext">s :: EncryptionOptions
+</span><a href="#local-6989586621679222953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions%27"><span class="hs-identifier hs-type">EncryptionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222952"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679222952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionOptions
+</span><a href="#local-6989586621679222953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useAwsOwnedKey:EncryptionOptions' :: Bool
 </span><a href="Network.AWS.MQ.Types.EncryptionOptions.html#%24sel%3AuseAwsOwnedKey%3AEncryptionOptions%27"><span class="hs-identifier hs-var">useAwsOwnedKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679222798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions"><span class="hs-identifier hs-type">EncryptionOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions"><span class="hs-identifier hs-type">EncryptionOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222795"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions"><span class="hs-identifier hs-type">EncryptionOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679222793"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EncryptionOptions
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222949"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions"><span class="hs-identifier hs-type">EncryptionOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679222947"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EncryptionOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EncryptionOptions)
@@ -181,15 +181,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EncryptionOptions&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222790"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222790"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222944"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222944"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool -&gt; EncryptionOptions
 </span><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions%27"><span class="hs-identifier hs-var">EncryptionOptions'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Bool -&gt; EncryptionOptions)
 -&gt; Parser (Maybe Text) -&gt; Parser (Bool -&gt; EncryptionOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -197,25 +197,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Bool -&gt; Parser EncryptionOptions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+</span><a href="#local-6989586621679222944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;useAwsOwnedKey&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222783"><span id="local-6989586621679222785"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions"><span class="hs-identifier hs-type">EncryptionOptions</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222937"><span id="local-6989586621679222939"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions"><span class="hs-identifier hs-type">EncryptionOptions</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222780"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions"><span class="hs-identifier hs-type">EncryptionOptions</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222934"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions"><span class="hs-identifier hs-type">EncryptionOptions</span></a></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222772"><span id="local-6989586621679222774"><span id="local-6989586621679222776"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions"><span class="hs-identifier hs-type">EncryptionOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679222770"><span class="annot"><span class="annottext">toJSON :: EncryptionOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions%27"><span class="hs-identifier hs-type">EncryptionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222767"><span id="local-6989586621679222768"><span class="annot"><span class="annottext">Bool
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222926"><span id="local-6989586621679222928"><span id="local-6989586621679222930"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions"><span class="hs-identifier hs-type">EncryptionOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679222924"><span class="annot"><span class="annottext">toJSON :: EncryptionOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EncryptionOptions.html#EncryptionOptions%27"><span class="hs-identifier hs-type">EncryptionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222921"><span id="local-6989586621679222922"><span class="annot"><span class="annottext">Bool
 Maybe Text
 useAwsOwnedKey :: Bool
 kmsKeyId :: Maybe Text
 $sel:useAwsOwnedKey:EncryptionOptions' :: EncryptionOptions -&gt; Bool
 $sel:kmsKeyId:EncryptionOptions' :: EncryptionOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679222767"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679222921"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -227,7 +227,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222768"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222922"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -235,7 +235,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;useAwsOwnedKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679222767"><span class="hs-identifier hs-var">useAwsOwnedKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222921"><span class="hs-identifier hs-var">useAwsOwnedKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span></pre></body></html>

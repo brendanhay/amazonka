@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.html"><span class="hs-identifier">Network.AWS.WAFRegional.Types</span></a></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newListRegexPatternSets' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679315569"><span id="local-6989586621679315570"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRegexPatternSets"><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets"><span class="hs-identifier hs-var">ListRegexPatternSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRegexPatternSets%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets%27"><span class="hs-identifier hs-var">ListRegexPatternSets'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679315836"><span id="local-6989586621679315837"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRegexPatternSets"><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets"><span class="hs-identifier hs-var">ListRegexPatternSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRegexPatternSets%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets%27"><span class="hs-identifier hs-var">ListRegexPatternSets'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you specify a value for @Limit@ and you have more @RegexPatternSet@</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- objects than the value of @Limit@, AWS WAF returns a @NextMarker@ value</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- in the response that allows you to list another group of</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3Alimit%3AListRegexPatternSets%27"><span class="annot"><span class="annottext">ListRegexPatternSets -&gt; Maybe Natural
 </span><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#%24sel%3Alimit%3AListRegexPatternSets%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315562"><span id="local-6989586621679315564"><span class="annot"><span class="annottext">ListRegexPatternSets -&gt; ListRegexPatternSets -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315829"><span id="local-6989586621679315831"><span class="annot"><span class="annottext">ListRegexPatternSets -&gt; ListRegexPatternSets -&gt; Bool
 (ListRegexPatternSets -&gt; ListRegexPatternSets -&gt; Bool)
 -&gt; (ListRegexPatternSets -&gt; ListRegexPatternSets -&gt; Bool)
 -&gt; Eq ListRegexPatternSets
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListRegexPatternSets -&gt; ListRegexPatternSets -&gt; Bool
 == :: ListRegexPatternSets -&gt; ListRegexPatternSets -&gt; Bool
 $c== :: ListRegexPatternSets -&gt; ListRegexPatternSets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315553"><span id="local-6989586621679315555"><span id="local-6989586621679315557"><span id="local-6989586621679315559"><span class="annot"><span class="annottext">ReadPrec [ListRegexPatternSets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315820"><span id="local-6989586621679315822"><span id="local-6989586621679315824"><span id="local-6989586621679315826"><span class="annot"><span class="annottext">ReadPrec [ListRegexPatternSets]
 ReadPrec ListRegexPatternSets
 Int -&gt; ReadS ListRegexPatternSets
 ReadS [ListRegexPatternSets]
@@ -105,7 +105,7 @@ readList :: ReadS [ListRegexPatternSets]
 $creadList :: ReadS [ListRegexPatternSets]
 readsPrec :: Int -&gt; ReadS ListRegexPatternSets
 $creadsPrec :: Int -&gt; ReadS ListRegexPatternSets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315546"><span id="local-6989586621679315548"><span id="local-6989586621679315550"><span class="annot"><span class="annottext">Int -&gt; ListRegexPatternSets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315813"><span id="local-6989586621679315815"><span id="local-6989586621679315817"><span class="annot"><span class="annottext">Int -&gt; ListRegexPatternSets -&gt; ShowS
 [ListRegexPatternSets] -&gt; ShowS
 ListRegexPatternSets -&gt; String
 (Int -&gt; ListRegexPatternSets -&gt; ShowS)
@@ -183,16 +183,16 @@ forall a. Maybe a
 -&gt; Lens
      ListRegexPatternSets ListRegexPatternSets (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets%27"><span class="hs-identifier hs-type">ListRegexPatternSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315539"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets%27"><span class="hs-identifier hs-type">ListRegexPatternSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315806"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListRegexPatternSets' :: ListRegexPatternSets -&gt; Maybe Text
-</span><a href="#local-6989586621679315539"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315539"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315538"><span class="annot"><span class="annottext">s :: ListRegexPatternSets
-</span><a href="#local-6989586621679315538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets%27"><span class="hs-identifier hs-type">ListRegexPatternSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315537"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRegexPatternSets
-</span><a href="#local-6989586621679315538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListRegexPatternSets' :: Maybe Text
+</span><a href="#local-6989586621679315806"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315806"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315805"><span class="annot"><span class="annottext">s :: ListRegexPatternSets
+</span><a href="#local-6989586621679315805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets%27"><span class="hs-identifier hs-type">ListRegexPatternSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315804"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRegexPatternSets
+</span><a href="#local-6989586621679315805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListRegexPatternSets' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#%24sel%3AnextMarker%3AListRegexPatternSets%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets"><span class="hs-identifier hs-type">ListRegexPatternSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets"><span class="hs-identifier hs-type">ListRegexPatternSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | Specifies the number of @RegexPatternSet@ objects that you want AWS WAF</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- to return for this request. If you have more @RegexPatternSet@ objects</span><span>
@@ -210,27 +210,27 @@ $sel:nextMarker:ListRegexPatternSets' :: ListRegexPatternSets -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets%27"><span class="hs-identifier hs-type">ListRegexPatternSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315536"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets%27"><span class="hs-identifier hs-type">ListRegexPatternSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315803"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListRegexPatternSets' :: ListRegexPatternSets -&gt; Maybe Natural
-</span><a href="#local-6989586621679315536"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679315536"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315535"><span class="annot"><span class="annottext">s :: ListRegexPatternSets
-</span><a href="#local-6989586621679315535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets%27"><span class="hs-identifier hs-type">ListRegexPatternSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315534"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679315534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRegexPatternSets
-</span><a href="#local-6989586621679315535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListRegexPatternSets' :: Maybe Natural
+</span><a href="#local-6989586621679315803"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679315803"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315802"><span class="annot"><span class="annottext">s :: ListRegexPatternSets
+</span><a href="#local-6989586621679315802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets%27"><span class="hs-identifier hs-type">ListRegexPatternSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315801"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679315801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRegexPatternSets
+</span><a href="#local-6989586621679315802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListRegexPatternSets' :: Maybe Natural
 </span><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#%24sel%3Alimit%3AListRegexPatternSets%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679315534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets"><span class="hs-identifier hs-type">ListRegexPatternSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets"><span class="hs-identifier hs-type">ListRegexPatternSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets"><span class="hs-identifier hs-type">ListRegexPatternSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets"><span class="hs-identifier hs-type">ListRegexPatternSets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679315530"><span class="annot"><span class="annottext">request :: ListRegexPatternSets -&gt; Request ListRegexPatternSets
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679315797"><span class="annot"><span class="annottext">request :: ListRegexPatternSets -&gt; Request ListRegexPatternSets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListRegexPatternSets -&gt; Request ListRegexPatternSets
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WAFRegional.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679315526"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679315793"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListRegexPatternSets
 -&gt; ClientResponse ClientBody
@@ -256,10 +256,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315523"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315523"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679315522"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679315522"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679315521"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315521"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315790"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315790"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679315789"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679315789"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679315788"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679315788"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RegexPatternSetSummary]
 -&gt; Maybe Text -&gt; Int -&gt; ListRegexPatternSetsResponse
 </span><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse%27"><span class="hs-identifier hs-var">ListRegexPatternSetsResponse'</span></a></span><span>
@@ -270,7 +270,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; ListRegexPatternSetsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679315788"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [RegexPatternSetSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -288,7 +288,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListRegexPatternSetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679315788"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -300,15 +300,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315523"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315790"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315512"><span id="local-6989586621679315514"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets"><span class="hs-identifier hs-type">ListRegexPatternSets</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315779"><span id="local-6989586621679315781"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets"><span class="hs-identifier hs-type">ListRegexPatternSets</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets"><span class="hs-identifier hs-type">ListRegexPatternSets</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315776"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets"><span class="hs-identifier hs-type">ListRegexPatternSets</span></a></span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets"><span class="hs-identifier hs-type">ListRegexPatternSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679315505"><span class="annot"><span class="annottext">toHeaders :: ListRegexPatternSets -&gt; ResponseHeaders
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679315772"><span class="annot"><span class="annottext">toHeaders :: ListRegexPatternSets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListRegexPatternSets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -335,15 +335,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315495"><span id="local-6989586621679315497"><span id="local-6989586621679315499"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets"><span class="hs-identifier hs-type">ListRegexPatternSets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679315493"><span class="annot"><span class="annottext">toJSON :: ListRegexPatternSets -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets%27"><span class="hs-identifier hs-type">ListRegexPatternSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315490"><span id="local-6989586621679315491"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315762"><span id="local-6989586621679315764"><span id="local-6989586621679315766"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets"><span class="hs-identifier hs-type">ListRegexPatternSets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679315760"><span class="annot"><span class="annottext">toJSON :: ListRegexPatternSets -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets%27"><span class="hs-identifier hs-type">ListRegexPatternSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315757"><span id="local-6989586621679315758"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 limit :: Maybe Natural
 nextMarker :: Maybe Text
 $sel:limit:ListRegexPatternSets' :: ListRegexPatternSets -&gt; Maybe Natural
 $sel:nextMarker:ListRegexPatternSets' :: ListRegexPatternSets -&gt; Maybe Text
-</span><a href="#local-6989586621679315490"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679315757"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -355,26 +355,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315491"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315758"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679315490"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679315757"><span class="hs-identifier hs-var">limit</span></a></span><span>
 </span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets"><span class="hs-identifier hs-type">ListRegexPatternSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679315484"><span class="annot"><span class="annottext">toPath :: ListRegexPatternSets -&gt; ByteString
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679315751"><span class="annot"><span class="annottext">toPath :: ListRegexPatternSets -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListRegexPatternSets -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSets"><span class="hs-identifier hs-type">ListRegexPatternSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679315480"><span class="annot"><span class="annottext">toQuery :: ListRegexPatternSets -&gt; QueryString
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679315747"><span class="annot"><span class="annottext">toQuery :: ListRegexPatternSets -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListRegexPatternSets -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -382,7 +382,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | /See:/ 'newListRegexPatternSetsResponse' smart constructor.</span><span>
-</span><span id="line-177"></span><span id="local-6989586621679315477"><span id="local-6989586621679315478"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRegexPatternSetsResponse"><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse"><span class="hs-identifier hs-var">ListRegexPatternSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRegexPatternSetsResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse%27"><span class="hs-identifier hs-var">ListRegexPatternSetsResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span id="local-6989586621679315744"><span id="local-6989586621679315745"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRegexPatternSetsResponse"><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse"><span class="hs-identifier hs-var">ListRegexPatternSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRegexPatternSetsResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse%27"><span class="hs-identifier hs-var">ListRegexPatternSetsResponse'</span></a></span></span><span>
 </span><span id="line-178"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of RegexPatternSetSummary objects.</span><span>
 </span><span id="line-179"></span><span>    </span><span id="%24sel%3AregexPatternSets%3AListRegexPatternSetsResponse%27"><span class="annot"><span class="annottext">ListRegexPatternSetsResponse -&gt; Maybe [RegexPatternSetSummary]
 </span><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#%24sel%3AregexPatternSets%3AListRegexPatternSetsResponse%27"><span class="hs-identifier hs-var hs-var">regexPatternSets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RegexPatternSetSummary.html#RegexPatternSetSummary"><span class="hs-identifier hs-type">RegexPatternSetSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -397,7 +397,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-187"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListRegexPatternSetsResponse%27"><span class="annot"><span class="annottext">ListRegexPatternSetsResponse -&gt; Int
 </span><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#%24sel%3AhttpStatus%3AListRegexPatternSetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315470"><span id="local-6989586621679315472"><span class="annot"><span class="annottext">ListRegexPatternSetsResponse
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315737"><span id="local-6989586621679315739"><span class="annot"><span class="annottext">ListRegexPatternSetsResponse
 -&gt; ListRegexPatternSetsResponse -&gt; Bool
 (ListRegexPatternSetsResponse
  -&gt; ListRegexPatternSetsResponse -&gt; Bool)
@@ -413,7 +413,7 @@ $c/= :: ListRegexPatternSetsResponse
 -&gt; ListRegexPatternSetsResponse -&gt; Bool
 $c== :: ListRegexPatternSetsResponse
 -&gt; ListRegexPatternSetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315462"><span id="local-6989586621679315464"><span id="local-6989586621679315466"><span id="local-6989586621679315468"><span class="annot"><span class="annottext">ReadPrec [ListRegexPatternSetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315729"><span id="local-6989586621679315731"><span id="local-6989586621679315733"><span id="local-6989586621679315735"><span class="annot"><span class="annottext">ReadPrec [ListRegexPatternSetsResponse]
 ReadPrec ListRegexPatternSetsResponse
 Int -&gt; ReadS ListRegexPatternSetsResponse
 ReadS [ListRegexPatternSetsResponse]
@@ -433,7 +433,7 @@ readList :: ReadS [ListRegexPatternSetsResponse]
 $creadList :: ReadS [ListRegexPatternSetsResponse]
 readsPrec :: Int -&gt; ReadS ListRegexPatternSetsResponse
 $creadsPrec :: Int -&gt; ReadS ListRegexPatternSetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315456"><span id="local-6989586621679315458"><span id="local-6989586621679315460"><span class="annot"><span class="annottext">Int -&gt; ListRegexPatternSetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315723"><span id="local-6989586621679315725"><span id="local-6989586621679315727"><span class="annot"><span class="annottext">Int -&gt; ListRegexPatternSetsResponse -&gt; ShowS
 [ListRegexPatternSetsResponse] -&gt; ShowS
 ListRegexPatternSetsResponse -&gt; String
 (Int -&gt; ListRegexPatternSetsResponse -&gt; ShowS)
@@ -487,8 +487,8 @@ ListRegexPatternSetsResponse -&gt; Rep ListRegexPatternSetsResponse x
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse</span></a></span><span>
 </span><span id="line-212"></span><span id="newListRegexPatternSetsResponse"><span class="annot"><span class="annottext">newListRegexPatternSetsResponse :: Int -&gt; ListRegexPatternSetsResponse
-</span><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#newListRegexPatternSetsResponse"><span class="hs-identifier hs-var hs-var">newListRegexPatternSetsResponse</span></a></span></span><span> </span><span id="local-6989586621679315453"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315453"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#newListRegexPatternSetsResponse"><span class="hs-identifier hs-var hs-var">newListRegexPatternSetsResponse</span></a></span></span><span> </span><span id="local-6989586621679315720"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315720"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><span class="annottext">ListRegexPatternSetsResponse' :: Maybe [RegexPatternSetSummary]
 -&gt; Maybe Text -&gt; Int -&gt; ListRegexPatternSetsResponse
 </span><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse%27"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse'</span></a></span><span>
@@ -503,7 +503,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListRegexPatternSetsResponse' :: Int
 </span><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#%24sel%3AhttpStatus%3AListRegexPatternSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315453"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679315720"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | An array of RegexPatternSetSummary objects.</span><span>
@@ -520,16 +520,16 @@ forall a. Maybe a
      (Maybe [RegexPatternSetSummary])
      (Maybe [RegexPatternSetSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse%27"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315452"><span class="annot"><span class="annottext">Maybe [RegexPatternSetSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse%27"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315719"><span class="annot"><span class="annottext">Maybe [RegexPatternSetSummary]
 regexPatternSets :: Maybe [RegexPatternSetSummary]
 $sel:regexPatternSets:ListRegexPatternSetsResponse' :: ListRegexPatternSetsResponse -&gt; Maybe [RegexPatternSetSummary]
-</span><a href="#local-6989586621679315452"><span class="hs-identifier hs-var hs-var">regexPatternSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RegexPatternSetSummary]
-</span><a href="#local-6989586621679315452"><span class="hs-identifier hs-var">regexPatternSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315451"><span class="annot"><span class="annottext">s :: ListRegexPatternSetsResponse
-</span><a href="#local-6989586621679315451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse%27"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315450"><span class="annot"><span class="annottext">Maybe [RegexPatternSetSummary]
-</span><a href="#local-6989586621679315450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRegexPatternSetsResponse
-</span><a href="#local-6989586621679315451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regexPatternSets:ListRegexPatternSetsResponse' :: Maybe [RegexPatternSetSummary]
+</span><a href="#local-6989586621679315719"><span class="hs-identifier hs-var hs-var">regexPatternSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RegexPatternSetSummary]
+</span><a href="#local-6989586621679315719"><span class="hs-identifier hs-var">regexPatternSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315718"><span class="annot"><span class="annottext">s :: ListRegexPatternSetsResponse
+</span><a href="#local-6989586621679315718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse%27"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315717"><span class="annot"><span class="annottext">Maybe [RegexPatternSetSummary]
+</span><a href="#local-6989586621679315717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRegexPatternSetsResponse
+</span><a href="#local-6989586621679315718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regexPatternSets:ListRegexPatternSetsResponse' :: Maybe [RegexPatternSetSummary]
 </span><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#%24sel%3AregexPatternSets%3AListRegexPatternSetsResponse%27"><span class="hs-identifier hs-var">regexPatternSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RegexPatternSetSummary]
-</span><a href="#local-6989586621679315450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RegexPatternSetSummary]
+</span><a href="#local-6989586621679315717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RegexPatternSetSummary]
   -&gt; f (Maybe [RegexPatternSetSummary]))
  -&gt; ListRegexPatternSetsResponse -&gt; f ListRegexPatternSetsResponse)
 -&gt; ((Maybe [RegexPatternSetSummary]
@@ -559,8 +559,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [RegexPatternSetSummary]
   [RegexPatternSetSummary]
   [RegexPatternSetSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | If you have more @RegexPatternSet@ objects than the number that you</span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- specified for @Limit@ in the request, the response includes a</span><span>
@@ -579,16 +579,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse%27"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315446"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse%27"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315713"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListRegexPatternSetsResponse' :: ListRegexPatternSetsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679315446"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315446"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315445"><span class="annot"><span class="annottext">s :: ListRegexPatternSetsResponse
-</span><a href="#local-6989586621679315445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse%27"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315444"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRegexPatternSetsResponse
-</span><a href="#local-6989586621679315445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListRegexPatternSetsResponse' :: Maybe Text
+</span><a href="#local-6989586621679315713"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315713"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315712"><span class="annot"><span class="annottext">s :: ListRegexPatternSetsResponse
+</span><a href="#local-6989586621679315712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse%27"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315711"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRegexPatternSetsResponse
+</span><a href="#local-6989586621679315712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListRegexPatternSetsResponse' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#%24sel%3AnextMarker%3AListRegexPatternSetsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-233"></span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#listRegexPatternSetsResponse_httpStatus"><span class="hs-identifier hs-type">listRegexPatternSetsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -600,16 +600,16 @@ $sel:nextMarker:ListRegexPatternSetsResponse' :: ListRegexPatternSetsResponse -&
 -&gt; Lens
      ListRegexPatternSetsResponse ListRegexPatternSetsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse%27"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315443"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse%27"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315710"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListRegexPatternSetsResponse' :: ListRegexPatternSetsResponse -&gt; Int
-</span><a href="#local-6989586621679315443"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315443"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315442"><span class="annot"><span class="annottext">s :: ListRegexPatternSetsResponse
-</span><a href="#local-6989586621679315442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse%27"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315441"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRegexPatternSetsResponse
-</span><a href="#local-6989586621679315442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRegexPatternSetsResponse' :: Int
+</span><a href="#local-6989586621679315710"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315710"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315709"><span class="annot"><span class="annottext">s :: ListRegexPatternSetsResponse
+</span><a href="#local-6989586621679315709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse%27"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315708"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRegexPatternSetsResponse
+</span><a href="#local-6989586621679315709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRegexPatternSetsResponse' :: Int
 </span><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#%24sel%3AhttpStatus%3AListRegexPatternSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315439"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse</span></a></span></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315706"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRegexPatternSets.html#ListRegexPatternSetsResponse"><span class="hs-identifier hs-type">ListRegexPatternSetsResponse</span></a></span></span><span>
 </span><span id="line-237"></span></pre></body></html>

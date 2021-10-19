@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679245065"><span id="local-6989586621679245066"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectorStatus"><span class="annot"><a href="Network.AWS.SMS.Types.ConnectorStatus.html#ConnectorStatus"><span class="hs-identifier hs-var">ConnectorStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectorStatus%27"><span class="annot"><a href="Network.AWS.SMS.Types.ConnectorStatus.html#ConnectorStatus%27"><span class="hs-identifier hs-var">ConnectorStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679245194"><span id="local-6989586621679245195"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectorStatus"><span class="annot"><a href="Network.AWS.SMS.Types.ConnectorStatus.html#ConnectorStatus"><span class="hs-identifier hs-var">ConnectorStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectorStatus%27"><span class="annot"><a href="Network.AWS.SMS.Types.ConnectorStatus.html#ConnectorStatus%27"><span class="hs-identifier hs-var">ConnectorStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConnectorStatus"><span class="annot"><span class="annottext">ConnectorStatus -&gt; Text
 </span><a href="Network.AWS.SMS.Types.ConnectorStatus.html#fromConnectorStatus"><span class="hs-identifier hs-var hs-var">fromConnectorStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245057"><span id="local-6989586621679245059"><span id="local-6989586621679245061"><span class="annot"><span class="annottext">Int -&gt; ConnectorStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245186"><span id="local-6989586621679245188"><span id="local-6989586621679245190"><span class="annot"><span class="annottext">Int -&gt; ConnectorStatus -&gt; ShowS
 [ConnectorStatus] -&gt; ShowS
 ConnectorStatus -&gt; String
 (Int -&gt; ConnectorStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ConnectorStatus -&gt; String
 showsPrec :: Int -&gt; ConnectorStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConnectorStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679245048"><span id="local-6989586621679245050"><span id="local-6989586621679245052"><span id="local-6989586621679245054"><span class="annot"><span class="annottext">ReadPrec [ConnectorStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679245177"><span id="local-6989586621679245179"><span id="local-6989586621679245181"><span id="local-6989586621679245183"><span class="annot"><span class="annottext">ReadPrec [ConnectorStatus]
 ReadPrec ConnectorStatus
 Int -&gt; ReadS ConnectorStatus
 ReadS [ConnectorStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ConnectorStatus]
 readsPrec :: Int -&gt; ReadS ConnectorStatus
 $creadsPrec :: Int -&gt; ReadS ConnectorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679245043"><span id="local-6989586621679245045"><span class="annot"><span class="annottext">ConnectorStatus -&gt; ConnectorStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679245172"><span id="local-6989586621679245174"><span class="annot"><span class="annottext">ConnectorStatus -&gt; ConnectorStatus -&gt; Bool
 (ConnectorStatus -&gt; ConnectorStatus -&gt; Bool)
 -&gt; (ConnectorStatus -&gt; ConnectorStatus -&gt; Bool)
 -&gt; Eq ConnectorStatus
@@ -82,7 +82,7 @@ $c/= :: ConnectorStatus -&gt; ConnectorStatus -&gt; Bool
 == :: ConnectorStatus -&gt; ConnectorStatus -&gt; Bool
 $c== :: ConnectorStatus -&gt; ConnectorStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679245027"><span id="local-6989586621679245029"><span id="local-6989586621679245031"><span id="local-6989586621679245033"><span id="local-6989586621679245035"><span id="local-6989586621679245037"><span id="local-6989586621679245039"><span class="annot"><span class="annottext">Eq ConnectorStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679245156"><span id="local-6989586621679245158"><span id="local-6989586621679245160"><span id="local-6989586621679245162"><span id="local-6989586621679245164"><span id="local-6989586621679245166"><span id="local-6989586621679245168"><span class="annot"><span class="annottext">Eq ConnectorStatus
 Eq ConnectorStatus
 -&gt; (ConnectorStatus -&gt; ConnectorStatus -&gt; Ordering)
 -&gt; (ConnectorStatus -&gt; ConnectorStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ConnectorStatus -&gt; Rep ConnectorStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245019"><span id="local-6989586621679245021"><span class="annot"><span class="annottext">Int -&gt; ConnectorStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245148"><span id="local-6989586621679245150"><span class="annot"><span class="annottext">Int -&gt; ConnectorStatus -&gt; Int
 ConnectorStatus -&gt; Int
 (Int -&gt; ConnectorStatus -&gt; Int)
 -&gt; (ConnectorStatus -&gt; Int) -&gt; Hashable ConnectorStatus
@@ -143,50 +143,50 @@ $chash :: ConnectorStatus -&gt; Int
 hashWithSalt :: Int -&gt; ConnectorStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ConnectorStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679245016"><span class="annot"><span class="annottext">ConnectorStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679245145"><span class="annot"><span class="annottext">ConnectorStatus -&gt; ()
 (ConnectorStatus -&gt; ()) -&gt; NFData ConnectorStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConnectorStatus -&gt; ()
 $crnf :: ConnectorStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679245013"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectorStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679245142"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectorStatus
 (Text -&gt; Either String ConnectorStatus) -&gt; FromText ConnectorStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConnectorStatus
 $cfromText :: Text -&gt; Either String ConnectorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679245010"><span class="annot"><span class="annottext">ConnectorStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679245139"><span class="annot"><span class="annottext">ConnectorStatus -&gt; Text
 (ConnectorStatus -&gt; Text) -&gt; ToText ConnectorStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConnectorStatus -&gt; Text
 $ctoText :: ConnectorStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679245007"><span class="annot"><span class="annottext">ConnectorStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679245136"><span class="annot"><span class="annottext">ConnectorStatus -&gt; ByteString
 (ConnectorStatus -&gt; ByteString) -&gt; ToByteString ConnectorStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConnectorStatus -&gt; ByteString
 $ctoBS :: ConnectorStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679245004"><span class="annot"><span class="annottext">ConnectorStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679245133"><span class="annot"><span class="annottext">ConnectorStatus -&gt; ByteStringBuilder
 (ConnectorStatus -&gt; ByteStringBuilder) -&gt; ToLog ConnectorStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConnectorStatus -&gt; ByteStringBuilder
 $cbuild :: ConnectorStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679245001"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectorStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679245130"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectorStatus -&gt; [Header]
 (HeaderName -&gt; ConnectorStatus -&gt; [Header])
 -&gt; ToHeader ConnectorStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConnectorStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConnectorStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244998"><span class="annot"><span class="annottext">ConnectorStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679245127"><span class="annot"><span class="annottext">ConnectorStatus -&gt; QueryString
 (ConnectorStatus -&gt; QueryString) -&gt; ToQuery ConnectorStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConnectorStatus -&gt; QueryString
 $ctoQuery :: ConnectorStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679244993"><span id="local-6989586621679244995"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectorStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679245122"><span id="local-6989586621679245124"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectorStatus]
 Value -&gt; Parser ConnectorStatus
 (Value -&gt; Parser ConnectorStatus)
 -&gt; (Value -&gt; Parser [ConnectorStatus]) -&gt; FromJSON ConnectorStatus
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [ConnectorStatus]
 parseJSON :: Value -&gt; Parser ConnectorStatus
 $cparseJSON :: Value -&gt; Parser ConnectorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679244988"><span id="local-6989586621679244990"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectorStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679245117"><span id="local-6989586621679245119"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectorStatus]
 FromJSONKeyFunction ConnectorStatus
 FromJSONKeyFunction ConnectorStatus
 -&gt; FromJSONKeyFunction [ConnectorStatus]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConnectorStatus]
 fromJSONKey :: FromJSONKeyFunction ConnectorStatus
 $cfromJSONKey :: FromJSONKeyFunction ConnectorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679244979"><span id="local-6989586621679244981"><span id="local-6989586621679244983"><span id="local-6989586621679244985"><span class="annot"><span class="annottext">[ConnectorStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679245108"><span id="local-6989586621679245110"><span id="local-6989586621679245112"><span id="local-6989586621679245114"><span class="annot"><span class="annottext">[ConnectorStatus] -&gt; Encoding
 [ConnectorStatus] -&gt; Value
 ConnectorStatus -&gt; Encoding
 ConnectorStatus -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: ConnectorStatus -&gt; Encoding
 toJSON :: ConnectorStatus -&gt; Value
 $ctoJSON :: ConnectorStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679244974"><span id="local-6989586621679244976"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectorStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679245103"><span id="local-6989586621679245105"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectorStatus]
 ToJSONKeyFunction ConnectorStatus
 ToJSONKeyFunction ConnectorStatus
 -&gt; ToJSONKeyFunction [ConnectorStatus] -&gt; ToJSONKey ConnectorStatus
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConnectorStatus]
 toJSONKey :: ToJSONKeyFunction ConnectorStatus
 $ctoJSONKey :: ToJSONKeyFunction ConnectorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244971"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectorStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679245100"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectorStatus
 ([Node] -&gt; Either String ConnectorStatus)
 -&gt; FromXML ConnectorStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConnectorStatus
 $cparseXML :: [Node] -&gt; Either String ConnectorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244968"><span class="annot"><span class="annottext">ConnectorStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679245097"><span class="annot"><span class="annottext">ConnectorStatus -&gt; XML
 (ConnectorStatus -&gt; XML) -&gt; ToXML ConnectorStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ConnectorStatus -&gt; XML

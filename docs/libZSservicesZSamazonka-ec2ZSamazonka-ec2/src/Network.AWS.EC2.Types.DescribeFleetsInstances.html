@@ -31,28 +31,28 @@
 </span><span id="line-31"></span><span class="hs-comment">-- | Describes the instances that were launched by the fleet.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newDescribeFleetsInstances' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621681101905"><span id="local-6989586621681101906"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFleetsInstances"><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-var">DescribeFleetsInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFleetsInstances%27"><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-var">DescribeFleetsInstances'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the instances.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AinstanceIds%3ADescribeFleetsInstances%27"><span class="annot"><span class="annottext">DescribeFleetsInstances -&gt; Maybe [Text]
-</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3AinstanceIds%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The value is @Windows@ for Windows instances. Otherwise, the value is</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- blank.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aplatform%3ADescribeFleetsInstances%27"><span class="annot"><span class="annottext">DescribeFleetsInstances -&gt; Maybe PlatformValues
+</span><span id="line-34"></span><span id="local-6989586621681136608"><span id="local-6989586621681136609"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFleetsInstances"><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-var">DescribeFleetsInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFleetsInstances%27"><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-var">DescribeFleetsInstances'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value is @Windows@ for Windows instances. Otherwise, the value is</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- blank.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aplatform%3ADescribeFleetsInstances%27"><span class="annot"><span class="annottext">DescribeFleetsInstances -&gt; Maybe PlatformValues
 </span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3Aplatform%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlatformValues.html#PlatformValues"><span class="hs-identifier hs-type">PlatformValues</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The launch templates and overrides that were used for launching the</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- instances. The values that you specify in the Overrides replace the</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- values in the launch template.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlaunchTemplateAndOverrides%3ADescribeFleetsInstances%27"><span class="annot"><span class="annottext">DescribeFleetsInstances -&gt; Maybe LaunchTemplateAndOverridesResponse
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Indicates if the instance that was launched is a Spot Instance or</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- On-Demand Instance.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Alifecycle%3ADescribeFleetsInstances%27"><span class="annot"><span class="annottext">DescribeFleetsInstances -&gt; Maybe InstanceLifecycle
+</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3Alifecycle%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var hs-var">lifecycle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceLifecycle.html#InstanceLifecycle"><span class="hs-identifier hs-type">InstanceLifecycle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The launch templates and overrides that were used for launching the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- instances. The values that you specify in the Overrides replace the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- values in the launch template.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AlaunchTemplateAndOverrides%3ADescribeFleetsInstances%27"><span class="annot"><span class="annottext">DescribeFleetsInstances -&gt; Maybe LaunchTemplateAndOverridesResponse
 </span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3AlaunchTemplateAndOverrides%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var hs-var">launchTemplateAndOverrides</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateAndOverridesResponse.html#LaunchTemplateAndOverridesResponse"><span class="hs-identifier hs-type">LaunchTemplateAndOverridesResponse</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The instance type.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AinstanceType%3ADescribeFleetsInstances%27"><span class="annot"><span class="annottext">DescribeFleetsInstances -&gt; Maybe InstanceType
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The instance type.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AinstanceType%3ADescribeFleetsInstances%27"><span class="annot"><span class="annottext">DescribeFleetsInstances -&gt; Maybe InstanceType
 </span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3AinstanceType%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceType.html#InstanceType"><span class="hs-identifier hs-type">InstanceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Indicates if the instance that was launched is a Spot Instance or</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- On-Demand Instance.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3Alifecycle%3ADescribeFleetsInstances%27"><span class="annot"><span class="annottext">DescribeFleetsInstances -&gt; Maybe InstanceLifecycle
-</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3Alifecycle%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var hs-var">lifecycle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceLifecycle.html#InstanceLifecycle"><span class="hs-identifier hs-type">InstanceLifecycle</span></a></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The IDs of the instances.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AinstanceIds%3ADescribeFleetsInstances%27"><span class="annot"><span class="annottext">DescribeFleetsInstances -&gt; Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3AinstanceIds%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681101895"><span id="local-6989586621681101897"><span class="annot"><span class="annottext">DescribeFleetsInstances -&gt; DescribeFleetsInstances -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681136598"><span id="local-6989586621681136600"><span class="annot"><span class="annottext">DescribeFleetsInstances -&gt; DescribeFleetsInstances -&gt; Bool
 (DescribeFleetsInstances -&gt; DescribeFleetsInstances -&gt; Bool)
 -&gt; (DescribeFleetsInstances -&gt; DescribeFleetsInstances -&gt; Bool)
 -&gt; Eq DescribeFleetsInstances
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeFleetsInstances -&gt; DescribeFleetsInstances -&gt; Bool
 == :: DescribeFleetsInstances -&gt; DescribeFleetsInstances -&gt; Bool
 $c== :: DescribeFleetsInstances -&gt; DescribeFleetsInstances -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681101886"><span id="local-6989586621681101888"><span id="local-6989586621681101890"><span id="local-6989586621681101892"><span class="annot"><span class="annottext">ReadPrec [DescribeFleetsInstances]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681136589"><span id="local-6989586621681136591"><span id="local-6989586621681136593"><span id="local-6989586621681136595"><span class="annot"><span class="annottext">ReadPrec [DescribeFleetsInstances]
 ReadPrec DescribeFleetsInstances
 Int -&gt; ReadS DescribeFleetsInstances
 ReadS [DescribeFleetsInstances]
@@ -81,7 +81,7 @@ readList :: ReadS [DescribeFleetsInstances]
 $creadList :: ReadS [DescribeFleetsInstances]
 readsPrec :: Int -&gt; ReadS DescribeFleetsInstances
 $creadsPrec :: Int -&gt; ReadS DescribeFleetsInstances
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681101879"><span id="local-6989586621681101881"><span id="local-6989586621681101883"><span class="annot"><span class="annottext">Int -&gt; DescribeFleetsInstances -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681136582"><span id="local-6989586621681136584"><span id="local-6989586621681136586"><span class="annot"><span class="annottext">Int -&gt; DescribeFleetsInstances -&gt; ShowS
 [DescribeFleetsInstances] -&gt; ShowS
 DescribeFleetsInstances -&gt; String
 (Int -&gt; DescribeFleetsInstances -&gt; ShowS)
@@ -117,37 +117,37 @@ $cfrom :: forall x. DescribeFleetsInstances -&gt; Rep DescribeFleetsInstances x
 </span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'instanceIds', 'describeFleetsInstances_instanceIds' - The IDs of the instances.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'platform', 'describeFleetsInstances_platform' - The value is @Windows@ for Windows instances. Otherwise, the value is</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- blank.</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'launchTemplateAndOverrides', 'describeFleetsInstances_launchTemplateAndOverrides' - The launch templates and overrides that were used for launching the</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- instances. The values that you specify in the Overrides replace the</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- values in the launch template.</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'instanceType', 'describeFleetsInstances_instanceType' - The instance type.</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'lifecycle', 'describeFleetsInstances_lifecycle' - Indicates if the instance that was launched is a Spot Instance or</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- On-Demand Instance.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'platform', 'describeFleetsInstances_platform' - The value is @Windows@ for Windows instances. Otherwise, the value is</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- blank.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'lifecycle', 'describeFleetsInstances_lifecycle' - Indicates if the instance that was launched is a Spot Instance or</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- On-Demand Instance.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'launchTemplateAndOverrides', 'describeFleetsInstances_launchTemplateAndOverrides' - The launch templates and overrides that were used for launching the</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- instances. The values that you specify in the Overrides replace the</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- values in the launch template.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'instanceType', 'describeFleetsInstances_instanceType' - The instance type.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'instanceIds', 'describeFleetsInstances_instanceIds' - The IDs of the instances.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#newDescribeFleetsInstances"><span class="hs-identifier hs-type">newDescribeFleetsInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span>
 </span><span id="line-75"></span><span id="newDescribeFleetsInstances"><span class="annot"><span class="annottext">newDescribeFleetsInstances :: DescribeFleetsInstances
 </span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#newDescribeFleetsInstances"><span class="hs-identifier hs-var hs-var">newDescribeFleetsInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DescribeFleetsInstances' :: Maybe [Text]
--&gt; Maybe PlatformValues
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DescribeFleetsInstances' :: Maybe PlatformValues
+-&gt; Maybe InstanceLifecycle
 -&gt; Maybe LaunchTemplateAndOverridesResponse
 -&gt; Maybe InstanceType
--&gt; Maybe InstanceLifecycle
+-&gt; Maybe [Text]
 -&gt; DescribeFleetsInstances
 </span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceIds:DescribeFleetsInstances' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3AinstanceIds%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:platform:DescribeFleetsInstances' :: Maybe PlatformValues
+</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3Aplatform%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Maybe PlatformValues
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:platform:DescribeFleetsInstances' :: Maybe PlatformValues
-</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3Aplatform%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlatformValues
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:lifecycle:DescribeFleetsInstances' :: Maybe InstanceLifecycle
+</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3Alifecycle%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var">lifecycle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceLifecycle
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchTemplateAndOverrides:DescribeFleetsInstances' :: Maybe LaunchTemplateAndOverridesResponse
@@ -158,55 +158,16 @@ forall a. Maybe a
 </span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3AinstanceType%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:lifecycle:DescribeFleetsInstances' :: Maybe InstanceLifecycle
-</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3Alifecycle%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var">lifecycle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceLifecycle
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceIds:DescribeFleetsInstances' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3AinstanceIds%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The IDs of the instances.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#describeFleetsInstances_instanceIds"><span class="hs-identifier hs-type">describeFleetsInstances_instanceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="describeFleetsInstances_instanceIds"><span class="annot"><span class="annottext">describeFleetsInstances_instanceIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; DescribeFleetsInstances -&gt; f DescribeFleetsInstances
-</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#describeFleetsInstances_instanceIds"><span class="hs-identifier hs-var hs-var">describeFleetsInstances_instanceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetsInstances -&gt; Maybe [Text])
--&gt; (DescribeFleetsInstances
-    -&gt; Maybe [Text] -&gt; DescribeFleetsInstances)
--&gt; Lens
-     DescribeFleetsInstances
-     DescribeFleetsInstances
-     (Maybe [Text])
-     (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681101870"><span class="annot"><span class="annottext">Maybe [Text]
-instanceIds :: Maybe [Text]
-$sel:instanceIds:DescribeFleetsInstances' :: DescribeFleetsInstances -&gt; Maybe [Text]
-</span><a href="#local-6989586621681101870"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681101870"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681101869"><span class="annot"><span class="annottext">s :: DescribeFleetsInstances
-</span><a href="#local-6989586621681101869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681101868"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681101868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetsInstances
-</span><a href="#local-6989586621681101869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIds:DescribeFleetsInstances' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3AinstanceIds%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681101868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; DescribeFleetsInstances -&gt; f DescribeFleetsInstances)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; DescribeFleetsInstances
--&gt; f DescribeFleetsInstances
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The value is @Windows@ for Windows instances. Otherwise, the value is</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- blank.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#describeFleetsInstances_platform"><span class="hs-identifier hs-type">describeFleetsInstances_platform</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlatformValues.html#PlatformValues"><span class="hs-identifier hs-type">PlatformValues</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="describeFleetsInstances_platform"><span class="annot"><span class="annottext">describeFleetsInstances_platform :: (Maybe PlatformValues -&gt; f (Maybe PlatformValues))
+</span><span id="line-85"></span><span class="hs-comment">-- | The value is @Windows@ for Windows instances. Otherwise, the value is</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- blank.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#describeFleetsInstances_platform"><span class="hs-identifier hs-type">describeFleetsInstances_platform</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlatformValues.html#PlatformValues"><span class="hs-identifier hs-type">PlatformValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="describeFleetsInstances_platform"><span class="annot"><span class="annottext">describeFleetsInstances_platform :: (Maybe PlatformValues -&gt; f (Maybe PlatformValues))
 -&gt; DescribeFleetsInstances -&gt; f DescribeFleetsInstances
 </span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#describeFleetsInstances_platform"><span class="hs-identifier hs-var hs-var">describeFleetsInstances_platform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetsInstances -&gt; Maybe PlatformValues)
 -&gt; (DescribeFleetsInstances
@@ -217,22 +178,47 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe PlatformValues)
      (Maybe PlatformValues)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681101863"><span class="annot"><span class="annottext">Maybe PlatformValues
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136573"><span class="annot"><span class="annottext">Maybe PlatformValues
 platform :: Maybe PlatformValues
 $sel:platform:DescribeFleetsInstances' :: DescribeFleetsInstances -&gt; Maybe PlatformValues
-</span><a href="#local-6989586621681101863"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlatformValues
-</span><a href="#local-6989586621681101863"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681101862"><span class="annot"><span class="annottext">s :: DescribeFleetsInstances
-</span><a href="#local-6989586621681101862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681101861"><span class="annot"><span class="annottext">Maybe PlatformValues
-</span><a href="#local-6989586621681101861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetsInstances
-</span><a href="#local-6989586621681101862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platform:DescribeFleetsInstances' :: Maybe PlatformValues
+</span><a href="#local-6989586621681136573"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlatformValues
+</span><a href="#local-6989586621681136573"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136572"><span class="annot"><span class="annottext">s :: DescribeFleetsInstances
+</span><a href="#local-6989586621681136572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136571"><span class="annot"><span class="annottext">Maybe PlatformValues
+</span><a href="#local-6989586621681136571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetsInstances
+</span><a href="#local-6989586621681136572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platform:DescribeFleetsInstances' :: Maybe PlatformValues
 </span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3Aplatform%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlatformValues
-</span><a href="#local-6989586621681101861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The launch templates and overrides that were used for launching the</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- instances. The values that you specify in the Overrides replace the</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- values in the launch template.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#describeFleetsInstances_launchTemplateAndOverrides"><span class="hs-identifier hs-type">describeFleetsInstances_launchTemplateAndOverrides</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateAndOverridesResponse.html#LaunchTemplateAndOverridesResponse"><span class="hs-identifier hs-type">LaunchTemplateAndOverridesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="describeFleetsInstances_launchTemplateAndOverrides"><span class="annot"><span class="annottext">describeFleetsInstances_launchTemplateAndOverrides :: (Maybe LaunchTemplateAndOverridesResponse
+</span><a href="#local-6989586621681136571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | Indicates if the instance that was launched is a Spot Instance or</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- On-Demand Instance.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#describeFleetsInstances_lifecycle"><span class="hs-identifier hs-type">describeFleetsInstances_lifecycle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceLifecycle.html#InstanceLifecycle"><span class="hs-identifier hs-type">InstanceLifecycle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="describeFleetsInstances_lifecycle"><span class="annot"><span class="annottext">describeFleetsInstances_lifecycle :: (Maybe InstanceLifecycle -&gt; f (Maybe InstanceLifecycle))
+-&gt; DescribeFleetsInstances -&gt; f DescribeFleetsInstances
+</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#describeFleetsInstances_lifecycle"><span class="hs-identifier hs-var hs-var">describeFleetsInstances_lifecycle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetsInstances -&gt; Maybe InstanceLifecycle)
+-&gt; (DescribeFleetsInstances
+    -&gt; Maybe InstanceLifecycle -&gt; DescribeFleetsInstances)
+-&gt; Lens
+     DescribeFleetsInstances
+     DescribeFleetsInstances
+     (Maybe InstanceLifecycle)
+     (Maybe InstanceLifecycle)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136569"><span class="annot"><span class="annottext">Maybe InstanceLifecycle
+lifecycle :: Maybe InstanceLifecycle
+$sel:lifecycle:DescribeFleetsInstances' :: DescribeFleetsInstances -&gt; Maybe InstanceLifecycle
+</span><a href="#local-6989586621681136569"><span class="hs-identifier hs-var hs-var">lifecycle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceLifecycle
+</span><a href="#local-6989586621681136569"><span class="hs-identifier hs-var">lifecycle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136568"><span class="annot"><span class="annottext">s :: DescribeFleetsInstances
+</span><a href="#local-6989586621681136568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136567"><span class="annot"><span class="annottext">Maybe InstanceLifecycle
+</span><a href="#local-6989586621681136567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetsInstances
+</span><a href="#local-6989586621681136568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycle:DescribeFleetsInstances' :: Maybe InstanceLifecycle
+</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3Alifecycle%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var">lifecycle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceLifecycle
+</span><a href="#local-6989586621681136567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The launch templates and overrides that were used for launching the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- instances. The values that you specify in the Overrides replace the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- values in the launch template.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#describeFleetsInstances_launchTemplateAndOverrides"><span class="hs-identifier hs-type">describeFleetsInstances_launchTemplateAndOverrides</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateAndOverridesResponse.html#LaunchTemplateAndOverridesResponse"><span class="hs-identifier hs-type">LaunchTemplateAndOverridesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="describeFleetsInstances_launchTemplateAndOverrides"><span class="annot"><span class="annottext">describeFleetsInstances_launchTemplateAndOverrides :: (Maybe LaunchTemplateAndOverridesResponse
  -&gt; f (Maybe LaunchTemplateAndOverridesResponse))
 -&gt; DescribeFleetsInstances -&gt; f DescribeFleetsInstances
 </span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#describeFleetsInstances_launchTemplateAndOverrides"><span class="hs-identifier hs-var hs-var">describeFleetsInstances_launchTemplateAndOverrides</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetsInstances
@@ -246,20 +232,20 @@ $sel:platform:DescribeFleetsInstances' :: DescribeFleetsInstances -&gt; Maybe Pl
      (Maybe LaunchTemplateAndOverridesResponse)
      (Maybe LaunchTemplateAndOverridesResponse)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681101859"><span class="annot"><span class="annottext">Maybe LaunchTemplateAndOverridesResponse
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136565"><span class="annot"><span class="annottext">Maybe LaunchTemplateAndOverridesResponse
 launchTemplateAndOverrides :: Maybe LaunchTemplateAndOverridesResponse
 $sel:launchTemplateAndOverrides:DescribeFleetsInstances' :: DescribeFleetsInstances -&gt; Maybe LaunchTemplateAndOverridesResponse
-</span><a href="#local-6989586621681101859"><span class="hs-identifier hs-var hs-var">launchTemplateAndOverrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateAndOverridesResponse
-</span><a href="#local-6989586621681101859"><span class="hs-identifier hs-var">launchTemplateAndOverrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681101858"><span class="annot"><span class="annottext">s :: DescribeFleetsInstances
-</span><a href="#local-6989586621681101858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681101857"><span class="annot"><span class="annottext">Maybe LaunchTemplateAndOverridesResponse
-</span><a href="#local-6989586621681101857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetsInstances
-</span><a href="#local-6989586621681101858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateAndOverrides:DescribeFleetsInstances' :: Maybe LaunchTemplateAndOverridesResponse
+</span><a href="#local-6989586621681136565"><span class="hs-identifier hs-var hs-var">launchTemplateAndOverrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateAndOverridesResponse
+</span><a href="#local-6989586621681136565"><span class="hs-identifier hs-var">launchTemplateAndOverrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136564"><span class="annot"><span class="annottext">s :: DescribeFleetsInstances
+</span><a href="#local-6989586621681136564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136563"><span class="annot"><span class="annottext">Maybe LaunchTemplateAndOverridesResponse
+</span><a href="#local-6989586621681136563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetsInstances
+</span><a href="#local-6989586621681136564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateAndOverrides:DescribeFleetsInstances' :: Maybe LaunchTemplateAndOverridesResponse
 </span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3AlaunchTemplateAndOverrides%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var">launchTemplateAndOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateAndOverridesResponse
-</span><a href="#local-6989586621681101857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The instance type.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#describeFleetsInstances_instanceType"><span class="hs-identifier hs-type">describeFleetsInstances_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceType.html#InstanceType"><span class="hs-identifier hs-type">InstanceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="describeFleetsInstances_instanceType"><span class="annot"><span class="annottext">describeFleetsInstances_instanceType :: (Maybe InstanceType -&gt; f (Maybe InstanceType))
+</span><a href="#local-6989586621681136563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The instance type.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#describeFleetsInstances_instanceType"><span class="hs-identifier hs-type">describeFleetsInstances_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceType.html#InstanceType"><span class="hs-identifier hs-type">InstanceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="describeFleetsInstances_instanceType"><span class="annot"><span class="annottext">describeFleetsInstances_instanceType :: (Maybe InstanceType -&gt; f (Maybe InstanceType))
 -&gt; DescribeFleetsInstances -&gt; f DescribeFleetsInstances
 </span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#describeFleetsInstances_instanceType"><span class="hs-identifier hs-var hs-var">describeFleetsInstances_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetsInstances -&gt; Maybe InstanceType)
 -&gt; (DescribeFleetsInstances
@@ -270,70 +256,137 @@ $sel:launchTemplateAndOverrides:DescribeFleetsInstances' :: DescribeFleetsInstan
      (Maybe InstanceType)
      (Maybe InstanceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681101855"><span class="annot"><span class="annottext">Maybe InstanceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136561"><span class="annot"><span class="annottext">Maybe InstanceType
 instanceType :: Maybe InstanceType
 $sel:instanceType:DescribeFleetsInstances' :: DescribeFleetsInstances -&gt; Maybe InstanceType
-</span><a href="#local-6989586621681101855"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
-</span><a href="#local-6989586621681101855"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681101854"><span class="annot"><span class="annottext">s :: DescribeFleetsInstances
-</span><a href="#local-6989586621681101854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681101853"><span class="annot"><span class="annottext">Maybe InstanceType
-</span><a href="#local-6989586621681101853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetsInstances
-</span><a href="#local-6989586621681101854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:DescribeFleetsInstances' :: Maybe InstanceType
+</span><a href="#local-6989586621681136561"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
+</span><a href="#local-6989586621681136561"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136560"><span class="annot"><span class="annottext">s :: DescribeFleetsInstances
+</span><a href="#local-6989586621681136560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136559"><span class="annot"><span class="annottext">Maybe InstanceType
+</span><a href="#local-6989586621681136559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetsInstances
+</span><a href="#local-6989586621681136560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:DescribeFleetsInstances' :: Maybe InstanceType
 </span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3AinstanceType%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
-</span><a href="#local-6989586621681101853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | Indicates if the instance that was launched is a Spot Instance or</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- On-Demand Instance.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#describeFleetsInstances_lifecycle"><span class="hs-identifier hs-type">describeFleetsInstances_lifecycle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceLifecycle.html#InstanceLifecycle"><span class="hs-identifier hs-type">InstanceLifecycle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="describeFleetsInstances_lifecycle"><span class="annot"><span class="annottext">describeFleetsInstances_lifecycle :: (Maybe InstanceLifecycle -&gt; f (Maybe InstanceLifecycle))
+</span><a href="#local-6989586621681136559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The IDs of the instances.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#describeFleetsInstances_instanceIds"><span class="hs-identifier hs-type">describeFleetsInstances_instanceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="describeFleetsInstances_instanceIds"><span class="annot"><span class="annottext">describeFleetsInstances_instanceIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; DescribeFleetsInstances -&gt; f DescribeFleetsInstances
-</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#describeFleetsInstances_lifecycle"><span class="hs-identifier hs-var hs-var">describeFleetsInstances_lifecycle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetsInstances -&gt; Maybe InstanceLifecycle)
+</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#describeFleetsInstances_instanceIds"><span class="hs-identifier hs-var hs-var">describeFleetsInstances_instanceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetsInstances -&gt; Maybe [Text])
 -&gt; (DescribeFleetsInstances
-    -&gt; Maybe InstanceLifecycle -&gt; DescribeFleetsInstances)
+    -&gt; Maybe [Text] -&gt; DescribeFleetsInstances)
 -&gt; Lens
      DescribeFleetsInstances
      DescribeFleetsInstances
-     (Maybe InstanceLifecycle)
-     (Maybe InstanceLifecycle)
+     (Maybe [Text])
+     (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681101851"><span class="annot"><span class="annottext">Maybe InstanceLifecycle
-lifecycle :: Maybe InstanceLifecycle
-$sel:lifecycle:DescribeFleetsInstances' :: DescribeFleetsInstances -&gt; Maybe InstanceLifecycle
-</span><a href="#local-6989586621681101851"><span class="hs-identifier hs-var hs-var">lifecycle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceLifecycle
-</span><a href="#local-6989586621681101851"><span class="hs-identifier hs-var">lifecycle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681101850"><span class="annot"><span class="annottext">s :: DescribeFleetsInstances
-</span><a href="#local-6989586621681101850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681101849"><span class="annot"><span class="annottext">Maybe InstanceLifecycle
-</span><a href="#local-6989586621681101849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetsInstances
-</span><a href="#local-6989586621681101850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycle:DescribeFleetsInstances' :: Maybe InstanceLifecycle
-</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3Alifecycle%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var">lifecycle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceLifecycle
-</span><a href="#local-6989586621681101849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136557"><span class="annot"><span class="annottext">Maybe [Text]
+instanceIds :: Maybe [Text]
+$sel:instanceIds:DescribeFleetsInstances' :: DescribeFleetsInstances -&gt; Maybe [Text]
+</span><a href="#local-6989586621681136557"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681136557"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136556"><span class="annot"><span class="annottext">s :: DescribeFleetsInstances
+</span><a href="#local-6989586621681136556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-type">DescribeFleetsInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136555"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681136555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetsInstances
+</span><a href="#local-6989586621681136556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIds:DescribeFleetsInstances' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#%24sel%3AinstanceIds%3ADescribeFleetsInstances%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681136555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeFleetsInstances -&gt; f DescribeFleetsInstances)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeFleetsInstances
+-&gt; f DescribeFleetsInstances
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621681101846"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DescribeFleetsInstances
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681101844"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681101844"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text]
--&gt; Maybe PlatformValues
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621681136549"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DescribeFleetsInstances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681136547"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681136547"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">Maybe PlatformValues
+-&gt; Maybe InstanceLifecycle
 -&gt; Maybe LaunchTemplateAndOverridesResponse
 -&gt; Maybe InstanceType
--&gt; Maybe InstanceLifecycle
+-&gt; Maybe [Text]
 -&gt; DescribeFleetsInstances
 </span><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances%27"><span class="hs-identifier hs-var">DescribeFleetsInstances'</span></a></span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text]
- -&gt; Maybe PlatformValues
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">(Maybe PlatformValues
+ -&gt; Maybe InstanceLifecycle
  -&gt; Maybe LaunchTemplateAndOverridesResponse
  -&gt; Maybe InstanceType
- -&gt; Maybe InstanceLifecycle
+ -&gt; Maybe [Text]
  -&gt; DescribeFleetsInstances)
--&gt; Either String (Maybe [Text])
+-&gt; Either String (Maybe PlatformValues)
 -&gt; Either
      String
-     (Maybe PlatformValues
+     (Maybe InstanceLifecycle
       -&gt; Maybe LaunchTemplateAndOverridesResponse
       -&gt; Maybe InstanceType
-      -&gt; Maybe InstanceLifecycle
+      -&gt; Maybe [Text]
       -&gt; DescribeFleetsInstances)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681101844"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681136547"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PlatformValues)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;platform&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe InstanceLifecycle
+   -&gt; Maybe LaunchTemplateAndOverridesResponse
+   -&gt; Maybe InstanceType
+   -&gt; Maybe [Text]
+   -&gt; DescribeFleetsInstances)
+-&gt; Either String (Maybe InstanceLifecycle)
+-&gt; Either
+     String
+     (Maybe LaunchTemplateAndOverridesResponse
+      -&gt; Maybe InstanceType -&gt; Maybe [Text] -&gt; DescribeFleetsInstances)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681136547"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InstanceLifecycle)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lifecycle&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe LaunchTemplateAndOverridesResponse
+   -&gt; Maybe InstanceType -&gt; Maybe [Text] -&gt; DescribeFleetsInstances)
+-&gt; Either String (Maybe LaunchTemplateAndOverridesResponse)
+-&gt; Either
+     String
+     (Maybe InstanceType -&gt; Maybe [Text] -&gt; DescribeFleetsInstances)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681136547"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe LaunchTemplateAndOverridesResponse)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;launchTemplateAndOverrides&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe InstanceType -&gt; Maybe [Text] -&gt; DescribeFleetsInstances)
+-&gt; Either String (Maybe InstanceType)
+-&gt; Either String (Maybe [Text] -&gt; DescribeFleetsInstances)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681136547"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InstanceType)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; DescribeFleetsInstances)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String DescribeFleetsInstances
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681136547"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -341,7 +394,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-113"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-117"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Text]))
 -&gt; Either String (Maybe [Text])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -354,69 +407,9 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe PlatformValues
-   -&gt; Maybe LaunchTemplateAndOverridesResponse
-   -&gt; Maybe InstanceType
-   -&gt; Maybe InstanceLifecycle
-   -&gt; DescribeFleetsInstances)
--&gt; Either String (Maybe PlatformValues)
--&gt; Either
-     String
-     (Maybe LaunchTemplateAndOverridesResponse
-      -&gt; Maybe InstanceType
-      -&gt; Maybe InstanceLifecycle
-      -&gt; DescribeFleetsInstances)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681101844"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PlatformValues)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;platform&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe LaunchTemplateAndOverridesResponse
-   -&gt; Maybe InstanceType
-   -&gt; Maybe InstanceLifecycle
-   -&gt; DescribeFleetsInstances)
--&gt; Either String (Maybe LaunchTemplateAndOverridesResponse)
--&gt; Either
-     String
-     (Maybe InstanceType
-      -&gt; Maybe InstanceLifecycle -&gt; DescribeFleetsInstances)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681101844"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
--&gt; Text -&gt; Either String (Maybe LaunchTemplateAndOverridesResponse)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;launchTemplateAndOverrides&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe InstanceType
-   -&gt; Maybe InstanceLifecycle -&gt; DescribeFleetsInstances)
--&gt; Either String (Maybe InstanceType)
--&gt; Either
-     String (Maybe InstanceLifecycle -&gt; DescribeFleetsInstances)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681101844"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InstanceType)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;instanceType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe InstanceLifecycle -&gt; DescribeFleetsInstances)
--&gt; Either String (Maybe InstanceLifecycle)
--&gt; Either String DescribeFleetsInstances
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681101844"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InstanceLifecycle)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lifecycle&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681101835"><span id="local-6989586621681101837"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681136538"><span id="local-6989586621681136540"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681101832"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681136535"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetsInstances.html#DescribeFleetsInstances"><span class="hs-identifier hs-type">DescribeFleetsInstances</span></a></span></span><span>
 </span><span id="line-123"></span></pre></body></html>

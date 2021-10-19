@@ -30,8 +30,8 @@
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeComments_authenticationToken"><span class="hs-identifier">describeComments_authenticationToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeComments_limit"><span class="hs-identifier">describeComments_limit</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeComments_marker"><span class="hs-identifier">describeComments_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeComments_marker"><span class="hs-identifier">describeComments_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeComments_limit"><span class="hs-identifier">describeComments_limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeComments_documentId"><span class="hs-identifier">describeComments_documentId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeComments_versionId"><span class="hs-identifier">describeComments_versionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
@@ -40,8 +40,8 @@
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#newDescribeCommentsResponse"><span class="hs-identifier">newDescribeCommentsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeCommentsResponse_comments"><span class="hs-identifier">describeCommentsResponse_comments</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeCommentsResponse_marker"><span class="hs-identifier">describeCommentsResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeCommentsResponse_marker"><span class="hs-identifier">describeCommentsResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeCommentsResponse_comments"><span class="hs-identifier">describeCommentsResponse_comments</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeCommentsResponse_httpStatus"><span class="hs-identifier">describeCommentsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span class="hs-keyword">where</span><span>
@@ -54,18 +54,18 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.html"><span class="hs-identifier">Network.AWS.WorkDocs.Types</span></a></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeComments' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679271382"><span id="local-6989586621679271383"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeComments"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-var">DescribeComments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeComments%27"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-var">DescribeComments'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679271532"><span id="local-6989586621679271533"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeComments"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-var">DescribeComments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeComments%27"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-var">DescribeComments'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AauthenticationToken%3ADescribeComments%27"><span class="annot"><span class="annottext">DescribeComments -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3AauthenticationToken%3ADescribeComments%27"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeComments%27"><span class="annot"><span class="annottext">DescribeComments -&gt; Maybe Natural
-</span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Alimit%3ADescribeComments%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The marker for the next set of results. This marker was received from a</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- previous call.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeComments%27"><span class="annot"><span class="annottext">DescribeComments -&gt; Maybe Text
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The marker for the next set of results. This marker was received from a</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- previous call.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeComments%27"><span class="annot"><span class="annottext">DescribeComments -&gt; Maybe Text
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Amarker%3ADescribeComments%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeComments%27"><span class="annot"><span class="annottext">DescribeComments -&gt; Maybe Natural
+</span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Alimit%3ADescribeComments%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The ID of the document.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AdocumentId%3ADescribeComments%27"><span class="annot"><span class="annottext">DescribeComments -&gt; Text
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3AdocumentId%3ADescribeComments%27"><span class="hs-identifier hs-var hs-var">documentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -73,7 +73,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AversionId%3ADescribeComments%27"><span class="annot"><span class="annottext">DescribeComments -&gt; Text
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3AversionId%3ADescribeComments%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271372"><span id="local-6989586621679271374"><span class="annot"><span class="annottext">DescribeComments -&gt; DescribeComments -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271522"><span id="local-6989586621679271524"><span class="annot"><span class="annottext">DescribeComments -&gt; DescribeComments -&gt; Bool
 (DescribeComments -&gt; DescribeComments -&gt; Bool)
 -&gt; (DescribeComments -&gt; DescribeComments -&gt; Bool)
 -&gt; Eq DescribeComments
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeComments -&gt; DescribeComments -&gt; Bool
 == :: DescribeComments -&gt; DescribeComments -&gt; Bool
 $c== :: DescribeComments -&gt; DescribeComments -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271365"><span id="local-6989586621679271367"><span id="local-6989586621679271369"><span class="annot"><span class="annottext">Int -&gt; DescribeComments -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271515"><span id="local-6989586621679271517"><span id="local-6989586621679271519"><span class="annot"><span class="annottext">Int -&gt; DescribeComments -&gt; ShowS
 [DescribeComments] -&gt; ShowS
 DescribeComments -&gt; String
 (Int -&gt; DescribeComments -&gt; ShowS)
@@ -119,10 +119,10 @@ $cfrom :: forall x. DescribeComments -&gt; Rep DescribeComments x
 </span><span id="line-81"></span><span class="hs-comment">-- 'authenticationToken', 'describeComments_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'limit', 'describeComments_limit' - The maximum number of items to return.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'marker', 'describeComments_marker' - The marker for the next set of results. This marker was received from a</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- previous call.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'marker', 'describeComments_marker' - The marker for the next set of results. This marker was received from a</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- previous call.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'limit', 'describeComments_limit' - The maximum number of items to return.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- 'documentId', 'describeComments_documentId' - The ID of the document.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
@@ -134,31 +134,31 @@ $cfrom :: forall x. DescribeComments -&gt; Rep DescribeComments x
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span>
 </span><span id="line-98"></span><span id="newDescribeComments"><span class="annot"><span class="annottext">newDescribeComments :: Text -&gt; Text -&gt; DescribeComments
-</span><a href="Network.AWS.WorkDocs.DescribeComments.html#newDescribeComments"><span class="hs-identifier hs-var hs-var">newDescribeComments</span></a></span></span><span> </span><span id="local-6989586621679271360"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271360"><span class="hs-identifier hs-var">pDocumentId_</span></a></span></span><span> </span><span id="local-6989586621679271359"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271359"><span class="hs-identifier hs-var">pVersionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkDocs.DescribeComments.html#newDescribeComments"><span class="hs-identifier hs-var hs-var">newDescribeComments</span></a></span></span><span> </span><span id="local-6989586621679271510"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271510"><span class="hs-identifier hs-var">pDocumentId_</span></a></span></span><span> </span><span id="local-6989586621679271509"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271509"><span class="hs-identifier hs-var">pVersionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">DescribeComments' :: Maybe (Sensitive Text)
--&gt; Maybe Natural -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; DescribeComments
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; Text -&gt; DescribeComments
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authenticationToken:DescribeComments' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3AauthenticationToken%3ADescribeComments%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:DescribeComments' :: Maybe Natural
-</span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Alimit%3ADescribeComments%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeComments' :: Maybe Text
+</span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Amarker%3ADescribeComments%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeComments' :: Maybe Text
-</span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Amarker%3ADescribeComments%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:DescribeComments' :: Maybe Natural
+</span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Alimit%3ADescribeComments%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentId:DescribeComments' :: Text
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3AdocumentId%3ADescribeComments%27"><span class="hs-identifier hs-var">documentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271360"><span class="hs-identifier hs-var">pDocumentId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679271510"><span class="hs-identifier hs-var">pDocumentId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionId:DescribeComments' :: Text
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3AversionId%3ADescribeComments%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271359"><span class="hs-identifier hs-var">pVersionId_</span></a></span><span>
+</span><a href="#local-6989586621679271509"><span class="hs-identifier hs-var">pVersionId_</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
@@ -174,16 +174,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271357"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271507"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 authenticationToken :: Maybe (Sensitive Text)
 $sel:authenticationToken:DescribeComments' :: DescribeComments -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679271357"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679271357"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271356"><span class="annot"><span class="annottext">s :: DescribeComments
-</span><a href="#local-6989586621679271356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271355"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679271355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComments
-</span><a href="#local-6989586621679271356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:DescribeComments' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679271507"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679271507"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271506"><span class="annot"><span class="annottext">s :: DescribeComments
+</span><a href="#local-6989586621679271506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271505"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679271505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComments
+</span><a href="#local-6989586621679271506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:DescribeComments' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3AauthenticationToken%3ADescribeComments%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679271355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679271505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; DescribeComments -&gt; f DescribeComments)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -204,45 +204,45 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The maximum number of items to return.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeComments_limit"><span class="hs-identifier hs-type">describeComments_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="describeComments_limit"><span class="annot"><span class="annottext">describeComments_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-113"></span><span class="hs-comment">-- | The marker for the next set of results. This marker was received from a</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- previous call.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeComments_marker"><span class="hs-identifier hs-type">describeComments_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="describeComments_marker"><span class="annot"><span class="annottext">describeComments_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeComments -&gt; f DescribeComments
+</span><a href="Network.AWS.WorkDocs.DescribeComments.html#describeComments_marker"><span class="hs-identifier hs-var hs-var">describeComments_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeComments -&gt; Maybe Text)
+-&gt; (DescribeComments -&gt; Maybe Text -&gt; DescribeComments)
+-&gt; Lens DescribeComments DescribeComments (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271501"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeComments' :: DescribeComments -&gt; Maybe Text
+</span><a href="#local-6989586621679271501"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271501"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271500"><span class="annot"><span class="annottext">s :: DescribeComments
+</span><a href="#local-6989586621679271500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271499"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComments
+</span><a href="#local-6989586621679271500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeComments' :: Maybe Text
+</span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Amarker%3ADescribeComments%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The maximum number of items to return.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeComments_limit"><span class="hs-identifier hs-type">describeComments_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="describeComments_limit"><span class="annot"><span class="annottext">describeComments_limit :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; DescribeComments -&gt; f DescribeComments
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#describeComments_limit"><span class="hs-identifier hs-var hs-var">describeComments_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeComments -&gt; Maybe Natural)
 -&gt; (DescribeComments -&gt; Maybe Natural -&gt; DescribeComments)
 -&gt; Lens
      DescribeComments DescribeComments (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271351"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271498"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:DescribeComments' :: DescribeComments -&gt; Maybe Natural
-</span><a href="#local-6989586621679271351"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679271351"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271350"><span class="annot"><span class="annottext">s :: DescribeComments
-</span><a href="#local-6989586621679271350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271349"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679271349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComments
-</span><a href="#local-6989586621679271350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeComments' :: Maybe Natural
+</span><a href="#local-6989586621679271498"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679271498"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271497"><span class="annot"><span class="annottext">s :: DescribeComments
+</span><a href="#local-6989586621679271497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271496"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679271496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComments
+</span><a href="#local-6989586621679271497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeComments' :: Maybe Natural
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Alimit%3ADescribeComments%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679271349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | The marker for the next set of results. This marker was received from a</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- previous call.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeComments_marker"><span class="hs-identifier hs-type">describeComments_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="describeComments_marker"><span class="annot"><span class="annottext">describeComments_marker :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeComments -&gt; f DescribeComments
-</span><a href="Network.AWS.WorkDocs.DescribeComments.html#describeComments_marker"><span class="hs-identifier hs-var hs-var">describeComments_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeComments -&gt; Maybe Text)
--&gt; (DescribeComments -&gt; Maybe Text -&gt; DescribeComments)
--&gt; Lens DescribeComments DescribeComments (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271348"><span class="annot"><span class="annottext">Maybe Text
-marker :: Maybe Text
-$sel:marker:DescribeComments' :: DescribeComments -&gt; Maybe Text
-</span><a href="#local-6989586621679271348"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271348"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271347"><span class="annot"><span class="annottext">s :: DescribeComments
-</span><a href="#local-6989586621679271347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271346"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComments
-</span><a href="#local-6989586621679271347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeComments' :: Maybe Text
-</span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Amarker%3ADescribeComments%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679271496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The ID of the document.</span><span>
 </span><span id="line-123"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeComments_documentId"><span class="hs-identifier hs-type">describeComments_documentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -251,16 +251,16 @@ $sel:marker:DescribeComments' :: DescribeComments -&gt; Maybe Text
 -&gt; (DescribeComments -&gt; Text -&gt; DescribeComments)
 -&gt; Lens DescribeComments DescribeComments Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271345"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271495"><span class="annot"><span class="annottext">Text
 documentId :: Text
 $sel:documentId:DescribeComments' :: DescribeComments -&gt; Text
-</span><a href="#local-6989586621679271345"><span class="hs-identifier hs-var hs-var">documentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271345"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271344"><span class="annot"><span class="annottext">s :: DescribeComments
-</span><a href="#local-6989586621679271344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271343"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComments
-</span><a href="#local-6989586621679271344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentId:DescribeComments' :: Text
+</span><a href="#local-6989586621679271495"><span class="hs-identifier hs-var hs-var">documentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271495"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271494"><span class="annot"><span class="annottext">s :: DescribeComments
+</span><a href="#local-6989586621679271494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271493"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComments
+</span><a href="#local-6989586621679271494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentId:DescribeComments' :: Text
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3AdocumentId%3ADescribeComments%27"><span class="hs-identifier hs-var">documentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679271493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The ID of the document version.</span><span>
 </span><span id="line-127"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeComments_versionId"><span class="hs-identifier hs-type">describeComments_versionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -269,29 +269,29 @@ $sel:documentId:DescribeComments' :: DescribeComments -&gt; Text
 -&gt; (DescribeComments -&gt; Text -&gt; DescribeComments)
 -&gt; Lens DescribeComments DescribeComments Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271342"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271492"><span class="annot"><span class="annottext">Text
 versionId :: Text
 $sel:versionId:DescribeComments' :: DescribeComments -&gt; Text
-</span><a href="#local-6989586621679271342"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271342"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271341"><span class="annot"><span class="annottext">s :: DescribeComments
-</span><a href="#local-6989586621679271341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271340"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComments
-</span><a href="#local-6989586621679271341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:DescribeComments' :: Text
+</span><a href="#local-6989586621679271492"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271492"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271491"><span class="annot"><span class="annottext">s :: DescribeComments
+</span><a href="#local-6989586621679271491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271490"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComments
+</span><a href="#local-6989586621679271491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:DescribeComments' :: Text
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3AversionId%3ADescribeComments%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679271490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679271336"><span class="annot"><span class="annottext">page :: DescribeComments
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679271486"><span class="annot"><span class="annottext">page :: DescribeComments
 -&gt; AWSResponse DescribeComments -&gt; Maybe DescribeComments
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679271334"><span class="annot"><span class="annottext">DescribeComments
-</span><a href="#local-6989586621679271334"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679271333"><span class="annot"><span class="annottext">AWSResponse DescribeComments
-</span><a href="#local-6989586621679271333"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679271484"><span class="annot"><span class="annottext">DescribeComments
+</span><a href="#local-6989586621679271484"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679271483"><span class="annot"><span class="annottext">AWSResponse DescribeComments
+</span><a href="#local-6989586621679271483"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-133"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeComments
 DescribeCommentsResponse
-</span><a href="#local-6989586621679271333"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679271483"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">DescribeCommentsResponse
 -&gt; Getting (First Text) DescribeCommentsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -319,7 +319,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-138"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeComments
 DescribeCommentsResponse
-</span><a href="#local-6989586621679271333"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679271483"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">DescribeCommentsResponse
 -&gt; Getting (First [Comment]) DescribeCommentsResponse [Comment]
 -&gt; Maybe [Comment]
@@ -353,7 +353,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">DescribeComments
-</span><a href="#local-6989586621679271334"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679271484"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">DescribeComments
 -&gt; (DescribeComments -&gt; DescribeComments) -&gt; DescribeComments
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -367,7 +367,7 @@ Lens DescribeComments DescribeComments (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeComments
 DescribeCommentsResponse
-</span><a href="#local-6989586621679271333"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679271483"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">DescribeCommentsResponse
 -&gt; Getting (First Text) DescribeCommentsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -391,12 +391,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-151"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-152"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-type">DescribeCommentsResponse</span></a></span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679271324"><span class="annot"><span class="annottext">request :: DescribeComments -&gt; Request DescribeComments
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679271474"><span class="annot"><span class="annottext">request :: DescribeComments -&gt; Request DescribeComments
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeComments -&gt; Request DescribeComments
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkDocs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679271320"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679271470"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeComments
 -&gt; ClientResponse ClientBody
@@ -420,18 +420,28 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271317"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679271317"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679271316"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679271316"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679271315"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271315"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Comment] -&gt; Maybe Text -&gt; Int -&gt; DescribeCommentsResponse
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271467"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271467"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679271466"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679271466"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679271465"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271465"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Comment] -&gt; Int -&gt; DescribeCommentsResponse
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse%27"><span class="hs-identifier hs-var">DescribeCommentsResponse'</span></a></span><span>
-</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Comment] -&gt; Maybe Text -&gt; Int -&gt; DescribeCommentsResponse)
--&gt; Either String (Maybe [Comment])
--&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeCommentsResponse)
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Comment] -&gt; Int -&gt; DescribeCommentsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [Comment] -&gt; Int -&gt; DescribeCommentsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Comment]))
+</span><a href="#local-6989586621679271465"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Comment] -&gt; Int -&gt; DescribeCommentsResponse)
+-&gt; Either String (Maybe [Comment])
+-&gt; Either String (Int -&gt; DescribeCommentsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271465"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Comment]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Comments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Comment]))
@@ -440,15 +450,6 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Comment]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeCommentsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; DescribeCommentsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeCommentsResponse)
 -&gt; Either String Int -&gt; Either String DescribeCommentsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -457,30 +458,30 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679271317"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679271467"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271306"><span id="local-6989586621679271308"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271456"><span id="local-6989586621679271458"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span></span></span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271303"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679271299"><span class="annot"><span class="annottext">toHeaders :: DescribeComments -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271293"><span id="local-6989586621679271294"><span id="local-6989586621679271295"><span id="local-6989586621679271296"><span id="local-6989586621679271297"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679271449"><span class="annot"><span class="annottext">toHeaders :: DescribeComments -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271443"><span id="local-6989586621679271444"><span id="local-6989586621679271445"><span id="local-6989586621679271446"><span id="local-6989586621679271447"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe (Sensitive Text)
 Text
 versionId :: Text
 documentId :: Text
-marker :: Maybe Text
 limit :: Maybe Natural
+marker :: Maybe Text
 authenticationToken :: Maybe (Sensitive Text)
 $sel:versionId:DescribeComments' :: DescribeComments -&gt; Text
 $sel:documentId:DescribeComments' :: DescribeComments -&gt; Text
-$sel:marker:DescribeComments' :: DescribeComments -&gt; Maybe Text
 $sel:limit:DescribeComments' :: DescribeComments -&gt; Maybe Natural
+$sel:marker:DescribeComments' :: DescribeComments -&gt; Maybe Text
 $sel:authenticationToken:DescribeComments' :: DescribeComments -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679271293"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679271443"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -488,7 +489,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Authentication&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe (Sensitive Text) -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679271297"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679271447"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
 </span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
@@ -498,22 +499,22 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-174"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679271289"><span class="annot"><span class="annottext">toPath :: DescribeComments -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271283"><span id="local-6989586621679271284"><span id="local-6989586621679271285"><span id="local-6989586621679271286"><span id="local-6989586621679271287"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679271439"><span class="annot"><span class="annottext">toPath :: DescribeComments -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271433"><span id="local-6989586621679271434"><span id="local-6989586621679271435"><span id="local-6989586621679271436"><span id="local-6989586621679271437"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe (Sensitive Text)
 Text
 versionId :: Text
 documentId :: Text
-marker :: Maybe Text
 limit :: Maybe Natural
+marker :: Maybe Text
 authenticationToken :: Maybe (Sensitive Text)
 $sel:versionId:DescribeComments' :: DescribeComments -&gt; Text
 $sel:documentId:DescribeComments' :: DescribeComments -&gt; Text
-$sel:marker:DescribeComments' :: DescribeComments -&gt; Maybe Text
 $sel:limit:DescribeComments' :: DescribeComments -&gt; Maybe Natural
+$sel:marker:DescribeComments' :: DescribeComments -&gt; Maybe Text
 $sel:authenticationToken:DescribeComments' :: DescribeComments -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679271283"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679271433"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -522,61 +523,61 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271284"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679271434"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/versions/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271283"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679271433"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/comments&quot;</span></span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments"><span class="hs-identifier hs-type">DescribeComments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679271279"><span class="annot"><span class="annottext">toQuery :: DescribeComments -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271273"><span id="local-6989586621679271274"><span id="local-6989586621679271275"><span id="local-6989586621679271276"><span id="local-6989586621679271277"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679271429"><span class="annot"><span class="annottext">toQuery :: DescribeComments -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeComments%27"><span class="hs-identifier hs-type">DescribeComments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271423"><span id="local-6989586621679271424"><span id="local-6989586621679271425"><span id="local-6989586621679271426"><span id="local-6989586621679271427"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe (Sensitive Text)
 Text
 versionId :: Text
 documentId :: Text
-marker :: Maybe Text
 limit :: Maybe Natural
+marker :: Maybe Text
 authenticationToken :: Maybe (Sensitive Text)
 $sel:versionId:DescribeComments' :: DescribeComments -&gt; Text
 $sel:documentId:DescribeComments' :: DescribeComments -&gt; Text
-$sel:marker:DescribeComments' :: DescribeComments -&gt; Maybe Text
 $sel:limit:DescribeComments' :: DescribeComments -&gt; Maybe Natural
+$sel:marker:DescribeComments' :: DescribeComments -&gt; Maybe Text
 $sel:authenticationToken:DescribeComments' :: DescribeComments -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679271273"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679271423"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679271276"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271275"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679271426"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679271425"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | /See:/ 'newDescribeCommentsResponse' smart constructor.</span><span>
-</span><span id="line-192"></span><span id="local-6989586621679271270"><span id="local-6989586621679271271"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCommentsResponse"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-var">DescribeCommentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCommentsResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse%27"><span class="hs-identifier hs-var">DescribeCommentsResponse'</span></a></span></span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of comments for the specified document version.</span><span>
-</span><span id="line-194"></span><span>    </span><span id="%24sel%3Acomments%3ADescribeCommentsResponse%27"><span class="annot"><span class="annottext">DescribeCommentsResponse -&gt; Maybe [Comment]
-</span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Acomments%3ADescribeCommentsResponse%27"><span class="hs-identifier hs-var hs-var">comments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Comment.html#Comment"><span class="hs-identifier hs-type">Comment</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | The marker for the next set of results. This marker was received from a</span><span>
-</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- previous call.</span><span>
-</span><span id="line-197"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeCommentsResponse%27"><span class="annot"><span class="annottext">DescribeCommentsResponse -&gt; Maybe Text
+</span><span id="line-192"></span><span id="local-6989586621679271420"><span id="local-6989586621679271421"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCommentsResponse"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-var">DescribeCommentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCommentsResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse%27"><span class="hs-identifier hs-var">DescribeCommentsResponse'</span></a></span></span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The marker for the next set of results. This marker was received from a</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- previous call.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeCommentsResponse%27"><span class="annot"><span class="annottext">DescribeCommentsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Amarker%3ADescribeCommentsResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The list of comments for the specified document version.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3Acomments%3ADescribeCommentsResponse%27"><span class="annot"><span class="annottext">DescribeCommentsResponse -&gt; Maybe [Comment]
+</span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Acomments%3ADescribeCommentsResponse%27"><span class="hs-identifier hs-var hs-var">comments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Comment.html#Comment"><span class="hs-identifier hs-type">Comment</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-199"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeCommentsResponse%27"><span class="annot"><span class="annottext">DescribeCommentsResponse -&gt; Int
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3AhttpStatus%3ADescribeCommentsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-200"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271263"><span id="local-6989586621679271265"><span class="annot"><span class="annottext">DescribeCommentsResponse -&gt; DescribeCommentsResponse -&gt; Bool
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271413"><span id="local-6989586621679271415"><span class="annot"><span class="annottext">DescribeCommentsResponse -&gt; DescribeCommentsResponse -&gt; Bool
 (DescribeCommentsResponse -&gt; DescribeCommentsResponse -&gt; Bool)
 -&gt; (DescribeCommentsResponse -&gt; DescribeCommentsResponse -&gt; Bool)
 -&gt; Eq DescribeCommentsResponse
@@ -585,7 +586,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeCommentsResponse -&gt; DescribeCommentsResponse -&gt; Bool
 == :: DescribeCommentsResponse -&gt; DescribeCommentsResponse -&gt; Bool
 $c== :: DescribeCommentsResponse -&gt; DescribeCommentsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271257"><span id="local-6989586621679271259"><span id="local-6989586621679271261"><span class="annot"><span class="annottext">Int -&gt; DescribeCommentsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271407"><span id="local-6989586621679271409"><span id="local-6989586621679271411"><span class="annot"><span class="annottext">Int -&gt; DescribeCommentsResponse -&gt; ShowS
 [DescribeCommentsResponse] -&gt; ShowS
 DescribeCommentsResponse -&gt; String
 (Int -&gt; DescribeCommentsResponse -&gt; ShowS)
@@ -625,10 +626,10 @@ DescribeCommentsResponse -&gt; Rep DescribeCommentsResponse x
 </span><span id="line-208"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-210"></span><span class="hs-comment">--</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- 'comments', 'describeCommentsResponse_comments' - The list of comments for the specified document version.</span><span>
-</span><span id="line-212"></span><span class="hs-comment">--</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- 'marker', 'describeCommentsResponse_marker' - The marker for the next set of results. This marker was received from a</span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- previous call.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'marker', 'describeCommentsResponse_marker' - The marker for the next set of results. This marker was received from a</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- previous call.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 'comments', 'describeCommentsResponse_comments' - The list of comments for the specified document version.</span><span>
 </span><span id="line-215"></span><span class="hs-comment">--</span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- 'httpStatus', 'describeCommentsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-217"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#newDescribeCommentsResponse"><span class="hs-identifier hs-type">newDescribeCommentsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -636,43 +637,63 @@ DescribeCommentsResponse -&gt; Rep DescribeCommentsResponse x
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-220"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-type">DescribeCommentsResponse</span></a></span><span>
 </span><span id="line-221"></span><span id="newDescribeCommentsResponse"><span class="annot"><span class="annottext">newDescribeCommentsResponse :: Int -&gt; DescribeCommentsResponse
-</span><a href="Network.AWS.WorkDocs.DescribeComments.html#newDescribeCommentsResponse"><span class="hs-identifier hs-var hs-var">newDescribeCommentsResponse</span></a></span></span><span> </span><span id="local-6989586621679271254"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679271254"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-222"></span><span>  </span><span class="annot"><span class="annottext">DescribeCommentsResponse' :: Maybe [Comment] -&gt; Maybe Text -&gt; Int -&gt; DescribeCommentsResponse
+</span><a href="Network.AWS.WorkDocs.DescribeComments.html#newDescribeCommentsResponse"><span class="hs-identifier hs-var hs-var">newDescribeCommentsResponse</span></a></span></span><span> </span><span id="local-6989586621679271404"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271404"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><span class="annottext">DescribeCommentsResponse' :: Maybe Text -&gt; Maybe [Comment] -&gt; Int -&gt; DescribeCommentsResponse
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse%27"><span class="hs-identifier hs-type">DescribeCommentsResponse'</span></a></span><span>
-</span><span id="line-223"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:comments:DescribeCommentsResponse' :: Maybe [Comment]
-</span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Acomments%3ADescribeCommentsResponse%27"><span class="hs-identifier hs-var">comments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Comment]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeCommentsResponse' :: Maybe Text
+</span><span id="line-223"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:DescribeCommentsResponse' :: Maybe Text
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Amarker%3ADescribeCommentsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCommentsResponse' :: Int
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:comments:DescribeCommentsResponse' :: Maybe [Comment]
+</span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Acomments%3ADescribeCommentsResponse%27"><span class="hs-identifier hs-var">comments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Comment]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCommentsResponse' :: Int
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3AhttpStatus%3ADescribeCommentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679271254"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-227"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- | The list of comments for the specified document version.</span><span>
-</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeCommentsResponse_comments"><span class="hs-identifier hs-type">describeCommentsResponse_comments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-type">DescribeCommentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Comment.html#Comment"><span class="hs-identifier hs-type">Comment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-231"></span><span id="describeCommentsResponse_comments"><span class="annot"><span class="annottext">describeCommentsResponse_comments :: (Maybe [Comment] -&gt; f (Maybe [Comment]))
+</span><a href="#local-6989586621679271404"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The marker for the next set of results. This marker was received from a</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- previous call.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeCommentsResponse_marker"><span class="hs-identifier hs-type">describeCommentsResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-type">DescribeCommentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="describeCommentsResponse_marker"><span class="annot"><span class="annottext">describeCommentsResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeCommentsResponse -&gt; f DescribeCommentsResponse
+</span><a href="Network.AWS.WorkDocs.DescribeComments.html#describeCommentsResponse_marker"><span class="hs-identifier hs-var hs-var">describeCommentsResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCommentsResponse -&gt; Maybe Text)
+-&gt; (DescribeCommentsResponse
+    -&gt; Maybe Text -&gt; DescribeCommentsResponse)
+-&gt; Lens' DescribeCommentsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse%27"><span class="hs-identifier hs-type">DescribeCommentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271403"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeCommentsResponse' :: DescribeCommentsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679271403"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271403"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271402"><span class="annot"><span class="annottext">s :: DescribeCommentsResponse
+</span><a href="#local-6989586621679271402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse%27"><span class="hs-identifier hs-type">DescribeCommentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271401"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommentsResponse
+</span><a href="#local-6989586621679271402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeCommentsResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Amarker%3ADescribeCommentsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-type">DescribeCommentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The list of comments for the specified document version.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeCommentsResponse_comments"><span class="hs-identifier hs-type">describeCommentsResponse_comments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-type">DescribeCommentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Comment.html#Comment"><span class="hs-identifier hs-type">Comment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="describeCommentsResponse_comments"><span class="annot"><span class="annottext">describeCommentsResponse_comments :: (Maybe [Comment] -&gt; f (Maybe [Comment]))
 -&gt; DescribeCommentsResponse -&gt; f DescribeCommentsResponse
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#describeCommentsResponse_comments"><span class="hs-identifier hs-var hs-var">describeCommentsResponse_comments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCommentsResponse -&gt; Maybe [Comment])
 -&gt; (DescribeCommentsResponse
     -&gt; Maybe [Comment] -&gt; DescribeCommentsResponse)
 -&gt; Lens' DescribeCommentsResponse (Maybe [Comment])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse%27"><span class="hs-identifier hs-type">DescribeCommentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271253"><span class="annot"><span class="annottext">Maybe [Comment]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse%27"><span class="hs-identifier hs-type">DescribeCommentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271400"><span class="annot"><span class="annottext">Maybe [Comment]
 comments :: Maybe [Comment]
 $sel:comments:DescribeCommentsResponse' :: DescribeCommentsResponse -&gt; Maybe [Comment]
-</span><a href="#local-6989586621679271253"><span class="hs-identifier hs-var hs-var">comments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Comment]
-</span><a href="#local-6989586621679271253"><span class="hs-identifier hs-var">comments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271252"><span class="annot"><span class="annottext">s :: DescribeCommentsResponse
-</span><a href="#local-6989586621679271252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse%27"><span class="hs-identifier hs-type">DescribeCommentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271251"><span class="annot"><span class="annottext">Maybe [Comment]
-</span><a href="#local-6989586621679271251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommentsResponse
-</span><a href="#local-6989586621679271252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comments:DescribeCommentsResponse' :: Maybe [Comment]
+</span><a href="#local-6989586621679271400"><span class="hs-identifier hs-var hs-var">comments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Comment]
+</span><a href="#local-6989586621679271400"><span class="hs-identifier hs-var">comments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271399"><span class="annot"><span class="annottext">s :: DescribeCommentsResponse
+</span><a href="#local-6989586621679271399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse%27"><span class="hs-identifier hs-type">DescribeCommentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271398"><span class="annot"><span class="annottext">Maybe [Comment]
+</span><a href="#local-6989586621679271398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommentsResponse
+</span><a href="#local-6989586621679271399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comments:DescribeCommentsResponse' :: Maybe [Comment]
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Acomments%3ADescribeCommentsResponse%27"><span class="hs-identifier hs-var">comments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Comment]
-</span><a href="#local-6989586621679271251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-type">DescribeCommentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Comment] -&gt; f (Maybe [Comment]))
+</span><a href="#local-6989586621679271398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-type">DescribeCommentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Comment] -&gt; f (Maybe [Comment]))
  -&gt; DescribeCommentsResponse -&gt; f DescribeCommentsResponse)
 -&gt; ((Maybe [Comment] -&gt; f (Maybe [Comment]))
     -&gt; Maybe [Comment] -&gt; f (Maybe [Comment]))
@@ -690,48 +711,27 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Comment] [Comment] [Comment] [Comment]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- | The marker for the next set of results. This marker was received from a</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- previous call.</span><span>
-</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeCommentsResponse_marker"><span class="hs-identifier hs-type">describeCommentsResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-type">DescribeCommentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-236"></span><span id="describeCommentsResponse_marker"><span class="annot"><span class="annottext">describeCommentsResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeCommentsResponse -&gt; f DescribeCommentsResponse
-</span><a href="Network.AWS.WorkDocs.DescribeComments.html#describeCommentsResponse_marker"><span class="hs-identifier hs-var hs-var">describeCommentsResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCommentsResponse -&gt; Maybe Text)
--&gt; (DescribeCommentsResponse
-    -&gt; Maybe Text -&gt; DescribeCommentsResponse)
--&gt; Lens' DescribeCommentsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse%27"><span class="hs-identifier hs-type">DescribeCommentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271249"><span class="annot"><span class="annottext">Maybe Text
-marker :: Maybe Text
-$sel:marker:DescribeCommentsResponse' :: DescribeCommentsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679271249"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271249"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271248"><span class="annot"><span class="annottext">s :: DescribeCommentsResponse
-</span><a href="#local-6989586621679271248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse%27"><span class="hs-identifier hs-type">DescribeCommentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271247"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommentsResponse
-</span><a href="#local-6989586621679271248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeCommentsResponse' :: Maybe Text
-</span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3Amarker%3ADescribeCommentsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-type">DescribeCommentsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-237"></span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeCommentsResponse_httpStatus"><span class="hs-identifier hs-type">describeCommentsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-type">DescribeCommentsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-240"></span><span id="describeCommentsResponse_httpStatus"><span class="annot"><span class="annottext">describeCommentsResponse_httpStatus :: (Int -&gt; f Int)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#describeCommentsResponse_httpStatus"><span class="hs-identifier hs-type">describeCommentsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-type">DescribeCommentsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-239"></span><span id="describeCommentsResponse_httpStatus"><span class="annot"><span class="annottext">describeCommentsResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; DescribeCommentsResponse -&gt; f DescribeCommentsResponse
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#describeCommentsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeCommentsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCommentsResponse -&gt; Int)
 -&gt; (DescribeCommentsResponse -&gt; Int -&gt; DescribeCommentsResponse)
 -&gt; Lens DescribeCommentsResponse DescribeCommentsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse%27"><span class="hs-identifier hs-type">DescribeCommentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271246"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse%27"><span class="hs-identifier hs-type">DescribeCommentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271396"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeCommentsResponse' :: DescribeCommentsResponse -&gt; Int
-</span><a href="#local-6989586621679271246"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679271246"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271245"><span class="annot"><span class="annottext">s :: DescribeCommentsResponse
-</span><a href="#local-6989586621679271245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse%27"><span class="hs-identifier hs-type">DescribeCommentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271244"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679271244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommentsResponse
-</span><a href="#local-6989586621679271245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCommentsResponse' :: Int
+</span><a href="#local-6989586621679271396"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271396"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271395"><span class="annot"><span class="annottext">s :: DescribeCommentsResponse
+</span><a href="#local-6989586621679271395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse%27"><span class="hs-identifier hs-type">DescribeCommentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271394"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommentsResponse
+</span><a href="#local-6989586621679271395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCommentsResponse' :: Int
 </span><a href="Network.AWS.WorkDocs.DescribeComments.html#%24sel%3AhttpStatus%3ADescribeCommentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679271244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-type">DescribeCommentsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271242"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-type">DescribeCommentsResponse</span></a></span></span><span>
-</span><span id="line-243"></span></pre></body></html>
+</span><a href="#local-6989586621679271394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-type">DescribeCommentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271392"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeComments.html#DescribeCommentsResponse"><span class="hs-identifier hs-type">DescribeCommentsResponse</span></a></span></span><span>
+</span><span id="line-242"></span></pre></body></html>

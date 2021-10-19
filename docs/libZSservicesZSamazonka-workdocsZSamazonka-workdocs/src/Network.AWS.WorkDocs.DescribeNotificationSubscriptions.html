@@ -29,8 +29,8 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#newDescribeNotificationSubscriptions"><span class="hs-identifier">newDescribeNotificationSubscriptions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptions_limit"><span class="hs-identifier">describeNotificationSubscriptions_limit</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptions_marker"><span class="hs-identifier">describeNotificationSubscriptions_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptions_marker"><span class="hs-identifier">describeNotificationSubscriptions_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptions_limit"><span class="hs-identifier">describeNotificationSubscriptions_limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptions_organizationId"><span class="hs-identifier">describeNotificationSubscriptions_organizationId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -38,8 +38,8 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#newDescribeNotificationSubscriptionsResponse"><span class="hs-identifier">newDescribeNotificationSubscriptionsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptionsResponse_subscriptions"><span class="hs-identifier">describeNotificationSubscriptionsResponse_subscriptions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptionsResponse_marker"><span class="hs-identifier">describeNotificationSubscriptionsResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptionsResponse_marker"><span class="hs-identifier">describeNotificationSubscriptionsResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptionsResponse_subscriptions"><span class="hs-identifier">describeNotificationSubscriptionsResponse_subscriptions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptionsResponse_httpStatus"><span class="hs-identifier">describeNotificationSubscriptionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span class="hs-keyword">where</span><span>
@@ -52,19 +52,19 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.html"><span class="hs-identifier">Network.AWS.WorkDocs.Types</span></a></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDescribeNotificationSubscriptions' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679270244"><span id="local-6989586621679270245"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNotificationSubscriptions"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-var">DescribeNotificationSubscriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNotificationSubscriptions%27"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-var">DescribeNotificationSubscriptions'</span></a></span></span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeNotificationSubscriptions%27"><span class="annot"><span class="annottext">DescribeNotificationSubscriptions -&gt; Maybe Natural
-</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Alimit%3ADescribeNotificationSubscriptions%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The marker for the next set of results. (You received this marker from a</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- previous call.)</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeNotificationSubscriptions%27"><span class="annot"><span class="annottext">DescribeNotificationSubscriptions -&gt; Maybe Text
+</span><span id="line-55"></span><span id="local-6989586621679270387"><span id="local-6989586621679270388"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNotificationSubscriptions"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-var">DescribeNotificationSubscriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNotificationSubscriptions%27"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-var">DescribeNotificationSubscriptions'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The marker for the next set of results. (You received this marker from a</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- previous call.)</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeNotificationSubscriptions%27"><span class="annot"><span class="annottext">DescribeNotificationSubscriptions -&gt; Maybe Text
 </span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Amarker%3ADescribeNotificationSubscriptions%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeNotificationSubscriptions%27"><span class="annot"><span class="annottext">DescribeNotificationSubscriptions -&gt; Maybe Natural
+</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Alimit%3ADescribeNotificationSubscriptions%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The ID of the organization.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AorganizationId%3ADescribeNotificationSubscriptions%27"><span class="annot"><span class="annottext">DescribeNotificationSubscriptions -&gt; Text
 </span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3AorganizationId%3ADescribeNotificationSubscriptions%27"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270236"><span id="local-6989586621679270238"><span class="annot"><span class="annottext">DescribeNotificationSubscriptions
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270379"><span id="local-6989586621679270381"><span class="annot"><span class="annottext">DescribeNotificationSubscriptions
 -&gt; DescribeNotificationSubscriptions -&gt; Bool
 (DescribeNotificationSubscriptions
  -&gt; DescribeNotificationSubscriptions -&gt; Bool)
@@ -80,7 +80,7 @@ $c/= :: DescribeNotificationSubscriptions
 -&gt; DescribeNotificationSubscriptions -&gt; Bool
 $c== :: DescribeNotificationSubscriptions
 -&gt; DescribeNotificationSubscriptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270227"><span id="local-6989586621679270229"><span id="local-6989586621679270231"><span id="local-6989586621679270233"><span class="annot"><span class="annottext">ReadPrec [DescribeNotificationSubscriptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270370"><span id="local-6989586621679270372"><span id="local-6989586621679270374"><span id="local-6989586621679270376"><span class="annot"><span class="annottext">ReadPrec [DescribeNotificationSubscriptions]
 ReadPrec DescribeNotificationSubscriptions
 Int -&gt; ReadS DescribeNotificationSubscriptions
 ReadS [DescribeNotificationSubscriptions]
@@ -100,7 +100,7 @@ readList :: ReadS [DescribeNotificationSubscriptions]
 $creadList :: ReadS [DescribeNotificationSubscriptions]
 readsPrec :: Int -&gt; ReadS DescribeNotificationSubscriptions
 $creadsPrec :: Int -&gt; ReadS DescribeNotificationSubscriptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270220"><span id="local-6989586621679270222"><span id="local-6989586621679270224"><span class="annot"><span class="annottext">Int -&gt; DescribeNotificationSubscriptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270363"><span id="local-6989586621679270365"><span id="local-6989586621679270367"><span class="annot"><span class="annottext">Int -&gt; DescribeNotificationSubscriptions -&gt; ShowS
 [DescribeNotificationSubscriptions] -&gt; ShowS
 DescribeNotificationSubscriptions -&gt; String
 (Int -&gt; DescribeNotificationSubscriptions -&gt; ShowS)
@@ -146,10 +146,10 @@ DescribeNotificationSubscriptions
 </span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'limit', 'describeNotificationSubscriptions_limit' - The maximum number of items to return with this call.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'marker', 'describeNotificationSubscriptions_marker' - The marker for the next set of results. (You received this marker from a</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- previous call.)</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'marker', 'describeNotificationSubscriptions_marker' - The marker for the next set of results. (You received this marker from a</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- previous call.)</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'limit', 'describeNotificationSubscriptions_limit' - The maximum number of items to return with this call.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- 'organizationId', 'describeNotificationSubscriptions_organizationId' - The ID of the organization.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#newDescribeNotificationSubscriptions"><span class="hs-identifier hs-type">newDescribeNotificationSubscriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -157,54 +157,29 @@ DescribeNotificationSubscriptions
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span><span>
 </span><span id="line-84"></span><span id="newDescribeNotificationSubscriptions"><span class="annot"><span class="annottext">newDescribeNotificationSubscriptions :: Text -&gt; DescribeNotificationSubscriptions
-</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#newDescribeNotificationSubscriptions"><span class="hs-identifier hs-var hs-var">newDescribeNotificationSubscriptions</span></a></span></span><span> </span><span id="local-6989586621679270215"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270215"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptions' :: Maybe Natural
--&gt; Maybe Text -&gt; Text -&gt; DescribeNotificationSubscriptions
+</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#newDescribeNotificationSubscriptions"><span class="hs-identifier hs-var hs-var">newDescribeNotificationSubscriptions</span></a></span></span><span> </span><span id="local-6989586621679270358"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270358"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptions' :: Maybe Text
+-&gt; Maybe Natural -&gt; Text -&gt; DescribeNotificationSubscriptions
 </span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions'</span></a></span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:limit:DescribeNotificationSubscriptions' :: Maybe Natural
-</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Alimit%3ADescribeNotificationSubscriptions%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:DescribeNotificationSubscriptions' :: Maybe Text
+</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Amarker%3ADescribeNotificationSubscriptions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeNotificationSubscriptions' :: Maybe Text
-</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Amarker%3ADescribeNotificationSubscriptions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:DescribeNotificationSubscriptions' :: Maybe Natural
+</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Alimit%3ADescribeNotificationSubscriptions%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationId:DescribeNotificationSubscriptions' :: Text
 </span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3AorganizationId%3ADescribeNotificationSubscriptions%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270215"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span>
+</span><a href="#local-6989586621679270358"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptions_limit"><span class="hs-identifier hs-type">describeNotificationSubscriptions_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="describeNotificationSubscriptions_limit"><span class="annot"><span class="annottext">describeNotificationSubscriptions_limit :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; DescribeNotificationSubscriptions
--&gt; f DescribeNotificationSubscriptions
-</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptions_limit"><span class="hs-identifier hs-var hs-var">describeNotificationSubscriptions_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeNotificationSubscriptions -&gt; Maybe Natural)
--&gt; (DescribeNotificationSubscriptions
-    -&gt; Maybe Natural -&gt; DescribeNotificationSubscriptions)
--&gt; Lens
-     DescribeNotificationSubscriptions
-     DescribeNotificationSubscriptions
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270213"><span class="annot"><span class="annottext">Maybe Natural
-limit :: Maybe Natural
-$sel:limit:DescribeNotificationSubscriptions' :: DescribeNotificationSubscriptions -&gt; Maybe Natural
-</span><a href="#local-6989586621679270213"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270213"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270212"><span class="annot"><span class="annottext">s :: DescribeNotificationSubscriptions
-</span><a href="#local-6989586621679270212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270211"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptions
-</span><a href="#local-6989586621679270212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeNotificationSubscriptions' :: Maybe Natural
-</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Alimit%3ADescribeNotificationSubscriptions%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The marker for the next set of results. (You received this marker from a</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- previous call.)</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptions_marker"><span class="hs-identifier hs-type">describeNotificationSubscriptions_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="describeNotificationSubscriptions_marker"><span class="annot"><span class="annottext">describeNotificationSubscriptions_marker :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-92"></span><span class="hs-comment">-- | The marker for the next set of results. (You received this marker from a</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- previous call.)</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptions_marker"><span class="hs-identifier hs-type">describeNotificationSubscriptions_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="describeNotificationSubscriptions_marker"><span class="annot"><span class="annottext">describeNotificationSubscriptions_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeNotificationSubscriptions
 -&gt; f DescribeNotificationSubscriptions
 </span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptions_marker"><span class="hs-identifier hs-var hs-var">describeNotificationSubscriptions_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeNotificationSubscriptions -&gt; Maybe Text)
@@ -216,16 +191,41 @@ $sel:limit:DescribeNotificationSubscriptions' :: DescribeNotificationSubscriptio
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270210"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270356"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeNotificationSubscriptions' :: DescribeNotificationSubscriptions -&gt; Maybe Text
-</span><a href="#local-6989586621679270210"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270210"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270209"><span class="annot"><span class="annottext">s :: DescribeNotificationSubscriptions
-</span><a href="#local-6989586621679270209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270208"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptions
-</span><a href="#local-6989586621679270209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeNotificationSubscriptions' :: Maybe Text
+</span><a href="#local-6989586621679270356"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270356"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270355"><span class="annot"><span class="annottext">s :: DescribeNotificationSubscriptions
+</span><a href="#local-6989586621679270355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270354"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptions
+</span><a href="#local-6989586621679270355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeNotificationSubscriptions' :: Maybe Text
 </span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Amarker%3ADescribeNotificationSubscriptions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptions_limit"><span class="hs-identifier hs-type">describeNotificationSubscriptions_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="describeNotificationSubscriptions_limit"><span class="annot"><span class="annottext">describeNotificationSubscriptions_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeNotificationSubscriptions
+-&gt; f DescribeNotificationSubscriptions
+</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptions_limit"><span class="hs-identifier hs-var hs-var">describeNotificationSubscriptions_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeNotificationSubscriptions -&gt; Maybe Natural)
+-&gt; (DescribeNotificationSubscriptions
+    -&gt; Maybe Natural -&gt; DescribeNotificationSubscriptions)
+-&gt; Lens
+     DescribeNotificationSubscriptions
+     DescribeNotificationSubscriptions
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270353"><span class="annot"><span class="annottext">Maybe Natural
+limit :: Maybe Natural
+$sel:limit:DescribeNotificationSubscriptions' :: DescribeNotificationSubscriptions -&gt; Maybe Natural
+</span><a href="#local-6989586621679270353"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270353"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270352"><span class="annot"><span class="annottext">s :: DescribeNotificationSubscriptions
+</span><a href="#local-6989586621679270352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270351"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptions
+</span><a href="#local-6989586621679270352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeNotificationSubscriptions' :: Maybe Natural
+</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Alimit%3ADescribeNotificationSubscriptions%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The ID of the organization.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptions_organizationId"><span class="hs-identifier hs-type">describeNotificationSubscriptions_organizationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -241,33 +241,33 @@ $sel:marker:DescribeNotificationSubscriptions' :: DescribeNotificationSubscripti
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270207"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270350"><span class="annot"><span class="annottext">Text
 organizationId :: Text
 $sel:organizationId:DescribeNotificationSubscriptions' :: DescribeNotificationSubscriptions -&gt; Text
-</span><a href="#local-6989586621679270207"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270207"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270206"><span class="annot"><span class="annottext">s :: DescribeNotificationSubscriptions
-</span><a href="#local-6989586621679270206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270205"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptions
-</span><a href="#local-6989586621679270206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:DescribeNotificationSubscriptions' :: Text
+</span><a href="#local-6989586621679270350"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270350"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270349"><span class="annot"><span class="annottext">s :: DescribeNotificationSubscriptions
+</span><a href="#local-6989586621679270349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270348"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptions
+</span><a href="#local-6989586621679270349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:DescribeNotificationSubscriptions' :: Text
 </span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3AorganizationId%3ADescribeNotificationSubscriptions%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679270201"><span class="annot"><span class="annottext">page :: DescribeNotificationSubscriptions
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679270344"><span class="annot"><span class="annottext">page :: DescribeNotificationSubscriptions
 -&gt; AWSResponse DescribeNotificationSubscriptions
 -&gt; Maybe DescribeNotificationSubscriptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679270199"><span class="annot"><span class="annottext">DescribeNotificationSubscriptions
-</span><a href="#local-6989586621679270199"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679270198"><span class="annot"><span class="annottext">AWSResponse DescribeNotificationSubscriptions
-</span><a href="#local-6989586621679270198"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679270342"><span class="annot"><span class="annottext">DescribeNotificationSubscriptions
+</span><a href="#local-6989586621679270342"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679270341"><span class="annot"><span class="annottext">AWSResponse DescribeNotificationSubscriptions
+</span><a href="#local-6989586621679270341"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-111"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeNotificationSubscriptions
 DescribeNotificationSubscriptionsResponse
-</span><a href="#local-6989586621679270198"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679270341"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse
 -&gt; Getting
      (First Text) DescribeNotificationSubscriptionsResponse Text
@@ -299,7 +299,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-117"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeNotificationSubscriptions
 DescribeNotificationSubscriptionsResponse
-</span><a href="#local-6989586621679270198"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679270341"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse
 -&gt; Getting
      (First [Subscription])
@@ -349,7 +349,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptions
-</span><a href="#local-6989586621679270199"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679270342"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptions
 -&gt; (DescribeNotificationSubscriptions
     -&gt; DescribeNotificationSubscriptions)
@@ -373,7 +373,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeNotificationSubscriptions
 DescribeNotificationSubscriptionsResponse
-</span><a href="#local-6989586621679270198"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679270341"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse
 -&gt; Getting
      (First Text) DescribeNotificationSubscriptionsResponse Text
@@ -404,7 +404,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679270188"><span class="annot"><span class="annottext">request :: DescribeNotificationSubscriptions
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679270331"><span class="annot"><span class="annottext">request :: DescribeNotificationSubscriptions
 -&gt; Request DescribeNotificationSubscriptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeNotificationSubscriptions
@@ -412,7 +412,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkDocs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679270184"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679270327"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeNotificationSubscriptions
 -&gt; ClientResponse ClientBody
@@ -440,22 +440,39 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270181"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270181"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679270180"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679270180"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679270179"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270179"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Subscription]
--&gt; Maybe Text -&gt; Int -&gt; DescribeNotificationSubscriptionsResponse
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270324"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270324"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679270323"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679270323"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679270322"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270322"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [Subscription]
+-&gt; Int
+-&gt; DescribeNotificationSubscriptionsResponse
 </span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-var">DescribeNotificationSubscriptionsResponse'</span></a></span><span>
-</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Subscription]
- -&gt; Maybe Text -&gt; Int -&gt; DescribeNotificationSubscriptionsResponse)
--&gt; Either String (Maybe [Subscription])
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Subscription]
+ -&gt; Int
+ -&gt; DescribeNotificationSubscriptionsResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text -&gt; Int -&gt; DescribeNotificationSubscriptionsResponse)
+     (Maybe [Subscription]
+      -&gt; Int -&gt; DescribeNotificationSubscriptionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Subscription]))
+</span><a href="#local-6989586621679270322"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Subscription]
+   -&gt; Int -&gt; DescribeNotificationSubscriptionsResponse)
+-&gt; Either String (Maybe [Subscription])
+-&gt; Either String (Int -&gt; DescribeNotificationSubscriptionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270322"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Subscription]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Subscriptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Subscription]))
@@ -464,17 +481,6 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Subscription]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text -&gt; Int -&gt; DescribeNotificationSubscriptionsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; DescribeNotificationSubscriptionsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeNotificationSubscriptionsResponse)
 -&gt; Either String Int
 -&gt; Either String DescribeNotificationSubscriptionsResponse
@@ -484,22 +490,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270181"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270324"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679270170"><span id="local-6989586621679270172"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679270313"><span id="local-6989586621679270315"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span></span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679270167"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679270310"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679270163"><span class="annot"><span class="annottext">toHeaders :: DescribeNotificationSubscriptions -&gt; ResponseHeaders
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679270306"><span class="annot"><span class="annottext">toHeaders :: DescribeNotificationSubscriptions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeNotificationSubscriptions -&gt; ResponseHeaders
@@ -523,17 +529,17 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679270157"><span class="annot"><span class="annottext">toPath :: DescribeNotificationSubscriptions -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270153"><span id="local-6989586621679270154"><span id="local-6989586621679270155"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679270300"><span class="annot"><span class="annottext">toPath :: DescribeNotificationSubscriptions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270296"><span id="local-6989586621679270297"><span id="local-6989586621679270298"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 organizationId :: Text
-marker :: Maybe Text
 limit :: Maybe Natural
+marker :: Maybe Text
 $sel:organizationId:DescribeNotificationSubscriptions' :: DescribeNotificationSubscriptions -&gt; Text
-$sel:marker:DescribeNotificationSubscriptions' :: DescribeNotificationSubscriptions -&gt; Maybe Text
 $sel:limit:DescribeNotificationSubscriptions' :: DescribeNotificationSubscriptions -&gt; Maybe Natural
-</span><a href="#local-6989586621679270153"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:marker:DescribeNotificationSubscriptions' :: DescribeNotificationSubscriptions -&gt; Maybe Text
+</span><a href="#local-6989586621679270296"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -542,7 +548,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270153"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270296"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/subscriptions&quot;</span></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">]</span><span>
@@ -551,44 +557,44 @@ forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions</span></a></span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679270149"><span class="annot"><span class="annottext">toQuery :: DescribeNotificationSubscriptions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270145"><span id="local-6989586621679270146"><span id="local-6989586621679270147"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679270292"><span class="annot"><span class="annottext">toQuery :: DescribeNotificationSubscriptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptions%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270288"><span id="local-6989586621679270289"><span id="local-6989586621679270290"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 organizationId :: Text
-marker :: Maybe Text
 limit :: Maybe Natural
+marker :: Maybe Text
 $sel:organizationId:DescribeNotificationSubscriptions' :: DescribeNotificationSubscriptions -&gt; Text
-$sel:marker:DescribeNotificationSubscriptions' :: DescribeNotificationSubscriptions -&gt; Maybe Text
 $sel:limit:DescribeNotificationSubscriptions' :: DescribeNotificationSubscriptions -&gt; Maybe Natural
-</span><a href="#local-6989586621679270145"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:marker:DescribeNotificationSubscriptions' :: DescribeNotificationSubscriptions -&gt; Maybe Text
+</span><a href="#local-6989586621679270288"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270147"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270146"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679270290"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270289"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | /See:/ 'newDescribeNotificationSubscriptionsResponse' smart constructor.</span><span>
-</span><span id="line-189"></span><span id="local-6989586621679270142"><span id="local-6989586621679270143"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNotificationSubscriptionsResponse"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-var">DescribeNotificationSubscriptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNotificationSubscriptionsResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-var">DescribeNotificationSubscriptionsResponse'</span></a></span></span><span>
-</span><span id="line-190"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The subscriptions.</span><span>
-</span><span id="line-191"></span><span>    </span><span id="%24sel%3Asubscriptions%3ADescribeNotificationSubscriptionsResponse%27"><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse -&gt; Maybe [Subscription]
-</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Asubscriptions%3ADescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-var hs-var">subscriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | The marker to use when requesting the next set of results. If there are</span><span>
-</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- no additional results, the string is empty.</span><span>
-</span><span id="line-194"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeNotificationSubscriptionsResponse%27"><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse -&gt; Maybe Text
+</span><span id="line-189"></span><span id="local-6989586621679270285"><span id="local-6989586621679270286"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNotificationSubscriptionsResponse"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-var">DescribeNotificationSubscriptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNotificationSubscriptionsResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-var">DescribeNotificationSubscriptionsResponse'</span></a></span></span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The marker to use when requesting the next set of results. If there are</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- no additional results, the string is empty.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeNotificationSubscriptionsResponse%27"><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Amarker%3ADescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The subscriptions.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3Asubscriptions%3ADescribeNotificationSubscriptionsResponse%27"><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse -&gt; Maybe [Subscription]
+</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Asubscriptions%3ADescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-var hs-var">subscriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-196"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeNotificationSubscriptionsResponse%27"><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse -&gt; Int
 </span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3AhttpStatus%3ADescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-197"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270135"><span id="local-6989586621679270137"><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse
+</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270278"><span id="local-6989586621679270280"><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse
 -&gt; DescribeNotificationSubscriptionsResponse -&gt; Bool
 (DescribeNotificationSubscriptionsResponse
  -&gt; DescribeNotificationSubscriptionsResponse -&gt; Bool)
@@ -604,7 +610,7 @@ $c/= :: DescribeNotificationSubscriptionsResponse
 -&gt; DescribeNotificationSubscriptionsResponse -&gt; Bool
 $c== :: DescribeNotificationSubscriptionsResponse
 -&gt; DescribeNotificationSubscriptionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270127"><span id="local-6989586621679270129"><span id="local-6989586621679270131"><span id="local-6989586621679270133"><span class="annot"><span class="annottext">ReadPrec [DescribeNotificationSubscriptionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270270"><span id="local-6989586621679270272"><span id="local-6989586621679270274"><span id="local-6989586621679270276"><span class="annot"><span class="annottext">ReadPrec [DescribeNotificationSubscriptionsResponse]
 ReadPrec DescribeNotificationSubscriptionsResponse
 Int -&gt; ReadS DescribeNotificationSubscriptionsResponse
 ReadS [DescribeNotificationSubscriptionsResponse]
@@ -624,7 +630,7 @@ readList :: ReadS [DescribeNotificationSubscriptionsResponse]
 $creadList :: ReadS [DescribeNotificationSubscriptionsResponse]
 readsPrec :: Int -&gt; ReadS DescribeNotificationSubscriptionsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeNotificationSubscriptionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270121"><span id="local-6989586621679270123"><span id="local-6989586621679270125"><span class="annot"><span class="annottext">Int -&gt; DescribeNotificationSubscriptionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270264"><span id="local-6989586621679270266"><span id="local-6989586621679270268"><span class="annot"><span class="annottext">Int -&gt; DescribeNotificationSubscriptionsResponse -&gt; ShowS
 [DescribeNotificationSubscriptionsResponse] -&gt; ShowS
 DescribeNotificationSubscriptionsResponse -&gt; String
 (Int -&gt; DescribeNotificationSubscriptionsResponse -&gt; ShowS)
@@ -670,10 +676,10 @@ DescribeNotificationSubscriptionsResponse
 </span><span id="line-205"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-207"></span><span class="hs-comment">--</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- 'subscriptions', 'describeNotificationSubscriptionsResponse_subscriptions' - The subscriptions.</span><span>
-</span><span id="line-209"></span><span class="hs-comment">--</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- 'marker', 'describeNotificationSubscriptionsResponse_marker' - The marker to use when requesting the next set of results. If there are</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- no additional results, the string is empty.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'marker', 'describeNotificationSubscriptionsResponse_marker' - The marker to use when requesting the next set of results. If there are</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- no additional results, the string is empty.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'subscriptions', 'describeNotificationSubscriptionsResponse_subscriptions' - The subscriptions.</span><span>
 </span><span id="line-212"></span><span class="hs-comment">--</span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- 'httpStatus', 'describeNotificationSubscriptionsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-214"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#newDescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-type">newDescribeNotificationSubscriptionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -682,28 +688,52 @@ DescribeNotificationSubscriptionsResponse
 </span><span id="line-217"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse</span></a></span><span>
 </span><span id="line-218"></span><span id="newDescribeNotificationSubscriptionsResponse"><span class="annot"><span class="annottext">newDescribeNotificationSubscriptionsResponse :: Int -&gt; DescribeNotificationSubscriptionsResponse
 </span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#newDescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeNotificationSubscriptionsResponse</span></a></span></span><span>
-</span><span id="line-219"></span><span>  </span><span id="local-6989586621679270118"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270118"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse' :: Maybe [Subscription]
--&gt; Maybe Text -&gt; Int -&gt; DescribeNotificationSubscriptionsResponse
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679270261"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270261"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse' :: Maybe Text
+-&gt; Maybe [Subscription]
+-&gt; Int
+-&gt; DescribeNotificationSubscriptionsResponse
 </span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse'</span></a></span><span>
-</span><span id="line-221"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subscriptions:DescribeNotificationSubscriptionsResponse' :: Maybe [Subscription]
-</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Asubscriptions%3ADescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-var">subscriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Subscription]
+</span><span id="line-221"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:DescribeNotificationSubscriptionsResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Amarker%3ADescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">$sel:marker:DescribeNotificationSubscriptionsResponse' :: Maybe Text
-</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Amarker%3ADescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">$sel:subscriptions:DescribeNotificationSubscriptionsResponse' :: Maybe [Subscription]
+</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Asubscriptions%3ADescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-var">subscriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Subscription]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNotificationSubscriptionsResponse' :: Int
 </span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3AhttpStatus%3ADescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270118"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679270261"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-225"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- | The subscriptions.</span><span>
-</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptionsResponse_subscriptions"><span class="hs-identifier hs-type">describeNotificationSubscriptionsResponse_subscriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-229"></span><span id="describeNotificationSubscriptionsResponse_subscriptions"><span class="annot"><span class="annottext">describeNotificationSubscriptionsResponse_subscriptions :: (Maybe [Subscription] -&gt; f (Maybe [Subscription]))
+</span><span id="line-227"></span><span class="hs-comment">-- | The marker to use when requesting the next set of results. If there are</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- no additional results, the string is empty.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptionsResponse_marker"><span class="hs-identifier hs-type">describeNotificationSubscriptionsResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="describeNotificationSubscriptionsResponse_marker"><span class="annot"><span class="annottext">describeNotificationSubscriptionsResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeNotificationSubscriptionsResponse
+-&gt; f DescribeNotificationSubscriptionsResponse
+</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptionsResponse_marker"><span class="hs-identifier hs-var hs-var">describeNotificationSubscriptionsResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeNotificationSubscriptionsResponse -&gt; Maybe Text)
+-&gt; (DescribeNotificationSubscriptionsResponse
+    -&gt; Maybe Text -&gt; DescribeNotificationSubscriptionsResponse)
+-&gt; Lens' DescribeNotificationSubscriptionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270260"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeNotificationSubscriptionsResponse' :: DescribeNotificationSubscriptionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679270260"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270260"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270259"><span class="annot"><span class="annottext">s :: DescribeNotificationSubscriptionsResponse
+</span><a href="#local-6989586621679270259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270258"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse
+</span><a href="#local-6989586621679270259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeNotificationSubscriptionsResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Amarker%3ADescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The subscriptions.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptionsResponse_subscriptions"><span class="hs-identifier hs-type">describeNotificationSubscriptionsResponse_subscriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="describeNotificationSubscriptionsResponse_subscriptions"><span class="annot"><span class="annottext">describeNotificationSubscriptionsResponse_subscriptions :: (Maybe [Subscription] -&gt; f (Maybe [Subscription]))
 -&gt; DescribeNotificationSubscriptionsResponse
 -&gt; f DescribeNotificationSubscriptionsResponse
 </span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptionsResponse_subscriptions"><span class="hs-identifier hs-var hs-var">describeNotificationSubscriptionsResponse_subscriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeNotificationSubscriptionsResponse -&gt; Maybe [Subscription])
@@ -713,16 +743,16 @@ forall a. Maybe a
 -&gt; Lens'
      DescribeNotificationSubscriptionsResponse (Maybe [Subscription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270117"><span class="annot"><span class="annottext">Maybe [Subscription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270257"><span class="annot"><span class="annottext">Maybe [Subscription]
 subscriptions :: Maybe [Subscription]
 $sel:subscriptions:DescribeNotificationSubscriptionsResponse' :: DescribeNotificationSubscriptionsResponse -&gt; Maybe [Subscription]
-</span><a href="#local-6989586621679270117"><span class="hs-identifier hs-var hs-var">subscriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Subscription]
-</span><a href="#local-6989586621679270117"><span class="hs-identifier hs-var">subscriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270116"><span class="annot"><span class="annottext">s :: DescribeNotificationSubscriptionsResponse
-</span><a href="#local-6989586621679270116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270115"><span class="annot"><span class="annottext">Maybe [Subscription]
-</span><a href="#local-6989586621679270115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse
-</span><a href="#local-6989586621679270116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptions:DescribeNotificationSubscriptionsResponse' :: Maybe [Subscription]
+</span><a href="#local-6989586621679270257"><span class="hs-identifier hs-var hs-var">subscriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Subscription]
+</span><a href="#local-6989586621679270257"><span class="hs-identifier hs-var">subscriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270256"><span class="annot"><span class="annottext">s :: DescribeNotificationSubscriptionsResponse
+</span><a href="#local-6989586621679270256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270255"><span class="annot"><span class="annottext">Maybe [Subscription]
+</span><a href="#local-6989586621679270255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse
+</span><a href="#local-6989586621679270256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptions:DescribeNotificationSubscriptionsResponse' :: Maybe [Subscription]
 </span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Asubscriptions%3ADescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-var">subscriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Subscription]
-</span><a href="#local-6989586621679270115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Subscription] -&gt; f (Maybe [Subscription]))
+</span><a href="#local-6989586621679270255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Subscription] -&gt; f (Maybe [Subscription]))
  -&gt; DescribeNotificationSubscriptionsResponse
  -&gt; f DescribeNotificationSubscriptionsResponse)
 -&gt; ((Maybe [Subscription] -&gt; f (Maybe [Subscription]))
@@ -741,30 +771,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Subscription] [Subscription] [Subscription] [Subscription]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- | The marker to use when requesting the next set of results. If there are</span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- no additional results, the string is empty.</span><span>
-</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptionsResponse_marker"><span class="hs-identifier hs-type">describeNotificationSubscriptionsResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-234"></span><span id="describeNotificationSubscriptionsResponse_marker"><span class="annot"><span class="annottext">describeNotificationSubscriptionsResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeNotificationSubscriptionsResponse
--&gt; f DescribeNotificationSubscriptionsResponse
-</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptionsResponse_marker"><span class="hs-identifier hs-var hs-var">describeNotificationSubscriptionsResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeNotificationSubscriptionsResponse -&gt; Maybe Text)
--&gt; (DescribeNotificationSubscriptionsResponse
-    -&gt; Maybe Text -&gt; DescribeNotificationSubscriptionsResponse)
--&gt; Lens' DescribeNotificationSubscriptionsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270112"><span class="annot"><span class="annottext">Maybe Text
-marker :: Maybe Text
-$sel:marker:DescribeNotificationSubscriptionsResponse' :: DescribeNotificationSubscriptionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679270112"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270112"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270111"><span class="annot"><span class="annottext">s :: DescribeNotificationSubscriptionsResponse
-</span><a href="#local-6989586621679270111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270110"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse
-</span><a href="#local-6989586621679270111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeNotificationSubscriptionsResponse' :: Maybe Text
-</span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3Amarker%3ADescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-237"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#describeNotificationSubscriptionsResponse_httpStatus"><span class="hs-identifier hs-type">describeNotificationSubscriptionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -780,18 +788,18 @@ $sel:marker:DescribeNotificationSubscriptionsResponse' :: DescribeNotificationSu
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270109"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270252"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeNotificationSubscriptionsResponse' :: DescribeNotificationSubscriptionsResponse -&gt; Int
-</span><a href="#local-6989586621679270109"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270109"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270108"><span class="annot"><span class="annottext">s :: DescribeNotificationSubscriptionsResponse
-</span><a href="#local-6989586621679270108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270107"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse
-</span><a href="#local-6989586621679270108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNotificationSubscriptionsResponse' :: Int
+</span><a href="#local-6989586621679270252"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270252"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270251"><span class="annot"><span class="annottext">s :: DescribeNotificationSubscriptionsResponse
+</span><a href="#local-6989586621679270251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270250"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationSubscriptionsResponse
+</span><a href="#local-6989586621679270251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNotificationSubscriptionsResponse' :: Int
 </span><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#%24sel%3AhttpStatus%3ADescribeNotificationSubscriptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-241"></span><span>  </span><span id="local-6989586621679270105"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679270248"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-242"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeNotificationSubscriptions.html#DescribeNotificationSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeNotificationSubscriptionsResponse</span></a></span></span><span>
 </span><span id="line-243"></span></pre></body></html>

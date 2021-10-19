@@ -26,15 +26,15 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains information about each entry in the key list.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newKeyListEntry' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679248216"><span id="local-6989586621679248217"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyListEntry"><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry"><span class="hs-identifier hs-var">KeyListEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyListEntry%27"><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry%27"><span class="hs-identifier hs-var">KeyListEntry'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | ARN of the key.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AkeyArn%3AKeyListEntry%27"><span class="annot"><span class="annottext">KeyListEntry -&gt; Maybe Text
-</span><a href="Network.AWS.KMS.Types.KeyListEntry.html#%24sel%3AkeyArn%3AKeyListEntry%27"><span class="hs-identifier hs-var hs-var">keyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Unique identifier of the key.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AkeyId%3AKeyListEntry%27"><span class="annot"><span class="annottext">KeyListEntry -&gt; Maybe Text
-</span><a href="Network.AWS.KMS.Types.KeyListEntry.html#%24sel%3AkeyId%3AKeyListEntry%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679248416"><span id="local-6989586621679248417"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyListEntry"><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry"><span class="hs-identifier hs-var">KeyListEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyListEntry%27"><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry%27"><span class="hs-identifier hs-var">KeyListEntry'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique identifier of the key.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AkeyId%3AKeyListEntry%27"><span class="annot"><span class="annottext">KeyListEntry -&gt; Maybe Text
+</span><a href="Network.AWS.KMS.Types.KeyListEntry.html#%24sel%3AkeyId%3AKeyListEntry%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | ARN of the key.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AkeyArn%3AKeyListEntry%27"><span class="annot"><span class="annottext">KeyListEntry -&gt; Maybe Text
+</span><a href="Network.AWS.KMS.Types.KeyListEntry.html#%24sel%3AkeyArn%3AKeyListEntry%27"><span class="hs-identifier hs-var hs-var">keyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248209"><span id="local-6989586621679248211"><span class="annot"><span class="annottext">KeyListEntry -&gt; KeyListEntry -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248409"><span id="local-6989586621679248411"><span class="annot"><span class="annottext">KeyListEntry -&gt; KeyListEntry -&gt; Bool
 (KeyListEntry -&gt; KeyListEntry -&gt; Bool)
 -&gt; (KeyListEntry -&gt; KeyListEntry -&gt; Bool) -&gt; Eq KeyListEntry
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KeyListEntry -&gt; KeyListEntry -&gt; Bool
 == :: KeyListEntry -&gt; KeyListEntry -&gt; Bool
 $c== :: KeyListEntry -&gt; KeyListEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248200"><span id="local-6989586621679248202"><span id="local-6989586621679248204"><span id="local-6989586621679248206"><span class="annot"><span class="annottext">ReadPrec [KeyListEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248400"><span id="local-6989586621679248402"><span id="local-6989586621679248404"><span id="local-6989586621679248406"><span class="annot"><span class="annottext">ReadPrec [KeyListEntry]
 ReadPrec KeyListEntry
 Int -&gt; ReadS KeyListEntry
 ReadS [KeyListEntry]
@@ -62,7 +62,7 @@ readList :: ReadS [KeyListEntry]
 $creadList :: ReadS [KeyListEntry]
 readsPrec :: Int -&gt; ReadS KeyListEntry
 $creadsPrec :: Int -&gt; ReadS KeyListEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248193"><span id="local-6989586621679248195"><span id="local-6989586621679248197"><span class="annot"><span class="annottext">Int -&gt; KeyListEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248393"><span id="local-6989586621679248395"><span id="local-6989586621679248397"><span class="annot"><span class="annottext">Int -&gt; KeyListEntry -&gt; ShowS
 [KeyListEntry] -&gt; ShowS
 KeyListEntry -&gt; String
 (Int -&gt; KeyListEntry -&gt; ShowS)
@@ -96,63 +96,63 @@ $cfrom :: forall x. KeyListEntry -&gt; Rep KeyListEntry x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'keyArn', 'keyListEntry_keyArn' - ARN of the key.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'keyId', 'keyListEntry_keyId' - Unique identifier of the key.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'keyId', 'keyListEntry_keyId' - Unique identifier of the key.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'keyArn', 'keyListEntry_keyArn' - ARN of the key.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#newKeyListEntry"><span class="hs-identifier hs-type">newKeyListEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry"><span class="hs-identifier hs-type">KeyListEntry</span></a></span><span>
 </span><span id="line-50"></span><span id="newKeyListEntry"><span class="annot"><span class="annottext">newKeyListEntry :: KeyListEntry
 </span><a href="Network.AWS.KMS.Types.KeyListEntry.html#newKeyListEntry"><span class="hs-identifier hs-var hs-var">newKeyListEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">KeyListEntry' :: Maybe Text -&gt; Maybe Text -&gt; KeyListEntry
 </span><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry%27"><span class="hs-identifier hs-type">KeyListEntry'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyArn:KeyListEntry' :: Maybe Text
-</span><a href="Network.AWS.KMS.Types.KeyListEntry.html#%24sel%3AkeyArn%3AKeyListEntry%27"><span class="hs-identifier hs-var">keyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyId:KeyListEntry' :: Maybe Text
+</span><a href="Network.AWS.KMS.Types.KeyListEntry.html#%24sel%3AkeyId%3AKeyListEntry%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyId:KeyListEntry' :: Maybe Text
-</span><a href="Network.AWS.KMS.Types.KeyListEntry.html#%24sel%3AkeyId%3AKeyListEntry%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyArn:KeyListEntry' :: Maybe Text
+</span><a href="Network.AWS.KMS.Types.KeyListEntry.html#%24sel%3AkeyArn%3AKeyListEntry%27"><span class="hs-identifier hs-var">keyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- | ARN of the key.</span><span>
-</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#keyListEntry_keyArn"><span class="hs-identifier hs-type">keyListEntry_keyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry"><span class="hs-identifier hs-type">KeyListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-58"></span><span id="keyListEntry_keyArn"><span class="annot"><span class="annottext">keyListEntry_keyArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; KeyListEntry -&gt; f KeyListEntry
-</span><a href="Network.AWS.KMS.Types.KeyListEntry.html#keyListEntry_keyArn"><span class="hs-identifier hs-var hs-var">keyListEntry_keyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyListEntry -&gt; Maybe Text)
--&gt; (KeyListEntry -&gt; Maybe Text -&gt; KeyListEntry)
--&gt; Lens KeyListEntry KeyListEntry (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry%27"><span class="hs-identifier hs-type">KeyListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248184"><span class="annot"><span class="annottext">Maybe Text
-keyArn :: Maybe Text
-$sel:keyArn:KeyListEntry' :: KeyListEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679248184"><span class="hs-identifier hs-var hs-var">keyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248184"><span class="hs-identifier hs-var">keyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248183"><span class="annot"><span class="annottext">s :: KeyListEntry
-</span><a href="#local-6989586621679248183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry%27"><span class="hs-identifier hs-type">KeyListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248182"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyListEntry
-</span><a href="#local-6989586621679248183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyArn:KeyListEntry' :: Maybe Text
-</span><a href="Network.AWS.KMS.Types.KeyListEntry.html#%24sel%3AkeyArn%3AKeyListEntry%27"><span class="hs-identifier hs-var">keyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry"><span class="hs-identifier hs-type">KeyListEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | Unique identifier of the key.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#keyListEntry_keyId"><span class="hs-identifier hs-type">keyListEntry_keyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry"><span class="hs-identifier hs-type">KeyListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="keyListEntry_keyId"><span class="annot"><span class="annottext">keyListEntry_keyId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; KeyListEntry -&gt; f KeyListEntry
+</span><span id="line-56"></span><span class="hs-comment">-- | Unique identifier of the key.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#keyListEntry_keyId"><span class="hs-identifier hs-type">keyListEntry_keyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry"><span class="hs-identifier hs-type">KeyListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="keyListEntry_keyId"><span class="annot"><span class="annottext">keyListEntry_keyId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; KeyListEntry -&gt; f KeyListEntry
 </span><a href="Network.AWS.KMS.Types.KeyListEntry.html#keyListEntry_keyId"><span class="hs-identifier hs-var hs-var">keyListEntry_keyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyListEntry -&gt; Maybe Text)
 -&gt; (KeyListEntry -&gt; Maybe Text -&gt; KeyListEntry)
 -&gt; Lens KeyListEntry KeyListEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry%27"><span class="hs-identifier hs-type">KeyListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248180"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry%27"><span class="hs-identifier hs-type">KeyListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248384"><span class="annot"><span class="annottext">Maybe Text
 keyId :: Maybe Text
 $sel:keyId:KeyListEntry' :: KeyListEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679248180"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248180"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248179"><span class="annot"><span class="annottext">s :: KeyListEntry
-</span><a href="#local-6989586621679248179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry%27"><span class="hs-identifier hs-type">KeyListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248178"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyListEntry
-</span><a href="#local-6989586621679248179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:KeyListEntry' :: Maybe Text
+</span><a href="#local-6989586621679248384"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248384"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248383"><span class="annot"><span class="annottext">s :: KeyListEntry
+</span><a href="#local-6989586621679248383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry%27"><span class="hs-identifier hs-type">KeyListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248382"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyListEntry
+</span><a href="#local-6989586621679248383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:KeyListEntry' :: Maybe Text
 </span><a href="Network.AWS.KMS.Types.KeyListEntry.html#%24sel%3AkeyId%3AKeyListEntry%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry"><span class="hs-identifier hs-type">KeyListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry"><span class="hs-identifier hs-type">KeyListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | ARN of the key.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#keyListEntry_keyArn"><span class="hs-identifier hs-type">keyListEntry_keyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry"><span class="hs-identifier hs-type">KeyListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="keyListEntry_keyArn"><span class="annot"><span class="annottext">keyListEntry_keyArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; KeyListEntry -&gt; f KeyListEntry
+</span><a href="Network.AWS.KMS.Types.KeyListEntry.html#keyListEntry_keyArn"><span class="hs-identifier hs-var hs-var">keyListEntry_keyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyListEntry -&gt; Maybe Text)
+-&gt; (KeyListEntry -&gt; Maybe Text -&gt; KeyListEntry)
+-&gt; Lens KeyListEntry KeyListEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry%27"><span class="hs-identifier hs-type">KeyListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248380"><span class="annot"><span class="annottext">Maybe Text
+keyArn :: Maybe Text
+$sel:keyArn:KeyListEntry' :: KeyListEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679248380"><span class="hs-identifier hs-var hs-var">keyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248380"><span class="hs-identifier hs-var">keyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248379"><span class="annot"><span class="annottext">s :: KeyListEntry
+</span><a href="#local-6989586621679248379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry%27"><span class="hs-identifier hs-type">KeyListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248378"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyListEntry
+</span><a href="#local-6989586621679248379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyArn:KeyListEntry' :: Maybe Text
+</span><a href="Network.AWS.KMS.Types.KeyListEntry.html#%24sel%3AkeyArn%3AKeyListEntry%27"><span class="hs-identifier hs-var">keyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry"><span class="hs-identifier hs-type">KeyListEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248175"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry"><span class="hs-identifier hs-type">KeyListEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679248173"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KeyListEntry
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248375"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry"><span class="hs-identifier hs-type">KeyListEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679248373"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KeyListEntry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KeyListEntry) -&gt; Value -&gt; Parser KeyListEntry
@@ -160,29 +160,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KeyListEntry&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248170"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248170"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248370"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248370"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; KeyListEntry
 </span><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry%27"><span class="hs-identifier hs-var">KeyListEntry'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; KeyListEntry)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; KeyListEntry)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679248370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;KeyArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;KeyId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; KeyListEntry)
 -&gt; Parser (Maybe Text) -&gt; Parser KeyListEntry
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679248370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;KeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;KeyArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248164"><span id="local-6989586621679248166"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry"><span class="hs-identifier hs-type">KeyListEntry</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248364"><span id="local-6989586621679248366"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry"><span class="hs-identifier hs-type">KeyListEntry</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248161"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry"><span class="hs-identifier hs-type">KeyListEntry</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248361"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyListEntry.html#KeyListEntry"><span class="hs-identifier hs-type">KeyListEntry</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

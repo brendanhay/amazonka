@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#newListContexts"><span class="hs-identifier">newListContexts</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_contextType"><span class="hs-identifier">listContexts_contextType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_createdAfter"><span class="hs-identifier">listContexts_createdAfter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_nextToken"><span class="hs-identifier">listContexts_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_sortOrder"><span class="hs-identifier">listContexts_sortOrder</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_createdAfter"><span class="hs-identifier">listContexts_createdAfter</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_createdBefore"><span class="hs-identifier">listContexts_createdBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_contextType"><span class="hs-identifier">listContexts_contextType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_sourceUri"><span class="hs-identifier">listContexts_sourceUri</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_maxResults"><span class="hs-identifier">listContexts_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_sourceUri"><span class="hs-identifier">listContexts_sourceUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_createdBefore"><span class="hs-identifier">listContexts_createdBefore</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_sortBy"><span class="hs-identifier">listContexts_sortBy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -43,8 +43,8 @@
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#newListContextsResponse"><span class="hs-identifier">newListContextsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContextsResponse_nextToken"><span class="hs-identifier">listContextsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContextsResponse_contextSummaries"><span class="hs-identifier">listContextsResponse_contextSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContextsResponse_contextSummaries"><span class="hs-identifier">listContextsResponse_contextSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContextsResponse_nextToken"><span class="hs-identifier">listContextsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContextsResponse_httpStatus"><span class="hs-identifier">listContextsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span class="hs-keyword">where</span><span>
@@ -57,37 +57,37 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newListContexts' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621680383903"><span id="local-6989586621680383904"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListContexts"><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-var">ListContexts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListContexts%27"><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-var">ListContexts'</span></a></span></span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A filter that returns only contexts of the specified type.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AcontextType%3AListContexts%27"><span class="annot"><span class="annottext">ListContexts -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcontextType%3AListContexts%27"><span class="hs-identifier hs-var hs-var">contextType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | If the previous call to @ListContexts@ didn\'t return the full set of</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- contexts, the call returns a token for getting the next set of contexts.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3AListContexts%27"><span class="annot"><span class="annottext">ListContexts -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AnextToken%3AListContexts%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The sort order. The default value is @Descending@.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AsortOrder%3AListContexts%27"><span class="annot"><span class="annottext">ListContexts -&gt; Maybe SortOrder
-</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AsortOrder%3AListContexts%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | A filter that returns only contexts created on or after the specified</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- time.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AcreatedAfter%3AListContexts%27"><span class="annot"><span class="annottext">ListContexts -&gt; Maybe POSIX
+</span><span id="line-60"></span><span id="local-6989586621680385462"><span id="local-6989586621680385463"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListContexts"><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-var">ListContexts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListContexts%27"><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-var">ListContexts'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A filter that returns only contexts created on or after the specified</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AcreatedAfter%3AListContexts%27"><span class="annot"><span class="annottext">ListContexts -&gt; Maybe POSIX
 </span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcreatedAfter%3AListContexts%27"><span class="hs-identifier hs-var hs-var">createdAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | A filter that returns only contexts created on or before the specified</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- time.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AcreatedBefore%3AListContexts%27"><span class="annot"><span class="annottext">ListContexts -&gt; Maybe POSIX
-</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcreatedBefore%3AListContexts%27"><span class="hs-identifier hs-var hs-var">createdBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The maximum number of contexts to return in the response. The default</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- value is 10.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3AmaxResults%3AListContexts%27"><span class="annot"><span class="annottext">ListContexts -&gt; Maybe Natural
-</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AmaxResults%3AListContexts%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | A filter that returns only contexts with the specified source URI.</span><span>
-</span><span id="line-78"></span><span>    </span><span id="%24sel%3AsourceUri%3AListContexts%27"><span class="annot"><span class="annottext">ListContexts -&gt; Maybe Text
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | If the previous call to @ListContexts@ didn\'t return the full set of</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- contexts, the call returns a token for getting the next set of contexts.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AnextToken%3AListContexts%27"><span class="annot"><span class="annottext">ListContexts -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AnextToken%3AListContexts%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The sort order. The default value is @Descending@.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AsortOrder%3AListContexts%27"><span class="annot"><span class="annottext">ListContexts -&gt; Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AsortOrder%3AListContexts%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | A filter that returns only contexts of the specified type.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AcontextType%3AListContexts%27"><span class="annot"><span class="annottext">ListContexts -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcontextType%3AListContexts%27"><span class="hs-identifier hs-var hs-var">contextType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | A filter that returns only contexts with the specified source URI.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AsourceUri%3AListContexts%27"><span class="annot"><span class="annottext">ListContexts -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AsourceUri%3AListContexts%27"><span class="hs-identifier hs-var hs-var">sourceUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The maximum number of contexts to return in the response. The default</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- value is 10.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AmaxResults%3AListContexts%27"><span class="annot"><span class="annottext">ListContexts -&gt; Maybe Natural
+</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AmaxResults%3AListContexts%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | A filter that returns only contexts created on or before the specified</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AcreatedBefore%3AListContexts%27"><span class="annot"><span class="annottext">ListContexts -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcreatedBefore%3AListContexts%27"><span class="hs-identifier hs-var hs-var">createdBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The property used to sort results. The default value is @CreationTime@.</span><span>
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AsortBy%3AListContexts%27"><span class="annot"><span class="annottext">ListContexts -&gt; Maybe SortContextsBy
 </span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AsortBy%3AListContexts%27"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortContextsBy.html#SortContextsBy"><span class="hs-identifier hs-type">SortContextsBy</span></a></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680383890"><span id="local-6989586621680383892"><span class="annot"><span class="annottext">ListContexts -&gt; ListContexts -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680385449"><span id="local-6989586621680385451"><span class="annot"><span class="annottext">ListContexts -&gt; ListContexts -&gt; Bool
 (ListContexts -&gt; ListContexts -&gt; Bool)
 -&gt; (ListContexts -&gt; ListContexts -&gt; Bool) -&gt; Eq ListContexts
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -95,7 +95,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListContexts -&gt; ListContexts -&gt; Bool
 == :: ListContexts -&gt; ListContexts -&gt; Bool
 $c== :: ListContexts -&gt; ListContexts -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680383881"><span id="local-6989586621680383883"><span id="local-6989586621680383885"><span id="local-6989586621680383887"><span class="annot"><span class="annottext">ReadPrec [ListContexts]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680385440"><span id="local-6989586621680385442"><span id="local-6989586621680385444"><span id="local-6989586621680385446"><span class="annot"><span class="annottext">ReadPrec [ListContexts]
 ReadPrec ListContexts
 Int -&gt; ReadS ListContexts
 ReadS [ListContexts]
@@ -115,7 +115,7 @@ readList :: ReadS [ListContexts]
 $creadList :: ReadS [ListContexts]
 readsPrec :: Int -&gt; ReadS ListContexts
 $creadsPrec :: Int -&gt; ReadS ListContexts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680383874"><span id="local-6989586621680383876"><span id="local-6989586621680383878"><span class="annot"><span class="annottext">Int -&gt; ListContexts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680385433"><span id="local-6989586621680385435"><span id="local-6989586621680385437"><span class="annot"><span class="annottext">Int -&gt; ListContexts -&gt; ShowS
 [ListContexts] -&gt; ShowS
 ListContexts -&gt; String
 (Int -&gt; ListContexts -&gt; ShowS)
@@ -149,41 +149,41 @@ $cfrom :: forall x. ListContexts -&gt; Rep ListContexts x
 </span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'contextType', 'listContexts_contextType' - A filter that returns only contexts of the specified type.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'nextToken', 'listContexts_nextToken' - If the previous call to @ListContexts@ didn\'t return the full set of</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- contexts, the call returns a token for getting the next set of contexts.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'sortOrder', 'listContexts_sortOrder' - The sort order. The default value is @Descending@.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'createdAfter', 'listContexts_createdAfter' - A filter that returns only contexts created on or after the specified</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'createdAfter', 'listContexts_createdAfter' - A filter that returns only contexts created on or after the specified</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'nextToken', 'listContexts_nextToken' - If the previous call to @ListContexts@ didn\'t return the full set of</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- contexts, the call returns a token for getting the next set of contexts.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'sortOrder', 'listContexts_sortOrder' - The sort order. The default value is @Descending@.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'contextType', 'listContexts_contextType' - A filter that returns only contexts of the specified type.</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'createdBefore', 'listContexts_createdBefore' - A filter that returns only contexts created on or before the specified</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- time.</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'maxResults', 'listContexts_maxResults' - The maximum number of contexts to return in the response. The default</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- value is 10.</span><span>
-</span><span id="line-107"></span><span class="hs-comment">--</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- 'sourceUri', 'listContexts_sourceUri' - A filter that returns only contexts with the specified source URI.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'sourceUri', 'listContexts_sourceUri' - A filter that returns only contexts with the specified source URI.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'maxResults', 'listContexts_maxResults' - The maximum number of contexts to return in the response. The default</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- value is 10.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'createdBefore', 'listContexts_createdBefore' - A filter that returns only contexts created on or before the specified</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- time.</span><span>
 </span><span id="line-109"></span><span class="hs-comment">--</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- 'sortBy', 'listContexts_sortBy' - The property used to sort results. The default value is @CreationTime@.</span><span>
 </span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#newListContexts"><span class="hs-identifier hs-type">newListContexts</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span>
 </span><span id="line-113"></span><span id="newListContexts"><span class="annot"><span class="annottext">newListContexts :: ListContexts
 </span><a href="Network.AWS.SageMaker.ListContexts.html#newListContexts"><span class="hs-identifier hs-var hs-var">newListContexts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">ListContexts' :: Maybe Text
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">ListContexts' :: Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe SortOrder
--&gt; Maybe POSIX
--&gt; Maybe POSIX
--&gt; Maybe Natural
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe POSIX
 -&gt; Maybe SortContextsBy
 -&gt; ListContexts
 </span><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:contextType:ListContexts' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcontextType%3AListContexts%27"><span class="hs-identifier hs-var">contextType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdAfter:ListContexts' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcreatedAfter%3AListContexts%27"><span class="hs-identifier hs-var">createdAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListContexts' :: Maybe Text
@@ -194,20 +194,20 @@ forall a. Maybe a
 </span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AsortOrder%3AListContexts%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAfter:ListContexts' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcreatedAfter%3AListContexts%27"><span class="hs-identifier hs-var">createdAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:contextType:ListContexts' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcontextType%3AListContexts%27"><span class="hs-identifier hs-var">contextType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBefore:ListContexts' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcreatedBefore%3AListContexts%27"><span class="hs-identifier hs-var">createdBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceUri:ListContexts' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AsourceUri%3AListContexts%27"><span class="hs-identifier hs-var">sourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListContexts' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AmaxResults%3AListContexts%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceUri:ListContexts' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AsourceUri%3AListContexts%27"><span class="hs-identifier hs-var">sourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBefore:ListContexts' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcreatedBefore%3AListContexts%27"><span class="hs-identifier hs-var">createdBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortBy:ListContexts' :: Maybe SortContextsBy
@@ -216,170 +216,170 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-123"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | A filter that returns only contexts of the specified type.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_contextType"><span class="hs-identifier hs-type">listContexts_contextType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="listContexts_contextType"><span class="annot"><span class="annottext">listContexts_contextType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListContexts -&gt; f ListContexts
-</span><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_contextType"><span class="hs-identifier hs-var hs-var">listContexts_contextType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContexts -&gt; Maybe Text)
--&gt; (ListContexts -&gt; Maybe Text -&gt; ListContexts)
--&gt; Lens ListContexts ListContexts (Maybe Text) (Maybe Text)
+</span><span id="line-125"></span><span class="hs-comment">-- | A filter that returns only contexts created on or after the specified</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_createdAfter"><span class="hs-identifier hs-type">listContexts_createdAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="listContexts_createdAfter"><span class="annot"><span class="annottext">listContexts_createdAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListContexts -&gt; f ListContexts
+</span><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_createdAfter"><span class="hs-identifier hs-var hs-var">listContexts_createdAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContexts -&gt; Maybe POSIX)
+-&gt; (ListContexts -&gt; Maybe POSIX -&gt; ListContexts)
+-&gt; Lens ListContexts ListContexts (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383868"><span class="annot"><span class="annottext">Maybe Text
-contextType :: Maybe Text
-$sel:contextType:ListContexts' :: ListContexts -&gt; Maybe Text
-</span><a href="#local-6989586621680383868"><span class="hs-identifier hs-var hs-var">contextType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383868"><span class="hs-identifier hs-var">contextType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383867"><span class="annot"><span class="annottext">s :: ListContexts
-</span><a href="#local-6989586621680383867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383866"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContexts
-</span><a href="#local-6989586621680383867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contextType:ListContexts' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcontextType%3AListContexts%27"><span class="hs-identifier hs-var">contextType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | If the previous call to @ListContexts@ didn\'t return the full set of</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- contexts, the call returns a token for getting the next set of contexts.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_nextToken"><span class="hs-identifier hs-type">listContexts_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="listContexts_nextToken"><span class="annot"><span class="annottext">listContexts_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListContexts -&gt; f ListContexts
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680385427"><span class="annot"><span class="annottext">Maybe POSIX
+createdAfter :: Maybe POSIX
+$sel:createdAfter:ListContexts' :: ListContexts -&gt; Maybe POSIX
+</span><a href="#local-6989586621680385427"><span class="hs-identifier hs-var hs-var">createdAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680385427"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680385426"><span class="annot"><span class="annottext">s :: ListContexts
+</span><a href="#local-6989586621680385426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680385425"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680385425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContexts
+</span><a href="#local-6989586621680385426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAfter:ListContexts' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcreatedAfter%3AListContexts%27"><span class="hs-identifier hs-var">createdAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680385425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListContexts -&gt; f ListContexts)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListContexts
+-&gt; f ListContexts
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | If the previous call to @ListContexts@ didn\'t return the full set of</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- contexts, the call returns a token for getting the next set of contexts.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_nextToken"><span class="hs-identifier hs-type">listContexts_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="listContexts_nextToken"><span class="annot"><span class="annottext">listContexts_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListContexts -&gt; f ListContexts
 </span><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_nextToken"><span class="hs-identifier hs-var hs-var">listContexts_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContexts -&gt; Maybe Text)
 -&gt; (ListContexts -&gt; Maybe Text -&gt; ListContexts)
 -&gt; Lens ListContexts ListContexts (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383865"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680385421"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListContexts' :: ListContexts -&gt; Maybe Text
-</span><a href="#local-6989586621680383865"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383865"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383864"><span class="annot"><span class="annottext">s :: ListContexts
-</span><a href="#local-6989586621680383864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383863"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContexts
-</span><a href="#local-6989586621680383864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListContexts' :: Maybe Text
+</span><a href="#local-6989586621680385421"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680385421"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680385420"><span class="annot"><span class="annottext">s :: ListContexts
+</span><a href="#local-6989586621680385420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680385419"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680385419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContexts
+</span><a href="#local-6989586621680385420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListContexts' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AnextToken%3AListContexts%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The sort order. The default value is @Descending@.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_sortOrder"><span class="hs-identifier hs-type">listContexts_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="listContexts_sortOrder"><span class="annot"><span class="annottext">listContexts_sortOrder :: (Maybe SortOrder -&gt; f (Maybe SortOrder))
+</span><a href="#local-6989586621680385419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The sort order. The default value is @Descending@.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_sortOrder"><span class="hs-identifier hs-type">listContexts_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="listContexts_sortOrder"><span class="annot"><span class="annottext">listContexts_sortOrder :: (Maybe SortOrder -&gt; f (Maybe SortOrder))
 -&gt; ListContexts -&gt; f ListContexts
 </span><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_sortOrder"><span class="hs-identifier hs-var hs-var">listContexts_sortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContexts -&gt; Maybe SortOrder)
 -&gt; (ListContexts -&gt; Maybe SortOrder -&gt; ListContexts)
 -&gt; Lens
      ListContexts ListContexts (Maybe SortOrder) (Maybe SortOrder)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383862"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680385418"><span class="annot"><span class="annottext">Maybe SortOrder
 sortOrder :: Maybe SortOrder
 $sel:sortOrder:ListContexts' :: ListContexts -&gt; Maybe SortOrder
-</span><a href="#local-6989586621680383862"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680383862"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383861"><span class="annot"><span class="annottext">s :: ListContexts
-</span><a href="#local-6989586621680383861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383860"><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680383860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContexts
-</span><a href="#local-6989586621680383861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListContexts' :: Maybe SortOrder
+</span><a href="#local-6989586621680385418"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680385418"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680385417"><span class="annot"><span class="annottext">s :: ListContexts
+</span><a href="#local-6989586621680385417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680385416"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680385416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContexts
+</span><a href="#local-6989586621680385417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListContexts' :: Maybe SortOrder
 </span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AsortOrder%3AListContexts%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680383860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | A filter that returns only contexts created on or after the specified</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- time.</span><span>
-</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_createdAfter"><span class="hs-identifier hs-type">listContexts_createdAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span id="listContexts_createdAfter"><span class="annot"><span class="annottext">listContexts_createdAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ListContexts -&gt; f ListContexts
-</span><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_createdAfter"><span class="hs-identifier hs-var hs-var">listContexts_createdAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContexts -&gt; Maybe POSIX)
--&gt; (ListContexts -&gt; Maybe POSIX -&gt; ListContexts)
--&gt; Lens ListContexts ListContexts (Maybe POSIX) (Maybe POSIX)
+</span><a href="#local-6989586621680385416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | A filter that returns only contexts of the specified type.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_contextType"><span class="hs-identifier hs-type">listContexts_contextType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="listContexts_contextType"><span class="annot"><span class="annottext">listContexts_contextType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListContexts -&gt; f ListContexts
+</span><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_contextType"><span class="hs-identifier hs-var hs-var">listContexts_contextType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContexts -&gt; Maybe Text)
+-&gt; (ListContexts -&gt; Maybe Text -&gt; ListContexts)
+-&gt; Lens ListContexts ListContexts (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383859"><span class="annot"><span class="annottext">Maybe POSIX
-createdAfter :: Maybe POSIX
-$sel:createdAfter:ListContexts' :: ListContexts -&gt; Maybe POSIX
-</span><a href="#local-6989586621680383859"><span class="hs-identifier hs-var hs-var">createdAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680383859"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383858"><span class="annot"><span class="annottext">s :: ListContexts
-</span><a href="#local-6989586621680383858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383857"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680383857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContexts
-</span><a href="#local-6989586621680383858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAfter:ListContexts' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcreatedAfter%3AListContexts%27"><span class="hs-identifier hs-var">createdAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680383857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; ListContexts -&gt; f ListContexts)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ListContexts
--&gt; f ListContexts
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680385415"><span class="annot"><span class="annottext">Maybe Text
+contextType :: Maybe Text
+$sel:contextType:ListContexts' :: ListContexts -&gt; Maybe Text
+</span><a href="#local-6989586621680385415"><span class="hs-identifier hs-var hs-var">contextType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680385415"><span class="hs-identifier hs-var">contextType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680385414"><span class="annot"><span class="annottext">s :: ListContexts
+</span><a href="#local-6989586621680385414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680385413"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680385413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContexts
+</span><a href="#local-6989586621680385414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contextType:ListContexts' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcontextType%3AListContexts%27"><span class="hs-identifier hs-var">contextType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680385413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- | A filter that returns only contexts created on or before the specified</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- time.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_createdBefore"><span class="hs-identifier hs-type">listContexts_createdBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="listContexts_createdBefore"><span class="annot"><span class="annottext">listContexts_createdBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ListContexts -&gt; f ListContexts
-</span><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_createdBefore"><span class="hs-identifier hs-var hs-var">listContexts_createdBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContexts -&gt; Maybe POSIX)
--&gt; (ListContexts -&gt; Maybe POSIX -&gt; ListContexts)
--&gt; Lens ListContexts ListContexts (Maybe POSIX) (Maybe POSIX)
+</span><span id="line-143"></span><span class="hs-comment">-- | A filter that returns only contexts with the specified source URI.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_sourceUri"><span class="hs-identifier hs-type">listContexts_sourceUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="listContexts_sourceUri"><span class="annot"><span class="annottext">listContexts_sourceUri :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListContexts -&gt; f ListContexts
+</span><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_sourceUri"><span class="hs-identifier hs-var hs-var">listContexts_sourceUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContexts -&gt; Maybe Text)
+-&gt; (ListContexts -&gt; Maybe Text -&gt; ListContexts)
+-&gt; Lens ListContexts ListContexts (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383853"><span class="annot"><span class="annottext">Maybe POSIX
-createdBefore :: Maybe POSIX
-$sel:createdBefore:ListContexts' :: ListContexts -&gt; Maybe POSIX
-</span><a href="#local-6989586621680383853"><span class="hs-identifier hs-var hs-var">createdBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680383853"><span class="hs-identifier hs-var">createdBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383852"><span class="annot"><span class="annottext">s :: ListContexts
-</span><a href="#local-6989586621680383852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383851"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680383851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContexts
-</span><a href="#local-6989586621680383852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBefore:ListContexts' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcreatedBefore%3AListContexts%27"><span class="hs-identifier hs-var">createdBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680383851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; ListContexts -&gt; f ListContexts)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ListContexts
--&gt; f ListContexts
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | The maximum number of contexts to return in the response. The default</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- value is 10.</span><span>
-</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_maxResults"><span class="hs-identifier hs-type">listContexts_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span id="listContexts_maxResults"><span class="annot"><span class="annottext">listContexts_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680385412"><span class="annot"><span class="annottext">Maybe Text
+sourceUri :: Maybe Text
+$sel:sourceUri:ListContexts' :: ListContexts -&gt; Maybe Text
+</span><a href="#local-6989586621680385412"><span class="hs-identifier hs-var hs-var">sourceUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680385412"><span class="hs-identifier hs-var">sourceUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680385411"><span class="annot"><span class="annottext">s :: ListContexts
+</span><a href="#local-6989586621680385411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680385410"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680385410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContexts
+</span><a href="#local-6989586621680385411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceUri:ListContexts' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AsourceUri%3AListContexts%27"><span class="hs-identifier hs-var">sourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680385410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The maximum number of contexts to return in the response. The default</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- value is 10.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_maxResults"><span class="hs-identifier hs-type">listContexts_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="listContexts_maxResults"><span class="annot"><span class="annottext">listContexts_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; ListContexts -&gt; f ListContexts
 </span><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_maxResults"><span class="hs-identifier hs-var hs-var">listContexts_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContexts -&gt; Maybe Natural)
 -&gt; (ListContexts -&gt; Maybe Natural -&gt; ListContexts)
 -&gt; Lens ListContexts ListContexts (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383850"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680385409"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListContexts' :: ListContexts -&gt; Maybe Natural
-</span><a href="#local-6989586621680383850"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680383850"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383849"><span class="annot"><span class="annottext">s :: ListContexts
-</span><a href="#local-6989586621680383849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383848"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680383848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContexts
-</span><a href="#local-6989586621680383849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListContexts' :: Maybe Natural
+</span><a href="#local-6989586621680385409"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680385409"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680385408"><span class="annot"><span class="annottext">s :: ListContexts
+</span><a href="#local-6989586621680385408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680385407"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680385407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContexts
+</span><a href="#local-6989586621680385408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListContexts' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AmaxResults%3AListContexts%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680383848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- | A filter that returns only contexts with the specified source URI.</span><span>
-</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_sourceUri"><span class="hs-identifier hs-type">listContexts_sourceUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span id="listContexts_sourceUri"><span class="annot"><span class="annottext">listContexts_sourceUri :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListContexts -&gt; f ListContexts
-</span><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_sourceUri"><span class="hs-identifier hs-var hs-var">listContexts_sourceUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContexts -&gt; Maybe Text)
--&gt; (ListContexts -&gt; Maybe Text -&gt; ListContexts)
--&gt; Lens ListContexts ListContexts (Maybe Text) (Maybe Text)
+</span><a href="#local-6989586621680385407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | A filter that returns only contexts created on or before the specified</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_createdBefore"><span class="hs-identifier hs-type">listContexts_createdBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="listContexts_createdBefore"><span class="annot"><span class="annottext">listContexts_createdBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListContexts -&gt; f ListContexts
+</span><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_createdBefore"><span class="hs-identifier hs-var hs-var">listContexts_createdBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContexts -&gt; Maybe POSIX)
+-&gt; (ListContexts -&gt; Maybe POSIX -&gt; ListContexts)
+-&gt; Lens ListContexts ListContexts (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383847"><span class="annot"><span class="annottext">Maybe Text
-sourceUri :: Maybe Text
-$sel:sourceUri:ListContexts' :: ListContexts -&gt; Maybe Text
-</span><a href="#local-6989586621680383847"><span class="hs-identifier hs-var hs-var">sourceUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383847"><span class="hs-identifier hs-var">sourceUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383846"><span class="annot"><span class="annottext">s :: ListContexts
-</span><a href="#local-6989586621680383846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383845"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContexts
-</span><a href="#local-6989586621680383846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceUri:ListContexts' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AsourceUri%3AListContexts%27"><span class="hs-identifier hs-var">sourceUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680385406"><span class="annot"><span class="annottext">Maybe POSIX
+createdBefore :: Maybe POSIX
+$sel:createdBefore:ListContexts' :: ListContexts -&gt; Maybe POSIX
+</span><a href="#local-6989586621680385406"><span class="hs-identifier hs-var hs-var">createdBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680385406"><span class="hs-identifier hs-var">createdBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680385405"><span class="annot"><span class="annottext">s :: ListContexts
+</span><a href="#local-6989586621680385405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680385404"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680385404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContexts
+</span><a href="#local-6989586621680385405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBefore:ListContexts' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcreatedBefore%3AListContexts%27"><span class="hs-identifier hs-var">createdBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680385404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListContexts -&gt; f ListContexts)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListContexts
+-&gt; f ListContexts
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The property used to sort results. The default value is @CreationTime@.</span><span>
 </span><span id="line-158"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContexts_sortBy"><span class="hs-identifier hs-type">listContexts_sortBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortContextsBy.html#SortContextsBy"><span class="hs-identifier hs-type">SortContextsBy</span></a></span><span class="hs-special">)</span><span>
@@ -393,28 +393,28 @@ $sel:sourceUri:ListContexts' :: ListContexts -&gt; Maybe Text
      (Maybe SortContextsBy)
      (Maybe SortContextsBy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383844"><span class="annot"><span class="annottext">Maybe SortContextsBy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680385403"><span class="annot"><span class="annottext">Maybe SortContextsBy
 sortBy :: Maybe SortContextsBy
 $sel:sortBy:ListContexts' :: ListContexts -&gt; Maybe SortContextsBy
-</span><a href="#local-6989586621680383844"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortContextsBy
-</span><a href="#local-6989586621680383844"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383843"><span class="annot"><span class="annottext">s :: ListContexts
-</span><a href="#local-6989586621680383843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383842"><span class="annot"><span class="annottext">Maybe SortContextsBy
-</span><a href="#local-6989586621680383842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContexts
-</span><a href="#local-6989586621680383843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListContexts' :: Maybe SortContextsBy
+</span><a href="#local-6989586621680385403"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortContextsBy
+</span><a href="#local-6989586621680385403"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680385402"><span class="annot"><span class="annottext">s :: ListContexts
+</span><a href="#local-6989586621680385402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680385401"><span class="annot"><span class="annottext">Maybe SortContextsBy
+</span><a href="#local-6989586621680385401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContexts
+</span><a href="#local-6989586621680385402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListContexts' :: Maybe SortContextsBy
 </span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AsortBy%3AListContexts%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortContextsBy
-</span><a href="#local-6989586621680383842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680385401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621680383838"><span class="annot"><span class="annottext">page :: ListContexts -&gt; AWSResponse ListContexts -&gt; Maybe ListContexts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680383836"><span class="annot"><span class="annottext">ListContexts
-</span><a href="#local-6989586621680383836"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680383835"><span class="annot"><span class="annottext">AWSResponse ListContexts
-</span><a href="#local-6989586621680383835"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621680385397"><span class="annot"><span class="annottext">page :: ListContexts -&gt; AWSResponse ListContexts -&gt; Maybe ListContexts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680385395"><span class="annot"><span class="annottext">ListContexts
+</span><a href="#local-6989586621680385395"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680385394"><span class="annot"><span class="annottext">AWSResponse ListContexts
+</span><a href="#local-6989586621680385394"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-164"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListContexts
 ListContextsResponse
-</span><a href="#local-6989586621680383835"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680385394"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">ListContextsResponse
 -&gt; Getting (First Text) ListContextsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -440,7 +440,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-169"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListContexts
 ListContextsResponse
-</span><a href="#local-6989586621680383835"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680385394"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">ListContextsResponse
 -&gt; Getting
      (First [ContextSummary]) ListContextsResponse [ContextSummary]
@@ -482,7 +482,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">ListContexts
-</span><a href="#local-6989586621680383836"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621680385395"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">ListContexts -&gt; (ListContexts -&gt; ListContexts) -&gt; ListContexts
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -495,7 +495,7 @@ Lens ListContexts ListContexts (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListContexts
 ListContextsResponse
-</span><a href="#local-6989586621680383835"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680385394"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">ListContextsResponse
 -&gt; Getting (First Text) ListContextsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -515,12 +515,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-182"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-type">ListContextsResponse</span></a></span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621680383826"><span class="annot"><span class="annottext">request :: ListContexts -&gt; Request ListContexts
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621680385385"><span class="annot"><span class="annottext">request :: ListContexts -&gt; Request ListContexts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListContexts -&gt; Request ListContexts
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621680383822"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621680385381"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListContexts
 -&gt; ClientResponse ClientBody
@@ -544,40 +544,38 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680383819"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680383819"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680383818"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680383818"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680383817"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680383817"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [ContextSummary] -&gt; Int -&gt; ListContextsResponse
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680385378"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680385378"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680385377"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680385377"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680385376"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680385376"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ContextSummary] -&gt; Maybe Text -&gt; Int -&gt; ListContextsResponse
 </span><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse%27"><span class="hs-identifier hs-var">ListContextsResponse'</span></a></span><span>
-</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [ContextSummary] -&gt; Int -&gt; ListContextsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe [ContextSummary] -&gt; Int -&gt; ListContextsResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680383817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe [ContextSummary] -&gt; Int -&gt; ListContextsResponse)
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ContextSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListContextsResponse)
 -&gt; Either String (Maybe [ContextSummary])
--&gt; Either String (Int -&gt; ListContextsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680383817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ContextSummary]))
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListContextsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680385376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ContextSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContextSummaries&quot;</span></span><span>
-</span><span id="line-190"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ContextSummary]))
+</span><span id="line-189"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ContextSummary]))
 -&gt; Maybe [ContextSummary] -&gt; Either String (Maybe [ContextSummary])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ContextSummary]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-191"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListContextsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListContextsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680385376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListContextsResponse)
 -&gt; Either String Int -&gt; Either String ListContextsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -586,15 +584,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680383819"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680385378"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680383808"><span id="local-6989586621680383810"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680385367"><span id="local-6989586621680385369"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span></span></span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680383805"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680385364"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621680383801"><span class="annot"><span class="annottext">toHeaders :: ListContexts -&gt; ResponseHeaders
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621680385360"><span class="annot"><span class="annottext">toHeaders :: ListContexts -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListContexts -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -619,103 +617,103 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-209"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680383791"><span id="local-6989586621680383793"><span id="local-6989586621680383795"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621680383789"><span class="annot"><span class="annottext">toJSON :: ListContexts -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383780"><span id="local-6989586621680383781"><span id="local-6989586621680383782"><span id="local-6989586621680383783"><span id="local-6989586621680383784"><span id="local-6989586621680383785"><span id="local-6989586621680383786"><span id="local-6989586621680383787"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680385350"><span id="local-6989586621680385352"><span id="local-6989586621680385354"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621680385348"><span class="annot"><span class="annottext">toJSON :: ListContexts -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts%27"><span class="hs-identifier hs-type">ListContexts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680385339"><span id="local-6989586621680385340"><span id="local-6989586621680385341"><span id="local-6989586621680385342"><span id="local-6989586621680385343"><span id="local-6989586621680385344"><span id="local-6989586621680385345"><span id="local-6989586621680385346"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe POSIX
 Maybe SortContextsBy
 Maybe SortOrder
 sortBy :: Maybe SortContextsBy
-sourceUri :: Maybe Text
-maxResults :: Maybe Natural
 createdBefore :: Maybe POSIX
-createdAfter :: Maybe POSIX
+maxResults :: Maybe Natural
+sourceUri :: Maybe Text
+contextType :: Maybe Text
 sortOrder :: Maybe SortOrder
 nextToken :: Maybe Text
-contextType :: Maybe Text
+createdAfter :: Maybe POSIX
 $sel:sortBy:ListContexts' :: ListContexts -&gt; Maybe SortContextsBy
-$sel:sourceUri:ListContexts' :: ListContexts -&gt; Maybe Text
-$sel:maxResults:ListContexts' :: ListContexts -&gt; Maybe Natural
 $sel:createdBefore:ListContexts' :: ListContexts -&gt; Maybe POSIX
-$sel:createdAfter:ListContexts' :: ListContexts -&gt; Maybe POSIX
+$sel:maxResults:ListContexts' :: ListContexts -&gt; Maybe Natural
+$sel:sourceUri:ListContexts' :: ListContexts -&gt; Maybe Text
+$sel:contextType:ListContexts' :: ListContexts -&gt; Maybe Text
 $sel:sortOrder:ListContexts' :: ListContexts -&gt; Maybe SortOrder
 $sel:nextToken:ListContexts' :: ListContexts -&gt; Maybe Text
-$sel:contextType:ListContexts' :: ListContexts -&gt; Maybe Text
-</span><a href="#local-6989586621680383780"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:createdAfter:ListContexts' :: ListContexts -&gt; Maybe POSIX
+</span><a href="#local-6989586621680385339"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-216"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ContextType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;CreatedAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383787"><span class="hs-identifier hs-var">contextType</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680385346"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383786"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680385345"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortOrder -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680383785"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680385344"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreatedAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+</span><span class="hs-string">&quot;ContextType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680383784"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680385343"><span class="hs-identifier hs-var">contextType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreatedBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+</span><span class="hs-string">&quot;SourceUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680383783"><span class="hs-identifier hs-var">createdBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680385342"><span class="hs-identifier hs-var">sourceUri</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680383782"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680385341"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourceUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;CreatedBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383781"><span class="hs-identifier hs-var">sourceUri</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680385340"><span class="hs-identifier hs-var">createdBefore</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortContextsBy -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortContextsBy -&gt; Pair) -&gt; Maybe SortContextsBy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortContextsBy
-</span><a href="#local-6989586621680383780"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
+</span><a href="#local-6989586621680385339"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
 </span><span id="line-224"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-225"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621680383774"><span class="annot"><span class="annottext">toPath :: ListContexts -&gt; ByteString
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621680385333"><span class="annot"><span class="annottext">toPath :: ListContexts -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListContexts -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContexts"><span class="hs-identifier hs-type">ListContexts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621680383770"><span class="annot"><span class="annottext">toQuery :: ListContexts -&gt; QueryString
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621680385329"><span class="annot"><span class="annottext">toQuery :: ListContexts -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListContexts -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -723,18 +721,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | /See:/ 'newListContextsResponse' smart constructor.</span><span>
-</span><span id="line-234"></span><span id="local-6989586621680383767"><span id="local-6989586621680383768"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListContextsResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-var">ListContextsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListContextsResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse%27"><span class="hs-identifier hs-var">ListContextsResponse'</span></a></span></span><span>
-</span><span id="line-235"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token for getting the next set of contexts, if there are any.</span><span>
-</span><span id="line-236"></span><span>    </span><span id="%24sel%3AnextToken%3AListContextsResponse%27"><span class="annot"><span class="annottext">ListContextsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AnextToken%3AListContextsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- | A list of contexts and their properties.</span><span>
-</span><span id="line-238"></span><span>    </span><span id="%24sel%3AcontextSummaries%3AListContextsResponse%27"><span class="annot"><span class="annottext">ListContextsResponse -&gt; Maybe [ContextSummary]
+</span><span id="line-234"></span><span id="local-6989586621680385326"><span id="local-6989586621680385327"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListContextsResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-var">ListContextsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListContextsResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse%27"><span class="hs-identifier hs-var">ListContextsResponse'</span></a></span></span><span>
+</span><span id="line-235"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of contexts and their properties.</span><span>
+</span><span id="line-236"></span><span>    </span><span id="%24sel%3AcontextSummaries%3AListContextsResponse%27"><span class="annot"><span class="annottext">ListContextsResponse -&gt; Maybe [ContextSummary]
 </span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcontextSummaries%3AListContextsResponse%27"><span class="hs-identifier hs-var hs-var">contextSummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContextSummary.html#ContextSummary"><span class="hs-identifier hs-type">ContextSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- | A token for getting the next set of contexts, if there are any.</span><span>
+</span><span id="line-238"></span><span>    </span><span id="%24sel%3AnextToken%3AListContextsResponse%27"><span class="annot"><span class="annottext">ListContextsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AnextToken%3AListContextsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-239"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-240"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListContextsResponse%27"><span class="annot"><span class="annottext">ListContextsResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AhttpStatus%3AListContextsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-241"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680383760"><span id="local-6989586621680383762"><span class="annot"><span class="annottext">ListContextsResponse -&gt; ListContextsResponse -&gt; Bool
+</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680385319"><span id="local-6989586621680385321"><span class="annot"><span class="annottext">ListContextsResponse -&gt; ListContextsResponse -&gt; Bool
 (ListContextsResponse -&gt; ListContextsResponse -&gt; Bool)
 -&gt; (ListContextsResponse -&gt; ListContextsResponse -&gt; Bool)
 -&gt; Eq ListContextsResponse
@@ -743,7 +741,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListContextsResponse -&gt; ListContextsResponse -&gt; Bool
 == :: ListContextsResponse -&gt; ListContextsResponse -&gt; Bool
 $c== :: ListContextsResponse -&gt; ListContextsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680383752"><span id="local-6989586621680383754"><span id="local-6989586621680383756"><span id="local-6989586621680383758"><span class="annot"><span class="annottext">ReadPrec [ListContextsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680385311"><span id="local-6989586621680385313"><span id="local-6989586621680385315"><span id="local-6989586621680385317"><span class="annot"><span class="annottext">ReadPrec [ListContextsResponse]
 ReadPrec ListContextsResponse
 Int -&gt; ReadS ListContextsResponse
 ReadS [ListContextsResponse]
@@ -763,7 +761,7 @@ readList :: ReadS [ListContextsResponse]
 $creadList :: ReadS [ListContextsResponse]
 readsPrec :: Int -&gt; ReadS ListContextsResponse
 $creadsPrec :: Int -&gt; ReadS ListContextsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680383746"><span id="local-6989586621680383748"><span id="local-6989586621680383750"><span class="annot"><span class="annottext">Int -&gt; ListContextsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680385305"><span id="local-6989586621680385307"><span id="local-6989586621680385309"><span class="annot"><span class="annottext">Int -&gt; ListContextsResponse -&gt; ShowS
 [ListContextsResponse] -&gt; ShowS
 ListContextsResponse -&gt; String
 (Int -&gt; ListContextsResponse -&gt; ShowS)
@@ -797,9 +795,9 @@ $cfrom :: forall x. ListContextsResponse -&gt; Rep ListContextsResponse x
 </span><span id="line-249"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-251"></span><span class="hs-comment">--</span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- 'nextToken', 'listContextsResponse_nextToken' - A token for getting the next set of contexts, if there are any.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- 'contextSummaries', 'listContextsResponse_contextSummaries' - A list of contexts and their properties.</span><span>
 </span><span id="line-253"></span><span class="hs-comment">--</span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- 'contextSummaries', 'listContextsResponse_contextSummaries' - A list of contexts and their properties.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- 'nextToken', 'listContextsResponse_nextToken' - A token for getting the next set of contexts, if there are any.</span><span>
 </span><span id="line-255"></span><span class="hs-comment">--</span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- 'httpStatus', 'listContextsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-257"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#newListContextsResponse"><span class="hs-identifier hs-type">newListContextsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -807,61 +805,43 @@ $cfrom :: forall x. ListContextsResponse -&gt; Rep ListContextsResponse x
 </span><span id="line-259"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-260"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-type">ListContextsResponse</span></a></span><span>
 </span><span id="line-261"></span><span id="newListContextsResponse"><span class="annot"><span class="annottext">newListContextsResponse :: Int -&gt; ListContextsResponse
-</span><a href="Network.AWS.SageMaker.ListContexts.html#newListContextsResponse"><span class="hs-identifier hs-var hs-var">newListContextsResponse</span></a></span></span><span> </span><span id="local-6989586621680383743"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680383743"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-262"></span><span>  </span><span class="annot"><span class="annottext">ListContextsResponse' :: Maybe Text -&gt; Maybe [ContextSummary] -&gt; Int -&gt; ListContextsResponse
+</span><a href="Network.AWS.SageMaker.ListContexts.html#newListContextsResponse"><span class="hs-identifier hs-var hs-var">newListContextsResponse</span></a></span></span><span> </span><span id="local-6989586621680385302"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680385302"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-262"></span><span>  </span><span class="annot"><span class="annottext">ListContextsResponse' :: Maybe [ContextSummary] -&gt; Maybe Text -&gt; Int -&gt; ListContextsResponse
 </span><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse%27"><span class="hs-identifier hs-type">ListContextsResponse'</span></a></span><span>
-</span><span id="line-263"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListContextsResponse' :: Maybe Text
+</span><span id="line-263"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:contextSummaries:ListContextsResponse' :: Maybe [ContextSummary]
+</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcontextSummaries%3AListContextsResponse%27"><span class="hs-identifier hs-var">contextSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ContextSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListContextsResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AnextToken%3AListContextsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-264"></span><span>      </span><span class="annot"><span class="annottext">$sel:contextSummaries:ListContextsResponse' :: Maybe [ContextSummary]
-</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcontextSummaries%3AListContextsResponse%27"><span class="hs-identifier hs-var">contextSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContextSummary]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-265"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListContextsResponse' :: Int
+</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListContextsResponse' :: Int
 </span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AhttpStatus%3AListContextsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680383743"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-266"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-267"></span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- | A token for getting the next set of contexts, if there are any.</span><span>
-</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContextsResponse_nextToken"><span class="hs-identifier hs-type">listContextsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-type">ListContextsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-270"></span><span id="listContextsResponse_nextToken"><span class="annot"><span class="annottext">listContextsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListContextsResponse -&gt; f ListContextsResponse
-</span><a href="Network.AWS.SageMaker.ListContexts.html#listContextsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listContextsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContextsResponse -&gt; Maybe Text)
--&gt; (ListContextsResponse -&gt; Maybe Text -&gt; ListContextsResponse)
--&gt; Lens' ListContextsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse%27"><span class="hs-identifier hs-type">ListContextsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383742"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListContextsResponse' :: ListContextsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680383742"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383742"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383741"><span class="annot"><span class="annottext">s :: ListContextsResponse
-</span><a href="#local-6989586621680383741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse%27"><span class="hs-identifier hs-type">ListContextsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383740"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContextsResponse
-</span><a href="#local-6989586621680383741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListContextsResponse' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AnextToken%3AListContextsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-type">ListContextsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-271"></span><span>
-</span><span id="line-272"></span><span class="hs-comment">-- | A list of contexts and their properties.</span><span>
-</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContextsResponse_contextSummaries"><span class="hs-identifier hs-type">listContextsResponse_contextSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-type">ListContextsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContextSummary.html#ContextSummary"><span class="hs-identifier hs-type">ContextSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-274"></span><span id="listContextsResponse_contextSummaries"><span class="annot"><span class="annottext">listContextsResponse_contextSummaries :: (Maybe [ContextSummary] -&gt; f (Maybe [ContextSummary]))
+</span><a href="#local-6989586621680385302"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-267"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | A list of contexts and their properties.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContextsResponse_contextSummaries"><span class="hs-identifier hs-type">listContextsResponse_contextSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-type">ListContextsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContextSummary.html#ContextSummary"><span class="hs-identifier hs-type">ContextSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span id="listContextsResponse_contextSummaries"><span class="annot"><span class="annottext">listContextsResponse_contextSummaries :: (Maybe [ContextSummary] -&gt; f (Maybe [ContextSummary]))
 -&gt; ListContextsResponse -&gt; f ListContextsResponse
 </span><a href="Network.AWS.SageMaker.ListContexts.html#listContextsResponse_contextSummaries"><span class="hs-identifier hs-var hs-var">listContextsResponse_contextSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContextsResponse -&gt; Maybe [ContextSummary])
 -&gt; (ListContextsResponse
     -&gt; Maybe [ContextSummary] -&gt; ListContextsResponse)
 -&gt; Lens' ListContextsResponse (Maybe [ContextSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse%27"><span class="hs-identifier hs-type">ListContextsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383739"><span class="annot"><span class="annottext">Maybe [ContextSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse%27"><span class="hs-identifier hs-type">ListContextsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680385301"><span class="annot"><span class="annottext">Maybe [ContextSummary]
 contextSummaries :: Maybe [ContextSummary]
 $sel:contextSummaries:ListContextsResponse' :: ListContextsResponse -&gt; Maybe [ContextSummary]
-</span><a href="#local-6989586621680383739"><span class="hs-identifier hs-var hs-var">contextSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContextSummary]
-</span><a href="#local-6989586621680383739"><span class="hs-identifier hs-var">contextSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383738"><span class="annot"><span class="annottext">s :: ListContextsResponse
-</span><a href="#local-6989586621680383738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse%27"><span class="hs-identifier hs-type">ListContextsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383737"><span class="annot"><span class="annottext">Maybe [ContextSummary]
-</span><a href="#local-6989586621680383737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContextsResponse
-</span><a href="#local-6989586621680383738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contextSummaries:ListContextsResponse' :: Maybe [ContextSummary]
+</span><a href="#local-6989586621680385301"><span class="hs-identifier hs-var hs-var">contextSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContextSummary]
+</span><a href="#local-6989586621680385301"><span class="hs-identifier hs-var">contextSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680385300"><span class="annot"><span class="annottext">s :: ListContextsResponse
+</span><a href="#local-6989586621680385300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse%27"><span class="hs-identifier hs-type">ListContextsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680385299"><span class="annot"><span class="annottext">Maybe [ContextSummary]
+</span><a href="#local-6989586621680385299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContextsResponse
+</span><a href="#local-6989586621680385300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contextSummaries:ListContextsResponse' :: Maybe [ContextSummary]
 </span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AcontextSummaries%3AListContextsResponse%27"><span class="hs-identifier hs-var">contextSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContextSummary]
-</span><a href="#local-6989586621680383737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-type">ListContextsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContextSummary] -&gt; f (Maybe [ContextSummary]))
+</span><a href="#local-6989586621680385299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-type">ListContextsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContextSummary] -&gt; f (Maybe [ContextSummary]))
  -&gt; ListContextsResponse -&gt; f ListContextsResponse)
 -&gt; ((Maybe [ContextSummary] -&gt; f (Maybe [ContextSummary]))
     -&gt; Maybe [ContextSummary] -&gt; f (Maybe [ContextSummary]))
@@ -881,26 +861,45 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [ContextSummary] [ContextSummary] [ContextSummary] [ContextSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-275"></span><span>
-</span><span id="line-276"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContextsResponse_httpStatus"><span class="hs-identifier hs-type">listContextsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-type">ListContextsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-278"></span><span id="listContextsResponse_httpStatus"><span class="annot"><span class="annottext">listContextsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListContextsResponse -&gt; f ListContextsResponse
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | A token for getting the next set of contexts, if there are any.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContextsResponse_nextToken"><span class="hs-identifier hs-type">listContextsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-type">ListContextsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="listContextsResponse_nextToken"><span class="annot"><span class="annottext">listContextsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListContextsResponse -&gt; f ListContextsResponse
+</span><a href="Network.AWS.SageMaker.ListContexts.html#listContextsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listContextsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContextsResponse -&gt; Maybe Text)
+-&gt; (ListContextsResponse -&gt; Maybe Text -&gt; ListContextsResponse)
+-&gt; Lens' ListContextsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse%27"><span class="hs-identifier hs-type">ListContextsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680385297"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListContextsResponse' :: ListContextsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680385297"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680385297"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680385296"><span class="annot"><span class="annottext">s :: ListContextsResponse
+</span><a href="#local-6989586621680385296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse%27"><span class="hs-identifier hs-type">ListContextsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680385295"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680385295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContextsResponse
+</span><a href="#local-6989586621680385296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListContextsResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AnextToken%3AListContextsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680385295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-type">ListContextsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#listContextsResponse_httpStatus"><span class="hs-identifier hs-type">listContextsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-type">ListContextsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-279"></span><span id="listContextsResponse_httpStatus"><span class="annot"><span class="annottext">listContextsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListContextsResponse -&gt; f ListContextsResponse
 </span><a href="Network.AWS.SageMaker.ListContexts.html#listContextsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listContextsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContextsResponse -&gt; Int)
 -&gt; (ListContextsResponse -&gt; Int -&gt; ListContextsResponse)
 -&gt; Lens ListContextsResponse ListContextsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse%27"><span class="hs-identifier hs-type">ListContextsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383735"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse%27"><span class="hs-identifier hs-type">ListContextsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680385294"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListContextsResponse' :: ListContextsResponse -&gt; Int
-</span><a href="#local-6989586621680383735"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680383735"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383734"><span class="annot"><span class="annottext">s :: ListContextsResponse
-</span><a href="#local-6989586621680383734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse%27"><span class="hs-identifier hs-type">ListContextsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383733"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680383733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContextsResponse
-</span><a href="#local-6989586621680383734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListContextsResponse' :: Int
+</span><a href="#local-6989586621680385294"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680385294"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680385293"><span class="annot"><span class="annottext">s :: ListContextsResponse
+</span><a href="#local-6989586621680385293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse%27"><span class="hs-identifier hs-type">ListContextsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680385292"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680385292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContextsResponse
+</span><a href="#local-6989586621680385293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListContextsResponse' :: Int
 </span><a href="Network.AWS.SageMaker.ListContexts.html#%24sel%3AhttpStatus%3AListContextsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680383733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-type">ListContextsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-279"></span><span>
-</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680383731"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-type">ListContextsResponse</span></a></span></span><span>
-</span><span id="line-281"></span></pre></body></html>
+</span><a href="#local-6989586621680385292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-type">ListContextsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680385290"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListContexts.html#ListContextsResponse"><span class="hs-identifier hs-type">ListContextsResponse</span></a></span></span><span>
+</span><span id="line-282"></span></pre></body></html>

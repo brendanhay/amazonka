@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- criteria.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newFilter' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679368091"><span id="local-6989586621679368092"></span></span><span class="hs-keyword">data</span><span> </span><span id="Filter"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-var">Filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Filter%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter%27"><span class="hs-identifier hs-var">Filter'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679368407"><span id="local-6989586621679368408"></span></span><span class="hs-keyword">data</span><span> </span><span id="Filter"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-var">Filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Filter%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter%27"><span class="hs-identifier hs-var">Filter'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The key of a filter.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Akey%3AFilter%27"><span class="annot"><span class="annottext">Filter -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Filter.html#%24sel%3Akey%3AFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Avalues%3AFilter%27"><span class="annot"><span class="annottext">Filter -&gt; [Text]
 </span><a href="Network.AWS.AlexaBusiness.Types.Filter.html#%24sel%3Avalues%3AFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368084"><span id="local-6989586621679368086"><span class="annot"><span class="annottext">Filter -&gt; Filter -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368400"><span id="local-6989586621679368402"><span class="annot"><span class="annottext">Filter -&gt; Filter -&gt; Bool
 (Filter -&gt; Filter -&gt; Bool)
 -&gt; (Filter -&gt; Filter -&gt; Bool) -&gt; Eq Filter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Filter -&gt; Filter -&gt; Bool
 == :: Filter -&gt; Filter -&gt; Bool
 $c== :: Filter -&gt; Filter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368075"><span id="local-6989586621679368077"><span id="local-6989586621679368079"><span id="local-6989586621679368081"><span class="annot"><span class="annottext">ReadPrec [Filter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368391"><span id="local-6989586621679368393"><span id="local-6989586621679368395"><span id="local-6989586621679368397"><span class="annot"><span class="annottext">ReadPrec [Filter]
 ReadPrec Filter
 Int -&gt; ReadS Filter
 ReadS [Filter]
@@ -64,7 +64,7 @@ readList :: ReadS [Filter]
 $creadList :: ReadS [Filter]
 readsPrec :: Int -&gt; ReadS Filter
 $creadsPrec :: Int -&gt; ReadS Filter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368068"><span id="local-6989586621679368070"><span id="local-6989586621679368072"><span class="annot"><span class="annottext">Int -&gt; Filter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368384"><span id="local-6989586621679368386"><span id="local-6989586621679368388"><span class="annot"><span class="annottext">Int -&gt; Filter -&gt; ShowS
 [Filter] -&gt; ShowS
 Filter -&gt; String
 (Int -&gt; Filter -&gt; ShowS)
@@ -103,12 +103,12 @@ $cfrom :: forall x. Filter -&gt; Rep Filter x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span>
 </span><span id="line-54"></span><span id="newFilter"><span class="annot"><span class="annottext">newFilter :: Text -&gt; Filter
-</span><a href="Network.AWS.AlexaBusiness.Types.Filter.html#newFilter"><span class="hs-identifier hs-var hs-var">newFilter</span></a></span></span><span> </span><span id="local-6989586621679368062"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368062"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.Types.Filter.html#newFilter"><span class="hs-identifier hs-var hs-var">newFilter</span></a></span></span><span> </span><span id="local-6989586621679368378"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368378"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">Filter' :: Text -&gt; [Text] -&gt; Filter
 </span><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Filter' :: Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Filter.html#%24sel%3Akey%3AFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368062"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:values:Filter' :: [Text]
+</span><a href="#local-6989586621679368378"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:values:Filter' :: [Text]
 </span><a href="Network.AWS.AlexaBusiness.Types.Filter.html#%24sel%3Avalues%3AFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">}</span><span>
@@ -119,16 +119,16 @@ forall a. Monoid a =&gt; a
 </span><a href="Network.AWS.AlexaBusiness.Types.Filter.html#filter_key"><span class="hs-identifier hs-var hs-var">filter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Filter -&gt; Text)
 -&gt; (Filter -&gt; Text -&gt; Filter) -&gt; Lens Filter Filter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368058"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368374"><span class="annot"><span class="annottext">Text
 key :: Text
 $sel:key:Filter' :: Filter -&gt; Text
-</span><a href="#local-6989586621679368058"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368058"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368057"><span class="annot"><span class="annottext">s :: Filter
-</span><a href="#local-6989586621679368057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368056"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filter
-</span><a href="#local-6989586621679368057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Filter' :: Text
+</span><a href="#local-6989586621679368374"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368374"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368373"><span class="annot"><span class="annottext">s :: Filter
+</span><a href="#local-6989586621679368373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368372"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filter
+</span><a href="#local-6989586621679368373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Filter' :: Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Filter.html#%24sel%3Akey%3AFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The values of a filter.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#filter_values"><span class="hs-identifier hs-type">filter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -136,38 +136,38 @@ $sel:key:Filter' :: Filter -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Filter.html#filter_values"><span class="hs-identifier hs-var hs-var">filter_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Filter -&gt; [Text])
 -&gt; (Filter -&gt; [Text] -&gt; Filter) -&gt; Lens Filter Filter [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368054"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368370"><span class="annot"><span class="annottext">[Text]
 values :: [Text]
 $sel:values:Filter' :: Filter -&gt; [Text]
-</span><a href="#local-6989586621679368054"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679368054"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368053"><span class="annot"><span class="annottext">s :: Filter
-</span><a href="#local-6989586621679368053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368052"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679368052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filter
-</span><a href="#local-6989586621679368053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:Filter' :: [Text]
+</span><a href="#local-6989586621679368370"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679368370"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368369"><span class="annot"><span class="annottext">s :: Filter
+</span><a href="#local-6989586621679368369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368368"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679368368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filter
+</span><a href="#local-6989586621679368369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:Filter' :: [Text]
 </span><a href="Network.AWS.AlexaBusiness.Types.Filter.html#%24sel%3Avalues%3AFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679368052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; Filter -&gt; f Filter)
+</span><a href="#local-6989586621679368368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; Filter -&gt; f Filter)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; Filter
 -&gt; f Filter
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368046"><span id="local-6989586621679368048"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368362"><span id="local-6989586621679368364"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368043"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368359"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368035"><span id="local-6989586621679368037"><span id="local-6989586621679368039"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679368033"><span class="annot"><span class="annottext">toJSON :: Filter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368030"><span id="local-6989586621679368031"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368351"><span id="local-6989586621679368353"><span id="local-6989586621679368355"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679368349"><span class="annot"><span class="annottext">toJSON :: Filter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368346"><span id="local-6989586621679368347"><span class="annot"><span class="annottext">[Text]
 Text
 values :: [Text]
 key :: Text
 $sel:values:Filter' :: Filter -&gt; [Text]
 $sel:key:Filter' :: Filter -&gt; Text
-</span><a href="#local-6989586621679368030"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679368346"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -179,14 +179,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368031"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679368347"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679368030"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368346"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span></pre></body></html>

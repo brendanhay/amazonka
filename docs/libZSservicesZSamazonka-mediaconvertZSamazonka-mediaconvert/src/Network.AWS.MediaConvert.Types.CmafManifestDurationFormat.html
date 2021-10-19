@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Indicates whether the output manifest should use floating point values</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- for segment duration.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679943999"><span id="local-6989586621679944000"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafManifestDurationFormat"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafManifestDurationFormat.html#CmafManifestDurationFormat"><span class="hs-identifier hs-var">CmafManifestDurationFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafManifestDurationFormat%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafManifestDurationFormat.html#CmafManifestDurationFormat%27"><span class="hs-identifier hs-var">CmafManifestDurationFormat'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679948622"><span id="local-6989586621679948623"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafManifestDurationFormat"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafManifestDurationFormat.html#CmafManifestDurationFormat"><span class="hs-identifier hs-var">CmafManifestDurationFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafManifestDurationFormat%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafManifestDurationFormat.html#CmafManifestDurationFormat%27"><span class="hs-identifier hs-var">CmafManifestDurationFormat'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmafManifestDurationFormat"><span class="annot"><span class="annottext">CmafManifestDurationFormat -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.CmafManifestDurationFormat.html#fromCmafManifestDurationFormat"><span class="hs-identifier hs-var hs-var">fromCmafManifestDurationFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943991"><span id="local-6989586621679943993"><span id="local-6989586621679943995"><span class="annot"><span class="annottext">Int -&gt; CmafManifestDurationFormat -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679948614"><span id="local-6989586621679948616"><span id="local-6989586621679948618"><span class="annot"><span class="annottext">Int -&gt; CmafManifestDurationFormat -&gt; ShowS
 [CmafManifestDurationFormat] -&gt; ShowS
 CmafManifestDurationFormat -&gt; String
 (Int -&gt; CmafManifestDurationFormat -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: CmafManifestDurationFormat -&gt; String
 showsPrec :: Int -&gt; CmafManifestDurationFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; CmafManifestDurationFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679943982"><span id="local-6989586621679943984"><span id="local-6989586621679943986"><span id="local-6989586621679943988"><span class="annot"><span class="annottext">ReadPrec [CmafManifestDurationFormat]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679948605"><span id="local-6989586621679948607"><span id="local-6989586621679948609"><span id="local-6989586621679948611"><span class="annot"><span class="annottext">ReadPrec [CmafManifestDurationFormat]
 ReadPrec CmafManifestDurationFormat
 Int -&gt; ReadS CmafManifestDurationFormat
 ReadS [CmafManifestDurationFormat]
@@ -74,7 +74,7 @@ $creadList :: ReadS [CmafManifestDurationFormat]
 readsPrec :: Int -&gt; ReadS CmafManifestDurationFormat
 $creadsPrec :: Int -&gt; ReadS CmafManifestDurationFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679943977"><span id="local-6989586621679943979"><span class="annot"><span class="annottext">CmafManifestDurationFormat -&gt; CmafManifestDurationFormat -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679948600"><span id="local-6989586621679948602"><span class="annot"><span class="annottext">CmafManifestDurationFormat -&gt; CmafManifestDurationFormat -&gt; Bool
 (CmafManifestDurationFormat -&gt; CmafManifestDurationFormat -&gt; Bool)
 -&gt; (CmafManifestDurationFormat
     -&gt; CmafManifestDurationFormat -&gt; Bool)
@@ -85,7 +85,7 @@ $c/= :: CmafManifestDurationFormat -&gt; CmafManifestDurationFormat -&gt; Bool
 == :: CmafManifestDurationFormat -&gt; CmafManifestDurationFormat -&gt; Bool
 $c== :: CmafManifestDurationFormat -&gt; CmafManifestDurationFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679943961"><span id="local-6989586621679943963"><span id="local-6989586621679943965"><span id="local-6989586621679943967"><span id="local-6989586621679943969"><span id="local-6989586621679943971"><span id="local-6989586621679943973"><span class="annot"><span class="annottext">Eq CmafManifestDurationFormat
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679948584"><span id="local-6989586621679948586"><span id="local-6989586621679948588"><span id="local-6989586621679948590"><span id="local-6989586621679948592"><span id="local-6989586621679948594"><span id="local-6989586621679948596"><span class="annot"><span class="annottext">Eq CmafManifestDurationFormat
 Eq CmafManifestDurationFormat
 -&gt; (CmafManifestDurationFormat
     -&gt; CmafManifestDurationFormat -&gt; Ordering)
@@ -157,7 +157,7 @@ CmafManifestDurationFormat -&gt; Rep CmafManifestDurationFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943953"><span id="local-6989586621679943955"><span class="annot"><span class="annottext">Int -&gt; CmafManifestDurationFormat -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679948576"><span id="local-6989586621679948578"><span class="annot"><span class="annottext">Int -&gt; CmafManifestDurationFormat -&gt; Int
 CmafManifestDurationFormat -&gt; Int
 (Int -&gt; CmafManifestDurationFormat -&gt; Int)
 -&gt; (CmafManifestDurationFormat -&gt; Int)
@@ -168,56 +168,56 @@ $chash :: CmafManifestDurationFormat -&gt; Int
 hashWithSalt :: Int -&gt; CmafManifestDurationFormat -&gt; Int
 $chashWithSalt :: Int -&gt; CmafManifestDurationFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679943950"><span class="annot"><span class="annottext">CmafManifestDurationFormat -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679948573"><span class="annot"><span class="annottext">CmafManifestDurationFormat -&gt; ()
 (CmafManifestDurationFormat -&gt; ())
 -&gt; NFData CmafManifestDurationFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CmafManifestDurationFormat -&gt; ()
 $crnf :: CmafManifestDurationFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679943947"><span class="annot"><span class="annottext">Text -&gt; Either String CmafManifestDurationFormat
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679948570"><span class="annot"><span class="annottext">Text -&gt; Either String CmafManifestDurationFormat
 (Text -&gt; Either String CmafManifestDurationFormat)
 -&gt; FromText CmafManifestDurationFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CmafManifestDurationFormat
 $cfromText :: Text -&gt; Either String CmafManifestDurationFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679943944"><span class="annot"><span class="annottext">CmafManifestDurationFormat -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679948567"><span class="annot"><span class="annottext">CmafManifestDurationFormat -&gt; Text
 (CmafManifestDurationFormat -&gt; Text)
 -&gt; ToText CmafManifestDurationFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CmafManifestDurationFormat -&gt; Text
 $ctoText :: CmafManifestDurationFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679943941"><span class="annot"><span class="annottext">CmafManifestDurationFormat -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679948564"><span class="annot"><span class="annottext">CmafManifestDurationFormat -&gt; ByteString
 (CmafManifestDurationFormat -&gt; ByteString)
 -&gt; ToByteString CmafManifestDurationFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CmafManifestDurationFormat -&gt; ByteString
 $ctoBS :: CmafManifestDurationFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679943938"><span class="annot"><span class="annottext">CmafManifestDurationFormat -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679948561"><span class="annot"><span class="annottext">CmafManifestDurationFormat -&gt; ByteStringBuilder
 (CmafManifestDurationFormat -&gt; ByteStringBuilder)
 -&gt; ToLog CmafManifestDurationFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CmafManifestDurationFormat -&gt; ByteStringBuilder
 $cbuild :: CmafManifestDurationFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679943935"><span class="annot"><span class="annottext">HeaderName -&gt; CmafManifestDurationFormat -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679948558"><span class="annot"><span class="annottext">HeaderName -&gt; CmafManifestDurationFormat -&gt; [Header]
 (HeaderName -&gt; CmafManifestDurationFormat -&gt; [Header])
 -&gt; ToHeader CmafManifestDurationFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CmafManifestDurationFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CmafManifestDurationFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679943932"><span class="annot"><span class="annottext">CmafManifestDurationFormat -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679948555"><span class="annot"><span class="annottext">CmafManifestDurationFormat -&gt; QueryString
 (CmafManifestDurationFormat -&gt; QueryString)
 -&gt; ToQuery CmafManifestDurationFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CmafManifestDurationFormat -&gt; QueryString
 $ctoQuery :: CmafManifestDurationFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679943927"><span id="local-6989586621679943929"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafManifestDurationFormat]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679948550"><span id="local-6989586621679948552"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafManifestDurationFormat]
 Value -&gt; Parser CmafManifestDurationFormat
 (Value -&gt; Parser CmafManifestDurationFormat)
 -&gt; (Value -&gt; Parser [CmafManifestDurationFormat])
@@ -229,7 +229,7 @@ $cparseJSONList :: Value -&gt; Parser [CmafManifestDurationFormat]
 parseJSON :: Value -&gt; Parser CmafManifestDurationFormat
 $cparseJSON :: Value -&gt; Parser CmafManifestDurationFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679943922"><span id="local-6989586621679943924"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafManifestDurationFormat]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679948545"><span id="local-6989586621679948547"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafManifestDurationFormat]
 FromJSONKeyFunction CmafManifestDurationFormat
 FromJSONKeyFunction CmafManifestDurationFormat
 -&gt; FromJSONKeyFunction [CmafManifestDurationFormat]
@@ -241,7 +241,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CmafManifestDurationFormat]
 fromJSONKey :: FromJSONKeyFunction CmafManifestDurationFormat
 $cfromJSONKey :: FromJSONKeyFunction CmafManifestDurationFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679943913"><span id="local-6989586621679943915"><span id="local-6989586621679943917"><span id="local-6989586621679943919"><span class="annot"><span class="annottext">[CmafManifestDurationFormat] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679948536"><span id="local-6989586621679948538"><span id="local-6989586621679948540"><span id="local-6989586621679948542"><span class="annot"><span class="annottext">[CmafManifestDurationFormat] -&gt; Encoding
 [CmafManifestDurationFormat] -&gt; Value
 CmafManifestDurationFormat -&gt; Encoding
 CmafManifestDurationFormat -&gt; Value
@@ -265,7 +265,7 @@ $ctoEncoding :: CmafManifestDurationFormat -&gt; Encoding
 toJSON :: CmafManifestDurationFormat -&gt; Value
 $ctoJSON :: CmafManifestDurationFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679943908"><span id="local-6989586621679943910"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafManifestDurationFormat]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679948531"><span id="local-6989586621679948533"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafManifestDurationFormat]
 ToJSONKeyFunction CmafManifestDurationFormat
 ToJSONKeyFunction CmafManifestDurationFormat
 -&gt; ToJSONKeyFunction [CmafManifestDurationFormat]
@@ -277,14 +277,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CmafManifestDurationFormat]
 toJSONKey :: ToJSONKeyFunction CmafManifestDurationFormat
 $ctoJSONKey :: ToJSONKeyFunction CmafManifestDurationFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679943905"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafManifestDurationFormat
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679948528"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafManifestDurationFormat
 ([Node] -&gt; Either String CmafManifestDurationFormat)
 -&gt; FromXML CmafManifestDurationFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CmafManifestDurationFormat
 $cparseXML :: [Node] -&gt; Either String CmafManifestDurationFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679943902"><span class="annot"><span class="annottext">CmafManifestDurationFormat -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679948525"><span class="annot"><span class="annottext">CmafManifestDurationFormat -&gt; XML
 (CmafManifestDurationFormat -&gt; XML)
 -&gt; ToXML CmafManifestDurationFormat
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListTagsForResource' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679827355"><span id="local-6989586621679827356"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForResource"><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-var">ListTagsForResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForResource%27"><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-var">ListTagsForResource'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679829113"><span id="local-6989586621679829114"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForResource"><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-var">ListTagsForResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForResource%27"><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-var">ListTagsForResource'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns a list of tags for a specific resource type.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AresourceType%3AListTagsForResource%27"><span class="annot"><span class="annottext">ListTagsForResource -&gt; ResourceTypeForTagging
 </span><a href="Network.AWS.SSM.ListTagsForResource.html#%24sel%3AresourceType%3AListTagsForResource%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceTypeForTagging.html#ResourceTypeForTagging"><span class="hs-identifier hs-type">ResourceTypeForTagging</span></a></span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AresourceId%3AListTagsForResource%27"><span class="annot"><span class="annottext">ListTagsForResource -&gt; Text
 </span><a href="Network.AWS.SSM.ListTagsForResource.html#%24sel%3AresourceId%3AListTagsForResource%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827348"><span id="local-6989586621679827350"><span class="annot"><span class="annottext">ListTagsForResource -&gt; ListTagsForResource -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679829106"><span id="local-6989586621679829108"><span class="annot"><span class="annottext">ListTagsForResource -&gt; ListTagsForResource -&gt; Bool
 (ListTagsForResource -&gt; ListTagsForResource -&gt; Bool)
 -&gt; (ListTagsForResource -&gt; ListTagsForResource -&gt; Bool)
 -&gt; Eq ListTagsForResource
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTagsForResource -&gt; ListTagsForResource -&gt; Bool
 == :: ListTagsForResource -&gt; ListTagsForResource -&gt; Bool
 $c== :: ListTagsForResource -&gt; ListTagsForResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827339"><span id="local-6989586621679827341"><span id="local-6989586621679827343"><span id="local-6989586621679827345"><span class="annot"><span class="annottext">ReadPrec [ListTagsForResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679829097"><span id="local-6989586621679829099"><span id="local-6989586621679829101"><span id="local-6989586621679829103"><span class="annot"><span class="annottext">ReadPrec [ListTagsForResource]
 ReadPrec ListTagsForResource
 Int -&gt; ReadS ListTagsForResource
 ReadS [ListTagsForResource]
@@ -88,7 +88,7 @@ readList :: ReadS [ListTagsForResource]
 $creadList :: ReadS [ListTagsForResource]
 readsPrec :: Int -&gt; ReadS ListTagsForResource
 $creadsPrec :: Int -&gt; ReadS ListTagsForResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827332"><span id="local-6989586621679827334"><span id="local-6989586621679827336"><span class="annot"><span class="annottext">Int -&gt; ListTagsForResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679829090"><span id="local-6989586621679829092"><span id="local-6989586621679829094"><span class="annot"><span class="annottext">Int -&gt; ListTagsForResource -&gt; ShowS
 [ListTagsForResource] -&gt; ShowS
 ListTagsForResource -&gt; String
 (Int -&gt; ListTagsForResource -&gt; ShowS)
@@ -132,17 +132,17 @@ $cfrom :: forall x. ListTagsForResource -&gt; Rep ListTagsForResource x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span>
 </span><span id="line-79"></span><span id="newListTagsForResource"><span class="annot"><span class="annottext">newListTagsForResource :: ResourceTypeForTagging -&gt; Text -&gt; ListTagsForResource
-</span><a href="Network.AWS.SSM.ListTagsForResource.html#newListTagsForResource"><span class="hs-identifier hs-var hs-var">newListTagsForResource</span></a></span></span><span> </span><span id="local-6989586621679827327"><span class="annot"><span class="annottext">ResourceTypeForTagging
-</span><a href="#local-6989586621679827327"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span> </span><span id="local-6989586621679827326"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679827326"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.ListTagsForResource.html#newListTagsForResource"><span class="hs-identifier hs-var hs-var">newListTagsForResource</span></a></span></span><span> </span><span id="local-6989586621679829085"><span class="annot"><span class="annottext">ResourceTypeForTagging
+</span><a href="#local-6989586621679829085"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span> </span><span id="local-6989586621679829084"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679829084"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">ListTagsForResource' :: ResourceTypeForTagging -&gt; Text -&gt; ListTagsForResource
 </span><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceType:ListTagsForResource' :: ResourceTypeForTagging
 </span><a href="Network.AWS.SSM.ListTagsForResource.html#%24sel%3AresourceType%3AListTagsForResource%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceTypeForTagging
-</span><a href="#local-6989586621679827327"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679829085"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceId:ListTagsForResource' :: Text
 </span><a href="Network.AWS.SSM.ListTagsForResource.html#%24sel%3AresourceId%3AListTagsForResource%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679827326"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span>
+</span><a href="#local-6989586621679829084"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Returns a list of tags for a specific resource type.</span><span>
@@ -158,16 +158,16 @@ $cfrom :: forall x. ListTagsForResource -&gt; Rep ListTagsForResource x
      ResourceTypeForTagging
      ResourceTypeForTagging
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827323"><span class="annot"><span class="annottext">ResourceTypeForTagging
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679829081"><span class="annot"><span class="annottext">ResourceTypeForTagging
 resourceType :: ResourceTypeForTagging
 $sel:resourceType:ListTagsForResource' :: ListTagsForResource -&gt; ResourceTypeForTagging
-</span><a href="#local-6989586621679827323"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceTypeForTagging
-</span><a href="#local-6989586621679827323"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827322"><span class="annot"><span class="annottext">s :: ListTagsForResource
-</span><a href="#local-6989586621679827322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827321"><span class="annot"><span class="annottext">ResourceTypeForTagging
-</span><a href="#local-6989586621679827321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResource
-</span><a href="#local-6989586621679827322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:ListTagsForResource' :: ResourceTypeForTagging
+</span><a href="#local-6989586621679829081"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceTypeForTagging
+</span><a href="#local-6989586621679829081"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679829080"><span class="annot"><span class="annottext">s :: ListTagsForResource
+</span><a href="#local-6989586621679829080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679829079"><span class="annot"><span class="annottext">ResourceTypeForTagging
+</span><a href="#local-6989586621679829079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResource
+</span><a href="#local-6989586621679829080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:ListTagsForResource' :: ResourceTypeForTagging
 </span><a href="Network.AWS.SSM.ListTagsForResource.html#%24sel%3AresourceType%3AListTagsForResource%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceTypeForTagging
-</span><a href="#local-6989586621679827321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679829079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The resource ID for which you want to see a list of tags.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#listTagsForResource_resourceId"><span class="hs-identifier hs-type">listTagsForResource_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -176,27 +176,27 @@ $sel:resourceType:ListTagsForResource' :: ListTagsForResource -&gt; ResourceType
 -&gt; (ListTagsForResource -&gt; Text -&gt; ListTagsForResource)
 -&gt; Lens ListTagsForResource ListTagsForResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827320"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679829078"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:ListTagsForResource' :: ListTagsForResource -&gt; Text
-</span><a href="#local-6989586621679827320"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679827320"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827319"><span class="annot"><span class="annottext">s :: ListTagsForResource
-</span><a href="#local-6989586621679827319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827318"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679827318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResource
-</span><a href="#local-6989586621679827319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:ListTagsForResource' :: Text
+</span><a href="#local-6989586621679829078"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679829078"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679829077"><span class="annot"><span class="annottext">s :: ListTagsForResource
+</span><a href="#local-6989586621679829077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679829076"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679829076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResource
+</span><a href="#local-6989586621679829077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:ListTagsForResource' :: Text
 </span><a href="Network.AWS.SSM.ListTagsForResource.html#%24sel%3AresourceId%3AListTagsForResource%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679827318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679829076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679827314"><span class="annot"><span class="annottext">request :: ListTagsForResource -&gt; Request ListTagsForResource
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679829072"><span class="annot"><span class="annottext">request :: ListTagsForResource -&gt; Request ListTagsForResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTagsForResource -&gt; Request ListTagsForResource
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679827310"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679829068"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListTagsForResource
 -&gt; ClientResponse ClientBody
@@ -222,10 +222,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679827307"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827307"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679827306"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679827306"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679827305"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679827305"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679829065"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679829065"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679829064"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679829064"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679829063"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679829063"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Tag] -&gt; Int -&gt; ListTagsForResourceResponse
 </span><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-var">ListTagsForResourceResponse'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Tag] -&gt; Int -&gt; ListTagsForResourceResponse)
@@ -233,7 +233,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ListTagsForResourceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679827305"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Tag]))
+</span><a href="#local-6989586621679829063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Tag]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TagList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Tag]))
@@ -250,15 +250,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827307"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679829065"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827296"><span id="local-6989586621679827298"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679829054"><span id="local-6989586621679829056"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679829051"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679827289"><span class="annot"><span class="annottext">toHeaders :: ListTagsForResource -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679829047"><span class="annot"><span class="annottext">toHeaders :: ListTagsForResource -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTagsForResource -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -285,15 +285,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827279"><span id="local-6989586621679827281"><span id="local-6989586621679827283"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679827277"><span class="annot"><span class="annottext">toJSON :: ListTagsForResource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827274"><span id="local-6989586621679827275"><span class="annot"><span class="annottext">Text
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679829037"><span id="local-6989586621679829039"><span id="local-6989586621679829041"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679829035"><span class="annot"><span class="annottext">toJSON :: ListTagsForResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679829032"><span id="local-6989586621679829033"><span class="annot"><span class="annottext">Text
 ResourceTypeForTagging
 resourceId :: Text
 resourceType :: ResourceTypeForTagging
 $sel:resourceId:ListTagsForResource' :: ListTagsForResource -&gt; Text
 $sel:resourceType:ListTagsForResource' :: ListTagsForResource -&gt; ResourceTypeForTagging
-</span><a href="#local-6989586621679827274"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679829032"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -305,26 +305,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceTypeForTagging -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceTypeForTagging
-</span><a href="#local-6989586621679827275"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679829033"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679827274"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679829032"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679827268"><span class="annot"><span class="annottext">toPath :: ListTagsForResource -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679829026"><span class="annot"><span class="annottext">toPath :: ListTagsForResource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListTagsForResource -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679827264"><span class="annot"><span class="annottext">toQuery :: ListTagsForResource -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679829022"><span class="annot"><span class="annottext">toQuery :: ListTagsForResource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTagsForResource -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -332,7 +332,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newListTagsForResourceResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679827261"><span id="local-6989586621679827262"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForResourceResponse"><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-var">ListTagsForResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForResourceResponse%27"><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-var">ListTagsForResourceResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679829019"><span id="local-6989586621679829020"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForResourceResponse"><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-var">ListTagsForResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForResourceResponse%27"><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-var">ListTagsForResourceResponse'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of tags.</span><span>
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3AtagList%3AListTagsForResourceResponse%27"><span class="annot"><span class="annottext">ListTagsForResourceResponse -&gt; Maybe [Tag]
 </span><a href="Network.AWS.SSM.ListTagsForResource.html#%24sel%3AtagList%3AListTagsForResourceResponse%27"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -340,7 +340,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTagsForResourceResponse%27"><span class="annot"><span class="annottext">ListTagsForResourceResponse -&gt; Int
 </span><a href="Network.AWS.SSM.ListTagsForResource.html#%24sel%3AhttpStatus%3AListTagsForResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827255"><span id="local-6989586621679827257"><span class="annot"><span class="annottext">ListTagsForResourceResponse -&gt; ListTagsForResourceResponse -&gt; Bool
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679829013"><span id="local-6989586621679829015"><span class="annot"><span class="annottext">ListTagsForResourceResponse -&gt; ListTagsForResourceResponse -&gt; Bool
 (ListTagsForResourceResponse
  -&gt; ListTagsForResourceResponse -&gt; Bool)
 -&gt; (ListTagsForResourceResponse
@@ -351,7 +351,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTagsForResourceResponse -&gt; ListTagsForResourceResponse -&gt; Bool
 == :: ListTagsForResourceResponse -&gt; ListTagsForResourceResponse -&gt; Bool
 $c== :: ListTagsForResourceResponse -&gt; ListTagsForResourceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827247"><span id="local-6989586621679827249"><span id="local-6989586621679827251"><span id="local-6989586621679827253"><span class="annot"><span class="annottext">ReadPrec [ListTagsForResourceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679829005"><span id="local-6989586621679829007"><span id="local-6989586621679829009"><span id="local-6989586621679829011"><span class="annot"><span class="annottext">ReadPrec [ListTagsForResourceResponse]
 ReadPrec ListTagsForResourceResponse
 Int -&gt; ReadS ListTagsForResourceResponse
 ReadS [ListTagsForResourceResponse]
@@ -371,7 +371,7 @@ readList :: ReadS [ListTagsForResourceResponse]
 $creadList :: ReadS [ListTagsForResourceResponse]
 readsPrec :: Int -&gt; ReadS ListTagsForResourceResponse
 $creadsPrec :: Int -&gt; ReadS ListTagsForResourceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827241"><span id="local-6989586621679827243"><span id="local-6989586621679827245"><span class="annot"><span class="annottext">Int -&gt; ListTagsForResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828999"><span id="local-6989586621679829001"><span id="local-6989586621679829003"><span class="annot"><span class="annottext">Int -&gt; ListTagsForResourceResponse -&gt; ShowS
 [ListTagsForResourceResponse] -&gt; ShowS
 ListTagsForResourceResponse -&gt; String
 (Int -&gt; ListTagsForResourceResponse -&gt; ShowS)
@@ -419,8 +419,8 @@ ListTagsForResourceResponse -&gt; Rep ListTagsForResourceResponse x
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span>
 </span><span id="line-164"></span><span id="newListTagsForResourceResponse"><span class="annot"><span class="annottext">newListTagsForResourceResponse :: Int -&gt; ListTagsForResourceResponse
-</span><a href="Network.AWS.SSM.ListTagsForResource.html#newListTagsForResourceResponse"><span class="hs-identifier hs-var hs-var">newListTagsForResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679827238"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827238"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.ListTagsForResource.html#newListTagsForResourceResponse"><span class="hs-identifier hs-var hs-var">newListTagsForResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679828996"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679828996"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">ListTagsForResourceResponse' :: Maybe [Tag] -&gt; Int -&gt; ListTagsForResourceResponse
 </span><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagList:ListTagsForResourceResponse' :: Maybe [Tag]
@@ -430,7 +430,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsForResourceResponse' :: Int
 </span><a href="Network.AWS.SSM.ListTagsForResource.html#%24sel%3AhttpStatus%3AListTagsForResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827238"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679828996"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | A list of tags.</span><span>
@@ -446,16 +446,16 @@ forall a. Maybe a
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827237"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828995"><span class="annot"><span class="annottext">Maybe [Tag]
 tagList :: Maybe [Tag]
 $sel:tagList:ListTagsForResourceResponse' :: ListTagsForResourceResponse -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679827237"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679827237"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827236"><span class="annot"><span class="annottext">s :: ListTagsForResourceResponse
-</span><a href="#local-6989586621679827236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827235"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679827235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResourceResponse
-</span><a href="#local-6989586621679827236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagList:ListTagsForResourceResponse' :: Maybe [Tag]
+</span><a href="#local-6989586621679828995"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679828995"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828994"><span class="annot"><span class="annottext">s :: ListTagsForResourceResponse
+</span><a href="#local-6989586621679828994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828993"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679828993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResourceResponse
+</span><a href="#local-6989586621679828994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagList:ListTagsForResourceResponse' :: Maybe [Tag]
 </span><a href="Network.AWS.SSM.ListTagsForResource.html#%24sel%3AtagList%3AListTagsForResourceResponse%27"><span class="hs-identifier hs-var">tagList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679827235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679828993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; ListTagsForResourceResponse -&gt; f ListTagsForResourceResponse)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -469,8 +469,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-176"></span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#listTagsForResourceResponse_httpStatus"><span class="hs-identifier hs-type">listTagsForResourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -482,16 +482,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      ListTagsForResourceResponse ListTagsForResourceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827231"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828989"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListTagsForResourceResponse' :: ListTagsForResourceResponse -&gt; Int
-</span><a href="#local-6989586621679827231"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827231"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827230"><span class="annot"><span class="annottext">s :: ListTagsForResourceResponse
-</span><a href="#local-6989586621679827230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827229"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResourceResponse
-</span><a href="#local-6989586621679827230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsForResourceResponse' :: Int
+</span><a href="#local-6989586621679828989"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679828989"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828988"><span class="annot"><span class="annottext">s :: ListTagsForResourceResponse
+</span><a href="#local-6989586621679828988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828987"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679828987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResourceResponse
+</span><a href="#local-6989586621679828988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsForResourceResponse' :: Int
 </span><a href="Network.AWS.SSM.ListTagsForResource.html#%24sel%3AhttpStatus%3AListTagsForResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827227"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828985"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span></span><span>
 </span><span id="line-180"></span></pre></body></html>

@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | SetVaultAccessPolicy input.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newSetVaultAccessPolicy' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679220158"><span id="local-6989586621679220159"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetVaultAccessPolicy"><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-var">SetVaultAccessPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetVaultAccessPolicy%27"><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-var">SetVaultAccessPolicy'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679220210"><span id="local-6989586621679220211"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetVaultAccessPolicy"><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-var">SetVaultAccessPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetVaultAccessPolicy%27"><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-var">SetVaultAccessPolicy'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The vault access policy as a JSON string.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Apolicy%3ASetVaultAccessPolicy%27"><span class="annot"><span class="annottext">SetVaultAccessPolicy -&gt; Maybe VaultAccessPolicy
 </span><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#%24sel%3Apolicy%3ASetVaultAccessPolicy%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.VaultAccessPolicy.html#VaultAccessPolicy"><span class="hs-identifier hs-type">VaultAccessPolicy</span></a></span><span class="hs-special">,</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AvaultName%3ASetVaultAccessPolicy%27"><span class="annot"><span class="annottext">SetVaultAccessPolicy -&gt; Text
 </span><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#%24sel%3AvaultName%3ASetVaultAccessPolicy%27"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220150"><span id="local-6989586621679220152"><span class="annot"><span class="annottext">SetVaultAccessPolicy -&gt; SetVaultAccessPolicy -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220202"><span id="local-6989586621679220204"><span class="annot"><span class="annottext">SetVaultAccessPolicy -&gt; SetVaultAccessPolicy -&gt; Bool
 (SetVaultAccessPolicy -&gt; SetVaultAccessPolicy -&gt; Bool)
 -&gt; (SetVaultAccessPolicy -&gt; SetVaultAccessPolicy -&gt; Bool)
 -&gt; Eq SetVaultAccessPolicy
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetVaultAccessPolicy -&gt; SetVaultAccessPolicy -&gt; Bool
 == :: SetVaultAccessPolicy -&gt; SetVaultAccessPolicy -&gt; Bool
 $c== :: SetVaultAccessPolicy -&gt; SetVaultAccessPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220141"><span id="local-6989586621679220143"><span id="local-6989586621679220145"><span id="local-6989586621679220147"><span class="annot"><span class="annottext">ReadPrec [SetVaultAccessPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220193"><span id="local-6989586621679220195"><span id="local-6989586621679220197"><span id="local-6989586621679220199"><span class="annot"><span class="annottext">ReadPrec [SetVaultAccessPolicy]
 ReadPrec SetVaultAccessPolicy
 Int -&gt; ReadS SetVaultAccessPolicy
 ReadS [SetVaultAccessPolicy]
@@ -97,7 +97,7 @@ readList :: ReadS [SetVaultAccessPolicy]
 $creadList :: ReadS [SetVaultAccessPolicy]
 readsPrec :: Int -&gt; ReadS SetVaultAccessPolicy
 $creadsPrec :: Int -&gt; ReadS SetVaultAccessPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220134"><span id="local-6989586621679220136"><span id="local-6989586621679220138"><span class="annot"><span class="annottext">Int -&gt; SetVaultAccessPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220186"><span id="local-6989586621679220188"><span id="local-6989586621679220190"><span class="annot"><span class="annottext">Int -&gt; SetVaultAccessPolicy -&gt; ShowS
 [SetVaultAccessPolicy] -&gt; ShowS
 SetVaultAccessPolicy -&gt; String
 (Int -&gt; SetVaultAccessPolicy -&gt; ShowS)
@@ -147,9 +147,9 @@ $cfrom :: forall x. SetVaultAccessPolicy -&gt; Rep SetVaultAccessPolicy x
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span><span>
 </span><span id="line-93"></span><span id="newSetVaultAccessPolicy"><span class="annot"><span class="annottext">newSetVaultAccessPolicy :: Text -&gt; Text -&gt; SetVaultAccessPolicy
-</span><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#newSetVaultAccessPolicy"><span class="hs-identifier hs-var hs-var">newSetVaultAccessPolicy</span></a></span></span><span> </span><span id="local-6989586621679220129"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220129"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679220128"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220128"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#newSetVaultAccessPolicy"><span class="hs-identifier hs-var hs-var">newSetVaultAccessPolicy</span></a></span></span><span> </span><span id="local-6989586621679220181"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220181"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679220180"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220180"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">SetVaultAccessPolicy' :: Maybe VaultAccessPolicy -&gt; Text -&gt; Text -&gt; SetVaultAccessPolicy
 </span><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-type">SetVaultAccessPolicy'</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policy:SetVaultAccessPolicy' :: Maybe VaultAccessPolicy
@@ -158,10 +158,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:SetVaultAccessPolicy' :: Text
 </span><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#%24sel%3AaccountId%3ASetVaultAccessPolicy%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220129"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679220181"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:SetVaultAccessPolicy' :: Text
 </span><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#%24sel%3AvaultName%3ASetVaultAccessPolicy%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220128"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
+</span><a href="#local-6989586621679220180"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The vault access policy as a JSON string.</span><span>
@@ -177,16 +177,16 @@ forall a. Maybe a
      (Maybe VaultAccessPolicy)
      (Maybe VaultAccessPolicy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-type">SetVaultAccessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220125"><span class="annot"><span class="annottext">Maybe VaultAccessPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-type">SetVaultAccessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220177"><span class="annot"><span class="annottext">Maybe VaultAccessPolicy
 policy :: Maybe VaultAccessPolicy
 $sel:policy:SetVaultAccessPolicy' :: SetVaultAccessPolicy -&gt; Maybe VaultAccessPolicy
-</span><a href="#local-6989586621679220125"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VaultAccessPolicy
-</span><a href="#local-6989586621679220125"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220124"><span class="annot"><span class="annottext">s :: SetVaultAccessPolicy
-</span><a href="#local-6989586621679220124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-type">SetVaultAccessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220123"><span class="annot"><span class="annottext">Maybe VaultAccessPolicy
-</span><a href="#local-6989586621679220123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetVaultAccessPolicy
-</span><a href="#local-6989586621679220124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:SetVaultAccessPolicy' :: Maybe VaultAccessPolicy
+</span><a href="#local-6989586621679220177"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VaultAccessPolicy
+</span><a href="#local-6989586621679220177"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220176"><span class="annot"><span class="annottext">s :: SetVaultAccessPolicy
+</span><a href="#local-6989586621679220176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-type">SetVaultAccessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220175"><span class="annot"><span class="annottext">Maybe VaultAccessPolicy
+</span><a href="#local-6989586621679220175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetVaultAccessPolicy
+</span><a href="#local-6989586621679220176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:SetVaultAccessPolicy' :: Maybe VaultAccessPolicy
 </span><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#%24sel%3Apolicy%3ASetVaultAccessPolicy%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VaultAccessPolicy
-</span><a href="#local-6989586621679220123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
@@ -199,16 +199,16 @@ $sel:policy:SetVaultAccessPolicy' :: SetVaultAccessPolicy -&gt; Maybe VaultAcces
 -&gt; (SetVaultAccessPolicy -&gt; Text -&gt; SetVaultAccessPolicy)
 -&gt; Lens SetVaultAccessPolicy SetVaultAccessPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-type">SetVaultAccessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220122"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-type">SetVaultAccessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220174"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:SetVaultAccessPolicy' :: SetVaultAccessPolicy -&gt; Text
-</span><a href="#local-6989586621679220122"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220122"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220121"><span class="annot"><span class="annottext">s :: SetVaultAccessPolicy
-</span><a href="#local-6989586621679220121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-type">SetVaultAccessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220120"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetVaultAccessPolicy
-</span><a href="#local-6989586621679220121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:SetVaultAccessPolicy' :: Text
+</span><a href="#local-6989586621679220174"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220174"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220173"><span class="annot"><span class="annottext">s :: SetVaultAccessPolicy
+</span><a href="#local-6989586621679220173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-type">SetVaultAccessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220172"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetVaultAccessPolicy
+</span><a href="#local-6989586621679220173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:SetVaultAccessPolicy' :: Text
 </span><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#%24sel%3AaccountId%3ASetVaultAccessPolicy%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The name of the vault.</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#setVaultAccessPolicy_vaultName"><span class="hs-identifier hs-type">setVaultAccessPolicy_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -217,22 +217,22 @@ $sel:accountId:SetVaultAccessPolicy' :: SetVaultAccessPolicy -&gt; Text
 -&gt; (SetVaultAccessPolicy -&gt; Text -&gt; SetVaultAccessPolicy)
 -&gt; Lens SetVaultAccessPolicy SetVaultAccessPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-type">SetVaultAccessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220119"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-type">SetVaultAccessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220171"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 $sel:vaultName:SetVaultAccessPolicy' :: SetVaultAccessPolicy -&gt; Text
-</span><a href="#local-6989586621679220119"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220119"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220118"><span class="annot"><span class="annottext">s :: SetVaultAccessPolicy
-</span><a href="#local-6989586621679220118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-type">SetVaultAccessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220117"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetVaultAccessPolicy
-</span><a href="#local-6989586621679220118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:SetVaultAccessPolicy' :: Text
+</span><a href="#local-6989586621679220171"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220171"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220170"><span class="annot"><span class="annottext">s :: SetVaultAccessPolicy
+</span><a href="#local-6989586621679220170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-type">SetVaultAccessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220169"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetVaultAccessPolicy
+</span><a href="#local-6989586621679220170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:SetVaultAccessPolicy' :: Text
 </span><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#%24sel%3AvaultName%3ASetVaultAccessPolicy%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-118"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicyResponse"><span class="hs-identifier hs-type">SetVaultAccessPolicyResponse</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679220113"><span class="annot"><span class="annottext">request :: SetVaultAccessPolicy -&gt; Request SetVaultAccessPolicy
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679220165"><span class="annot"><span class="annottext">request :: SetVaultAccessPolicy -&gt; Request SetVaultAccessPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ByteString
 -&gt; Request SetVaultAccessPolicy -&gt; Request SetVaultAccessPolicy
@@ -249,7 +249,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679220106"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679220158"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetVaultAccessPolicy
 -&gt; ClientResponse ClientBody
@@ -275,21 +275,21 @@ AWSResponse a
 SetVaultAccessPolicyResponse
 </span><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicyResponse%27"><span class="hs-identifier hs-var">SetVaultAccessPolicyResponse'</span></a></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220099"><span id="local-6989586621679220101"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220151"><span id="local-6989586621679220153"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220096"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679220092"><span class="annot"><span class="annottext">toHeaders :: SetVaultAccessPolicy -&gt; [Header]
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679220144"><span class="annot"><span class="annottext">toHeaders :: SetVaultAccessPolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; SetVaultAccessPolicy -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220083"><span id="local-6989586621679220085"><span id="local-6989586621679220087"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679220081"><span class="annot"><span class="annottext">toJSON :: SetVaultAccessPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-type">SetVaultAccessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220077"><span id="local-6989586621679220078"><span id="local-6989586621679220079"><span class="annot"><span class="annottext">Maybe VaultAccessPolicy
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220135"><span id="local-6989586621679220137"><span id="local-6989586621679220139"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679220133"><span class="annot"><span class="annottext">toJSON :: SetVaultAccessPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-type">SetVaultAccessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220129"><span id="local-6989586621679220130"><span id="local-6989586621679220131"><span class="annot"><span class="annottext">Maybe VaultAccessPolicy
 Text
 vaultName :: Text
 accountId :: Text
@@ -297,7 +297,7 @@ policy :: Maybe VaultAccessPolicy
 $sel:vaultName:SetVaultAccessPolicy' :: SetVaultAccessPolicy -&gt; Text
 $sel:accountId:SetVaultAccessPolicy' :: SetVaultAccessPolicy -&gt; Text
 $sel:policy:SetVaultAccessPolicy' :: SetVaultAccessPolicy -&gt; Maybe VaultAccessPolicy
-</span><a href="#local-6989586621679220077"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679220129"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -310,12 +310,12 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe VaultAccessPolicy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VaultAccessPolicy
-</span><a href="#local-6989586621679220079"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679220131"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679220070"><span class="annot"><span class="annottext">toPath :: SetVaultAccessPolicy -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-type">SetVaultAccessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220066"><span id="local-6989586621679220067"><span id="local-6989586621679220068"><span class="annot"><span class="annottext">Maybe VaultAccessPolicy
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679220122"><span class="annot"><span class="annottext">toPath :: SetVaultAccessPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy%27"><span class="hs-identifier hs-type">SetVaultAccessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220118"><span id="local-6989586621679220119"><span id="local-6989586621679220120"><span class="annot"><span class="annottext">Maybe VaultAccessPolicy
 Text
 vaultName :: Text
 accountId :: Text
@@ -323,7 +323,7 @@ policy :: Maybe VaultAccessPolicy
 $sel:vaultName:SetVaultAccessPolicy' :: SetVaultAccessPolicy -&gt; Text
 $sel:accountId:SetVaultAccessPolicy' :: SetVaultAccessPolicy -&gt; Text
 $sel:policy:SetVaultAccessPolicy' :: SetVaultAccessPolicy -&gt; Maybe VaultAccessPolicy
-</span><a href="#local-6989586621679220066"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679220118"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -332,19 +332,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220067"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679220119"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220066"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679220118"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/access-policy&quot;</span></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicy"><span class="hs-identifier hs-type">SetVaultAccessPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679220062"><span class="annot"><span class="annottext">toQuery :: SetVaultAccessPolicy -&gt; QueryString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679220114"><span class="annot"><span class="annottext">toQuery :: SetVaultAccessPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SetVaultAccessPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -352,10 +352,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newSetVaultAccessPolicyResponse' smart constructor.</span><span>
-</span><span id="line-154"></span><span id="local-6989586621679220059"><span id="local-6989586621679220060"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetVaultAccessPolicyResponse"><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicyResponse"><span class="hs-identifier hs-var">SetVaultAccessPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetVaultAccessPolicyResponse%27"><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicyResponse%27"><span class="hs-identifier hs-var">SetVaultAccessPolicyResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span id="local-6989586621679220111"><span id="local-6989586621679220112"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetVaultAccessPolicyResponse"><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicyResponse"><span class="hs-identifier hs-var">SetVaultAccessPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetVaultAccessPolicyResponse%27"><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicyResponse%27"><span class="hs-identifier hs-var">SetVaultAccessPolicyResponse'</span></a></span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220055"><span id="local-6989586621679220057"><span class="annot"><span class="annottext">SetVaultAccessPolicyResponse
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220107"><span id="local-6989586621679220109"><span class="annot"><span class="annottext">SetVaultAccessPolicyResponse
 -&gt; SetVaultAccessPolicyResponse -&gt; Bool
 (SetVaultAccessPolicyResponse
  -&gt; SetVaultAccessPolicyResponse -&gt; Bool)
@@ -371,7 +371,7 @@ $c/= :: SetVaultAccessPolicyResponse
 -&gt; SetVaultAccessPolicyResponse -&gt; Bool
 $c== :: SetVaultAccessPolicyResponse
 -&gt; SetVaultAccessPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220047"><span id="local-6989586621679220049"><span id="local-6989586621679220051"><span id="local-6989586621679220053"><span class="annot"><span class="annottext">ReadPrec [SetVaultAccessPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220099"><span id="local-6989586621679220101"><span id="local-6989586621679220103"><span id="local-6989586621679220105"><span class="annot"><span class="annottext">ReadPrec [SetVaultAccessPolicyResponse]
 ReadPrec SetVaultAccessPolicyResponse
 Int -&gt; ReadS SetVaultAccessPolicyResponse
 ReadS [SetVaultAccessPolicyResponse]
@@ -391,7 +391,7 @@ readList :: ReadS [SetVaultAccessPolicyResponse]
 $creadList :: ReadS [SetVaultAccessPolicyResponse]
 readsPrec :: Int -&gt; ReadS SetVaultAccessPolicyResponse
 $creadsPrec :: Int -&gt; ReadS SetVaultAccessPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220041"><span id="local-6989586621679220043"><span id="local-6989586621679220045"><span class="annot"><span class="annottext">Int -&gt; SetVaultAccessPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220093"><span id="local-6989586621679220095"><span id="local-6989586621679220097"><span class="annot"><span class="annottext">Int -&gt; SetVaultAccessPolicyResponse -&gt; ShowS
 [SetVaultAccessPolicyResponse] -&gt; ShowS
 SetVaultAccessPolicyResponse -&gt; String
 (Int -&gt; SetVaultAccessPolicyResponse -&gt; ShowS)
@@ -434,5 +434,5 @@ SetVaultAccessPolicyResponse -&gt; Rep SetVaultAccessPolicyResponse x
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">SetVaultAccessPolicyResponse
 </span><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicyResponse%27"><span class="hs-identifier hs-var">SetVaultAccessPolicyResponse'</span></a></span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220037"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicyResponse"><span class="hs-identifier hs-type">SetVaultAccessPolicyResponse</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220089"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetVaultAccessPolicy.html#SetVaultAccessPolicyResponse"><span class="hs-identifier hs-type">SetVaultAccessPolicyResponse</span></a></span></span><span>
 </span><span id="line-169"></span></pre></body></html>

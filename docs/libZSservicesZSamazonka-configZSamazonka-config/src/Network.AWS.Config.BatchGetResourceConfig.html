@@ -43,8 +43,8 @@
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#newBatchGetResourceConfigResponse"><span class="hs-identifier">newBatchGetResourceConfigResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#batchGetResourceConfigResponse_unprocessedResourceKeys"><span class="hs-identifier">batchGetResourceConfigResponse_unprocessedResourceKeys</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#batchGetResourceConfigResponse_baseConfigurationItems"><span class="hs-identifier">batchGetResourceConfigResponse_baseConfigurationItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#batchGetResourceConfigResponse_baseConfigurationItems"><span class="hs-identifier">batchGetResourceConfigResponse_baseConfigurationItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#batchGetResourceConfigResponse_unprocessedResourceKeys"><span class="hs-identifier">batchGetResourceConfigResponse_unprocessedResourceKeys</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#batchGetResourceConfigResponse_httpStatus"><span class="hs-identifier">batchGetResourceConfigResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span class="hs-keyword">where</span><span>
@@ -57,13 +57,13 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newBatchGetResourceConfig' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679431880"><span id="local-6989586621679431881"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetResourceConfig"><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig"><span class="hs-identifier hs-var">BatchGetResourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetResourceConfig%27"><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig%27"><span class="hs-identifier hs-var">BatchGetResourceConfig'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679432555"><span id="local-6989586621679432556"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetResourceConfig"><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig"><span class="hs-identifier hs-var">BatchGetResourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetResourceConfig%27"><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig%27"><span class="hs-identifier hs-var">BatchGetResourceConfig'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of resource keys to be processed with the current request. Each</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- element in the list consists of the resource type and resource ID.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AresourceKeys%3ABatchGetResourceConfig%27"><span class="annot"><span class="annottext">BatchGetResourceConfig -&gt; NonEmpty ResourceKey
 </span><a href="Network.AWS.Config.BatchGetResourceConfig.html#%24sel%3AresourceKeys%3ABatchGetResourceConfig%27"><span class="hs-identifier hs-var hs-var">resourceKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceKey.html#ResourceKey"><span class="hs-identifier hs-type">ResourceKey</span></a></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431874"><span id="local-6989586621679431876"><span class="annot"><span class="annottext">BatchGetResourceConfig -&gt; BatchGetResourceConfig -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432549"><span id="local-6989586621679432551"><span class="annot"><span class="annottext">BatchGetResourceConfig -&gt; BatchGetResourceConfig -&gt; Bool
 (BatchGetResourceConfig -&gt; BatchGetResourceConfig -&gt; Bool)
 -&gt; (BatchGetResourceConfig -&gt; BatchGetResourceConfig -&gt; Bool)
 -&gt; Eq BatchGetResourceConfig
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchGetResourceConfig -&gt; BatchGetResourceConfig -&gt; Bool
 == :: BatchGetResourceConfig -&gt; BatchGetResourceConfig -&gt; Bool
 $c== :: BatchGetResourceConfig -&gt; BatchGetResourceConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431865"><span id="local-6989586621679431867"><span id="local-6989586621679431869"><span id="local-6989586621679431871"><span class="annot"><span class="annottext">ReadPrec [BatchGetResourceConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432540"><span id="local-6989586621679432542"><span id="local-6989586621679432544"><span id="local-6989586621679432546"><span class="annot"><span class="annottext">ReadPrec [BatchGetResourceConfig]
 ReadPrec BatchGetResourceConfig
 Int -&gt; ReadS BatchGetResourceConfig
 ReadS [BatchGetResourceConfig]
@@ -92,7 +92,7 @@ readList :: ReadS [BatchGetResourceConfig]
 $creadList :: ReadS [BatchGetResourceConfig]
 readsPrec :: Int -&gt; ReadS BatchGetResourceConfig
 $creadsPrec :: Int -&gt; ReadS BatchGetResourceConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431858"><span id="local-6989586621679431860"><span id="local-6989586621679431862"><span class="annot"><span class="annottext">Int -&gt; BatchGetResourceConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432533"><span id="local-6989586621679432535"><span id="local-6989586621679432537"><span class="annot"><span class="annottext">Int -&gt; BatchGetResourceConfig -&gt; ShowS
 [BatchGetResourceConfig] -&gt; ShowS
 BatchGetResourceConfig -&gt; String
 (Int -&gt; BatchGetResourceConfig -&gt; ShowS)
@@ -134,21 +134,21 @@ $cfrom :: forall x. BatchGetResourceConfig -&gt; Rep BatchGetResourceConfig x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceKey.html#ResourceKey"><span class="hs-identifier hs-type">ResourceKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig"><span class="hs-identifier hs-type">BatchGetResourceConfig</span></a></span><span>
 </span><span id="line-81"></span><span id="newBatchGetResourceConfig"><span class="annot"><span class="annottext">newBatchGetResourceConfig :: NonEmpty ResourceKey -&gt; BatchGetResourceConfig
-</span><a href="Network.AWS.Config.BatchGetResourceConfig.html#newBatchGetResourceConfig"><span class="hs-identifier hs-var hs-var">newBatchGetResourceConfig</span></a></span></span><span> </span><span id="local-6989586621679431853"><span class="annot"><span class="annottext">NonEmpty ResourceKey
-</span><a href="#local-6989586621679431853"><span class="hs-identifier hs-var">pResourceKeys_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Config.BatchGetResourceConfig.html#newBatchGetResourceConfig"><span class="hs-identifier hs-var hs-var">newBatchGetResourceConfig</span></a></span></span><span> </span><span id="local-6989586621679432528"><span class="annot"><span class="annottext">NonEmpty ResourceKey
+</span><a href="#local-6989586621679432528"><span class="hs-identifier hs-var">pResourceKeys_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">BatchGetResourceConfig' :: NonEmpty ResourceKey -&gt; BatchGetResourceConfig
 </span><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig%27"><span class="hs-identifier hs-type">BatchGetResourceConfig'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceKeys:BatchGetResourceConfig' :: NonEmpty ResourceKey
 </span><a href="Network.AWS.Config.BatchGetResourceConfig.html#%24sel%3AresourceKeys%3ABatchGetResourceConfig%27"><span class="hs-identifier hs-var">resourceKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty ResourceKey) (Identity (NonEmpty ResourceKey))
 -&gt; Tagged (NonEmpty ResourceKey) (Identity (NonEmpty ResourceKey))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty ResourceKey) (Identity (NonEmpty ResourceKey))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty ResourceKey) (Identity (NonEmpty ResourceKey))
  -&gt; Tagged (NonEmpty ResourceKey) (Identity (NonEmpty ResourceKey)))
 -&gt; NonEmpty ResourceKey -&gt; NonEmpty ResourceKey
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty ResourceKey
-</span><a href="#local-6989586621679431853"><span class="hs-identifier hs-var">pResourceKeys_</span></a></span><span>
+</span><a href="#local-6989586621679432528"><span class="hs-identifier hs-var">pResourceKeys_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | A list of resource keys to be processed with the current request. Each</span><span>
@@ -165,16 +165,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty ResourceKey)
      (NonEmpty ResourceKey)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig%27"><span class="hs-identifier hs-type">BatchGetResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431848"><span class="annot"><span class="annottext">NonEmpty ResourceKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig%27"><span class="hs-identifier hs-type">BatchGetResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432523"><span class="annot"><span class="annottext">NonEmpty ResourceKey
 resourceKeys :: NonEmpty ResourceKey
 $sel:resourceKeys:BatchGetResourceConfig' :: BatchGetResourceConfig -&gt; NonEmpty ResourceKey
-</span><a href="#local-6989586621679431848"><span class="hs-identifier hs-var hs-var">resourceKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty ResourceKey
-</span><a href="#local-6989586621679431848"><span class="hs-identifier hs-var">resourceKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431847"><span class="annot"><span class="annottext">s :: BatchGetResourceConfig
-</span><a href="#local-6989586621679431847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig%27"><span class="hs-identifier hs-type">BatchGetResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431846"><span class="annot"><span class="annottext">NonEmpty ResourceKey
-</span><a href="#local-6989586621679431846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetResourceConfig
-</span><a href="#local-6989586621679431847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceKeys:BatchGetResourceConfig' :: NonEmpty ResourceKey
+</span><a href="#local-6989586621679432523"><span class="hs-identifier hs-var hs-var">resourceKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty ResourceKey
+</span><a href="#local-6989586621679432523"><span class="hs-identifier hs-var">resourceKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432522"><span class="annot"><span class="annottext">s :: BatchGetResourceConfig
+</span><a href="#local-6989586621679432522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig%27"><span class="hs-identifier hs-type">BatchGetResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432521"><span class="annot"><span class="annottext">NonEmpty ResourceKey
+</span><a href="#local-6989586621679432521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetResourceConfig
+</span><a href="#local-6989586621679432522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceKeys:BatchGetResourceConfig' :: NonEmpty ResourceKey
 </span><a href="Network.AWS.Config.BatchGetResourceConfig.html#%24sel%3AresourceKeys%3ABatchGetResourceConfig%27"><span class="hs-identifier hs-var">resourceKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty ResourceKey
-</span><a href="#local-6989586621679431846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig"><span class="hs-identifier hs-type">BatchGetResourceConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty ResourceKey -&gt; f (NonEmpty ResourceKey))
+</span><a href="#local-6989586621679432521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig"><span class="hs-identifier hs-type">BatchGetResourceConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty ResourceKey -&gt; f (NonEmpty ResourceKey))
  -&gt; BatchGetResourceConfig -&gt; f BatchGetResourceConfig)
 -&gt; ((NonEmpty ResourceKey -&gt; f (NonEmpty ResourceKey))
     -&gt; NonEmpty ResourceKey -&gt; f (NonEmpty ResourceKey))
@@ -184,19 +184,19 @@ $sel:resourceKeys:BatchGetResourceConfig' :: BatchGetResourceConfig -&gt; NonEmp
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty ResourceKey -&gt; f (NonEmpty ResourceKey))
 -&gt; NonEmpty ResourceKey -&gt; f (NonEmpty ResourceKey)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig"><span class="hs-identifier hs-type">BatchGetResourceConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig"><span class="hs-identifier hs-type">BatchGetResourceConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679431841"><span class="annot"><span class="annottext">request :: BatchGetResourceConfig -&gt; Request BatchGetResourceConfig
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679432516"><span class="annot"><span class="annottext">request :: BatchGetResourceConfig -&gt; Request BatchGetResourceConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchGetResourceConfig -&gt; Request BatchGetResourceConfig
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679431837"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679432512"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchGetResourceConfig
 -&gt; ClientResponse ClientBody
@@ -222,51 +222,51 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679431834"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679431834"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679431833"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679431833"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679431832"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679431832"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
--&gt; Maybe [BaseConfigurationItem]
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679432509"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432509"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679432508"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679432508"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679432507"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432507"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BaseConfigurationItem]
+-&gt; Maybe (NonEmpty ResourceKey)
 -&gt; Int
 -&gt; BatchGetResourceConfigResponse
 </span><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse%27"><span class="hs-identifier hs-var">BatchGetResourceConfigResponse'</span></a></span><span>
-</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty ResourceKey)
- -&gt; Maybe [BaseConfigurationItem]
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [BaseConfigurationItem]
+ -&gt; Maybe (NonEmpty ResourceKey)
  -&gt; Int
  -&gt; BatchGetResourceConfigResponse)
--&gt; Either String (Maybe (NonEmpty ResourceKey))
+-&gt; Either String (Maybe [BaseConfigurationItem])
 -&gt; Either
      String
-     (Maybe [BaseConfigurationItem]
+     (Maybe (NonEmpty ResourceKey)
       -&gt; Int -&gt; BatchGetResourceConfigResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679431832"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty ResourceKey))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;unprocessedResourceKeys&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [BaseConfigurationItem]
-   -&gt; Int -&gt; BatchGetResourceConfigResponse)
--&gt; Either String (Maybe [BaseConfigurationItem])
--&gt; Either String (Int -&gt; BatchGetResourceConfigResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679431832"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [BaseConfigurationItem]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;baseConfigurationItems&quot;</span></span><span>
-</span><span id="line-103"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BaseConfigurationItem]))
+</span><span id="line-102"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BaseConfigurationItem]))
 -&gt; Maybe [BaseConfigurationItem]
 -&gt; Either String (Maybe [BaseConfigurationItem])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [BaseConfigurationItem]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-104"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (NonEmpty ResourceKey)
+   -&gt; Int -&gt; BatchGetResourceConfigResponse)
+-&gt; Either String (Maybe (NonEmpty ResourceKey))
+-&gt; Either String (Int -&gt; BatchGetResourceConfigResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty ResourceKey))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;unprocessedResourceKeys&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchGetResourceConfigResponse)
 -&gt; Either String Int
 -&gt; Either String BatchGetResourceConfigResponse
@@ -276,15 +276,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679431834"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679432509"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431823"><span id="local-6989586621679431825"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig"><span class="hs-identifier hs-type">BatchGetResourceConfig</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432498"><span id="local-6989586621679432500"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig"><span class="hs-identifier hs-type">BatchGetResourceConfig</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431820"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig"><span class="hs-identifier hs-type">BatchGetResourceConfig</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig"><span class="hs-identifier hs-type">BatchGetResourceConfig</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig"><span class="hs-identifier hs-type">BatchGetResourceConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679431816"><span class="annot"><span class="annottext">toHeaders :: BatchGetResourceConfig -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679432491"><span class="annot"><span class="annottext">toHeaders :: BatchGetResourceConfig -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchGetResourceConfig -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -311,12 +311,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431806"><span id="local-6989586621679431808"><span id="local-6989586621679431810"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig"><span class="hs-identifier hs-type">BatchGetResourceConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679431804"><span class="annot"><span class="annottext">toJSON :: BatchGetResourceConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig%27"><span class="hs-identifier hs-type">BatchGetResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431802"><span class="annot"><span class="annottext">NonEmpty ResourceKey
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432481"><span id="local-6989586621679432483"><span id="local-6989586621679432485"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig"><span class="hs-identifier hs-type">BatchGetResourceConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679432479"><span class="annot"><span class="annottext">toJSON :: BatchGetResourceConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig%27"><span class="hs-identifier hs-type">BatchGetResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432477"><span class="annot"><span class="annottext">NonEmpty ResourceKey
 resourceKeys :: NonEmpty ResourceKey
 $sel:resourceKeys:BatchGetResourceConfig' :: BatchGetResourceConfig -&gt; NonEmpty ResourceKey
-</span><a href="#local-6989586621679431802"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679432477"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -328,18 +328,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;resourceKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ResourceKey -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty ResourceKey
-</span><a href="#local-6989586621679431802"><span class="hs-identifier hs-var">resourceKeys</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679432477"><span class="hs-identifier hs-var">resourceKeys</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig"><span class="hs-identifier hs-type">BatchGetResourceConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679431796"><span class="annot"><span class="annottext">toPath :: BatchGetResourceConfig -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679432471"><span class="annot"><span class="annottext">toPath :: BatchGetResourceConfig -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchGetResourceConfig -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfig"><span class="hs-identifier hs-type">BatchGetResourceConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679431792"><span class="annot"><span class="annottext">toQuery :: BatchGetResourceConfig -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679432467"><span class="annot"><span class="annottext">toQuery :: BatchGetResourceConfig -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchGetResourceConfig -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -347,22 +347,22 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newBatchGetResourceConfigResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679431789"><span id="local-6989586621679431790"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetResourceConfigResponse"><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse"><span class="hs-identifier hs-var">BatchGetResourceConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetResourceConfigResponse%27"><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse%27"><span class="hs-identifier hs-var">BatchGetResourceConfigResponse'</span></a></span></span><span>
-</span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of resource keys that were not processed with the current</span><span>
-</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- response. The unprocessesResourceKeys value is in the same form as</span><span>
-</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- ResourceKeys, so the value can be directly provided to a subsequent</span><span>
-</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- BatchGetResourceConfig operation. If there are no unprocessed resource</span><span>
-</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- keys, the response contains an empty unprocessedResourceKeys list.</span><span>
-</span><span id="line-147"></span><span>    </span><span id="%24sel%3AunprocessedResourceKeys%3ABatchGetResourceConfigResponse%27"><span class="annot"><span class="annottext">BatchGetResourceConfigResponse -&gt; Maybe (NonEmpty ResourceKey)
-</span><a href="Network.AWS.Config.BatchGetResourceConfig.html#%24sel%3AunprocessedResourceKeys%3ABatchGetResourceConfigResponse%27"><span class="hs-identifier hs-var hs-var">unprocessedResourceKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceKey.html#ResourceKey"><span class="hs-identifier hs-type">ResourceKey</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | A list that contains the current configuration of one or more resources.</span><span>
-</span><span id="line-149"></span><span>    </span><span id="%24sel%3AbaseConfigurationItems%3ABatchGetResourceConfigResponse%27"><span class="annot"><span class="annottext">BatchGetResourceConfigResponse -&gt; Maybe [BaseConfigurationItem]
+</span><span id="line-141"></span><span id="local-6989586621679432464"><span id="local-6989586621679432465"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetResourceConfigResponse"><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse"><span class="hs-identifier hs-var">BatchGetResourceConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetResourceConfigResponse%27"><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse%27"><span class="hs-identifier hs-var">BatchGetResourceConfigResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list that contains the current configuration of one or more resources.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AbaseConfigurationItems%3ABatchGetResourceConfigResponse%27"><span class="annot"><span class="annottext">BatchGetResourceConfigResponse -&gt; Maybe [BaseConfigurationItem]
 </span><a href="Network.AWS.Config.BatchGetResourceConfig.html#%24sel%3AbaseConfigurationItems%3ABatchGetResourceConfigResponse%27"><span class="hs-identifier hs-var hs-var">baseConfigurationItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.BaseConfigurationItem.html#BaseConfigurationItem"><span class="hs-identifier hs-type">BaseConfigurationItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | A list of resource keys that were not processed with the current</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- response. The unprocessesResourceKeys value is in the same form as</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- ResourceKeys, so the value can be directly provided to a subsequent</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- BatchGetResourceConfig operation. If there are no unprocessed resource</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- keys, the response contains an empty unprocessedResourceKeys list.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AunprocessedResourceKeys%3ABatchGetResourceConfigResponse%27"><span class="annot"><span class="annottext">BatchGetResourceConfigResponse -&gt; Maybe (NonEmpty ResourceKey)
+</span><a href="Network.AWS.Config.BatchGetResourceConfig.html#%24sel%3AunprocessedResourceKeys%3ABatchGetResourceConfigResponse%27"><span class="hs-identifier hs-var hs-var">unprocessedResourceKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceKey.html#ResourceKey"><span class="hs-identifier hs-type">ResourceKey</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchGetResourceConfigResponse%27"><span class="annot"><span class="annottext">BatchGetResourceConfigResponse -&gt; Int
 </span><a href="Network.AWS.Config.BatchGetResourceConfig.html#%24sel%3AhttpStatus%3ABatchGetResourceConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431782"><span id="local-6989586621679431784"><span class="annot"><span class="annottext">BatchGetResourceConfigResponse
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432457"><span id="local-6989586621679432459"><span class="annot"><span class="annottext">BatchGetResourceConfigResponse
 -&gt; BatchGetResourceConfigResponse -&gt; Bool
 (BatchGetResourceConfigResponse
  -&gt; BatchGetResourceConfigResponse -&gt; Bool)
@@ -378,7 +378,7 @@ $c/= :: BatchGetResourceConfigResponse
 -&gt; BatchGetResourceConfigResponse -&gt; Bool
 $c== :: BatchGetResourceConfigResponse
 -&gt; BatchGetResourceConfigResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431774"><span id="local-6989586621679431776"><span id="local-6989586621679431778"><span id="local-6989586621679431780"><span class="annot"><span class="annottext">ReadPrec [BatchGetResourceConfigResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432449"><span id="local-6989586621679432451"><span id="local-6989586621679432453"><span id="local-6989586621679432455"><span class="annot"><span class="annottext">ReadPrec [BatchGetResourceConfigResponse]
 ReadPrec BatchGetResourceConfigResponse
 Int -&gt; ReadS BatchGetResourceConfigResponse
 ReadS [BatchGetResourceConfigResponse]
@@ -398,7 +398,7 @@ readList :: ReadS [BatchGetResourceConfigResponse]
 $creadList :: ReadS [BatchGetResourceConfigResponse]
 readsPrec :: Int -&gt; ReadS BatchGetResourceConfigResponse
 $creadsPrec :: Int -&gt; ReadS BatchGetResourceConfigResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431768"><span id="local-6989586621679431770"><span id="local-6989586621679431772"><span class="annot"><span class="annottext">Int -&gt; BatchGetResourceConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432443"><span id="local-6989586621679432445"><span id="local-6989586621679432447"><span class="annot"><span class="annottext">Int -&gt; BatchGetResourceConfigResponse -&gt; ShowS
 [BatchGetResourceConfigResponse] -&gt; ShowS
 BatchGetResourceConfigResponse -&gt; String
 (Int -&gt; BatchGetResourceConfigResponse -&gt; ShowS)
@@ -444,13 +444,13 @@ BatchGetResourceConfigResponse
 </span><span id="line-160"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-162"></span><span class="hs-comment">--</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- 'unprocessedResourceKeys', 'batchGetResourceConfigResponse_unprocessedResourceKeys' - A list of resource keys that were not processed with the current</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- response. The unprocessesResourceKeys value is in the same form as</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- ResourceKeys, so the value can be directly provided to a subsequent</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- BatchGetResourceConfig operation. If there are no unprocessed resource</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- keys, the response contains an empty unprocessedResourceKeys list.</span><span>
-</span><span id="line-168"></span><span class="hs-comment">--</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- 'baseConfigurationItems', 'batchGetResourceConfigResponse_baseConfigurationItems' - A list that contains the current configuration of one or more resources.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'baseConfigurationItems', 'batchGetResourceConfigResponse_baseConfigurationItems' - A list that contains the current configuration of one or more resources.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'unprocessedResourceKeys', 'batchGetResourceConfigResponse_unprocessedResourceKeys' - A list of resource keys that were not processed with the current</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- response. The unprocessesResourceKeys value is in the same form as</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- ResourceKeys, so the value can be directly provided to a subsequent</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- BatchGetResourceConfig operation. If there are no unprocessed resource</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- keys, the response contains an empty unprocessedResourceKeys list.</span><span>
 </span><span id="line-170"></span><span class="hs-comment">--</span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'batchGetResourceConfigResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#newBatchGetResourceConfigResponse"><span class="hs-identifier hs-type">newBatchGetResourceConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -458,90 +458,30 @@ BatchGetResourceConfigResponse
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse</span></a></span><span>
 </span><span id="line-176"></span><span id="newBatchGetResourceConfigResponse"><span class="annot"><span class="annottext">newBatchGetResourceConfigResponse :: Int -&gt; BatchGetResourceConfigResponse
-</span><a href="Network.AWS.Config.BatchGetResourceConfig.html#newBatchGetResourceConfigResponse"><span class="hs-identifier hs-var hs-var">newBatchGetResourceConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679431765"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679431765"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">BatchGetResourceConfigResponse' :: Maybe (NonEmpty ResourceKey)
--&gt; Maybe [BaseConfigurationItem]
+</span><a href="Network.AWS.Config.BatchGetResourceConfig.html#newBatchGetResourceConfigResponse"><span class="hs-identifier hs-var hs-var">newBatchGetResourceConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679432440"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432440"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">BatchGetResourceConfigResponse' :: Maybe [BaseConfigurationItem]
+-&gt; Maybe (NonEmpty ResourceKey)
 -&gt; Int
 -&gt; BatchGetResourceConfigResponse
 </span><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse%27"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse'</span></a></span><span>
-</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:unprocessedResourceKeys:BatchGetResourceConfigResponse' :: Maybe (NonEmpty ResourceKey)
-</span><a href="Network.AWS.Config.BatchGetResourceConfig.html#%24sel%3AunprocessedResourceKeys%3ABatchGetResourceConfigResponse%27"><span class="hs-identifier hs-var">unprocessedResourceKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:baseConfigurationItems:BatchGetResourceConfigResponse' :: Maybe [BaseConfigurationItem]
+</span><a href="Network.AWS.Config.BatchGetResourceConfig.html#%24sel%3AbaseConfigurationItems%3ABatchGetResourceConfigResponse%27"><span class="hs-identifier hs-var">baseConfigurationItems</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe [BaseConfigurationItem]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:baseConfigurationItems:BatchGetResourceConfigResponse' :: Maybe [BaseConfigurationItem]
-</span><a href="Network.AWS.Config.BatchGetResourceConfig.html#%24sel%3AbaseConfigurationItems%3ABatchGetResourceConfigResponse%27"><span class="hs-identifier hs-var">baseConfigurationItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BaseConfigurationItem]
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:unprocessedResourceKeys:BatchGetResourceConfigResponse' :: Maybe (NonEmpty ResourceKey)
+</span><a href="Network.AWS.Config.BatchGetResourceConfig.html#%24sel%3AunprocessedResourceKeys%3ABatchGetResourceConfigResponse%27"><span class="hs-identifier hs-var">unprocessedResourceKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetResourceConfigResponse' :: Int
 </span><a href="Network.AWS.Config.BatchGetResourceConfig.html#%24sel%3AhttpStatus%3ABatchGetResourceConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679431765"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679432440"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- | A list of resource keys that were not processed with the current</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- response. The unprocessesResourceKeys value is in the same form as</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- ResourceKeys, so the value can be directly provided to a subsequent</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- BatchGetResourceConfig operation. If there are no unprocessed resource</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- keys, the response contains an empty unprocessedResourceKeys list.</span><span>
-</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#batchGetResourceConfigResponse_unprocessedResourceKeys"><span class="hs-identifier hs-type">batchGetResourceConfigResponse_unprocessedResourceKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceKey.html#ResourceKey"><span class="hs-identifier hs-type">ResourceKey</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span id="batchGetResourceConfigResponse_unprocessedResourceKeys"><span class="annot"><span class="annottext">batchGetResourceConfigResponse_unprocessedResourceKeys :: (Maybe (NonEmpty ResourceKey) -&gt; f (Maybe (NonEmpty ResourceKey)))
--&gt; BatchGetResourceConfigResponse
--&gt; f BatchGetResourceConfigResponse
-</span><a href="Network.AWS.Config.BatchGetResourceConfig.html#batchGetResourceConfigResponse_unprocessedResourceKeys"><span class="hs-identifier hs-var hs-var">batchGetResourceConfigResponse_unprocessedResourceKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetResourceConfigResponse -&gt; Maybe (NonEmpty ResourceKey))
--&gt; (BatchGetResourceConfigResponse
-    -&gt; Maybe (NonEmpty ResourceKey) -&gt; BatchGetResourceConfigResponse)
--&gt; Lens
-     BatchGetResourceConfigResponse
-     BatchGetResourceConfigResponse
-     (Maybe (NonEmpty ResourceKey))
-     (Maybe (NonEmpty ResourceKey))
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse%27"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431764"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
-unprocessedResourceKeys :: Maybe (NonEmpty ResourceKey)
-$sel:unprocessedResourceKeys:BatchGetResourceConfigResponse' :: BatchGetResourceConfigResponse -&gt; Maybe (NonEmpty ResourceKey)
-</span><a href="#local-6989586621679431764"><span class="hs-identifier hs-var hs-var">unprocessedResourceKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
-</span><a href="#local-6989586621679431764"><span class="hs-identifier hs-var">unprocessedResourceKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431763"><span class="annot"><span class="annottext">s :: BatchGetResourceConfigResponse
-</span><a href="#local-6989586621679431763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse%27"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431762"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
-</span><a href="#local-6989586621679431762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetResourceConfigResponse
-</span><a href="#local-6989586621679431763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedResourceKeys:BatchGetResourceConfigResponse' :: Maybe (NonEmpty ResourceKey)
-</span><a href="Network.AWS.Config.BatchGetResourceConfig.html#%24sel%3AunprocessedResourceKeys%3ABatchGetResourceConfigResponse%27"><span class="hs-identifier hs-var">unprocessedResourceKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
-</span><a href="#local-6989586621679431762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourceKey) -&gt; f (Maybe (NonEmpty ResourceKey)))
- -&gt; BatchGetResourceConfigResponse
- -&gt; f BatchGetResourceConfigResponse)
--&gt; ((Maybe (NonEmpty ResourceKey)
-     -&gt; f (Maybe (NonEmpty ResourceKey)))
-    -&gt; Maybe (NonEmpty ResourceKey)
-    -&gt; f (Maybe (NonEmpty ResourceKey)))
--&gt; (Maybe (NonEmpty ResourceKey)
-    -&gt; f (Maybe (NonEmpty ResourceKey)))
--&gt; BatchGetResourceConfigResponse
--&gt; f BatchGetResourceConfigResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (NonEmpty ResourceKey)
-  (NonEmpty ResourceKey)
-  (NonEmpty ResourceKey)
-  (NonEmpty ResourceKey)
--&gt; Iso
-     (Maybe (NonEmpty ResourceKey))
-     (Maybe (NonEmpty ResourceKey))
-     (Maybe (NonEmpty ResourceKey))
-     (Maybe (NonEmpty ResourceKey))
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (NonEmpty ResourceKey)
-  (NonEmpty ResourceKey)
-  (NonEmpty ResourceKey)
-  (NonEmpty ResourceKey)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- | A list that contains the current configuration of one or more resources.</span><span>
-</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#batchGetResourceConfigResponse_baseConfigurationItems"><span class="hs-identifier hs-type">batchGetResourceConfigResponse_baseConfigurationItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.BaseConfigurationItem.html#BaseConfigurationItem"><span class="hs-identifier hs-type">BaseConfigurationItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span id="batchGetResourceConfigResponse_baseConfigurationItems"><span class="annot"><span class="annottext">batchGetResourceConfigResponse_baseConfigurationItems :: (Maybe [BaseConfigurationItem]
+</span><span id="line-184"></span><span class="hs-comment">-- | A list that contains the current configuration of one or more resources.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#batchGetResourceConfigResponse_baseConfigurationItems"><span class="hs-identifier hs-type">batchGetResourceConfigResponse_baseConfigurationItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.BaseConfigurationItem.html#BaseConfigurationItem"><span class="hs-identifier hs-type">BaseConfigurationItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="batchGetResourceConfigResponse_baseConfigurationItems"><span class="annot"><span class="annottext">batchGetResourceConfigResponse_baseConfigurationItems :: (Maybe [BaseConfigurationItem]
  -&gt; f (Maybe [BaseConfigurationItem]))
 -&gt; BatchGetResourceConfigResponse
 -&gt; f BatchGetResourceConfigResponse
@@ -554,16 +494,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [BaseConfigurationItem])
      (Maybe [BaseConfigurationItem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse%27"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431760"><span class="annot"><span class="annottext">Maybe [BaseConfigurationItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse%27"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432439"><span class="annot"><span class="annottext">Maybe [BaseConfigurationItem]
 baseConfigurationItems :: Maybe [BaseConfigurationItem]
 $sel:baseConfigurationItems:BatchGetResourceConfigResponse' :: BatchGetResourceConfigResponse -&gt; Maybe [BaseConfigurationItem]
-</span><a href="#local-6989586621679431760"><span class="hs-identifier hs-var hs-var">baseConfigurationItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BaseConfigurationItem]
-</span><a href="#local-6989586621679431760"><span class="hs-identifier hs-var">baseConfigurationItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431759"><span class="annot"><span class="annottext">s :: BatchGetResourceConfigResponse
-</span><a href="#local-6989586621679431759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse%27"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431758"><span class="annot"><span class="annottext">Maybe [BaseConfigurationItem]
-</span><a href="#local-6989586621679431758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetResourceConfigResponse
-</span><a href="#local-6989586621679431759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseConfigurationItems:BatchGetResourceConfigResponse' :: Maybe [BaseConfigurationItem]
+</span><a href="#local-6989586621679432439"><span class="hs-identifier hs-var hs-var">baseConfigurationItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BaseConfigurationItem]
+</span><a href="#local-6989586621679432439"><span class="hs-identifier hs-var">baseConfigurationItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432438"><span class="annot"><span class="annottext">s :: BatchGetResourceConfigResponse
+</span><a href="#local-6989586621679432438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse%27"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432437"><span class="annot"><span class="annottext">Maybe [BaseConfigurationItem]
+</span><a href="#local-6989586621679432437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetResourceConfigResponse
+</span><a href="#local-6989586621679432438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseConfigurationItems:BatchGetResourceConfigResponse' :: Maybe [BaseConfigurationItem]
 </span><a href="Network.AWS.Config.BatchGetResourceConfig.html#%24sel%3AbaseConfigurationItems%3ABatchGetResourceConfigResponse%27"><span class="hs-identifier hs-var">baseConfigurationItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BaseConfigurationItem]
-</span><a href="#local-6989586621679431758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BaseConfigurationItem]
+</span><a href="#local-6989586621679432437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BaseConfigurationItem]
   -&gt; f (Maybe [BaseConfigurationItem]))
  -&gt; BatchGetResourceConfigResponse
  -&gt; f BatchGetResourceConfigResponse)
@@ -594,8 +534,68 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [BaseConfigurationItem]
   [BaseConfigurationItem]
   [BaseConfigurationItem]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | A list of resource keys that were not processed with the current</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- response. The unprocessesResourceKeys value is in the same form as</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- ResourceKeys, so the value can be directly provided to a subsequent</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- BatchGetResourceConfig operation. If there are no unprocessed resource</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- keys, the response contains an empty unprocessedResourceKeys list.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#batchGetResourceConfigResponse_unprocessedResourceKeys"><span class="hs-identifier hs-type">batchGetResourceConfigResponse_unprocessedResourceKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceKey.html#ResourceKey"><span class="hs-identifier hs-type">ResourceKey</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="batchGetResourceConfigResponse_unprocessedResourceKeys"><span class="annot"><span class="annottext">batchGetResourceConfigResponse_unprocessedResourceKeys :: (Maybe (NonEmpty ResourceKey) -&gt; f (Maybe (NonEmpty ResourceKey)))
+-&gt; BatchGetResourceConfigResponse
+-&gt; f BatchGetResourceConfigResponse
+</span><a href="Network.AWS.Config.BatchGetResourceConfig.html#batchGetResourceConfigResponse_unprocessedResourceKeys"><span class="hs-identifier hs-var hs-var">batchGetResourceConfigResponse_unprocessedResourceKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetResourceConfigResponse -&gt; Maybe (NonEmpty ResourceKey))
+-&gt; (BatchGetResourceConfigResponse
+    -&gt; Maybe (NonEmpty ResourceKey) -&gt; BatchGetResourceConfigResponse)
+-&gt; Lens
+     BatchGetResourceConfigResponse
+     BatchGetResourceConfigResponse
+     (Maybe (NonEmpty ResourceKey))
+     (Maybe (NonEmpty ResourceKey))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse%27"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432435"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
+unprocessedResourceKeys :: Maybe (NonEmpty ResourceKey)
+$sel:unprocessedResourceKeys:BatchGetResourceConfigResponse' :: BatchGetResourceConfigResponse -&gt; Maybe (NonEmpty ResourceKey)
+</span><a href="#local-6989586621679432435"><span class="hs-identifier hs-var hs-var">unprocessedResourceKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
+</span><a href="#local-6989586621679432435"><span class="hs-identifier hs-var">unprocessedResourceKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432434"><span class="annot"><span class="annottext">s :: BatchGetResourceConfigResponse
+</span><a href="#local-6989586621679432434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse%27"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432433"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
+</span><a href="#local-6989586621679432433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetResourceConfigResponse
+</span><a href="#local-6989586621679432434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedResourceKeys:BatchGetResourceConfigResponse' :: Maybe (NonEmpty ResourceKey)
+</span><a href="Network.AWS.Config.BatchGetResourceConfig.html#%24sel%3AunprocessedResourceKeys%3ABatchGetResourceConfigResponse%27"><span class="hs-identifier hs-var">unprocessedResourceKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
+</span><a href="#local-6989586621679432433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourceKey) -&gt; f (Maybe (NonEmpty ResourceKey)))
+ -&gt; BatchGetResourceConfigResponse
+ -&gt; f BatchGetResourceConfigResponse)
+-&gt; ((Maybe (NonEmpty ResourceKey)
+     -&gt; f (Maybe (NonEmpty ResourceKey)))
+    -&gt; Maybe (NonEmpty ResourceKey)
+    -&gt; f (Maybe (NonEmpty ResourceKey)))
+-&gt; (Maybe (NonEmpty ResourceKey)
+    -&gt; f (Maybe (NonEmpty ResourceKey)))
+-&gt; BatchGetResourceConfigResponse
+-&gt; f BatchGetResourceConfigResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourceKey)
+  (NonEmpty ResourceKey)
+  (NonEmpty ResourceKey)
+  (NonEmpty ResourceKey)
+-&gt; Iso
+     (Maybe (NonEmpty ResourceKey))
+     (Maybe (NonEmpty ResourceKey))
+     (Maybe (NonEmpty ResourceKey))
+     (Maybe (NonEmpty ResourceKey))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourceKey)
+  (NonEmpty ResourceKey)
+  (NonEmpty ResourceKey)
+  (NonEmpty ResourceKey)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-197"></span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#batchGetResourceConfigResponse_httpStatus"><span class="hs-identifier hs-type">batchGetResourceConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -611,18 +611,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse%27"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431757"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse%27"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432432"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchGetResourceConfigResponse' :: BatchGetResourceConfigResponse -&gt; Int
-</span><a href="#local-6989586621679431757"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679431757"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431756"><span class="annot"><span class="annottext">s :: BatchGetResourceConfigResponse
-</span><a href="#local-6989586621679431756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse%27"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431755"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679431755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetResourceConfigResponse
-</span><a href="#local-6989586621679431756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetResourceConfigResponse' :: Int
+</span><a href="#local-6989586621679432432"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432432"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432431"><span class="annot"><span class="annottext">s :: BatchGetResourceConfigResponse
+</span><a href="#local-6989586621679432431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse%27"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432430"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679432430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetResourceConfigResponse
+</span><a href="#local-6989586621679432431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetResourceConfigResponse' :: Int
 </span><a href="Network.AWS.Config.BatchGetResourceConfig.html#%24sel%3AhttpStatus%3ABatchGetResourceConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679431755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679432430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621679431753"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679432428"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-202"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.BatchGetResourceConfig.html#BatchGetResourceConfigResponse"><span class="hs-identifier hs-type">BatchGetResourceConfigResponse</span></a></span></span><span>
 </span><span id="line-203"></span></pre></body></html>

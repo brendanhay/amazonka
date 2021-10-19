@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- set for other event types.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLambdaFunctionCompletedEventAttributes' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679346275"><span id="local-6989586621679346276"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaFunctionCompletedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes"><span class="hs-identifier hs-var">LambdaFunctionCompletedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaFunctionCompletedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-var">LambdaFunctionCompletedEventAttributes'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679346352"><span id="local-6989586621679346353"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaFunctionCompletedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes"><span class="hs-identifier hs-var">LambdaFunctionCompletedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaFunctionCompletedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-var">LambdaFunctionCompletedEventAttributes'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The results of the Lambda task.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aresult%3ALambdaFunctionCompletedEventAttributes%27"><span class="annot"><span class="annottext">LambdaFunctionCompletedEventAttributes -&gt; Maybe Text
 </span><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#%24sel%3Aresult%3ALambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AstartedEventId%3ALambdaFunctionCompletedEventAttributes%27"><span class="annot"><span class="annottext">LambdaFunctionCompletedEventAttributes -&gt; Integer
 </span><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#%24sel%3AstartedEventId%3ALambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346267"><span id="local-6989586621679346269"><span class="annot"><span class="annottext">LambdaFunctionCompletedEventAttributes
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346344"><span id="local-6989586621679346346"><span class="annot"><span class="annottext">LambdaFunctionCompletedEventAttributes
 -&gt; LambdaFunctionCompletedEventAttributes -&gt; Bool
 (LambdaFunctionCompletedEventAttributes
  -&gt; LambdaFunctionCompletedEventAttributes -&gt; Bool)
@@ -58,7 +58,7 @@ $c/= :: LambdaFunctionCompletedEventAttributes
 -&gt; LambdaFunctionCompletedEventAttributes -&gt; Bool
 $c== :: LambdaFunctionCompletedEventAttributes
 -&gt; LambdaFunctionCompletedEventAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346258"><span id="local-6989586621679346260"><span id="local-6989586621679346262"><span id="local-6989586621679346264"><span class="annot"><span class="annottext">ReadPrec [LambdaFunctionCompletedEventAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346335"><span id="local-6989586621679346337"><span id="local-6989586621679346339"><span id="local-6989586621679346341"><span class="annot"><span class="annottext">ReadPrec [LambdaFunctionCompletedEventAttributes]
 ReadPrec LambdaFunctionCompletedEventAttributes
 Int -&gt; ReadS LambdaFunctionCompletedEventAttributes
 ReadS [LambdaFunctionCompletedEventAttributes]
@@ -78,7 +78,7 @@ readList :: ReadS [LambdaFunctionCompletedEventAttributes]
 $creadList :: ReadS [LambdaFunctionCompletedEventAttributes]
 readsPrec :: Int -&gt; ReadS LambdaFunctionCompletedEventAttributes
 $creadsPrec :: Int -&gt; ReadS LambdaFunctionCompletedEventAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346251"><span id="local-6989586621679346253"><span id="local-6989586621679346255"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionCompletedEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346328"><span id="local-6989586621679346330"><span id="local-6989586621679346332"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionCompletedEventAttributes -&gt; ShowS
 [LambdaFunctionCompletedEventAttributes] -&gt; ShowS
 LambdaFunctionCompletedEventAttributes -&gt; String
 (Int -&gt; LambdaFunctionCompletedEventAttributes -&gt; ShowS)
@@ -141,10 +141,10 @@ LambdaFunctionCompletedEventAttributes
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes</span></a></span><span>
 </span><span id="line-67"></span><span id="newLambdaFunctionCompletedEventAttributes"><span class="annot"><span class="annottext">newLambdaFunctionCompletedEventAttributes :: Integer -&gt; Integer -&gt; LambdaFunctionCompletedEventAttributes
 </span><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#newLambdaFunctionCompletedEventAttributes"><span class="hs-identifier hs-var hs-var">newLambdaFunctionCompletedEventAttributes</span></a></span></span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679346245"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679346245"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679346244"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679346244"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679346322"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679346322"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679346321"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679346321"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">LambdaFunctionCompletedEventAttributes' :: Maybe Text
 -&gt; Integer -&gt; Integer -&gt; LambdaFunctionCompletedEventAttributes
 </span><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes'</span></a></span><span>
@@ -156,10 +156,10 @@ forall a. Maybe a
 </span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduledEventId:LambdaFunctionCompletedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#%24sel%3AscheduledEventId%3ALambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679346245"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679346322"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">$sel:startedEventId:LambdaFunctionCompletedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#%24sel%3AstartedEventId%3ALambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-var">startedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679346244"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span><span>
+</span><a href="#local-6989586621679346321"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The results of the Lambda task.</span><span>
@@ -176,16 +176,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346240"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346317"><span class="annot"><span class="annottext">Maybe Text
 result :: Maybe Text
 $sel:result:LambdaFunctionCompletedEventAttributes' :: LambdaFunctionCompletedEventAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679346240"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346240"><span class="hs-identifier hs-var">result</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346239"><span class="annot"><span class="annottext">s :: LambdaFunctionCompletedEventAttributes
-</span><a href="#local-6989586621679346239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346238"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionCompletedEventAttributes
-</span><a href="#local-6989586621679346239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:result:LambdaFunctionCompletedEventAttributes' :: Maybe Text
+</span><a href="#local-6989586621679346317"><span class="hs-identifier hs-var hs-var">result</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346317"><span class="hs-identifier hs-var">result</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346316"><span class="annot"><span class="annottext">s :: LambdaFunctionCompletedEventAttributes
+</span><a href="#local-6989586621679346316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346315"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionCompletedEventAttributes
+</span><a href="#local-6989586621679346316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:result:LambdaFunctionCompletedEventAttributes' :: Maybe Text
 </span><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#%24sel%3Aresult%3ALambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-var">result</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The ID of the @LambdaFunctionScheduled@ event that was recorded when</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- this Lambda task was scheduled. To help diagnose issues, use this</span><span>
@@ -203,16 +203,16 @@ $sel:result:LambdaFunctionCompletedEventAttributes' :: LambdaFunctionCompletedEv
      Integer
      Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346236"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346313"><span class="annot"><span class="annottext">Integer
 scheduledEventId :: Integer
 $sel:scheduledEventId:LambdaFunctionCompletedEventAttributes' :: LambdaFunctionCompletedEventAttributes -&gt; Integer
-</span><a href="#local-6989586621679346236"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679346236"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346235"><span class="annot"><span class="annottext">s :: LambdaFunctionCompletedEventAttributes
-</span><a href="#local-6989586621679346235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346234"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679346234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionCompletedEventAttributes
-</span><a href="#local-6989586621679346235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledEventId:LambdaFunctionCompletedEventAttributes' :: Integer
+</span><a href="#local-6989586621679346313"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679346313"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346312"><span class="annot"><span class="annottext">s :: LambdaFunctionCompletedEventAttributes
+</span><a href="#local-6989586621679346312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346311"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679346311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionCompletedEventAttributes
+</span><a href="#local-6989586621679346312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledEventId:LambdaFunctionCompletedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#%24sel%3AscheduledEventId%3ALambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679346234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The ID of the @LambdaFunctionStarted@ event recorded when this activity</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- task started. To help diagnose issues, use this information to trace</span><span>
@@ -230,22 +230,22 @@ $sel:scheduledEventId:LambdaFunctionCompletedEventAttributes' :: LambdaFunctionC
      Integer
      Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346232"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346309"><span class="annot"><span class="annottext">Integer
 startedEventId :: Integer
 $sel:startedEventId:LambdaFunctionCompletedEventAttributes' :: LambdaFunctionCompletedEventAttributes -&gt; Integer
-</span><a href="#local-6989586621679346232"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679346232"><span class="hs-identifier hs-var">startedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346231"><span class="annot"><span class="annottext">s :: LambdaFunctionCompletedEventAttributes
-</span><a href="#local-6989586621679346231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346230"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679346230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionCompletedEventAttributes
-</span><a href="#local-6989586621679346231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedEventId:LambdaFunctionCompletedEventAttributes' :: Integer
+</span><a href="#local-6989586621679346309"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679346309"><span class="hs-identifier hs-var">startedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346308"><span class="annot"><span class="annottext">s :: LambdaFunctionCompletedEventAttributes
+</span><a href="#local-6989586621679346308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346307"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679346307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionCompletedEventAttributes
+</span><a href="#local-6989586621679346308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedEventId:LambdaFunctionCompletedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#%24sel%3AstartedEventId%3ALambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-var">startedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679346230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679346227"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679346304"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes</span></a></span></span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679346225"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LambdaFunctionCompletedEventAttributes
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679346302"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LambdaFunctionCompletedEventAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LambdaFunctionCompletedEventAttributes)
@@ -255,8 +255,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LambdaFunctionCompletedEventAttributes&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346222"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346222"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346299"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346299"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Integer -&gt; Integer -&gt; LambdaFunctionCompletedEventAttributes
 </span><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes%27"><span class="hs-identifier hs-var">LambdaFunctionCompletedEventAttributes'</span></a></span><span>
@@ -267,7 +267,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Integer -&gt; Integer -&gt; LambdaFunctionCompletedEventAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679346299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;result&quot;</span></span><span class="hs-special">)</span><span>
@@ -277,7 +277,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Integer -&gt; LambdaFunctionCompletedEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679346299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scheduledEventId&quot;</span></span><span class="hs-special">)</span><span>
@@ -285,17 +285,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Integer -&gt; Parser LambdaFunctionCompletedEventAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679346299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startedEventId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679346215"><span id="local-6989586621679346217"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679346292"><span id="local-6989586621679346294"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679346212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679346289"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes.html#LambdaFunctionCompletedEventAttributes"><span class="hs-identifier hs-type">LambdaFunctionCompletedEventAttributes</span></a></span></span><span>
 </span><span id="line-115"></span></pre></body></html>

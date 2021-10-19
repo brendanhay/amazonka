@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains information about the account.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAccountDetail' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679293135"><span id="local-6989586621679293136"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountDetail"><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail"><span class="hs-identifier hs-var">AccountDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountDetail%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail%27"><span class="hs-identifier hs-var">AccountDetail'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679293417"><span id="local-6989586621679293418"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountDetail"><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail"><span class="hs-identifier hs-var">AccountDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountDetail%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail%27"><span class="hs-identifier hs-var">AccountDetail'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The member account ID.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AaccountId%3AAccountDetail%27"><span class="annot"><span class="annottext">AccountDetail -&gt; Text
 </span><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#%24sel%3AaccountId%3AAccountDetail%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aemail%3AAccountDetail%27"><span class="annot"><span class="annottext">AccountDetail -&gt; Text
 </span><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#%24sel%3Aemail%3AAccountDetail%27"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293128"><span id="local-6989586621679293130"><span class="annot"><span class="annottext">AccountDetail -&gt; AccountDetail -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293410"><span id="local-6989586621679293412"><span class="annot"><span class="annottext">AccountDetail -&gt; AccountDetail -&gt; Bool
 (AccountDetail -&gt; AccountDetail -&gt; Bool)
 -&gt; (AccountDetail -&gt; AccountDetail -&gt; Bool) -&gt; Eq AccountDetail
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccountDetail -&gt; AccountDetail -&gt; Bool
 == :: AccountDetail -&gt; AccountDetail -&gt; Bool
 $c== :: AccountDetail -&gt; AccountDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293119"><span id="local-6989586621679293121"><span id="local-6989586621679293123"><span id="local-6989586621679293125"><span class="annot"><span class="annottext">ReadPrec [AccountDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293401"><span id="local-6989586621679293403"><span id="local-6989586621679293405"><span id="local-6989586621679293407"><span class="annot"><span class="annottext">ReadPrec [AccountDetail]
 ReadPrec AccountDetail
 Int -&gt; ReadS AccountDetail
 ReadS [AccountDetail]
@@ -62,7 +62,7 @@ readList :: ReadS [AccountDetail]
 $creadList :: ReadS [AccountDetail]
 readsPrec :: Int -&gt; ReadS AccountDetail
 $creadsPrec :: Int -&gt; ReadS AccountDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293112"><span id="local-6989586621679293114"><span id="local-6989586621679293116"><span class="annot"><span class="annottext">Int -&gt; AccountDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293394"><span id="local-6989586621679293396"><span id="local-6989586621679293398"><span class="annot"><span class="annottext">Int -&gt; AccountDetail -&gt; ShowS
 [AccountDetail] -&gt; ShowS
 AccountDetail -&gt; String
 (Int -&gt; AccountDetail -&gt; ShowS)
@@ -106,17 +106,17 @@ $cfrom :: forall x. AccountDetail -&gt; Rep AccountDetail x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail"><span class="hs-identifier hs-type">AccountDetail</span></a></span><span>
 </span><span id="line-54"></span><span id="newAccountDetail"><span class="annot"><span class="annottext">newAccountDetail :: Text -&gt; Text -&gt; AccountDetail
-</span><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#newAccountDetail"><span class="hs-identifier hs-var hs-var">newAccountDetail</span></a></span></span><span> </span><span id="local-6989586621679293106"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293106"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679293105"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293105"><span class="hs-identifier hs-var">pEmail_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#newAccountDetail"><span class="hs-identifier hs-var hs-var">newAccountDetail</span></a></span></span><span> </span><span id="local-6989586621679293388"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293388"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679293387"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293387"><span class="hs-identifier hs-var">pEmail_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">AccountDetail' :: Text -&gt; Text -&gt; AccountDetail
 </span><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail%27"><span class="hs-identifier hs-type">AccountDetail'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:AccountDetail' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#%24sel%3AaccountId%3AAccountDetail%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293106"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679293388"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:email:AccountDetail' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#%24sel%3Aemail%3AAccountDetail%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293105"><span class="hs-identifier hs-var">pEmail_</span></a></span><span>
+</span><a href="#local-6989586621679293387"><span class="hs-identifier hs-var">pEmail_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The member account ID.</span><span>
@@ -126,16 +126,16 @@ $cfrom :: forall x. AccountDetail -&gt; Rep AccountDetail x
 -&gt; (AccountDetail -&gt; Text -&gt; AccountDetail)
 -&gt; Lens AccountDetail AccountDetail Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail%27"><span class="hs-identifier hs-type">AccountDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293101"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail%27"><span class="hs-identifier hs-type">AccountDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293383"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:AccountDetail' :: AccountDetail -&gt; Text
-</span><a href="#local-6989586621679293101"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293101"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293100"><span class="annot"><span class="annottext">s :: AccountDetail
-</span><a href="#local-6989586621679293100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail%27"><span class="hs-identifier hs-type">AccountDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293099"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountDetail
-</span><a href="#local-6989586621679293100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:AccountDetail' :: Text
+</span><a href="#local-6989586621679293383"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293383"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293382"><span class="annot"><span class="annottext">s :: AccountDetail
+</span><a href="#local-6989586621679293382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail%27"><span class="hs-identifier hs-type">AccountDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293381"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountDetail
+</span><a href="#local-6989586621679293382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:AccountDetail' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#%24sel%3AaccountId%3AAccountDetail%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail"><span class="hs-identifier hs-type">AccountDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail"><span class="hs-identifier hs-type">AccountDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The email address of the member account.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#accountDetail_email"><span class="hs-identifier hs-type">accountDetail_email</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail"><span class="hs-identifier hs-type">AccountDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -144,29 +144,29 @@ $sel:accountId:AccountDetail' :: AccountDetail -&gt; Text
 -&gt; (AccountDetail -&gt; Text -&gt; AccountDetail)
 -&gt; Lens AccountDetail AccountDetail Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail%27"><span class="hs-identifier hs-type">AccountDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293097"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail%27"><span class="hs-identifier hs-type">AccountDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293379"><span class="annot"><span class="annottext">Text
 email :: Text
 $sel:email:AccountDetail' :: AccountDetail -&gt; Text
-</span><a href="#local-6989586621679293097"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293097"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293096"><span class="annot"><span class="annottext">s :: AccountDetail
-</span><a href="#local-6989586621679293096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail%27"><span class="hs-identifier hs-type">AccountDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293095"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountDetail
-</span><a href="#local-6989586621679293096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:AccountDetail' :: Text
+</span><a href="#local-6989586621679293379"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293379"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293378"><span class="annot"><span class="annottext">s :: AccountDetail
+</span><a href="#local-6989586621679293378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail%27"><span class="hs-identifier hs-type">AccountDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293377"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountDetail
+</span><a href="#local-6989586621679293378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:AccountDetail' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#%24sel%3Aemail%3AAccountDetail%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail"><span class="hs-identifier hs-type">AccountDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail"><span class="hs-identifier hs-type">AccountDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293091"><span id="local-6989586621679293093"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail"><span class="hs-identifier hs-type">AccountDetail</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293373"><span id="local-6989586621679293375"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail"><span class="hs-identifier hs-type">AccountDetail</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293088"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail"><span class="hs-identifier hs-type">AccountDetail</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail"><span class="hs-identifier hs-type">AccountDetail</span></a></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293080"><span id="local-6989586621679293082"><span id="local-6989586621679293084"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail"><span class="hs-identifier hs-type">AccountDetail</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679293078"><span class="annot"><span class="annottext">toJSON :: AccountDetail -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail%27"><span class="hs-identifier hs-type">AccountDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293075"><span id="local-6989586621679293076"><span class="annot"><span class="annottext">Text
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293362"><span id="local-6989586621679293364"><span id="local-6989586621679293366"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail"><span class="hs-identifier hs-type">AccountDetail</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679293360"><span class="annot"><span class="annottext">toJSON :: AccountDetail -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AccountDetail.html#AccountDetail%27"><span class="hs-identifier hs-type">AccountDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293357"><span id="local-6989586621679293358"><span class="annot"><span class="annottext">Text
 email :: Text
 accountId :: Text
 $sel:email:AccountDetail' :: AccountDetail -&gt; Text
 $sel:accountId:AccountDetail' :: AccountDetail -&gt; Text
-</span><a href="#local-6989586621679293075"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679293357"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -178,14 +178,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;accountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293076"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679293358"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;email&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293075"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293357"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span></pre></body></html>

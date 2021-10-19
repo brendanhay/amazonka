@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-qldbZSamazonka-qldb
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.QLDB.Types.EncryptionStatus
@@ -341,13 +341,13 @@ module Network.AWS.QLDB.Types.LedgerSummary
 --   
 --   <i>See:</i> <a>newLedgerSummary</a> smart constructor.
 data LedgerSummary
-LedgerSummary' :: Maybe Text -> Maybe LedgerState -> Maybe POSIX -> LedgerSummary
-
--- | The name of the ledger.
-[$sel:name:LedgerSummary'] :: LedgerSummary -> Maybe Text
+LedgerSummary' :: Maybe LedgerState -> Maybe Text -> Maybe POSIX -> LedgerSummary
 
 -- | The current status of the ledger.
 [$sel:state:LedgerSummary'] :: LedgerSummary -> Maybe LedgerState
+
+-- | The name of the ledger.
+[$sel:name:LedgerSummary'] :: LedgerSummary -> Maybe Text
 
 -- | The date and time, in epoch time format, when the ledger was created.
 --   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
@@ -363,11 +363,11 @@ LedgerSummary' :: Maybe Text -> Maybe LedgerState -> Maybe POSIX -> LedgerSummar
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:name:LedgerSummary'</a>, <a>ledgerSummary_name</a> - The name
---   of the ledger.
---   
 --   <a>$sel:state:LedgerSummary'</a>, <a>ledgerSummary_state</a> - The
 --   current status of the ledger.
+--   
+--   <a>$sel:name:LedgerSummary'</a>, <a>ledgerSummary_name</a> - The name
+--   of the ledger.
 --   
 --   <a>$sel:creationDateTime:LedgerSummary'</a>,
 --   <a>ledgerSummary_creationDateTime</a> - The date and time, in epoch
@@ -375,11 +375,11 @@ LedgerSummary' :: Maybe Text -> Maybe LedgerState -> Maybe POSIX -> LedgerSummar
 --   number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)
 newLedgerSummary :: LedgerSummary
 
--- | The name of the ledger.
-ledgerSummary_name :: Lens' LedgerSummary (Maybe Text)
-
 -- | The current status of the ledger.
 ledgerSummary_state :: Lens' LedgerSummary (Maybe LedgerState)
+
+-- | The name of the ledger.
+ledgerSummary_name :: Lens' LedgerSummary (Maybe Text)
 
 -- | The date and time, in epoch time format, when the ledger was created.
 --   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
@@ -827,24 +827,24 @@ module Network.AWS.QLDB.Types.JournalKinesisStreamDescription
 --   <i>See:</i> <a>newJournalKinesisStreamDescription</a> smart
 --   constructor.
 data JournalKinesisStreamDescription
-JournalKinesisStreamDescription' :: Maybe POSIX -> Maybe ErrorCause -> Maybe POSIX -> Maybe Text -> Maybe POSIX -> Text -> Text -> Text -> StreamStatus -> KinesisConfiguration -> Text -> JournalKinesisStreamDescription
+JournalKinesisStreamDescription' :: Maybe POSIX -> Maybe Text -> Maybe POSIX -> Maybe ErrorCause -> Maybe POSIX -> Text -> Text -> Text -> StreamStatus -> KinesisConfiguration -> Text -> JournalKinesisStreamDescription
 
 -- | The date and time, in epoch time format, when the QLDB journal stream
 --   was created. (Epoch time format is the number of seconds elapsed since
 --   12:00:00 AM January 1, 1970 UTC.)
 [$sel:creationTime:JournalKinesisStreamDescription'] :: JournalKinesisStreamDescription -> Maybe POSIX
 
--- | The error message that describes the reason that a stream has a status
---   of <tt>IMPAIRED</tt> or <tt>FAILED</tt>. This is not applicable to
---   streams that have other status values.
-[$sel:errorCause:JournalKinesisStreamDescription'] :: JournalKinesisStreamDescription -> Maybe ErrorCause
+-- | The Amazon Resource Name (ARN) of the QLDB journal stream.
+[$sel:arn:JournalKinesisStreamDescription'] :: JournalKinesisStreamDescription -> Maybe Text
 
 -- | The inclusive start date and time from which to start streaming
 --   journal data.
 [$sel:inclusiveStartTime:JournalKinesisStreamDescription'] :: JournalKinesisStreamDescription -> Maybe POSIX
 
--- | The Amazon Resource Name (ARN) of the QLDB journal stream.
-[$sel:arn:JournalKinesisStreamDescription'] :: JournalKinesisStreamDescription -> Maybe Text
+-- | The error message that describes the reason that a stream has a status
+--   of <tt>IMPAIRED</tt> or <tt>FAILED</tt>. This is not applicable to
+--   streams that have other status values.
+[$sel:errorCause:JournalKinesisStreamDescription'] :: JournalKinesisStreamDescription -> Maybe ErrorCause
 
 -- | The exclusive date and time that specifies when the stream ends. If
 --   this parameter is undefined, the stream runs indefinitely until you
@@ -888,20 +888,20 @@ JournalKinesisStreamDescription' :: Maybe POSIX -> Maybe ErrorCause -> Maybe POS
 --   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 --   January 1, 1970 UTC.)
 --   
---   <a>$sel:errorCause:JournalKinesisStreamDescription'</a>,
---   <a>journalKinesisStreamDescription_errorCause</a> - The error message
---   that describes the reason that a stream has a status of
---   <tt>IMPAIRED</tt> or <tt>FAILED</tt>. This is not applicable to
---   streams that have other status values.
+--   <a>$sel:arn:JournalKinesisStreamDescription'</a>,
+--   <a>journalKinesisStreamDescription_arn</a> - The Amazon Resource Name
+--   (ARN) of the QLDB journal stream.
 --   
 --   <a>$sel:inclusiveStartTime:JournalKinesisStreamDescription'</a>,
 --   <a>journalKinesisStreamDescription_inclusiveStartTime</a> - The
 --   inclusive start date and time from which to start streaming journal
 --   data.
 --   
---   <a>$sel:arn:JournalKinesisStreamDescription'</a>,
---   <a>journalKinesisStreamDescription_arn</a> - The Amazon Resource Name
---   (ARN) of the QLDB journal stream.
+--   <a>$sel:errorCause:JournalKinesisStreamDescription'</a>,
+--   <a>journalKinesisStreamDescription_errorCause</a> - The error message
+--   that describes the reason that a stream has a status of
+--   <tt>IMPAIRED</tt> or <tt>FAILED</tt>. This is not applicable to
+--   streams that have other status values.
 --   
 --   <a>$sel:exclusiveEndTime:JournalKinesisStreamDescription'</a>,
 --   <a>journalKinesisStreamDescription_exclusiveEndTime</a> - The
@@ -941,17 +941,17 @@ newJournalKinesisStreamDescription :: Text -> Text -> Text -> StreamStatus -> Ki
 --   12:00:00 AM January 1, 1970 UTC.)
 journalKinesisStreamDescription_creationTime :: Lens' JournalKinesisStreamDescription (Maybe UTCTime)
 
--- | The error message that describes the reason that a stream has a status
---   of <tt>IMPAIRED</tt> or <tt>FAILED</tt>. This is not applicable to
---   streams that have other status values.
-journalKinesisStreamDescription_errorCause :: Lens' JournalKinesisStreamDescription (Maybe ErrorCause)
+-- | The Amazon Resource Name (ARN) of the QLDB journal stream.
+journalKinesisStreamDescription_arn :: Lens' JournalKinesisStreamDescription (Maybe Text)
 
 -- | The inclusive start date and time from which to start streaming
 --   journal data.
 journalKinesisStreamDescription_inclusiveStartTime :: Lens' JournalKinesisStreamDescription (Maybe UTCTime)
 
--- | The Amazon Resource Name (ARN) of the QLDB journal stream.
-journalKinesisStreamDescription_arn :: Lens' JournalKinesisStreamDescription (Maybe Text)
+-- | The error message that describes the reason that a stream has a status
+--   of <tt>IMPAIRED</tt> or <tt>FAILED</tt>. This is not applicable to
+--   streams that have other status values.
+journalKinesisStreamDescription_errorCause :: Lens' JournalKinesisStreamDescription (Maybe ErrorCause)
 
 -- | The exclusive date and time that specifies when the stream ends. If
 --   this parameter is undefined, the stream runs indefinitely until you
@@ -1030,23 +1030,23 @@ module Network.AWS.QLDB.Types
 -- | API version <tt>2019-01-02</tt> of the Amazon QLDB SDK configuration.
 defaultService :: Service
 
+-- | One or more parameters in the request aren't valid.
+_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The operation failed because a condition wasn't satisfied in advance.
+_ResourcePreconditionNotMetException :: AsError a => Getting (First ServiceError) a ServiceError
+
 -- | The specified resource already exists.
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | One or more parameters in the request aren't valid.
-_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The specified resource doesn't exist.
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | You have reached the limit on the maximum number of resources allowed.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The specified resource can't be modified at this time.
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The specified resource doesn't exist.
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The operation failed because a condition wasn't satisfied in advance.
-_ResourcePreconditionNotMetException :: AsError a => Getting (First ServiceError) a ServiceError
 newtype EncryptionStatus
 EncryptionStatus' :: Text -> EncryptionStatus
 [fromEncryptionStatus] :: EncryptionStatus -> Text
@@ -1098,24 +1098,24 @@ pattern StreamStatus_IMPAIRED :: StreamStatus
 --   <i>See:</i> <a>newJournalKinesisStreamDescription</a> smart
 --   constructor.
 data JournalKinesisStreamDescription
-JournalKinesisStreamDescription' :: Maybe POSIX -> Maybe ErrorCause -> Maybe POSIX -> Maybe Text -> Maybe POSIX -> Text -> Text -> Text -> StreamStatus -> KinesisConfiguration -> Text -> JournalKinesisStreamDescription
+JournalKinesisStreamDescription' :: Maybe POSIX -> Maybe Text -> Maybe POSIX -> Maybe ErrorCause -> Maybe POSIX -> Text -> Text -> Text -> StreamStatus -> KinesisConfiguration -> Text -> JournalKinesisStreamDescription
 
 -- | The date and time, in epoch time format, when the QLDB journal stream
 --   was created. (Epoch time format is the number of seconds elapsed since
 --   12:00:00 AM January 1, 1970 UTC.)
 [$sel:creationTime:JournalKinesisStreamDescription'] :: JournalKinesisStreamDescription -> Maybe POSIX
 
--- | The error message that describes the reason that a stream has a status
---   of <tt>IMPAIRED</tt> or <tt>FAILED</tt>. This is not applicable to
---   streams that have other status values.
-[$sel:errorCause:JournalKinesisStreamDescription'] :: JournalKinesisStreamDescription -> Maybe ErrorCause
+-- | The Amazon Resource Name (ARN) of the QLDB journal stream.
+[$sel:arn:JournalKinesisStreamDescription'] :: JournalKinesisStreamDescription -> Maybe Text
 
 -- | The inclusive start date and time from which to start streaming
 --   journal data.
 [$sel:inclusiveStartTime:JournalKinesisStreamDescription'] :: JournalKinesisStreamDescription -> Maybe POSIX
 
--- | The Amazon Resource Name (ARN) of the QLDB journal stream.
-[$sel:arn:JournalKinesisStreamDescription'] :: JournalKinesisStreamDescription -> Maybe Text
+-- | The error message that describes the reason that a stream has a status
+--   of <tt>IMPAIRED</tt> or <tt>FAILED</tt>. This is not applicable to
+--   streams that have other status values.
+[$sel:errorCause:JournalKinesisStreamDescription'] :: JournalKinesisStreamDescription -> Maybe ErrorCause
 
 -- | The exclusive date and time that specifies when the stream ends. If
 --   this parameter is undefined, the stream runs indefinitely until you
@@ -1159,20 +1159,20 @@ JournalKinesisStreamDescription' :: Maybe POSIX -> Maybe ErrorCause -> Maybe POS
 --   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 --   January 1, 1970 UTC.)
 --   
---   <a>$sel:errorCause:JournalKinesisStreamDescription'</a>,
---   <a>journalKinesisStreamDescription_errorCause</a> - The error message
---   that describes the reason that a stream has a status of
---   <tt>IMPAIRED</tt> or <tt>FAILED</tt>. This is not applicable to
---   streams that have other status values.
+--   <a>$sel:arn:JournalKinesisStreamDescription'</a>,
+--   <a>journalKinesisStreamDescription_arn</a> - The Amazon Resource Name
+--   (ARN) of the QLDB journal stream.
 --   
 --   <a>$sel:inclusiveStartTime:JournalKinesisStreamDescription'</a>,
 --   <a>journalKinesisStreamDescription_inclusiveStartTime</a> - The
 --   inclusive start date and time from which to start streaming journal
 --   data.
 --   
---   <a>$sel:arn:JournalKinesisStreamDescription'</a>,
---   <a>journalKinesisStreamDescription_arn</a> - The Amazon Resource Name
---   (ARN) of the QLDB journal stream.
+--   <a>$sel:errorCause:JournalKinesisStreamDescription'</a>,
+--   <a>journalKinesisStreamDescription_errorCause</a> - The error message
+--   that describes the reason that a stream has a status of
+--   <tt>IMPAIRED</tt> or <tt>FAILED</tt>. This is not applicable to
+--   streams that have other status values.
 --   
 --   <a>$sel:exclusiveEndTime:JournalKinesisStreamDescription'</a>,
 --   <a>journalKinesisStreamDescription_exclusiveEndTime</a> - The
@@ -1212,17 +1212,17 @@ newJournalKinesisStreamDescription :: Text -> Text -> Text -> StreamStatus -> Ki
 --   12:00:00 AM January 1, 1970 UTC.)
 journalKinesisStreamDescription_creationTime :: Lens' JournalKinesisStreamDescription (Maybe UTCTime)
 
--- | The error message that describes the reason that a stream has a status
---   of <tt>IMPAIRED</tt> or <tt>FAILED</tt>. This is not applicable to
---   streams that have other status values.
-journalKinesisStreamDescription_errorCause :: Lens' JournalKinesisStreamDescription (Maybe ErrorCause)
+-- | The Amazon Resource Name (ARN) of the QLDB journal stream.
+journalKinesisStreamDescription_arn :: Lens' JournalKinesisStreamDescription (Maybe Text)
 
 -- | The inclusive start date and time from which to start streaming
 --   journal data.
 journalKinesisStreamDescription_inclusiveStartTime :: Lens' JournalKinesisStreamDescription (Maybe UTCTime)
 
--- | The Amazon Resource Name (ARN) of the QLDB journal stream.
-journalKinesisStreamDescription_arn :: Lens' JournalKinesisStreamDescription (Maybe Text)
+-- | The error message that describes the reason that a stream has a status
+--   of <tt>IMPAIRED</tt> or <tt>FAILED</tt>. This is not applicable to
+--   streams that have other status values.
+journalKinesisStreamDescription_errorCause :: Lens' JournalKinesisStreamDescription (Maybe ErrorCause)
 
 -- | The exclusive date and time that specifies when the stream ends. If
 --   this parameter is undefined, the stream runs indefinitely until you
@@ -1585,13 +1585,13 @@ ledgerEncryptionDescription_encryptionStatus :: Lens' LedgerEncryptionDescriptio
 --   
 --   <i>See:</i> <a>newLedgerSummary</a> smart constructor.
 data LedgerSummary
-LedgerSummary' :: Maybe Text -> Maybe LedgerState -> Maybe POSIX -> LedgerSummary
-
--- | The name of the ledger.
-[$sel:name:LedgerSummary'] :: LedgerSummary -> Maybe Text
+LedgerSummary' :: Maybe LedgerState -> Maybe Text -> Maybe POSIX -> LedgerSummary
 
 -- | The current status of the ledger.
 [$sel:state:LedgerSummary'] :: LedgerSummary -> Maybe LedgerState
+
+-- | The name of the ledger.
+[$sel:name:LedgerSummary'] :: LedgerSummary -> Maybe Text
 
 -- | The date and time, in epoch time format, when the ledger was created.
 --   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
@@ -1607,11 +1607,11 @@ LedgerSummary' :: Maybe Text -> Maybe LedgerState -> Maybe POSIX -> LedgerSummar
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:name:LedgerSummary'</a>, <a>ledgerSummary_name</a> - The name
---   of the ledger.
---   
 --   <a>$sel:state:LedgerSummary'</a>, <a>ledgerSummary_state</a> - The
 --   current status of the ledger.
+--   
+--   <a>$sel:name:LedgerSummary'</a>, <a>ledgerSummary_name</a> - The name
+--   of the ledger.
 --   
 --   <a>$sel:creationDateTime:LedgerSummary'</a>,
 --   <a>ledgerSummary_creationDateTime</a> - The date and time, in epoch
@@ -1619,11 +1619,11 @@ LedgerSummary' :: Maybe Text -> Maybe LedgerState -> Maybe POSIX -> LedgerSummar
 --   number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)
 newLedgerSummary :: LedgerSummary
 
--- | The name of the ledger.
-ledgerSummary_name :: Lens' LedgerSummary (Maybe Text)
-
 -- | The current status of the ledger.
 ledgerSummary_state :: Lens' LedgerSummary (Maybe LedgerState)
+
+-- | The name of the ledger.
+ledgerSummary_name :: Lens' LedgerSummary (Maybe Text)
 
 -- | The date and time, in epoch time format, when the ledger was created.
 --   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
@@ -2306,7 +2306,11 @@ listLedgers_maxResults :: Lens' ListLedgers (Maybe Natural)
 
 -- | <i>See:</i> <a>newListLedgersResponse</a> smart constructor.
 data ListLedgersResponse
-ListLedgersResponse' :: Maybe Text -> Maybe [LedgerSummary] -> Int -> ListLedgersResponse
+ListLedgersResponse' :: Maybe [LedgerSummary] -> Maybe Text -> Int -> ListLedgersResponse
+
+-- | The array of ledger summaries that are associated with the current
+--   account and Region.
+[$sel:ledgers:ListLedgersResponse'] :: ListLedgersResponse -> Maybe [LedgerSummary]
 
 -- | A pagination token, indicating whether there are more results
 --   available:
@@ -2320,10 +2324,6 @@ ListLedgersResponse' :: Maybe Text -> Maybe [LedgerSummary] -> Int -> ListLedger
 --   </ul>
 [$sel:nextToken:ListLedgersResponse'] :: ListLedgersResponse -> Maybe Text
 
--- | The array of ledger summaries that are associated with the current
---   account and Region.
-[$sel:ledgers:ListLedgersResponse'] :: ListLedgersResponse -> Maybe [LedgerSummary]
-
 -- | The response's http status code.
 [$sel:httpStatus:ListLedgersResponse'] :: ListLedgersResponse -> Int
 
@@ -2335,6 +2335,10 @@ ListLedgersResponse' :: Maybe Text -> Maybe [LedgerSummary] -> Int -> ListLedger
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:ledgers:ListLedgersResponse'</a>,
+--   <a>listLedgersResponse_ledgers</a> - The array of ledger summaries
+--   that are associated with the current account and Region.
 --   
 --   <a>$sel:nextToken:ListLedgers'</a>,
 --   <a>listLedgersResponse_nextToken</a> - A pagination token, indicating
@@ -2348,14 +2352,14 @@ ListLedgersResponse' :: Maybe Text -> Maybe [LedgerSummary] -> Int -> ListLedger
 --   of <tt>NextToken</tt> in a subsequent <tt>ListLedgers</tt> call.</li>
 --   </ul>
 --   
---   <a>$sel:ledgers:ListLedgersResponse'</a>,
---   <a>listLedgersResponse_ledgers</a> - The array of ledger summaries
---   that are associated with the current account and Region.
---   
 --   <a>$sel:httpStatus:ListLedgersResponse'</a>,
 --   <a>listLedgersResponse_httpStatus</a> - The response's http status
 --   code.
 newListLedgersResponse :: Int -> ListLedgersResponse
+
+-- | The array of ledger summaries that are associated with the current
+--   account and Region.
+listLedgersResponse_ledgers :: Lens' ListLedgersResponse (Maybe [LedgerSummary])
 
 -- | A pagination token, indicating whether there are more results
 --   available:
@@ -2368,10 +2372,6 @@ newListLedgersResponse :: Int -> ListLedgersResponse
 --   of <tt>NextToken</tt> in a subsequent <tt>ListLedgers</tt> call.</li>
 --   </ul>
 listLedgersResponse_nextToken :: Lens' ListLedgersResponse (Maybe Text)
-
--- | The array of ledger summaries that are associated with the current
---   account and Region.
-listLedgersResponse_ledgers :: Lens' ListLedgersResponse (Maybe [LedgerSummary])
 
 -- | The response's http status code.
 listLedgersResponse_httpStatus :: Lens' ListLedgersResponse Int
@@ -2465,7 +2465,11 @@ listJournalS3ExportsForLedger_name :: Lens' ListJournalS3ExportsForLedger Text
 -- | <i>See:</i> <a>newListJournalS3ExportsForLedgerResponse</a> smart
 --   constructor.
 data ListJournalS3ExportsForLedgerResponse
-ListJournalS3ExportsForLedgerResponse' :: Maybe Text -> Maybe [JournalS3ExportDescription] -> Int -> ListJournalS3ExportsForLedgerResponse
+ListJournalS3ExportsForLedgerResponse' :: Maybe [JournalS3ExportDescription] -> Maybe Text -> Int -> ListJournalS3ExportsForLedgerResponse
+
+-- | The array of journal export job descriptions that are associated with
+--   the specified ledger.
+[$sel:journalS3Exports:ListJournalS3ExportsForLedgerResponse'] :: ListJournalS3ExportsForLedgerResponse -> Maybe [JournalS3ExportDescription]
 
 -- | <ul>
 --   <li>If <tt>NextToken</tt> is empty, then the last page of results has
@@ -2476,10 +2480,6 @@ ListJournalS3ExportsForLedgerResponse' :: Maybe Text -> Maybe [JournalS3ExportDe
 --   <tt>ListJournalS3ExportsForLedger</tt> call.</li>
 --   </ul>
 [$sel:nextToken:ListJournalS3ExportsForLedgerResponse'] :: ListJournalS3ExportsForLedgerResponse -> Maybe Text
-
--- | The array of journal export job descriptions that are associated with
---   the specified ledger.
-[$sel:journalS3Exports:ListJournalS3ExportsForLedgerResponse'] :: ListJournalS3ExportsForLedgerResponse -> Maybe [JournalS3ExportDescription]
 
 -- | The response's http status code.
 [$sel:httpStatus:ListJournalS3ExportsForLedgerResponse'] :: ListJournalS3ExportsForLedgerResponse -> Int
@@ -2493,6 +2493,11 @@ ListJournalS3ExportsForLedgerResponse' :: Maybe Text -> Maybe [JournalS3ExportDe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:journalS3Exports:ListJournalS3ExportsForLedgerResponse'</a>,
+--   <a>listJournalS3ExportsForLedgerResponse_journalS3Exports</a> - The
+--   array of journal export job descriptions that are associated with the
+--   specified ledger.
+--   
 --   <a>$sel:nextToken:ListJournalS3ExportsForLedger'</a>,
 --   <a>listJournalS3ExportsForLedgerResponse_nextToken</a> - - If
 --   <tt>NextToken</tt> is empty, then the last page of results has been
@@ -2505,15 +2510,14 @@ ListJournalS3ExportsForLedgerResponse' :: Maybe Text -> Maybe [JournalS3ExportDe
 --   <tt>ListJournalS3ExportsForLedger</tt> call.</li>
 --   </ul>
 --   
---   <a>$sel:journalS3Exports:ListJournalS3ExportsForLedgerResponse'</a>,
---   <a>listJournalS3ExportsForLedgerResponse_journalS3Exports</a> - The
---   array of journal export job descriptions that are associated with the
---   specified ledger.
---   
 --   <a>$sel:httpStatus:ListJournalS3ExportsForLedgerResponse'</a>,
 --   <a>listJournalS3ExportsForLedgerResponse_httpStatus</a> - The
 --   response's http status code.
 newListJournalS3ExportsForLedgerResponse :: Int -> ListJournalS3ExportsForLedgerResponse
+
+-- | The array of journal export job descriptions that are associated with
+--   the specified ledger.
+listJournalS3ExportsForLedgerResponse_journalS3Exports :: Lens' ListJournalS3ExportsForLedgerResponse (Maybe [JournalS3ExportDescription])
 
 -- | <ul>
 --   <li>If <tt>NextToken</tt> is empty, then the last page of results has
@@ -2524,10 +2528,6 @@ newListJournalS3ExportsForLedgerResponse :: Int -> ListJournalS3ExportsForLedger
 --   <tt>ListJournalS3ExportsForLedger</tt> call.</li>
 --   </ul>
 listJournalS3ExportsForLedgerResponse_nextToken :: Lens' ListJournalS3ExportsForLedgerResponse (Maybe Text)
-
--- | The array of journal export job descriptions that are associated with
---   the specified ledger.
-listJournalS3ExportsForLedgerResponse_journalS3Exports :: Lens' ListJournalS3ExportsForLedgerResponse (Maybe [JournalS3ExportDescription])
 
 -- | The response's http status code.
 listJournalS3ExportsForLedgerResponse_httpStatus :: Lens' ListJournalS3ExportsForLedgerResponse Int
@@ -2610,7 +2610,11 @@ listJournalS3Exports_maxResults :: Lens' ListJournalS3Exports (Maybe Natural)
 
 -- | <i>See:</i> <a>newListJournalS3ExportsResponse</a> smart constructor.
 data ListJournalS3ExportsResponse
-ListJournalS3ExportsResponse' :: Maybe Text -> Maybe [JournalS3ExportDescription] -> Int -> ListJournalS3ExportsResponse
+ListJournalS3ExportsResponse' :: Maybe [JournalS3ExportDescription] -> Maybe Text -> Int -> ListJournalS3ExportsResponse
+
+-- | The array of journal export job descriptions for all ledgers that are
+--   associated with the current account and Region.
+[$sel:journalS3Exports:ListJournalS3ExportsResponse'] :: ListJournalS3ExportsResponse -> Maybe [JournalS3ExportDescription]
 
 -- | <ul>
 --   <li>If <tt>NextToken</tt> is empty, then the last page of results has
@@ -2621,10 +2625,6 @@ ListJournalS3ExportsResponse' :: Maybe Text -> Maybe [JournalS3ExportDescription
 --   call.</li>
 --   </ul>
 [$sel:nextToken:ListJournalS3ExportsResponse'] :: ListJournalS3ExportsResponse -> Maybe Text
-
--- | The array of journal export job descriptions for all ledgers that are
---   associated with the current account and Region.
-[$sel:journalS3Exports:ListJournalS3ExportsResponse'] :: ListJournalS3ExportsResponse -> Maybe [JournalS3ExportDescription]
 
 -- | The response's http status code.
 [$sel:httpStatus:ListJournalS3ExportsResponse'] :: ListJournalS3ExportsResponse -> Int
@@ -2638,6 +2638,11 @@ ListJournalS3ExportsResponse' :: Maybe Text -> Maybe [JournalS3ExportDescription
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:journalS3Exports:ListJournalS3ExportsResponse'</a>,
+--   <a>listJournalS3ExportsResponse_journalS3Exports</a> - The array of
+--   journal export job descriptions for all ledgers that are associated
+--   with the current account and Region.
+--   
 --   <a>$sel:nextToken:ListJournalS3Exports'</a>,
 --   <a>listJournalS3ExportsResponse_nextToken</a> - - If
 --   <tt>NextToken</tt> is empty, then the last page of results has been
@@ -2650,15 +2655,14 @@ ListJournalS3ExportsResponse' :: Maybe Text -> Maybe [JournalS3ExportDescription
 --   call.</li>
 --   </ul>
 --   
---   <a>$sel:journalS3Exports:ListJournalS3ExportsResponse'</a>,
---   <a>listJournalS3ExportsResponse_journalS3Exports</a> - The array of
---   journal export job descriptions for all ledgers that are associated
---   with the current account and Region.
---   
 --   <a>$sel:httpStatus:ListJournalS3ExportsResponse'</a>,
 --   <a>listJournalS3ExportsResponse_httpStatus</a> - The response's http
 --   status code.
 newListJournalS3ExportsResponse :: Int -> ListJournalS3ExportsResponse
+
+-- | The array of journal export job descriptions for all ledgers that are
+--   associated with the current account and Region.
+listJournalS3ExportsResponse_journalS3Exports :: Lens' ListJournalS3ExportsResponse (Maybe [JournalS3ExportDescription])
 
 -- | <ul>
 --   <li>If <tt>NextToken</tt> is empty, then the last page of results has
@@ -2669,10 +2673,6 @@ newListJournalS3ExportsResponse :: Int -> ListJournalS3ExportsResponse
 --   call.</li>
 --   </ul>
 listJournalS3ExportsResponse_nextToken :: Lens' ListJournalS3ExportsResponse (Maybe Text)
-
--- | The array of journal export job descriptions for all ledgers that are
---   associated with the current account and Region.
-listJournalS3ExportsResponse_journalS3Exports :: Lens' ListJournalS3ExportsResponse (Maybe [JournalS3ExportDescription])
 
 -- | The response's http status code.
 listJournalS3ExportsResponse_httpStatus :: Lens' ListJournalS3ExportsResponse Int
@@ -2769,11 +2769,7 @@ listJournalKinesisStreamsForLedger_ledgerName :: Lens' ListJournalKinesisStreams
 -- | <i>See:</i> <a>newListJournalKinesisStreamsForLedgerResponse</a> smart
 --   constructor.
 data ListJournalKinesisStreamsForLedgerResponse
-ListJournalKinesisStreamsForLedgerResponse' :: Maybe [JournalKinesisStreamDescription] -> Maybe Text -> Int -> ListJournalKinesisStreamsForLedgerResponse
-
--- | The array of QLDB journal stream descriptors that are associated with
---   the given ledger.
-[$sel:streams:ListJournalKinesisStreamsForLedgerResponse'] :: ListJournalKinesisStreamsForLedgerResponse -> Maybe [JournalKinesisStreamDescription]
+ListJournalKinesisStreamsForLedgerResponse' :: Maybe Text -> Maybe [JournalKinesisStreamDescription] -> Int -> ListJournalKinesisStreamsForLedgerResponse
 
 -- | <ul>
 --   <li>If <tt>NextToken</tt> is empty, the last page of results has been
@@ -2784,6 +2780,10 @@ ListJournalKinesisStreamsForLedgerResponse' :: Maybe [JournalKinesisStreamDescri
 --   <tt>ListJournalKinesisStreamsForLedger</tt> call.</li>
 --   </ul>
 [$sel:nextToken:ListJournalKinesisStreamsForLedgerResponse'] :: ListJournalKinesisStreamsForLedgerResponse -> Maybe Text
+
+-- | The array of QLDB journal stream descriptors that are associated with
+--   the given ledger.
+[$sel:streams:ListJournalKinesisStreamsForLedgerResponse'] :: ListJournalKinesisStreamsForLedgerResponse -> Maybe [JournalKinesisStreamDescription]
 
 -- | The response's http status code.
 [$sel:httpStatus:ListJournalKinesisStreamsForLedgerResponse'] :: ListJournalKinesisStreamsForLedgerResponse -> Int
@@ -2797,11 +2797,6 @@ ListJournalKinesisStreamsForLedgerResponse' :: Maybe [JournalKinesisStreamDescri
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:streams:ListJournalKinesisStreamsForLedgerResponse'</a>,
---   <a>listJournalKinesisStreamsForLedgerResponse_streams</a> - The array
---   of QLDB journal stream descriptors that are associated with the given
---   ledger.
---   
 --   <a>$sel:nextToken:ListJournalKinesisStreamsForLedger'</a>,
 --   <a>listJournalKinesisStreamsForLedgerResponse_nextToken</a> - - If
 --   <tt>NextToken</tt> is empty, the last page of results has been
@@ -2814,14 +2809,15 @@ ListJournalKinesisStreamsForLedgerResponse' :: Maybe [JournalKinesisStreamDescri
 --   <tt>ListJournalKinesisStreamsForLedger</tt> call.</li>
 --   </ul>
 --   
+--   <a>$sel:streams:ListJournalKinesisStreamsForLedgerResponse'</a>,
+--   <a>listJournalKinesisStreamsForLedgerResponse_streams</a> - The array
+--   of QLDB journal stream descriptors that are associated with the given
+--   ledger.
+--   
 --   <a>$sel:httpStatus:ListJournalKinesisStreamsForLedgerResponse'</a>,
 --   <a>listJournalKinesisStreamsForLedgerResponse_httpStatus</a> - The
 --   response's http status code.
 newListJournalKinesisStreamsForLedgerResponse :: Int -> ListJournalKinesisStreamsForLedgerResponse
-
--- | The array of QLDB journal stream descriptors that are associated with
---   the given ledger.
-listJournalKinesisStreamsForLedgerResponse_streams :: Lens' ListJournalKinesisStreamsForLedgerResponse (Maybe [JournalKinesisStreamDescription])
 
 -- | <ul>
 --   <li>If <tt>NextToken</tt> is empty, the last page of results has been
@@ -2832,6 +2828,10 @@ listJournalKinesisStreamsForLedgerResponse_streams :: Lens' ListJournalKinesisSt
 --   <tt>ListJournalKinesisStreamsForLedger</tt> call.</li>
 --   </ul>
 listJournalKinesisStreamsForLedgerResponse_nextToken :: Lens' ListJournalKinesisStreamsForLedgerResponse (Maybe Text)
+
+-- | The array of QLDB journal stream descriptors that are associated with
+--   the given ledger.
+listJournalKinesisStreamsForLedgerResponse_streams :: Lens' ListJournalKinesisStreamsForLedgerResponse (Maybe [JournalKinesisStreamDescription])
 
 -- | The response's http status code.
 listJournalKinesisStreamsForLedgerResponse_httpStatus :: Lens' ListJournalKinesisStreamsForLedgerResponse Int
@@ -3517,7 +3517,10 @@ describeLedger_name :: Lens' DescribeLedger Text
 
 -- | <i>See:</i> <a>newDescribeLedgerResponse</a> smart constructor.
 data DescribeLedgerResponse
-DescribeLedgerResponse' :: Maybe Bool -> Maybe PermissionsMode -> Maybe Text -> Maybe Text -> Maybe LedgerState -> Maybe LedgerEncryptionDescription -> Maybe POSIX -> Int -> DescribeLedgerResponse
+DescribeLedgerResponse' :: Maybe LedgerState -> Maybe Bool -> Maybe Text -> Maybe LedgerEncryptionDescription -> Maybe Text -> Maybe POSIX -> Maybe PermissionsMode -> Int -> DescribeLedgerResponse
+
+-- | The current status of the ledger.
+[$sel:state:DescribeLedgerResponse'] :: DescribeLedgerResponse -> Maybe LedgerState
 
 -- | The flag that prevents a ledger from being deleted by any user. If not
 --   provided on ledger creation, this feature is enabled (<tt>true</tt>)
@@ -3528,27 +3531,24 @@ DescribeLedgerResponse' :: Maybe Bool -> Maybe PermissionsMode -> Maybe Text -> 
 --   <tt>UpdateLedger</tt> operation to set the flag to <tt>false</tt>.
 [$sel:deletionProtection:DescribeLedgerResponse'] :: DescribeLedgerResponse -> Maybe Bool
 
--- | The permissions mode of the ledger.
-[$sel:permissionsMode:DescribeLedgerResponse'] :: DescribeLedgerResponse -> Maybe PermissionsMode
-
 -- | The Amazon Resource Name (ARN) for the ledger.
 [$sel:arn:DescribeLedgerResponse'] :: DescribeLedgerResponse -> Maybe Text
-
--- | The name of the ledger.
-[$sel:name:DescribeLedgerResponse'] :: DescribeLedgerResponse -> Maybe Text
-
--- | The current status of the ledger.
-[$sel:state:DescribeLedgerResponse'] :: DescribeLedgerResponse -> Maybe LedgerState
 
 -- | Information about the encryption of data at rest in the ledger. This
 --   includes the current status, the KMS key, and when the key became
 --   inaccessible (in the case of an error).
 [$sel:encryptionDescription:DescribeLedgerResponse'] :: DescribeLedgerResponse -> Maybe LedgerEncryptionDescription
 
+-- | The name of the ledger.
+[$sel:name:DescribeLedgerResponse'] :: DescribeLedgerResponse -> Maybe Text
+
 -- | The date and time, in epoch time format, when the ledger was created.
 --   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 --   January 1, 1970 UTC.)
 [$sel:creationDateTime:DescribeLedgerResponse'] :: DescribeLedgerResponse -> Maybe POSIX
+
+-- | The permissions mode of the ledger.
+[$sel:permissionsMode:DescribeLedgerResponse'] :: DescribeLedgerResponse -> Maybe PermissionsMode
 
 -- | The response's http status code.
 [$sel:httpStatus:DescribeLedgerResponse'] :: DescribeLedgerResponse -> Int
@@ -3562,6 +3562,10 @@ DescribeLedgerResponse' :: Maybe Bool -> Maybe PermissionsMode -> Maybe Text -> 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:state:DescribeLedgerResponse'</a>,
+--   <a>describeLedgerResponse_state</a> - The current status of the
+--   ledger.
+--   
 --   <a>$sel:deletionProtection:DescribeLedgerResponse'</a>,
 --   <a>describeLedgerResponse_deletionProtection</a> - The flag that
 --   prevents a ledger from being deleted by any user. If not provided on
@@ -3571,20 +3575,9 @@ DescribeLedgerResponse' :: Maybe Bool -> Maybe PermissionsMode -> Maybe Text -> 
 --   you can delete the ledger. You can disable it by calling the
 --   <tt>UpdateLedger</tt> operation to set the flag to <tt>false</tt>.
 --   
---   <a>$sel:permissionsMode:DescribeLedgerResponse'</a>,
---   <a>describeLedgerResponse_permissionsMode</a> - The permissions mode
---   of the ledger.
---   
 --   <a>$sel:arn:DescribeLedgerResponse'</a>,
 --   <a>describeLedgerResponse_arn</a> - The Amazon Resource Name (ARN) for
 --   the ledger.
---   
---   <a>$sel:name:DescribeLedger'</a>, <a>describeLedgerResponse_name</a> -
---   The name of the ledger.
---   
---   <a>$sel:state:DescribeLedgerResponse'</a>,
---   <a>describeLedgerResponse_state</a> - The current status of the
---   ledger.
 --   
 --   <a>$sel:encryptionDescription:DescribeLedgerResponse'</a>,
 --   <a>describeLedgerResponse_encryptionDescription</a> - Information
@@ -3592,15 +3585,25 @@ DescribeLedgerResponse' :: Maybe Bool -> Maybe PermissionsMode -> Maybe Text -> 
 --   current status, the KMS key, and when the key became inaccessible (in
 --   the case of an error).
 --   
+--   <a>$sel:name:DescribeLedger'</a>, <a>describeLedgerResponse_name</a> -
+--   The name of the ledger.
+--   
 --   <a>$sel:creationDateTime:DescribeLedgerResponse'</a>,
 --   <a>describeLedgerResponse_creationDateTime</a> - The date and time, in
 --   epoch time format, when the ledger was created. (Epoch time format is
 --   the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)
 --   
+--   <a>$sel:permissionsMode:DescribeLedgerResponse'</a>,
+--   <a>describeLedgerResponse_permissionsMode</a> - The permissions mode
+--   of the ledger.
+--   
 --   <a>$sel:httpStatus:DescribeLedgerResponse'</a>,
 --   <a>describeLedgerResponse_httpStatus</a> - The response's http status
 --   code.
 newDescribeLedgerResponse :: Int -> DescribeLedgerResponse
+
+-- | The current status of the ledger.
+describeLedgerResponse_state :: Lens' DescribeLedgerResponse (Maybe LedgerState)
 
 -- | The flag that prevents a ledger from being deleted by any user. If not
 --   provided on ledger creation, this feature is enabled (<tt>true</tt>)
@@ -3611,27 +3614,24 @@ newDescribeLedgerResponse :: Int -> DescribeLedgerResponse
 --   <tt>UpdateLedger</tt> operation to set the flag to <tt>false</tt>.
 describeLedgerResponse_deletionProtection :: Lens' DescribeLedgerResponse (Maybe Bool)
 
--- | The permissions mode of the ledger.
-describeLedgerResponse_permissionsMode :: Lens' DescribeLedgerResponse (Maybe PermissionsMode)
-
 -- | The Amazon Resource Name (ARN) for the ledger.
 describeLedgerResponse_arn :: Lens' DescribeLedgerResponse (Maybe Text)
-
--- | The name of the ledger.
-describeLedgerResponse_name :: Lens' DescribeLedgerResponse (Maybe Text)
-
--- | The current status of the ledger.
-describeLedgerResponse_state :: Lens' DescribeLedgerResponse (Maybe LedgerState)
 
 -- | Information about the encryption of data at rest in the ledger. This
 --   includes the current status, the KMS key, and when the key became
 --   inaccessible (in the case of an error).
 describeLedgerResponse_encryptionDescription :: Lens' DescribeLedgerResponse (Maybe LedgerEncryptionDescription)
 
+-- | The name of the ledger.
+describeLedgerResponse_name :: Lens' DescribeLedgerResponse (Maybe Text)
+
 -- | The date and time, in epoch time format, when the ledger was created.
 --   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 --   January 1, 1970 UTC.)
 describeLedgerResponse_creationDateTime :: Lens' DescribeLedgerResponse (Maybe UTCTime)
+
+-- | The permissions mode of the ledger.
+describeLedgerResponse_permissionsMode :: Lens' DescribeLedgerResponse (Maybe PermissionsMode)
 
 -- | The response's http status code.
 describeLedgerResponse_httpStatus :: Lens' DescribeLedgerResponse Int
@@ -4188,7 +4188,10 @@ createLedger_permissionsMode :: Lens' CreateLedger PermissionsMode
 
 -- | <i>See:</i> <a>newCreateLedgerResponse</a> smart constructor.
 data CreateLedgerResponse
-CreateLedgerResponse' :: Maybe Bool -> Maybe PermissionsMode -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe LedgerState -> Maybe POSIX -> Int -> CreateLedgerResponse
+CreateLedgerResponse' :: Maybe LedgerState -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe POSIX -> Maybe PermissionsMode -> Int -> CreateLedgerResponse
+
+-- | The current status of the ledger.
+[$sel:state:CreateLedgerResponse'] :: CreateLedgerResponse -> Maybe LedgerState
 
 -- | The flag that prevents a ledger from being deleted by any user. If not
 --   provided on ledger creation, this feature is enabled (<tt>true</tt>)
@@ -4199,8 +4202,10 @@ CreateLedgerResponse' :: Maybe Bool -> Maybe PermissionsMode -> Maybe Text -> Ma
 --   <tt>UpdateLedger</tt> operation to set the flag to <tt>false</tt>.
 [$sel:deletionProtection:CreateLedgerResponse'] :: CreateLedgerResponse -> Maybe Bool
 
--- | The permissions mode of the ledger that you created.
-[$sel:permissionsMode:CreateLedgerResponse'] :: CreateLedgerResponse -> Maybe PermissionsMode
+-- | The ARN of the customer managed KMS key that the ledger uses for
+--   encryption at rest. If this parameter is undefined, the ledger uses an
+--   Amazon Web Services owned KMS key for encryption.
+[$sel:kmsKeyArn:CreateLedgerResponse'] :: CreateLedgerResponse -> Maybe Text
 
 -- | The Amazon Resource Name (ARN) for the ledger.
 [$sel:arn:CreateLedgerResponse'] :: CreateLedgerResponse -> Maybe Text
@@ -4208,18 +4213,13 @@ CreateLedgerResponse' :: Maybe Bool -> Maybe PermissionsMode -> Maybe Text -> Ma
 -- | The name of the ledger.
 [$sel:name:CreateLedgerResponse'] :: CreateLedgerResponse -> Maybe Text
 
--- | The ARN of the customer managed KMS key that the ledger uses for
---   encryption at rest. If this parameter is undefined, the ledger uses an
---   Amazon Web Services owned KMS key for encryption.
-[$sel:kmsKeyArn:CreateLedgerResponse'] :: CreateLedgerResponse -> Maybe Text
-
--- | The current status of the ledger.
-[$sel:state:CreateLedgerResponse'] :: CreateLedgerResponse -> Maybe LedgerState
-
 -- | The date and time, in epoch time format, when the ledger was created.
 --   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 --   January 1, 1970 UTC.)
 [$sel:creationDateTime:CreateLedgerResponse'] :: CreateLedgerResponse -> Maybe POSIX
+
+-- | The permissions mode of the ledger that you created.
+[$sel:permissionsMode:CreateLedgerResponse'] :: CreateLedgerResponse -> Maybe PermissionsMode
 
 -- | The response's http status code.
 [$sel:httpStatus:CreateLedgerResponse'] :: CreateLedgerResponse -> Int
@@ -4233,6 +4233,9 @@ CreateLedgerResponse' :: Maybe Bool -> Maybe PermissionsMode -> Maybe Text -> Ma
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:state:CreateLedgerResponse'</a>,
+--   <a>createLedgerResponse_state</a> - The current status of the ledger.
+--   
 --   <a>$sel:deletionProtection:CreateLedger'</a>,
 --   <a>createLedgerResponse_deletionProtection</a> - The flag that
 --   prevents a ledger from being deleted by any user. If not provided on
@@ -4242,9 +4245,11 @@ CreateLedgerResponse' :: Maybe Bool -> Maybe PermissionsMode -> Maybe Text -> Ma
 --   you can delete the ledger. You can disable it by calling the
 --   <tt>UpdateLedger</tt> operation to set the flag to <tt>false</tt>.
 --   
---   <a>$sel:permissionsMode:CreateLedger'</a>,
---   <a>createLedgerResponse_permissionsMode</a> - The permissions mode of
---   the ledger that you created.
+--   <a>$sel:kmsKeyArn:CreateLedgerResponse'</a>,
+--   <a>createLedgerResponse_kmsKeyArn</a> - The ARN of the customer
+--   managed KMS key that the ledger uses for encryption at rest. If this
+--   parameter is undefined, the ledger uses an Amazon Web Services owned
+--   KMS key for encryption.
 --   
 --   <a>$sel:arn:CreateLedgerResponse'</a>, <a>createLedgerResponse_arn</a>
 --   - The Amazon Resource Name (ARN) for the ledger.
@@ -4252,24 +4257,22 @@ CreateLedgerResponse' :: Maybe Bool -> Maybe PermissionsMode -> Maybe Text -> Ma
 --   <a>$sel:name:CreateLedger'</a>, <a>createLedgerResponse_name</a> - The
 --   name of the ledger.
 --   
---   <a>$sel:kmsKeyArn:CreateLedgerResponse'</a>,
---   <a>createLedgerResponse_kmsKeyArn</a> - The ARN of the customer
---   managed KMS key that the ledger uses for encryption at rest. If this
---   parameter is undefined, the ledger uses an Amazon Web Services owned
---   KMS key for encryption.
---   
---   <a>$sel:state:CreateLedgerResponse'</a>,
---   <a>createLedgerResponse_state</a> - The current status of the ledger.
---   
 --   <a>$sel:creationDateTime:CreateLedgerResponse'</a>,
 --   <a>createLedgerResponse_creationDateTime</a> - The date and time, in
 --   epoch time format, when the ledger was created. (Epoch time format is
 --   the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)
 --   
+--   <a>$sel:permissionsMode:CreateLedger'</a>,
+--   <a>createLedgerResponse_permissionsMode</a> - The permissions mode of
+--   the ledger that you created.
+--   
 --   <a>$sel:httpStatus:CreateLedgerResponse'</a>,
 --   <a>createLedgerResponse_httpStatus</a> - The response's http status
 --   code.
 newCreateLedgerResponse :: Int -> CreateLedgerResponse
+
+-- | The current status of the ledger.
+createLedgerResponse_state :: Lens' CreateLedgerResponse (Maybe LedgerState)
 
 -- | The flag that prevents a ledger from being deleted by any user. If not
 --   provided on ledger creation, this feature is enabled (<tt>true</tt>)
@@ -4280,8 +4283,10 @@ newCreateLedgerResponse :: Int -> CreateLedgerResponse
 --   <tt>UpdateLedger</tt> operation to set the flag to <tt>false</tt>.
 createLedgerResponse_deletionProtection :: Lens' CreateLedgerResponse (Maybe Bool)
 
--- | The permissions mode of the ledger that you created.
-createLedgerResponse_permissionsMode :: Lens' CreateLedgerResponse (Maybe PermissionsMode)
+-- | The ARN of the customer managed KMS key that the ledger uses for
+--   encryption at rest. If this parameter is undefined, the ledger uses an
+--   Amazon Web Services owned KMS key for encryption.
+createLedgerResponse_kmsKeyArn :: Lens' CreateLedgerResponse (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) for the ledger.
 createLedgerResponse_arn :: Lens' CreateLedgerResponse (Maybe Text)
@@ -4289,18 +4294,13 @@ createLedgerResponse_arn :: Lens' CreateLedgerResponse (Maybe Text)
 -- | The name of the ledger.
 createLedgerResponse_name :: Lens' CreateLedgerResponse (Maybe Text)
 
--- | The ARN of the customer managed KMS key that the ledger uses for
---   encryption at rest. If this parameter is undefined, the ledger uses an
---   Amazon Web Services owned KMS key for encryption.
-createLedgerResponse_kmsKeyArn :: Lens' CreateLedgerResponse (Maybe Text)
-
--- | The current status of the ledger.
-createLedgerResponse_state :: Lens' CreateLedgerResponse (Maybe LedgerState)
-
 -- | The date and time, in epoch time format, when the ledger was created.
 --   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 --   January 1, 1970 UTC.)
 createLedgerResponse_creationDateTime :: Lens' CreateLedgerResponse (Maybe UTCTime)
+
+-- | The permissions mode of the ledger that you created.
+createLedgerResponse_permissionsMode :: Lens' CreateLedgerResponse (Maybe PermissionsMode)
 
 -- | The response's http status code.
 createLedgerResponse_httpStatus :: Lens' CreateLedgerResponse Int
@@ -4676,7 +4676,10 @@ updateLedger_name :: Lens' UpdateLedger Text
 
 -- | <i>See:</i> <a>newUpdateLedgerResponse</a> smart constructor.
 data UpdateLedgerResponse
-UpdateLedgerResponse' :: Maybe Bool -> Maybe Text -> Maybe Text -> Maybe LedgerState -> Maybe LedgerEncryptionDescription -> Maybe POSIX -> Int -> UpdateLedgerResponse
+UpdateLedgerResponse' :: Maybe LedgerState -> Maybe Bool -> Maybe Text -> Maybe LedgerEncryptionDescription -> Maybe Text -> Maybe POSIX -> Int -> UpdateLedgerResponse
+
+-- | The current status of the ledger.
+[$sel:state:UpdateLedgerResponse'] :: UpdateLedgerResponse -> Maybe LedgerState
 
 -- | The flag that prevents a ledger from being deleted by any user. If not
 --   provided on ledger creation, this feature is enabled (<tt>true</tt>)
@@ -4690,16 +4693,13 @@ UpdateLedgerResponse' :: Maybe Bool -> Maybe Text -> Maybe Text -> Maybe LedgerS
 -- | The Amazon Resource Name (ARN) for the ledger.
 [$sel:arn:UpdateLedgerResponse'] :: UpdateLedgerResponse -> Maybe Text
 
--- | The name of the ledger.
-[$sel:name:UpdateLedgerResponse'] :: UpdateLedgerResponse -> Maybe Text
-
--- | The current status of the ledger.
-[$sel:state:UpdateLedgerResponse'] :: UpdateLedgerResponse -> Maybe LedgerState
-
 -- | Information about the encryption of data at rest in the ledger. This
 --   includes the current status, the KMS key, and when the key became
 --   inaccessible (in the case of an error).
 [$sel:encryptionDescription:UpdateLedgerResponse'] :: UpdateLedgerResponse -> Maybe LedgerEncryptionDescription
+
+-- | The name of the ledger.
+[$sel:name:UpdateLedgerResponse'] :: UpdateLedgerResponse -> Maybe Text
 
 -- | The date and time, in epoch time format, when the ledger was created.
 --   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
@@ -4718,6 +4718,9 @@ UpdateLedgerResponse' :: Maybe Bool -> Maybe Text -> Maybe Text -> Maybe LedgerS
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:state:UpdateLedgerResponse'</a>,
+--   <a>updateLedgerResponse_state</a> - The current status of the ledger.
+--   
 --   <a>$sel:deletionProtection:UpdateLedger'</a>,
 --   <a>updateLedgerResponse_deletionProtection</a> - The flag that
 --   prevents a ledger from being deleted by any user. If not provided on
@@ -4730,17 +4733,14 @@ UpdateLedgerResponse' :: Maybe Bool -> Maybe Text -> Maybe Text -> Maybe LedgerS
 --   <a>$sel:arn:UpdateLedgerResponse'</a>, <a>updateLedgerResponse_arn</a>
 --   - The Amazon Resource Name (ARN) for the ledger.
 --   
---   <a>$sel:name:UpdateLedger'</a>, <a>updateLedgerResponse_name</a> - The
---   name of the ledger.
---   
---   <a>$sel:state:UpdateLedgerResponse'</a>,
---   <a>updateLedgerResponse_state</a> - The current status of the ledger.
---   
 --   <a>$sel:encryptionDescription:UpdateLedgerResponse'</a>,
 --   <a>updateLedgerResponse_encryptionDescription</a> - Information about
 --   the encryption of data at rest in the ledger. This includes the
 --   current status, the KMS key, and when the key became inaccessible (in
 --   the case of an error).
+--   
+--   <a>$sel:name:UpdateLedger'</a>, <a>updateLedgerResponse_name</a> - The
+--   name of the ledger.
 --   
 --   <a>$sel:creationDateTime:UpdateLedgerResponse'</a>,
 --   <a>updateLedgerResponse_creationDateTime</a> - The date and time, in
@@ -4751,6 +4751,9 @@ UpdateLedgerResponse' :: Maybe Bool -> Maybe Text -> Maybe Text -> Maybe LedgerS
 --   <a>updateLedgerResponse_httpStatus</a> - The response's http status
 --   code.
 newUpdateLedgerResponse :: Int -> UpdateLedgerResponse
+
+-- | The current status of the ledger.
+updateLedgerResponse_state :: Lens' UpdateLedgerResponse (Maybe LedgerState)
 
 -- | The flag that prevents a ledger from being deleted by any user. If not
 --   provided on ledger creation, this feature is enabled (<tt>true</tt>)
@@ -4764,16 +4767,13 @@ updateLedgerResponse_deletionProtection :: Lens' UpdateLedgerResponse (Maybe Boo
 -- | The Amazon Resource Name (ARN) for the ledger.
 updateLedgerResponse_arn :: Lens' UpdateLedgerResponse (Maybe Text)
 
--- | The name of the ledger.
-updateLedgerResponse_name :: Lens' UpdateLedgerResponse (Maybe Text)
-
--- | The current status of the ledger.
-updateLedgerResponse_state :: Lens' UpdateLedgerResponse (Maybe LedgerState)
-
 -- | Information about the encryption of data at rest in the ledger. This
 --   includes the current status, the KMS key, and when the key became
 --   inaccessible (in the case of an error).
 updateLedgerResponse_encryptionDescription :: Lens' UpdateLedgerResponse (Maybe LedgerEncryptionDescription)
+
+-- | The name of the ledger.
+updateLedgerResponse_name :: Lens' UpdateLedgerResponse (Maybe Text)
 
 -- | The date and time, in epoch time format, when the ledger was created.
 --   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
@@ -4914,16 +4914,16 @@ updateLedgerPermissionsMode_permissionsMode :: Lens' UpdateLedgerPermissionsMode
 -- | <i>See:</i> <a>newUpdateLedgerPermissionsModeResponse</a> smart
 --   constructor.
 data UpdateLedgerPermissionsModeResponse
-UpdateLedgerPermissionsModeResponse' :: Maybe PermissionsMode -> Maybe Text -> Maybe Text -> Int -> UpdateLedgerPermissionsModeResponse
-
--- | The current permissions mode of the ledger.
-[$sel:permissionsMode:UpdateLedgerPermissionsModeResponse'] :: UpdateLedgerPermissionsModeResponse -> Maybe PermissionsMode
+UpdateLedgerPermissionsModeResponse' :: Maybe Text -> Maybe Text -> Maybe PermissionsMode -> Int -> UpdateLedgerPermissionsModeResponse
 
 -- | The Amazon Resource Name (ARN) for the ledger.
 [$sel:arn:UpdateLedgerPermissionsModeResponse'] :: UpdateLedgerPermissionsModeResponse -> Maybe Text
 
 -- | The name of the ledger.
 [$sel:name:UpdateLedgerPermissionsModeResponse'] :: UpdateLedgerPermissionsModeResponse -> Maybe Text
+
+-- | The current permissions mode of the ledger.
+[$sel:permissionsMode:UpdateLedgerPermissionsModeResponse'] :: UpdateLedgerPermissionsModeResponse -> Maybe PermissionsMode
 
 -- | The response's http status code.
 [$sel:httpStatus:UpdateLedgerPermissionsModeResponse'] :: UpdateLedgerPermissionsModeResponse -> Int
@@ -4937,10 +4937,6 @@ UpdateLedgerPermissionsModeResponse' :: Maybe PermissionsMode -> Maybe Text -> M
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:permissionsMode:UpdateLedgerPermissionsMode'</a>,
---   <a>updateLedgerPermissionsModeResponse_permissionsMode</a> - The
---   current permissions mode of the ledger.
---   
 --   <a>$sel:arn:UpdateLedgerPermissionsModeResponse'</a>,
 --   <a>updateLedgerPermissionsModeResponse_arn</a> - The Amazon Resource
 --   Name (ARN) for the ledger.
@@ -4949,19 +4945,23 @@ UpdateLedgerPermissionsModeResponse' :: Maybe PermissionsMode -> Maybe Text -> M
 --   <a>updateLedgerPermissionsModeResponse_name</a> - The name of the
 --   ledger.
 --   
+--   <a>$sel:permissionsMode:UpdateLedgerPermissionsMode'</a>,
+--   <a>updateLedgerPermissionsModeResponse_permissionsMode</a> - The
+--   current permissions mode of the ledger.
+--   
 --   <a>$sel:httpStatus:UpdateLedgerPermissionsModeResponse'</a>,
 --   <a>updateLedgerPermissionsModeResponse_httpStatus</a> - The response's
 --   http status code.
 newUpdateLedgerPermissionsModeResponse :: Int -> UpdateLedgerPermissionsModeResponse
-
--- | The current permissions mode of the ledger.
-updateLedgerPermissionsModeResponse_permissionsMode :: Lens' UpdateLedgerPermissionsModeResponse (Maybe PermissionsMode)
 
 -- | The Amazon Resource Name (ARN) for the ledger.
 updateLedgerPermissionsModeResponse_arn :: Lens' UpdateLedgerPermissionsModeResponse (Maybe Text)
 
 -- | The name of the ledger.
 updateLedgerPermissionsModeResponse_name :: Lens' UpdateLedgerPermissionsModeResponse (Maybe Text)
+
+-- | The current permissions mode of the ledger.
+updateLedgerPermissionsModeResponse_permissionsMode :: Lens' UpdateLedgerPermissionsModeResponse (Maybe PermissionsMode)
 
 -- | The response's http status code.
 updateLedgerPermissionsModeResponse_httpStatus :: Lens' UpdateLedgerPermissionsModeResponse Int
@@ -4984,47 +4984,6 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.QLDB.UpdateLedgerPermissions
 
 
 module Network.AWS.QLDB.Lens
-
--- | The name of the ledger.
-updateLedgerPermissionsMode_name :: Lens' UpdateLedgerPermissionsMode Text
-
--- | The permissions mode to assign to the ledger. This parameter can have
---   one of the following values:
---   
---   <ul>
---   <li><tt>ALLOW_ALL</tt>: A legacy permissions mode that enables access
---   control with API-level granularity for ledgers.This mode allows users
---   who have the <tt>SendCommand</tt> API permission for this ledger to
---   run all PartiQL commands (hence, <tt>ALLOW_ALL</tt>) on any tables in
---   the specified ledger. This mode disregards any table-level or
---   command-level IAM permissions policies that you create for the
---   ledger.</li>
---   <li><tt>STANDARD</tt>: (<i>Recommended</i>) A permissions mode that
---   enables access control with finer granularity for ledgers, tables, and
---   PartiQL commands.By default, this mode denies all user requests to run
---   any PartiQL commands on any tables in this ledger. To allow PartiQL
---   commands to run, you must create IAM permissions policies for specific
---   table resources and PartiQL actions, in addition to the
---   <tt>SendCommand</tt> API permission for the ledger. For information,
---   see <a>Getting started with the standard permissions mode</a> in the
---   <i>Amazon QLDB Developer Guide</i>.</li>
---   </ul>
---   
---   We strongly recommend using the <tt>STANDARD</tt> permissions mode to
---   maximize the security of your ledger data.
-updateLedgerPermissionsMode_permissionsMode :: Lens' UpdateLedgerPermissionsMode PermissionsMode
-
--- | The current permissions mode of the ledger.
-updateLedgerPermissionsModeResponse_permissionsMode :: Lens' UpdateLedgerPermissionsModeResponse (Maybe PermissionsMode)
-
--- | The Amazon Resource Name (ARN) for the ledger.
-updateLedgerPermissionsModeResponse_arn :: Lens' UpdateLedgerPermissionsModeResponse (Maybe Text)
-
--- | The name of the ledger.
-updateLedgerPermissionsModeResponse_name :: Lens' UpdateLedgerPermissionsModeResponse (Maybe Text)
-
--- | The response's http status code.
-updateLedgerPermissionsModeResponse_httpStatus :: Lens' UpdateLedgerPermissionsModeResponse Int
 
 -- | The flag that prevents a ledger from being deleted by any user. If not
 --   provided on ledger creation, this feature is enabled (<tt>true</tt>)
@@ -5076,6 +5035,9 @@ updateLedger_kmsKey :: Lens' UpdateLedger (Maybe Text)
 -- | The name of the ledger.
 updateLedger_name :: Lens' UpdateLedger Text
 
+-- | The current status of the ledger.
+updateLedgerResponse_state :: Lens' UpdateLedgerResponse (Maybe LedgerState)
+
 -- | The flag that prevents a ledger from being deleted by any user. If not
 --   provided on ledger creation, this feature is enabled (<tt>true</tt>)
 --   by default.
@@ -5088,16 +5050,13 @@ updateLedgerResponse_deletionProtection :: Lens' UpdateLedgerResponse (Maybe Boo
 -- | The Amazon Resource Name (ARN) for the ledger.
 updateLedgerResponse_arn :: Lens' UpdateLedgerResponse (Maybe Text)
 
--- | The name of the ledger.
-updateLedgerResponse_name :: Lens' UpdateLedgerResponse (Maybe Text)
-
--- | The current status of the ledger.
-updateLedgerResponse_state :: Lens' UpdateLedgerResponse (Maybe LedgerState)
-
 -- | Information about the encryption of data at rest in the ledger. This
 --   includes the current status, the KMS key, and when the key became
 --   inaccessible (in the case of an error).
 updateLedgerResponse_encryptionDescription :: Lens' UpdateLedgerResponse (Maybe LedgerEncryptionDescription)
+
+-- | The name of the ledger.
+updateLedgerResponse_name :: Lens' UpdateLedgerResponse (Maybe Text)
 
 -- | The date and time, in epoch time format, when the ledger was created.
 --   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
@@ -5112,33 +5071,244 @@ deleteLedger_name :: Lens' DeleteLedger Text
 
 -- | A pagination token, indicating that you want to retrieve the next page
 --   of results. If you received a value for <tt>NextToken</tt> in the
---   response from a previous <tt>ListLedgers</tt> call, then you should
---   use that value as input here.
-listLedgers_nextToken :: Lens' ListLedgers (Maybe Text)
+--   response from a previous <tt>ListJournalKinesisStreamsForLedger</tt>
+--   call, you should use that value as input here.
+listJournalKinesisStreamsForLedger_nextToken :: Lens' ListJournalKinesisStreamsForLedger (Maybe Text)
 
 -- | The maximum number of results to return in a single
---   <tt>ListLedgers</tt> request. (The actual number of results returned
---   might be fewer.)
-listLedgers_maxResults :: Lens' ListLedgers (Maybe Natural)
+--   <tt>ListJournalKinesisStreamsForLedger</tt> request. (The actual
+--   number of results returned might be fewer.)
+listJournalKinesisStreamsForLedger_maxResults :: Lens' ListJournalKinesisStreamsForLedger (Maybe Natural)
 
--- | A pagination token, indicating whether there are more results
---   available:
---   
---   <ul>
---   <li>If <tt>NextToken</tt> is empty, then the last page of results has
---   been processed and there are no more results to be retrieved.</li>
---   <li>If <tt>NextToken</tt> is <i>not</i> empty, then there are more
---   results available. To retrieve the next page of results, use the value
---   of <tt>NextToken</tt> in a subsequent <tt>ListLedgers</tt> call.</li>
+-- | The name of the ledger.
+listJournalKinesisStreamsForLedger_ledgerName :: Lens' ListJournalKinesisStreamsForLedger Text
+
+-- | <ul>
+--   <li>If <tt>NextToken</tt> is empty, the last page of results has been
+--   processed and there are no more results to be retrieved.</li>
+--   <li>If <tt>NextToken</tt> is <i>not</i> empty, more results are
+--   available. To retrieve the next page of results, use the value of
+--   <tt>NextToken</tt> in a subsequent
+--   <tt>ListJournalKinesisStreamsForLedger</tt> call.</li>
 --   </ul>
-listLedgersResponse_nextToken :: Lens' ListLedgersResponse (Maybe Text)
+listJournalKinesisStreamsForLedgerResponse_nextToken :: Lens' ListJournalKinesisStreamsForLedgerResponse (Maybe Text)
 
--- | The array of ledger summaries that are associated with the current
---   account and Region.
-listLedgersResponse_ledgers :: Lens' ListLedgersResponse (Maybe [LedgerSummary])
+-- | The array of QLDB journal stream descriptors that are associated with
+--   the given ledger.
+listJournalKinesisStreamsForLedgerResponse_streams :: Lens' ListJournalKinesisStreamsForLedgerResponse (Maybe [JournalKinesisStreamDescription])
 
 -- | The response's http status code.
-listLedgersResponse_httpStatus :: Lens' ListLedgersResponse Int
+listJournalKinesisStreamsForLedgerResponse_httpStatus :: Lens' ListJournalKinesisStreamsForLedgerResponse Int
+
+-- | The Amazon Resource Name (ARN) for which to list the tags. For
+--   example:
+--   
+--   <pre>
+--   arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger
+--   </pre>
+listTagsForResource_resourceArn :: Lens' ListTagsForResource Text
+
+-- | The tags that are currently associated with the specified Amazon QLDB
+--   resource.
+listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (HashMap Text Text))
+
+-- | The response's http status code.
+listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
+
+-- | The latest block location covered by the digest for which to request a
+--   proof. An address is an Amazon Ion structure that has two fields:
+--   <tt>strandId</tt> and <tt>sequenceNo</tt>.
+--   
+--   For example:
+--   <tt>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:49}</tt>.
+getRevision_digestTipAddress :: Lens' GetRevision (Maybe ValueHolder)
+
+-- | The name of the ledger.
+getRevision_name :: Lens' GetRevision Text
+
+-- | The block location of the document revision to be verified. An address
+--   is an Amazon Ion structure that has two fields: <tt>strandId</tt> and
+--   <tt>sequenceNo</tt>.
+--   
+--   For example:
+--   <tt>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:14}</tt>.
+getRevision_blockAddress :: Lens' GetRevision ValueHolder
+
+-- | The UUID (represented in Base62-encoded text) of the document to be
+--   verified.
+getRevision_documentId :: Lens' GetRevision Text
+
+-- | The proof object in Amazon Ion format returned by a
+--   <tt>GetRevision</tt> request. A proof contains the list of hash values
+--   that are required to recalculate the specified digest using a Merkle
+--   tree, starting with the specified document revision.
+getRevisionResponse_proof :: Lens' GetRevisionResponse (Maybe ValueHolder)
+
+-- | The response's http status code.
+getRevisionResponse_httpStatus :: Lens' GetRevisionResponse Int
+
+-- | The document revision data object in Amazon Ion format.
+getRevisionResponse_revision :: Lens' GetRevisionResponse ValueHolder
+
+-- | The name of the ledger that you want to describe.
+describeLedger_name :: Lens' DescribeLedger Text
+
+-- | The current status of the ledger.
+describeLedgerResponse_state :: Lens' DescribeLedgerResponse (Maybe LedgerState)
+
+-- | The flag that prevents a ledger from being deleted by any user. If not
+--   provided on ledger creation, this feature is enabled (<tt>true</tt>)
+--   by default.
+--   
+--   If deletion protection is enabled, you must first disable it before
+--   you can delete the ledger. You can disable it by calling the
+--   <tt>UpdateLedger</tt> operation to set the flag to <tt>false</tt>.
+describeLedgerResponse_deletionProtection :: Lens' DescribeLedgerResponse (Maybe Bool)
+
+-- | The Amazon Resource Name (ARN) for the ledger.
+describeLedgerResponse_arn :: Lens' DescribeLedgerResponse (Maybe Text)
+
+-- | Information about the encryption of data at rest in the ledger. This
+--   includes the current status, the KMS key, and when the key became
+--   inaccessible (in the case of an error).
+describeLedgerResponse_encryptionDescription :: Lens' DescribeLedgerResponse (Maybe LedgerEncryptionDescription)
+
+-- | The name of the ledger.
+describeLedgerResponse_name :: Lens' DescribeLedgerResponse (Maybe Text)
+
+-- | The date and time, in epoch time format, when the ledger was created.
+--   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
+--   January 1, 1970 UTC.)
+describeLedgerResponse_creationDateTime :: Lens' DescribeLedgerResponse (Maybe UTCTime)
+
+-- | The permissions mode of the ledger.
+describeLedgerResponse_permissionsMode :: Lens' DescribeLedgerResponse (Maybe PermissionsMode)
+
+-- | The response's http status code.
+describeLedgerResponse_httpStatus :: Lens' DescribeLedgerResponse Int
+
+-- | The name of the ledger.
+cancelJournalKinesisStream_ledgerName :: Lens' CancelJournalKinesisStream Text
+
+-- | The UUID (represented in Base62-encoded text) of the QLDB journal
+--   stream to be canceled.
+cancelJournalKinesisStream_streamId :: Lens' CancelJournalKinesisStream Text
+
+-- | The UUID (Base62-encoded text) of the canceled QLDB journal stream.
+cancelJournalKinesisStreamResponse_streamId :: Lens' CancelJournalKinesisStreamResponse (Maybe Text)
+
+-- | The response's http status code.
+cancelJournalKinesisStreamResponse_httpStatus :: Lens' CancelJournalKinesisStreamResponse Int
+
+-- | The name of the ledger.
+exportJournalToS_name :: Lens' ExportJournalToS Text
+
+-- | The inclusive start date and time for the range of journal contents to
+--   export.
+--   
+--   The <tt>InclusiveStartTime</tt> must be in <tt>ISO 8601</tt> date and
+--   time format and in Universal Coordinated Time (UTC). For example:
+--   <tt>2019-06-13T21:36:34Z</tt>.
+--   
+--   The <tt>InclusiveStartTime</tt> must be before
+--   <tt>ExclusiveEndTime</tt>.
+--   
+--   If you provide an <tt>InclusiveStartTime</tt> that is before the
+--   ledger's <tt>CreationDateTime</tt>, Amazon QLDB defaults it to the
+--   ledger's <tt>CreationDateTime</tt>.
+exportJournalToS_inclusiveStartTime :: Lens' ExportJournalToS UTCTime
+
+-- | The exclusive end date and time for the range of journal contents to
+--   export.
+--   
+--   The <tt>ExclusiveEndTime</tt> must be in <tt>ISO 8601</tt> date and
+--   time format and in Universal Coordinated Time (UTC). For example:
+--   <tt>2019-06-13T21:36:34Z</tt>.
+--   
+--   The <tt>ExclusiveEndTime</tt> must be less than or equal to the
+--   current UTC date and time.
+exportJournalToS_exclusiveEndTime :: Lens' ExportJournalToS UTCTime
+
+-- | The configuration settings of the Amazon S3 bucket destination for
+--   your export request.
+exportJournalToS_s3ExportConfiguration :: Lens' ExportJournalToS S3ExportConfiguration
+
+-- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
+--   permissions for a journal export job to do the following:
+--   
+--   <ul>
+--   <li>Write objects into your Amazon Simple Storage Service (Amazon S3)
+--   bucket.</li>
+--   <li>(Optional) Use your customer master key (CMK) in Key Management
+--   Service (KMS) for server-side encryption of your exported data.</li>
+--   </ul>
+exportJournalToS_roleArn :: Lens' ExportJournalToS Text
+
+-- | The response's http status code.
+exportJournalToSResponse_httpStatus :: Lens' ExportJournalToSResponse Int
+
+-- | The UUID (represented in Base62-encoded text) that QLDB assigns to
+--   each journal export job.
+--   
+--   To describe your export request and check the status of the job, you
+--   can use <tt>ExportId</tt> to call <tt>DescribeJournalS3Export</tt>.
+exportJournalToSResponse_exportId :: Lens' ExportJournalToSResponse Text
+
+-- | The exclusive date and time that specifies when the stream ends. If
+--   you don't define this parameter, the stream runs indefinitely until
+--   you cancel it.
+--   
+--   The <tt>ExclusiveEndTime</tt> must be in <tt>ISO 8601</tt> date and
+--   time format and in Universal Coordinated Time (UTC). For example:
+--   <tt>2019-06-13T21:36:34Z</tt>.
+streamJournalToKinesis_exclusiveEndTime :: Lens' StreamJournalToKinesis (Maybe UTCTime)
+
+-- | The key-value pairs to add as tags to the stream that you want to
+--   create. Tag keys are case sensitive. Tag values are case sensitive and
+--   can be null.
+streamJournalToKinesis_tags :: Lens' StreamJournalToKinesis (Maybe (HashMap Text Text))
+
+-- | The name of the ledger.
+streamJournalToKinesis_ledgerName :: Lens' StreamJournalToKinesis Text
+
+-- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
+--   permissions for a journal stream to write data records to a Kinesis
+--   Data Streams resource.
+streamJournalToKinesis_roleArn :: Lens' StreamJournalToKinesis Text
+
+-- | The inclusive start date and time from which to start streaming
+--   journal data. This parameter must be in <tt>ISO 8601</tt> date and
+--   time format and in Universal Coordinated Time (UTC). For example:
+--   <tt>2019-06-13T21:36:34Z</tt>.
+--   
+--   The <tt>InclusiveStartTime</tt> cannot be in the future and must be
+--   before <tt>ExclusiveEndTime</tt>.
+--   
+--   If you provide an <tt>InclusiveStartTime</tt> that is before the
+--   ledger's <tt>CreationDateTime</tt>, QLDB effectively defaults it to
+--   the ledger's <tt>CreationDateTime</tt>.
+streamJournalToKinesis_inclusiveStartTime :: Lens' StreamJournalToKinesis UTCTime
+
+-- | The configuration settings of the Kinesis Data Streams destination for
+--   your stream request.
+streamJournalToKinesis_kinesisConfiguration :: Lens' StreamJournalToKinesis KinesisConfiguration
+
+-- | The name that you want to assign to the QLDB journal stream.
+--   User-defined names can help identify and indicate the purpose of a
+--   stream.
+--   
+--   Your stream name must be unique among other <i>active</i> streams for
+--   a given ledger. Stream names have the same naming constraints as
+--   ledger names, as defined in <a>Quotas in Amazon QLDB</a> in the
+--   <i>Amazon QLDB Developer Guide</i>.
+streamJournalToKinesis_streamName :: Lens' StreamJournalToKinesis Text
+
+-- | The UUID (represented in Base62-encoded text) that QLDB assigns to
+--   each QLDB journal stream.
+streamJournalToKinesisResponse_streamId :: Lens' StreamJournalToKinesisResponse (Maybe Text)
+
+-- | The response's http status code.
+streamJournalToKinesisResponse_httpStatus :: Lens' StreamJournalToKinesisResponse Int
 
 -- | The flag that prevents a ledger from being deleted by any user. If not
 --   provided on ledger creation, this feature is enabled (<tt>true</tt>)
@@ -5225,6 +5395,9 @@ createLedger_name :: Lens' CreateLedger Text
 --   maximize the security of your ledger data.
 createLedger_permissionsMode :: Lens' CreateLedger PermissionsMode
 
+-- | The current status of the ledger.
+createLedgerResponse_state :: Lens' CreateLedgerResponse (Maybe LedgerState)
+
 -- | The flag that prevents a ledger from being deleted by any user. If not
 --   provided on ledger creation, this feature is enabled (<tt>true</tt>)
 --   by default.
@@ -5234,8 +5407,10 @@ createLedger_permissionsMode :: Lens' CreateLedger PermissionsMode
 --   <tt>UpdateLedger</tt> operation to set the flag to <tt>false</tt>.
 createLedgerResponse_deletionProtection :: Lens' CreateLedgerResponse (Maybe Bool)
 
--- | The permissions mode of the ledger that you created.
-createLedgerResponse_permissionsMode :: Lens' CreateLedgerResponse (Maybe PermissionsMode)
+-- | The ARN of the customer managed KMS key that the ledger uses for
+--   encryption at rest. If this parameter is undefined, the ledger uses an
+--   Amazon Web Services owned KMS key for encryption.
+createLedgerResponse_kmsKeyArn :: Lens' CreateLedgerResponse (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) for the ledger.
 createLedgerResponse_arn :: Lens' CreateLedgerResponse (Maybe Text)
@@ -5243,267 +5418,115 @@ createLedgerResponse_arn :: Lens' CreateLedgerResponse (Maybe Text)
 -- | The name of the ledger.
 createLedgerResponse_name :: Lens' CreateLedgerResponse (Maybe Text)
 
--- | The ARN of the customer managed KMS key that the ledger uses for
---   encryption at rest. If this parameter is undefined, the ledger uses an
---   Amazon Web Services owned KMS key for encryption.
-createLedgerResponse_kmsKeyArn :: Lens' CreateLedgerResponse (Maybe Text)
-
--- | The current status of the ledger.
-createLedgerResponse_state :: Lens' CreateLedgerResponse (Maybe LedgerState)
-
 -- | The date and time, in epoch time format, when the ledger was created.
 --   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 --   January 1, 1970 UTC.)
 createLedgerResponse_creationDateTime :: Lens' CreateLedgerResponse (Maybe UTCTime)
 
+-- | The permissions mode of the ledger that you created.
+createLedgerResponse_permissionsMode :: Lens' CreateLedgerResponse (Maybe PermissionsMode)
+
 -- | The response's http status code.
 createLedgerResponse_httpStatus :: Lens' CreateLedgerResponse Int
 
--- | The name of the ledger.
-exportJournalToS_name :: Lens' ExportJournalToS Text
+-- | A pagination token, indicating that you want to retrieve the next page
+--   of results. If you received a value for <tt>NextToken</tt> in the
+--   response from a previous <tt>ListLedgers</tt> call, then you should
+--   use that value as input here.
+listLedgers_nextToken :: Lens' ListLedgers (Maybe Text)
 
--- | The inclusive start date and time for the range of journal contents to
---   export.
---   
---   The <tt>InclusiveStartTime</tt> must be in <tt>ISO 8601</tt> date and
---   time format and in Universal Coordinated Time (UTC). For example:
---   <tt>2019-06-13T21:36:34Z</tt>.
---   
---   The <tt>InclusiveStartTime</tt> must be before
---   <tt>ExclusiveEndTime</tt>.
---   
---   If you provide an <tt>InclusiveStartTime</tt> that is before the
---   ledger's <tt>CreationDateTime</tt>, Amazon QLDB defaults it to the
---   ledger's <tt>CreationDateTime</tt>.
-exportJournalToS_inclusiveStartTime :: Lens' ExportJournalToS UTCTime
+-- | The maximum number of results to return in a single
+--   <tt>ListLedgers</tt> request. (The actual number of results returned
+--   might be fewer.)
+listLedgers_maxResults :: Lens' ListLedgers (Maybe Natural)
 
--- | The exclusive end date and time for the range of journal contents to
---   export.
---   
---   The <tt>ExclusiveEndTime</tt> must be in <tt>ISO 8601</tt> date and
---   time format and in Universal Coordinated Time (UTC). For example:
---   <tt>2019-06-13T21:36:34Z</tt>.
---   
---   The <tt>ExclusiveEndTime</tt> must be less than or equal to the
---   current UTC date and time.
-exportJournalToS_exclusiveEndTime :: Lens' ExportJournalToS UTCTime
+-- | The array of ledger summaries that are associated with the current
+--   account and Region.
+listLedgersResponse_ledgers :: Lens' ListLedgersResponse (Maybe [LedgerSummary])
 
--- | The configuration settings of the Amazon S3 bucket destination for
---   your export request.
-exportJournalToS_s3ExportConfiguration :: Lens' ExportJournalToS S3ExportConfiguration
-
--- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
---   permissions for a journal export job to do the following:
+-- | A pagination token, indicating whether there are more results
+--   available:
 --   
 --   <ul>
---   <li>Write objects into your Amazon Simple Storage Service (Amazon S3)
---   bucket.</li>
---   <li>(Optional) Use your customer master key (CMK) in Key Management
---   Service (KMS) for server-side encryption of your exported data.</li>
+--   <li>If <tt>NextToken</tt> is empty, then the last page of results has
+--   been processed and there are no more results to be retrieved.</li>
+--   <li>If <tt>NextToken</tt> is <i>not</i> empty, then there are more
+--   results available. To retrieve the next page of results, use the value
+--   of <tt>NextToken</tt> in a subsequent <tt>ListLedgers</tt> call.</li>
 --   </ul>
-exportJournalToS_roleArn :: Lens' ExportJournalToS Text
+listLedgersResponse_nextToken :: Lens' ListLedgersResponse (Maybe Text)
 
 -- | The response's http status code.
-exportJournalToSResponse_httpStatus :: Lens' ExportJournalToSResponse Int
-
--- | The UUID (represented in Base62-encoded text) that QLDB assigns to
---   each journal export job.
---   
---   To describe your export request and check the status of the job, you
---   can use <tt>ExportId</tt> to call <tt>DescribeJournalS3Export</tt>.
-exportJournalToSResponse_exportId :: Lens' ExportJournalToSResponse Text
-
--- | The name of the ledger.
-cancelJournalKinesisStream_ledgerName :: Lens' CancelJournalKinesisStream Text
-
--- | The UUID (represented in Base62-encoded text) of the QLDB journal
---   stream to be canceled.
-cancelJournalKinesisStream_streamId :: Lens' CancelJournalKinesisStream Text
-
--- | The UUID (Base62-encoded text) of the canceled QLDB journal stream.
-cancelJournalKinesisStreamResponse_streamId :: Lens' CancelJournalKinesisStreamResponse (Maybe Text)
-
--- | The response's http status code.
-cancelJournalKinesisStreamResponse_httpStatus :: Lens' CancelJournalKinesisStreamResponse Int
-
--- | The Amazon Resource Name (ARN) from which to remove the tags. For
---   example:
---   
---   <pre>
---   arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger
---   </pre>
-untagResource_resourceArn :: Lens' UntagResource Text
-
--- | The list of tag keys to remove.
-untagResource_tagKeys :: Lens' UntagResource [Text]
-
--- | The response's http status code.
-untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-
--- | The name of the ledger that you want to describe.
-describeLedger_name :: Lens' DescribeLedger Text
-
--- | The flag that prevents a ledger from being deleted by any user. If not
---   provided on ledger creation, this feature is enabled (<tt>true</tt>)
---   by default.
---   
---   If deletion protection is enabled, you must first disable it before
---   you can delete the ledger. You can disable it by calling the
---   <tt>UpdateLedger</tt> operation to set the flag to <tt>false</tt>.
-describeLedgerResponse_deletionProtection :: Lens' DescribeLedgerResponse (Maybe Bool)
-
--- | The permissions mode of the ledger.
-describeLedgerResponse_permissionsMode :: Lens' DescribeLedgerResponse (Maybe PermissionsMode)
-
--- | The Amazon Resource Name (ARN) for the ledger.
-describeLedgerResponse_arn :: Lens' DescribeLedgerResponse (Maybe Text)
-
--- | The name of the ledger.
-describeLedgerResponse_name :: Lens' DescribeLedgerResponse (Maybe Text)
-
--- | The current status of the ledger.
-describeLedgerResponse_state :: Lens' DescribeLedgerResponse (Maybe LedgerState)
-
--- | Information about the encryption of data at rest in the ledger. This
---   includes the current status, the KMS key, and when the key became
---   inaccessible (in the case of an error).
-describeLedgerResponse_encryptionDescription :: Lens' DescribeLedgerResponse (Maybe LedgerEncryptionDescription)
-
--- | The date and time, in epoch time format, when the ledger was created.
---   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
---   January 1, 1970 UTC.)
-describeLedgerResponse_creationDateTime :: Lens' DescribeLedgerResponse (Maybe UTCTime)
-
--- | The response's http status code.
-describeLedgerResponse_httpStatus :: Lens' DescribeLedgerResponse Int
-
--- | The Amazon Resource Name (ARN) to which you want to add the tags. For
---   example:
---   
---   <pre>
---   arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger
---   </pre>
-tagResource_resourceArn :: Lens' TagResource Text
-
--- | The key-value pairs to add as tags to the specified QLDB resource. Tag
---   keys are case sensitive. If you specify a key that already exists for
---   the resource, your request fails and returns an error. Tag values are
---   case sensitive and can be null.
-tagResource_tags :: Lens' TagResource (HashMap Text Text)
-
--- | The response's http status code.
-tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-
--- | The name of the ledger.
-describeJournalS3Export_name :: Lens' DescribeJournalS3Export Text
-
--- | The UUID (represented in Base62-encoded text) of the journal export
---   job to describe.
-describeJournalS3Export_exportId :: Lens' DescribeJournalS3Export Text
-
--- | The response's http status code.
-describeJournalS3ExportResponse_httpStatus :: Lens' DescribeJournalS3ExportResponse Int
-
--- | Information about the journal export job returned by a
---   <tt>DescribeJournalS3Export</tt> request.
-describeJournalS3ExportResponse_exportDescription :: Lens' DescribeJournalS3ExportResponse JournalS3ExportDescription
-
--- | The latest block location covered by the digest for which to request a
---   proof. An address is an Amazon Ion structure that has two fields:
---   <tt>strandId</tt> and <tt>sequenceNo</tt>.
---   
---   For example:
---   <tt>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:49}</tt>.
-getRevision_digestTipAddress :: Lens' GetRevision (Maybe ValueHolder)
-
--- | The name of the ledger.
-getRevision_name :: Lens' GetRevision Text
-
--- | The block location of the document revision to be verified. An address
---   is an Amazon Ion structure that has two fields: <tt>strandId</tt> and
---   <tt>sequenceNo</tt>.
---   
---   For example:
---   <tt>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:14}</tt>.
-getRevision_blockAddress :: Lens' GetRevision ValueHolder
-
--- | The UUID (represented in Base62-encoded text) of the document to be
---   verified.
-getRevision_documentId :: Lens' GetRevision Text
-
--- | The proof object in Amazon Ion format returned by a
---   <tt>GetRevision</tt> request. A proof contains the list of hash values
---   that are required to recalculate the specified digest using a Merkle
---   tree, starting with the specified document revision.
-getRevisionResponse_proof :: Lens' GetRevisionResponse (Maybe ValueHolder)
-
--- | The response's http status code.
-getRevisionResponse_httpStatus :: Lens' GetRevisionResponse Int
-
--- | The document revision data object in Amazon Ion format.
-getRevisionResponse_revision :: Lens' GetRevisionResponse ValueHolder
+listLedgersResponse_httpStatus :: Lens' ListLedgersResponse Int
 
 -- | A pagination token, indicating that you want to retrieve the next page
 --   of results. If you received a value for <tt>NextToken</tt> in the
---   response from a previous <tt>ListJournalS3ExportsForLedger</tt> call,
---   then you should use that value as input here.
-listJournalS3ExportsForLedger_nextToken :: Lens' ListJournalS3ExportsForLedger (Maybe Text)
+--   response from a previous <tt>ListJournalS3Exports</tt> call, then you
+--   should use that value as input here.
+listJournalS3Exports_nextToken :: Lens' ListJournalS3Exports (Maybe Text)
 
 -- | The maximum number of results to return in a single
---   <tt>ListJournalS3ExportsForLedger</tt> request. (The actual number of
---   results returned might be fewer.)
-listJournalS3ExportsForLedger_maxResults :: Lens' ListJournalS3ExportsForLedger (Maybe Natural)
+--   <tt>ListJournalS3Exports</tt> request. (The actual number of results
+--   returned might be fewer.)
+listJournalS3Exports_maxResults :: Lens' ListJournalS3Exports (Maybe Natural)
 
--- | The name of the ledger.
-listJournalS3ExportsForLedger_name :: Lens' ListJournalS3ExportsForLedger Text
+-- | The array of journal export job descriptions for all ledgers that are
+--   associated with the current account and Region.
+listJournalS3ExportsResponse_journalS3Exports :: Lens' ListJournalS3ExportsResponse (Maybe [JournalS3ExportDescription])
 
 -- | <ul>
 --   <li>If <tt>NextToken</tt> is empty, then the last page of results has
 --   been processed and there are no more results to be retrieved.</li>
 --   <li>If <tt>NextToken</tt> is <i>not</i> empty, then there are more
 --   results available. To retrieve the next page of results, use the value
---   of <tt>NextToken</tt> in a subsequent
---   <tt>ListJournalS3ExportsForLedger</tt> call.</li>
+--   of <tt>NextToken</tt> in a subsequent <tt>ListJournalS3Exports</tt>
+--   call.</li>
 --   </ul>
-listJournalS3ExportsForLedgerResponse_nextToken :: Lens' ListJournalS3ExportsForLedgerResponse (Maybe Text)
-
--- | The array of journal export job descriptions that are associated with
---   the specified ledger.
-listJournalS3ExportsForLedgerResponse_journalS3Exports :: Lens' ListJournalS3ExportsForLedgerResponse (Maybe [JournalS3ExportDescription])
+listJournalS3ExportsResponse_nextToken :: Lens' ListJournalS3ExportsResponse (Maybe Text)
 
 -- | The response's http status code.
-listJournalS3ExportsForLedgerResponse_httpStatus :: Lens' ListJournalS3ExportsForLedgerResponse Int
-
--- | A pagination token, indicating that you want to retrieve the next page
---   of results. If you received a value for <tt>NextToken</tt> in the
---   response from a previous <tt>ListJournalKinesisStreamsForLedger</tt>
---   call, you should use that value as input here.
-listJournalKinesisStreamsForLedger_nextToken :: Lens' ListJournalKinesisStreamsForLedger (Maybe Text)
-
--- | The maximum number of results to return in a single
---   <tt>ListJournalKinesisStreamsForLedger</tt> request. (The actual
---   number of results returned might be fewer.)
-listJournalKinesisStreamsForLedger_maxResults :: Lens' ListJournalKinesisStreamsForLedger (Maybe Natural)
+listJournalS3ExportsResponse_httpStatus :: Lens' ListJournalS3ExportsResponse Int
 
 -- | The name of the ledger.
-listJournalKinesisStreamsForLedger_ledgerName :: Lens' ListJournalKinesisStreamsForLedger Text
+updateLedgerPermissionsMode_name :: Lens' UpdateLedgerPermissionsMode Text
 
--- | The array of QLDB journal stream descriptors that are associated with
---   the given ledger.
-listJournalKinesisStreamsForLedgerResponse_streams :: Lens' ListJournalKinesisStreamsForLedgerResponse (Maybe [JournalKinesisStreamDescription])
-
--- | <ul>
---   <li>If <tt>NextToken</tt> is empty, the last page of results has been
---   processed and there are no more results to be retrieved.</li>
---   <li>If <tt>NextToken</tt> is <i>not</i> empty, more results are
---   available. To retrieve the next page of results, use the value of
---   <tt>NextToken</tt> in a subsequent
---   <tt>ListJournalKinesisStreamsForLedger</tt> call.</li>
+-- | The permissions mode to assign to the ledger. This parameter can have
+--   one of the following values:
+--   
+--   <ul>
+--   <li><tt>ALLOW_ALL</tt>: A legacy permissions mode that enables access
+--   control with API-level granularity for ledgers.This mode allows users
+--   who have the <tt>SendCommand</tt> API permission for this ledger to
+--   run all PartiQL commands (hence, <tt>ALLOW_ALL</tt>) on any tables in
+--   the specified ledger. This mode disregards any table-level or
+--   command-level IAM permissions policies that you create for the
+--   ledger.</li>
+--   <li><tt>STANDARD</tt>: (<i>Recommended</i>) A permissions mode that
+--   enables access control with finer granularity for ledgers, tables, and
+--   PartiQL commands.By default, this mode denies all user requests to run
+--   any PartiQL commands on any tables in this ledger. To allow PartiQL
+--   commands to run, you must create IAM permissions policies for specific
+--   table resources and PartiQL actions, in addition to the
+--   <tt>SendCommand</tt> API permission for the ledger. For information,
+--   see <a>Getting started with the standard permissions mode</a> in the
+--   <i>Amazon QLDB Developer Guide</i>.</li>
 --   </ul>
-listJournalKinesisStreamsForLedgerResponse_nextToken :: Lens' ListJournalKinesisStreamsForLedgerResponse (Maybe Text)
+--   
+--   We strongly recommend using the <tt>STANDARD</tt> permissions mode to
+--   maximize the security of your ledger data.
+updateLedgerPermissionsMode_permissionsMode :: Lens' UpdateLedgerPermissionsMode PermissionsMode
+
+-- | The Amazon Resource Name (ARN) for the ledger.
+updateLedgerPermissionsModeResponse_arn :: Lens' UpdateLedgerPermissionsModeResponse (Maybe Text)
+
+-- | The name of the ledger.
+updateLedgerPermissionsModeResponse_name :: Lens' UpdateLedgerPermissionsModeResponse (Maybe Text)
+
+-- | The current permissions mode of the ledger.
+updateLedgerPermissionsModeResponse_permissionsMode :: Lens' UpdateLedgerPermissionsModeResponse (Maybe PermissionsMode)
 
 -- | The response's http status code.
-listJournalKinesisStreamsForLedgerResponse_httpStatus :: Lens' ListJournalKinesisStreamsForLedgerResponse Int
+updateLedgerPermissionsModeResponse_httpStatus :: Lens' UpdateLedgerPermissionsModeResponse Int
 
 -- | The latest block location covered by the digest for which to request a
 --   proof. An address is an Amazon Ion structure that has two fields:
@@ -5538,87 +5561,93 @@ getBlockResponse_block :: Lens' GetBlockResponse ValueHolder
 
 -- | A pagination token, indicating that you want to retrieve the next page
 --   of results. If you received a value for <tt>NextToken</tt> in the
---   response from a previous <tt>ListJournalS3Exports</tt> call, then you
---   should use that value as input here.
-listJournalS3Exports_nextToken :: Lens' ListJournalS3Exports (Maybe Text)
+--   response from a previous <tt>ListJournalS3ExportsForLedger</tt> call,
+--   then you should use that value as input here.
+listJournalS3ExportsForLedger_nextToken :: Lens' ListJournalS3ExportsForLedger (Maybe Text)
 
 -- | The maximum number of results to return in a single
---   <tt>ListJournalS3Exports</tt> request. (The actual number of results
---   returned might be fewer.)
-listJournalS3Exports_maxResults :: Lens' ListJournalS3Exports (Maybe Natural)
+--   <tt>ListJournalS3ExportsForLedger</tt> request. (The actual number of
+--   results returned might be fewer.)
+listJournalS3ExportsForLedger_maxResults :: Lens' ListJournalS3ExportsForLedger (Maybe Natural)
+
+-- | The name of the ledger.
+listJournalS3ExportsForLedger_name :: Lens' ListJournalS3ExportsForLedger Text
+
+-- | The array of journal export job descriptions that are associated with
+--   the specified ledger.
+listJournalS3ExportsForLedgerResponse_journalS3Exports :: Lens' ListJournalS3ExportsForLedgerResponse (Maybe [JournalS3ExportDescription])
 
 -- | <ul>
 --   <li>If <tt>NextToken</tt> is empty, then the last page of results has
 --   been processed and there are no more results to be retrieved.</li>
 --   <li>If <tt>NextToken</tt> is <i>not</i> empty, then there are more
 --   results available. To retrieve the next page of results, use the value
---   of <tt>NextToken</tt> in a subsequent <tt>ListJournalS3Exports</tt>
---   call.</li>
+--   of <tt>NextToken</tt> in a subsequent
+--   <tt>ListJournalS3ExportsForLedger</tt> call.</li>
 --   </ul>
-listJournalS3ExportsResponse_nextToken :: Lens' ListJournalS3ExportsResponse (Maybe Text)
-
--- | The array of journal export job descriptions for all ledgers that are
---   associated with the current account and Region.
-listJournalS3ExportsResponse_journalS3Exports :: Lens' ListJournalS3ExportsResponse (Maybe [JournalS3ExportDescription])
+listJournalS3ExportsForLedgerResponse_nextToken :: Lens' ListJournalS3ExportsForLedgerResponse (Maybe Text)
 
 -- | The response's http status code.
-listJournalS3ExportsResponse_httpStatus :: Lens' ListJournalS3ExportsResponse Int
-
--- | The exclusive date and time that specifies when the stream ends. If
---   you don't define this parameter, the stream runs indefinitely until
---   you cancel it.
---   
---   The <tt>ExclusiveEndTime</tt> must be in <tt>ISO 8601</tt> date and
---   time format and in Universal Coordinated Time (UTC). For example:
---   <tt>2019-06-13T21:36:34Z</tt>.
-streamJournalToKinesis_exclusiveEndTime :: Lens' StreamJournalToKinesis (Maybe UTCTime)
-
--- | The key-value pairs to add as tags to the stream that you want to
---   create. Tag keys are case sensitive. Tag values are case sensitive and
---   can be null.
-streamJournalToKinesis_tags :: Lens' StreamJournalToKinesis (Maybe (HashMap Text Text))
+listJournalS3ExportsForLedgerResponse_httpStatus :: Lens' ListJournalS3ExportsForLedgerResponse Int
 
 -- | The name of the ledger.
-streamJournalToKinesis_ledgerName :: Lens' StreamJournalToKinesis Text
+describeJournalKinesisStream_ledgerName :: Lens' DescribeJournalKinesisStream Text
 
--- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
---   permissions for a journal stream to write data records to a Kinesis
---   Data Streams resource.
-streamJournalToKinesis_roleArn :: Lens' StreamJournalToKinesis Text
+-- | The UUID (represented in Base62-encoded text) of the QLDB journal
+--   stream to describe.
+describeJournalKinesisStream_streamId :: Lens' DescribeJournalKinesisStream Text
 
--- | The inclusive start date and time from which to start streaming
---   journal data. This parameter must be in <tt>ISO 8601</tt> date and
---   time format and in Universal Coordinated Time (UTC). For example:
---   <tt>2019-06-13T21:36:34Z</tt>.
---   
---   The <tt>InclusiveStartTime</tt> cannot be in the future and must be
---   before <tt>ExclusiveEndTime</tt>.
---   
---   If you provide an <tt>InclusiveStartTime</tt> that is before the
---   ledger's <tt>CreationDateTime</tt>, QLDB effectively defaults it to
---   the ledger's <tt>CreationDateTime</tt>.
-streamJournalToKinesis_inclusiveStartTime :: Lens' StreamJournalToKinesis UTCTime
-
--- | The configuration settings of the Kinesis Data Streams destination for
---   your stream request.
-streamJournalToKinesis_kinesisConfiguration :: Lens' StreamJournalToKinesis KinesisConfiguration
-
--- | The name that you want to assign to the QLDB journal stream.
---   User-defined names can help identify and indicate the purpose of a
---   stream.
---   
---   Your stream name must be unique among other <i>active</i> streams for
---   a given ledger. Stream names have the same naming constraints as
---   ledger names, as defined in <a>Quotas in Amazon QLDB</a> in the
---   <i>Amazon QLDB Developer Guide</i>.
-streamJournalToKinesis_streamName :: Lens' StreamJournalToKinesis Text
-
--- | The UUID (represented in Base62-encoded text) that QLDB assigns to
---   each QLDB journal stream.
-streamJournalToKinesisResponse_streamId :: Lens' StreamJournalToKinesisResponse (Maybe Text)
+-- | Information about the QLDB journal stream returned by a
+--   <tt>DescribeJournalS3Export</tt> request.
+describeJournalKinesisStreamResponse_stream :: Lens' DescribeJournalKinesisStreamResponse (Maybe JournalKinesisStreamDescription)
 
 -- | The response's http status code.
-streamJournalToKinesisResponse_httpStatus :: Lens' StreamJournalToKinesisResponse Int
+describeJournalKinesisStreamResponse_httpStatus :: Lens' DescribeJournalKinesisStreamResponse Int
+
+-- | The name of the ledger.
+describeJournalS3Export_name :: Lens' DescribeJournalS3Export Text
+
+-- | The UUID (represented in Base62-encoded text) of the journal export
+--   job to describe.
+describeJournalS3Export_exportId :: Lens' DescribeJournalS3Export Text
+
+-- | The response's http status code.
+describeJournalS3ExportResponse_httpStatus :: Lens' DescribeJournalS3ExportResponse Int
+
+-- | Information about the journal export job returned by a
+--   <tt>DescribeJournalS3Export</tt> request.
+describeJournalS3ExportResponse_exportDescription :: Lens' DescribeJournalS3ExportResponse JournalS3ExportDescription
+
+-- | The Amazon Resource Name (ARN) to which you want to add the tags. For
+--   example:
+--   
+--   <pre>
+--   arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger
+--   </pre>
+tagResource_resourceArn :: Lens' TagResource Text
+
+-- | The key-value pairs to add as tags to the specified QLDB resource. Tag
+--   keys are case sensitive. If you specify a key that already exists for
+--   the resource, your request fails and returns an error. Tag values are
+--   case sensitive and can be null.
+tagResource_tags :: Lens' TagResource (HashMap Text Text)
+
+-- | The response's http status code.
+tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
+
+-- | The Amazon Resource Name (ARN) from which to remove the tags. For
+--   example:
+--   
+--   <pre>
+--   arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger
+--   </pre>
+untagResource_resourceArn :: Lens' UntagResource Text
+
+-- | The list of tag keys to remove.
+untagResource_tagKeys :: Lens' UntagResource [Text]
+
+-- | The response's http status code.
+untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
 
 -- | The name of the ledger.
 getDigest_name :: Lens' GetDigest Text
@@ -5640,51 +5669,22 @@ getDigestResponse_digest :: Lens' GetDigestResponse ByteString
 --   <tt>strandId</tt> and <tt>sequenceNo</tt>.
 getDigestResponse_digestTipAddress :: Lens' GetDigestResponse ValueHolder
 
--- | The name of the ledger.
-describeJournalKinesisStream_ledgerName :: Lens' DescribeJournalKinesisStream Text
-
--- | The UUID (represented in Base62-encoded text) of the QLDB journal
---   stream to describe.
-describeJournalKinesisStream_streamId :: Lens' DescribeJournalKinesisStream Text
-
--- | Information about the QLDB journal stream returned by a
---   <tt>DescribeJournalS3Export</tt> request.
-describeJournalKinesisStreamResponse_stream :: Lens' DescribeJournalKinesisStreamResponse (Maybe JournalKinesisStreamDescription)
-
--- | The response's http status code.
-describeJournalKinesisStreamResponse_httpStatus :: Lens' DescribeJournalKinesisStreamResponse Int
-
--- | The Amazon Resource Name (ARN) for which to list the tags. For
---   example:
---   
---   <pre>
---   arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger
---   </pre>
-listTagsForResource_resourceArn :: Lens' ListTagsForResource Text
-
--- | The tags that are currently associated with the specified Amazon QLDB
---   resource.
-listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (HashMap Text Text))
-
--- | The response's http status code.
-listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-
 -- | The date and time, in epoch time format, when the QLDB journal stream
 --   was created. (Epoch time format is the number of seconds elapsed since
 --   12:00:00 AM January 1, 1970 UTC.)
 journalKinesisStreamDescription_creationTime :: Lens' JournalKinesisStreamDescription (Maybe UTCTime)
 
--- | The error message that describes the reason that a stream has a status
---   of <tt>IMPAIRED</tt> or <tt>FAILED</tt>. This is not applicable to
---   streams that have other status values.
-journalKinesisStreamDescription_errorCause :: Lens' JournalKinesisStreamDescription (Maybe ErrorCause)
+-- | The Amazon Resource Name (ARN) of the QLDB journal stream.
+journalKinesisStreamDescription_arn :: Lens' JournalKinesisStreamDescription (Maybe Text)
 
 -- | The inclusive start date and time from which to start streaming
 --   journal data.
 journalKinesisStreamDescription_inclusiveStartTime :: Lens' JournalKinesisStreamDescription (Maybe UTCTime)
 
--- | The Amazon Resource Name (ARN) of the QLDB journal stream.
-journalKinesisStreamDescription_arn :: Lens' JournalKinesisStreamDescription (Maybe Text)
+-- | The error message that describes the reason that a stream has a status
+--   of <tt>IMPAIRED</tt> or <tt>FAILED</tt>. This is not applicable to
+--   streams that have other status values.
+journalKinesisStreamDescription_errorCause :: Lens' JournalKinesisStreamDescription (Maybe ErrorCause)
 
 -- | The exclusive date and time that specifies when the stream ends. If
 --   this parameter is undefined, the stream runs indefinitely until you
@@ -5801,11 +5801,11 @@ ledgerEncryptionDescription_kmsKeyArn :: Lens' LedgerEncryptionDescription Text
 --   </ul>
 ledgerEncryptionDescription_encryptionStatus :: Lens' LedgerEncryptionDescription EncryptionStatus
 
--- | The name of the ledger.
-ledgerSummary_name :: Lens' LedgerSummary (Maybe Text)
-
 -- | The current status of the ledger.
 ledgerSummary_state :: Lens' LedgerSummary (Maybe LedgerState)
+
+-- | The name of the ledger.
+ledgerSummary_name :: Lens' LedgerSummary (Maybe Text)
 
 -- | The date and time, in epoch time format, when the ledger was created.
 --   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
@@ -5875,98 +5875,23 @@ module Network.AWS.QLDB
 -- | API version <tt>2019-01-02</tt> of the Amazon QLDB SDK configuration.
 defaultService :: Service
 
+-- | One or more parameters in the request aren't valid.
+_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The operation failed because a condition wasn't satisfied in advance.
+_ResourcePreconditionNotMetException :: AsError a => Getting (First ServiceError) a ServiceError
+
 -- | The specified resource already exists.
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | One or more parameters in the request aren't valid.
-_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The specified resource doesn't exist.
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | You have reached the limit on the maximum number of resources allowed.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The specified resource can't be modified at this time.
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The specified resource doesn't exist.
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The operation failed because a condition wasn't satisfied in advance.
-_ResourcePreconditionNotMetException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | <i>See:</i> <a>newUpdateLedgerPermissionsMode</a> smart constructor.
-data UpdateLedgerPermissionsMode
-UpdateLedgerPermissionsMode' :: Text -> PermissionsMode -> UpdateLedgerPermissionsMode
-
--- | Create a value of <a>UpdateLedgerPermissionsMode</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:name:UpdateLedgerPermissionsMode'</a>,
---   <a>updateLedgerPermissionsMode_name</a> - The name of the ledger.
---   
---   <a>$sel:permissionsMode:UpdateLedgerPermissionsMode'</a>,
---   <a>updateLedgerPermissionsMode_permissionsMode</a> - The permissions
---   mode to assign to the ledger. This parameter can have one of the
---   following values:
---   
---   <ul>
---   <li><tt>ALLOW_ALL</tt>: A legacy permissions mode that enables access
---   control with API-level granularity for ledgers.This mode allows users
---   who have the <tt>SendCommand</tt> API permission for this ledger to
---   run all PartiQL commands (hence, <tt>ALLOW_ALL</tt>) on any tables in
---   the specified ledger. This mode disregards any table-level or
---   command-level IAM permissions policies that you create for the
---   ledger.</li>
---   <li><tt>STANDARD</tt>: (<i>Recommended</i>) A permissions mode that
---   enables access control with finer granularity for ledgers, tables, and
---   PartiQL commands.By default, this mode denies all user requests to run
---   any PartiQL commands on any tables in this ledger. To allow PartiQL
---   commands to run, you must create IAM permissions policies for specific
---   table resources and PartiQL actions, in addition to the
---   <tt>SendCommand</tt> API permission for the ledger. For information,
---   see <a>Getting started with the standard permissions mode</a> in the
---   <i>Amazon QLDB Developer Guide</i>.</li>
---   </ul>
---   
---   We strongly recommend using the <tt>STANDARD</tt> permissions mode to
---   maximize the security of your ledger data.
-newUpdateLedgerPermissionsMode :: Text -> PermissionsMode -> UpdateLedgerPermissionsMode
-
--- | <i>See:</i> <a>newUpdateLedgerPermissionsModeResponse</a> smart
---   constructor.
-data UpdateLedgerPermissionsModeResponse
-UpdateLedgerPermissionsModeResponse' :: Maybe PermissionsMode -> Maybe Text -> Maybe Text -> Int -> UpdateLedgerPermissionsModeResponse
-
--- | Create a value of <a>UpdateLedgerPermissionsModeResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:permissionsMode:UpdateLedgerPermissionsMode'</a>,
---   <a>updateLedgerPermissionsModeResponse_permissionsMode</a> - The
---   current permissions mode of the ledger.
---   
---   <a>$sel:arn:UpdateLedgerPermissionsModeResponse'</a>,
---   <a>updateLedgerPermissionsModeResponse_arn</a> - The Amazon Resource
---   Name (ARN) for the ledger.
---   
---   <a>$sel:name:UpdateLedgerPermissionsMode'</a>,
---   <a>updateLedgerPermissionsModeResponse_name</a> - The name of the
---   ledger.
---   
---   <a>$sel:httpStatus:UpdateLedgerPermissionsModeResponse'</a>,
---   <a>updateLedgerPermissionsModeResponse_httpStatus</a> - The response's
---   http status code.
-newUpdateLedgerPermissionsModeResponse :: Int -> UpdateLedgerPermissionsModeResponse
 
 -- | <i>See:</i> <a>newUpdateLedger</a> smart constructor.
 data UpdateLedger
@@ -6034,7 +5959,7 @@ newUpdateLedger :: Text -> UpdateLedger
 
 -- | <i>See:</i> <a>newUpdateLedgerResponse</a> smart constructor.
 data UpdateLedgerResponse
-UpdateLedgerResponse' :: Maybe Bool -> Maybe Text -> Maybe Text -> Maybe LedgerState -> Maybe LedgerEncryptionDescription -> Maybe POSIX -> Int -> UpdateLedgerResponse
+UpdateLedgerResponse' :: Maybe LedgerState -> Maybe Bool -> Maybe Text -> Maybe LedgerEncryptionDescription -> Maybe Text -> Maybe POSIX -> Int -> UpdateLedgerResponse
 
 -- | Create a value of <a>UpdateLedgerResponse</a> with all optional fields
 --   omitted.
@@ -6044,6 +5969,9 @@ UpdateLedgerResponse' :: Maybe Bool -> Maybe Text -> Maybe Text -> Maybe LedgerS
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:state:UpdateLedgerResponse'</a>,
+--   <a>updateLedgerResponse_state</a> - The current status of the ledger.
 --   
 --   <a>$sel:deletionProtection:UpdateLedger'</a>,
 --   <a>updateLedgerResponse_deletionProtection</a> - The flag that
@@ -6057,17 +5985,14 @@ UpdateLedgerResponse' :: Maybe Bool -> Maybe Text -> Maybe Text -> Maybe LedgerS
 --   <a>$sel:arn:UpdateLedgerResponse'</a>, <a>updateLedgerResponse_arn</a>
 --   - The Amazon Resource Name (ARN) for the ledger.
 --   
---   <a>$sel:name:UpdateLedger'</a>, <a>updateLedgerResponse_name</a> - The
---   name of the ledger.
---   
---   <a>$sel:state:UpdateLedgerResponse'</a>,
---   <a>updateLedgerResponse_state</a> - The current status of the ledger.
---   
 --   <a>$sel:encryptionDescription:UpdateLedgerResponse'</a>,
 --   <a>updateLedgerResponse_encryptionDescription</a> - Information about
 --   the encryption of data at rest in the ledger. This includes the
 --   current status, the KMS key, and when the key became inaccessible (in
 --   the case of an error).
+--   
+--   <a>$sel:name:UpdateLedger'</a>, <a>updateLedgerResponse_name</a> - The
+--   name of the ledger.
 --   
 --   <a>$sel:creationDateTime:UpdateLedgerResponse'</a>,
 --   <a>updateLedgerResponse_creationDateTime</a> - The date and time, in
@@ -6107,11 +6032,13 @@ DeleteLedgerResponse' :: DeleteLedgerResponse
 --   fields.
 newDeleteLedgerResponse :: DeleteLedgerResponse
 
--- | <i>See:</i> <a>newListLedgers</a> smart constructor.
-data ListLedgers
-ListLedgers' :: Maybe Text -> Maybe Natural -> ListLedgers
+-- | <i>See:</i> <a>newListJournalKinesisStreamsForLedger</a> smart
+--   constructor.
+data ListJournalKinesisStreamsForLedger
+ListJournalKinesisStreamsForLedger' :: Maybe Text -> Maybe Natural -> Text -> ListJournalKinesisStreamsForLedger
 
--- | Create a value of <a>ListLedgers</a> with all optional fields omitted.
+-- | Create a value of <a>ListJournalKinesisStreamsForLedger</a> with all
+--   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -6119,23 +6046,65 @@ ListLedgers' :: Maybe Text -> Maybe Natural -> ListLedgers
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListLedgers'</a>, <a>listLedgers_nextToken</a> - A
---   pagination token, indicating that you want to retrieve the next page
---   of results. If you received a value for <tt>NextToken</tt> in the
---   response from a previous <tt>ListLedgers</tt> call, then you should
+--   <a>$sel:nextToken:ListJournalKinesisStreamsForLedger'</a>,
+--   <a>listJournalKinesisStreamsForLedger_nextToken</a> - A pagination
+--   token, indicating that you want to retrieve the next page of results.
+--   If you received a value for <tt>NextToken</tt> in the response from a
+--   previous <tt>ListJournalKinesisStreamsForLedger</tt> call, you should
 --   use that value as input here.
 --   
---   <a>$sel:maxResults:ListLedgers'</a>, <a>listLedgers_maxResults</a> -
---   The maximum number of results to return in a single
---   <tt>ListLedgers</tt> request. (The actual number of results returned
---   might be fewer.)
-newListLedgers :: ListLedgers
+--   <a>$sel:maxResults:ListJournalKinesisStreamsForLedger'</a>,
+--   <a>listJournalKinesisStreamsForLedger_maxResults</a> - The maximum
+--   number of results to return in a single
+--   <tt>ListJournalKinesisStreamsForLedger</tt> request. (The actual
+--   number of results returned might be fewer.)
+--   
+--   <a>$sel:ledgerName:ListJournalKinesisStreamsForLedger'</a>,
+--   <a>listJournalKinesisStreamsForLedger_ledgerName</a> - The name of the
+--   ledger.
+newListJournalKinesisStreamsForLedger :: Text -> ListJournalKinesisStreamsForLedger
 
--- | <i>See:</i> <a>newListLedgersResponse</a> smart constructor.
-data ListLedgersResponse
-ListLedgersResponse' :: Maybe Text -> Maybe [LedgerSummary] -> Int -> ListLedgersResponse
+-- | <i>See:</i> <a>newListJournalKinesisStreamsForLedgerResponse</a> smart
+--   constructor.
+data ListJournalKinesisStreamsForLedgerResponse
+ListJournalKinesisStreamsForLedgerResponse' :: Maybe Text -> Maybe [JournalKinesisStreamDescription] -> Int -> ListJournalKinesisStreamsForLedgerResponse
 
--- | Create a value of <a>ListLedgersResponse</a> with all optional fields
+-- | Create a value of <a>ListJournalKinesisStreamsForLedgerResponse</a>
+--   with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListJournalKinesisStreamsForLedger'</a>,
+--   <a>listJournalKinesisStreamsForLedgerResponse_nextToken</a> - - If
+--   <tt>NextToken</tt> is empty, the last page of results has been
+--   processed and there are no more results to be retrieved.
+--   
+--   <ul>
+--   <li>If <tt>NextToken</tt> is <i>not</i> empty, more results are
+--   available. To retrieve the next page of results, use the value of
+--   <tt>NextToken</tt> in a subsequent
+--   <tt>ListJournalKinesisStreamsForLedger</tt> call.</li>
+--   </ul>
+--   
+--   <a>$sel:streams:ListJournalKinesisStreamsForLedgerResponse'</a>,
+--   <a>listJournalKinesisStreamsForLedgerResponse_streams</a> - The array
+--   of QLDB journal stream descriptors that are associated with the given
+--   ledger.
+--   
+--   <a>$sel:httpStatus:ListJournalKinesisStreamsForLedgerResponse'</a>,
+--   <a>listJournalKinesisStreamsForLedgerResponse_httpStatus</a> - The
+--   response's http status code.
+newListJournalKinesisStreamsForLedgerResponse :: Int -> ListJournalKinesisStreamsForLedgerResponse
+
+-- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
+data ListTagsForResource
+ListTagsForResource' :: Text -> ListTagsForResource
+
+-- | Create a value of <a>ListTagsForResource</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -6144,26 +6113,387 @@ ListLedgersResponse' :: Maybe Text -> Maybe [LedgerSummary] -> Int -> ListLedger
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListLedgers'</a>,
---   <a>listLedgersResponse_nextToken</a> - A pagination token, indicating
---   whether there are more results available:
+--   <a>$sel:resourceArn:ListTagsForResource'</a>,
+--   <a>listTagsForResource_resourceArn</a> - The Amazon Resource Name
+--   (ARN) for which to list the tags. For example:
+--   
+--   <pre>
+--   arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger
+--   </pre>
+newListTagsForResource :: Text -> ListTagsForResource
+
+-- | <i>See:</i> <a>newListTagsForResourceResponse</a> smart constructor.
+data ListTagsForResourceResponse
+ListTagsForResourceResponse' :: Maybe (HashMap Text Text) -> Int -> ListTagsForResourceResponse
+
+-- | Create a value of <a>ListTagsForResourceResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:tags:ListTagsForResourceResponse'</a>,
+--   <a>listTagsForResourceResponse_tags</a> - The tags that are currently
+--   associated with the specified Amazon QLDB resource.
+--   
+--   <a>$sel:httpStatus:ListTagsForResourceResponse'</a>,
+--   <a>listTagsForResourceResponse_httpStatus</a> - The response's http
+--   status code.
+newListTagsForResourceResponse :: Int -> ListTagsForResourceResponse
+
+-- | <i>See:</i> <a>newGetRevision</a> smart constructor.
+data GetRevision
+GetRevision' :: Maybe (Sensitive ValueHolder) -> Text -> Sensitive ValueHolder -> Text -> GetRevision
+
+-- | Create a value of <a>GetRevision</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:digestTipAddress:GetRevision'</a>,
+--   <a>getRevision_digestTipAddress</a> - The latest block location
+--   covered by the digest for which to request a proof. An address is an
+--   Amazon Ion structure that has two fields: <tt>strandId</tt> and
+--   <tt>sequenceNo</tt>.
+--   
+--   For example:
+--   <tt>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:49}</tt>.
+--   
+--   <a>$sel:name:GetRevision'</a>, <a>getRevision_name</a> - The name of
+--   the ledger.
+--   
+--   <a>$sel:blockAddress:GetRevision'</a>, <a>getRevision_blockAddress</a>
+--   - The block location of the document revision to be verified. An
+--   address is an Amazon Ion structure that has two fields:
+--   <tt>strandId</tt> and <tt>sequenceNo</tt>.
+--   
+--   For example:
+--   <tt>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:14}</tt>.
+--   
+--   <a>$sel:documentId:GetRevision'</a>, <a>getRevision_documentId</a> -
+--   The UUID (represented in Base62-encoded text) of the document to be
+--   verified.
+newGetRevision :: Text -> ValueHolder -> Text -> GetRevision
+
+-- | <i>See:</i> <a>newGetRevisionResponse</a> smart constructor.
+data GetRevisionResponse
+GetRevisionResponse' :: Maybe (Sensitive ValueHolder) -> Int -> Sensitive ValueHolder -> GetRevisionResponse
+
+-- | Create a value of <a>GetRevisionResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:proof:GetRevisionResponse'</a>,
+--   <a>getRevisionResponse_proof</a> - The proof object in Amazon Ion
+--   format returned by a <tt>GetRevision</tt> request. A proof contains
+--   the list of hash values that are required to recalculate the specified
+--   digest using a Merkle tree, starting with the specified document
+--   revision.
+--   
+--   <a>$sel:httpStatus:GetRevisionResponse'</a>,
+--   <a>getRevisionResponse_httpStatus</a> - The response's http status
+--   code.
+--   
+--   <a>$sel:revision:GetRevisionResponse'</a>,
+--   <a>getRevisionResponse_revision</a> - The document revision data
+--   object in Amazon Ion format.
+newGetRevisionResponse :: Int -> ValueHolder -> GetRevisionResponse
+
+-- | <i>See:</i> <a>newDescribeLedger</a> smart constructor.
+data DescribeLedger
+DescribeLedger' :: Text -> DescribeLedger
+
+-- | Create a value of <a>DescribeLedger</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:name:DescribeLedger'</a>, <a>describeLedger_name</a> - The
+--   name of the ledger that you want to describe.
+newDescribeLedger :: Text -> DescribeLedger
+
+-- | <i>See:</i> <a>newDescribeLedgerResponse</a> smart constructor.
+data DescribeLedgerResponse
+DescribeLedgerResponse' :: Maybe LedgerState -> Maybe Bool -> Maybe Text -> Maybe LedgerEncryptionDescription -> Maybe Text -> Maybe POSIX -> Maybe PermissionsMode -> Int -> DescribeLedgerResponse
+
+-- | Create a value of <a>DescribeLedgerResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:state:DescribeLedgerResponse'</a>,
+--   <a>describeLedgerResponse_state</a> - The current status of the
+--   ledger.
+--   
+--   <a>$sel:deletionProtection:DescribeLedgerResponse'</a>,
+--   <a>describeLedgerResponse_deletionProtection</a> - The flag that
+--   prevents a ledger from being deleted by any user. If not provided on
+--   ledger creation, this feature is enabled (<tt>true</tt>) by default.
+--   
+--   If deletion protection is enabled, you must first disable it before
+--   you can delete the ledger. You can disable it by calling the
+--   <tt>UpdateLedger</tt> operation to set the flag to <tt>false</tt>.
+--   
+--   <a>$sel:arn:DescribeLedgerResponse'</a>,
+--   <a>describeLedgerResponse_arn</a> - The Amazon Resource Name (ARN) for
+--   the ledger.
+--   
+--   <a>$sel:encryptionDescription:DescribeLedgerResponse'</a>,
+--   <a>describeLedgerResponse_encryptionDescription</a> - Information
+--   about the encryption of data at rest in the ledger. This includes the
+--   current status, the KMS key, and when the key became inaccessible (in
+--   the case of an error).
+--   
+--   <a>$sel:name:DescribeLedger'</a>, <a>describeLedgerResponse_name</a> -
+--   The name of the ledger.
+--   
+--   <a>$sel:creationDateTime:DescribeLedgerResponse'</a>,
+--   <a>describeLedgerResponse_creationDateTime</a> - The date and time, in
+--   epoch time format, when the ledger was created. (Epoch time format is
+--   the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)
+--   
+--   <a>$sel:permissionsMode:DescribeLedgerResponse'</a>,
+--   <a>describeLedgerResponse_permissionsMode</a> - The permissions mode
+--   of the ledger.
+--   
+--   <a>$sel:httpStatus:DescribeLedgerResponse'</a>,
+--   <a>describeLedgerResponse_httpStatus</a> - The response's http status
+--   code.
+newDescribeLedgerResponse :: Int -> DescribeLedgerResponse
+
+-- | <i>See:</i> <a>newCancelJournalKinesisStream</a> smart constructor.
+data CancelJournalKinesisStream
+CancelJournalKinesisStream' :: Text -> Text -> CancelJournalKinesisStream
+
+-- | Create a value of <a>CancelJournalKinesisStream</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:ledgerName:CancelJournalKinesisStream'</a>,
+--   <a>cancelJournalKinesisStream_ledgerName</a> - The name of the ledger.
+--   
+--   <a>$sel:streamId:CancelJournalKinesisStream'</a>,
+--   <a>cancelJournalKinesisStream_streamId</a> - The UUID (represented in
+--   Base62-encoded text) of the QLDB journal stream to be canceled.
+newCancelJournalKinesisStream :: Text -> Text -> CancelJournalKinesisStream
+
+-- | <i>See:</i> <a>newCancelJournalKinesisStreamResponse</a> smart
+--   constructor.
+data CancelJournalKinesisStreamResponse
+CancelJournalKinesisStreamResponse' :: Maybe Text -> Int -> CancelJournalKinesisStreamResponse
+
+-- | Create a value of <a>CancelJournalKinesisStreamResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:streamId:CancelJournalKinesisStream'</a>,
+--   <a>cancelJournalKinesisStreamResponse_streamId</a> - The UUID
+--   (Base62-encoded text) of the canceled QLDB journal stream.
+--   
+--   <a>$sel:httpStatus:CancelJournalKinesisStreamResponse'</a>,
+--   <a>cancelJournalKinesisStreamResponse_httpStatus</a> - The response's
+--   http status code.
+newCancelJournalKinesisStreamResponse :: Int -> CancelJournalKinesisStreamResponse
+
+-- | <i>See:</i> <a>newExportJournalToS</a> smart constructor.
+data ExportJournalToS
+ExportJournalToS' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> ExportJournalToS
+
+-- | Create a value of <a>ExportJournalToS</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:name:ExportJournalToS'</a>, <a>exportJournalToS_name</a> - The
+--   name of the ledger.
+--   
+--   <a>$sel:inclusiveStartTime:ExportJournalToS'</a>,
+--   <a>exportJournalToS_inclusiveStartTime</a> - The inclusive start date
+--   and time for the range of journal contents to export.
+--   
+--   The <tt>InclusiveStartTime</tt> must be in <tt>ISO 8601</tt> date and
+--   time format and in Universal Coordinated Time (UTC). For example:
+--   <tt>2019-06-13T21:36:34Z</tt>.
+--   
+--   The <tt>InclusiveStartTime</tt> must be before
+--   <tt>ExclusiveEndTime</tt>.
+--   
+--   If you provide an <tt>InclusiveStartTime</tt> that is before the
+--   ledger's <tt>CreationDateTime</tt>, Amazon QLDB defaults it to the
+--   ledger's <tt>CreationDateTime</tt>.
+--   
+--   <a>$sel:exclusiveEndTime:ExportJournalToS'</a>,
+--   <a>exportJournalToS_exclusiveEndTime</a> - The exclusive end date and
+--   time for the range of journal contents to export.
+--   
+--   The <tt>ExclusiveEndTime</tt> must be in <tt>ISO 8601</tt> date and
+--   time format and in Universal Coordinated Time (UTC). For example:
+--   <tt>2019-06-13T21:36:34Z</tt>.
+--   
+--   The <tt>ExclusiveEndTime</tt> must be less than or equal to the
+--   current UTC date and time.
+--   
+--   <a>$sel:s3ExportConfiguration:ExportJournalToS'</a>,
+--   <a>exportJournalToS_s3ExportConfiguration</a> - The configuration
+--   settings of the Amazon S3 bucket destination for your export request.
+--   
+--   <a>$sel:roleArn:ExportJournalToS'</a>, <a>exportJournalToS_roleArn</a>
+--   - The Amazon Resource Name (ARN) of the IAM role that grants QLDB
+--   permissions for a journal export job to do the following:
 --   
 --   <ul>
---   <li>If <tt>NextToken</tt> is empty, then the last page of results has
---   been processed and there are no more results to be retrieved.</li>
---   <li>If <tt>NextToken</tt> is <i>not</i> empty, then there are more
---   results available. To retrieve the next page of results, use the value
---   of <tt>NextToken</tt> in a subsequent <tt>ListLedgers</tt> call.</li>
+--   <li>Write objects into your Amazon Simple Storage Service (Amazon S3)
+--   bucket.</li>
+--   <li>(Optional) Use your customer master key (CMK) in Key Management
+--   Service (KMS) for server-side encryption of your exported data.</li>
 --   </ul>
+newExportJournalToS :: Text -> UTCTime -> UTCTime -> S3ExportConfiguration -> Text -> ExportJournalToS
+
+-- | <i>See:</i> <a>newExportJournalToSResponse</a> smart constructor.
+data ExportJournalToSResponse
+ExportJournalToSResponse' :: Int -> Text -> ExportJournalToSResponse
+
+-- | Create a value of <a>ExportJournalToSResponse</a> with all optional
+--   fields omitted.
 --   
---   <a>$sel:ledgers:ListLedgersResponse'</a>,
---   <a>listLedgersResponse_ledgers</a> - The array of ledger summaries
---   that are associated with the current account and Region.
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
 --   
---   <a>$sel:httpStatus:ListLedgersResponse'</a>,
---   <a>listLedgersResponse_httpStatus</a> - The response's http status
---   code.
-newListLedgersResponse :: Int -> ListLedgersResponse
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:ExportJournalToSResponse'</a>,
+--   <a>exportJournalToSResponse_httpStatus</a> - The response's http
+--   status code.
+--   
+--   <a>$sel:exportId:ExportJournalToSResponse'</a>,
+--   <a>exportJournalToSResponse_exportId</a> - The UUID (represented in
+--   Base62-encoded text) that QLDB assigns to each journal export job.
+--   
+--   To describe your export request and check the status of the job, you
+--   can use <tt>ExportId</tt> to call <tt>DescribeJournalS3Export</tt>.
+newExportJournalToSResponse :: Int -> Text -> ExportJournalToSResponse
+
+-- | <i>See:</i> <a>newStreamJournalToKinesis</a> smart constructor.
+data StreamJournalToKinesis
+StreamJournalToKinesis' :: Maybe POSIX -> Maybe (HashMap Text Text) -> Text -> Text -> POSIX -> KinesisConfiguration -> Text -> StreamJournalToKinesis
+
+-- | Create a value of <a>StreamJournalToKinesis</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:exclusiveEndTime:StreamJournalToKinesis'</a>,
+--   <a>streamJournalToKinesis_exclusiveEndTime</a> - The exclusive date
+--   and time that specifies when the stream ends. If you don't define this
+--   parameter, the stream runs indefinitely until you cancel it.
+--   
+--   The <tt>ExclusiveEndTime</tt> must be in <tt>ISO 8601</tt> date and
+--   time format and in Universal Coordinated Time (UTC). For example:
+--   <tt>2019-06-13T21:36:34Z</tt>.
+--   
+--   <a>$sel:tags:StreamJournalToKinesis'</a>,
+--   <a>streamJournalToKinesis_tags</a> - The key-value pairs to add as
+--   tags to the stream that you want to create. Tag keys are case
+--   sensitive. Tag values are case sensitive and can be null.
+--   
+--   <a>$sel:ledgerName:StreamJournalToKinesis'</a>,
+--   <a>streamJournalToKinesis_ledgerName</a> - The name of the ledger.
+--   
+--   <a>$sel:roleArn:StreamJournalToKinesis'</a>,
+--   <a>streamJournalToKinesis_roleArn</a> - The Amazon Resource Name (ARN)
+--   of the IAM role that grants QLDB permissions for a journal stream to
+--   write data records to a Kinesis Data Streams resource.
+--   
+--   <a>$sel:inclusiveStartTime:StreamJournalToKinesis'</a>,
+--   <a>streamJournalToKinesis_inclusiveStartTime</a> - The inclusive start
+--   date and time from which to start streaming journal data. This
+--   parameter must be in <tt>ISO 8601</tt> date and time format and in
+--   Universal Coordinated Time (UTC). For example:
+--   <tt>2019-06-13T21:36:34Z</tt>.
+--   
+--   The <tt>InclusiveStartTime</tt> cannot be in the future and must be
+--   before <tt>ExclusiveEndTime</tt>.
+--   
+--   If you provide an <tt>InclusiveStartTime</tt> that is before the
+--   ledger's <tt>CreationDateTime</tt>, QLDB effectively defaults it to
+--   the ledger's <tt>CreationDateTime</tt>.
+--   
+--   <a>$sel:kinesisConfiguration:StreamJournalToKinesis'</a>,
+--   <a>streamJournalToKinesis_kinesisConfiguration</a> - The configuration
+--   settings of the Kinesis Data Streams destination for your stream
+--   request.
+--   
+--   <a>$sel:streamName:StreamJournalToKinesis'</a>,
+--   <a>streamJournalToKinesis_streamName</a> - The name that you want to
+--   assign to the QLDB journal stream. User-defined names can help
+--   identify and indicate the purpose of a stream.
+--   
+--   Your stream name must be unique among other <i>active</i> streams for
+--   a given ledger. Stream names have the same naming constraints as
+--   ledger names, as defined in <a>Quotas in Amazon QLDB</a> in the
+--   <i>Amazon QLDB Developer Guide</i>.
+newStreamJournalToKinesis :: Text -> Text -> UTCTime -> KinesisConfiguration -> Text -> StreamJournalToKinesis
+
+-- | <i>See:</i> <a>newStreamJournalToKinesisResponse</a> smart
+--   constructor.
+data StreamJournalToKinesisResponse
+StreamJournalToKinesisResponse' :: Maybe Text -> Int -> StreamJournalToKinesisResponse
+
+-- | Create a value of <a>StreamJournalToKinesisResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:streamId:StreamJournalToKinesisResponse'</a>,
+--   <a>streamJournalToKinesisResponse_streamId</a> - The UUID (represented
+--   in Base62-encoded text) that QLDB assigns to each QLDB journal stream.
+--   
+--   <a>$sel:httpStatus:StreamJournalToKinesisResponse'</a>,
+--   <a>streamJournalToKinesisResponse_httpStatus</a> - The response's http
+--   status code.
+newStreamJournalToKinesisResponse :: Int -> StreamJournalToKinesisResponse
 
 -- | <i>See:</i> <a>newCreateLedger</a> smart constructor.
 data CreateLedger
@@ -6267,7 +6597,7 @@ newCreateLedger :: Text -> PermissionsMode -> CreateLedger
 
 -- | <i>See:</i> <a>newCreateLedgerResponse</a> smart constructor.
 data CreateLedgerResponse
-CreateLedgerResponse' :: Maybe Bool -> Maybe PermissionsMode -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe LedgerState -> Maybe POSIX -> Int -> CreateLedgerResponse
+CreateLedgerResponse' :: Maybe LedgerState -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe POSIX -> Maybe PermissionsMode -> Int -> CreateLedgerResponse
 
 -- | Create a value of <a>CreateLedgerResponse</a> with all optional fields
 --   omitted.
@@ -6278,6 +6608,9 @@ CreateLedgerResponse' :: Maybe Bool -> Maybe PermissionsMode -> Maybe Text -> Ma
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:state:CreateLedgerResponse'</a>,
+--   <a>createLedgerResponse_state</a> - The current status of the ledger.
+--   
 --   <a>$sel:deletionProtection:CreateLedger'</a>,
 --   <a>createLedgerResponse_deletionProtection</a> - The flag that
 --   prevents a ledger from being deleted by any user. If not provided on
@@ -6287,9 +6620,11 @@ CreateLedgerResponse' :: Maybe Bool -> Maybe PermissionsMode -> Maybe Text -> Ma
 --   you can delete the ledger. You can disable it by calling the
 --   <tt>UpdateLedger</tt> operation to set the flag to <tt>false</tt>.
 --   
---   <a>$sel:permissionsMode:CreateLedger'</a>,
---   <a>createLedgerResponse_permissionsMode</a> - The permissions mode of
---   the ledger that you created.
+--   <a>$sel:kmsKeyArn:CreateLedgerResponse'</a>,
+--   <a>createLedgerResponse_kmsKeyArn</a> - The ARN of the customer
+--   managed KMS key that the ledger uses for encryption at rest. If this
+--   parameter is undefined, the ledger uses an Amazon Web Services owned
+--   KMS key for encryption.
 --   
 --   <a>$sel:arn:CreateLedgerResponse'</a>, <a>createLedgerResponse_arn</a>
 --   - The Amazon Resource Name (ARN) for the ledger.
@@ -6297,31 +6632,25 @@ CreateLedgerResponse' :: Maybe Bool -> Maybe PermissionsMode -> Maybe Text -> Ma
 --   <a>$sel:name:CreateLedger'</a>, <a>createLedgerResponse_name</a> - The
 --   name of the ledger.
 --   
---   <a>$sel:kmsKeyArn:CreateLedgerResponse'</a>,
---   <a>createLedgerResponse_kmsKeyArn</a> - The ARN of the customer
---   managed KMS key that the ledger uses for encryption at rest. If this
---   parameter is undefined, the ledger uses an Amazon Web Services owned
---   KMS key for encryption.
---   
---   <a>$sel:state:CreateLedgerResponse'</a>,
---   <a>createLedgerResponse_state</a> - The current status of the ledger.
---   
 --   <a>$sel:creationDateTime:CreateLedgerResponse'</a>,
 --   <a>createLedgerResponse_creationDateTime</a> - The date and time, in
 --   epoch time format, when the ledger was created. (Epoch time format is
 --   the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)
+--   
+--   <a>$sel:permissionsMode:CreateLedger'</a>,
+--   <a>createLedgerResponse_permissionsMode</a> - The permissions mode of
+--   the ledger that you created.
 --   
 --   <a>$sel:httpStatus:CreateLedgerResponse'</a>,
 --   <a>createLedgerResponse_httpStatus</a> - The response's http status
 --   code.
 newCreateLedgerResponse :: Int -> CreateLedgerResponse
 
--- | <i>See:</i> <a>newExportJournalToS</a> smart constructor.
-data ExportJournalToS
-ExportJournalToS' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> ExportJournalToS
+-- | <i>See:</i> <a>newListLedgers</a> smart constructor.
+data ListLedgers
+ListLedgers' :: Maybe Text -> Maybe Natural -> ListLedgers
 
--- | Create a value of <a>ExportJournalToS</a> with all optional fields
---   omitted.
+-- | Create a value of <a>ListLedgers</a> with all optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -6329,426 +6658,24 @@ ExportJournalToS' :: Text -> POSIX -> POSIX -> S3ExportConfiguration -> Text -> 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:name:ExportJournalToS'</a>, <a>exportJournalToS_name</a> - The
---   name of the ledger.
---   
---   <a>$sel:inclusiveStartTime:ExportJournalToS'</a>,
---   <a>exportJournalToS_inclusiveStartTime</a> - The inclusive start date
---   and time for the range of journal contents to export.
---   
---   The <tt>InclusiveStartTime</tt> must be in <tt>ISO 8601</tt> date and
---   time format and in Universal Coordinated Time (UTC). For example:
---   <tt>2019-06-13T21:36:34Z</tt>.
---   
---   The <tt>InclusiveStartTime</tt> must be before
---   <tt>ExclusiveEndTime</tt>.
---   
---   If you provide an <tt>InclusiveStartTime</tt> that is before the
---   ledger's <tt>CreationDateTime</tt>, Amazon QLDB defaults it to the
---   ledger's <tt>CreationDateTime</tt>.
---   
---   <a>$sel:exclusiveEndTime:ExportJournalToS'</a>,
---   <a>exportJournalToS_exclusiveEndTime</a> - The exclusive end date and
---   time for the range of journal contents to export.
---   
---   The <tt>ExclusiveEndTime</tt> must be in <tt>ISO 8601</tt> date and
---   time format and in Universal Coordinated Time (UTC). For example:
---   <tt>2019-06-13T21:36:34Z</tt>.
---   
---   The <tt>ExclusiveEndTime</tt> must be less than or equal to the
---   current UTC date and time.
---   
---   <a>$sel:s3ExportConfiguration:ExportJournalToS'</a>,
---   <a>exportJournalToS_s3ExportConfiguration</a> - The configuration
---   settings of the Amazon S3 bucket destination for your export request.
---   
---   <a>$sel:roleArn:ExportJournalToS'</a>, <a>exportJournalToS_roleArn</a>
---   - The Amazon Resource Name (ARN) of the IAM role that grants QLDB
---   permissions for a journal export job to do the following:
---   
---   <ul>
---   <li>Write objects into your Amazon Simple Storage Service (Amazon S3)
---   bucket.</li>
---   <li>(Optional) Use your customer master key (CMK) in Key Management
---   Service (KMS) for server-side encryption of your exported data.</li>
---   </ul>
-newExportJournalToS :: Text -> UTCTime -> UTCTime -> S3ExportConfiguration -> Text -> ExportJournalToS
-
--- | <i>See:</i> <a>newExportJournalToSResponse</a> smart constructor.
-data ExportJournalToSResponse
-ExportJournalToSResponse' :: Int -> Text -> ExportJournalToSResponse
-
--- | Create a value of <a>ExportJournalToSResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:ExportJournalToSResponse'</a>,
---   <a>exportJournalToSResponse_httpStatus</a> - The response's http
---   status code.
---   
---   <a>$sel:exportId:ExportJournalToSResponse'</a>,
---   <a>exportJournalToSResponse_exportId</a> - The UUID (represented in
---   Base62-encoded text) that QLDB assigns to each journal export job.
---   
---   To describe your export request and check the status of the job, you
---   can use <tt>ExportId</tt> to call <tt>DescribeJournalS3Export</tt>.
-newExportJournalToSResponse :: Int -> Text -> ExportJournalToSResponse
-
--- | <i>See:</i> <a>newCancelJournalKinesisStream</a> smart constructor.
-data CancelJournalKinesisStream
-CancelJournalKinesisStream' :: Text -> Text -> CancelJournalKinesisStream
-
--- | Create a value of <a>CancelJournalKinesisStream</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:ledgerName:CancelJournalKinesisStream'</a>,
---   <a>cancelJournalKinesisStream_ledgerName</a> - The name of the ledger.
---   
---   <a>$sel:streamId:CancelJournalKinesisStream'</a>,
---   <a>cancelJournalKinesisStream_streamId</a> - The UUID (represented in
---   Base62-encoded text) of the QLDB journal stream to be canceled.
-newCancelJournalKinesisStream :: Text -> Text -> CancelJournalKinesisStream
-
--- | <i>See:</i> <a>newCancelJournalKinesisStreamResponse</a> smart
---   constructor.
-data CancelJournalKinesisStreamResponse
-CancelJournalKinesisStreamResponse' :: Maybe Text -> Int -> CancelJournalKinesisStreamResponse
-
--- | Create a value of <a>CancelJournalKinesisStreamResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:streamId:CancelJournalKinesisStream'</a>,
---   <a>cancelJournalKinesisStreamResponse_streamId</a> - The UUID
---   (Base62-encoded text) of the canceled QLDB journal stream.
---   
---   <a>$sel:httpStatus:CancelJournalKinesisStreamResponse'</a>,
---   <a>cancelJournalKinesisStreamResponse_httpStatus</a> - The response's
---   http status code.
-newCancelJournalKinesisStreamResponse :: Int -> CancelJournalKinesisStreamResponse
-
--- | <i>See:</i> <a>newUntagResource</a> smart constructor.
-data UntagResource
-UntagResource' :: Text -> [Text] -> UntagResource
-
--- | Create a value of <a>UntagResource</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:resourceArn:UntagResource'</a>,
---   <a>untagResource_resourceArn</a> - The Amazon Resource Name (ARN) from
---   which to remove the tags. For example:
---   
---   <pre>
---   arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger
---   </pre>
---   
---   <a>$sel:tagKeys:UntagResource'</a>, <a>untagResource_tagKeys</a> - The
---   list of tag keys to remove.
-newUntagResource :: Text -> UntagResource
-
--- | <i>See:</i> <a>newUntagResourceResponse</a> smart constructor.
-data UntagResourceResponse
-UntagResourceResponse' :: Int -> UntagResourceResponse
-
--- | Create a value of <a>UntagResourceResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:UntagResourceResponse'</a>,
---   <a>untagResourceResponse_httpStatus</a> - The response's http status
---   code.
-newUntagResourceResponse :: Int -> UntagResourceResponse
-
--- | <i>See:</i> <a>newDescribeLedger</a> smart constructor.
-data DescribeLedger
-DescribeLedger' :: Text -> DescribeLedger
-
--- | Create a value of <a>DescribeLedger</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:name:DescribeLedger'</a>, <a>describeLedger_name</a> - The
---   name of the ledger that you want to describe.
-newDescribeLedger :: Text -> DescribeLedger
-
--- | <i>See:</i> <a>newDescribeLedgerResponse</a> smart constructor.
-data DescribeLedgerResponse
-DescribeLedgerResponse' :: Maybe Bool -> Maybe PermissionsMode -> Maybe Text -> Maybe Text -> Maybe LedgerState -> Maybe LedgerEncryptionDescription -> Maybe POSIX -> Int -> DescribeLedgerResponse
-
--- | Create a value of <a>DescribeLedgerResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:deletionProtection:DescribeLedgerResponse'</a>,
---   <a>describeLedgerResponse_deletionProtection</a> - The flag that
---   prevents a ledger from being deleted by any user. If not provided on
---   ledger creation, this feature is enabled (<tt>true</tt>) by default.
---   
---   If deletion protection is enabled, you must first disable it before
---   you can delete the ledger. You can disable it by calling the
---   <tt>UpdateLedger</tt> operation to set the flag to <tt>false</tt>.
---   
---   <a>$sel:permissionsMode:DescribeLedgerResponse'</a>,
---   <a>describeLedgerResponse_permissionsMode</a> - The permissions mode
---   of the ledger.
---   
---   <a>$sel:arn:DescribeLedgerResponse'</a>,
---   <a>describeLedgerResponse_arn</a> - The Amazon Resource Name (ARN) for
---   the ledger.
---   
---   <a>$sel:name:DescribeLedger'</a>, <a>describeLedgerResponse_name</a> -
---   The name of the ledger.
---   
---   <a>$sel:state:DescribeLedgerResponse'</a>,
---   <a>describeLedgerResponse_state</a> - The current status of the
---   ledger.
---   
---   <a>$sel:encryptionDescription:DescribeLedgerResponse'</a>,
---   <a>describeLedgerResponse_encryptionDescription</a> - Information
---   about the encryption of data at rest in the ledger. This includes the
---   current status, the KMS key, and when the key became inaccessible (in
---   the case of an error).
---   
---   <a>$sel:creationDateTime:DescribeLedgerResponse'</a>,
---   <a>describeLedgerResponse_creationDateTime</a> - The date and time, in
---   epoch time format, when the ledger was created. (Epoch time format is
---   the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)
---   
---   <a>$sel:httpStatus:DescribeLedgerResponse'</a>,
---   <a>describeLedgerResponse_httpStatus</a> - The response's http status
---   code.
-newDescribeLedgerResponse :: Int -> DescribeLedgerResponse
-
--- | <i>See:</i> <a>newTagResource</a> smart constructor.
-data TagResource
-TagResource' :: Text -> HashMap Text Text -> TagResource
-
--- | Create a value of <a>TagResource</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:resourceArn:TagResource'</a>, <a>tagResource_resourceArn</a> -
---   The Amazon Resource Name (ARN) to which you want to add the tags. For
---   example:
---   
---   <pre>
---   arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger
---   </pre>
---   
---   <a>$sel:tags:TagResource'</a>, <a>tagResource_tags</a> - The key-value
---   pairs to add as tags to the specified QLDB resource. Tag keys are case
---   sensitive. If you specify a key that already exists for the resource,
---   your request fails and returns an error. Tag values are case sensitive
---   and can be null.
-newTagResource :: Text -> TagResource
-
--- | <i>See:</i> <a>newTagResourceResponse</a> smart constructor.
-data TagResourceResponse
-TagResourceResponse' :: Int -> TagResourceResponse
-
--- | Create a value of <a>TagResourceResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:TagResourceResponse'</a>,
---   <a>tagResourceResponse_httpStatus</a> - The response's http status
---   code.
-newTagResourceResponse :: Int -> TagResourceResponse
-
--- | <i>See:</i> <a>newDescribeJournalS3Export</a> smart constructor.
-data DescribeJournalS3Export
-DescribeJournalS3Export' :: Text -> Text -> DescribeJournalS3Export
-
--- | Create a value of <a>DescribeJournalS3Export</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:name:DescribeJournalS3Export'</a>,
---   <a>describeJournalS3Export_name</a> - The name of the ledger.
---   
---   <a>$sel:exportId:DescribeJournalS3Export'</a>,
---   <a>describeJournalS3Export_exportId</a> - The UUID (represented in
---   Base62-encoded text) of the journal export job to describe.
-newDescribeJournalS3Export :: Text -> Text -> DescribeJournalS3Export
-
--- | <i>See:</i> <a>newDescribeJournalS3ExportResponse</a> smart
---   constructor.
-data DescribeJournalS3ExportResponse
-DescribeJournalS3ExportResponse' :: Int -> JournalS3ExportDescription -> DescribeJournalS3ExportResponse
-
--- | Create a value of <a>DescribeJournalS3ExportResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:DescribeJournalS3ExportResponse'</a>,
---   <a>describeJournalS3ExportResponse_httpStatus</a> - The response's
---   http status code.
---   
---   <a>$sel:exportDescription:DescribeJournalS3ExportResponse'</a>,
---   <a>describeJournalS3ExportResponse_exportDescription</a> - Information
---   about the journal export job returned by a
---   <tt>DescribeJournalS3Export</tt> request.
-newDescribeJournalS3ExportResponse :: Int -> JournalS3ExportDescription -> DescribeJournalS3ExportResponse
-
--- | <i>See:</i> <a>newGetRevision</a> smart constructor.
-data GetRevision
-GetRevision' :: Maybe (Sensitive ValueHolder) -> Text -> Sensitive ValueHolder -> Text -> GetRevision
-
--- | Create a value of <a>GetRevision</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:digestTipAddress:GetRevision'</a>,
---   <a>getRevision_digestTipAddress</a> - The latest block location
---   covered by the digest for which to request a proof. An address is an
---   Amazon Ion structure that has two fields: <tt>strandId</tt> and
---   <tt>sequenceNo</tt>.
---   
---   For example:
---   <tt>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:49}</tt>.
---   
---   <a>$sel:name:GetRevision'</a>, <a>getRevision_name</a> - The name of
---   the ledger.
---   
---   <a>$sel:blockAddress:GetRevision'</a>, <a>getRevision_blockAddress</a>
---   - The block location of the document revision to be verified. An
---   address is an Amazon Ion structure that has two fields:
---   <tt>strandId</tt> and <tt>sequenceNo</tt>.
---   
---   For example:
---   <tt>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:14}</tt>.
---   
---   <a>$sel:documentId:GetRevision'</a>, <a>getRevision_documentId</a> -
---   The UUID (represented in Base62-encoded text) of the document to be
---   verified.
-newGetRevision :: Text -> ValueHolder -> Text -> GetRevision
-
--- | <i>See:</i> <a>newGetRevisionResponse</a> smart constructor.
-data GetRevisionResponse
-GetRevisionResponse' :: Maybe (Sensitive ValueHolder) -> Int -> Sensitive ValueHolder -> GetRevisionResponse
-
--- | Create a value of <a>GetRevisionResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:proof:GetRevisionResponse'</a>,
---   <a>getRevisionResponse_proof</a> - The proof object in Amazon Ion
---   format returned by a <tt>GetRevision</tt> request. A proof contains
---   the list of hash values that are required to recalculate the specified
---   digest using a Merkle tree, starting with the specified document
---   revision.
---   
---   <a>$sel:httpStatus:GetRevisionResponse'</a>,
---   <a>getRevisionResponse_httpStatus</a> - The response's http status
---   code.
---   
---   <a>$sel:revision:GetRevisionResponse'</a>,
---   <a>getRevisionResponse_revision</a> - The document revision data
---   object in Amazon Ion format.
-newGetRevisionResponse :: Int -> ValueHolder -> GetRevisionResponse
-
--- | <i>See:</i> <a>newListJournalS3ExportsForLedger</a> smart constructor.
-data ListJournalS3ExportsForLedger
-ListJournalS3ExportsForLedger' :: Maybe Text -> Maybe Natural -> Text -> ListJournalS3ExportsForLedger
-
--- | Create a value of <a>ListJournalS3ExportsForLedger</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListJournalS3ExportsForLedger'</a>,
---   <a>listJournalS3ExportsForLedger_nextToken</a> - A pagination token,
---   indicating that you want to retrieve the next page of results. If you
---   received a value for <tt>NextToken</tt> in the response from a
---   previous <tt>ListJournalS3ExportsForLedger</tt> call, then you should
+--   <a>$sel:nextToken:ListLedgers'</a>, <a>listLedgers_nextToken</a> - A
+--   pagination token, indicating that you want to retrieve the next page
+--   of results. If you received a value for <tt>NextToken</tt> in the
+--   response from a previous <tt>ListLedgers</tt> call, then you should
 --   use that value as input here.
 --   
---   <a>$sel:maxResults:ListJournalS3ExportsForLedger'</a>,
---   <a>listJournalS3ExportsForLedger_maxResults</a> - The maximum number
---   of results to return in a single
---   <tt>ListJournalS3ExportsForLedger</tt> request. (The actual number of
---   results returned might be fewer.)
---   
---   <a>$sel:name:ListJournalS3ExportsForLedger'</a>,
---   <a>listJournalS3ExportsForLedger_name</a> - The name of the ledger.
-newListJournalS3ExportsForLedger :: Text -> ListJournalS3ExportsForLedger
+--   <a>$sel:maxResults:ListLedgers'</a>, <a>listLedgers_maxResults</a> -
+--   The maximum number of results to return in a single
+--   <tt>ListLedgers</tt> request. (The actual number of results returned
+--   might be fewer.)
+newListLedgers :: ListLedgers
 
--- | <i>See:</i> <a>newListJournalS3ExportsForLedgerResponse</a> smart
---   constructor.
-data ListJournalS3ExportsForLedgerResponse
-ListJournalS3ExportsForLedgerResponse' :: Maybe Text -> Maybe [JournalS3ExportDescription] -> Int -> ListJournalS3ExportsForLedgerResponse
+-- | <i>See:</i> <a>newListLedgersResponse</a> smart constructor.
+data ListLedgersResponse
+ListLedgersResponse' :: Maybe [LedgerSummary] -> Maybe Text -> Int -> ListLedgersResponse
 
--- | Create a value of <a>ListJournalS3ExportsForLedgerResponse</a> with
---   all optional fields omitted.
+-- | Create a value of <a>ListLedgersResponse</a> with all optional fields
+--   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -6756,34 +6683,138 @@ ListJournalS3ExportsForLedgerResponse' :: Maybe Text -> Maybe [JournalS3ExportDe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListJournalS3ExportsForLedger'</a>,
---   <a>listJournalS3ExportsForLedgerResponse_nextToken</a> - - If
+--   <a>$sel:ledgers:ListLedgersResponse'</a>,
+--   <a>listLedgersResponse_ledgers</a> - The array of ledger summaries
+--   that are associated with the current account and Region.
+--   
+--   <a>$sel:nextToken:ListLedgers'</a>,
+--   <a>listLedgersResponse_nextToken</a> - A pagination token, indicating
+--   whether there are more results available:
+--   
+--   <ul>
+--   <li>If <tt>NextToken</tt> is empty, then the last page of results has
+--   been processed and there are no more results to be retrieved.</li>
+--   <li>If <tt>NextToken</tt> is <i>not</i> empty, then there are more
+--   results available. To retrieve the next page of results, use the value
+--   of <tt>NextToken</tt> in a subsequent <tt>ListLedgers</tt> call.</li>
+--   </ul>
+--   
+--   <a>$sel:httpStatus:ListLedgersResponse'</a>,
+--   <a>listLedgersResponse_httpStatus</a> - The response's http status
+--   code.
+newListLedgersResponse :: Int -> ListLedgersResponse
+
+-- | <i>See:</i> <a>newListJournalS3Exports</a> smart constructor.
+data ListJournalS3Exports
+ListJournalS3Exports' :: Maybe Text -> Maybe Natural -> ListJournalS3Exports
+
+-- | Create a value of <a>ListJournalS3Exports</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListJournalS3Exports'</a>,
+--   <a>listJournalS3Exports_nextToken</a> - A pagination token, indicating
+--   that you want to retrieve the next page of results. If you received a
+--   value for <tt>NextToken</tt> in the response from a previous
+--   <tt>ListJournalS3Exports</tt> call, then you should use that value as
+--   input here.
+--   
+--   <a>$sel:maxResults:ListJournalS3Exports'</a>,
+--   <a>listJournalS3Exports_maxResults</a> - The maximum number of results
+--   to return in a single <tt>ListJournalS3Exports</tt> request. (The
+--   actual number of results returned might be fewer.)
+newListJournalS3Exports :: ListJournalS3Exports
+
+-- | <i>See:</i> <a>newListJournalS3ExportsResponse</a> smart constructor.
+data ListJournalS3ExportsResponse
+ListJournalS3ExportsResponse' :: Maybe [JournalS3ExportDescription] -> Maybe Text -> Int -> ListJournalS3ExportsResponse
+
+-- | Create a value of <a>ListJournalS3ExportsResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:journalS3Exports:ListJournalS3ExportsResponse'</a>,
+--   <a>listJournalS3ExportsResponse_journalS3Exports</a> - The array of
+--   journal export job descriptions for all ledgers that are associated
+--   with the current account and Region.
+--   
+--   <a>$sel:nextToken:ListJournalS3Exports'</a>,
+--   <a>listJournalS3ExportsResponse_nextToken</a> - - If
 --   <tt>NextToken</tt> is empty, then the last page of results has been
 --   processed and there are no more results to be retrieved.
 --   
 --   <ul>
 --   <li>If <tt>NextToken</tt> is <i>not</i> empty, then there are more
 --   results available. To retrieve the next page of results, use the value
---   of <tt>NextToken</tt> in a subsequent
---   <tt>ListJournalS3ExportsForLedger</tt> call.</li>
+--   of <tt>NextToken</tt> in a subsequent <tt>ListJournalS3Exports</tt>
+--   call.</li>
 --   </ul>
 --   
---   <a>$sel:journalS3Exports:ListJournalS3ExportsForLedgerResponse'</a>,
---   <a>listJournalS3ExportsForLedgerResponse_journalS3Exports</a> - The
---   array of journal export job descriptions that are associated with the
---   specified ledger.
+--   <a>$sel:httpStatus:ListJournalS3ExportsResponse'</a>,
+--   <a>listJournalS3ExportsResponse_httpStatus</a> - The response's http
+--   status code.
+newListJournalS3ExportsResponse :: Int -> ListJournalS3ExportsResponse
+
+-- | <i>See:</i> <a>newUpdateLedgerPermissionsMode</a> smart constructor.
+data UpdateLedgerPermissionsMode
+UpdateLedgerPermissionsMode' :: Text -> PermissionsMode -> UpdateLedgerPermissionsMode
+
+-- | Create a value of <a>UpdateLedgerPermissionsMode</a> with all optional
+--   fields omitted.
 --   
---   <a>$sel:httpStatus:ListJournalS3ExportsForLedgerResponse'</a>,
---   <a>listJournalS3ExportsForLedgerResponse_httpStatus</a> - The
---   response's http status code.
-newListJournalS3ExportsForLedgerResponse :: Int -> ListJournalS3ExportsForLedgerResponse
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:name:UpdateLedgerPermissionsMode'</a>,
+--   <a>updateLedgerPermissionsMode_name</a> - The name of the ledger.
+--   
+--   <a>$sel:permissionsMode:UpdateLedgerPermissionsMode'</a>,
+--   <a>updateLedgerPermissionsMode_permissionsMode</a> - The permissions
+--   mode to assign to the ledger. This parameter can have one of the
+--   following values:
+--   
+--   <ul>
+--   <li><tt>ALLOW_ALL</tt>: A legacy permissions mode that enables access
+--   control with API-level granularity for ledgers.This mode allows users
+--   who have the <tt>SendCommand</tt> API permission for this ledger to
+--   run all PartiQL commands (hence, <tt>ALLOW_ALL</tt>) on any tables in
+--   the specified ledger. This mode disregards any table-level or
+--   command-level IAM permissions policies that you create for the
+--   ledger.</li>
+--   <li><tt>STANDARD</tt>: (<i>Recommended</i>) A permissions mode that
+--   enables access control with finer granularity for ledgers, tables, and
+--   PartiQL commands.By default, this mode denies all user requests to run
+--   any PartiQL commands on any tables in this ledger. To allow PartiQL
+--   commands to run, you must create IAM permissions policies for specific
+--   table resources and PartiQL actions, in addition to the
+--   <tt>SendCommand</tt> API permission for the ledger. For information,
+--   see <a>Getting started with the standard permissions mode</a> in the
+--   <i>Amazon QLDB Developer Guide</i>.</li>
+--   </ul>
+--   
+--   We strongly recommend using the <tt>STANDARD</tt> permissions mode to
+--   maximize the security of your ledger data.
+newUpdateLedgerPermissionsMode :: Text -> PermissionsMode -> UpdateLedgerPermissionsMode
 
--- | <i>See:</i> <a>newListJournalKinesisStreamsForLedger</a> smart
+-- | <i>See:</i> <a>newUpdateLedgerPermissionsModeResponse</a> smart
 --   constructor.
-data ListJournalKinesisStreamsForLedger
-ListJournalKinesisStreamsForLedger' :: Maybe Text -> Maybe Natural -> Text -> ListJournalKinesisStreamsForLedger
+data UpdateLedgerPermissionsModeResponse
+UpdateLedgerPermissionsModeResponse' :: Maybe Text -> Maybe Text -> Maybe PermissionsMode -> Int -> UpdateLedgerPermissionsModeResponse
 
--- | Create a value of <a>ListJournalKinesisStreamsForLedger</a> with all
+-- | Create a value of <a>UpdateLedgerPermissionsModeResponse</a> with all
 --   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -6792,59 +6823,22 @@ ListJournalKinesisStreamsForLedger' :: Maybe Text -> Maybe Natural -> Text -> Li
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListJournalKinesisStreamsForLedger'</a>,
---   <a>listJournalKinesisStreamsForLedger_nextToken</a> - A pagination
---   token, indicating that you want to retrieve the next page of results.
---   If you received a value for <tt>NextToken</tt> in the response from a
---   previous <tt>ListJournalKinesisStreamsForLedger</tt> call, you should
---   use that value as input here.
+--   <a>$sel:arn:UpdateLedgerPermissionsModeResponse'</a>,
+--   <a>updateLedgerPermissionsModeResponse_arn</a> - The Amazon Resource
+--   Name (ARN) for the ledger.
 --   
---   <a>$sel:maxResults:ListJournalKinesisStreamsForLedger'</a>,
---   <a>listJournalKinesisStreamsForLedger_maxResults</a> - The maximum
---   number of results to return in a single
---   <tt>ListJournalKinesisStreamsForLedger</tt> request. (The actual
---   number of results returned might be fewer.)
---   
---   <a>$sel:ledgerName:ListJournalKinesisStreamsForLedger'</a>,
---   <a>listJournalKinesisStreamsForLedger_ledgerName</a> - The name of the
---   ledger.
-newListJournalKinesisStreamsForLedger :: Text -> ListJournalKinesisStreamsForLedger
-
--- | <i>See:</i> <a>newListJournalKinesisStreamsForLedgerResponse</a> smart
---   constructor.
-data ListJournalKinesisStreamsForLedgerResponse
-ListJournalKinesisStreamsForLedgerResponse' :: Maybe [JournalKinesisStreamDescription] -> Maybe Text -> Int -> ListJournalKinesisStreamsForLedgerResponse
-
--- | Create a value of <a>ListJournalKinesisStreamsForLedgerResponse</a>
---   with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:streams:ListJournalKinesisStreamsForLedgerResponse'</a>,
---   <a>listJournalKinesisStreamsForLedgerResponse_streams</a> - The array
---   of QLDB journal stream descriptors that are associated with the given
+--   <a>$sel:name:UpdateLedgerPermissionsMode'</a>,
+--   <a>updateLedgerPermissionsModeResponse_name</a> - The name of the
 --   ledger.
 --   
---   <a>$sel:nextToken:ListJournalKinesisStreamsForLedger'</a>,
---   <a>listJournalKinesisStreamsForLedgerResponse_nextToken</a> - - If
---   <tt>NextToken</tt> is empty, the last page of results has been
---   processed and there are no more results to be retrieved.
+--   <a>$sel:permissionsMode:UpdateLedgerPermissionsMode'</a>,
+--   <a>updateLedgerPermissionsModeResponse_permissionsMode</a> - The
+--   current permissions mode of the ledger.
 --   
---   <ul>
---   <li>If <tt>NextToken</tt> is <i>not</i> empty, more results are
---   available. To retrieve the next page of results, use the value of
---   <tt>NextToken</tt> in a subsequent
---   <tt>ListJournalKinesisStreamsForLedger</tt> call.</li>
---   </ul>
---   
---   <a>$sel:httpStatus:ListJournalKinesisStreamsForLedgerResponse'</a>,
---   <a>listJournalKinesisStreamsForLedgerResponse_httpStatus</a> - The
---   response's http status code.
-newListJournalKinesisStreamsForLedgerResponse :: Int -> ListJournalKinesisStreamsForLedgerResponse
+--   <a>$sel:httpStatus:UpdateLedgerPermissionsModeResponse'</a>,
+--   <a>updateLedgerPermissionsModeResponse_httpStatus</a> - The response's
+--   http status code.
+newUpdateLedgerPermissionsModeResponse :: Int -> UpdateLedgerPermissionsModeResponse
 
 -- | <i>See:</i> <a>newGetBlock</a> smart constructor.
 data GetBlock
@@ -6905,37 +6899,11 @@ GetBlockResponse' :: Maybe (Sensitive ValueHolder) -> Int -> Sensitive ValueHold
 --   The block data object in Amazon Ion format.
 newGetBlockResponse :: Int -> ValueHolder -> GetBlockResponse
 
--- | <i>See:</i> <a>newListJournalS3Exports</a> smart constructor.
-data ListJournalS3Exports
-ListJournalS3Exports' :: Maybe Text -> Maybe Natural -> ListJournalS3Exports
+-- | <i>See:</i> <a>newListJournalS3ExportsForLedger</a> smart constructor.
+data ListJournalS3ExportsForLedger
+ListJournalS3ExportsForLedger' :: Maybe Text -> Maybe Natural -> Text -> ListJournalS3ExportsForLedger
 
--- | Create a value of <a>ListJournalS3Exports</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListJournalS3Exports'</a>,
---   <a>listJournalS3Exports_nextToken</a> - A pagination token, indicating
---   that you want to retrieve the next page of results. If you received a
---   value for <tt>NextToken</tt> in the response from a previous
---   <tt>ListJournalS3Exports</tt> call, then you should use that value as
---   input here.
---   
---   <a>$sel:maxResults:ListJournalS3Exports'</a>,
---   <a>listJournalS3Exports_maxResults</a> - The maximum number of results
---   to return in a single <tt>ListJournalS3Exports</tt> request. (The
---   actual number of results returned might be fewer.)
-newListJournalS3Exports :: ListJournalS3Exports
-
--- | <i>See:</i> <a>newListJournalS3ExportsResponse</a> smart constructor.
-data ListJournalS3ExportsResponse
-ListJournalS3ExportsResponse' :: Maybe Text -> Maybe [JournalS3ExportDescription] -> Int -> ListJournalS3ExportsResponse
-
--- | Create a value of <a>ListJournalS3ExportsResponse</a> with all
+-- | Create a value of <a>ListJournalS3ExportsForLedger</a> with all
 --   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -6944,33 +6912,110 @@ ListJournalS3ExportsResponse' :: Maybe Text -> Maybe [JournalS3ExportDescription
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListJournalS3Exports'</a>,
---   <a>listJournalS3ExportsResponse_nextToken</a> - - If
+--   <a>$sel:nextToken:ListJournalS3ExportsForLedger'</a>,
+--   <a>listJournalS3ExportsForLedger_nextToken</a> - A pagination token,
+--   indicating that you want to retrieve the next page of results. If you
+--   received a value for <tt>NextToken</tt> in the response from a
+--   previous <tt>ListJournalS3ExportsForLedger</tt> call, then you should
+--   use that value as input here.
+--   
+--   <a>$sel:maxResults:ListJournalS3ExportsForLedger'</a>,
+--   <a>listJournalS3ExportsForLedger_maxResults</a> - The maximum number
+--   of results to return in a single
+--   <tt>ListJournalS3ExportsForLedger</tt> request. (The actual number of
+--   results returned might be fewer.)
+--   
+--   <a>$sel:name:ListJournalS3ExportsForLedger'</a>,
+--   <a>listJournalS3ExportsForLedger_name</a> - The name of the ledger.
+newListJournalS3ExportsForLedger :: Text -> ListJournalS3ExportsForLedger
+
+-- | <i>See:</i> <a>newListJournalS3ExportsForLedgerResponse</a> smart
+--   constructor.
+data ListJournalS3ExportsForLedgerResponse
+ListJournalS3ExportsForLedgerResponse' :: Maybe [JournalS3ExportDescription] -> Maybe Text -> Int -> ListJournalS3ExportsForLedgerResponse
+
+-- | Create a value of <a>ListJournalS3ExportsForLedgerResponse</a> with
+--   all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:journalS3Exports:ListJournalS3ExportsForLedgerResponse'</a>,
+--   <a>listJournalS3ExportsForLedgerResponse_journalS3Exports</a> - The
+--   array of journal export job descriptions that are associated with the
+--   specified ledger.
+--   
+--   <a>$sel:nextToken:ListJournalS3ExportsForLedger'</a>,
+--   <a>listJournalS3ExportsForLedgerResponse_nextToken</a> - - If
 --   <tt>NextToken</tt> is empty, then the last page of results has been
 --   processed and there are no more results to be retrieved.
 --   
 --   <ul>
 --   <li>If <tt>NextToken</tt> is <i>not</i> empty, then there are more
 --   results available. To retrieve the next page of results, use the value
---   of <tt>NextToken</tt> in a subsequent <tt>ListJournalS3Exports</tt>
---   call.</li>
+--   of <tt>NextToken</tt> in a subsequent
+--   <tt>ListJournalS3ExportsForLedger</tt> call.</li>
 --   </ul>
 --   
---   <a>$sel:journalS3Exports:ListJournalS3ExportsResponse'</a>,
---   <a>listJournalS3ExportsResponse_journalS3Exports</a> - The array of
---   journal export job descriptions for all ledgers that are associated
---   with the current account and Region.
+--   <a>$sel:httpStatus:ListJournalS3ExportsForLedgerResponse'</a>,
+--   <a>listJournalS3ExportsForLedgerResponse_httpStatus</a> - The
+--   response's http status code.
+newListJournalS3ExportsForLedgerResponse :: Int -> ListJournalS3ExportsForLedgerResponse
+
+-- | <i>See:</i> <a>newDescribeJournalKinesisStream</a> smart constructor.
+data DescribeJournalKinesisStream
+DescribeJournalKinesisStream' :: Text -> Text -> DescribeJournalKinesisStream
+
+-- | Create a value of <a>DescribeJournalKinesisStream</a> with all
+--   optional fields omitted.
 --   
---   <a>$sel:httpStatus:ListJournalS3ExportsResponse'</a>,
---   <a>listJournalS3ExportsResponse_httpStatus</a> - The response's http
---   status code.
-newListJournalS3ExportsResponse :: Int -> ListJournalS3ExportsResponse
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:ledgerName:DescribeJournalKinesisStream'</a>,
+--   <a>describeJournalKinesisStream_ledgerName</a> - The name of the
+--   ledger.
+--   
+--   <a>$sel:streamId:DescribeJournalKinesisStream'</a>,
+--   <a>describeJournalKinesisStream_streamId</a> - The UUID (represented
+--   in Base62-encoded text) of the QLDB journal stream to describe.
+newDescribeJournalKinesisStream :: Text -> Text -> DescribeJournalKinesisStream
 
--- | <i>See:</i> <a>newStreamJournalToKinesis</a> smart constructor.
-data StreamJournalToKinesis
-StreamJournalToKinesis' :: Maybe POSIX -> Maybe (HashMap Text Text) -> Text -> Text -> POSIX -> KinesisConfiguration -> Text -> StreamJournalToKinesis
+-- | <i>See:</i> <a>newDescribeJournalKinesisStreamResponse</a> smart
+--   constructor.
+data DescribeJournalKinesisStreamResponse
+DescribeJournalKinesisStreamResponse' :: Maybe JournalKinesisStreamDescription -> Int -> DescribeJournalKinesisStreamResponse
 
--- | Create a value of <a>StreamJournalToKinesis</a> with all optional
+-- | Create a value of <a>DescribeJournalKinesisStreamResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:stream:DescribeJournalKinesisStreamResponse'</a>,
+--   <a>describeJournalKinesisStreamResponse_stream</a> - Information about
+--   the QLDB journal stream returned by a <tt>DescribeJournalS3Export</tt>
+--   request.
+--   
+--   <a>$sel:httpStatus:DescribeJournalKinesisStreamResponse'</a>,
+--   <a>describeJournalKinesisStreamResponse_httpStatus</a> - The
+--   response's http status code.
+newDescribeJournalKinesisStreamResponse :: Int -> DescribeJournalKinesisStreamResponse
+
+-- | <i>See:</i> <a>newDescribeJournalS3Export</a> smart constructor.
+data DescribeJournalS3Export
+DescribeJournalS3Export' :: Text -> Text -> DescribeJournalS3Export
+
+-- | Create a value of <a>DescribeJournalS3Export</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -6979,64 +7024,20 @@ StreamJournalToKinesis' :: Maybe POSIX -> Maybe (HashMap Text Text) -> Text -> T
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:exclusiveEndTime:StreamJournalToKinesis'</a>,
---   <a>streamJournalToKinesis_exclusiveEndTime</a> - The exclusive date
---   and time that specifies when the stream ends. If you don't define this
---   parameter, the stream runs indefinitely until you cancel it.
+--   <a>$sel:name:DescribeJournalS3Export'</a>,
+--   <a>describeJournalS3Export_name</a> - The name of the ledger.
 --   
---   The <tt>ExclusiveEndTime</tt> must be in <tt>ISO 8601</tt> date and
---   time format and in Universal Coordinated Time (UTC). For example:
---   <tt>2019-06-13T21:36:34Z</tt>.
---   
---   <a>$sel:tags:StreamJournalToKinesis'</a>,
---   <a>streamJournalToKinesis_tags</a> - The key-value pairs to add as
---   tags to the stream that you want to create. Tag keys are case
---   sensitive. Tag values are case sensitive and can be null.
---   
---   <a>$sel:ledgerName:StreamJournalToKinesis'</a>,
---   <a>streamJournalToKinesis_ledgerName</a> - The name of the ledger.
---   
---   <a>$sel:roleArn:StreamJournalToKinesis'</a>,
---   <a>streamJournalToKinesis_roleArn</a> - The Amazon Resource Name (ARN)
---   of the IAM role that grants QLDB permissions for a journal stream to
---   write data records to a Kinesis Data Streams resource.
---   
---   <a>$sel:inclusiveStartTime:StreamJournalToKinesis'</a>,
---   <a>streamJournalToKinesis_inclusiveStartTime</a> - The inclusive start
---   date and time from which to start streaming journal data. This
---   parameter must be in <tt>ISO 8601</tt> date and time format and in
---   Universal Coordinated Time (UTC). For example:
---   <tt>2019-06-13T21:36:34Z</tt>.
---   
---   The <tt>InclusiveStartTime</tt> cannot be in the future and must be
---   before <tt>ExclusiveEndTime</tt>.
---   
---   If you provide an <tt>InclusiveStartTime</tt> that is before the
---   ledger's <tt>CreationDateTime</tt>, QLDB effectively defaults it to
---   the ledger's <tt>CreationDateTime</tt>.
---   
---   <a>$sel:kinesisConfiguration:StreamJournalToKinesis'</a>,
---   <a>streamJournalToKinesis_kinesisConfiguration</a> - The configuration
---   settings of the Kinesis Data Streams destination for your stream
---   request.
---   
---   <a>$sel:streamName:StreamJournalToKinesis'</a>,
---   <a>streamJournalToKinesis_streamName</a> - The name that you want to
---   assign to the QLDB journal stream. User-defined names can help
---   identify and indicate the purpose of a stream.
---   
---   Your stream name must be unique among other <i>active</i> streams for
---   a given ledger. Stream names have the same naming constraints as
---   ledger names, as defined in <a>Quotas in Amazon QLDB</a> in the
---   <i>Amazon QLDB Developer Guide</i>.
-newStreamJournalToKinesis :: Text -> Text -> UTCTime -> KinesisConfiguration -> Text -> StreamJournalToKinesis
+--   <a>$sel:exportId:DescribeJournalS3Export'</a>,
+--   <a>describeJournalS3Export_exportId</a> - The UUID (represented in
+--   Base62-encoded text) of the journal export job to describe.
+newDescribeJournalS3Export :: Text -> Text -> DescribeJournalS3Export
 
--- | <i>See:</i> <a>newStreamJournalToKinesisResponse</a> smart
+-- | <i>See:</i> <a>newDescribeJournalS3ExportResponse</a> smart
 --   constructor.
-data StreamJournalToKinesisResponse
-StreamJournalToKinesisResponse' :: Maybe Text -> Int -> StreamJournalToKinesisResponse
+data DescribeJournalS3ExportResponse
+DescribeJournalS3ExportResponse' :: Int -> JournalS3ExportDescription -> DescribeJournalS3ExportResponse
 
--- | Create a value of <a>StreamJournalToKinesisResponse</a> with all
+-- | Create a value of <a>DescribeJournalS3ExportResponse</a> with all
 --   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -7045,14 +7046,103 @@ StreamJournalToKinesisResponse' :: Maybe Text -> Int -> StreamJournalToKinesisRe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:streamId:StreamJournalToKinesisResponse'</a>,
---   <a>streamJournalToKinesisResponse_streamId</a> - The UUID (represented
---   in Base62-encoded text) that QLDB assigns to each QLDB journal stream.
+--   <a>$sel:httpStatus:DescribeJournalS3ExportResponse'</a>,
+--   <a>describeJournalS3ExportResponse_httpStatus</a> - The response's
+--   http status code.
 --   
---   <a>$sel:httpStatus:StreamJournalToKinesisResponse'</a>,
---   <a>streamJournalToKinesisResponse_httpStatus</a> - The response's http
---   status code.
-newStreamJournalToKinesisResponse :: Int -> StreamJournalToKinesisResponse
+--   <a>$sel:exportDescription:DescribeJournalS3ExportResponse'</a>,
+--   <a>describeJournalS3ExportResponse_exportDescription</a> - Information
+--   about the journal export job returned by a
+--   <tt>DescribeJournalS3Export</tt> request.
+newDescribeJournalS3ExportResponse :: Int -> JournalS3ExportDescription -> DescribeJournalS3ExportResponse
+
+-- | <i>See:</i> <a>newTagResource</a> smart constructor.
+data TagResource
+TagResource' :: Text -> HashMap Text Text -> TagResource
+
+-- | Create a value of <a>TagResource</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resourceArn:TagResource'</a>, <a>tagResource_resourceArn</a> -
+--   The Amazon Resource Name (ARN) to which you want to add the tags. For
+--   example:
+--   
+--   <pre>
+--   arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger
+--   </pre>
+--   
+--   <a>$sel:tags:TagResource'</a>, <a>tagResource_tags</a> - The key-value
+--   pairs to add as tags to the specified QLDB resource. Tag keys are case
+--   sensitive. If you specify a key that already exists for the resource,
+--   your request fails and returns an error. Tag values are case sensitive
+--   and can be null.
+newTagResource :: Text -> TagResource
+
+-- | <i>See:</i> <a>newTagResourceResponse</a> smart constructor.
+data TagResourceResponse
+TagResourceResponse' :: Int -> TagResourceResponse
+
+-- | Create a value of <a>TagResourceResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:TagResourceResponse'</a>,
+--   <a>tagResourceResponse_httpStatus</a> - The response's http status
+--   code.
+newTagResourceResponse :: Int -> TagResourceResponse
+
+-- | <i>See:</i> <a>newUntagResource</a> smart constructor.
+data UntagResource
+UntagResource' :: Text -> [Text] -> UntagResource
+
+-- | Create a value of <a>UntagResource</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resourceArn:UntagResource'</a>,
+--   <a>untagResource_resourceArn</a> - The Amazon Resource Name (ARN) from
+--   which to remove the tags. For example:
+--   
+--   <pre>
+--   arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger
+--   </pre>
+--   
+--   <a>$sel:tagKeys:UntagResource'</a>, <a>untagResource_tagKeys</a> - The
+--   list of tag keys to remove.
+newUntagResource :: Text -> UntagResource
+
+-- | <i>See:</i> <a>newUntagResourceResponse</a> smart constructor.
+data UntagResourceResponse
+UntagResourceResponse' :: Int -> UntagResourceResponse
+
+-- | Create a value of <a>UntagResourceResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:UntagResourceResponse'</a>,
+--   <a>untagResourceResponse_httpStatus</a> - The response's http status
+--   code.
+newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | <i>See:</i> <a>newGetDigest</a> smart constructor.
 data GetDigest
@@ -7101,96 +7191,6 @@ GetDigestResponse' :: Int -> Base64 -> Sensitive ValueHolder -> GetDigestRespons
 --   structure that has two fields: <tt>strandId</tt> and
 --   <tt>sequenceNo</tt>.
 newGetDigestResponse :: Int -> ByteString -> ValueHolder -> GetDigestResponse
-
--- | <i>See:</i> <a>newDescribeJournalKinesisStream</a> smart constructor.
-data DescribeJournalKinesisStream
-DescribeJournalKinesisStream' :: Text -> Text -> DescribeJournalKinesisStream
-
--- | Create a value of <a>DescribeJournalKinesisStream</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:ledgerName:DescribeJournalKinesisStream'</a>,
---   <a>describeJournalKinesisStream_ledgerName</a> - The name of the
---   ledger.
---   
---   <a>$sel:streamId:DescribeJournalKinesisStream'</a>,
---   <a>describeJournalKinesisStream_streamId</a> - The UUID (represented
---   in Base62-encoded text) of the QLDB journal stream to describe.
-newDescribeJournalKinesisStream :: Text -> Text -> DescribeJournalKinesisStream
-
--- | <i>See:</i> <a>newDescribeJournalKinesisStreamResponse</a> smart
---   constructor.
-data DescribeJournalKinesisStreamResponse
-DescribeJournalKinesisStreamResponse' :: Maybe JournalKinesisStreamDescription -> Int -> DescribeJournalKinesisStreamResponse
-
--- | Create a value of <a>DescribeJournalKinesisStreamResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:stream:DescribeJournalKinesisStreamResponse'</a>,
---   <a>describeJournalKinesisStreamResponse_stream</a> - Information about
---   the QLDB journal stream returned by a <tt>DescribeJournalS3Export</tt>
---   request.
---   
---   <a>$sel:httpStatus:DescribeJournalKinesisStreamResponse'</a>,
---   <a>describeJournalKinesisStreamResponse_httpStatus</a> - The
---   response's http status code.
-newDescribeJournalKinesisStreamResponse :: Int -> DescribeJournalKinesisStreamResponse
-
--- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
-data ListTagsForResource
-ListTagsForResource' :: Text -> ListTagsForResource
-
--- | Create a value of <a>ListTagsForResource</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:resourceArn:ListTagsForResource'</a>,
---   <a>listTagsForResource_resourceArn</a> - The Amazon Resource Name
---   (ARN) for which to list the tags. For example:
---   
---   <pre>
---   arn:aws:qldb:us-east-1:123456789012:ledger/exampleLedger
---   </pre>
-newListTagsForResource :: Text -> ListTagsForResource
-
--- | <i>See:</i> <a>newListTagsForResourceResponse</a> smart constructor.
-data ListTagsForResourceResponse
-ListTagsForResourceResponse' :: Maybe (HashMap Text Text) -> Int -> ListTagsForResourceResponse
-
--- | Create a value of <a>ListTagsForResourceResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:tags:ListTagsForResourceResponse'</a>,
---   <a>listTagsForResourceResponse_tags</a> - The tags that are currently
---   associated with the specified Amazon QLDB resource.
---   
---   <a>$sel:httpStatus:ListTagsForResourceResponse'</a>,
---   <a>listTagsForResourceResponse_httpStatus</a> - The response's http
---   status code.
-newListTagsForResourceResponse :: Int -> ListTagsForResourceResponse
 newtype EncryptionStatus
 EncryptionStatus' :: Text -> EncryptionStatus
 [fromEncryptionStatus] :: EncryptionStatus -> Text
@@ -7242,7 +7242,7 @@ pattern StreamStatus_IMPAIRED :: StreamStatus
 --   <i>See:</i> <a>newJournalKinesisStreamDescription</a> smart
 --   constructor.
 data JournalKinesisStreamDescription
-JournalKinesisStreamDescription' :: Maybe POSIX -> Maybe ErrorCause -> Maybe POSIX -> Maybe Text -> Maybe POSIX -> Text -> Text -> Text -> StreamStatus -> KinesisConfiguration -> Text -> JournalKinesisStreamDescription
+JournalKinesisStreamDescription' :: Maybe POSIX -> Maybe Text -> Maybe POSIX -> Maybe ErrorCause -> Maybe POSIX -> Text -> Text -> Text -> StreamStatus -> KinesisConfiguration -> Text -> JournalKinesisStreamDescription
 
 -- | Create a value of <a>JournalKinesisStreamDescription</a> with all
 --   optional fields omitted.
@@ -7259,20 +7259,20 @@ JournalKinesisStreamDescription' :: Maybe POSIX -> Maybe ErrorCause -> Maybe POS
 --   (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 --   January 1, 1970 UTC.)
 --   
---   <a>$sel:errorCause:JournalKinesisStreamDescription'</a>,
---   <a>journalKinesisStreamDescription_errorCause</a> - The error message
---   that describes the reason that a stream has a status of
---   <tt>IMPAIRED</tt> or <tt>FAILED</tt>. This is not applicable to
---   streams that have other status values.
+--   <a>$sel:arn:JournalKinesisStreamDescription'</a>,
+--   <a>journalKinesisStreamDescription_arn</a> - The Amazon Resource Name
+--   (ARN) of the QLDB journal stream.
 --   
 --   <a>$sel:inclusiveStartTime:JournalKinesisStreamDescription'</a>,
 --   <a>journalKinesisStreamDescription_inclusiveStartTime</a> - The
 --   inclusive start date and time from which to start streaming journal
 --   data.
 --   
---   <a>$sel:arn:JournalKinesisStreamDescription'</a>,
---   <a>journalKinesisStreamDescription_arn</a> - The Amazon Resource Name
---   (ARN) of the QLDB journal stream.
+--   <a>$sel:errorCause:JournalKinesisStreamDescription'</a>,
+--   <a>journalKinesisStreamDescription_errorCause</a> - The error message
+--   that describes the reason that a stream has a status of
+--   <tt>IMPAIRED</tt> or <tt>FAILED</tt>. This is not applicable to
+--   streams that have other status values.
 --   
 --   <a>$sel:exclusiveEndTime:JournalKinesisStreamDescription'</a>,
 --   <a>journalKinesisStreamDescription_exclusiveEndTime</a> - The
@@ -7467,7 +7467,7 @@ newLedgerEncryptionDescription :: Text -> EncryptionStatus -> LedgerEncryptionDe
 --   
 --   <i>See:</i> <a>newLedgerSummary</a> smart constructor.
 data LedgerSummary
-LedgerSummary' :: Maybe Text -> Maybe LedgerState -> Maybe POSIX -> LedgerSummary
+LedgerSummary' :: Maybe LedgerState -> Maybe Text -> Maybe POSIX -> LedgerSummary
 
 -- | Create a value of <a>LedgerSummary</a> with all optional fields
 --   omitted.
@@ -7478,11 +7478,11 @@ LedgerSummary' :: Maybe Text -> Maybe LedgerState -> Maybe POSIX -> LedgerSummar
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:name:LedgerSummary'</a>, <a>ledgerSummary_name</a> - The name
---   of the ledger.
---   
 --   <a>$sel:state:LedgerSummary'</a>, <a>ledgerSummary_state</a> - The
 --   current status of the ledger.
+--   
+--   <a>$sel:name:LedgerSummary'</a>, <a>ledgerSummary_name</a> - The name
+--   of the ledger.
 --   
 --   <a>$sel:creationDateTime:LedgerSummary'</a>,
 --   <a>ledgerSummary_creationDateTime</a> - The date and time, in epoch

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- contacts an agent can have on a channel simultaneously.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMediaConcurrency' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679399958"><span id="local-6989586621679399959"></span></span><span class="hs-keyword">data</span><span> </span><span id="MediaConcurrency"><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency"><span class="hs-identifier hs-var">MediaConcurrency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MediaConcurrency%27"><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency%27"><span class="hs-identifier hs-var">MediaConcurrency'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679400240"><span id="local-6989586621679400241"></span></span><span class="hs-keyword">data</span><span> </span><span id="MediaConcurrency"><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency"><span class="hs-identifier hs-var">MediaConcurrency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MediaConcurrency%27"><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency%27"><span class="hs-identifier hs-var">MediaConcurrency'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The channels that agents can handle in the Contact Control Panel (CCP).</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Achannel%3AMediaConcurrency%27"><span class="annot"><span class="annottext">MediaConcurrency -&gt; Channel
 </span><a href="Network.AWS.Connect.Types.MediaConcurrency.html#%24sel%3Achannel%3AMediaConcurrency%27"><span class="hs-identifier hs-var hs-var">channel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Aconcurrency%3AMediaConcurrency%27"><span class="annot"><span class="annottext">MediaConcurrency -&gt; Natural
 </span><a href="Network.AWS.Connect.Types.MediaConcurrency.html#%24sel%3Aconcurrency%3AMediaConcurrency%27"><span class="hs-identifier hs-var hs-var">concurrency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399951"><span id="local-6989586621679399953"><span class="annot"><span class="annottext">MediaConcurrency -&gt; MediaConcurrency -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679400233"><span id="local-6989586621679400235"><span class="annot"><span class="annottext">MediaConcurrency -&gt; MediaConcurrency -&gt; Bool
 (MediaConcurrency -&gt; MediaConcurrency -&gt; Bool)
 -&gt; (MediaConcurrency -&gt; MediaConcurrency -&gt; Bool)
 -&gt; Eq MediaConcurrency
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MediaConcurrency -&gt; MediaConcurrency -&gt; Bool
 == :: MediaConcurrency -&gt; MediaConcurrency -&gt; Bool
 $c== :: MediaConcurrency -&gt; MediaConcurrency -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399942"><span id="local-6989586621679399944"><span id="local-6989586621679399946"><span id="local-6989586621679399948"><span class="annot"><span class="annottext">ReadPrec [MediaConcurrency]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400224"><span id="local-6989586621679400226"><span id="local-6989586621679400228"><span id="local-6989586621679400230"><span class="annot"><span class="annottext">ReadPrec [MediaConcurrency]
 ReadPrec MediaConcurrency
 Int -&gt; ReadS MediaConcurrency
 ReadS [MediaConcurrency]
@@ -71,7 +71,7 @@ readList :: ReadS [MediaConcurrency]
 $creadList :: ReadS [MediaConcurrency]
 readsPrec :: Int -&gt; ReadS MediaConcurrency
 $creadsPrec :: Int -&gt; ReadS MediaConcurrency
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399935"><span id="local-6989586621679399937"><span id="local-6989586621679399939"><span class="annot"><span class="annottext">Int -&gt; MediaConcurrency -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400217"><span id="local-6989586621679400219"><span id="local-6989586621679400221"><span class="annot"><span class="annottext">Int -&gt; MediaConcurrency -&gt; ShowS
 [MediaConcurrency] -&gt; ShowS
 MediaConcurrency -&gt; String
 (Int -&gt; MediaConcurrency -&gt; ShowS)
@@ -121,17 +121,17 @@ $cfrom :: forall x. MediaConcurrency -&gt; Rep MediaConcurrency x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency"><span class="hs-identifier hs-type">MediaConcurrency</span></a></span><span>
 </span><span id="line-68"></span><span id="newMediaConcurrency"><span class="annot"><span class="annottext">newMediaConcurrency :: Channel -&gt; Natural -&gt; MediaConcurrency
-</span><a href="Network.AWS.Connect.Types.MediaConcurrency.html#newMediaConcurrency"><span class="hs-identifier hs-var hs-var">newMediaConcurrency</span></a></span></span><span> </span><span id="local-6989586621679399929"><span class="annot"><span class="annottext">Channel
-</span><a href="#local-6989586621679399929"><span class="hs-identifier hs-var">pChannel_</span></a></span></span><span> </span><span id="local-6989586621679399928"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679399928"><span class="hs-identifier hs-var">pConcurrency_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.Types.MediaConcurrency.html#newMediaConcurrency"><span class="hs-identifier hs-var hs-var">newMediaConcurrency</span></a></span></span><span> </span><span id="local-6989586621679400211"><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679400211"><span class="hs-identifier hs-var">pChannel_</span></a></span></span><span> </span><span id="local-6989586621679400210"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679400210"><span class="hs-identifier hs-var">pConcurrency_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">MediaConcurrency' :: Channel -&gt; Natural -&gt; MediaConcurrency
 </span><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency%27"><span class="hs-identifier hs-type">MediaConcurrency'</span></a></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:channel:MediaConcurrency' :: Channel
 </span><a href="Network.AWS.Connect.Types.MediaConcurrency.html#%24sel%3Achannel%3AMediaConcurrency%27"><span class="hs-identifier hs-var">channel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Channel
-</span><a href="#local-6989586621679399929"><span class="hs-identifier hs-var">pChannel_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679400211"><span class="hs-identifier hs-var">pChannel_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:concurrency:MediaConcurrency' :: Natural
 </span><a href="Network.AWS.Connect.Types.MediaConcurrency.html#%24sel%3Aconcurrency%3AMediaConcurrency%27"><span class="hs-identifier hs-var">concurrency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679399928"><span class="hs-identifier hs-var">pConcurrency_</span></a></span><span>
+</span><a href="#local-6989586621679400210"><span class="hs-identifier hs-var">pConcurrency_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The channels that agents can handle in the Contact Control Panel (CCP).</span><span>
@@ -141,16 +141,16 @@ $cfrom :: forall x. MediaConcurrency -&gt; Rep MediaConcurrency x
 -&gt; (MediaConcurrency -&gt; Channel -&gt; MediaConcurrency)
 -&gt; Lens MediaConcurrency MediaConcurrency Channel Channel
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency%27"><span class="hs-identifier hs-type">MediaConcurrency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399924"><span class="annot"><span class="annottext">Channel
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency%27"><span class="hs-identifier hs-type">MediaConcurrency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400206"><span class="annot"><span class="annottext">Channel
 channel :: Channel
 $sel:channel:MediaConcurrency' :: MediaConcurrency -&gt; Channel
-</span><a href="#local-6989586621679399924"><span class="hs-identifier hs-var hs-var">channel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
-</span><a href="#local-6989586621679399924"><span class="hs-identifier hs-var">channel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399923"><span class="annot"><span class="annottext">s :: MediaConcurrency
-</span><a href="#local-6989586621679399923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency%27"><span class="hs-identifier hs-type">MediaConcurrency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399922"><span class="annot"><span class="annottext">Channel
-</span><a href="#local-6989586621679399922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MediaConcurrency
-</span><a href="#local-6989586621679399923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channel:MediaConcurrency' :: Channel
+</span><a href="#local-6989586621679400206"><span class="hs-identifier hs-var hs-var">channel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679400206"><span class="hs-identifier hs-var">channel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400205"><span class="annot"><span class="annottext">s :: MediaConcurrency
+</span><a href="#local-6989586621679400205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency%27"><span class="hs-identifier hs-type">MediaConcurrency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400204"><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679400204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MediaConcurrency
+</span><a href="#local-6989586621679400205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channel:MediaConcurrency' :: Channel
 </span><a href="Network.AWS.Connect.Types.MediaConcurrency.html#%24sel%3Achannel%3AMediaConcurrency%27"><span class="hs-identifier hs-var">channel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Channel
-</span><a href="#local-6989586621679399922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency"><span class="hs-identifier hs-type">MediaConcurrency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency"><span class="hs-identifier hs-type">MediaConcurrency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The number of contacts an agent can have on a channel simultaneously.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
@@ -165,19 +165,19 @@ $sel:channel:MediaConcurrency' :: MediaConcurrency -&gt; Channel
 -&gt; (MediaConcurrency -&gt; Natural -&gt; MediaConcurrency)
 -&gt; Lens MediaConcurrency MediaConcurrency Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency%27"><span class="hs-identifier hs-type">MediaConcurrency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399920"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency%27"><span class="hs-identifier hs-type">MediaConcurrency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400202"><span class="annot"><span class="annottext">Natural
 concurrency :: Natural
 $sel:concurrency:MediaConcurrency' :: MediaConcurrency -&gt; Natural
-</span><a href="#local-6989586621679399920"><span class="hs-identifier hs-var hs-var">concurrency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679399920"><span class="hs-identifier hs-var">concurrency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399919"><span class="annot"><span class="annottext">s :: MediaConcurrency
-</span><a href="#local-6989586621679399919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency%27"><span class="hs-identifier hs-type">MediaConcurrency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399918"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679399918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MediaConcurrency
-</span><a href="#local-6989586621679399919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:concurrency:MediaConcurrency' :: Natural
+</span><a href="#local-6989586621679400202"><span class="hs-identifier hs-var hs-var">concurrency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679400202"><span class="hs-identifier hs-var">concurrency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400201"><span class="annot"><span class="annottext">s :: MediaConcurrency
+</span><a href="#local-6989586621679400201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency%27"><span class="hs-identifier hs-type">MediaConcurrency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400200"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679400200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MediaConcurrency
+</span><a href="#local-6989586621679400201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:concurrency:MediaConcurrency' :: Natural
 </span><a href="Network.AWS.Connect.Types.MediaConcurrency.html#%24sel%3Aconcurrency%3AMediaConcurrency%27"><span class="hs-identifier hs-var">concurrency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679399918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency"><span class="hs-identifier hs-type">MediaConcurrency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency"><span class="hs-identifier hs-type">MediaConcurrency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399915"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency"><span class="hs-identifier hs-type">MediaConcurrency</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679399913"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MediaConcurrency
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400197"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency"><span class="hs-identifier hs-type">MediaConcurrency</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679400195"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MediaConcurrency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MediaConcurrency)
@@ -187,15 +187,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MediaConcurrency&quot;</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399910"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399910"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679400192"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679400192"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Channel -&gt; Natural -&gt; MediaConcurrency
 </span><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency%27"><span class="hs-identifier hs-var">MediaConcurrency'</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Channel -&gt; Natural -&gt; MediaConcurrency)
 -&gt; Parser Channel -&gt; Parser (Natural -&gt; MediaConcurrency)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Channel
+</span><a href="#local-6989586621679400192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Channel
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Channel&quot;</span></span><span class="hs-special">)</span><span>
@@ -203,25 +203,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser MediaConcurrency
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679400192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Concurrency&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399904"><span id="local-6989586621679399906"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency"><span class="hs-identifier hs-type">MediaConcurrency</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400186"><span id="local-6989586621679400188"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency"><span class="hs-identifier hs-type">MediaConcurrency</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399901"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency"><span class="hs-identifier hs-type">MediaConcurrency</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400183"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency"><span class="hs-identifier hs-type">MediaConcurrency</span></a></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399893"><span id="local-6989586621679399895"><span id="local-6989586621679399897"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency"><span class="hs-identifier hs-type">MediaConcurrency</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679399891"><span class="annot"><span class="annottext">toJSON :: MediaConcurrency -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency%27"><span class="hs-identifier hs-type">MediaConcurrency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399888"><span id="local-6989586621679399889"><span class="annot"><span class="annottext">Natural
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400175"><span id="local-6989586621679400177"><span id="local-6989586621679400179"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency"><span class="hs-identifier hs-type">MediaConcurrency</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679400173"><span class="annot"><span class="annottext">toJSON :: MediaConcurrency -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.MediaConcurrency.html#MediaConcurrency%27"><span class="hs-identifier hs-type">MediaConcurrency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400170"><span id="local-6989586621679400171"><span class="annot"><span class="annottext">Natural
 Channel
 concurrency :: Natural
 channel :: Channel
 $sel:concurrency:MediaConcurrency' :: MediaConcurrency -&gt; Natural
 $sel:channel:MediaConcurrency' :: MediaConcurrency -&gt; Channel
-</span><a href="#local-6989586621679399888"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679400170"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -233,14 +233,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Channel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Channel -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Channel
-</span><a href="#local-6989586621679399889"><span class="hs-identifier hs-var">channel</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679400171"><span class="hs-identifier hs-var">channel</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Concurrency&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679399888"><span class="hs-identifier hs-var">concurrency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400170"><span class="hs-identifier hs-var">concurrency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span></pre></body></html>

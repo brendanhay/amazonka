@@ -26,18 +26,18 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | This API is not supported.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAlarm' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680287095"><span id="local-6989586621680287096"></span></span><span class="hs-keyword">data</span><span> </span><span id="Alarm"><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm"><span class="hs-identifier hs-var">Alarm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Alarm%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-var">Alarm'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680288451"><span id="local-6989586621680288452"></span></span><span class="hs-keyword">data</span><span> </span><span id="Alarm"><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm"><span class="hs-identifier hs-var">Alarm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Alarm%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-var">Alarm'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AalarmName%3AAlarm%27"><span class="annot"><span class="annottext">Alarm -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.Alarm.html#%24sel%3AalarmName%3AAlarm%27"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680287089"><span id="local-6989586621680287091"><span class="annot"><span class="annottext">Alarm -&gt; Alarm -&gt; Bool
+</span><span id="line-32"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680288445"><span id="local-6989586621680288447"><span class="annot"><span class="annottext">Alarm -&gt; Alarm -&gt; Bool
 (Alarm -&gt; Alarm -&gt; Bool) -&gt; (Alarm -&gt; Alarm -&gt; Bool) -&gt; Eq Alarm
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Alarm -&gt; Alarm -&gt; Bool
 $c/= :: Alarm -&gt; Alarm -&gt; Bool
 == :: Alarm -&gt; Alarm -&gt; Bool
 $c== :: Alarm -&gt; Alarm -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680287080"><span id="local-6989586621680287082"><span id="local-6989586621680287084"><span id="local-6989586621680287086"><span class="annot"><span class="annottext">ReadPrec [Alarm]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680288436"><span id="local-6989586621680288438"><span id="local-6989586621680288440"><span id="local-6989586621680288442"><span class="annot"><span class="annottext">ReadPrec [Alarm]
 ReadPrec Alarm
 Int -&gt; ReadS Alarm
 ReadS [Alarm]
@@ -57,7 +57,7 @@ readList :: ReadS [Alarm]
 $creadList :: ReadS [Alarm]
 readsPrec :: Int -&gt; ReadS Alarm
 $creadsPrec :: Int -&gt; ReadS Alarm
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680287073"><span id="local-6989586621680287075"><span id="local-6989586621680287077"><span class="annot"><span class="annottext">Int -&gt; Alarm -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680288429"><span id="local-6989586621680288431"><span id="local-6989586621680288433"><span class="annot"><span class="annottext">Int -&gt; Alarm -&gt; ShowS
 [Alarm] -&gt; ShowS
 Alarm -&gt; String
 (Int -&gt; Alarm -&gt; ShowS)
@@ -105,45 +105,45 @@ forall a. Maybe a
 -&gt; (Alarm -&gt; Maybe Text -&gt; Alarm)
 -&gt; Lens Alarm Alarm (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680287064"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680288420"><span class="annot"><span class="annottext">Maybe Text
 alarmName :: Maybe Text
 $sel:alarmName:Alarm' :: Alarm -&gt; Maybe Text
-</span><a href="#local-6989586621680287064"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680287064"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680287063"><span class="annot"><span class="annottext">s :: Alarm
-</span><a href="#local-6989586621680287063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680287062"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680287062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alarm
-</span><a href="#local-6989586621680287063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:Alarm' :: Maybe Text
+</span><a href="#local-6989586621680288420"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680288420"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680288419"><span class="annot"><span class="annottext">s :: Alarm
+</span><a href="#local-6989586621680288419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680288418"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680288418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alarm
+</span><a href="#local-6989586621680288419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:Alarm' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.Alarm.html#%24sel%3AalarmName%3AAlarm%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680287062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680288418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>
-</span><span id="line-51"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680287059"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-52"></span><span>  </span><span id="local-6989586621680287057"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Alarm
+</span><span id="line-51"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680288415"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>  </span><span id="local-6989586621680288413"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Alarm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Alarm) -&gt; Value -&gt; Parser Alarm
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Alarm&quot;</span></span><span>
-</span><span id="line-55"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680287054"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680287054"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Alarm
+</span><span id="line-55"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680288410"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680288410"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Alarm
 </span><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-var">Alarm'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Alarm) -&gt; Parser (Maybe Text) -&gt; Parser Alarm
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680287054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680288410"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlarmName&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680287048"><span id="local-6989586621680287050"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680288404"><span id="local-6989586621680288406"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span></span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680287045"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680288401"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680287037"><span id="local-6989586621680287039"><span id="local-6989586621680287041"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621680287035"><span class="annot"><span class="annottext">toJSON :: Alarm -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680287033"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680288393"><span id="local-6989586621680288395"><span id="local-6989586621680288397"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621680288391"><span class="annot"><span class="annottext">toJSON :: Alarm -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680288389"><span class="annot"><span class="annottext">Maybe Text
 alarmName :: Maybe Text
 $sel:alarmName:Alarm' :: Alarm -&gt; Maybe Text
-</span><a href="#local-6989586621680287033"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680288389"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -155,6 +155,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680287033"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680288389"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span></pre></body></html>

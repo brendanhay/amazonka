@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents a CloudWatch alarm associated with a scaling policy.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAlarm' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679183261"><span id="local-6989586621679183262"></span></span><span class="hs-keyword">data</span><span> </span><span id="Alarm"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-var">Alarm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Alarm%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-var">Alarm'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679183407"><span id="local-6989586621679183408"></span></span><span class="hs-keyword">data</span><span> </span><span id="Alarm"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-var">Alarm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Alarm%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-var">Alarm'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the alarm.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AalarmName%3AAlarm%27"><span class="annot"><span class="annottext">Alarm -&gt; Text
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#%24sel%3AalarmName%3AAlarm%27"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,14 +34,14 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AalarmARN%3AAlarm%27"><span class="annot"><span class="annottext">Alarm -&gt; Text
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#%24sel%3AalarmARN%3AAlarm%27"><span class="hs-identifier hs-var hs-var">alarmARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183254"><span id="local-6989586621679183256"><span class="annot"><span class="annottext">Alarm -&gt; Alarm -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183400"><span id="local-6989586621679183402"><span class="annot"><span class="annottext">Alarm -&gt; Alarm -&gt; Bool
 (Alarm -&gt; Alarm -&gt; Bool) -&gt; (Alarm -&gt; Alarm -&gt; Bool) -&gt; Eq Alarm
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Alarm -&gt; Alarm -&gt; Bool
 $c/= :: Alarm -&gt; Alarm -&gt; Bool
 == :: Alarm -&gt; Alarm -&gt; Bool
 $c== :: Alarm -&gt; Alarm -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183245"><span id="local-6989586621679183247"><span id="local-6989586621679183249"><span id="local-6989586621679183251"><span class="annot"><span class="annottext">ReadPrec [Alarm]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183391"><span id="local-6989586621679183393"><span id="local-6989586621679183395"><span id="local-6989586621679183397"><span class="annot"><span class="annottext">ReadPrec [Alarm]
 ReadPrec Alarm
 Int -&gt; ReadS Alarm
 ReadS [Alarm]
@@ -61,7 +61,7 @@ readList :: ReadS [Alarm]
 $creadList :: ReadS [Alarm]
 readsPrec :: Int -&gt; ReadS Alarm
 $creadsPrec :: Int -&gt; ReadS Alarm
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183238"><span id="local-6989586621679183240"><span id="local-6989586621679183242"><span class="annot"><span class="annottext">Int -&gt; Alarm -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183384"><span id="local-6989586621679183386"><span id="local-6989586621679183388"><span class="annot"><span class="annottext">Int -&gt; Alarm -&gt; ShowS
 [Alarm] -&gt; ShowS
 Alarm -&gt; String
 (Int -&gt; Alarm -&gt; ShowS)
@@ -102,17 +102,17 @@ $cfrom :: forall x. Alarm -&gt; Rep Alarm x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span>
 </span><span id="line-54"></span><span id="newAlarm"><span class="annot"><span class="annottext">newAlarm :: Text -&gt; Text -&gt; Alarm
-</span><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#newAlarm"><span class="hs-identifier hs-var hs-var">newAlarm</span></a></span></span><span> </span><span id="local-6989586621679183232"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183232"><span class="hs-identifier hs-var">pAlarmName_</span></a></span></span><span> </span><span id="local-6989586621679183231"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183231"><span class="hs-identifier hs-var">pAlarmARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#newAlarm"><span class="hs-identifier hs-var hs-var">newAlarm</span></a></span></span><span> </span><span id="local-6989586621679183378"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183378"><span class="hs-identifier hs-var">pAlarmName_</span></a></span></span><span> </span><span id="local-6989586621679183377"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183377"><span class="hs-identifier hs-var">pAlarmARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">Alarm' :: Text -&gt; Text -&gt; Alarm
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:alarmName:Alarm' :: Text
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#%24sel%3AalarmName%3AAlarm%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183232"><span class="hs-identifier hs-var">pAlarmName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183378"><span class="hs-identifier hs-var">pAlarmName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:alarmARN:Alarm' :: Text
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#%24sel%3AalarmARN%3AAlarm%27"><span class="hs-identifier hs-var">alarmARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183231"><span class="hs-identifier hs-var">pAlarmARN_</span></a></span><span>
+</span><a href="#local-6989586621679183377"><span class="hs-identifier hs-var">pAlarmARN_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The name of the alarm.</span><span>
@@ -121,16 +121,16 @@ $cfrom :: forall x. Alarm -&gt; Rep Alarm x
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#alarm_alarmName"><span class="hs-identifier hs-var hs-var">alarm_alarmName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Alarm -&gt; Text)
 -&gt; (Alarm -&gt; Text -&gt; Alarm) -&gt; Lens Alarm Alarm Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183227"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183373"><span class="annot"><span class="annottext">Text
 alarmName :: Text
 $sel:alarmName:Alarm' :: Alarm -&gt; Text
-</span><a href="#local-6989586621679183227"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183227"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183226"><span class="annot"><span class="annottext">s :: Alarm
-</span><a href="#local-6989586621679183226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183225"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alarm
-</span><a href="#local-6989586621679183226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:Alarm' :: Text
+</span><a href="#local-6989586621679183373"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183373"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183372"><span class="annot"><span class="annottext">s :: Alarm
+</span><a href="#local-6989586621679183372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183371"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alarm
+</span><a href="#local-6989586621679183372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:Alarm' :: Text
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#%24sel%3AalarmName%3AAlarm%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679183371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the alarm.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#alarm_alarmARN"><span class="hs-identifier hs-type">alarm_alarmARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -138,46 +138,46 @@ $sel:alarmName:Alarm' :: Alarm -&gt; Text
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#alarm_alarmARN"><span class="hs-identifier hs-var hs-var">alarm_alarmARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Alarm -&gt; Text)
 -&gt; (Alarm -&gt; Text -&gt; Alarm) -&gt; Lens Alarm Alarm Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183223"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183369"><span class="annot"><span class="annottext">Text
 alarmARN :: Text
 $sel:alarmARN:Alarm' :: Alarm -&gt; Text
-</span><a href="#local-6989586621679183223"><span class="hs-identifier hs-var hs-var">alarmARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183223"><span class="hs-identifier hs-var">alarmARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183222"><span class="annot"><span class="annottext">s :: Alarm
-</span><a href="#local-6989586621679183222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183221"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alarm
-</span><a href="#local-6989586621679183222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmARN:Alarm' :: Text
+</span><a href="#local-6989586621679183369"><span class="hs-identifier hs-var hs-var">alarmARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183369"><span class="hs-identifier hs-var">alarmARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183368"><span class="annot"><span class="annottext">s :: Alarm
+</span><a href="#local-6989586621679183368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183367"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alarm
+</span><a href="#local-6989586621679183368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmARN:Alarm' :: Text
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#%24sel%3AalarmARN%3AAlarm%27"><span class="hs-identifier hs-var">alarmARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679183367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183218"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679183216"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Alarm
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183364"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679183362"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Alarm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Alarm) -&gt; Value -&gt; Parser Alarm
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Alarm&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679183213"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183213"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679183359"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679183359"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Alarm
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-var">Alarm'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Alarm) -&gt; Parser Text -&gt; Parser (Text -&gt; Alarm)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679183359"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlarmName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Alarm) -&gt; Parser Text -&gt; Parser Alarm
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679183359"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlarmARN&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183207"><span id="local-6989586621679183209"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183353"><span id="local-6989586621679183355"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183204"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183350"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span><span>
 </span><span id="line-81"></span></pre></body></html>
